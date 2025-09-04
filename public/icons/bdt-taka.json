@@ -1,0 +1,31 @@
+{
+  "name": "bdt-taka",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "keywords": [
+    "currency",
+    "money",
+    "finance",
+    "payment",
+    "bangladesh",
+    "BDT",
+    "taka",
+    "৳"
+  ],
+  "files": [
+    {
+      "path": "",
+      "content": "",
+      "type": "registry:ui"
+    }
+  ]
+}

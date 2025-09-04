@@ -27,6 +27,7 @@ import { BookOpenIcon } from "./BookOpenIcon";
 import { BookOpenTextIcon } from "./BookOpenTextIcon";
 import { BrainIcon } from "./BrainIcon";
 import { BringToFrontIcon } from "./BringToFrontIcon";
+import { BDTIcon } from "./BDTIcon";
 import { ChartAreaIcon } from "./ChartAreaIcon";
 import { ChartBarIcon } from "./ChartBarIcon";
 import { ChartColumnIcon } from "./ChartColumnIcon";
@@ -115,6 +116,7 @@ import { RussianRubleIcon } from "./RussianRubleIcon";
 import { SaudiRiyalIcon } from "./SaudiRiyalIcon";
 import { SearchIcon } from "./SearchIcon";
 import { SendIcon } from "./SendIcon";
+import { SendFlyIcon } from "./SendFlyIcon";
 import { SettingsIcon } from "./SettingsIcon";
 import { ShieldUserIcon } from "./ShieldUserIcon";
 import { ShoppingBagIcon } from "./ShoppingBagIcon";
@@ -839,6 +841,19 @@ const Icon_List: IconListItem[] = [
 			"forward",
 			"share",
 			"paper-plane",
+		],
+	},
+	{
+		name: "sending",
+		icon: SendFlyIcon,
+		keywords: [
+			"message",
+			"chat",
+			"mailing",
+			"submiting",
+			"forwarding",
+			"sharing",
+			"paperfly-plane",
 		],
 	},
 	{
@@ -1658,6 +1673,20 @@ const Icon_List: IconListItem[] = [
 			"swiss",
 			"chf",
 			"₣",
+		],
+	},
+	{
+		name: "bdt-taka",
+		icon: BDTIcon,
+		keywords: [
+			"currency",
+			"money",
+			"finance",
+			"payment",
+			"bangladesh",
+			"BDT",
+			"taka",
+			"৳",
 		],
 	},
 	{

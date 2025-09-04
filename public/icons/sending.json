@@ -1,5 +1,5 @@
 {
-  "name": "Linkedin",
+  "name": "sending",
   "type": "registry:ui",
   "registryDependencies": [],
   "dependencies": [
@@ -12,11 +12,13 @@
     "dark": {}
   },
   "keywords": [
-    "logo",
-    "social",
-    "linkedin",
-    "social media",
-    "jobs"
+    "message",
+    "chat",
+    "mailing",
+    "submiting",
+    "forwarding",
+    "sharing",
+    "paperfly-plane"
   ],
   "files": [
     {
