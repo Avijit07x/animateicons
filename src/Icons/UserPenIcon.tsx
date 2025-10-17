@@ -12,10 +12,21 @@ export interface UserPenHandle {
 
 interface UserPenProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,11 @@ const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7 * durationMultiplier, delay: 0.2, ease: "easeInOut" },
+				transition: {
+					duration: 0.7 * durationMultiplier,
+					delay: 0.2,
+					ease: "easeInOut",
+				},
 			},
 		};
 

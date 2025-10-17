@@ -12,10 +12,21 @@ export interface KeyHandle {
 
 interface KeyProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const KeyIcon = forwardRef<KeyHandle, KeyProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -55,7 +66,11 @@ const KeyIcon = forwardRef<KeyHandle, KeyProps>(
 				rotate: [0, -6, 0, 6, 0],
 				x: [0, 0, 0, 0, 0],
 				y: [0, 0, 0, 0, 0],
-				transition: { duration: 0.9 * durationMultiplier, ease, times: [0, 0.25, 0.5, 0.75, 1] },
+				transition: {
+					duration: 0.9 * durationMultiplier,
+					ease,
+					times: [0, 0.25, 0.5, 0.75, 1],
+				},
 			},
 		};
 
@@ -64,7 +79,11 @@ const KeyIcon = forwardRef<KeyHandle, KeyProps>(
 			animate: {
 				scale: [1, 0.98, 1, 1.02, 1],
 				opacity: [1, 1, 1, 1, 1],
-				transition: { duration: 0.9 * durationMultiplier, ease, times: [0, 0.25, 0.5, 0.75, 1] },
+				transition: {
+					duration: 0.9 * durationMultiplier,
+					ease,
+					times: [0, 0.25, 0.5, 0.75, 1],
+				},
 			},
 		};
 
@@ -73,7 +92,11 @@ const KeyIcon = forwardRef<KeyHandle, KeyProps>(
 			animate: {
 				x: [0, -0.6, 0, 0.6, 0],
 				opacity: [1, 1, 1, 1, 1],
-				transition: { duration: 0.9 * durationMultiplier, ease, times: [0, 0.25, 0.5, 0.75, 1] },
+				transition: {
+					duration: 0.9 * durationMultiplier,
+					ease,
+					times: [0, 0.25, 0.5, 0.75, 1],
+				},
 			},
 		};
 

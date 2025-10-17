@@ -12,10 +12,21 @@ export interface UsersRoundHandle {
 
 interface UsersRoundProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UsersRoundIcon = forwardRef<UsersRoundHandle, UsersRoundProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,10 @@ const UsersRoundIcon = forwardRef<UsersRoundHandle, UsersRoundProps>(
 			animate: {
 				strokeDashoffset: [60, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" as const },
+				transition: {
+					duration: 0.8 * durationMultiplier,
+					ease: "easeInOut" as const,
+				},
 			},
 		};
 
@@ -60,7 +74,10 @@ const UsersRoundIcon = forwardRef<UsersRoundHandle, UsersRoundProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" as const },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeOut" as const,
+				},
 			},
 		};
 
@@ -69,7 +86,11 @@ const UsersRoundIcon = forwardRef<UsersRoundHandle, UsersRoundProps>(
 			animate: {
 				strokeDashoffset: [50, 0],
 				opacity: [0.2, 1],
-				transition: { duration: 0.8 * durationMultiplier, delay: 0.4, ease: "easeInOut" as const },
+				transition: {
+					duration: 0.8 * durationMultiplier,
+					delay: 0.4,
+					ease: "easeInOut" as const,
+				},
 			},
 		};
 

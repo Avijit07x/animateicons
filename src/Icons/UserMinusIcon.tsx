@@ -12,10 +12,21 @@ export interface UserMinusHandle {
 
 interface UserMinusProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UserMinusIcon = forwardRef<UserMinusHandle, UserMinusProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,11 @@ const UserMinusIcon = forwardRef<UserMinusHandle, UserMinusProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7 * durationMultiplier, delay: 0.2, ease: "easeInOut" },
+				transition: {
+					duration: 0.7 * durationMultiplier,
+					delay: 0.2,
+					ease: "easeInOut",
+				},
 			},
 		};
 
@@ -69,7 +84,11 @@ const UserMinusIcon = forwardRef<UserMinusHandle, UserMinusProps>(
 			animate: {
 				strokeDashoffset: [20, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.6 },
+				transition: {
+					duration: 0.5 * durationMultiplier,
+					ease: "easeInOut",
+					delay: 0.6,
+				},
 			},
 		};
 

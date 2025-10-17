@@ -12,10 +12,21 @@ export interface UploadHandle {
 
 interface UploadProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UploadIcon = forwardRef<UploadHandle, UploadProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,10 @@ const UploadIcon = forwardRef<UploadHandle, UploadProps>(
 			animate: {
 				strokeDashoffset: [30, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeInOut" as const,
+				},
 			},
 		};
 
@@ -61,7 +75,11 @@ const UploadIcon = forwardRef<UploadHandle, UploadProps>(
 				y: [2, -2, 0],
 				scale: [1, 1.05, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const, delay: 0.05 },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeInOut" as const,
+					delay: 0.05,
+				},
 			},
 		};
 
@@ -70,7 +88,11 @@ const UploadIcon = forwardRef<UploadHandle, UploadProps>(
 			animate: {
 				strokeDashoffset: [60, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const, delay: 0.1 },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeInOut" as const,
+					delay: 0.1,
+				},
 			},
 		};
 
@@ -78,7 +100,10 @@ const UploadIcon = forwardRef<UploadHandle, UploadProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeInOut" as const,
+				},
 			},
 		};
 

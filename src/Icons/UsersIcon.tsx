@@ -12,10 +12,21 @@ export interface UsersHandle {
 
 interface UsersProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UsersIcon = forwardRef<UsersHandle, UsersProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,10 @@ const UsersIcon = forwardRef<UsersHandle, UsersProps>(
 			animate: {
 				strokeDashoffset: [50, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
+				transition: {
+					duration: 0.7 * durationMultiplier,
+					ease: "easeInOut" as const,
+				},
 			},
 		};
 
@@ -60,7 +74,10 @@ const UsersIcon = forwardRef<UsersHandle, UsersProps>(
 			animate: {
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" as const },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeOut" as const,
+				},
 			},
 		};
 
@@ -69,7 +86,11 @@ const UsersIcon = forwardRef<UsersHandle, UsersProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.2, 1],
-				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const, delay: 0.3 },
+				transition: {
+					duration: 0.7 * durationMultiplier,
+					ease: "easeInOut" as const,
+					delay: 0.3,
+				},
 			},
 		};
 

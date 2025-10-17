@@ -12,10 +12,21 @@ export interface IndianRupeeHandle {
 
 interface IndianRupeeProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const IndianRupeeIcon = forwardRef<IndianRupeeHandle, IndianRupeeProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -62,7 +73,11 @@ const IndianRupeeIcon = forwardRef<IndianRupeeHandle, IndianRupeeProps>(
 			animate: {
 				strokeDasharray: "1",
 				strokeDashoffset: [1, 0],
-				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.16 },
+				transition: {
+					duration: 0.5 * durationMultiplier,
+					ease: "easeInOut",
+					delay: 0.16,
+				},
 			},
 		};
 
@@ -71,7 +86,11 @@ const IndianRupeeIcon = forwardRef<IndianRupeeHandle, IndianRupeeProps>(
 			animate: {
 				strokeDasharray: "1",
 				strokeDashoffset: [1, 0],
-				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut", delay: 0.26 },
+				transition: {
+					duration: 0.8 * durationMultiplier,
+					ease: "easeInOut",
+					delay: 0.26,
+				},
 			},
 		};
 
@@ -80,7 +99,11 @@ const IndianRupeeIcon = forwardRef<IndianRupeeHandle, IndianRupeeProps>(
 			animate: {
 				strokeDasharray: "1",
 				strokeDashoffset: [1, 0],
-				transition: { duration: 0.45 * durationMultiplier, ease: "easeInOut", delay: 0.42 },
+				transition: {
+					duration: 0.45 * durationMultiplier,
+					ease: "easeInOut",
+					delay: 0.42,
+				},
 			},
 		};
 

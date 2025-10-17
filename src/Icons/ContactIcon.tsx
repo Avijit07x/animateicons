@@ -12,6 +12,7 @@ export interface ContactHandle {
 
 interface ContactProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ContactIcon = forwardRef<ContactHandle, ContactProps>(

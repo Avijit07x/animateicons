@@ -12,10 +12,21 @@ export interface ContactRoundHandle {
 
 interface ContactRoundProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -60,7 +71,11 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * durationMultiplier, delay: 0.3, ease: "easeOut" },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					delay: 0.3,
+					ease: "easeOut",
+				},
 			},
 		};
 
@@ -69,7 +84,11 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 			animate: {
 				x: [-10, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.4 * durationMultiplier, ease: "easeOut", delay: 0.6 },
+				transition: {
+					duration: 0.4 * durationMultiplier,
+					ease: "easeOut",
+					delay: 0.6,
+				},
 			},
 		};
 
@@ -78,7 +97,11 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 			animate: {
 				strokeDashoffset: [30, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * durationMultiplier, delay: 0.5, ease: "easeInOut" },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					delay: 0.5,
+					ease: "easeInOut",
+				},
 			},
 		};
 

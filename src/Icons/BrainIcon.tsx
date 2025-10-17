@@ -18,10 +18,21 @@ export interface BrainHandle {
 
 interface BrainProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BrainIcon = forwardRef<BrainHandle, BrainProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const groupControls = useAnimation();
 		const pulseControls = useAnimation();
 		const sparkControlsL = useAnimation();
@@ -97,7 +108,11 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 				animate: {
 					pathLength: [0, 1],
 					opacity: [0.55, 1],
-					transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.06 },
+					transition: {
+						duration: 0.5 * durationMultiplier,
+						ease: "easeInOut",
+						delay: 0.06,
+					},
 				},
 			}),
 			[],
@@ -110,7 +125,11 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 					pathLength: [0, 1],
 					opacity: [0.6, 1],
 					scale: [0.98, 1.02, 1],
-					transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut", delay: 0.12 },
+					transition: {
+						duration: 0.6 * durationMultiplier,
+						ease: "easeInOut",
+						delay: 0.12,
+					},
 				},
 			}),
 			[],
@@ -123,7 +142,11 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 					pathLength: [0, 1],
 					opacity: [0.6, 1],
 					scale: [1.02, 0.98, 1],
-					transition: { duration: 0.62 * durationMultiplier, ease: "easeInOut", delay: 0.18 },
+					transition: {
+						duration: 0.62 * durationMultiplier,
+						ease: "easeInOut",
+						delay: 0.18,
+					},
 				},
 			}),
 			[],
@@ -135,7 +158,11 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 				animate: {
 					pathLength: [0, 1],
 					opacity: [0, 1, 0],
-					transition: { duration: 0.55 * durationMultiplier, ease: "easeInOut", delay: 0.26 },
+					transition: {
+						duration: 0.55 * durationMultiplier,
+						ease: "easeInOut",
+						delay: 0.26,
+					},
 				},
 			}),
 			[],
@@ -147,7 +174,11 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 				animate: {
 					pathLength: [0, 1],
 					opacity: [0, 1, 0],
-					transition: { duration: 0.55 * durationMultiplier, ease: "easeInOut", delay: 0.34 },
+					transition: {
+						duration: 0.55 * durationMultiplier,
+						ease: "easeInOut",
+						delay: 0.34,
+					},
 				},
 			}),
 			[],
