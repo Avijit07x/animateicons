@@ -12,12 +12,13 @@ export interface EllipsisVerticalIconHandle {
 
 interface EllipsisVerticalIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const EllipsisVerticalIcon = forwardRef<
 	EllipsisVerticalIconHandle,
 	EllipsisVerticalIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -65,7 +66,7 @@ const EllipsisVerticalIcon = forwardRef<
 					y: [-3.5, 0],
 					opacity: [0.4, 0.8, 1, 0.8, 0.4, 1],
 					transition: {
-						duration: 0.8,
+						duration: 0.8 * durationMultiplier,
 						delay: i * 0.2,
 						ease: "easeInOut",
 						repeat: 0,

@@ -12,10 +12,11 @@ export interface BookmarkXIconHandle {
 
 interface BookmarkXIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +52,7 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
 			animate: {
 				rotate: [0, -4, 4, -2, 0],
 				scale: [1, 1.05, 0.95, 1],
-				transition: { duration: 1, ease: "easeInOut" },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -60,7 +61,7 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

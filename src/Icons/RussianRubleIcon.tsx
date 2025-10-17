@@ -12,12 +12,13 @@ export interface RussianRubleIconHandle {
 
 interface RussianRubleIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const RussianRubleIcon = forwardRef<
 	RussianRubleIconHandle,
 	RussianRubleIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -54,7 +55,7 @@ const RussianRubleIcon = forwardRef<
 			scale: [1, 1.06, 1],
 			rotate: [0, -2, 2, 0],
 			y: [0, -1, 0],
-			transition: { duration: 1.2, ease: "easeInOut" },
+			transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -63,7 +64,7 @@ const RussianRubleIcon = forwardRef<
 		animate: {
 			pathLength: [0, 1],
 			opacity: [0.7, 1],
-			transition: { duration: 0.9, ease: "easeInOut", delay: 0.06 },
+			transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut", delay: 0.06 },
 		},
 	};
 
@@ -72,7 +73,7 @@ const RussianRubleIcon = forwardRef<
 		animate: {
 			pathLength: [0, 1],
 			opacity: [0.8, 1],
-			transition: { duration: 0.6, ease: "easeInOut", delay: 0.26 },
+			transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut", delay: 0.26 },
 		},
 	};
 

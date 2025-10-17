@@ -15,7 +15,7 @@ interface DownloadProps extends HTMLMotionProps<"div"> {
 }
 
 const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 			animate: {
 				strokeDashoffset: [30, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -61,7 +61,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 				y: [-2, 2, 0],
 				scale: [1, 1.05, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const, delay: 0.05 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const, delay: 0.05 },
 			},
 		};
 
@@ -70,7 +70,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 			animate: {
 				strokeDashoffset: [60, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const, delay: 0.1 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const, delay: 0.1 },
 			},
 		};
 
@@ -78,7 +78,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

@@ -12,10 +12,11 @@ export interface UserIconHandle {
 
 interface UserIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -50,7 +51,7 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -59,7 +60,7 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 			animate: {
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.5, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeOut", delay: 0.2 },
 			},
 		};
 

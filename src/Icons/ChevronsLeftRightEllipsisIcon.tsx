@@ -12,12 +12,13 @@ export interface ChevronsLeftRightEllipsisIconHandle {
 
 interface ChevronsLeftRightEllipsisIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChevronsLeftRightEllipsisIcon = forwardRef<
 	ChevronsLeftRightEllipsisIconHandle,
 	ChevronsLeftRightEllipsisIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -56,7 +57,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
 		animate: {
 			x: [0, -4, 0],
 			opacity: [1, 0.5, 1],
-			transition: { duration: 1, repeat: 0 },
+			transition: { duration: 1 * durationMultiplier, repeat: 0 },
 		},
 	};
 
@@ -65,7 +66,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
 		animate: {
 			x: [0, 4, 0],
 			opacity: [1, 0.5, 1],
-			transition: { duration: 1, repeat: 0, delay: 0.2 },
+			transition: { duration: 1 * durationMultiplier, repeat: 0, delay: 0.2 },
 		},
 	};
 
@@ -74,7 +75,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
 		animate: (i: number) => ({
 			opacity: [0.3, 1, 0.3],
 			transition: {
-				duration: 1,
+				duration: 1 * durationMultiplier,
 				repeat: Infinity,
 				delay: i * 0.3,
 			},

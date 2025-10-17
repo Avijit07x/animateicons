@@ -12,10 +12,11 @@ export interface TwitterIconHandle {
 
 interface TwitterIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const TwitterIcon = forwardRef<TwitterIconHandle, TwitterIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -52,7 +53,7 @@ const TwitterIcon = forwardRef<TwitterIconHandle, TwitterIconProps>(
 				y: [0, -4, 0, -2, 0],
 				scale: [1, 1.08, 0.95, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.2, ease: "easeInOut" },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -61,7 +62,7 @@ const TwitterIcon = forwardRef<TwitterIconHandle, TwitterIconProps>(
 			animate: {
 				opacity: [0.9, 1, 1],
 				scale: [1, 1.12, 1],
-				transition: { duration: 0.8, ease: "easeOut", delay: 0.15 },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeOut", delay: 0.15 },
 			},
 		};
 

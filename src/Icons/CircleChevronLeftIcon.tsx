@@ -12,12 +12,13 @@ export interface CircleChevronLeftIconHandle {
 
 interface CircleChevronLeftIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const CircleChevronLeftIcon = forwardRef<
 	CircleChevronLeftIconHandle,
 	CircleChevronLeftIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const circleControls = useAnimation();
 	const arrowControls = useAnimation();
 	const isControlled = useRef(false);
@@ -78,7 +79,7 @@ const CircleChevronLeftIcon = forwardRef<
 		animate: {
 			scale: [1, 1.08, 0.95, 1],
 			transition: {
-				duration: 0.8,
+				duration: 0.8 * durationMultiplier,
 				ease: "easeInOut",
 			},
 		},
@@ -90,7 +91,7 @@ const CircleChevronLeftIcon = forwardRef<
 			x: [-8, 0, -2, 0],
 			opacity: 1,
 			transition: {
-				duration: 0.9,
+				duration: 0.9 * durationMultiplier,
 				ease: "easeOut",
 			},
 		},

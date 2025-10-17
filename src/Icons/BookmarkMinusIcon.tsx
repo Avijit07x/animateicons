@@ -12,12 +12,13 @@ export interface BookmarkMinusIconHandle {
 
 interface BookmarkMinusIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BookmarkMinusIcon = forwardRef<
 	BookmarkMinusIconHandle,
 	BookmarkMinusIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -53,7 +54,7 @@ const BookmarkMinusIcon = forwardRef<
 		animate: {
 			scale: [1, 1.05, 0.95, 1],
 			y: [0, -2, 0],
-			transition: { duration: 1.2, ease: "easeInOut" },
+			transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -62,7 +63,7 @@ const BookmarkMinusIcon = forwardRef<
 		animate: {
 			scaleX: [1, 0.7, 1.2, 1],
 			opacity: [1, 0.6, 1],
-			transition: { duration: 0.8, ease: "easeInOut" },
+			transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 

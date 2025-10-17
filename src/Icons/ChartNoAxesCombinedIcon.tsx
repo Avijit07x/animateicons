@@ -12,12 +12,13 @@ export interface ChartNoAxesCombinedIconHandle {
 
 interface ChartNoAxesCombinedIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChartNoAxesCombinedIcon = forwardRef<
 	ChartNoAxesCombinedIconHandle,
 	ChartNoAxesCombinedIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const groupControls = useAnimation();
 	const barsControls = useAnimation();
 	const lineControls = useAnimation();
@@ -76,7 +77,7 @@ const ChartNoAxesCombinedIcon = forwardRef<
 		animate: {
 			scale: [1, 1.04, 0.99, 1],
 			rotate: [0, -1.5, 1, 0],
-			transition: { duration: 0.8, ease },
+			transition: { duration: 0.8 * durationMultiplier, ease },
 		},
 	};
 
@@ -85,7 +86,7 @@ const ChartNoAxesCombinedIcon = forwardRef<
 		animate: {
 			scaleY: [1, 1.4, 0.95, 1],
 			opacity: [1, 1, 0.95, 1],
-			transition: { duration: 0.7, ease, delay },
+			transition: { duration: 0.7 * durationMultiplier, ease, delay },
 		},
 	});
 
@@ -94,7 +95,7 @@ const ChartNoAxesCombinedIcon = forwardRef<
 		animate: {
 			pathLength: [0, 1],
 			opacity: [0.6, 1],
-			transition: { duration: 1.0, ease: "easeInOut", delay: 0.12 },
+			transition: { duration: 1.0 * durationMultiplier, ease: "easeInOut", delay: 0.12 },
 		},
 	};
 

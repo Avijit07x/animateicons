@@ -12,10 +12,21 @@ export interface ActivityIconHandle {
 
 interface ActivityIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -56,7 +67,7 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
 				strokeDashoffset: [80, 0, -80],
 				opacity: [0.6, 1, 0.6],
 				transition: {
-					duration: 2,
+					duration: 2 * durationMultiplier,
 					repeat: Infinity,
 					ease: "easeInOut",
 				},

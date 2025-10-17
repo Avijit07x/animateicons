@@ -12,10 +12,11 @@ export interface BookOpenIconHandle {
 
 interface BookOpenIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BookOpenIcon = forwardRef<BookOpenIconHandle, BookOpenIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +52,7 @@ const BookOpenIcon = forwardRef<BookOpenIconHandle, BookOpenIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.97, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 0.9, ease: "easeInOut" },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -59,7 +60,7 @@ const BookOpenIcon = forwardRef<BookOpenIconHandle, BookOpenIconProps>(
 			normal: { pathLength: 1 },
 			animate: {
 				pathLength: [0, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -68,7 +69,7 @@ const BookOpenIcon = forwardRef<BookOpenIconHandle, BookOpenIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.98, 1],
 				opacity: [0.9, 1, 1],
-				transition: { duration: 0.8, ease: "easeInOut", delay: 0.2 },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut", delay: 0.2 },
 			},
 		};
 

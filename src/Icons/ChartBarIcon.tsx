@@ -12,10 +12,11 @@ export interface ChartBarIconHandle {
 
 interface ChartBarIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChartBarIcon = forwardRef<ChartBarIconHandle, ChartBarIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -53,13 +54,13 @@ const ChartBarIcon = forwardRef<ChartBarIconHandle, ChartBarIconProps>(
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},
@@ -68,12 +69,12 @@ const ChartBarIcon = forwardRef<ChartBarIconHandle, ChartBarIconProps>(
 		const chartVariants: Variants = {
 			normal: {
 				scale: 1,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				scale: [1, 1.05, 1],
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},

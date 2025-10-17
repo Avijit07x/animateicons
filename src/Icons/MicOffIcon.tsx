@@ -12,10 +12,11 @@ export interface MicOffIconHandle {
 
 interface MicOffIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -52,7 +53,7 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 				scale: [1, 1.05, 0.95, 1],
 				rotate: [0, -3, 3, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.5, repeat: 0, ease: "easeInOut" },
+				transition: { duration: 1.5 * durationMultiplier, repeat: 0, ease: "easeInOut" },
 			},
 		};
 
@@ -61,7 +62,7 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 			animate: {
 				pathLength: [1, 0, 1],
 				opacity: 1,
-				transition: { duration: 1.2, ease: "easeInOut" },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

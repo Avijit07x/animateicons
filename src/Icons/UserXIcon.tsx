@@ -15,7 +15,7 @@ interface UserXProps extends HTMLMotionProps<"div"> {
 }
 
 const UserXIcon = forwardRef<UserXHandle, UserXProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const UserXIcon = forwardRef<UserXHandle, UserXProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7, ease: "easeInOut" as const },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const UserXIcon = forwardRef<UserXHandle, UserXProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" as const },
 			},
 		};
 
@@ -70,7 +70,7 @@ const UserXIcon = forwardRef<UserXHandle, UserXProps>(
 				scale: [1, 1.3, 1],
 				rotate: [0, -10, 10, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -78,7 +78,7 @@ const UserXIcon = forwardRef<UserXHandle, UserXProps>(
 			normal: { strokeDashoffset: 0 },
 			animate: {
 				strokeDashoffset: [20, 0],
-				transition: { duration: 0.5, ease: "easeInOut" as const },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

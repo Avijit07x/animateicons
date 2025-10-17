@@ -12,10 +12,11 @@ export interface PaperclipIconHandle {
 
 interface PaperclipIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const pathControls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -59,7 +60,7 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
 			normal: { strokeDashoffset: 0 },
 			animate: {
 				strokeDashoffset: [360, 0],
-				transition: { duration: 1.2, ease: "easeInOut" },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

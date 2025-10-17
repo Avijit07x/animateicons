@@ -12,10 +12,11 @@ export interface PlusIconHandle {
 
 interface PlusIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -54,7 +55,7 @@ const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
 			animate: {
 				scale: [1, 1.2, 0.85, 1],
 				rotate: [0, 10, -10, 0],
-				transition: { duration: 1, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -64,7 +65,7 @@ const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
 				pathLength: [0, 1],
 				opacity: 1,
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 					repeat: 0,
 					repeatDelay: 0.4,

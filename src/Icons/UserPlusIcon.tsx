@@ -15,7 +15,7 @@ interface UserPlusProps extends HTMLMotionProps<"div"> {
 }
 
 const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -60,7 +60,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -70,7 +70,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 				scale: [1, 1.3, 1],
 				rotate: [0, 25, -25, 0],
 				opacity: 1,
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

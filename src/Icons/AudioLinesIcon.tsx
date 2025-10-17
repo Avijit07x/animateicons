@@ -12,10 +12,21 @@ export interface AudioLinesIconHandle {
 
 interface AudioLinesIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -55,7 +66,7 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
 				scaleY: [1, 1.4, 0.6, 1],
 				opacity: [1, 0.8, 1],
 				transition: {
-					duration: 0.9,
+					duration: 0.9 * durationMultiplier,
 					repeat: 0,
 					delay: i * 0.2,
 					ease: "easeInOut",

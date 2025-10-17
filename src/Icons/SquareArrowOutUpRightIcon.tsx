@@ -12,12 +12,13 @@ export interface SquareArrowOutUpRightIconHandle {
 
 interface SquareArrowOutUpRightIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const SquareArrowOutUpRightIcon = forwardRef<
 	SquareArrowOutUpRightIconHandle,
 	SquareArrowOutUpRightIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const boxControls = useAnimation();
 	const arrowControls = useAnimation();
 	const isControlled = useRef(false);
@@ -67,7 +68,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
 		animate: {
 			pathLength: [0, 1],
 			opacity: [0.6, 1],
-			transition: { duration: 0.8, ease: "easeInOut" },
+			transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -77,7 +78,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
 			x: [0, 3, 0],
 			y: [0, -3, 0],
 			opacity: [1, 1, 1],
-			transition: { duration: 0.6, ease: "easeInOut" },
+			transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 

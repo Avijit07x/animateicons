@@ -15,7 +15,7 @@ interface UserStarProps extends HTMLMotionProps<"div"> {
 }
 
 const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7, ease: "easeInOut" as const },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 			animate: {
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" as const },
 			},
 		};
 
@@ -70,7 +70,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 				scale: [1, 1.3, 0.9, 1.15, 1],
 				rotate: [0, -15, 15, -10, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 1, ease: "easeInOut" as const },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

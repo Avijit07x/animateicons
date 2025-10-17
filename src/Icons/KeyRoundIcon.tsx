@@ -15,7 +15,7 @@ interface KeyRoundProps extends HTMLMotionProps<"div"> {
 }
 
 const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
 			animate: {
 				strokeDashoffset: [140, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.8, ease: "easeInOut" as const },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
 			animate: {
 				scale: [1, 1.12, 1],
 				rotate: [0, -8, 8, 0],
-				transition: { duration: 0.6, delay: 0.45, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, delay: 0.45, ease: "easeInOut" as const },
 			},
 		};
 
@@ -69,7 +69,7 @@ const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
 			animate: {
 				x: [0, 1.2, 0],
 				y: [0, -0.6, 0],
-				transition: { duration: 0.45, delay: 0.55, ease: "easeInOut" as const },
+				transition: { duration: 0.45 * durationMultiplier, delay: 0.55, ease: "easeInOut" as const },
 			},
 		};
 
@@ -78,7 +78,7 @@ const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
 			animate: {
 				rotate: [0, -2, 2, 0],
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.7, ease: "easeInOut" as const },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

@@ -12,12 +12,13 @@ export interface CircleCheckBigIconHandle {
 
 interface CircleCheckBigIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const CircleCheckBigIcon = forwardRef<
 	CircleCheckBigIconHandle,
 	CircleCheckBigIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const tickControls = useAnimation();
 	const reduced = useReducedMotion();
@@ -72,7 +73,7 @@ const CircleCheckBigIcon = forwardRef<
 		animate: {
 			scale: [1, 1.05, 0.98, 1],
 			transition: {
-				duration: 1,
+				duration: 1 * durationMultiplier,
 				ease: [0.42, 0, 0.58, 1],
 			},
 		},
@@ -89,7 +90,7 @@ const CircleCheckBigIcon = forwardRef<
 			pathLength: [0, 1],
 			opacity: 1,
 			transition: {
-				duration: 0.8,
+				duration: 0.8 * durationMultiplier,
 				ease: [0.42, 0, 0.58, 1],
 			},
 		},

@@ -15,7 +15,7 @@ interface SearchProps extends HTMLMotionProps<"div"> {
 }
 
 const SearchIcon = forwardRef<SearchHandle, SearchProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -52,7 +52,7 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
 				strokeDashoffset: [50, 0],
 				opacity: [0.3, 1],
 				scale: [1, 1.1, 1],
-				transition: { duration: 0.8, ease: "easeInOut" as const },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -61,7 +61,7 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
 			animate: {
 				strokeDashoffset: [20, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.6, delay: 0.3, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, delay: 0.3, ease: "easeInOut" as const },
 			},
 		};
 
@@ -70,7 +70,7 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
 			animate: {
 				rotate: [0, 5, -5, 0],
 				scale: [1, 1.05, 1],
-				transition: { duration: 1, ease: "easeInOut" as const },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

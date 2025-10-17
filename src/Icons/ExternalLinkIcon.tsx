@@ -12,12 +12,13 @@ export interface ExternalLinkIconHandle {
 
 interface ExternalLinkIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ExternalLinkIcon = forwardRef<
 	ExternalLinkIconHandle,
 	ExternalLinkIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const boxControls = useAnimation();
 	const arrowControls = useAnimation();
 	const reduced = useReducedMotion();
@@ -68,7 +69,7 @@ const ExternalLinkIcon = forwardRef<
 		animate: {
 			pathLength: [0, 1],
 			opacity: [0.6, 1],
-			transition: { duration: 0.8, ease: "easeInOut" },
+			transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -78,7 +79,7 @@ const ExternalLinkIcon = forwardRef<
 			x: [0, 3, 0],
 			y: [0, -3, 0],
 			opacity: [1, 1, 1],
-			transition: { duration: 0.6, ease: "easeInOut" },
+			transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 

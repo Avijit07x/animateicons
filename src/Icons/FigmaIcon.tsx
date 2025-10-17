@@ -12,10 +12,11 @@ export interface FigmaIconHandle {
 
 interface FigmaIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +52,7 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.95, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.4, repeat: 0, ease: "easeInOut" },
+				transition: { duration: 1.4 * durationMultiplier, repeat: 0, ease: "easeInOut" },
 			},
 		};
 
@@ -61,7 +62,7 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
 				transition: {
-					duration: 1.2,
+					duration: 1.2 * durationMultiplier,
 					ease: "easeInOut",
 					repeat: 0,
 					delay: i * 0.25,

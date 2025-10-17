@@ -12,10 +12,11 @@ export interface FolderOpenIconHandle {
 
 interface FolderOpenIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const folderControls = useAnimation();
 		const paperControls = useAnimation();
 		const reduced = useReducedMotion();
@@ -71,7 +72,7 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
 				scale: [1, 1.05, 0.97, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1.5, 0.5, 0],
-				transition: { duration: 0.9, ease: "easeInOut" },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -80,7 +81,7 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
 			animate: {
 				y: [-6, 0],
 				opacity: [0, 1, 0],
-				transition: { duration: 1, ease: "easeInOut", delay: 0.2 },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut", delay: 0.2 },
 			},
 		};
 

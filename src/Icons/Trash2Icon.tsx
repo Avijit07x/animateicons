@@ -12,10 +12,11 @@ export interface Trash2IconHandle {
 
 interface Trash2IconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const binControls = useAnimation();
 		const lidControls = useAnimation();
 		const barControls = useAnimation();
@@ -77,7 +78,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 				scale: [1, 1.05, 0.97, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1.5, 0],
-				transition: { duration: 0.8, ease: "easeInOut" },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -86,7 +87,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 			animate: {
 				rotate: [-15, 5, 0],
 				y: [-2, 0],
-				transition: { duration: 0.7, ease: "easeOut", delay: 0.1 },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeOut", delay: 0.1 },
 			},
 		};
 
@@ -95,7 +96,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 			animate: {
 				scaleY: [1, 1.2, 1],
 				opacity: [1, 0.9, 1],
-				transition: { duration: 0.6, ease: "easeInOut", delay: 0.2 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut", delay: 0.2 },
 			},
 		};
 

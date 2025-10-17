@@ -15,7 +15,7 @@ interface PhoneProps extends HTMLMotionProps<"div"> {
 }
 
 const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
 			animate: {
 				rotate: [0, -3, 3, -2, 2, 0],
 				scale: [1, 1.02, 1, 1.015, 1],
-				transition: { duration: 1.2, ease: "easeInOut" as const },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
 			animate: {
 				strokeDashoffset: [110, 0],
 				opacity: [0.55, 1, 0.9, 1],
-				transition: { duration: 0.9, ease: "easeInOut" as const },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

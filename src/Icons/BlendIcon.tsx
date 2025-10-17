@@ -15,7 +15,7 @@ interface BlendProps extends HTMLMotionProps<"div"> {
 }
 
 const BlendIcon = forwardRef<BlendHandle, BlendProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 			animate: {
 				rotate: [0, -1.5, 1.5, 0],
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.7, ease: "easeInOut" as const },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 			animate: {
 				strokeDashoffset: [48, 0],
 				opacity: [0.45, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -69,7 +69,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 			animate: {
 				strokeDashoffset: [48, 0],
 				opacity: [0.45, 1],
-				transition: { duration: 0.6, ease: "easeInOut", delay: 0.09 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut", delay: 0.09 },
 			},
 		};
 
@@ -78,7 +78,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 			animate: {
 				scale: [1, 1.06, 1],
 				opacity: [0.9, 1, 1],
-				transition: { duration: 0.5, ease: "easeInOut", delay: 0.25 },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.25 },
 			},
 		};
 

@@ -12,10 +12,21 @@ export interface ArrowUpAzIconHandle {
 
 interface ArrowUpAzIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +62,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				scale: [1, 1.1, 0.95, 1],
 				rotate: [0, -5, 3, 0],
-				transition: { duration: 0.9, ease: "easeInOut" },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -60,7 +71,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				y: [6, -2, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" },
 			},
 		};
 
@@ -68,7 +79,11 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			normal: { pathLength: 1 },
 			animate: {
 				pathLength: [0, 1],
-				transition: { duration: 0.7, ease: "easeInOut", delay: 0.1 },
+				transition: {
+					duration: 0.7 * durationMultiplier,
+					ease: "easeInOut",
+					delay: 0.1,
+				},
 			},
 		};
 
@@ -77,7 +92,11 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				opacity: [0, 1],
 				y: [-4, 0],
-				transition: { duration: 0.5, ease: "easeOut", delay: 0.2 },
+				transition: {
+					duration: 0.5 * durationMultiplier,
+					ease: "easeOut",
+					delay: 0.2,
+				},
 			},
 		};
 
@@ -86,7 +105,11 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				opacity: [0, 1],
 				x: [6, 0],
-				transition: { duration: 0.6, ease: "easeOut", delay: 0.3 },
+				transition: {
+					duration: 0.6 * durationMultiplier,
+					ease: "easeOut",
+					delay: 0.3,
+				},
 			},
 		};
 

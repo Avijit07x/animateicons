@@ -15,7 +15,7 @@ interface CloudUploadProps extends HTMLMotionProps<"div"> {
 }
 
 const CloudUploadIcon = forwardRef<CloudUploadHandle, CloudUploadProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const CloudUploadIcon = forwardRef<CloudUploadHandle, CloudUploadProps>(
 			animate: {
 				strokeDashoffset: [100, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.7, ease: "easeInOut" as const },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const CloudUploadIcon = forwardRef<CloudUploadHandle, CloudUploadProps>(
 			animate: {
 				strokeDashoffset: [30, 0],
 				opacity: [0.5, 1],
-				transition: { duration: 0.55, ease: "easeInOut" as const, delay: 0.05 },
+				transition: { duration: 0.55 * durationMultiplier, ease: "easeInOut" as const, delay: 0.05 },
 			},
 		};
 
@@ -70,7 +70,7 @@ const CloudUploadIcon = forwardRef<CloudUploadHandle, CloudUploadProps>(
 				y: [2, -2, 0],
 				scale: [1, 1.06, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const, delay: 0.1 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const, delay: 0.1 },
 			},
 		};
 
@@ -78,7 +78,7 @@ const CloudUploadIcon = forwardRef<CloudUploadHandle, CloudUploadProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

@@ -12,10 +12,11 @@ export interface MailsIconHandle {
 
 interface MailsIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -52,7 +53,7 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
 				y: [0, -3, 3, -2, 0],
 				scale: [1, 1.05, 0.95, 1],
 				transition: {
-					duration: 1.6,
+					duration: 1.6 * durationMultiplier,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 				},
@@ -65,7 +66,7 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
 				rotate: [-4, 4, -3, 0],
 				opacity: [1, 0.7, 1],
 				transition: {
-					duration: 1.2,
+					duration: 1.2 * durationMultiplier,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 				},
@@ -77,7 +78,7 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
 			animate: {
 				opacity: [0.7, 1, 0.5, 1],
 				transition: {
-					duration: 1.4,
+					duration: 1.4 * durationMultiplier,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 				},

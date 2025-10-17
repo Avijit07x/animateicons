@@ -17,7 +17,7 @@ interface UserRoundSearchProps extends HTMLMotionProps<"div"> {
 const UserRoundSearchIcon = forwardRef<
 	UserRoundSearchHandle,
 	UserRoundSearchProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -53,7 +53,7 @@ const UserRoundSearchIcon = forwardRef<
 		animate: {
 			strokeDashoffset: [60, 0],
 			opacity: [0.3, 1],
-			transition: { duration: 0.7, ease: "easeInOut" as const },
+			transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" as const },
 		},
 	};
 
@@ -62,7 +62,7 @@ const UserRoundSearchIcon = forwardRef<
 		animate: {
 			scale: [0.6, 1.2, 1],
 			opacity: [0, 1],
-			transition: { duration: 0.6, ease: "easeOut" as const },
+			transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" as const },
 		},
 	};
 
@@ -72,7 +72,7 @@ const UserRoundSearchIcon = forwardRef<
 			x: [0, 2, -2, 1, 0],
 			y: [0, -1, 2, -1, 0],
 			rotate: [0, 6, -6, 4, 0],
-			transition: { duration: 1.2, ease: "easeInOut" as const },
+			transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" as const },
 		},
 	};
 

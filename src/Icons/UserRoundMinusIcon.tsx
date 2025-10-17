@@ -17,7 +17,7 @@ interface UserRoundMinusProps extends HTMLMotionProps<"div"> {
 const UserRoundMinusIcon = forwardRef<
 	UserRoundMinusHandle,
 	UserRoundMinusProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -58,7 +58,7 @@ const UserRoundMinusIcon = forwardRef<
 				animate: {
 					strokeDashoffset: [40, 0],
 					opacity: [0.3, 1],
-					transition: { duration: 0.7, delay: 0.2, ease: "easeInOut" },
+					transition: { duration: 0.7 * durationMultiplier, delay: 0.2, ease: "easeInOut" },
 				},
 			};
 
@@ -72,7 +72,7 @@ const UserRoundMinusIcon = forwardRef<
 				animate: {
 					scale: [0.5, 1.2, 1],
 					opacity: [0, 1],
-					transition: { duration: 0.6, ease: "easeOut" },
+					transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" },
 				},
 			};
 
@@ -86,7 +86,7 @@ const UserRoundMinusIcon = forwardRef<
 				animate: {
 					strokeDashoffset: [20, 0],
 					opacity: [0.4, 1],
-					transition: { duration: 0.5, ease: "easeInOut", delay: 0.6 },
+					transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.6 },
 				},
 			};
 

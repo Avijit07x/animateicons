@@ -12,10 +12,11 @@ export interface MapPinnedIconHandle {
 
 interface MapPinnedIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const pinControls = useAnimation();
 		const circleControls = useAnimation();
 		const trayControls = useAnimation();
@@ -71,7 +72,7 @@ const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
 			normal: { strokeDashoffset: 0 },
 			animate: {
 				strokeDashoffset: [180, 0],
-				transition: { duration: 1.6, ease: "easeOut" },
+				transition: { duration: 1.6 * durationMultiplier, ease: "easeOut" },
 			},
 		};
 
@@ -80,7 +81,7 @@ const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
 			animate: {
 				scale: [1, 1.18, 1],
 				opacity: [1, 0.8, 1],
-				transition: { duration: 0.9, ease: "easeOut", delay: 0.8 },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeOut", delay: 0.8 },
 			},
 		};
 
@@ -90,7 +91,7 @@ const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
 				y: [-4, 0],
 				strokeDashoffset: [80, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.8, ease: "easeOut", delay: 0.12 },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeOut", delay: 0.12 },
 			},
 		};
 

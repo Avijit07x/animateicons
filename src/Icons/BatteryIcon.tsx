@@ -12,10 +12,21 @@ export interface BatteryIconHandle {
 
 interface BatteryIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const svgControls = useAnimation();
 		const rectControls = useAnimation();
 		const tipControls = useAnimation();
@@ -77,7 +88,7 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
 			warning: {
 				rotate: [0, -4, 4, -2, 0],
 				scale: [1, 1.1, 0.95, 1.05, 1],
-				transition: { duration: 0.8, ease: "easeInOut" },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -86,7 +97,7 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
 			warning: {
 				pathLength: [1, 0.6, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 1, ease: "easeInOut" },
+				transition: { duration: 1 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -95,7 +106,7 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
 			warning: {
 				y: [0, -2, 2, -1, 0],
 				opacity: [1, 0.6, 1],
-				transition: { duration: 0.7, ease: "easeInOut" },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

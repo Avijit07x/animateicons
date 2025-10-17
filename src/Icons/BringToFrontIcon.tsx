@@ -12,12 +12,13 @@ export interface BringToFrontIconHandle {
 
 interface BringToFrontIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const BringToFrontIcon = forwardRef<
 	BringToFrontIconHandle,
 	BringToFrontIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -59,7 +60,7 @@ const BringToFrontIcon = forwardRef<
 					rotate: [0, -3, 3, 0],
 					scale: [1, 1.05, 0.95, 1],
 					transition: {
-						duration: 1.4,
+						duration: 1.4 * durationMultiplier,
 						ease: [0.42, 0, 0.58, 1],
 						repeat: 0,
 					},
@@ -77,7 +78,7 @@ const BringToFrontIcon = forwardRef<
 					pathLength: [0, 1],
 					opacity: [0.5, 1],
 					transition: {
-						duration: 1.2,
+						duration: 1.2 * durationMultiplier,
 						ease: [0.42, 0, 0.58, 1],
 						repeat: 0,
 					},
@@ -94,7 +95,7 @@ const BringToFrontIcon = forwardRef<
 				animate: {
 					scale: [1, 1.2, 0.9, 1],
 					transition: {
-						duration: 1,
+						duration: 1 * durationMultiplier,
 						ease: [0.42, 0, 0.58, 1],
 						repeat: 0,
 					},

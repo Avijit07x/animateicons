@@ -12,10 +12,11 @@ export interface SnowflakeIconHandle {
 
 interface SnowflakeIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -50,11 +51,11 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 		);
 
 		const pathVariants = {
-			normal: { pathLength: 1, opacity: 1, transition: { duration: 0.3 } },
+			normal: { pathLength: 1, opacity: 1, transition: { duration: 0.3 * durationMultiplier } },
 			animate: {
 				pathLength: [1, 0.3, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 0.8 },
+				transition: { duration: 0.8 * durationMultiplier },
 			},
 		};
 
@@ -76,11 +77,11 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 					strokeLinecap="round"
 					strokeLinejoin="round"
 					variants={{
-						normal: { rotate: 0, scale: 1, transition: { duration: 0.3 } },
+						normal: { rotate: 0, scale: 1, transition: { duration: 0.3 * durationMultiplier } },
 						animate: {
 							rotate: [0, 10, -10, 0],
 							scale: [1, 1.05, 1],
-							transition: { duration: 1 },
+							transition: { duration: 1 * durationMultiplier },
 						},
 					}}
 					animate={controls}

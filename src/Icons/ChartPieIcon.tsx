@@ -12,10 +12,11 @@ export interface ChartPieIconHandle {
 
 interface ChartPieIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -53,13 +54,13 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},
@@ -69,13 +70,13 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
 			normal: {
 				scale: 1,
 				rotate: 0,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				scale: [1, 1.05, 1],
 				rotate: [0, 5, -5, 0],
 				transition: {
-					duration: 0.8,
+					duration: 0.8 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},

@@ -15,7 +15,7 @@ interface CardProps extends HTMLMotionProps<"div"> {
 }
 
 const CreditCardIcon = forwardRef<CardHandle, CardProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const stripeControls = useAnimation();
 		const swipeControls = useAnimation();
@@ -74,7 +74,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 				scale: [1, 1.02, 1],
 				x: [0, -0.4, 0],
 				y: [0, -0.3, 0],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -83,7 +83,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 			animate: {
 				x: [-2, 0],
 				opacity: [0.7, 1],
-				transition: { duration: 0.4, ease: "easeOut", delay: 0.08 },
+				transition: { duration: 0.4 * durationMultiplier, ease: "easeOut", delay: 0.08 },
 			},
 		};
 
@@ -92,7 +92,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0, 1, 0.9],
-				transition: { duration: 0.5, ease: "easeInOut", delay: 0.18 },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.18 },
 			},
 		};
 
@@ -100,7 +100,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.035, 1],
-				transition: { duration: 0.28, ease: "easeOut", delay: 0.3 },
+				transition: { duration: 0.28 * durationMultiplier, ease: "easeOut", delay: 0.3 },
 			},
 		};
 

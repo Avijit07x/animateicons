@@ -12,10 +12,11 @@ export interface DiffIconHandle {
 
 interface DiffIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +52,7 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
 			animate: {
 				scale: [1, 1.15, 0.9, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.2, ease: "easeInOut", repeat: Infinity },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut", repeat: Infinity },
 			},
 		};
 
@@ -61,7 +62,7 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
 				pathLength: [0, 1],
 				opacity: 1,
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 					repeat: Infinity,
 					repeatDelay: 0.4,
@@ -74,7 +75,7 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
 			animate: {
 				x: [-10, 0, 10, 0],
 				opacity: [0.8, 1, 0.8, 1],
-				transition: { duration: 1.2, ease: "easeInOut", repeat: Infinity },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut", repeat: Infinity },
 			},
 		};
 

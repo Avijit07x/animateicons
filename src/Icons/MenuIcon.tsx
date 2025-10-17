@@ -12,10 +12,11 @@ export interface MenuIconHandle {
 
 interface MenuIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -57,7 +58,7 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
 					animate: (i) => ({
 						x: [0, i % 2 === 0 ? 4 : -4, 0],
 						opacity: [1, 0.5, 1],
-						transition: { duration: 0.4, delay: i * 0.1 },
+						transition: { duration: 0.4 * durationMultiplier, delay: i * 0.1 },
 					}),
 				};
 

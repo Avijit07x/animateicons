@@ -12,10 +12,21 @@ export interface XIconHandle {
 
 interface XIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const XIcon = forwardRef<XIconHandle, XIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 24, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 24,
+			durationMultiplier = 1,
+			...props
+		},
+		ref,
+	) => {
 		const svgControls = useAnimation();
 		const path1Controls = useAnimation();
 		const path2Controls = useAnimation();
@@ -72,11 +83,15 @@ const XIcon = forwardRef<XIconHandle, XIconProps>(
 		);
 
 		const svgVariants: Variants = {
-			normal: { rotate: 0, scale: 1, transition: { duration: 0.3 } },
+			normal: {
+				rotate: 0,
+				scale: 1,
+				transition: { duration: 0.3 * durationMultiplier },
+			},
 			animate: {
 				rotate: [0, 15, -15, 0],
 				scale: [1, 1.1, 1],
-				transition: { duration: 0.6 },
+				transition: { duration: 0.6 * durationMultiplier },
 			},
 		};
 
@@ -85,7 +100,7 @@ const XIcon = forwardRef<XIconHandle, XIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

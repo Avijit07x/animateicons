@@ -12,10 +12,11 @@ export interface CodeXmlIconHandle {
 
 interface CodeXmlIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const leftControls = useAnimation();
 		const rightControls = useAnimation();
 		const slashControls = useAnimation();
@@ -76,7 +77,7 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 0.7, ease: "easeInOut" },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -85,7 +86,7 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 0.7, ease: "easeInOut", delay: 0.1 },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut", delay: 0.1 },
 			},
 		};
 
@@ -95,7 +96,7 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
 				pathLength: [1, 0, 1],
 				opacity: [1, 0.4, 1],
 				transition: {
-					duration: 1,
+					duration: 1 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},

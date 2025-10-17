@@ -15,7 +15,7 @@ interface HouseProps extends HTMLMotionProps<"div"> {
 }
 
 const HouseIcon = forwardRef<HouseHandle, HouseProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 			animate: {
 				strokeDashoffset: [100, 0],
 				opacity: [0.35, 1],
-				transition: { duration: 0.8, ease: "easeInOut" as const },
+				transition: { duration: 0.8 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 
@@ -60,7 +60,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 			animate: {
 				scaleY: [0.6, 1.15, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.5, delay: 0.45, ease: "easeOut" as const },
+				transition: { duration: 0.5 * durationMultiplier, delay: 0.45, ease: "easeOut" as const },
 			},
 		};
 
@@ -70,7 +70,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 				opacity: [0, 0.7, 0],
 				y: [-2, -6, -10],
 				scale: [0.8, 1, 1.1],
-				transition: { duration: 1.1, delay: 0.3, ease: "easeInOut" as const },
+				transition: { duration: 1.1 * durationMultiplier, delay: 0.3, ease: "easeInOut" as const },
 			},
 		};
 
@@ -79,7 +79,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 			animate: {
 				rotate: [0, -1.5, 1.5, 0],
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.6, ease: "easeInOut" as const },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" as const },
 			},
 		};
 

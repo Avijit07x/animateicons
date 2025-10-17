@@ -12,10 +12,11 @@ export interface TelescopeIconHandle {
 
 interface TelescopeIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const groupControls = useAnimation();
 		const tubeControls = useAnimation();
 		const lensControls = useAnimation();
@@ -86,7 +87,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
 				scale: [1, 1.06, 0.98, 1],
 				rotate: [0, -2, 1.5, 0],
 				y: [0, -1, 0.5, 0],
-				transition: { duration: 0.9, ease: "easeInOut" },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -96,7 +97,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
 				x: [0, 1.5, 0],
 				rotate: [0, -3, 0],
 				opacity: 1,
-				transition: { duration: 0.7, ease: "easeInOut", delay: 0.05 },
+				transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut", delay: 0.05 },
 			},
 		};
 
@@ -105,7 +106,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.6, ease: "easeInOut", delay: 0.15 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut", delay: 0.15 },
 			},
 		};
 
@@ -114,7 +115,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
 			animate: {
 				scaleY: [1, 1.04, 1],
 				y: [0, -0.6, 0],
-				transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut", delay: 0.2 },
 			},
 		};
 
@@ -123,7 +124,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
 			animate: {
 				scale: [1, 1.15, 1],
 				opacity: [1, 0.95, 1],
-				transition: { duration: 0.55, ease: "easeOut", delay: 0.25 },
+				transition: { duration: 0.55 * durationMultiplier, ease: "easeOut", delay: 0.25 },
 			},
 		};
 

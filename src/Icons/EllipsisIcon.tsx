@@ -12,10 +12,11 @@ export interface EllipsisIconHandle {
 
 interface EllipsisIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -58,7 +59,7 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
 				y: [-3.5, 0],
 				opacity: [0.4, 0.8, 1, 0.8, 0.4, 1],
 				transition: {
-					duration: 0.8,
+					duration: 0.8 * durationMultiplier,
 					repeat: 0,
 					delay: i * 0.15,
 					ease: "easeInOut",

@@ -12,12 +12,13 @@ export interface ChevronsRightLeftIconHandle {
 
 interface ChevronsRightLeftIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChevronsRightLeftIcon = forwardRef<
 	ChevronsRightLeftIconHandle,
 	ChevronsRightLeftIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -56,7 +57,7 @@ const ChevronsRightLeftIcon = forwardRef<
 		animate: {
 			x: [0, -4, 0],
 			opacity: [1, 0.6, 1],
-			transition: { duration: 0.9, repeat: 0 },
+			transition: { duration: 0.9 * durationMultiplier, repeat: 0 },
 		},
 	};
 
@@ -65,7 +66,7 @@ const ChevronsRightLeftIcon = forwardRef<
 		animate: {
 			x: [0, 4, 0],
 			opacity: [1, 0.6, 1],
-			transition: { duration: 0.9, repeat: 0, delay: 0.3 },
+			transition: { duration: 0.9 * durationMultiplier, repeat: 0, delay: 0.3 },
 		},
 	};
 

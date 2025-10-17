@@ -15,7 +15,7 @@ interface UserRoundPenProps extends HTMLMotionProps<"div"> {
 }
 
 const UserRoundPenIcon = forwardRef<UserRoundPenHandle, UserRoundPenProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +51,7 @@ const UserRoundPenIcon = forwardRef<UserRoundPenHandle, UserRoundPenProps>(
 			animate: {
 				strokeDashoffset: [60, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.7, delay: 0.2, ease: "easeInOut" },
+				transition: { duration: 0.7 * durationMultiplier, delay: 0.2, ease: "easeInOut" },
 			},
 		};
 
@@ -60,7 +60,7 @@ const UserRoundPenIcon = forwardRef<UserRoundPenHandle, UserRoundPenProps>(
 			animate: {
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6, ease: "easeOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeOut" },
 			},
 		};
 
@@ -71,7 +71,7 @@ const UserRoundPenIcon = forwardRef<UserRoundPenHandle, UserRoundPenProps>(
 				x: [0, 2, -2, 1, 0],
 				y: [0, 2, -1, 1, 0],
 				transition: {
-					duration: 1.2,
+					duration: 1.2 * durationMultiplier,
 					repeat: 1,
 					ease: "easeInOut",
 					delay: 0.6,

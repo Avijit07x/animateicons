@@ -12,10 +12,11 @@ export interface ChartColumnIconHandle {
 
 interface ChartColumnIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const ChartColumnIcon = forwardRef<ChartColumnIconHandle, ChartColumnIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -53,13 +54,13 @@ const ChartColumnIcon = forwardRef<ChartColumnIconHandle, ChartColumnIconProps>(
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.6,
+					duration: 0.6 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},
@@ -68,12 +69,12 @@ const ChartColumnIcon = forwardRef<ChartColumnIconHandle, ChartColumnIconProps>(
 		const chartVariants: Variants = {
 			normal: {
 				scale: 1,
-				transition: { duration: 0.2 },
+				transition: { duration: 0.2 * durationMultiplier },
 			},
 			animate: {
 				scale: [1, 1.05, 1],
 				transition: {
-					duration: 0.4,
+					duration: 0.4 * durationMultiplier,
 					ease: "easeInOut",
 				},
 			},

@@ -12,10 +12,11 @@ export interface LockIconHandle {
 
 interface LockIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -54,7 +55,7 @@ const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
 			animate: {
 				x: [0, -3, 3, -3, 3, 0],
 				rotate: [0, -2, 2, -2, 2, 0],
-				transition: { duration: 0.4 },
+				transition: { duration: 0.4 * durationMultiplier },
 			},
 		};
 

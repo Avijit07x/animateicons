@@ -12,10 +12,11 @@ export interface StarIconHandle {
 
 interface StarIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -49,12 +50,12 @@ const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
 		const starVariants: Variants = {
 			idle: {
 				scale: [1, 1.02, 0.98, 1],
-				transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+				transition: { duration: 2.5 * durationMultiplier, repeat: Infinity, ease: "easeInOut" },
 			},
 			animate: {
 				scale: [1, 1.2, 0.95, 1.05, 1],
 				rotate: [0, -10, 10, 0],
-				transition: { duration: 1.2, ease: "easeInOut" },
+				transition: { duration: 1.2 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 

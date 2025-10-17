@@ -15,7 +15,7 @@ interface KeySquareProps extends HTMLMotionProps<"div"> {
 }
 
 const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const sparkControls = useAnimation();
 		const reduced = useReducedMotion();
@@ -66,7 +66,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 			animate: {
 				scale: [1, 1.03, 0.995, 1],
 				rotate: [0, -3, 1, 0],
-				transition: { duration: 0.6, ease: "easeInOut" },
+				transition: { duration: 0.6 * durationMultiplier, ease: "easeInOut" },
 			},
 		};
 
@@ -75,7 +75,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 0.5, ease: "easeInOut", delay: 0.05 },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.05 },
 			},
 		};
 
@@ -85,7 +85,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 				x: [0.4, 0],
 				y: [0, -0.4, 0],
 				opacity: [0.5, 1],
-				transition: { duration: 0.45, ease: "easeOut", delay: 0.12 },
+				transition: { duration: 0.45 * durationMultiplier, ease: "easeOut", delay: 0.12 },
 			},
 		};
 
@@ -94,7 +94,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 			animate: {
 				scale: [1, 1.06, 1],
 				rotate: [0, -10, 0],
-				transition: { duration: 0.5, ease: "easeInOut", delay: 0.18 },
+				transition: { duration: 0.5 * durationMultiplier, ease: "easeInOut", delay: 0.18 },
 			},
 		};
 
@@ -103,7 +103,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0, 1, 0],
-				transition: { duration: 0.4, ease: "easeOut", delay: 0.36 },
+				transition: { duration: 0.4 * durationMultiplier, ease: "easeOut", delay: 0.36 },
 			},
 		};
 

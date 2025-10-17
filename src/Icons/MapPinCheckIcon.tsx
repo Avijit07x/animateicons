@@ -12,10 +12,11 @@ export interface MapPinCheckIconHandle {
 
 interface MapPinCheckIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const pathControls = useAnimation();
 		const circleControls = useAnimation();
 		const checkControls = useAnimation();
@@ -71,7 +72,7 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
 			normal: { strokeDashoffset: 0 },
 			animate: {
 				strokeDashoffset: [140, 0],
-				transition: { duration: 1.5, ease: "easeOut" },
+				transition: { duration: 1.5 * durationMultiplier, ease: "easeOut" },
 			},
 		};
 
@@ -80,7 +81,7 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
 			animate: {
 				scale: [1, 1.2, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 0.9, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeOut", delay: 0.2 },
 			},
 		};
 
@@ -88,7 +89,7 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
 			normal: { strokeDashoffset: 0 },
 			animate: {
 				strokeDashoffset: [30, 0],
-				transition: { duration: 1, ease: "easeOut", delay: 0.4 },
+				transition: { duration: 1 * durationMultiplier, ease: "easeOut", delay: 0.4 },
 			},
 		};
 

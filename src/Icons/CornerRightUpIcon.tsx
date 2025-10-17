@@ -12,12 +12,13 @@ export interface CornerRightUpIconHandle {
 
 interface CornerRightUpIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const CornerRightUpIcon = forwardRef<
 	CornerRightUpIconHandle,
 	CornerRightUpIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const controls = useAnimation();
 	const reduced = useReducedMotion();
 	const isControlled = useRef(false);
@@ -53,7 +54,7 @@ const CornerRightUpIcon = forwardRef<
 		animate: {
 			scale: [1, 1.12, 0.95, 1],
 			rotate: [0, 6, -4, 0],
-			transition: { duration: 0.9, ease: "easeInOut" },
+			transition: { duration: 0.9 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -64,7 +65,7 @@ const CornerRightUpIcon = forwardRef<
 			x: [-4, 2, 0],
 			y: [6, -3, 0],
 			rotate: [20, -10, 0],
-			transition: { duration: 0.8, ease: "easeOut", delay: 0.1 },
+			transition: { duration: 0.8 * durationMultiplier, ease: "easeOut", delay: 0.1 },
 		},
 	};
 
@@ -72,7 +73,7 @@ const CornerRightUpIcon = forwardRef<
 		normal: { pathLength: 1 },
 		animate: {
 			pathLength: [0, 1],
-			transition: { duration: 0.7, ease: "easeInOut" },
+			transition: { duration: 0.7 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 

@@ -12,10 +12,11 @@ export interface MapPinIconHandle {
 
 interface MapPinIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const pathControls = useAnimation();
 		const circleControls = useAnimation();
 		const reduced = useReducedMotion();
@@ -66,7 +67,7 @@ const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
 			animate: {
 				strokeDashoffset: [120, 0],
 				scale: [1, 1.05, 1],
-				transition: { duration: 1.5, ease: "easeOut" },
+				transition: { duration: 1.5 * durationMultiplier, ease: "easeOut" },
 			},
 		};
 
@@ -75,7 +76,7 @@ const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
 			animate: {
 				scale: [1, 1.2, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 0.9, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.9 * durationMultiplier, ease: "easeOut", delay: 0.2 },
 			},
 		};
 		return (

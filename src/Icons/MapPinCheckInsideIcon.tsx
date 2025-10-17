@@ -12,12 +12,13 @@ export interface MapPinCheckInsideIconHandle {
 
 interface MapPinCheckInsideIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const MapPinCheckInsideIcon = forwardRef<
 	MapPinCheckInsideIconHandle,
 	MapPinCheckInsideIconProps
->(({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+>(({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 	const pinControls = useAnimation();
 	const checkControls = useAnimation();
 	const reduced = useReducedMotion();
@@ -67,7 +68,7 @@ const MapPinCheckInsideIcon = forwardRef<
 		normal: { strokeDashoffset: 0 },
 		animate: {
 			strokeDashoffset: [160, 0],
-			transition: { duration: 1, ease: "easeInOut" },
+			transition: { duration: 1 * durationMultiplier, ease: "easeInOut" },
 		},
 	};
 
@@ -76,7 +77,7 @@ const MapPinCheckInsideIcon = forwardRef<
 		animate: {
 			strokeDashoffset: [28, 0],
 			opacity: [0, 1],
-			transition: { duration: 1, ease: "easeOut", delay: 0.28 },
+			transition: { duration: 1 * durationMultiplier, ease: "easeOut", delay: 0.28 },
 		},
 	};
 

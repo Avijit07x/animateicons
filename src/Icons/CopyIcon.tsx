@@ -13,10 +13,11 @@ export interface CopyIconHandle {
 
 interface CopyIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -96,7 +97,7 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
 						animate={controls}
 						transition={{
 							...defaultTransition,
-							duration: 0.7,
+							duration: 0.7 * durationMultiplier,
 						}}
 					/>
 					<motion.path

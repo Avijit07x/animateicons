@@ -12,10 +12,11 @@ export interface InstagramIconHandle {
 
 interface InstagramIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	durationMultiplier?: number;
 }
 
 const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	({ onMouseEnter, onMouseLeave, className, size = 28, durationMultiplier = 1, ...props }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -51,7 +52,7 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
 			animate: {
 				scale: [1, 1.08, 0.95, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.3, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.3 * durationMultiplier, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -60,7 +61,7 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 1.5, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.5 * durationMultiplier, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -69,7 +70,7 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
 			animate: {
 				scale: [1, 1.4, 1],
 				opacity: [1, 0.4, 1],
-				transition: { duration: 1, repeat: 0, ease: "easeInOut" },
+				transition: { duration: 1 * durationMultiplier, repeat: 0, ease: "easeInOut" },
 			},
 		};
 
