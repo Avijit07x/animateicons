@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface MinusIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface MinusIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
+const MinusIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -96,4 +88,5 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
 );
 
 MinusIcon.displayName = "MinusIcon";
-export { MinusIcon };
+const icon = withAnimatedIconWrapper(MinusIcon);
+export { icon as MinusIcon };

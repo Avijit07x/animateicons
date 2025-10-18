@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BlocksIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BlocksIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
+const BlocksIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -128,4 +120,5 @@ const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
 );
 
 BlocksIcon.displayName = "BlocksIcon";
-export { BlocksIcon };
+const icon = withAnimatedIconWrapper(BlocksIcon);
+export { icon as BlocksIcon };

@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface XIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface XIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const XIcon = forwardRef<XIconHandle, XIconProps>(
+const XIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 24, speed = 1, ...props },
 		ref,
@@ -138,4 +130,5 @@ const XIcon = forwardRef<XIconHandle, XIconProps>(
 );
 
 XIcon.displayName = "XIcon";
-export { XIcon };
+const icon = withAnimatedIconWrapper(XIcon);
+export { icon as XIcon };

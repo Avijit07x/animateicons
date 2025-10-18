@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface HandCoinsIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface HandCoinsIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
+const HandCoinsIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -160,4 +152,5 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
 );
 
 HandCoinsIcon.displayName = "HandCoinsIcon";
-export { HandCoinsIcon };
+const icon = withAnimatedIconWrapper(HandCoinsIcon);
+export { icon as HandCoinsIcon };

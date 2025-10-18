@@ -1,24 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ChevronsLeftRightIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ChevronsLeftRightIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ChevronsLeftRightIcon = forwardRef<
-	ChevronsLeftRightIconHandle,
-	ChevronsLeftRightIconProps
->(
+const ChevronsLeftRightIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -111,4 +100,5 @@ const ChevronsLeftRightIcon = forwardRef<
 );
 
 ChevronsLeftRightIcon.displayName = "ChevronsLeftRightIcon";
-export { ChevronsLeftRightIcon };
+const icon = withAnimatedIconWrapper(ChevronsLeftRightIcon);
+export { icon as ChevronsLeftRightIcon };

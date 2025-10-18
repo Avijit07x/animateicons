@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SwordsIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface SwordsIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
+const SwordsIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -128,4 +120,5 @@ const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
 );
 
 SwordsIcon.displayName = "SwordsIcon";
-export { SwordsIcon };
+const icon = withAnimatedIconWrapper(SwordsIcon);
+export { icon as SwordsIcon };

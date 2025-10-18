@@ -1,24 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CornerLeftUpIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface CornerLeftUpIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const CornerLeftUpIcon = forwardRef<
-	CornerLeftUpIconHandle,
-	CornerLeftUpIconProps
->(
+const CornerLeftUpIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -121,4 +110,5 @@ const CornerLeftUpIcon = forwardRef<
 );
 
 CornerLeftUpIcon.displayName = "CornerLeftUpIcon";
-export { CornerLeftUpIcon };
+const icon = withAnimatedIconWrapper(CornerLeftUpIcon);
+export { icon as CornerLeftUpIcon };

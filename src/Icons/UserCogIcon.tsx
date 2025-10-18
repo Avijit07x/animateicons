@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserCogHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface UserCogProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const UserCogIcon = forwardRef<UserCogHandle, UserCogProps>(
+const UserCogIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -135,4 +127,5 @@ const UserCogIcon = forwardRef<UserCogHandle, UserCogProps>(
 );
 
 UserCogIcon.displayName = "UserCogIcon";
-export { UserCogIcon };
+const icon = withAnimatedIconWrapper(UserCogIcon);
+export { icon as UserCogIcon };

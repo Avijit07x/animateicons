@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface MicOffIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface MicOffIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
+const MicOffIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -101,4 +93,5 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 );
 
 MicOffIcon.displayName = "MicOffIcon";
-export { MicOffIcon };
+const icon = withAnimatedIconWrapper(MicOffIcon);
+export { icon as MicOffIcon };

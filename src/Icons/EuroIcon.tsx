@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface EuroIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface EuroIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const EuroIcon = forwardRef<EuroIconHandle, EuroIconProps>(
+const EuroIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -143,4 +135,5 @@ const EuroIcon = forwardRef<EuroIconHandle, EuroIconProps>(
 );
 
 EuroIcon.displayName = "EuroIcon";
-export { EuroIcon };
+const icon = withAnimatedIconWrapper(EuroIcon);
+export { icon as EuroIcon };

@@ -1,23 +1,15 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SquareArrowOutUpRightIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface SquareArrowOutUpRightIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
 const SquareArrowOutUpRightIcon = forwardRef<
-	SquareArrowOutUpRightIconHandle,
-	SquareArrowOutUpRightIconProps
+	AnimatedIconRef,
+	AnimatedIconProps
 >(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
@@ -131,4 +123,5 @@ const SquareArrowOutUpRightIcon = forwardRef<
 );
 
 SquareArrowOutUpRightIcon.displayName = "SquareArrowOutUpRightIcon";
-export { SquareArrowOutUpRightIcon };
+const icon = withAnimatedIconWrapper(SquareArrowOutUpRightIcon);
+export { icon as SquareArrowOutUpRightIcon };

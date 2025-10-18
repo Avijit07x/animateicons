@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserRoundCogHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface UserRoundCogProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const UserRoundCogIcon = forwardRef<UserRoundCogHandle, UserRoundCogProps>(
+const UserRoundCogIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -133,4 +125,5 @@ const UserRoundCogIcon = forwardRef<UserRoundCogHandle, UserRoundCogProps>(
 );
 
 UserRoundCogIcon.displayName = "UserRoundCogIcon";
-export { UserRoundCogIcon };
+const icon = withAnimatedIconWrapper(UserRoundCogIcon);
+export { icon as UserRoundCogIcon };

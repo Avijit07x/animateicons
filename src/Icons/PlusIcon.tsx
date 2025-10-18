@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface PlusIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface PlusIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
+const PlusIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -106,4 +98,5 @@ const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
 );
 
 PlusIcon.displayName = "PlusIcon";
-export { PlusIcon };
+const icon = withAnimatedIconWrapper(PlusIcon);
+export { icon as PlusIcon };

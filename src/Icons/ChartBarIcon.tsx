@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ChartBarIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ChartBarIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ChartBarIcon = forwardRef<ChartBarIconHandle, ChartBarIconProps>(
+const ChartBarIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -115,4 +107,5 @@ const ChartBarIcon = forwardRef<ChartBarIconHandle, ChartBarIconProps>(
 );
 
 ChartBarIcon.displayName = "ChartBarIcon";
-export { ChartBarIcon };
+const icon = withAnimatedIconWrapper(ChartBarIcon);
+export { icon as ChartBarIcon };

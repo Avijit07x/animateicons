@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BatteryFullIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BatteryFullIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
+const BatteryFullIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -129,4 +121,5 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
 );
 
 BatteryFullIcon.displayName = "BatteryFullIcon";
-export { BatteryFullIcon };
+const icon = withAnimatedIconWrapper(BatteryFullIcon);
+export { icon as BatteryFullIcon };

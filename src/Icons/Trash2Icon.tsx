@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface Trash2IconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface Trash2IconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
+const Trash2Icon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -153,4 +145,5 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 );
 
 Trash2Icon.displayName = "Trash2Icon";
-export { Trash2Icon };
+const icon = withAnimatedIconWrapper(Trash2Icon);
+export { icon as Trash2Icon };

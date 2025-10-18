@@ -1,24 +1,12 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface LoaderCircleIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface LoaderCircleIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const LoaderCircleIcon = forwardRef<
-	LoaderCircleIconHandle,
-	LoaderCircleIconProps
->(
+const LoaderCircleIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -95,4 +83,5 @@ const LoaderCircleIcon = forwardRef<
 );
 
 LoaderCircleIcon.displayName = "LoaderCircleIcon";
-export { LoaderCircleIcon };
+const icon = withAnimatedIconWrapper(LoaderCircleIcon);
+export { icon as LoaderCircleIcon };

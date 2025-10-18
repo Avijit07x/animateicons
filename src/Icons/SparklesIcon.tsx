@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SparklesIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface SparklesIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
+const SparklesIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -141,4 +133,5 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 );
 
 SparklesIcon.displayName = "SparklesIcon";
-export { SparklesIcon };
+const icon = withAnimatedIconWrapper(SparklesIcon);
+export { icon as SparklesIcon };

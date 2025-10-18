@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CardHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface CardProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const CreditCardIcon = forwardRef<CardHandle, CardProps>(
+const CreditCardIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -175,4 +167,5 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 );
 
 CreditCardIcon.displayName = "CreditCardIcon";
-export { CreditCardIcon };
+const icon = withAnimatedIconWrapper(CreditCardIcon);
+export { icon as CreditCardIcon };

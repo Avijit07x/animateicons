@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface KeyHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface KeyProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const KeyIcon = forwardRef<KeyHandle, KeyProps>(
+const KeyIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -156,4 +148,5 @@ const KeyIcon = forwardRef<KeyHandle, KeyProps>(
 );
 
 KeyIcon.displayName = "KeyIcon";
-export { KeyIcon };
+const icon = withAnimatedIconWrapper(KeyIcon);
+export { icon as KeyIcon };

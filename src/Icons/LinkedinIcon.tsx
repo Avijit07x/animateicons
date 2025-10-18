@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface LinkedInIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface LinkedInIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
+const LinkedInIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -111,4 +103,5 @@ const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
 );
 
 LinkedInIcon.displayName = "LinkedInIcon";
-export { LinkedInIcon };
+const icon = withAnimatedIconWrapper(LinkedInIcon);
+export { icon as LinkedInIcon };

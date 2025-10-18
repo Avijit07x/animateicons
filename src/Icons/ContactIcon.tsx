@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ContactHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ContactProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ContactIcon = forwardRef<ContactHandle, ContactProps>(
+const ContactIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -152,4 +144,5 @@ const ContactIcon = forwardRef<ContactHandle, ContactProps>(
 );
 
 ContactIcon.displayName = "ContactIcon";
-export { ContactIcon };
+const icon = withAnimatedIconWrapper(ContactIcon);
+export { icon as ContactIcon };

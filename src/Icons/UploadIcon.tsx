@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UploadHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface UploadProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const UploadIcon = forwardRef<UploadHandle, UploadProps>(
+const UploadIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -150,4 +142,5 @@ const UploadIcon = forwardRef<UploadHandle, UploadProps>(
 );
 
 UploadIcon.displayName = "UploadIcon";
-export { UploadIcon };
+const icon = withAnimatedIconWrapper(UploadIcon);
+export { icon as UploadIcon };

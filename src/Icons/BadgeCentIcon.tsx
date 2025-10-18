@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BadgeCentIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BadgeCentIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
+const BadgeCentIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -161,4 +153,5 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
 );
 
 BadgeCentIcon.displayName = "BadgeCentIcon";
-export { BadgeCentIcon };
+const icon = withAnimatedIconWrapper(BadgeCentIcon);
+export { icon as BadgeCentIcon };

@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Transition } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Transition } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CopyIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface CopyIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
+const CopyIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -115,4 +107,5 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
 
 CopyIcon.displayName = "CopyIcon";
 
-export { CopyIcon };
+const icon = withAnimatedIconWrapper(CopyIcon);
+export { icon as CopyIcon };

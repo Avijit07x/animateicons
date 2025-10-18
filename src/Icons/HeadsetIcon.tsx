@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface HeadsetIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface HeadsetIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
+const HeadsetIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -133,4 +125,5 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
 );
 
 HeadsetIcon.displayName = "HeadsetIcon";
-export { HeadsetIcon };
+const icon = withAnimatedIconWrapper(HeadsetIcon);
+export { icon as HeadsetIcon };

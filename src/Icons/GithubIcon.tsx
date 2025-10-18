@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface GithubIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface GithubIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
+const GithubIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -133,4 +125,5 @@ const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
 );
 
 GithubIcon.displayName = "GithubIcon";
-export { GithubIcon };
+const icon = withAnimatedIconWrapper(GithubIcon);
+export { icon as GithubIcon };

@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ActivityIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ActivityIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
+const ActivityIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -98,4 +90,5 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
 );
 
 ActivityIcon.displayName = "ActivityIcon";
-export { ActivityIcon };
+const icon = withAnimatedIconWrapper(ActivityIcon);
+export { icon as ActivityIcon };

@@ -1,21 +1,12 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SnowflakeIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface SnowflakeIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
+const SnowflakeIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -117,4 +108,5 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 );
 
 SnowflakeIcon.displayName = "SnowflakeIcon";
-export { SnowflakeIcon };
+const icon = withAnimatedIconWrapper(SnowflakeIcon);
+export { icon as SnowflakeIcon };

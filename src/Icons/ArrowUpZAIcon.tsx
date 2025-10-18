@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ArrowUpZaIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ArrowUpZaIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ArrowUpZaIcon = forwardRef<ArrowUpZaIconHandle, ArrowUpZaIconProps>(
+const ArrowUpZaIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -164,4 +156,5 @@ const ArrowUpZaIcon = forwardRef<ArrowUpZaIconHandle, ArrowUpZaIconProps>(
 );
 
 ArrowUpZaIcon.displayName = "ArrowUpZaIcon";
-export { ArrowUpZaIcon };
+const icon = withAnimatedIconWrapper(ArrowUpZaIcon);
+export { icon as ArrowUpZaIcon };

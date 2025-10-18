@@ -1,7 +1,9 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import {
 	forwardRef,
@@ -11,17 +13,7 @@ import {
 	useRef,
 } from "react";
 
-export interface BrainHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BrainProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BrainIcon = forwardRef<BrainHandle, BrainProps>(
+const BrainIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -276,4 +268,5 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
 );
 
 BrainIcon.displayName = "BrainIcon";
-export { BrainIcon };
+const icon = withAnimatedIconWrapper(BrainIcon);
+export { icon as BrainIcon };

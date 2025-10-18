@@ -1,24 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkMinusIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BookmarkMinusIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BookmarkMinusIcon = forwardRef<
-	BookmarkMinusIconHandle,
-	BookmarkMinusIconProps
->(
+const BookmarkMinusIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -107,4 +96,5 @@ const BookmarkMinusIcon = forwardRef<
 );
 
 BookmarkMinusIcon.displayName = "BookmarkMinusIcon";
-export { BookmarkMinusIcon };
+const icon = withAnimatedIconWrapper(BookmarkMinusIcon);
+export { icon as BookmarkMinusIcon };

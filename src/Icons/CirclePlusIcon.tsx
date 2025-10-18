@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CirclePlusIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface CirclePlusIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const CirclePlusIcon = forwardRef<CirclePlusIconHandle, CirclePlusIconProps>(
+const CirclePlusIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -103,4 +95,5 @@ const CirclePlusIcon = forwardRef<CirclePlusIconHandle, CirclePlusIconProps>(
 );
 
 CirclePlusIcon.displayName = "CirclePlusIcon";
-export { CirclePlusIcon };
+const icon = withAnimatedIconWrapper(CirclePlusIcon);
+export { icon as CirclePlusIcon };

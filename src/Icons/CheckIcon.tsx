@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CheckIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface CheckIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const CheckIcon = forwardRef<CheckIconHandle, CheckIconProps>(
+const CheckIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -93,4 +85,5 @@ const CheckIcon = forwardRef<CheckIconHandle, CheckIconProps>(
 );
 
 CheckIcon.displayName = "CheckIcon";
-export { CheckIcon };
+const icon = withAnimatedIconWrapper(CheckIcon);
+export { icon as CheckIcon };

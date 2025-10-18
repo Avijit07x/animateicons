@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface KeyRoundHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface KeyRoundProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
+const KeyRoundIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -152,4 +144,5 @@ const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
 );
 
 KeyRoundIcon.displayName = "KeyRoundIcon";
-export { KeyRoundIcon };
+const icon = withAnimatedIconWrapper(KeyRoundIcon);
+export { icon as KeyRoundIcon };

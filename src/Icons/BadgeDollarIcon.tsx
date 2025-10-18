@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BadgeDollarIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BadgeDollarIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
+const BadgeDollarIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -158,4 +150,5 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
 );
 
 BadgeDollarIcon.displayName = "BadgeDollarIcon";
-export { BadgeDollarIcon };
+const icon = withAnimatedIconWrapper(BadgeDollarIcon);
+export { icon as BadgeDollarIcon };

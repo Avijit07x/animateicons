@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkXIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface BookmarkXIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
+const BookmarkXIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -99,4 +91,5 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
 );
 
 BookmarkXIcon.displayName = "BookmarkXIcon";
-export { BookmarkXIcon };
+const icon = withAnimatedIconWrapper(BookmarkXIcon);
+export { icon as BookmarkXIcon };

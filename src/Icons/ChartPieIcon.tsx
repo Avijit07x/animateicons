@@ -1,21 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ChartPieIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface ChartPieIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
+const ChartPieIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -121,4 +113,5 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
 );
 
 ChartPieIcon.displayName = "ChartPieIcon";
-export { ChartPieIcon };
+const icon = withAnimatedIconWrapper(ChartPieIcon);
+export { icon as ChartPieIcon };

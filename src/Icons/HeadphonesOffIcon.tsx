@@ -1,24 +1,13 @@
 "use client";
 
+import { withAnimatedIconWrapper } from "@/components/AnimatedIconsWrapper";
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface HeadphonesOffIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface HeadphonesOffIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	speed?: number;
-}
-
-const HeadphonesOffIcon = forwardRef<
-	HeadphonesOffIconHandle,
-	HeadphonesOffIconProps
->(
+const HeadphonesOffIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	(
 		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
 		ref,
@@ -122,4 +111,5 @@ const HeadphonesOffIcon = forwardRef<
 );
 
 HeadphonesOffIcon.displayName = "HeadphonesOffIcon";
-export { HeadphonesOffIcon };
+const icon = withAnimatedIconWrapper(HeadphonesOffIcon);
+export { icon as HeadphonesOffIcon };
