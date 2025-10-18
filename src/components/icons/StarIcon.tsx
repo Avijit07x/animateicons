@@ -1,20 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import { AnimatedIconProps, AnimatedIconRef } from "@/types";
+import type { Variants } from "motion/react";
+import { motion, useAnimation } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface StarIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface StarIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-}
-
-const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
+const StarIcon = forwardRef<AnimatedIconRef, AnimatedIconProps>(
 	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
 		const controls = useAnimation();
 		const isControlled = useRef(false);

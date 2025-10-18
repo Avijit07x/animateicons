@@ -5,11 +5,12 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CopyIcon, CopyIconHandle } from "@/Icons/CopyIcon";
-import { TerminalIcon, TerminalIconHandle } from "@/Icons/TerminalIcon";
+import { CopyIcon } from "@/Icons/CopyIcon";
+import { TerminalIcon } from "@/Icons/TerminalIcon";
 import { differenceInDays } from "date-fns";
 import React, { useState } from "react";
 import { CheckIcon } from "./icons/CheckIcon";
+import { AnimatedIconRef, IconListItem } from "@/types";
 
 type Props = {
 	item: IconListItem;
@@ -18,8 +19,8 @@ type Props = {
 const IconTile: React.FC<Props> = ({ item }) => {
 	const [copied, setCopied] = useState(false);
 	const [copiedCli, setCopiedCli] = useState(false);
-	const cliRef = React.useRef<TerminalIconHandle>(null);
-	const codeRef = React.useRef<CopyIconHandle>(null);
+	const cliRef = React.useRef<AnimatedIconRef>(null);
+	const codeRef = React.useRef<AnimatedIconRef>(null);
 
 	const IconComponent = item.icon;
 

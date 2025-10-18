@@ -1,9 +1,10 @@
 "use client";
 
-import { CopyIcon, CopyIconHandle } from "@/Icons/CopyIcon";
+import { CopyIcon } from "@/Icons/CopyIcon";
 import React from "react";
 import { CheckIcon } from "./icons/CheckIcon";
 import { Button } from "./ui/button";
+import { AnimatedIconRef } from "@/types";
 
 type Props = {
 	copyToClipboard: () => void;
@@ -11,7 +12,7 @@ type Props = {
 };
 
 const CmdCopy: React.FC<Props> = ({ copyToClipboard, copied }) => {
-	const copyRef = React.useRef<CopyIconHandle>(null);
+	const copyRef = React.useRef<AnimatedIconRef>(null);
 
 	return (
 		<>

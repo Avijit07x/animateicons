@@ -14,7 +14,7 @@ const IconSection = () => {
 
 		const nameMatch = item.name.toLowerCase().includes(searchText);
 
-		const keywordMatch = item.keywords?.some((keyword) =>
+		const keywordMatch = item.keywords?.some((keyword: string) =>
 			keyword.toLowerCase().trim().includes(searchText),
 		);
 

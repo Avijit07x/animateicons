@@ -1,18 +1,19 @@
 "use client";
 
-import { GithubIcon, GithubIconHandle } from "@/Icons/GithubIcon";
+import { GithubIcon } from "@/Icons/GithubIcon";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { StarIcon, StarIconHandle } from "./icons/StarIcon";
+import { StarIcon } from "./icons/StarIcon";
 import { NumberTicker } from "./magicui/number-ticker";
+import { AnimatedIconRef } from "@/types";
 
 const Navbar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [stars, setStars] = useState<number | null>(250);
-	const starRef = useRef<StarIconHandle>(null);
-	const githubRef = useRef<GithubIconHandle>(null);
+	const starRef = useRef<AnimatedIconRef>(null);
+	const githubRef = useRef<AnimatedIconRef>(null);
 	const toggleMenu = () => setIsOpen(!isOpen);
 
 	useEffect(() => {
