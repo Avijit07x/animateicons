@@ -46,7 +46,7 @@ export const AnimatedIconWrapper = React.forwardRef<AnimatedIconRef, Props>(
 					}
 				},
 			};
-		});
+		}, [startAnimationDelay, stopAnimationDelay]);
 
 		return (
 			<Icon
