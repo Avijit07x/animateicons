@@ -1,12 +1,3 @@
-import { NextResponse } from "next/server";
-
-type GithubRepoResponse = {
-	stargazers_count: number;
-};
-
-type StarsApiResponse = {
-	stars: number | null;
-};
 
 export async function GET(): Promise<NextResponse<StarsApiResponse>> {
 	try {
