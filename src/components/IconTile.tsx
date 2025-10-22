@@ -51,7 +51,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	};
 
 	function isNew(addedAt: string) {
-		return differenceInDays(new Date(), new Date(addedAt)) <= 7;
+		return differenceInDays(new Date(), new Date(addedAt)) <= 3;
 	}
 
 	return (
