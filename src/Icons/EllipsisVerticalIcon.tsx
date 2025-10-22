@@ -59,24 +59,18 @@ const EllipsisVerticalIcon = forwardRef<
 			[controls, onMouseLeave],
 		);
 
-		const dotVariants: Variants = reduced
-			? {
-					normal: { y: 0, opacity: 1 },
-					animate: { y: 0, opacity: 1 },
-				}
-			: {
-					normal: { y: 0, opacity: 1 },
-					animate: (i) => ({
-						y: [-3.5, 0],
-						opacity: [0.4, 0.8, 1, 0.8, 0.4, 1],
-						transition: {
-							duration: 0.8 * speed,
-							delay: i * 0.2,
-							ease: "easeInOut",
-							repeat: 0,
-						},
-					}),
-				};
+		const dotVariants: Variants = {
+			normal: { opacity: 1 },
+			animate: (i) => ({
+				opacity: [0.4, 0.8, 1, 0.8, 0.4, 1],
+				transition: {
+					duration: 0.8 * speed,
+					delay: i * 0.2,
+					ease: "easeInOut",
+					repeat: 0,
+				},
+			}),
+		};
 
 		return (
 			<motion.div
