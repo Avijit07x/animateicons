@@ -12,12 +12,19 @@ export interface FolderIconHandle {
 
 interface FolderIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const FolderIcon = forwardRef<FolderIconHandle, FolderIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const folderControls = useAnimation();
@@ -64,7 +71,7 @@ const FolderIcon = forwardRef<FolderIconHandle, FolderIconProps>(
 				scale: [1, 1.05, 0.98, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -2, 1, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 

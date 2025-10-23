@@ -12,12 +12,19 @@ export interface BellIconHandle {
 
 interface BellIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
 			animate: {
 				rotate: [0, -18, 15, -10, 6, -3, 0],
 				transition: {
-					duration: 1.6 * speed,
+					duration: 1.6 * duration,
 					repeat: 0,
 					ease: "easeInOut",
 				},
@@ -70,7 +77,7 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
 			animate: {
 				x: [0, -4, 4, -2, 2, 0],
 				transition: {
-					duration: 1.6 * speed,
+					duration: 1.6 * duration,
 					repeat: 0,
 					ease: "easeInOut",
 				},

@@ -12,12 +12,19 @@ export interface YenYuanIconHandle {
 
 interface YenYuanIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
 				scale: [1, 1.06, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,11 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.06 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.06,
+				},
 			},
 		};
 
@@ -74,7 +85,11 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.22 },
+				transition: {
+					duration: 0.6 * duration,
+					ease: "easeInOut",
+					delay: 0.22,
+				},
 			},
 		};
 
@@ -83,7 +98,11 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.34 },
+				transition: {
+					duration: 0.6 * duration,
+					ease: "easeInOut",
+					delay: 0.34,
+				},
 			},
 		};
 

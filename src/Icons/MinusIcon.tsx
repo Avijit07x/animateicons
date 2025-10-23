@@ -12,12 +12,19 @@ export interface MinusIconHandle {
 
 interface MinusIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.5, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 0.8 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -63,7 +70,7 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.1, 0.9, 1],
-				transition: { duration: 1 * speed, repeat: 0, ease: "easeInOut" },
+				transition: { duration: 1 * duration, repeat: 0, ease: "easeInOut" },
 			},
 		};
 

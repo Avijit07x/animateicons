@@ -12,7 +12,7 @@ export interface BookmarkPlusIconHandle {
 
 interface BookmarkPlusIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BookmarkPlusIcon = forwardRef<
@@ -20,7 +20,14 @@ const BookmarkPlusIcon = forwardRef<
 	BookmarkPlusIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const BookmarkPlusIcon = forwardRef<
 			animate: {
 				scale: [1, 1.08, 0.96, 1],
 				y: [0, -2, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -67,7 +74,7 @@ const BookmarkPlusIcon = forwardRef<
 			animate: {
 				scale: [1, 1.2, 0.9, 1],
 				opacity: [1, 0.8, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 

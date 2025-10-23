@@ -12,12 +12,19 @@ export interface BatteryFullIconHandle {
 
 interface BatteryFullIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
 				rotate: [0, -2, 2, 0],
 				scale: [1, 1.05, 0.95, 1],
 				transition: {
-					duration: 1.5 * speed,
+					duration: 1.5 * duration,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 				},
@@ -69,7 +76,7 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
 				opacity: [0.4, 1, 0.8],
 				scaleY: [0.6, 1, 0.8],
 				transition: {
-					duration: 1 * speed,
+					duration: 1 * duration,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 					delay: i * 0.25,
@@ -82,7 +89,7 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
 			animate: {
 				opacity: [0.6, 1, 0.7, 1],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: [0.42, 0, 0.58, 1],
 					repeat: 0,
 				},

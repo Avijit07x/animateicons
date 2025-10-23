@@ -12,12 +12,19 @@ export interface CircleCheckIconHandle {
 
 interface CircleCheckIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -74,7 +81,7 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
 			animate: {
 				scale: [1, 1.1, 0.95, 1],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: [0.42, 0, 0.58, 1],
 				},
 			},
@@ -91,7 +98,7 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
 				pathLength: [0, 1],
 				opacity: 1,
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: [0.42, 0, 0.58, 1],
 				},
 			},

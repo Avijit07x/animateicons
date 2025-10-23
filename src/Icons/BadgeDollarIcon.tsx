@@ -12,12 +12,19 @@ export interface BadgeDollarIconHandle {
 
 interface BadgeDollarIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const outerControls = useAnimation();
@@ -77,7 +84,7 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
 				strokeDashoffset: [260, 20, 0],
 				scale: [1, 0.98, 1.03, 1],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: [0.2, 0.85, 0.25, 1],
 					times: [0, 0.35, 0.7, 1],
 				},
@@ -90,7 +97,7 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
 				strokeDashoffset: [140, 0],
 				scale: [1, 1.06, 0.98, 1],
 				transition: {
-					duration: 0.9 * speed,
+					duration: 0.9 * duration,
 					ease: [0.22, 0.9, 0.28, 1],
 					delay: 0.32,
 					times: [0, 0.45, 0.8, 1],
@@ -105,7 +112,7 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
 				scaleY: [1, 1.16, 0.98, 1],
 				opacity: [0.9, 1, 1],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: [0.22, 0.9, 0.28, 1],
 					delay: 0.18,
 				},

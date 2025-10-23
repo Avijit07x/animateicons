@@ -12,7 +12,7 @@ export interface PhilippinePesoIconHandle {
 
 interface PhilippinePesoIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const PhilippinePesoIcon = forwardRef<
@@ -20,7 +20,14 @@ const PhilippinePesoIcon = forwardRef<
 	PhilippinePesoIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -59,7 +66,7 @@ const PhilippinePesoIcon = forwardRef<
 				scale: [1, 1.06, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -68,7 +75,11 @@ const PhilippinePesoIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.06 },
+				transition: {
+					duration: 0.6 * duration,
+					ease: "easeInOut",
+					delay: 0.06,
+				},
 			},
 		};
 
@@ -77,7 +88,11 @@ const PhilippinePesoIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 0.55 * speed, ease: "easeInOut", delay: 0.16 },
+				transition: {
+					duration: 0.55 * duration,
+					ease: "easeInOut",
+					delay: 0.16,
+				},
 			},
 		};
 
@@ -86,7 +101,11 @@ const PhilippinePesoIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.26 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.26,
+				},
 			},
 		};
 

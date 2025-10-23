@@ -12,12 +12,19 @@ export interface BellMinusIconHandle {
 
 interface BellMinusIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BellMinusIcon = forwardRef<BellMinusIconHandle, BellMinusIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -57,7 +64,7 @@ const BellMinusIcon = forwardRef<BellMinusIconHandle, BellMinusIconProps>(
 			normal: { rotate: 0 },
 			animate: {
 				rotate: [0, -12, 10, -6, 3, 0],
-				transition: { duration: 1.4 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.4 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -65,7 +72,7 @@ const BellMinusIcon = forwardRef<BellMinusIconHandle, BellMinusIconProps>(
 			normal: { x: 0 },
 			animate: {
 				x: [0, -3, 3, -2, 1, 0],
-				transition: { duration: 1.4 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.4 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -75,7 +82,7 @@ const BellMinusIcon = forwardRef<BellMinusIconHandle, BellMinusIconProps>(
 				scaleX: [1, 0.6, 1.2, 1],
 				rotate: [0, -10, 10, 0],
 				opacity: [1, 0.6, 1],
-				transition: { duration: 1.2 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 

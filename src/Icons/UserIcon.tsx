@@ -12,12 +12,19 @@ export interface UserIconHandle {
 
 interface UserIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -54,7 +61,7 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -63,7 +70,7 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 			animate: {
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.5 * speed, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.2 },
 			},
 		};
 

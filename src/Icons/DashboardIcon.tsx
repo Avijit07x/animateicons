@@ -12,12 +12,19 @@ export interface DashboardIconHandle {
 
 interface DashboardIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.95, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.3 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -66,7 +73,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 				scale: [0.9, 1.1, 1],
 				y: [2, -2, 0],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: "easeInOut",
 					repeat: 0,
 					delay: i * 0.2,

@@ -12,7 +12,7 @@ export interface BookOpenCheckIconHandle {
 
 interface BookOpenCheckIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BookOpenCheckIcon = forwardRef<
@@ -20,7 +20,14 @@ const BookOpenCheckIcon = forwardRef<
 	BookOpenCheckIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const BookOpenCheckIcon = forwardRef<
 			animate: {
 				scale: [1, 1.06, 0.97, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -67,7 +74,7 @@ const BookOpenCheckIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: 1,
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -76,7 +83,7 @@ const BookOpenCheckIcon = forwardRef<
 			animate: {
 				scale: [1, 1.05, 0.98, 1],
 				opacity: 1,
-				transition: { duration: 0.8 * speed, ease: "easeOut", delay: 0.15 },
+				transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.15 },
 			},
 		};
 
@@ -85,7 +92,7 @@ const BookOpenCheckIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: 1,
-				transition: { duration: 0.7 * speed, ease: "easeOut", delay: 0.25 },
+				transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.25 },
 			},
 		};
 

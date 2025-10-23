@@ -12,12 +12,19 @@ export interface ContactRoundHandle {
 
 interface ContactRoundProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 			animate: {
 				strokeDashoffset: [100, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,7 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					delay: 0.3,
 					ease: "easeOut",
 				},
@@ -78,7 +85,7 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 				x: [-10, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeOut",
 					delay: 0.6,
 				},
@@ -91,7 +98,7 @@ const ContactRoundIcon = forwardRef<ContactRoundHandle, ContactRoundProps>(
 				strokeDashoffset: [30, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					delay: 0.5,
 					ease: "easeInOut",
 				},

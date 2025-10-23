@@ -12,12 +12,19 @@ export interface SettingsIconHandle {
 
 interface SettingsIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
 				rotate: [0, 16, 0],
 				scale: [1, 1.06, 1],
 				y: [0, -0.8, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,11 @@ const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
 			animate: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.7 * speed, ease: "easeInOut", delay: 0.06 },
+				transition: {
+					duration: 0.7 * duration,
+					ease: "easeInOut",
+					delay: 0.06,
+				},
 			},
 		};
 
@@ -75,7 +86,11 @@ const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
 				pathLength: 1,
 				scale: [1, 1.08, 1],
 				opacity: [1, 1, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.26 },
+				transition: {
+					duration: 0.6 * duration,
+					ease: "easeInOut",
+					delay: 0.26,
+				},
 			},
 		};
 
@@ -84,7 +99,7 @@ const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
 			animate: {
 				opacity: [0, 1, 0],
 				scale: [0.6, 1.25, 1],
-				transition: { duration: 0.35 * speed, ease: "easeOut", delay },
+				transition: { duration: 0.35 * duration, ease: "easeOut", delay },
 			},
 		});
 

@@ -12,12 +12,19 @@ export interface UserLockIconHandle {
 
 interface UserLockIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -53,7 +60,7 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.05, 1],
-				transition: { duration: 0.4 * speed },
+				transition: { duration: 0.4 * duration },
 			},
 		};
 
@@ -62,7 +69,7 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
 			animate: {
 				x: [0, -2, 2, -2, 2, 0],
 				rotate: [0, -3, 3, -3, 3, 0],
-				transition: { duration: 0.5 * speed },
+				transition: { duration: 0.5 * duration },
 			},
 		};
 

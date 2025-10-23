@@ -12,7 +12,7 @@ export interface BringToFrontIconHandle {
 
 interface BringToFrontIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BringToFrontIcon = forwardRef<
@@ -20,7 +20,14 @@ const BringToFrontIcon = forwardRef<
 	BringToFrontIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -53,58 +60,43 @@ const BringToFrontIcon = forwardRef<
 			[controls, onMouseLeave],
 		);
 
-		const svgVariants: Variants = reduced
-			? {
-					normal: { scale: 1, rotate: 0 },
-					animate: { scale: 1, rotate: 0 },
-				}
-			: {
-					normal: { scale: 1, rotate: 0 },
-					animate: {
-						rotate: [0, -3, 3, 0],
-						scale: [1, 1.05, 0.95, 1],
-						transition: {
-							duration: 1.4 * speed,
-							ease: [0.42, 0, 0.58, 1],
-							repeat: 0,
-						},
-					},
-				};
+		const svgVariants: Variants = {
+			normal: { scale: 1, rotate: 0 },
+			animate: {
+				rotate: [0, -3, 3, 0],
+				scale: [1, 1.05, 0.95, 1],
+				transition: {
+					duration: 1.4 * duration,
+					ease: [0.42, 0, 0.58, 1],
+					repeat: 0,
+				},
+			},
+		};
 
-		const pathVariants: Variants = reduced
-			? {
-					normal: { pathLength: 1, opacity: 1 },
-					animate: { pathLength: 1, opacity: 1 },
-				}
-			: {
-					normal: { pathLength: 1, opacity: 1 },
-					animate: {
-						pathLength: [0, 1],
-						opacity: [0.5, 1],
-						transition: {
-							duration: 1.2 * speed,
-							ease: [0.42, 0, 0.58, 1],
-							repeat: 0,
-						},
-					},
-				};
+		const pathVariants: Variants = {
+			normal: { pathLength: 1, opacity: 1 },
+			animate: {
+				pathLength: [0, 1],
+				opacity: [0.5, 1],
+				transition: {
+					duration: 1.2 * duration,
+					ease: [0.42, 0, 0.58, 1],
+					repeat: 0,
+				},
+			},
+		};
 
-		const rectVariants: Variants = reduced
-			? {
-					normal: { scale: 1 },
-					animate: { scale: 1 },
-				}
-			: {
-					normal: { scale: 1 },
-					animate: {
-						scale: [1, 1.2, 0.9, 1],
-						transition: {
-							duration: 1 * speed,
-							ease: [0.42, 0, 0.58, 1],
-							repeat: 0,
-						},
-					},
-				};
+		const rectVariants: Variants = {
+			normal: { scale: 1 },
+			animate: {
+				scale: [1, 1.2, 0.9, 1],
+				transition: {
+					duration: 1 * duration,
+					ease: [0.42, 0, 0.58, 1],
+					repeat: 0,
+				},
+			},
+		};
 
 		return (
 			<motion.div

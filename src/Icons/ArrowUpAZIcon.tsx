@@ -12,12 +12,19 @@ export interface ArrowUpAzIconHandle {
 
 interface ArrowUpAzIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				scale: [1, 1.1, 0.95, 1],
 				rotate: [0, -5, 3, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -64,7 +71,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				y: [6, -2, 0],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * speed, ease: "easeOut" },
+				transition: { duration: 0.6 * duration, ease: "easeOut" },
 			},
 		};
 
@@ -73,7 +80,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeInOut",
 					delay: 0.1,
 				},
@@ -86,7 +93,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 				opacity: [0, 1],
 				y: [-4, 0],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeOut",
 					delay: 0.2,
 				},
@@ -99,7 +106,7 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
 				opacity: [0, 1],
 				x: [6, 0],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeOut",
 					delay: 0.3,
 				},

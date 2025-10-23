@@ -12,12 +12,19 @@ export interface HouseHandle {
 
 interface HouseProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 				strokeDashoffset: [100, 0],
 				opacity: [0.35, 1],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: "easeInOut" as const,
 				},
 			},
@@ -68,7 +75,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 				scaleY: [0.6, 1.15, 1],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					delay: 0.45,
 					ease: "easeOut" as const,
 				},
@@ -82,7 +89,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 				y: [-2, -6, -10],
 				scale: [0.8, 1, 1.1],
 				transition: {
-					duration: 1.1 * speed,
+					duration: 1.1 * duration,
 					delay: 0.3,
 					ease: "easeInOut" as const,
 				},
@@ -95,7 +102,7 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
 				rotate: [0, -1.5, 1.5, 0],
 				scale: [1, 1.02, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 				},
 			},

@@ -12,7 +12,7 @@ export interface CircleChevronDownIconHandle {
 
 interface CircleChevronDownIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const CircleChevronDownIcon = forwardRef<
@@ -20,7 +20,14 @@ const CircleChevronDownIcon = forwardRef<
 	CircleChevronDownIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const circleControls = useAnimation();
@@ -84,7 +91,7 @@ const CircleChevronDownIcon = forwardRef<
 				scale: [1, 1.1, 0.9, 1.05, 1],
 				opacity: 1,
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: "easeInOut",
 				},
 			},
@@ -96,7 +103,7 @@ const CircleChevronDownIcon = forwardRef<
 				y: [-10, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeOut",
 				},
 			},

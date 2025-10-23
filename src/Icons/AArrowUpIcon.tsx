@@ -12,12 +12,19 @@ export interface AArrowUpIconHandle {
 
 interface AArrowUpIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const groupControls = useAnimation();
@@ -104,7 +111,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 				scale: [1, 1.06, 0.98, 1],
 				rotate: [0, -1.5, 1, 0],
 				transition: {
-					duration: 0.85 * speed,
+					duration: 0.85 * duration,
 					ease: [0.22, 0.9, 0.32, 1],
 				},
 			},
@@ -117,7 +124,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 				scale: [1, 1.12, 1],
 				opacity: [0.6, 1, 1],
 				transition: {
-					duration: 0.9 * speed,
+					duration: 0.9 * duration,
 					ease: "easeOut",
 					delay: 0.06,
 				},
@@ -131,7 +138,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 				y: [6, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: "easeOut",
 					delay: 0.12,
 				},
@@ -144,7 +151,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 				x: [8, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeOut",
 					delay: 0.02,
 				},
@@ -158,7 +165,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
 				opacity: [0, 1],
 				scaleX: [0.9, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeInOut",
 					delay: 0.18,
 				},

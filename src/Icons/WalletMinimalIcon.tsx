@@ -12,7 +12,7 @@ export interface WalletMinimalIconHandle {
 
 interface WalletMinimalIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const WalletMinimalIcon = forwardRef<
@@ -20,7 +20,14 @@ const WalletMinimalIcon = forwardRef<
 	WalletMinimalIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const WalletMinimalIcon = forwardRef<
 			animate: {
 				rotate: [-2, 0, -1, 0],
 				scale: [1, 1.02, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" as const },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" as const },
 			},
 		};
 
@@ -67,7 +74,7 @@ const WalletMinimalIcon = forwardRef<
 			animate: {
 				strokeDashoffset: [120, 0],
 				opacity: [0.4, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" as const },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" as const },
 			},
 		};
 
@@ -77,7 +84,7 @@ const WalletMinimalIcon = forwardRef<
 				scale: [0.7, 1.25, 1],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.45 * speed,
+					duration: 0.45 * duration,
 					delay: 0.4,
 					ease: "easeOut" as const,
 				},
@@ -90,7 +97,7 @@ const WalletMinimalIcon = forwardRef<
 				x: [0, 3, 0],
 				opacity: [0, 1, 0],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					delay: 0.5,
 					ease: "easeInOut" as const,
 				},
@@ -103,7 +110,7 @@ const WalletMinimalIcon = forwardRef<
 				x: [-18, 22],
 				opacity: [0, 0.35, 0],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					delay: 0.25,
 					ease: "easeInOut" as const,
 				},

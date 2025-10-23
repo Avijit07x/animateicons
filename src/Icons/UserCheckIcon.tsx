@@ -12,12 +12,19 @@ export interface UserCheckHandle {
 
 interface UserCheckProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserCheckIcon = forwardRef<UserCheckHandle, UserCheckProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const UserCheckIcon = forwardRef<UserCheckHandle, UserCheckProps>(
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					delay: 0.2,
 					ease: "easeInOut",
 				},
@@ -68,7 +75,7 @@ const UserCheckIcon = forwardRef<UserCheckHandle, UserCheckProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * speed, ease: "easeOut" },
+				transition: { duration: 0.6 * duration, ease: "easeOut" },
 			},
 		};
 
@@ -78,7 +85,7 @@ const UserCheckIcon = forwardRef<UserCheckHandle, UserCheckProps>(
 				strokeDashoffset: [20, 0],
 				opacity: [0.3, 1],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeInOut",
 					delay: 0.5,
 				},

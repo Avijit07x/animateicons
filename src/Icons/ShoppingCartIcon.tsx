@@ -12,7 +12,7 @@ export interface ShoppingCartIconHandle {
 
 interface ShoppingCartIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ShoppingCartIcon = forwardRef<
@@ -20,7 +20,14 @@ const ShoppingCartIcon = forwardRef<
 	ShoppingCartIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -62,7 +69,7 @@ const ShoppingCartIcon = forwardRef<
 				y: [0, -3, 0, -1, 0],
 				rotate: [0, -4, 3, -2, 0],
 				transition: {
-					duration: 1.8 * speed,
+					duration: 1.8 * duration,
 					repeat: 0,
 					ease: "easeInOut",
 				},
@@ -73,7 +80,7 @@ const ShoppingCartIcon = forwardRef<
 			normal: { rotate: 0 },
 			animate: {
 				rotate: [0, 360],
-				transition: { duration: 1 * speed, ease: "linear", repeat: 0 },
+				transition: { duration: 1 * duration, ease: "linear", repeat: 0 },
 			},
 		};
 

@@ -12,12 +12,19 @@ export interface HeadsetIconHandle {
 
 interface HeadsetIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const frameControls = useAnimation();
@@ -72,7 +79,7 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
 				scale: [1, 0.96, 1.06, 1],
 				rotate: [0, -2, 1, 0],
 				transition: {
-					duration: 0.95 * speed,
+					duration: 0.95 * duration,
 					ease: [0.2, 0.85, 0.25, 1],
 					times: [0, 0.35, 0.75, 1],
 				},
@@ -86,7 +93,7 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
 				x: [10, -4, 0],
 				opacity: [0, 1, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: [0.22, 0.9, 0.28, 1],
 					delay: 0.18,
 					times: [0, 0.5, 1],

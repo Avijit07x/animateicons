@@ -12,12 +12,19 @@ export interface SparklesIconHandle {
 
 interface SparklesIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 			animate: {
 				scale: [1, 1.06, 0.98, 1],
 				rotate: [0, -3, 3, 0],
-				transition: { duration: 1.1 * speed, ease: "easeInOut" },
+				transition: { duration: 1.1 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -64,7 +71,11 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 			animate: {
 				pathLength: [0.9, 1, 1],
 				opacity: [0.8, 1, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.05 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.05,
+				},
 			},
 		};
 
@@ -73,7 +84,11 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 			animate: {
 				opacity: [0.6, 1, 0.8, 1],
 				scale: [0.9, 1.05, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut", delay: 0.18 },
+				transition: {
+					duration: 0.8 * duration,
+					ease: "easeInOut",
+					delay: 0.18,
+				},
 			},
 		};
 
@@ -83,7 +98,11 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
 				opacity: [0.7, 1, 1],
 				scale: [0.85, 1.1, 1],
 				y: [1.5, -0.5, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.28 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.28,
+				},
 			},
 		};
 

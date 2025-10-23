@@ -12,12 +12,19 @@ export interface GlobeIconHandle {
 
 interface GlobeIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -72,7 +79,7 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
 			animate: {
 				scale: [1, 1.05, 1],
 				rotate: [0, -4, 4, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -81,7 +88,7 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.5, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 

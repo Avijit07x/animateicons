@@ -12,12 +12,19 @@ export interface UserStarHandle {
 
 interface UserStarProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeInOut" as const,
 				},
 			},
@@ -68,7 +75,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 				scale: [0.6, 1.2, 1],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeOut" as const,
 				},
 			},
@@ -81,7 +88,7 @@ const UserStarIcon = forwardRef<UserStarHandle, UserStarProps>(
 				rotate: [0, -15, 15, -10, 0],
 				opacity: [0.4, 1],
 				transition: {
-					duration: 1 * speed,
+					duration: 1 * duration,
 					ease: "easeInOut" as const,
 				},
 			},

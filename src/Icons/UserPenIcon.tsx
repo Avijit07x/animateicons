@@ -12,12 +12,19 @@ export interface UserPenHandle {
 
 interface UserPenProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					delay: 0.2,
 					ease: "easeInOut",
 				},
@@ -68,7 +75,7 @@ const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
 			animate: {
 				scale: [0.5, 1.15, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * speed, ease: "easeOut" },
+				transition: { duration: 0.6 * duration, ease: "easeOut" },
 			},
 		};
 
@@ -79,7 +86,7 @@ const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
 				x: [0, 2, -2, 1, 0],
 				y: [0, 2, -1, 1, 0],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					repeat: 1,
 					ease: "easeInOut",
 					delay: 0.6,

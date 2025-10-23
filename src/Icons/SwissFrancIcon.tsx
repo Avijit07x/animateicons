@@ -12,12 +12,19 @@ export interface SwissFrancIconHandle {
 
 interface SwissFrancIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
 				scale: [1, 1.06, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,11 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.75, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.06 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.06,
+				},
 			},
 		};
 
@@ -74,7 +85,11 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.75, 1],
-				transition: { duration: 0.55 * speed, ease: "easeInOut", delay: 0.18 },
+				transition: {
+					duration: 0.55 * duration,
+					ease: "easeInOut",
+					delay: 0.18,
+				},
 			},
 		};
 
@@ -83,7 +98,11 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.55 * speed, ease: "easeInOut", delay: 0.28 },
+				transition: {
+					duration: 0.55 * duration,
+					ease: "easeInOut",
+					delay: 0.28,
+				},
 			},
 		};
 

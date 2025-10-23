@@ -12,7 +12,7 @@ export interface UserRoundCheckHandle {
 
 interface UserRoundCheckProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserRoundCheckIcon = forwardRef<
@@ -20,7 +20,14 @@ const UserRoundCheckIcon = forwardRef<
 	UserRoundCheckProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -53,55 +60,40 @@ const UserRoundCheckIcon = forwardRef<
 			[controls, onMouseLeave],
 		);
 
-		const bodyVariants: Variants = reduced
-			? {
-					normal: { strokeDashoffset: 0, opacity: 1 },
-					animate: { strokeDashoffset: 0, opacity: 1 },
-				}
-			: {
-					normal: { strokeDashoffset: 0, opacity: 1 },
-					animate: {
-						strokeDashoffset: [40, 0],
-						opacity: [0.3, 1],
-						transition: {
-							duration: 0.6 * speed,
-							delay: 0.2,
-							ease: "easeInOut",
-						},
-					},
-				};
+		const bodyVariants: Variants = {
+			normal: { strokeDashoffset: 0, opacity: 1 },
+			animate: {
+				strokeDashoffset: [40, 0],
+				opacity: [0.3, 1],
+				transition: {
+					duration: 0.6 * duration,
+					delay: 0.2,
+					ease: "easeInOut",
+				},
+			},
+		};
 
-		const headVariants: Variants = reduced
-			? {
-					normal: { scale: 1, opacity: 1 },
-					animate: { scale: 1, opacity: 1 },
-				}
-			: {
-					normal: { scale: 1, opacity: 1 },
-					animate: {
-						scale: [0.5, 1.2, 1],
-						opacity: [0, 1],
-						transition: { duration: 0.6 * speed, ease: "easeOut" },
-					},
-				};
+		const headVariants: Variants = {
+			normal: { scale: 1, opacity: 1 },
+			animate: {
+				scale: [0.5, 1.2, 1],
+				opacity: [0, 1],
+				transition: { duration: 0.6 * duration, ease: "easeOut" },
+			},
+		};
 
-		const tickVariants: Variants = reduced
-			? {
-					normal: { strokeDashoffset: 0, opacity: 1 },
-					animate: { strokeDashoffset: 0, opacity: 1 },
-				}
-			: {
-					normal: { strokeDashoffset: 0, opacity: 1 },
-					animate: {
-						strokeDashoffset: [20, 0],
-						opacity: [0.3, 1],
-						transition: {
-							duration: 0.5 * speed,
-							ease: "easeInOut",
-							delay: 0.5,
-						},
-					},
-				};
+		const tickVariants: Variants = {
+			normal: { strokeDashoffset: 0, opacity: 1 },
+			animate: {
+				strokeDashoffset: [20, 0],
+				opacity: [0.3, 1],
+				transition: {
+					duration: 0.5 * duration,
+					ease: "easeInOut",
+					delay: 0.5,
+				},
+			},
+		};
 
 		return (
 			<motion.div

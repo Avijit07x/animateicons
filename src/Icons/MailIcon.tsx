@@ -12,12 +12,19 @@ export interface MailIconHandle {
 
 interface MailIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const flapControls = useAnimation();
@@ -75,7 +82,7 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
 			normal: { scale: 1 },
 			animate: {
 				scale: [1, 1.04, 1],
-				transition: { duration: 0.36 * speed, ease: "easeOut" },
+				transition: { duration: 0.36 * duration, ease: "easeOut" },
 			},
 		};
 
@@ -85,7 +92,7 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
 				rotateX: [-0, -12, 2, 0],
 				translateY: [0, -1.6, 0.6, 0],
 				transition: {
-					duration: 0.45 * speed,
+					duration: 0.45 * duration,
 					ease: "easeOut",
 					times: [0, 0.5, 0.85, 1],
 				},
@@ -96,7 +103,7 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
 			normal: { opacity: 1 },
 			animate: {
 				opacity: [1, 0.95, 1],
-				transition: { duration: 0.45 * speed, ease: "easeOut" },
+				transition: { duration: 0.45 * duration, ease: "easeOut" },
 			},
 		};
 

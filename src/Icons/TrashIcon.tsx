@@ -12,12 +12,19 @@ export interface DashboardIconHandle {
 
 interface DashboardIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const TrashIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const TrashIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			animate: {
 				scale: [1, 1.03, 1],
 
-				transition: { duration: 0.5 * speed, ease: "easeOut" },
+				transition: { duration: 0.5 * duration, ease: "easeOut" },
 			},
 		};
 
@@ -64,7 +71,11 @@ const TrashIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			animate: {
 				rotate: [0, -10, 6, -3, 0],
 				y: [0, -2, 0.5, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", delay: 0.05 },
+				transition: {
+					duration: 0.9 * duration,
+					ease: "easeInOut",
+					delay: 0.05,
+				},
 			},
 		};
 
@@ -73,7 +84,7 @@ const TrashIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			animate: {
 				scaleX: [0.85, 1.08, 1],
 				opacity: [0.9, 1, 1],
-				transition: { duration: 0.45 * speed, ease: "easeOut", delay: 0.1 },
+				transition: { duration: 0.45 * duration, ease: "easeOut", delay: 0.1 },
 			},
 		};
 
@@ -81,7 +92,7 @@ const TrashIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			normal: { y: 0, scaleY: 1, transformOrigin: "50% 100%" },
 			animate: {
 				scaleY: [1, 0.97, 1],
-				transition: { duration: 0.5 * speed, ease: "easeOut", delay: 0.2 },
+				transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.2 },
 			},
 		};
 

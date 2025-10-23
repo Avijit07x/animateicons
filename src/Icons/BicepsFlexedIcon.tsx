@@ -12,7 +12,7 @@ export interface BicepsFlexedIconHandle {
 
 interface BicepsFlexedIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BicepsFlexedIcon = forwardRef<
@@ -20,7 +20,14 @@ const BicepsFlexedIcon = forwardRef<
 	BicepsFlexedIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -57,11 +64,11 @@ const BicepsFlexedIcon = forwardRef<
 		);
 
 		const pathVariants: Variants = {
-			normal: { rotate: 0, scale: 1, transition: { duration: 0.3 * speed } },
+			normal: { rotate: 0, scale: 1, transition: { duration: 0.3 * duration } },
 			animate: {
 				rotate: [0, -10, 10, 0],
 				scale: [1, 1.2, 1.2, 1],
-				transition: { duration: 0.6 * speed },
+				transition: { duration: 0.6 * duration },
 			},
 		};
 

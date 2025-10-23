@@ -12,12 +12,19 @@ export interface TerminalIconHandle {
 
 interface TerminalIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -51,16 +58,20 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
 		);
 
 		const svgVariants: Variants = {
-			normal: { transition: { duration: 0.3 * speed } },
+			normal: { transition: { duration: 0.3 * duration } },
 			animate: { transition: { staggerChildren: 0.1 } },
 		};
 
 		const commandLineVariants: Variants = {
-			normal: { scaleX: 1, originX: 0, transition: { duration: 0.3 * speed } },
+			normal: {
+				scaleX: 1,
+				originX: 0,
+				transition: { duration: 0.3 * duration },
+			},
 			animate: {
 				scaleX: [1, 0.3, 1],
 				originX: 0,
-				transition: { duration: 0.6 * speed, times: [0, 0.5, 1], repeat: 0 },
+				transition: { duration: 0.6 * duration, times: [0, 0.5, 1], repeat: 0 },
 			},
 		};
 
@@ -69,7 +80,7 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
 			animate: {
 				x: [0, -2, 0],
 				opacity: [1, 0.6, 1],
-				transition: { duration: 0.5 * speed, repeat: 0 },
+				transition: { duration: 0.5 * duration, repeat: 0 },
 			},
 		};
 

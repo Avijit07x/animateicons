@@ -12,12 +12,19 @@ export interface SendIconHandle {
 
 interface SendIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
 				y: [0, -2, 0, 0],
 				scale: [1, 1.04, 1, 1],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: "easeInOut",
 					when: "beforeChildren",
 					staggerChildren: 0.08,
@@ -74,7 +81,7 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
 				x: [-4, -6, -8],
 				scaleX: [0.8, 1, 1.1],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeOut",
 					repeat: 0,
 					delay: 0.05,

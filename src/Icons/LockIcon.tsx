@@ -12,12 +12,19 @@ export interface LockIconHandle {
 
 interface LockIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
 			animate: {
 				x: [0, -3, 3, -3, 3, 0],
 				rotate: [0, -2, 2, -2, 2, 0],
-				transition: { duration: 0.4 * speed },
+				transition: { duration: 0.4 * duration },
 			},
 		};
 
