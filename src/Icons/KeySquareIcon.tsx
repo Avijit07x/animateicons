@@ -12,12 +12,19 @@ export interface KeySquareHandle {
 
 interface KeySquareProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -70,7 +77,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 			animate: {
 				scale: [1, 1.03, 0.995, 1],
 				rotate: [0, -3, 1, 0],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -80,7 +87,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeInOut",
 					delay: 0.05,
 				},
@@ -94,7 +101,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 				y: [0, -0.4, 0],
 				opacity: [0.5, 1],
 				transition: {
-					duration: 0.45 * speed,
+					duration: 0.45 * duration,
 					ease: "easeOut",
 					delay: 0.12,
 				},
@@ -107,7 +114,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 				scale: [1, 1.06, 1],
 				rotate: [0, -10, 0],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeInOut",
 					delay: 0.18,
 				},
@@ -120,7 +127,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
 				pathLength: [0, 1],
 				opacity: [0, 1, 0],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeOut",
 					delay: 0.36,
 				},

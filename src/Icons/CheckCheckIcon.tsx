@@ -12,12 +12,19 @@ export interface DoubleCheckHandle {
 
 interface CheckCheckIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const CheckCheckIcon = forwardRef<DoubleCheckHandle, CheckCheckIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const CheckCheckIcon = forwardRef<DoubleCheckHandle, CheckCheckIconProps>(
 				strokeDashoffset: [20, 0],
 				scale: [1, 1.2, 1],
 				opacity: [0.5, 1],
-				transition: { duration: 0.7 * speed, ease: "easeInOut" },
+				transition: { duration: 0.7 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,7 @@ const CheckCheckIcon = forwardRef<DoubleCheckHandle, CheckCheckIconProps>(
 			animate: {
 				opacity: [0, 1],
 				x: [-6, 0],
-				transition: { duration: 0.5 * speed, ease: "easeOut", delay: 0.35 },
+				transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.35 },
 			},
 		};
 

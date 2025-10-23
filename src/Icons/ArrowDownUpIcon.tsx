@@ -12,12 +12,19 @@ export interface ArrowDownUpIconHandle {
 
 interface ArrowDownUpIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ArrowDownUpIcon = forwardRef<ArrowDownUpIconHandle, ArrowDownUpIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const ArrowDownUpIcon = forwardRef<ArrowDownUpIconHandle, ArrowDownUpIconProps>(
 			animate: {
 				scale: [1, 1.08, 0.96, 1],
 				rotate: [0, -4, 2, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,7 @@ const ArrowDownUpIcon = forwardRef<ArrowDownUpIconHandle, ArrowDownUpIconProps>(
 				y: [-4, 2, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeOut",
 					delay: 0.1,
 				},
@@ -78,7 +85,7 @@ const ArrowDownUpIcon = forwardRef<ArrowDownUpIconHandle, ArrowDownUpIconProps>(
 				y: [4, -2, 0],
 				opacity: [0, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeOut",
 					delay: 0.15,
 				},
@@ -89,7 +96,7 @@ const ArrowDownUpIcon = forwardRef<ArrowDownUpIconHandle, ArrowDownUpIconProps>(
 			normal: { pathLength: 1 },
 			animate: {
 				pathLength: [0, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 

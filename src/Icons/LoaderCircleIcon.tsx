@@ -12,7 +12,7 @@ export interface LoaderCircleIconHandle {
 
 interface LoaderCircleIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const LoaderCircleIcon = forwardRef<
@@ -20,7 +20,14 @@ const LoaderCircleIcon = forwardRef<
 	LoaderCircleIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -80,7 +87,7 @@ const LoaderCircleIcon = forwardRef<
 						animate: {
 							rotate: 360,
 							transition: {
-								duration: 1 * speed,
+								duration: 1 * duration,
 								ease: "linear",
 								repeat: Infinity,
 							},

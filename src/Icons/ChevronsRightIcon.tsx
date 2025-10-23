@@ -12,7 +12,7 @@ export interface ChevronsRightIconHandle {
 
 interface ChevronsRightIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ChevronsRightIcon = forwardRef<
@@ -20,7 +20,14 @@ const ChevronsRightIcon = forwardRef<
 	ChevronsRightIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -62,7 +69,7 @@ const ChevronsRightIcon = forwardRef<
 				x: [0, 4, 0],
 				opacity: [1, 0.6, 1],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					repeat: 0,
 				},
 			},
@@ -74,7 +81,7 @@ const ChevronsRightIcon = forwardRef<
 				x: [0, 6, 0],
 				opacity: [0.5, 0.2, 0.5],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					repeat: 0,
 					delay: 0.2,
 				},

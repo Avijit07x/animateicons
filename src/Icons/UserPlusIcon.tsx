@@ -12,12 +12,19 @@ export interface UserPlusHandle {
 
 interface UserPlusProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 			animate: {
 				strokeDashoffset: [40, 0],
 				opacity: [0.3, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -64,7 +71,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 			animate: {
 				scale: [0.5, 1.2, 1],
 				opacity: [0, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -74,7 +81,7 @@ const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
 				scale: [1, 1.3, 1],
 				rotate: [0, 25, -25, 0],
 				opacity: 1,
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 

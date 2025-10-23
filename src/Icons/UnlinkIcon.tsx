@@ -12,12 +12,19 @@ export interface UnlinkIconHandle {
 
 interface UnlinkIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const leftChainControls = useAnimation();
@@ -76,7 +83,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
 			animate: {
 				x: [-2, -4, -2, 0],
 				rotate: [-5, -8, -5, 0],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -85,7 +92,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
 			animate: {
 				x: [2, 4, 2, 0],
 				rotate: [5, 8, 5, 0],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -94,7 +101,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0, 1, 0, 1],
-				transition: { duration: 0.5 * speed, ease: "easeInOut" },
+				transition: { duration: 0.5 * duration, ease: "easeInOut" },
 			},
 		};
 

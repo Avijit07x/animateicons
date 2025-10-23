@@ -12,12 +12,19 @@ export interface DownloadHandle {
 
 interface DownloadProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 				strokeDashoffset: [30, 0],
 				opacity: [0.4, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 				},
 			},
@@ -69,7 +76,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 				scale: [1, 1.05, 1],
 				opacity: [0.6, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 					delay: 0.05,
 				},
@@ -82,7 +89,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 				strokeDashoffset: [60, 0],
 				opacity: [0.3, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 					delay: 0.1,
 				},
@@ -94,7 +101,7 @@ const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
 			animate: {
 				scale: [1, 1.02, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 				},
 			},

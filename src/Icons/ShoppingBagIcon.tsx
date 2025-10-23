@@ -12,12 +12,19 @@ export interface ShoppingBagIconHandle {
 
 interface ShoppingBagIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -60,7 +67,7 @@ const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
 				rotate: [0, -4, 4, -2, 0],
 				y: [0, -3, 0, -1, 0],
 				transition: {
-					duration: 1.5 * speed,
+					duration: 1.5 * duration,
 					repeat: 0,
 					ease: "easeInOut",
 				},

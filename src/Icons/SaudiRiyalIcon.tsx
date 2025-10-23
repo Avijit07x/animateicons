@@ -12,12 +12,19 @@ export interface SaudiRiyalIconHandle {
 
 interface SaudiRiyalIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 				scale: [1, 1.06, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,11 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut", delay: 0.06 },
+				transition: {
+					duration: 0.8 * duration,
+					ease: "easeInOut",
+					delay: 0.06,
+				},
 			},
 		};
 
@@ -74,7 +85,11 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.75, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.18 },
+				transition: {
+					duration: 0.6 * duration,
+					ease: "easeInOut",
+					delay: 0.18,
+				},
 			},
 		};
 
@@ -83,7 +98,7 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.8 * speed, ease: "easeInOut", delay: 0.3 },
+				transition: { duration: 0.8 * duration, ease: "easeInOut", delay: 0.3 },
 			},
 		};
 
@@ -92,7 +107,11 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.8, 1],
-				transition: { duration: 0.5 * speed, ease: "easeInOut", delay: 0.44 },
+				transition: {
+					duration: 0.5 * duration,
+					ease: "easeInOut",
+					delay: 0.44,
+				},
 			},
 		};
 

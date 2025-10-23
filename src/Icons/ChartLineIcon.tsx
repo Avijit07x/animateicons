@@ -12,12 +12,19 @@ export interface ChartLineIconHandle {
 
 interface ChartLineIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ChartLineIcon = forwardRef<ChartLineIconHandle, ChartLineIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -57,13 +64,13 @@ const ChartLineIcon = forwardRef<ChartLineIconHandle, ChartLineIconProps>(
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.2 * speed },
+				transition: { duration: 0.2 * duration },
 			},
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut",
 				},
 			},
@@ -72,12 +79,12 @@ const ChartLineIcon = forwardRef<ChartLineIconHandle, ChartLineIconProps>(
 		const chartVariants: Variants = {
 			normal: {
 				scale: 1,
-				transition: { duration: 0.2 * speed },
+				transition: { duration: 0.2 * duration },
 			},
 			animate: {
 				scale: [1, 1.05, 1],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeInOut",
 				},
 			},

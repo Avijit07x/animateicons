@@ -12,12 +12,19 @@ export interface MoveRightIconHandle {
 
 interface MoveRightIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const MoveRightIcon = forwardRef<MoveRightIconHandle, MoveRightIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -54,7 +61,7 @@ const MoveRightIcon = forwardRef<MoveRightIconHandle, MoveRightIconProps>(
 			normal: { x: 0 },
 			animate: {
 				x: [0, 3, 0],
-				transition: { duration: 0.6 * speed, repeat: 0 },
+				transition: { duration: 0.6 * duration, repeat: 0 },
 			},
 		};
 
@@ -62,7 +69,7 @@ const MoveRightIcon = forwardRef<MoveRightIconHandle, MoveRightIconProps>(
 			normal: { strokeOpacity: 1 },
 			animate: {
 				strokeOpacity: [1, 0.5, 1],
-				transition: { duration: 0.8 * speed, repeat: 0 },
+				transition: { duration: 0.8 * duration, repeat: 0 },
 			},
 		};
 

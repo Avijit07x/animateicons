@@ -12,12 +12,19 @@ export interface SprayCanIconHandle {
 
 interface SprayCanIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -54,7 +61,7 @@ const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
 			normal: { rotate: 0, scale: 1 },
 			animate: {
 				rotate: [0, -4, 4, -2, 2, 0],
-				transition: { duration: 2 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 2 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -65,7 +72,7 @@ const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
 				opacity: [1, 0.4, 1],
 				y: [0, -2, 2, 0],
 				transition: {
-					duration: 1 * speed,
+					duration: 1 * duration,
 					ease: "easeInOut",
 					repeat: 0,
 					delay: i * 0.2,

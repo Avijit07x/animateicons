@@ -12,12 +12,19 @@ export interface MicOffIconHandle {
 
 interface MicOffIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 				scale: [1, 1.05, 0.95, 1],
 				rotate: [0, -3, 3, -2, 2, 0],
 				y: [0, -1, 0],
-				transition: { duration: 1.5 * speed, repeat: 0, ease: "easeInOut" },
+				transition: { duration: 1.5 * duration, repeat: 0, ease: "easeInOut" },
 			},
 		};
 
@@ -65,7 +72,7 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
 			animate: {
 				pathLength: [1, 0, 1],
 				opacity: 1,
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 

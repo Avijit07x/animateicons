@@ -12,12 +12,19 @@ export interface HandCoinsIconHandle {
 
 interface HandCoinsIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const groupControls = useAnimation();
@@ -76,7 +83,7 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.98, 1],
 				rotate: [0, -1.5, 1.5, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -85,7 +92,7 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
 			animate: {
 				scale: [1, 1.2, 0.95, 1],
 				opacity: [1, 0.9, 1],
-				transition: { duration: 0.7 * speed, ease: "easeOut", delay: 0.1 },
+				transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.1 },
 			},
 		};
 
@@ -94,7 +101,11 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 1.1 * speed, ease: "easeInOut", delay: 0.15 },
+				transition: {
+					duration: 1.1 * duration,
+					ease: "easeInOut",
+					delay: 0.15,
+				},
 			},
 		};
 

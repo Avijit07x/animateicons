@@ -12,12 +12,19 @@ export interface LayoutGridHandle {
 
 interface LayoutGridProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -48,7 +55,7 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
 				scale: [1, 1.03, 1],
 				rotate: [0, 1, 0],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut" as const,
 				},
 			},
@@ -60,7 +67,7 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
 				opacity: [0.4, 1],
 				scale: [0.85, 1.08, 1],
 				transition: {
-					duration: 0.55 * speed,
+					duration: 0.55 * duration,
 					delay: 0.08 * i,
 					ease: "easeOut" as const,
 				},
@@ -74,7 +81,7 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
 				y: [-26, 26],
 				opacity: [0, 0.35, 0],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: "easeInOut" as const,
 					delay: 0.1,
 				},

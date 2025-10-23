@@ -12,12 +12,19 @@ export interface SnowflakeIconHandle {
 
 interface SnowflakeIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -57,12 +64,12 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.3 * speed },
+				transition: { duration: 0.3 * duration },
 			},
 			animate: {
 				pathLength: [1, 0.3, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 0.8 * speed },
+				transition: { duration: 0.8 * duration },
 			},
 		};
 
@@ -87,12 +94,12 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
 						normal: {
 							rotate: 0,
 							scale: 1,
-							transition: { duration: 0.3 * speed },
+							transition: { duration: 0.3 * duration },
 						},
 						animate: {
 							rotate: [0, 10, -10, 0],
 							scale: [1, 1.05, 1],
-							transition: { duration: 1 * speed },
+							transition: { duration: 1 * duration },
 						},
 					}}
 					animate={controls}

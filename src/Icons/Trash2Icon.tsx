@@ -12,12 +12,19 @@ export interface Trash2IconHandle {
 
 interface Trash2IconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const binControls = useAnimation();
@@ -81,7 +88,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 				scale: [1, 1.05, 0.97, 1],
 				rotate: [0, -2, 2, 0],
 				y: [0, -1.5, 0],
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -90,7 +97,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 			animate: {
 				rotate: [-15, 5, 0],
 				y: [-2, 0],
-				transition: { duration: 0.7 * speed, ease: "easeOut", delay: 0.1 },
+				transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.1 },
 			},
 		};
 
@@ -99,7 +106,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
 			animate: {
 				scaleY: [1, 1.2, 1],
 				opacity: [1, 0.9, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut", delay: 0.2 },
+				transition: { duration: 0.6 * duration, ease: "easeInOut", delay: 0.2 },
 			},
 		};
 

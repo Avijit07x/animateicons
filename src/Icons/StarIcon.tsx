@@ -12,12 +12,19 @@ export interface StarIconHandle {
 
 interface StarIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -54,7 +61,7 @@ const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
 			idle: {
 				scale: [1, 1.02, 0.98, 1],
 				transition: {
-					duration: 2.5 * speed,
+					duration: 2.5 * duration,
 					repeat: Infinity,
 					ease: "easeInOut",
 				},
@@ -62,7 +69,7 @@ const StarIcon = forwardRef<StarIconHandle, StarIconProps>(
 			animate: {
 				scale: [1, 1.2, 0.95, 1.05, 1],
 				rotate: [0, -10, 10, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 

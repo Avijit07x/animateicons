@@ -12,12 +12,19 @@ export interface GlobeLockIconHandle {
 
 interface GlobeLockIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
 				rotate: [0, -8, 8, -5, 5, 0],
 				x: [0, -2, 2, -1, 1, 0],
 				transition: {
-					duration: 0.8 * speed,
+					duration: 0.8 * duration,
 					ease: "easeInOut",
 				},
 			},

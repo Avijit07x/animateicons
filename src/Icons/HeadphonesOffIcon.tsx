@@ -12,7 +12,7 @@ export interface HeadphonesOffIconHandle {
 
 interface HeadphonesOffIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const HeadphonesOffIcon = forwardRef<
@@ -20,7 +20,14 @@ const HeadphonesOffIcon = forwardRef<
 	HeadphonesOffIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const HeadphonesOffIcon = forwardRef<
 			animate: {
 				scale: [1, 1.1, 0.95, 1],
 				rotate: [0, -3, 3, -2, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -67,7 +74,7 @@ const HeadphonesOffIcon = forwardRef<
 			animate: {
 				scale: [1, 1.2, 0.9, 1],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 0.9 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 0.9 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -76,7 +83,7 @@ const HeadphonesOffIcon = forwardRef<
 			animate: {
 				pathLength: [1, 0, 1],
 				opacity: 1,
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 

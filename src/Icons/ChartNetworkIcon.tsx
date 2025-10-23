@@ -12,7 +12,7 @@ export interface ChartNetworkIconHandle {
 
 interface ChartNetworkIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const ChartNetworkIcon = forwardRef<
@@ -20,7 +20,14 @@ const ChartNetworkIcon = forwardRef<
 	ChartNetworkIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -57,13 +64,13 @@ const ChartNetworkIcon = forwardRef<
 			normal: {
 				pathLength: 1,
 				opacity: 1,
-				transition: { duration: 0.2 * speed },
+				transition: { duration: 0.2 * duration },
 			},
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut",
 				},
 			},
@@ -73,13 +80,13 @@ const ChartNetworkIcon = forwardRef<
 			normal: {
 				scale: 1,
 				opacity: 0.7,
-				transition: { duration: 0.2 * speed },
+				transition: { duration: 0.2 * duration },
 			},
 			animate: {
 				scale: [0, 1],
 				opacity: [0.7, 1, 0.7],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeOut",
 				},
 			},
@@ -88,12 +95,12 @@ const ChartNetworkIcon = forwardRef<
 		const chartVariants: Variants = {
 			normal: {
 				scale: 1,
-				transition: { duration: 0.2 * speed },
+				transition: { duration: 0.2 * duration },
 			},
 			animate: {
 				scale: [1, 1.05, 1],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeInOut",
 				},
 			},

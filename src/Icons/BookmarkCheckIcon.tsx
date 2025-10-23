@@ -12,7 +12,7 @@ export interface BookmarkCheckIconHandle {
 
 interface BookmarkCheckIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BookmarkCheckIcon = forwardRef<
@@ -20,7 +20,14 @@ const BookmarkCheckIcon = forwardRef<
 	BookmarkCheckIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const BookmarkCheckIcon = forwardRef<
 			animate: {
 				scale: [1, 1.08, 0.96, 1],
 				y: [0, -2, 0],
-				transition: { duration: 1.2 * speed, ease: "easeInOut" },
+				transition: { duration: 1.2 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -67,7 +74,7 @@ const BookmarkCheckIcon = forwardRef<
 			animate: {
 				pathLength: [0, 1],
 				opacity: 1,
-				transition: { duration: 0.8 * speed, ease: "easeInOut" },
+				transition: { duration: 0.8 * duration, ease: "easeInOut" },
 			},
 		};
 

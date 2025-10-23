@@ -12,12 +12,19 @@ export interface LinkIconHandle {
 
 interface LinkIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const leftPartControls = useAnimation();
@@ -71,7 +78,7 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
 				x: [0, -2, 0],
 				rotate: [0, -3, 0],
 				transition: {
-					duration: 0.9 * speed,
+					duration: 0.9 * duration,
 					ease: "easeInOut",
 				},
 			},
@@ -83,7 +90,7 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
 				x: [0, 2, 0],
 				rotate: [0, 3, 0],
 				transition: {
-					duration: 0.9 * speed,
+					duration: 0.9 * duration,
 					ease: "easeInOut",
 				},
 			},

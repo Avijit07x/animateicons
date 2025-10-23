@@ -12,12 +12,19 @@ export interface CardHandle {
 
 interface CardProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -78,7 +85,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 				scale: [1, 1.02, 1],
 				x: [0, -0.4, 0],
 				y: [0, -0.3, 0],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -88,7 +95,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 				x: [-2, 0],
 				opacity: [0.7, 1],
 				transition: {
-					duration: 0.4 * speed,
+					duration: 0.4 * duration,
 					ease: "easeOut",
 					delay: 0.08,
 				},
@@ -101,7 +108,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 				pathLength: [0, 1],
 				opacity: [0, 1, 0.9],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeInOut",
 					delay: 0.18,
 				},
@@ -113,7 +120,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
 			animate: {
 				scale: [1, 1.035, 1],
 				transition: {
-					duration: 0.28 * speed,
+					duration: 0.28 * duration,
 					ease: "easeOut",
 					delay: 0.3,
 				},

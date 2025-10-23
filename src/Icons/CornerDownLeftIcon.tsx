@@ -12,7 +12,7 @@ export interface CornerDownLeftIconHandle {
 
 interface CornerDownLeftIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const CornerDownLeftIcon = forwardRef<
@@ -20,7 +20,14 @@ const CornerDownLeftIcon = forwardRef<
 	CornerDownLeftIconProps
 >(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,7 +65,7 @@ const CornerDownLeftIcon = forwardRef<
 			animate: {
 				scale: [1, 1.12, 0.95, 1],
 				rotate: [0, -8, 4, 0],
-				transition: { duration: 0.9 * speed, ease: "easeInOut" },
+				transition: { duration: 0.9 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -69,7 +76,7 @@ const CornerDownLeftIcon = forwardRef<
 				x: [8, -2, 0],
 				y: [-4, 2, 0],
 				rotate: [-25, 10, 0],
-				transition: { duration: 0.8 * speed, ease: "easeOut", delay: 0.1 },
+				transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.1 },
 			},
 		};
 
@@ -77,7 +84,7 @@ const CornerDownLeftIcon = forwardRef<
 			normal: { pathLength: 1 },
 			animate: {
 				pathLength: [0, 1],
-				transition: { duration: 0.7 * speed, ease: "easeInOut" },
+				transition: { duration: 0.7 * duration, ease: "easeInOut" },
 			},
 		};
 

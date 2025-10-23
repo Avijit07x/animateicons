@@ -12,12 +12,19 @@ export interface FlameIconHandle {
 
 interface FlameIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const pathControls = useAnimation();
@@ -66,7 +73,7 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
 				scale: [1, 1.02, 1],
 				y: [0, -3, 0],
 				transition: {
-					duration: 1.2 * speed,
+					duration: 1.2 * duration,
 					ease: [0.22, 0.85, 0.28, 1],
 				},
 			},

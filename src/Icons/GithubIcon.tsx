@@ -12,12 +12,19 @@ export interface GithubIconHandle {
 
 interface GithubIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -58,13 +65,13 @@ const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
 				pathLength: 1,
 				pathOffset: 0,
 				opacity: 1,
-				transition: { duration: 0.3 * speed },
+				transition: { duration: 0.3 * duration },
 			},
 			animate: {
 				pathLength: [1, 0.6, 1],
 				pathOffset: [0, 0.4, 0],
 				opacity: [1, 0.7, 1],
-				transition: { duration: 1 * speed },
+				transition: { duration: 1 * duration },
 			},
 		};
 
@@ -74,7 +81,7 @@ const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
 				rotate: [0, 20, -15, 0],
 				originX: 0.9,
 				originY: 0.5,
-				transition: { duration: 1 * speed, repeat: Infinity },
+				transition: { duration: 1 * duration, repeat: Infinity },
 			},
 		};
 
@@ -96,10 +103,10 @@ const GithubIcon = forwardRef<GithubIconHandle, GithubIconProps>(
 					strokeLinecap="round"
 					strokeLinejoin="round"
 					variants={{
-						normal: { scale: 1, transition: { duration: 0.3 * speed } },
+						normal: { scale: 1, transition: { duration: 0.3 * duration } },
 						animate: {
 							scale: [1, 1.05, 1],
-							transition: { duration: 1 * speed },
+							transition: { duration: 1 * duration },
 						},
 					}}
 					animate={controls}

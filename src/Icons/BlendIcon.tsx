@@ -12,12 +12,19 @@ export interface BlendHandle {
 
 interface BlendProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -56,7 +63,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 				rotate: [0, -1.5, 1.5, 0],
 				scale: [1, 1.02, 1],
 				transition: {
-					duration: 0.7 * speed,
+					duration: 0.7 * duration,
 					ease: "easeInOut" as const,
 				},
 			},
@@ -67,7 +74,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 			animate: {
 				strokeDashoffset: [48, 0],
 				opacity: [0.45, 1],
-				transition: { duration: 0.6 * speed, ease: "easeInOut" },
+				transition: { duration: 0.6 * duration, ease: "easeInOut" },
 			},
 		};
 
@@ -77,7 +84,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 				strokeDashoffset: [48, 0],
 				opacity: [0.45, 1],
 				transition: {
-					duration: 0.6 * speed,
+					duration: 0.6 * duration,
 					ease: "easeInOut",
 					delay: 0.09,
 				},
@@ -90,7 +97,7 @@ const BlendIcon = forwardRef<BlendHandle, BlendProps>(
 				scale: [1, 1.06, 1],
 				opacity: [0.9, 1, 1],
 				transition: {
-					duration: 0.5 * speed,
+					duration: 0.5 * duration,
 					ease: "easeInOut",
 					delay: 0.25,
 				},

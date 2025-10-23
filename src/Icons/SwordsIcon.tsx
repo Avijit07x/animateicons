@@ -12,12 +12,19 @@ export interface SwordsIconHandle {
 
 interface SwordsIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
-	speed?: number;
+	duration?: number;
 }
 
 const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
 	(
-		{ onMouseEnter, onMouseLeave, className, size = 28, speed = 1, ...props },
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 28,
+			duration = 1,
+			...props
+		},
 		ref,
 	) => {
 		const controls = useAnimation();
@@ -55,7 +62,7 @@ const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
 			animate: {
 				rotate: [0, -5, 5, -3, 3, 0],
 				scale: [1, 1.05, 0.95, 1],
-				transition: { duration: 1.5 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -64,7 +71,7 @@ const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
 			animate: {
 				pathLength: [0, 1],
 				opacity: [0.6, 1],
-				transition: { duration: 1.2 * speed, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
