@@ -1,25 +1,14 @@
 "use client";
 
 import { Icon_List } from "@/Icons";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
-import IconsNotFound from "./IconsNotFound";
-import IconTile from "./IconTile";
+import { useDebounce } from "use-debounce";
+import IconList from "./iconList";
 
 const IconSection = () => {
 	const [query, setQuery] = useState("");
-
-	const filteredItems = Icon_List.filter((item) => {
-		const searchText = query.toLowerCase().trim();
-
-		const nameMatch = item.name.toLowerCase().includes(searchText);
-
-		const keywordMatch = item.keywords?.some((keyword) =>
-			keyword.toLowerCase().trim().includes(searchText),
-		);
-
-		return nameMatch || keywordMatch;
-	});
+	const [debouncedQuery] = useDebounce(query, 200);
 
 	return (
 		<div className="min-h-80 w-full">
@@ -44,24 +33,7 @@ const IconSection = () => {
 				}}
 				className="bg-accent/5 absolute top-1/2 left-1/2 h-64 w-64 rounded-full blur-3xl"
 			/>
-			<AnimatePresence>
-				{filteredItems.length > 0 ? (
-					<motion.div
-						initial={{ opacity: 0, y: 10 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -10 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.3, delay: 0.4 }}
-						className="mt-5 grid w-full grid-cols-1 gap-4 pb-10 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6"
-					>
-						{filteredItems.map((item, i) => (
-							<IconTile key={i} item={item} />
-						))}
-					</motion.div>
-				) : (
-					<IconsNotFound />
-				)}
-			</AnimatePresence>
+			<IconList query={debouncedQuery} />
 		</div>
 	);
 };

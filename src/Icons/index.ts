@@ -173,6 +173,11 @@ import { UserStarIcon } from "./UserStarIcon";
 import { UserXIcon } from "./UserXIcon";
 import { WalletIcon } from "./WalletIcon";
 import { WalletMinimalIcon } from "./WalletMinimalIcon";
+import { WifiCogIcon } from "./WifiCogIcon";
+import { WifiIcon } from "./WifiIcon";
+import { WifiOffIcon } from "./WifiOffIcon";
+import { WifiPenIcon } from "./WifiPenIcon";
+import { WifiSyncIcon } from "./WifiSyncIcon";
 import { XIcon } from "./XIcon";
 import { YenYuanIcon } from "./YenYuanIcon";
 import { ZapIcon } from "./ZapIcon";
@@ -1304,6 +1309,84 @@ const Icon_List: IconListItem[] = [
 		name: "code",
 		icon: CodeIcon,
 		keywords: ["source", "programming", "html", "xml", "code"],
+	},
+	{
+		name: "wifi",
+		icon: WifiIcon,
+		addedAt: "2025-10-25",
+		keywords: [
+			"wireless",
+			"connection",
+			"network",
+			"internet",
+			"hotspot",
+			"signal",
+			"antenna",
+			"router",
+			"modem",
+			"data",
+			"coverage",
+			"reception",
+		],
+	},
+	{
+		name: "wifi-off",
+		icon: WifiOffIcon,
+		addedAt: "2025-10-25",
+		keywords: [
+			"wireless",
+			"connection",
+			"network",
+			"internet",
+			"hotspot",
+			"signal",
+			"antenna",
+			"router",
+			"modem",
+			"data",
+			"coverage",
+			"reception",
+			"disabled",
+			"no signal",
+			"offline",
+		],
+	},
+	{
+		name: "wifi-cog",
+		icon: WifiCogIcon,
+		addedAt: "2025-10-25",
+		keywords: [
+			"connection",
+			"signal",
+			"wireless",
+			"directory",
+			"settings",
+			"control",
+			"preferences",
+			"cog",
+			"edit",
+			"gear",
+		],
+	},
+	{
+		name: "wifi-sync",
+		icon: WifiSyncIcon,
+		addedAt: "2025-10-25",
+		keywords: [
+			"connection",
+			"signal",
+			"wireless",
+			"synchronize",
+			"reconnect",
+			"reset",
+			"restart",
+		],
+	},
+	{
+		name: "wifi-pen",
+		icon: WifiPenIcon,
+		addedAt: "2025-10-25",
+		keywords: ["edit", "wifi", "pen", "change", "network"],
 	},
 	{
 		name: "globe",
