@@ -1,4 +1,4 @@
-# AnimateIcons
+# AnimateIcons gandu
 
 ![Animate Icons Preview](https://animateicons.vercel.app/_next/static/media/og.8b896778.png)
 
