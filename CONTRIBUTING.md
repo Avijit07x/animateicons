@@ -41,7 +41,7 @@ This will run the docs playground where you can preview your icon.
 ## Adding a New Icon
 
 All icons live inside the `src/icons/` directory.
-Each icon is a **React component** (with animation support via `motion/react`), and all icons are registered in `src/icons/index.ts` through the `Icon_List` array.
+Each icon is a **React component** (with animation support via `motion/react`), and all icons are registered in `src/icons/index.ts` through the `ICON_LIST` array.
 
 ---
 
@@ -210,7 +210,7 @@ Open `src/icons/index.ts` and:
 import { DashboardIcon } from "./DashboardIcon";
 ```
 
-2.  **Add it inside the `Icon_List` array** with a unique name and keywords:
+2.  **Add it inside the `ICON_LIST` array** with a unique name and keywords:
 
 ```ts
 {
@@ -256,7 +256,7 @@ Before submitting a PR, make sure:
 - [ ] Icon follows the template
 - [ ] Icon is based on [Lucide](https://lucide.dev/) (no custom/random SVGs)
 - [ ] Animations implemented using [motion/react](https://motion.dev/) (correct import pattern followed)
-- [ ] Icon added and registered in src/icons/index.ts (import at top + entry in Icon_List with unique name & keywords)
+- [ ] Icon added and registered in src/icons/index.ts (import at top + entry in ICON_LIST with unique name & keywords)
 - [ ] Tested locally in playground
 - [ ] PR should target `dev` branch only. Maintainers will merge `dev` → `main` during release.
 

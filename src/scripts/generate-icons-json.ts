@@ -27,10 +27,10 @@ function toPascalFromKebab(kebab: string): string {
 
 function loadIconList(): IconListItem[] {
 	const mod = require(ICONS_INDEX);
-	if (!mod || !mod.Icon_List) {
-		throw new Error("Icon_List not exported from src/Icons/index.ts");
+	if (!mod || !mod.ICON_LIST) {
+		throw new Error("ICON_LIST not exported from src/Icons/index.ts");
 	}
-	return mod.Icon_List as IconListItem[];
+	return mod.ICON_LIST as IconListItem[];
 }
 
 function main() {

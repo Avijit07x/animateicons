@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { StarIcon, StarIconHandle } from "./icons/StarIcon";
 import { NumberTicker } from "./magicui/number-ticker";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const Navbar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -71,24 +72,33 @@ const Navbar: React.FC = () => {
 						>
 							Docs
 						</Link>
-						<Link
-							href="https://github.com/Avijit07x/animateicons"
-							target="_blank"
-							rel="noopener noreferrer"
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className="group hover:bg-primary/10 flex items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.438rem] text-sm font-medium text-white transition-colors duration-200"
-						>
-							<GithubIcon ref={githubRef} size={16} />
-							<span className="text-xs text-white">Star</span>
-							<StarIcon ref={starRef} size={13} />
-							{stars !== null && (
-								<NumberTicker
-									value={stars}
-									className="min-w-5 !text-xs text-white"
-								/>
-							)}
-						</Link>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Link
+									href="https://github.com/Avijit07x/animateicons"
+									target="_blank"
+									rel="noopener noreferrer"
+									onMouseEnter={handleMouseEnter}
+									onMouseLeave={handleMouseLeave}
+									className="group hover:bg-primary/10 flex items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.438rem] text-sm font-medium text-white transition-colors duration-200"
+								>
+									<GithubIcon ref={githubRef} size={16} />
+									<span className="text-xs text-white">Star</span>
+									<StarIcon ref={starRef} size={13} />
+									{stars !== null && (
+										<NumberTicker
+											value={stars}
+											className="min-w-5 !text-xs text-white"
+										/>
+									)}
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<span className="px-3! py-1.5! font-medium! text-blue-600!">
+									View on Github
+								</span>
+							</TooltipContent>
+						</Tooltip>
 					</div>
 
 					{/* Mobile menu button */}

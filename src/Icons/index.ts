@@ -182,7 +182,7 @@ import { XIcon } from "./XIcon";
 import { YenYuanIcon } from "./YenYuanIcon";
 import { ZapIcon } from "./ZapIcon";
 
-const Icon_List: IconListItem[] = [
+const ICON_LIST: IconListItem[] = [
 	// UI & Navigation
 	{
 		name: "menu",
@@ -2491,4 +2491,6 @@ const Icon_List: IconListItem[] = [
 	},
 ];
 
-export { Icon_List };
+const ICON_COUNT = ICON_LIST.length;
+
+export { ICON_COUNT, ICON_LIST };

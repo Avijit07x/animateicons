@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon_List } from "@/Icons";
+import { ICON_COUNT } from "@/Icons";
 import { SparklesIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
 							>
 								<SparklesIcon size={14} className="text-primary" />
 								<span className="text-primary text-xs font-medium">
-									{`Now with ${Icon_List.length}+ animated icons`}
+									{`Now with ${ICON_COUNT}+ animated icons`}
 								</span>
 							</motion.div>
 

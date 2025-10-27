@@ -1,13 +1,13 @@
 "use client";
 
-import { Icon_List } from "@/Icons";
+import { ICON_COUNT } from "@/Icons";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
-import IconList from "./iconList";
+import IconList from "./IconList";
 
 const IconSection = () => {
-	const [query, setQuery] = useState("");
+	const [query, setQuery] = useState<string>("");
 	const [debouncedQuery] = useDebounce(query, 200);
 
 	return (
@@ -15,7 +15,7 @@ const IconSection = () => {
 			<motion.input
 				type="text"
 				className="bg-primary/10 border-primary/20 focus:ring-primary/50 relative mt-5 w-full rounded-md border px-4 py-2 text-sm text-white shadow-lg placeholder:text-zinc-300 focus:ring-1 focus:outline-none"
-				placeholder={`Search ${Icon_List.length} icons...`}
+				placeholder={`Search ${ICON_COUNT} icons...`}
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				initial={{ opacity: 0, y: 20 }}
