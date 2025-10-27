@@ -1,4 +1,4 @@
-import { Icon_List } from "@/Icons";
+import { ICON_LIST } from "@/Icons";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
 import IconsNotFound from "./IconsNotFound";
@@ -8,8 +8,8 @@ type Props = {
 	query: string;
 };
 
-const iconList: React.FC<Props> = ({ query }) => {
-	const filteredItems = Icon_List.filter((item) => {
+const IconList: React.FC<Props> = ({ query }) => {
+	const filteredItems = ICON_LIST.filter((item) => {
 		const searchText = query.toLowerCase().trim();
 
 		const nameMatch = item.name.toLowerCase().includes(searchText);
@@ -45,4 +45,4 @@ const iconList: React.FC<Props> = ({ query }) => {
 	);
 };
 
-export default iconList;
+export default IconList;
