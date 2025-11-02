@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 

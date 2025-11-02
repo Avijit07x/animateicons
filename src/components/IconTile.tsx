@@ -8,8 +8,10 @@ import {
 import { CopyIcon, CopyIconHandle } from "@/Icons/CopyIcon";
 import { TerminalIcon, TerminalIconHandle } from "@/Icons/TerminalIcon";
 import { differenceInDays } from "date-fns";
+import Link from "next/link";
 import React, { useState } from "react";
 import { CheckIcon } from "./icons/CheckIcon";
+import { V0Icon, V0IconHandle } from "./icons/V0Icon";
 
 type Props = {
 	item: IconListItem;
@@ -20,6 +22,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	const [copiedCli, setCopiedCli] = useState(false);
 	const cliRef = React.useRef<TerminalIconHandle>(null);
 	const codeRef = React.useRef<CopyIconHandle>(null);
+	const v0Ref = React.useRef<V0IconHandle>(null);
 
 	const IconComponent = item.icon;
 
@@ -72,7 +75,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<button
-							className="hover:text-primary flex size-6 items-center justify-center"
+							className="flex size-6 items-center justify-center"
 							onClick={copyCliCommand}
 							aria-label={copiedCli ? "CLI Copied" : "Copy CLI Command"}
 							onMouseEnter={() => cliRef.current?.startAnimation()}
@@ -96,7 +99,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<button
-							className="hover:text-primary flex size-6 items-center justify-center"
+							className="flex size-6 items-center justify-center"
 							onClick={copyToClipboard}
 							aria-label={copied ? "Code Copied" : "Copy JSX Code"}
 							onMouseEnter={() => codeRef.current?.startAnimation()}
@@ -110,6 +113,27 @@ const IconTile: React.FC<Props> = ({ item }) => {
 						className="px-3! py-1.5! font-medium! text-blue-600!"
 					>
 						copy code
+					</TooltipContent>
+				</Tooltip>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Link
+							href={`https://v0.dev/chat/api/open?url=https://animateicons.vercel.app/icons/${item.name}.json`}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex size-6 items-center justify-center"
+							aria-label="Open in v0.dev"
+							onMouseEnter={() => v0Ref.current?.startAnimation()}
+							onMouseLeave={() => v0Ref.current?.stopAnimation()}
+						>
+							<V0Icon size={22} ref={v0Ref} />
+						</Link>
+					</TooltipTrigger>
+					<TooltipContent
+						side="bottom"
+						className="px-3! py-1.5! font-medium! text-blue-600!"
+					>
+						open in v0.dev
 					</TooltipContent>
 				</Tooltip>
 			</div>
