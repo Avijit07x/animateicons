@@ -21,7 +21,7 @@ const XIcon = forwardRef<XIconHandle, XIconProps>(
 			onMouseEnter,
 			onMouseLeave,
 			className,
-			size = 24,
+			size = 28,
 			duration = 1,
 			...props
 		},

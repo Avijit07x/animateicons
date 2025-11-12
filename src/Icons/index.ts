@@ -80,6 +80,9 @@ import { EllipsisIcon } from "./EllipsisIcon";
 import { EllipsisVerticalIcon } from "./EllipsisVerticalIcon";
 import { EuroIcon } from "./EuroIcon";
 import { ExternalLinkIcon } from "./ExternalLinkIcon";
+import { EyeClosedIcon } from "./EyeClosedIcon";
+import { EyeIcon } from "./EyeIcon";
+import { EyeOffIcon } from "./EyeOffIcon";
 import { FacebookIcon } from "./FacebookIcon";
 import { FigmaIcon } from "./FigmaIcon";
 import { FlameIcon } from "./FlameIcon";
@@ -277,6 +280,57 @@ const ICON_LIST: IconListItem[] = [
 		name: "check-check",
 		icon: CheckCheckIcon,
 		keywords: ["done", "todo", "tick", "complete", "task", "multiple"],
+	},
+	{
+		name: "eye",
+		addedAt: "2025-11-12",
+		icon: EyeIcon,
+		keywords: [
+			"view",
+			"watch",
+			"see",
+			"show",
+			"expose",
+			"reveal",
+			"display",
+			"visible",
+			"visibility",
+			"vision",
+			"preview",
+			"read",
+		],
+	},
+	{
+		name: "eye-closed",
+		addedAt: "2025-11-12",
+		icon: EyeClosedIcon,
+		keywords: [
+			"view",
+			"watch",
+			"see",
+			"hide",
+			"conceal",
+			"mask",
+			"hidden",
+			"visibility",
+			"vision",
+		],
+	},
+	{
+		name: "eye-off",
+		addedAt: "2025-11-12",
+		icon: EyeOffIcon,
+		keywords: [
+			"view",
+			"watch",
+			"see",
+			"hide",
+			"conceal",
+			"mask",
+			"hidden",
+			"visibility",
+			"vision",
+		],
 	},
 	// user
 	{

@@ -21,7 +21,7 @@ const WifiPenIcon = forwardRef<WifiPenIconHandle, WifiPenIconProps>(
 			onMouseEnter,
 			onMouseLeave,
 			className,
-			size = 24,
+			size = 28,
 			duration = 1,
 			...props
 		},
