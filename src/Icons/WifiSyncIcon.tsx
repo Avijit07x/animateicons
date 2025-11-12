@@ -21,7 +21,7 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
 			onMouseEnter,
 			onMouseLeave,
 			className,
-			size = 24,
+			size = 28,
 			duration = 1,
 			...props
 		},
