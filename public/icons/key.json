@@ -1,33 +1,35 @@
 {
-	"name": "key",
-	"type": "registry:ui",
-	"registryDependencies": [],
-	"dependencies": ["motion"],
-	"devDependencies": [],
-	"tailwind": {},
-	"cssVars": {
-		"light": {},
-		"dark": {}
-	},
-	"keywords": [
-		"password",
-		"security",
-		"access",
-		"login",
-		"authentication",
-		"credentials",
-		"key",
-		"unlock",
-		"lock",
-		"private",
-		"safe",
-		"protection"
-	],
-	"files": [
-		{
-			"path": "KeyIcon.tsx",
-			"content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface KeyHandle {\n\tstartAnimation: () => void;\n\tstopAnimation: () => void;\n}\n\ninterface KeyProps extends HTMLMotionProps<\"div\"> {\n\tsize?: number;\n\tduration?: number;\n}\n\nconst KeyIcon = forwardRef<KeyHandle, KeyProps>(\n\t(\n\t\t{\n\t\t\tonMouseEnter,\n\t\t\tonMouseLeave,\n\t\t\tclassName,\n\t\t\tsize = 28,\n\t\t\tduration = 1,\n\t\t\t...props\n\t\t},\n\t\tref,\n\t) => {\n\t\tconst controls = useAnimation();\n\t\tconst reduced = useReducedMotion();\n\t\tconst isControlled = useRef(false);\n\n\t\tuseImperativeHandle(ref, () => {\n\t\t\tisControlled.current = true;\n\t\t\treturn {\n\t\t\t\tstartAnimation: () =>\n\t\t\t\t\treduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n\t\t\t\tstopAnimation: () => controls.start(\"normal\"),\n\t\t\t};\n\t\t});\n\n\t\tconst handleEnter = useCallback(\n\t\t\t(e?: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (reduced) return;\n\t\t\t\tif (!isControlled.current) controls.start(\"animate\");\n\t\t\t\telse onMouseEnter?.(e as any);\n\t\t\t},\n\t\t\t[controls, reduced, onMouseEnter],\n\t\t);\n\n\t\tconst handleLeave = useCallback(\n\t\t\t(e?: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (!isControlled.current) controls.start(\"normal\");\n\t\t\t\telse onMouseLeave?.(e as any);\n\t\t\t},\n\t\t\t[controls, onMouseLeave],\n\t\t);\n\n\t\tconst ease = [0.16, 1, 0.3, 1] as const;\n\n\t\tconst sequence: Variants = {\n\t\t\tnormal: { scale: 1, rotate: 0, x: 0, y: 0 },\n\t\t\tanimate: {\n\t\t\t\tscale: [1, 1.01, 1.01, 1],\n\t\t\t\trotate: [0, -6, 0, 6, 0],\n\t\t\t\tx: [0, 0, 0, 0, 0],\n\t\t\t\ty: [0, 0, 0, 0, 0],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.9 * duration,\n\t\t\t\t\tease,\n\t\t\t\t\ttimes: [0, 0.25, 0.5, 0.75, 1],\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst ringLock: Variants = {\n\t\t\tnormal: { strokeDashoffset: 0, scale: 1, opacity: 1 },\n\t\t\tanimate: {\n\t\t\t\tscale: [1, 0.98, 1, 1.02, 1],\n\t\t\t\topacity: [1, 1, 1, 1, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.9 * duration,\n\t\t\t\t\tease,\n\t\t\t\t\ttimes: [0, 0.25, 0.5, 0.75, 1],\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst shaftSlide: Variants = {\n\t\t\tnormal: { strokeDashoffset: 0, opacity: 1, x: 0 },\n\t\t\tanimate: {\n\t\t\t\tx: [0, -0.6, 0, 0.6, 0],\n\t\t\t\topacity: [1, 1, 1, 1, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.9 * duration,\n\t\t\t\t\tease,\n\t\t\t\t\ttimes: [0, 0.25, 0.5, 0.75, 1],\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst headTurn: Variants = {\n\t\t\tnormal: { x: 0, y: 0, rotate: 0, originX: 19, originY: 6 },\n\t\t\tanimate: {\n\t\t\t\trotate: [0, -18, 0, 18, 0],\n\t\t\t\tx: [0, -1, 0, 1, 0],\n\t\t\t\ty: [0, -0.4, 0, 0.4, 0],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.9 * duration,\n\t\t\t\t\tease,\n\t\t\t\t\ttimes: [0, 0.25, 0.5, 0.75, 1],\n\t\t\t\t\tdelay: 0.04,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\treturn (\n\t\t\t<motion.div\n\t\t\t\tclassName={cn(\"inline-flex items-center justify-center\", className)}\n\t\t\t\tonMouseEnter={handleEnter}\n\t\t\t\tonMouseLeave={handleLeave}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<motion.svg\n\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\twidth={size}\n\t\t\t\t\theight={size}\n\t\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tstrokeWidth=\"2\"\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tclassName=\"lucide lucide-key-icon lucide-key\"\n\t\t\t\t>\n\t\t\t\t\t<motion.g variants={sequence} initial=\"normal\" animate={controls}>\n\t\t\t\t\t\t<motion.circle\n\t\t\t\t\t\t\tcx=\"7.5\"\n\t\t\t\t\t\t\tcy=\"15.5\"\n\t\t\t\t\t\t\tr=\"5.5\"\n\t\t\t\t\t\t\tvariants={ringLock}\n\t\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<motion.path\n\t\t\t\t\t\t\td=\"m21 2-9.6 9.6\"\n\t\t\t\t\t\t\tvariants={shaftSlide}\n\t\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<motion.path\n\t\t\t\t\t\t\td=\"m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4\"\n\t\t\t\t\t\t\tvariants={headTurn}\n\t\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</motion.g>\n\t\t\t\t</motion.svg>\n\t\t\t</motion.div>\n\t\t);\n\t},\n);\n\nKeyIcon.displayName = \"KeyIcon\";\nexport { KeyIcon };\n",
-			"type": "registry:ui"
-		}
-	]
+  "name": "key",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "keywords": [
+    "password",
+    "security",
+    "access",
+    "login",
+    "authentication",
+    "credentials",
+    "key",
+    "unlock",
+    "lock",
+    "private",
+    "safe",
+    "protection"
+  ],
+  "files": [
+    {
+      "path": "KeyIcon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface KeyHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface KeyProps extends HTMLMotionProps<\"div\"> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n}\n\nconst KeyIcon = forwardRef<KeyHandle, KeyProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) controls.start(\"normal\");\n    else onMouseLeave?.(e as any);\n   },\n   [controls, onMouseLeave],\n  );\n\n  const ease = [0.16, 1, 0.3, 1] as const;\n\n  const sequence: Variants = {\n   normal: { scale: 1, rotate: 0, x: 0, y: 0 },\n   animate: {\n    scale: [1, 1.01, 1.01, 1],\n    rotate: [0, -6, 0, 6, 0],\n    x: [0, 0, 0, 0, 0],\n    y: [0, 0, 0, 0, 0],\n    transition: {\n     duration: 0.9 * duration,\n     ease,\n     times: [0, 0.25, 0.5, 0.75, 1],\n    },\n   },\n  };\n\n  const ringLock: Variants = {\n   normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },\n   animate: {\n    scale: [1, 0.98, 1, 1.02, 1],\n    opacity: [1, 1, 1, 1, 1],\n    transition: {\n     duration: 0.9 * duration,\n     ease,\n     times: [0, 0.25, 0.5, 0.75, 1],\n    },\n   },\n  };\n\n  const shaftSlide: Variants = {\n   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },\n   animate: {\n    x: [0, -0.6, 0, 0.6, 0],\n    opacity: [1, 1, 1, 1, 1],\n    transition: {\n     duration: 0.9 * duration,\n     ease,\n     times: [0, 0.25, 0.5, 0.75, 1],\n    },\n   },\n  };\n\n  const headTurn: Variants = {\n   normal: { x: 0, y: 0, rotate: 0, originX: 19, originY: 6 },\n   animate: {\n    rotate: [0, -18, 0, 18, 0],\n    x: [0, -1, 0, 1, 0],\n    y: [0, -0.4, 0, 0.4, 0],\n    transition: {\n     duration: 0.9 * duration,\n     ease,\n     times: [0, 0.25, 0.5, 0.75, 1],\n     delay: 0.04,\n    },\n   },\n  };\n\n  return (\n   <motion.div\n    className={cn(\"inline-flex items-center justify-center\", className)}\n    onMouseEnter={handleEnter}\n    onMouseLeave={handleLeave}\n    {...props}\n   >\n    <motion.svg\n     xmlns=\"http://www.w3.org/2000/svg\"\n     width={size}\n     height={size}\n     viewBox=\"0 0 24 24\"\n     fill=\"none\"\n     stroke=\"currentColor\"\n     strokeWidth=\"2\"\n     strokeLinecap=\"round\"\n     strokeLinejoin=\"round\"\n     className=\"lucide lucide-key-icon lucide-key\"\n    >\n     <motion.g variants={sequence} initial=\"normal\" animate={controls}>\n      <motion.circle\n       cx=\"7.5\"\n       cy=\"15.5\"\n       r=\"5.5\"\n       variants={ringLock}\n       initial=\"normal\"\n       animate={controls}\n      />\n      <motion.path\n       d=\"m21 2-9.6 9.6\"\n       variants={shaftSlide}\n       initial=\"normal\"\n       animate={controls}\n      />\n      <motion.path\n       d=\"m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4\"\n       variants={headTurn}\n       initial=\"normal\"\n       animate={controls}\n      />\n     </motion.g>\n    </motion.svg>\n   </motion.div>\n  );\n },\n);\n\nKeyIcon.displayName = \"KeyIcon\";\nexport { KeyIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
 }

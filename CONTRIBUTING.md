@@ -53,6 +53,8 @@ Each icon is a **React component** (with animation support via `motion/react`), 
 ```tsx
 "use client";
 
+"use client";
+
 import { cn } from "@/lib/utils";
 import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
@@ -65,10 +67,23 @@ export interface DashboardIconHandle {
 
 interface DashboardIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	duration?: number;
+	isAnimated?: boolean;
 }
 
 const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
-	({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+	(
+		{
+			onMouseEnter,
+			onMouseLeave,
+			className,
+			size = 24,
+			duration = 1,
+			isAnimated = true,
+			...props
+		},
+		ref,
+	) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
 		const isControlled = useRef(false);
@@ -84,7 +99,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 
 		const handleEnter = useCallback(
 			(e?: React.MouseEvent<HTMLDivElement>) => {
-				if (reduced) return;
+				if (!isAnimated || reduced) return;
 				if (!isControlled.current) controls.start("animate");
 				else onMouseEnter?.(e as any);
 			},
@@ -104,7 +119,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 			animate: {
 				scale: [1, 1.05, 0.95, 1],
 				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.3, ease: "easeInOut", repeat: 0 },
+				transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
 			},
 		};
 
@@ -115,7 +130,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
 				scale: [0.9, 1.1, 1],
 				y: [2, -2, 0],
 				transition: {
-					duration: 1.2,
+					duration: 1.2 * duration,
 					ease: "easeInOut",
 					repeat: 0,
 					delay: i * 0.2,
