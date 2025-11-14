@@ -36,7 +36,7 @@ After installing an icon, import it into your component:
 import { AtomIcon } from "./components/ui/AtomIcon";
 
 export default function Page() {
-	return <AtomIcon size={28} duration={1} />;
+	return <AtomIcon size={28} duration={1} isAnimated={true} />;
 }
 ```
 
@@ -58,7 +58,7 @@ export default function Page() {
 			{/* Programmatic control */}
 			<button onClick={() => bellRef.current?.startAnimation()}>Start</button>
 			<button onClick={() => bellRef.current?.stopAnimation()}>Stop</button>
-			<BellRingIcon ref={bellRef} size={28} duration={1} />
+			<BellRingIcon ref={bellRef} size={28} duration={1} isAnimated={true} />
 		</>
 	);
 }

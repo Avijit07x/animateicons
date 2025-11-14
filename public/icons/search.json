@@ -1,20 +1,28 @@
 {
-	"name": "search",
-	"type": "registry:ui",
-	"registryDependencies": [],
-	"dependencies": ["motion"],
-	"devDependencies": [],
-	"tailwind": {},
-	"cssVars": {
-		"light": {},
-		"dark": {}
-	},
-	"keywords": ["find", "magnifier", "magnifying glass", "lens", "zoom"],
-	"files": [
-		{
-			"path": "SearchIcon.tsx",
-			"content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface SearchHandle {\n\tstartAnimation: () => void;\n\tstopAnimation: () => void;\n}\n\ninterface SearchProps extends HTMLMotionProps<\"div\"> {\n\tsize?: number;\n\tduration?: number;\n}\n\nconst SearchIcon = forwardRef<SearchHandle, SearchProps>(\n\t(\n\t\t{\n\t\t\tonMouseEnter,\n\t\t\tonMouseLeave,\n\t\t\tclassName,\n\t\t\tsize = 28,\n\t\t\tduration = 1,\n\t\t\t...props\n\t\t},\n\t\tref,\n\t) => {\n\t\tconst controls = useAnimation();\n\t\tconst reduced = useReducedMotion();\n\t\tconst isControlled = useRef(false);\n\n\t\tuseImperativeHandle(ref, () => {\n\t\t\tisControlled.current = true;\n\t\t\treturn {\n\t\t\t\tstartAnimation: () =>\n\t\t\t\t\treduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n\t\t\t\tstopAnimation: () => controls.start(\"normal\"),\n\t\t\t};\n\t\t});\n\n\t\tconst handleEnter = useCallback(\n\t\t\t(e?: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (reduced) return;\n\t\t\t\tif (!isControlled.current) controls.start(\"animate\");\n\t\t\t\telse onMouseEnter?.(e as any);\n\t\t\t},\n\t\t\t[controls, reduced, onMouseEnter],\n\t\t);\n\n\t\tconst handleLeave = useCallback(\n\t\t\t(e?: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (!isControlled.current) controls.start(\"normal\");\n\t\t\t\telse onMouseLeave?.(e as any);\n\t\t\t},\n\t\t\t[controls, onMouseLeave],\n\t\t);\n\n\t\tconst circleVariants: Variants = {\n\t\t\tnormal: { strokeDashoffset: 0, opacity: 1, scale: 1 },\n\t\t\tanimate: {\n\t\t\t\tstrokeDashoffset: [50, 0],\n\t\t\t\topacity: [0.3, 1],\n\t\t\t\tscale: [1, 1.1, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.8 * duration,\n\t\t\t\t\tease: \"easeInOut\" as const,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst handleVariants: Variants = {\n\t\t\tnormal: { strokeDashoffset: 0, opacity: 1 },\n\t\t\tanimate: {\n\t\t\t\tstrokeDashoffset: [20, 0],\n\t\t\t\topacity: [0, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.6 * duration,\n\t\t\t\t\tdelay: 0.3,\n\t\t\t\t\tease: \"easeInOut\" as const,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst groupVariants: Variants = {\n\t\t\tnormal: { rotate: 0, scale: 1 },\n\t\t\tanimate: {\n\t\t\t\trotate: [0, 5, -5, 0],\n\t\t\t\tscale: [1, 1.05, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 1 * duration,\n\t\t\t\t\tease: \"easeInOut\" as const,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\treturn (\n\t\t\t<motion.div\n\t\t\t\tclassName={cn(\"inline-flex items-center justify-center\", className)}\n\t\t\t\tonMouseEnter={handleEnter}\n\t\t\t\tonMouseLeave={handleLeave}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<motion.svg\n\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\twidth={size}\n\t\t\t\t\theight={size}\n\t\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tstrokeWidth=\"2\"\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tclassName=\"lucide lucide-search-icon lucide-search\"\n\t\t\t\t>\n\t\t\t\t\t<motion.g\n\t\t\t\t\t\tvariants={groupVariants}\n\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t>\n\t\t\t\t\t\t<motion.circle\n\t\t\t\t\t\t\tcx=\"11\"\n\t\t\t\t\t\t\tcy=\"11\"\n\t\t\t\t\t\t\tr=\"8\"\n\t\t\t\t\t\t\tstrokeDasharray=\"50\"\n\t\t\t\t\t\t\tstrokeDashoffset=\"50\"\n\t\t\t\t\t\t\tvariants={circleVariants}\n\t\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<motion.path\n\t\t\t\t\t\t\td=\"m21 21-4.34-4.34\"\n\t\t\t\t\t\t\tstrokeDasharray=\"20\"\n\t\t\t\t\t\t\tstrokeDashoffset=\"20\"\n\t\t\t\t\t\t\tvariants={handleVariants}\n\t\t\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t\t\t\tanimate={controls}\n\t\t\t\t\t\t/>\n\t\t\t\t\t</motion.g>\n\t\t\t\t</motion.svg>\n\t\t\t</motion.div>\n\t\t);\n\t},\n);\n\nSearchIcon.displayName = \"SearchIcon\";\nexport { SearchIcon };\n",
-			"type": "registry:ui"
-		}
-	]
+  "name": "search",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "keywords": [
+    "find",
+    "magnifier",
+    "magnifying glass",
+    "lens",
+    "zoom"
+  ],
+  "files": [
+    {
+      "path": "SearchIcon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface SearchHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface SearchProps extends HTMLMotionProps<\"div\"> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n}\n\nconst SearchIcon = forwardRef<SearchHandle, SearchProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) controls.start(\"normal\");\n    else onMouseLeave?.(e as any);\n   },\n   [controls, onMouseLeave],\n  );\n\n  const circleVariants: Variants = {\n   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },\n   animate: {\n    strokeDashoffset: [50, 0],\n    opacity: [0.3, 1],\n    scale: [1, 1.1, 1],\n    transition: {\n     duration: 0.8 * duration,\n     ease: \"easeInOut\" as const,\n    },\n   },\n  };\n\n  const handleVariants: Variants = {\n   normal: { strokeDashoffset: 0, opacity: 1 },\n   animate: {\n    strokeDashoffset: [20, 0],\n    opacity: [0, 1],\n    transition: {\n     duration: 0.6 * duration,\n     delay: 0.3,\n     ease: \"easeInOut\" as const,\n    },\n   },\n  };\n\n  const groupVariants: Variants = {\n   normal: { rotate: 0, scale: 1 },\n   animate: {\n    rotate: [0, 5, -5, 0],\n    scale: [1, 1.05, 1],\n    transition: {\n     duration: 1 * duration,\n     ease: \"easeInOut\" as const,\n    },\n   },\n  };\n\n  return (\n   <motion.div\n    className={cn(\"inline-flex items-center justify-center\", className)}\n    onMouseEnter={handleEnter}\n    onMouseLeave={handleLeave}\n    {...props}\n   >\n    <motion.svg\n     xmlns=\"http://www.w3.org/2000/svg\"\n     width={size}\n     height={size}\n     viewBox=\"0 0 24 24\"\n     fill=\"none\"\n     stroke=\"currentColor\"\n     strokeWidth=\"2\"\n     strokeLinecap=\"round\"\n     strokeLinejoin=\"round\"\n     className=\"lucide lucide-search-icon lucide-search\"\n    >\n     <motion.g variants={groupVariants} initial=\"normal\" animate={controls}>\n      <motion.circle\n       cx=\"11\"\n       cy=\"11\"\n       r=\"8\"\n       strokeDasharray=\"50\"\n       strokeDashoffset=\"50\"\n       variants={circleVariants}\n       initial=\"normal\"\n       animate={controls}\n      />\n      <motion.path\n       d=\"m21 21-4.34-4.34\"\n       strokeDasharray=\"20\"\n       strokeDashoffset=\"20\"\n       variants={handleVariants}\n       initial=\"normal\"\n       animate={controls}\n      />\n     </motion.g>\n    </motion.svg>\n   </motion.div>\n  );\n },\n);\n\nSearchIcon.displayName = \"SearchIcon\";\nexport { SearchIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
 }

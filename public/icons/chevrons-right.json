@@ -1,20 +1,29 @@
 {
-	"name": "chevrons-right",
-	"type": "registry:ui",
-	"registryDependencies": [],
-	"dependencies": ["motion"],
-	"devDependencies": [],
-	"tailwind": {},
-	"cssVars": {
-		"light": {},
-		"dark": {}
-	},
-	"keywords": ["turn", "corner", "forward", "double", "fast-forward", "jump"],
-	"files": [
-		{
-			"path": "ChevronsRightIcon.tsx",
-			"content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface ChevronsRightIconHandle {\n\tstartAnimation: () => void;\n\tstopAnimation: () => void;\n}\n\ninterface ChevronsRightIconProps extends HTMLMotionProps<\"div\"> {\n\tsize?: number;\n\tduration?: number;\n}\n\nconst ChevronsRightIcon = forwardRef<\n\tChevronsRightIconHandle,\n\tChevronsRightIconProps\n>(\n\t(\n\t\t{\n\t\t\tonMouseEnter,\n\t\t\tonMouseLeave,\n\t\t\tclassName,\n\t\t\tsize = 28,\n\t\t\tduration = 1,\n\t\t\t...props\n\t\t},\n\t\tref,\n\t) => {\n\t\tconst controls = useAnimation();\n\t\tconst reduced = useReducedMotion();\n\t\tconst isControlled = useRef(false);\n\n\t\tuseImperativeHandle(ref, () => {\n\t\t\tisControlled.current = true;\n\t\t\treturn {\n\t\t\t\tstartAnimation: () =>\n\t\t\t\t\treduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n\t\t\t\tstopAnimation: () => controls.start(\"normal\"),\n\t\t\t};\n\t\t});\n\n\t\tconst handleEnter = useCallback(\n\t\t\t(e?: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (reduced) return;\n\t\t\t\tif (!isControlled.current) controls.start(\"animate\");\n\t\t\t\telse onMouseEnter?.(e as any);\n\t\t\t},\n\t\t\t[controls, reduced, onMouseEnter],\n\t\t);\n\n\t\tconst handleLeave = useCallback(\n\t\t\t(e: React.MouseEvent<HTMLDivElement>) => {\n\t\t\t\tif (!isControlled.current) {\n\t\t\t\t\tcontrols.start(\"normal\");\n\t\t\t\t} else {\n\t\t\t\t\tonMouseLeave?.(e);\n\t\t\t\t}\n\t\t\t},\n\t\t\t[controls, onMouseLeave],\n\t\t);\n\n\t\tconst leadingArrow: Variants = {\n\t\t\tnormal: { x: 0, opacity: 1 },\n\t\t\tanimate: {\n\t\t\t\tx: [0, 4, 0],\n\t\t\t\topacity: [1, 0.6, 1],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.8 * duration,\n\t\t\t\t\trepeat: 0,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\tconst trailingArrow: Variants = {\n\t\t\tnormal: { x: 0, opacity: 0.5 },\n\t\t\tanimate: {\n\t\t\t\tx: [0, 6, 0],\n\t\t\t\topacity: [0.5, 0.2, 0.5],\n\t\t\t\ttransition: {\n\t\t\t\t\tduration: 0.8 * duration,\n\t\t\t\t\trepeat: 0,\n\t\t\t\t\tdelay: 0.2,\n\t\t\t\t},\n\t\t\t},\n\t\t};\n\n\t\treturn (\n\t\t\t<motion.div\n\t\t\t\tclassName={cn(\"inline-flex items-center justify-center\", className)}\n\t\t\t\tonMouseEnter={handleEnter}\n\t\t\t\tonMouseLeave={handleLeave}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<motion.svg\n\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\twidth={size}\n\t\t\t\t\theight={size}\n\t\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t\t\tfill=\"none\"\n\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\tstrokeWidth=\"2\"\n\t\t\t\t\tstrokeLinecap=\"round\"\n\t\t\t\t\tstrokeLinejoin=\"round\"\n\t\t\t\t\tanimate={controls}\n\t\t\t\t\tinitial=\"normal\"\n\t\t\t\t>\n\t\t\t\t\t<motion.path\n\t\t\t\t\t\td=\"m6 17 5-5-5-5\"\n\t\t\t\t\t\tvariants={trailingArrow}\n\t\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\t/>\n\t\t\t\t\t<motion.path\n\t\t\t\t\t\td=\"m13 17 5-5-5-5\"\n\t\t\t\t\t\tvariants={leadingArrow}\n\t\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\t/>\n\t\t\t\t</motion.svg>\n\t\t\t</motion.div>\n\t\t);\n\t},\n);\n\nChevronsRightIcon.displayName = \"ChevronsRightIcon\";\nexport { ChevronsRightIcon };\n",
-			"type": "registry:ui"
-		}
-	]
+  "name": "chevrons-right",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "keywords": [
+    "turn",
+    "corner",
+    "forward",
+    "double",
+    "fast-forward",
+    "jump"
+  ],
+  "files": [
+    {
+      "path": "ChevronsRightIcon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface ChevronsRightIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface ChevronsRightIconProps extends HTMLMotionProps<\"div\"> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n}\n\nconst ChevronsRightIcon = forwardRef<\n ChevronsRightIconHandle,\n ChevronsRightIconProps\n>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) {\n     controls.start(\"normal\");\n    } else {\n     onMouseLeave?.(e);\n    }\n   },\n   [controls, onMouseLeave],\n  );\n\n  const leadingArrow: Variants = {\n   normal: { x: 0, opacity: 1 },\n   animate: {\n    x: [0, 4, 0],\n    opacity: [1, 0.6, 1],\n    transition: {\n     duration: 0.8 * duration,\n     repeat: 0,\n    },\n   },\n  };\n\n  const trailingArrow: Variants = {\n   normal: { x: 0, opacity: 0.5 },\n   animate: {\n    x: [0, 6, 0],\n    opacity: [0.5, 0.2, 0.5],\n    transition: {\n     duration: 0.8 * duration,\n     repeat: 0,\n     delay: 0.2,\n    },\n   },\n  };\n\n  return (\n   <motion.div\n    className={cn(\"inline-flex items-center justify-center\", className)}\n    onMouseEnter={handleEnter}\n    onMouseLeave={handleLeave}\n    {...props}\n   >\n    <motion.svg\n     xmlns=\"http://www.w3.org/2000/svg\"\n     width={size}\n     height={size}\n     viewBox=\"0 0 24 24\"\n     fill=\"none\"\n     stroke=\"currentColor\"\n     strokeWidth=\"2\"\n     strokeLinecap=\"round\"\n     strokeLinejoin=\"round\"\n     animate={controls}\n     initial=\"normal\"\n    >\n     <motion.path\n      d=\"m6 17 5-5-5-5\"\n      variants={trailingArrow}\n      stroke=\"currentColor\"\n     />\n     <motion.path\n      d=\"m13 17 5-5-5-5\"\n      variants={leadingArrow}\n      stroke=\"currentColor\"\n     />\n    </motion.svg>\n   </motion.div>\n  );\n },\n);\n\nChevronsRightIcon.displayName = \"ChevronsRightIcon\";\nexport { ChevronsRightIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
 }

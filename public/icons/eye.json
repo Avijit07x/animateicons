@@ -1,0 +1,35 @@
+{
+  "name": "eye",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "keywords": [
+    "view",
+    "watch",
+    "see",
+    "show",
+    "expose",
+    "reveal",
+    "display",
+    "visible",
+    "visibility",
+    "vision",
+    "preview",
+    "read"
+  ],
+  "files": [
+    {
+      "path": "EyeIcon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { HTMLMotionProps, Variants } from \"motion/react\";\nimport { motion, useAnimation, useReducedMotion } from \"motion/react\";\nimport { forwardRef, useCallback, useImperativeHandle, useRef } from \"react\";\n\nexport interface ExternalLinkIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface EyeIconProps extends HTMLMotionProps<\"div\"> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n}\n\nconst EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   ...props\n  },\n  ref,\n ) => {\n  const outerControls = useAnimation();\n  const pupilControls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () => {\n     if (reduced) {\n      outerControls.start(\"visible\");\n      pupilControls.start(\"visible\");\n     } else {\n      outerControls.start(\"animate\");\n      pupilControls.start(\"animate\");\n     }\n    },\n    stopAnimation: () => {\n     outerControls.start(\"visible\");\n     pupilControls.start(\"visible\");\n    },\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) {\n     outerControls.start(\"animate\");\n     pupilControls.start(\"animate\");\n    } else {\n     onMouseEnter?.(e as any);\n    }\n   },\n   [outerControls, pupilControls, onMouseEnter, reduced],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) {\n     outerControls.start(\"visible\");\n     pupilControls.start(\"visible\");\n    } else {\n     onMouseLeave?.(e as any);\n    }\n   },\n   [outerControls, pupilControls, onMouseLeave],\n  );\n\n  const outerVariants: Variants = {\n   visible: { pathLength: 1, opacity: 1 },\n   animate: {\n    pathLength: [0, 1],\n    opacity: [0.6, 1],\n    transition: { duration: 0.9 * duration, ease: \"easeInOut\" },\n   },\n  };\n\n  const pupilVariants: Variants = {\n   visible: { scale: 1, opacity: 1 },\n   animate: {\n    scale: [1, 1.4, 1],\n    opacity: [1, 0.9, 1],\n    transition: { duration: 0.6 * duration, ease: \"easeInOut\" },\n   },\n  };\n\n  return (\n   <motion.div\n    className={cn(\"inline-flex items-center justify-center\", className)}\n    onMouseEnter={handleEnter}\n    onMouseLeave={handleLeave}\n    {...props}\n   >\n    <svg\n     xmlns=\"http://www.w3.org/2000/svg\"\n     width={size}\n     height={size}\n     viewBox=\"0 0 24 24\"\n     fill=\"none\"\n     stroke=\"currentColor\"\n     strokeWidth={2}\n     strokeLinecap=\"round\"\n     strokeLinejoin=\"round\"\n    >\n     <motion.path\n      d=\"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0\"\n      variants={outerVariants}\n      initial=\"visible\"\n      animate={outerControls}\n     />\n     <motion.circle\n      cx=\"12\"\n      cy=\"12\"\n      r=\"3\"\n      variants={pupilVariants}\n      initial=\"visible\"\n      animate={pupilControls}\n     />\n    </svg>\n   </motion.div>\n  );\n },\n);\n\nEyeIcon.displayName = \"EyeIcon\";\nexport { EyeIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}
