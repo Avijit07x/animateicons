@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
 					</div>
 
 					{/* Desktop Navigation */}
-					<div className="hidden items-center space-x-8 text-sm md:flex">
+					<div className="hidden items-center space-x-4 text-sm md:flex">
 						<Link
 							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
 							target="_blank"
@@ -72,6 +72,7 @@ const Navbar: React.FC = () => {
 						>
 							Docs
 						</Link>
+
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link
@@ -80,7 +81,7 @@ const Navbar: React.FC = () => {
 									rel="noopener noreferrer"
 									onMouseEnter={handleMouseEnter}
 									onMouseLeave={handleMouseLeave}
-									className="group hover:bg-primary/10 flex items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.438rem] text-sm font-medium text-white transition-colors duration-200"
+									className="group hover:bg-primary/10 flex h-8 items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.438rem] text-sm font-medium text-white transition-colors duration-200"
 								>
 									<GithubIcon ref={githubRef} size={16} />
 									<span className="text-xs text-white">Star</span>
@@ -96,6 +97,23 @@ const Navbar: React.FC = () => {
 							<TooltipContent>
 								<span className="px-3! py-1.5! font-medium! text-blue-600!">
 									View on Github
+								</span>
+							</TooltipContent>
+						</Tooltip>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<button className="h-8">
+									<iframe
+										src="https://github.com/sponsors/Avijit07x/button"
+										title="Sponsor Avijit07x"
+										height="32"
+										width="114"
+									></iframe>
+								</button>
+							</TooltipTrigger>
+							<TooltipContent>
+								<span className="px-3! py-1.5! font-medium! text-blue-600!">
+									Sponsor this project
 								</span>
 							</TooltipContent>
 						</Tooltip>
@@ -116,10 +134,10 @@ const Navbar: React.FC = () => {
 				{/* Mobile Navigation */}
 				<div
 					className={`overflow-hidden transition-all duration-300 md:hidden ${
-						isOpen ? "mt-2 max-h-64 opacity-100" : "max-h-0 opacity-0"
+						isOpen ? "mt-2 max-h-80 opacity-100" : "max-h-0 opacity-0"
 					}`}
 				>
-					<div className="bg-primary/10 border-primary/20 flex w-full flex-col items-center justify-center gap-3 rounded-lg border px-4 py-4 shadow-lg backdrop-blur-md">
+					<div className="bg-primary/10 border-primary/20 flex w-full flex-col items-center justify-center gap-4 rounded-lg border px-6 py-10 shadow-lg backdrop-blur-md">
 						{/* Docs */}
 						<Link
 							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
@@ -134,7 +152,7 @@ const Navbar: React.FC = () => {
 							href="https://github.com/Avijit07x/animateicons"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group hover:bg-primary/10 flex w-full items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.5rem] text-sm font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
+							className="group hover:bg-primary/10 flex h-8 w-full items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.5rem] text-sm font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
 						>
 							<GithubIcon size={16} />
 							<span className="text-xs group-hover:text-white">Star</span>
@@ -146,6 +164,14 @@ const Navbar: React.FC = () => {
 								/>
 							)}
 						</Link>
+						<button className="h-8 w-full">
+							<iframe
+								src="https://github.com/sponsors/Avijit07x/button"
+								title="Sponsor Avijit07x"
+								height="32"
+								width="100%"
+							></iframe>
+						</button>
 					</div>
 				</div>
 			</div>
