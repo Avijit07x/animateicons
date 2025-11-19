@@ -106,6 +106,7 @@ import { KeyIcon } from "./KeyIcon";
 import { KeyRoundIcon } from "./KeyRoundIcon";
 import { KeySquareIcon } from "./KeySquareIcon";
 import { LayoutGridIcon } from "./LayoutGridIcon";
+import { LayoutListIcon } from "./LayoutListIcon";
 import { LinkedInIcon } from "./LinkedinIcon";
 import { LinkIcon } from "./LinkIcon";
 import { LoaderCircleIcon } from "./LoaderCircleIcon";
@@ -149,6 +150,8 @@ import { SwissFrancIcon } from "./SwissFrancIcon";
 import { SwordsIcon } from "./SwordsIcon";
 import { TelescopeIcon } from "./TelescopeIcon";
 import { TerminalIcon } from "./TerminalIcon";
+import { ThumbsDownIcon } from "./ThumbsDownIcon";
+import { ThumbsUpIcon } from "./ThumbsUpIcon";
 import { Trash2Icon } from "./Trash2Icon";
 import { TrashIcon } from "./TrashIcon";
 import { TurkishLiraIcon } from "./TurkishLiraIcon";
@@ -240,6 +243,11 @@ const ICON_LIST: IconListItem[] = [
    "squares",
    "corne",
   ],
+ },
+ {
+  name: "layout-list",
+  icon: LayoutListIcon,
+  keywords: ["list", "items", "rows", "columns", "arrange", "organize"],
  },
  {
   name: "bring-to-front",
@@ -580,7 +588,6 @@ const ICON_LIST: IconListItem[] = [
    "account",
    "favorite",
    "contact",
-   "like",
    "review",
    "rating",
    "admin",
@@ -1249,6 +1256,35 @@ const ICON_LIST: IconListItem[] = [
   icon: HeartIcon,
   keywords: ["like", "love", "emotion", "favourite", "favorite", "react"],
  },
+ {
+  name: "thumbs-up",
+  icon: ThumbsUpIcon,
+  addedAt: "2025-10-10",
+  keywords: [
+   "like",
+   "approve",
+   "agree",
+   "good",
+   "positive",
+   "upvote",
+   "recommendation",
+  ],
+ },
+ {
+  name: "thumbs-down",
+  icon: ThumbsDownIcon,
+  addedAt: "2025-10-10",
+  keywords: [
+   "dislike",
+   "disapprove",
+   "disagree",
+   "bad",
+   "negative",
+   "downvote",
+   "recommendation",
+  ],
+ },
+
  {
   name: "activity",
   icon: ActivityIcon,

@@ -5,26 +5,26 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BlocksIconHandle {
+export interface LayoutListIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BlocksIconProps extends HTMLMotionProps<"div"> {
+interface LayoutListIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
+const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
  (
   {
-   onMouseEnter,
-   onMouseLeave,
    className,
    size = 24,
    duration = 1,
    isAnimated = true,
+   onMouseEnter,
+   onMouseLeave,
    ...props
   },
   ref,
@@ -48,52 +48,31 @@ const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, onMouseEnter, reduced],
+   [controls, reduced, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e?: React.MouseEvent<HTMLDivElement>) => {
+   (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
     else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const itemVariant: Variants = {
+   normal: { opacity: 1, x: 0 },
    animate: {
-    rotate: [0, -2, 2, 0],
-    scale: [1, 1.05, 0.95, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
+    opacity: [0, 1],
+    x: [-6, 0],
+    transition: { duration: 0.55 * duration },
    },
   };
 
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const lineVariant: Variants = {
+   normal: { pathLength: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.5, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
-   },
-  };
-
-  const rectVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.2, 0.9, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
+    transition: { duration: 0.55 * duration },
    },
   };
 
@@ -116,25 +95,32 @@ const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
      strokeLinejoin="round"
      animate={controls}
      initial="normal"
-     variants={svgVariants}
     >
-     <motion.path
-      d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"
-      variants={pathVariants}
+     <motion.rect
+      width="7"
+      height="7"
+      x="3"
+      y="3"
+      rx="1"
+      variants={itemVariant}
      />
      <motion.rect
-      x="14"
-      y="2"
-      width="8"
-      height="8"
+      width="7"
+      height="7"
+      x="3"
+      y="14"
       rx="1"
-      variants={rectVariants}
+      variants={itemVariant}
      />
+     <motion.path d="M14 4h7" variants={lineVariant} />
+     <motion.path d="M14 9h7" variants={lineVariant} />
+     <motion.path d="M14 15h7" variants={lineVariant} />
+     <motion.path d="M14 20h7" variants={lineVariant} />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BlocksIcon.displayName = "BlocksIcon";
-export { BlocksIcon };
+LayoutListIcon.displayName = "LayoutListIcon";
+export { LayoutListIcon };

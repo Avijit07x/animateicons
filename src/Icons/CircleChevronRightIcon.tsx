@@ -90,21 +90,22 @@ const CircleChevronRightIcon = forwardRef<
   const circleVariants: Variants = {
    normal: { scale: 1, opacity: 1 },
    animate: {
-    scale: [1, 1.08, 0.95, 1],
+    scale: [1, 1.1, 0.9, 1.05, 1],
+    opacity: 1,
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.2 * duration,
      ease: "easeInOut",
     },
    },
   };
 
   const arrowVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
+   normal: { y: 0, opacity: 1 },
    animate: {
-    x: [8, 0, 2, 0],
-    opacity: 1,
+    x: [-10, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.6 * duration,
      ease: "easeOut",
     },
    },

@@ -68,7 +68,7 @@ const BringToFrontIcon = forwardRef<
     rotate: [0, -3, 3, 0],
     scale: [1, 1.05, 0.95, 1],
     transition: {
-     duration: 1.4 * duration,
+     duration: 1 * duration,
      ease: [0.42, 0, 0.58, 1],
      repeat: 0,
     },
@@ -81,7 +81,7 @@ const BringToFrontIcon = forwardRef<
     pathLength: [0, 1],
     opacity: [0.5, 1],
     transition: {
-     duration: 1.2 * duration,
+     duration: 0.8 * duration,
      ease: [0.42, 0, 0.58, 1],
      repeat: 0,
     },
@@ -93,7 +93,7 @@ const BringToFrontIcon = forwardRef<
    animate: {
     scale: [1, 1.2, 0.9, 1],
     transition: {
-     duration: 1 * duration,
+     duration: 0.8 * duration,
      ease: [0.42, 0, 0.58, 1],
      repeat: 0,
     },

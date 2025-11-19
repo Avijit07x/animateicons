@@ -65,21 +65,35 @@ const HeartIcon = forwardRef<HeartIconHandle, HeartIconProps>(
   const easeInOutArray: [number, number, number, number] = [0.42, 0, 0.58, 1];
 
   const drawVariantLeft: Variants = {
-   normal: { pathLength: 1 },
+   normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    transition: { duration: 0.7 * duration, ease: easeInOutArray },
+    opacity: [0, 1],
+    transition: { duration: 0.5 * duration, ease: easeInOutArray },
    },
   };
 
   const drawVariantRight: Variants = {
-   normal: { pathLength: 1 },
+   normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
+    opacity: [0, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.5 * duration,
      ease: easeInOutArray,
-     delay: 0.2,
+     delay: 0.12 * duration,
+    },
+   },
+  };
+
+  const svgVariant: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.12, 0.98, 1],
+    transition: {
+     duration: duration,
+     ease: easeInOutArray,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -103,14 +117,19 @@ const HeartIcon = forwardRef<HeartIconHandle, HeartIconProps>(
      strokeLinejoin="round"
      animate={controls}
      initial="normal"
+     variants={svgVariant}
     >
      <motion.path
       d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676"
       variants={drawVariantLeft}
+      strokeLinecap="round"
+      strokeLinejoin="round"
      />
      <motion.path
       d="M12.409 5.824A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
       variants={drawVariantRight}
+      strokeLinecap="round"
+      strokeLinejoin="round"
      />
     </motion.svg>
    </motion.div>
