@@ -23,7 +23,7 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 1,
+   duration = 0.6,
    isAnimated = true,
    ...props
   },
@@ -59,26 +59,27 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
    [controls, onMouseLeave],
   );
 
+  const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
   const iconVariants: Variants = {
    normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.05, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 1.06, 0.98, 1],
+    rotate: [0, -1.5, 1.5, 0],
+    transition: { duration: 1.1 * duration, ease: "easeInOut" },
    },
   };
 
   const tileVariants: Variants = {
    normal: { opacity: 1, scale: 1, y: 0 },
    animate: (i: number) => ({
-    opacity: [0.5, 1, 0.8, 1],
-    scale: [0.9, 1.1, 1],
-    y: [2, -2, 0],
+    opacity: [0.6, 1],
+    scale: [0.95, 1.04, 1],
+    y: [3, -2, 0],
     transition: {
-     duration: 1.2 * duration,
+     duration: 0.9 * duration,
      ease: "easeInOut",
-     repeat: 0,
-     delay: i * 0.2,
+     delay: i * 0.08,
     },
    }),
   };
