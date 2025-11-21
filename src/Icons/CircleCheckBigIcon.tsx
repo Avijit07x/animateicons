@@ -66,7 +66,7 @@ const CircleCheckBigIcon = forwardRef<
      onMouseEnter?.(e as any);
     }
    },
-   [controls, tickControls, reduced, onMouseEnter , isAnimated],
+   [controls, tickControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

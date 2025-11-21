@@ -63,7 +63,7 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [folderControls, paperControls, reduced, onMouseEnter , isAnimated],
+   [folderControls, paperControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

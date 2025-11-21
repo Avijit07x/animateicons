@@ -66,7 +66,14 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
      handControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [groupControls, coinsControls, handControls, reduced, onMouseEnter , isAnimated],
+   [
+    groupControls,
+    coinsControls,
+    handControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

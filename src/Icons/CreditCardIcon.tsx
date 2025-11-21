@@ -66,7 +66,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
      swipeControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [controls, stripeControls, swipeControls , reduced, isAnimated, onMouseLeave],
+   [controls, stripeControls, swipeControls, reduced, isAnimated, onMouseLeave],
   );
 
   const handleLeave = useCallback(
