@@ -69,7 +69,7 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [svgControls, rectControls, tipControls, reduced, onMouseEnter],
+   [svgControls, rectControls, tipControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

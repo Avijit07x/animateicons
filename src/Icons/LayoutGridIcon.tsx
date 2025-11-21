@@ -42,14 +42,23 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
    };
   });
 
-  const handleEnter = useCallback(() => {
-   if (!isAnimated || reduced) return;
-   if (!isControlled.current) controls.start("animate");
-  }, [controls, reduced]);
+  const handleEnter = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isAnimated || reduced) return;
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
+   },
+   [controls, reduced , isAnimated, onMouseEnter],
+  );
 
-  const handleLeave = useCallback(() => {
-   if (!isControlled.current) controls.start("normal");
-  }, [controls]);
+  const handleLeave = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) {
+     controls.start("normal");
+    } else onMouseLeave?.(e as any);
+   },
+   [controls , onMouseLeave],
+  );
 
   const gridVariants: Variants = {
    normal: { scale: 1, rotate: 0 },

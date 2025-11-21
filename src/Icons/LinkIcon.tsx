@@ -59,9 +59,9 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
     if (!isControlled.current) {
      leftPartControls.start("animate");
      rightPartControls.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
-   [leftPartControls, rightPartControls],
+   [leftPartControls, rightPartControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

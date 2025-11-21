@@ -66,7 +66,14 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
      checkControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pathControls, circleControls, checkControls, reduced, onMouseEnter],
+   [
+    pathControls,
+    circleControls,
+    checkControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

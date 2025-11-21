@@ -61,7 +61,7 @@ const ShieldCheckIcon = forwardRef<ShieldCheckIconHandle, ShieldCheckIconProps>(
      checkControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [shieldControls, checkControls, reduced, onMouseEnter],
+   [shieldControls, checkControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

@@ -66,7 +66,14 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
      semiControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [outerControls, lineControls, semiControls, reduced, onMouseEnter],
+   [
+    outerControls,
+    lineControls,
+    semiControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

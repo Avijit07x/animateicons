@@ -56,7 +56,7 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
      pathControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pathControls, reduced, onMouseEnter],
+   [pathControls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

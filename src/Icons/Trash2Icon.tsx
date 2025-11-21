@@ -68,7 +68,7 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [binControls, lidControls, barControls, reduced, onMouseEnter],
+   [binControls, lidControls, barControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

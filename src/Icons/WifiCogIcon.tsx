@@ -84,6 +84,7 @@ const WifiCogIcon = forwardRef<WifiCogIconHandle, WifiCogIconProps>(
     cogControls,
     reduced,
     onMouseEnter,
+    isAnimated,
    ],
   );
 

@@ -66,7 +66,7 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
      x2Controls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [shieldControls, x1Controls, x2Controls, reduced, onMouseEnter],
+   [shieldControls, x1Controls, x2Controls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

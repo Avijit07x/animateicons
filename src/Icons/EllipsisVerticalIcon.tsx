@@ -51,10 +51,10 @@ const EllipsisVerticalIcon = forwardRef<
     if (!isControlled.current) {
      controls.start("animate");
     } else {
-     onMouseEnter?.(e);
+     onMouseEnter?.(e as any);
     }
    },
-   [controls, onMouseEnter, reduced],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

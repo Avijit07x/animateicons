@@ -61,7 +61,7 @@ const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
      circleControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pathControls, circleControls, reduced, onMouseEnter],
+   [pathControls, circleControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

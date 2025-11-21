@@ -71,7 +71,7 @@ const CircleChevronUpIcon = forwardRef<
      onMouseEnter?.(e as any);
     }
    },
-   [circleControls, tickControls, reduced, onMouseEnter],
+   [circleControls, tickControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

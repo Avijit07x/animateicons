@@ -61,7 +61,7 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
      tailControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [frameControls, tailControls, reduced, onMouseEnter],
+   [frameControls, tailControls, reduced, onMouseEnter , isAnimated],
   );
 
   const handleLeave = useCallback(

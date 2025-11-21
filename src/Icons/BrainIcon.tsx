@@ -75,9 +75,17 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
      pulseControls.start("animate");
      sparkControlsL.start("animate");
      sparkControlsR.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
-   [groupControls, pulseControls, sparkControlsL, sparkControlsR],
+   [
+    groupControls,
+    pulseControls,
+    sparkControlsL,
+    sparkControlsR,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(
@@ -89,7 +97,7 @@ const BrainIcon = forwardRef<BrainHandle, BrainProps>(
      sparkControlsR.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [groupControls, pulseControls, sparkControlsL, sparkControlsR],
+   [groupControls, pulseControls, sparkControlsL, sparkControlsR, onMouseLeave],
   );
 
   const microTilt: Variants = useMemo(

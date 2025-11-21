@@ -66,7 +66,14 @@ const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
      trayControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pinControls, circleControls, trayControls, reduced, onMouseEnter],
+   [
+    pinControls,
+    circleControls,
+    trayControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

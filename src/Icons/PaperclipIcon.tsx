@@ -56,7 +56,7 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
      pathControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pathControls, reduced, onMouseEnter],
+   [pathControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

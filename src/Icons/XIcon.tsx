@@ -68,7 +68,14 @@ const XIcon = forwardRef<XIconHandle, XIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [svgControls, path1Controls, path2Controls, reduced, onMouseEnter],
+   [
+    svgControls,
+    path1Controls,
+    path2Controls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

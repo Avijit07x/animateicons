@@ -64,7 +64,7 @@ const MapPinCheckInsideIcon = forwardRef<
      checkControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [pinControls, checkControls, reduced, onMouseEnter],
+   [pinControls, checkControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

@@ -61,6 +61,7 @@ import { ClipboardIcon } from "./ClipboardIcon";
 import { CloudUploadIcon } from "./CloudUploadIcon";
 import { CodeIcon } from "./CodeIcon";
 import { CodeXmlIcon } from "./CodeXmlIcon";
+import { CompassIcon } from "./CompassIcon";
 import { ContactIcon } from "./ContactIcon";
 import { ContactRoundIcon } from "./ContactRoundIcon";
 import { CopyIcon } from "./CopyIcon";
@@ -247,6 +248,7 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "layout-list",
   icon: LayoutListIcon,
+  addedAt: "2025-11-20",
   keywords: ["list", "items", "rows", "columns", "arrange", "organize"],
  },
  {
@@ -1259,7 +1261,7 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "thumbs-up",
   icon: ThumbsUpIcon,
-  addedAt: "2025-10-10",
+  addedAt: "2025-11-20",
   keywords: [
    "like",
    "approve",
@@ -1273,7 +1275,7 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "thumbs-down",
   icon: ThumbsDownIcon,
-  addedAt: "2025-10-10",
+  addedAt: "2025-11-20",
   keywords: [
    "dislike",
    "disapprove",
@@ -1344,6 +1346,21 @@ const ICON_LIST: IconListItem[] = [
    "control",
   ],
  },
+ {
+  name: "compass",
+  icon: CompassIcon,
+  addedAt: "2025-11-20",
+  keywords: [
+   "direction",
+   "navigation",
+   "explore",
+   "travel",
+   "location",
+   "map",
+   "adventure",
+  ],
+ },
+
  {
   name: "spray-can",
   icon: SprayCanIcon,
