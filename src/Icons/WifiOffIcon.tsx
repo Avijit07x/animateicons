@@ -90,7 +90,7 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
     slashControls,
     reduced,
     onMouseEnter,
-    isAnimated
+    isAnimated,
    ],
   );
 

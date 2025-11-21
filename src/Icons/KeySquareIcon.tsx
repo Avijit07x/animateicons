@@ -61,7 +61,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
      sparkControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [controls, sparkControls , reduced, isAnimated, onMouseEnter],
+   [controls, sparkControls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

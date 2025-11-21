@@ -48,7 +48,7 @@ const SignalIcon = forwardRef<SignalHandle, SignalProps>(
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, reduced , isAnimated, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

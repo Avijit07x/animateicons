@@ -61,7 +61,7 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
      clipControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [bodyControls, clipControls, reduced, onMouseEnter , isAnimated],
+   [bodyControls, clipControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(

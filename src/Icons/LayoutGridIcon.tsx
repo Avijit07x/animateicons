@@ -48,7 +48,7 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, reduced , isAnimated, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -57,7 +57,7 @@ const LayoutGridIcon = forwardRef<LayoutGridHandle, LayoutGridProps>(
      controls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [controls , onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const gridVariants: Variants = {
