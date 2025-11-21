@@ -77,14 +77,17 @@ const EyeClosedIcon = forwardRef<ExternalLinkIconHandle, EyeClosedIconProps>(
    };
   }, [squeezeControls, reduced]);
 
-  const handleEnter = useCallback(() => {
-   if (!isAnimated || reduced) return;
-   if (!isControlled.current) {
-    arcControls.start("pulse");
-    lashesControls.start("flick");
-    squeezeControls.start("hover");
-   }
-  }, [arcControls, lashesControls, squeezeControls, reduced]);
+  const handleEnter = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isAnimated || reduced) return;
+    if (!isControlled.current) {
+     arcControls.start("pulse");
+     lashesControls.start("flick");
+     squeezeControls.start("hover");
+    } else onMouseEnter?.(e as any);
+   },
+   [arcControls, lashesControls, squeezeControls, reduced],
+  );
 
   const handleLeave = useCallback(() => {
    if (!isControlled.current) {

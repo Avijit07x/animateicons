@@ -51,7 +51,7 @@ const FolderIcon = forwardRef<FolderIconHandle, FolderIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [folderControls, reduced, onMouseEnter],
+   [folderControls, reduced, onMouseEnter , isAnimated],
   );
 
   const handleLeave = useCallback(

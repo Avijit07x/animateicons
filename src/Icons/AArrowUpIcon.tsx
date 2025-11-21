@@ -84,6 +84,7 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
     barControls,
     reduced,
     onMouseEnter,
+    isAnimated,
    ],
   );
 

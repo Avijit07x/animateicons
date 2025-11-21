@@ -5,21 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ShoppingCartIconHandle {
+export interface CompassIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface ShoppingCartIconProps extends HTMLMotionProps<"div"> {
+interface CompassIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const ShoppingCartIcon = forwardRef<
- ShoppingCartIconHandle,
- ShoppingCartIconProps
->(
+const CompassIcon = forwardRef<CompassIconHandle, CompassIconProps>(
  (
   {
    onMouseEnter,
@@ -55,34 +52,29 @@ const ShoppingCartIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const cartVariants: Variants = {
-   normal: { y: 0, rotate: 0, scale: 1 },
+  const circleVariants: Variants = {
+   normal: { rotate: 0, scale: 1 },
    animate: {
-    y: [0, -3, 0, -1, 0],
-    rotate: [0, -4, 3, -2, 0],
-    transition: {
-     duration: 1.8 * duration,
-     repeat: 0,
-     ease: "easeInOut",
-    },
+    rotate: [0, 10, -6, 3, 0],
+    scale: [1, 1.05, 0.98, 1],
+    transition: { duration: 0.9 * duration, ease: [0.22, 1, 0.36, 1] },
    },
   };
 
-  const wheelVariants: Variants = {
-   normal: { rotate: 0 },
+  const needleVariants: Variants = {
+   normal: { rotate: 0, pathLength: 1, opacity: 1 },
    animate: {
-    rotate: [0, 360],
-    transition: { duration: 1 * duration, ease: "linear", repeat: 0 },
+    rotate: [0, -28, 8, -4, 0],
+    pathLength: [0.8, 1, 0.6, 1],
+    opacity: [0.9, 1, 0.85, 1],
+    transition: { duration: 1 * duration, ease: [0.22, 1, 0.36, 1] },
    },
   };
 
@@ -105,13 +97,20 @@ const ShoppingCartIcon = forwardRef<
      strokeLinejoin="round"
      animate={controls}
      initial="normal"
+     variants={circleVariants}
     >
-     <motion.circle cx="8" cy="21" r="1" variants={wheelVariants} />
-     <motion.circle cx="19" cy="21" r="1" variants={wheelVariants} />
-
      <motion.path
-      d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
-      variants={cartVariants}
+      d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"
+      variants={needleVariants}
+      initial="normal"
+      style={{ transformOrigin: "center" }}
+     />
+     <motion.circle
+      cx="12"
+      cy="12"
+      r="10"
+      variants={circleVariants}
+      initial="normal"
      />
     </motion.svg>
    </motion.div>
@@ -119,5 +118,5 @@ const ShoppingCartIcon = forwardRef<
  },
 );
 
-ShoppingCartIcon.displayName = "ShoppingCartIcon";
-export { ShoppingCartIcon };
+CompassIcon.displayName = "CompassIcon";
+export { CompassIcon };

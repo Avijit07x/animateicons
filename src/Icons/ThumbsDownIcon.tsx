@@ -30,7 +30,6 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparks = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -38,8 +37,8 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
    isControlled.current = true;
    return {
     startAnimation: () =>
-     reduced ? controls.start("idle") : controls.start("dislike"),
-    stopAnimation: () => controls.start("idle"),
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
@@ -47,32 +46,31 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
     if (!isControlled.current) {
-     controls.start("dislike");
-     sparks.start("burst");
+     controls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [controls, sparks, reduced, isAnimated, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) controls.start("idle");
+    if (!isControlled.current) controls.start("normal");
     else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const svgVariants: Variants = {
-   idle: { scale: 1 },
-   dislike: {
+   normal: { scale: 1 },
+   animate: {
     scale: [1, 1.06, 0.98, 1],
     transition: { duration: 0.6 * duration, ease: "easeOut" },
    },
   };
 
   const stemVariants: Variants = {
-   idle: { pathLength: 1, opacity: 1 },
-   dislike: {
+   normal: { pathLength: 1, opacity: 1 },
+   animate: {
     pathLength: [1, 0.6, 1],
     opacity: [1, 0.7, 1],
     transition: { duration: 0.5 * duration, ease: "easeOut" },
@@ -80,8 +78,8 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
   };
 
   const thumbVariants: Variants = {
-   idle: { rotate: 0, y: 0, pathLength: 1, opacity: 1 },
-   dislike: {
+   normal: { rotate: 0, y: 0, pathLength: 1, opacity: 1 },
+   animate: {
     rotate: [0, 18, -8, 0],
     y: [0, 8, 4, 0],
     pathLength: [0.8, 1, 0.6, 1],
@@ -108,15 +106,15 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
      strokeLinecap="round"
      strokeLinejoin="round"
      variants={svgVariants}
-     initial="idle"
+     initial="normal"
      animate={controls}
     >
-     <motion.path d="M17 14V2" variants={stemVariants} initial="idle" />
+     <motion.path d="M17 14V2" variants={stemVariants} initial="normal" />
 
      <motion.path
       d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"
       variants={thumbVariants}
-      initial="idle"
+      initial="normal"
      />
     </motion.svg>
    </motion.div>

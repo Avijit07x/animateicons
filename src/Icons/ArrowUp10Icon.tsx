@@ -48,7 +48,7 @@ const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, reduced, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

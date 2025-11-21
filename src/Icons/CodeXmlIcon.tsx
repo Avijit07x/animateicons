@@ -68,7 +68,14 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [leftControls, rightControls, slashControls, reduced, onMouseEnter],
+   [
+    leftControls,
+    rightControls,
+    slashControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

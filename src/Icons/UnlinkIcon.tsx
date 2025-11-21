@@ -64,9 +64,16 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
      leftChainControls.start("animate");
      rightChainControls.start("animate");
      sparksControls.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
-   [leftChainControls, rightChainControls, sparksControls],
+   [
+    leftChainControls,
+    rightChainControls,
+    sparksControls,
+    reduced,
+    isAnimated,
+    onMouseEnter,
+   ],
   );
 
   const handleLeave = useCallback(

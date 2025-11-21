@@ -78,6 +78,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
     legsControls,
     reduced,
     onMouseEnter,
+    isAnimated,
    ],
   );
 

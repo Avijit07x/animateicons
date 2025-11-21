@@ -59,9 +59,9 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
     if (!isControlled.current) {
      controls.start("animate");
      sparkControls.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
-   [controls, sparkControls],
+   [controls, sparkControls , reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -71,7 +71,7 @@ const KeySquareIcon = forwardRef<KeySquareHandle, KeySquareProps>(
      sparkControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [controls, sparkControls],
+   [controls, sparkControls, onMouseLeave],
   );
 
   const settle: Variants = {

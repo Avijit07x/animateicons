@@ -61,9 +61,9 @@ const SquareArrowOutUpRightIcon = forwardRef<
     if (!isControlled.current) {
      boxControls.start("animate");
      arrowControls.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
-   [boxControls, arrowControls],
+   [boxControls, arrowControls, isAnimated, reduced, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -73,7 +73,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
      arrowControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [boxControls, arrowControls],
+   [boxControls, arrowControls, onMouseLeave],
   );
 
   const boxVariants: Variants = {

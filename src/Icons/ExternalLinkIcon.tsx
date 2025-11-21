@@ -62,7 +62,7 @@ const ExternalLinkIcon = forwardRef<
     if (!isControlled.current) {
      boxControls.start("animate");
      arrowControls.start("animate");
-    } else onMouseLeave?.(e as any);
+    } else onMouseEnter?.(e as any);
    },
    [boxControls, arrowControls],
   );

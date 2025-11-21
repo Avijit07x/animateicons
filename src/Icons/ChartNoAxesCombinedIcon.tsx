@@ -69,7 +69,14 @@ const ChartNoAxesCombinedIcon = forwardRef<
      lineControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [groupControls, barsControls, lineControls, reduced, onMouseEnter],
+   [
+    groupControls,
+    barsControls,
+    lineControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

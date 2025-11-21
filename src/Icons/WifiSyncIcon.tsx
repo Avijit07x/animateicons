@@ -84,6 +84,7 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
     syncArrowControls,
     reduced,
     onMouseEnter,
+    isAnimated,
    ],
   );
 

@@ -63,7 +63,7 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [controls, tickControls, reduced, onMouseEnter],
+   [controls, tickControls, reduced, onMouseEnter , isAnimated],
   );
 
   const handleLeave = useCallback(

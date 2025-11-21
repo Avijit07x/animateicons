@@ -48,7 +48,7 @@ const MoveLeftIcon = forwardRef<MoveLeftIconHandle, MoveLeftIconProps>(
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, reduced, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(

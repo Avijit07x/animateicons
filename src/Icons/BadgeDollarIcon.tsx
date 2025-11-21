@@ -66,7 +66,14 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
      lineControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [outerControls, dollarControls, lineControls, reduced, onMouseEnter],
+   [
+    outerControls,
+    dollarControls,
+    lineControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(

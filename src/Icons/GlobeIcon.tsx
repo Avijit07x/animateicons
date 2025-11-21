@@ -63,7 +63,7 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
      onMouseEnter?.(e as any);
     }
    },
-   [controls, pathControls],
+   [controls, pathControls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -71,9 +71,11 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
     if (!isControlled.current) {
      controls.start("normal");
      pathControls.start("normal");
+    } else {
+     onMouseLeave?.(e as any);
     }
    },
-   [controls, pathControls],
+   [controls, pathControls, onMouseLeave],
   );
 
   const svgVariants: Variants = {

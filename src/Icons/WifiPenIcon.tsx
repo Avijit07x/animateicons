@@ -84,6 +84,7 @@ const WifiPenIcon = forwardRef<WifiPenIconHandle, WifiPenIconProps>(
     penControls,
     reduced,
     onMouseEnter,
+    isAnimated
    ],
   );
 
