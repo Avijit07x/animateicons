@@ -33,10 +33,42 @@ function loadIconList(): IconListItem[] {
 	return mod.ICON_LIST as IconListItem[];
 }
 
+function makeSafeFilename(name: string) {
+	return name.replace(/[^a-z0-9._-]/gi, "-");
+}
+
+function stubContentFor(name: string) {
+	const pascal = toPascalFromKebab(name);
+	return `export const ${pascal} = () => null;\nexport default ${pascal};\n`;
+}
+
 function main() {
 	ensureDir(PUBLIC_ICONS_DIR);
 
 	const iconList = loadIconList();
+
+	const allowedNames = new Set<string>();
+	iconList.forEach((item) => {
+		if (item.icon?.name) allowedNames.add(item.icon.name);
+		allowedNames.add(toPascalFromKebab(item.name));
+	});
+
+	const dirEntries = fs.existsSync(ICONS_DIR) ? fs.readdirSync(ICONS_DIR) : [];
+	const tsxFiles = dirEntries.filter((f) => f.endsWith(".tsx"));
+
+	const unmatched: string[] = [];
+	tsxFiles.forEach((file) => {
+		const base = path.basename(file, ".tsx");
+		if (!allowedNames.has(base)) unmatched.push(base);
+	});
+
+	if (unmatched.length > 0) {
+		console.error(
+			"The following .tsx files do not have matching entries in ICON_LIST:",
+		);
+		unmatched.forEach((name) => console.error(name));
+		throw new Error("Unmatched .tsx files found. See console for list.");
+	}
 
 	iconList.forEach((item) => {
 		let filePath = "";
@@ -49,29 +81,34 @@ function main() {
 		else if (fs.existsSync(guess2)) filePath = guess2;
 
 		let content = "";
+		let sourceBasename = "";
+
 		if (filePath) {
-			content = fs.readFileSync(filePath, "utf8");
+			try {
+				content = fs.readFileSync(filePath, "utf8");
+				sourceBasename = path.basename(filePath);
+			} catch {
+				content = stubContentFor(item.name);
+				sourceBasename = `${makeSafeFilename(item.name)}.tsx`;
+			}
 		} else {
-			console.warn(`File not found for ${item.name}`);
+			content = stubContentFor(item.name);
+			sourceBasename = `${makeSafeFilename(item.name)}.tsx`;
 		}
 
 		const iconJson = {
 			name: item.name,
-			type: "registry:ui",
+			type: "registry:component",
+			addGlobalCss: false,
 			registryDependencies: [],
 			dependencies: ["motion"],
 			devDependencies: [],
-			tailwind: {} as Record<string, unknown>,
-			cssVars: {
-				light: {} as Record<string, unknown>,
-				dark: {} as Record<string, unknown>,
-			},
 			keywords: item.keywords ?? [],
 			files: [
 				{
-					path: path.basename(filePath || ""),
+					path: sourceBasename,
 					content,
-					type: "registry:ui",
+					type: "registry:component",
 				},
 			],
 		};
