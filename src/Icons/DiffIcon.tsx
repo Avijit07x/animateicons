@@ -67,7 +67,6 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
     transition: {
      duration: 1.2 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
     },
    },
   };
@@ -80,8 +79,6 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
-     repeatDelay: 0.4,
     },
    },
   };
@@ -94,7 +91,6 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
     transition: {
      duration: 1.2 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
     },
    },
   };

@@ -75,6 +75,7 @@ import { CornerUpLeftIcon } from "./CornerUpLeftIcon";
 import { CornerUpRightIcon } from "./CornerUpRightIcon";
 import { CreditCardIcon } from "./CreditCardIcon";
 import { DashboardIcon } from "./DashboardIcon";
+import { DiffIcon } from "./DiffIcon";
 import { DollarSignIcon } from "./DollarSignIcon";
 import { DownloadIcon } from "./DownloadIcon";
 import { EllipsisIcon } from "./EllipsisIcon";
@@ -559,7 +560,7 @@ const ICON_LIST: IconListItem[] = [
   ],
  },
  {
-  name: "user-search",
+  name: "user-round-search",
   icon: UserRoundSearchIcon,
   keywords: [
    "person",
@@ -857,6 +858,20 @@ const ICON_LIST: IconListItem[] = [
    "scope",
    "join",
    "operator",
+  ],
+ },
+ {
+  name: "diff",
+  icon: DiffIcon,
+  addedAt: "2025-11-22",
+  keywords: [
+   "patch",
+   "difference",
+   "compare",
+   "plus",
+   "minus",
+   "plus-minus",
+   "math",
   ],
  },
  {
