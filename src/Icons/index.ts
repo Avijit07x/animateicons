@@ -43,11 +43,13 @@ import { CheckIcon } from "./CheckIcon";
 import { ChevronDownIcon } from "./ChevronDownIcon";
 import { ChevronLeftIcon } from "./ChevronLeftIcon";
 import { ChevronRightIcon } from "./ChevronRightIcon";
+import { ChevronsDownIcon } from "./ChevronsDownIcon";
 import { ChevronsLeftIcon } from "./ChevronsLeftIcon";
 import { ChevronsLeftRightEllipsisIcon } from "./ChevronsLeftRightEllipsisIcon";
 import { ChevronsLeftRightIcon } from "./ChevronsLeftRightIcon";
 import { ChevronsRightIcon } from "./ChevronsRightIcon";
 import { ChevronsRightLeftIcon } from "./ChevronsRightLeftIcon";
+import { ChevronsUpIcon } from "./ChevronsUpIcon";
 import { ChevronUpIcon } from "./ChevronUpIcon";
 import { ChromeIcon } from "./ChromeIcon";
 import { CircleCheckBigIcon } from "./CircleCheckBigIcon";
@@ -111,6 +113,7 @@ import { LayoutGridIcon } from "./LayoutGridIcon";
 import { LayoutListIcon } from "./LayoutListIcon";
 import { LinkedInIcon } from "./LinkedinIcon";
 import { LinkIcon } from "./LinkIcon";
+import { ListChevronsUpDownIcon } from "./ListChevronsUpDownIcon";
 import { LoaderCircleIcon } from "./LoaderCircleIcon";
 import { LoaderIcon } from "./LoaderIcon";
 import { LockIcon } from "./LockIcon";
@@ -766,7 +769,18 @@ const ICON_LIST: IconListItem[] = [
   icon: ChevronsRightIcon,
   keywords: ["turn", "corner", "forward", "double", "fast-forward", "jump"],
  },
-
+ {
+  name: "chevrons-up",
+  icon: ChevronsUpIcon,
+  addedAt: "2025-11-23",
+  keywords: ["forward", "ahead", "faster", "speed", "boost"],
+ },
+ {
+  name: "chevrons-down",
+  icon: ChevronsDownIcon,
+  addedAt: "2025-11-23",
+  keywords: ["back", "rewind", "slower", "speed", "slow"],
+ },
  {
   name: "corner-down-left",
   icon: CornerDownLeftIcon,
@@ -828,6 +842,28 @@ const ICON_LIST: IconListItem[] = [
    "router",
    "data",
    "sync",
+  ],
+ },
+ {
+  name: "list-chevrons-up-down",
+  icon: ListChevronsUpDownIcon,
+  addedAt: "2025-11-23",
+  keywords: [
+   "options",
+   "items",
+   "collapse",
+   "expand",
+   "details",
+   "disclosure",
+   "show",
+   "hide",
+   "toggle",
+   "accordion",
+   "more",
+   "less",
+   "fold",
+   "unfold",
+   "vertica",
   ],
  },
  // Actions
