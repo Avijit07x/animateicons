@@ -117,6 +117,8 @@ import { ListChevronsUpDownIcon } from "./ListChevronsUpDownIcon";
 import { LoaderCircleIcon } from "./LoaderCircleIcon";
 import { LoaderIcon } from "./LoaderIcon";
 import { LockIcon } from "./LockIcon";
+import { LoginIcon } from "./LoginIcon";
+import { LogoutIcon } from "./LogoutIcon";
 import { MailIcon } from "./MailIcon";
 import { MailsIcon } from "./MailsIcon";
 import { MapPinCheckIcon } from "./MapPinCheckIcon";
@@ -2596,6 +2598,62 @@ const ICON_LIST: IconListItem[] = [
    "emergency",
   ],
  },
+ {
+  name: "login",
+  icon: LoginIcon,
+  addedAt: "2025-11-26",
+  keywords: [
+    "signin",
+    "enter",
+    "access",
+    "authenticate",
+    "user",
+    "account",
+    "join",
+    "enter account",
+    "arrow",
+    "door",
+    "authorization",
+    "member",
+    "profile",
+    "welcome",
+    "in",
+    "login page",
+    "credentials",
+    "id",
+    "username",
+    "password"
+  ]
+},
+{
+  name: "logout",
+  icon: LogoutIcon,
+  addedAt: "2025-11-26",
+  keywords: [
+    "signout",
+    "exit",
+    "leave",
+    "close session",
+    "logout button",
+    "end session",
+    "arrow",
+    "door",
+    "account",
+    "disconnect",
+    "user",
+    "remove access",
+    "quit",
+    "log out",
+    "session",
+    "profile",
+    "end",
+    "security",
+    "authentication",
+    "finish"
+  ]
+}
+
+
 ];
 
 const ICON_COUNT = ICON_LIST.length;
