@@ -231,6 +231,7 @@ import { DashboardIcon } from "./DashboardIcon";
 {
 	name: "dashboard",
 	icon: DashboardIcon,
+	addedAt: "YYYY-MM-DD",
 	keywords: ["masonry", "brick", "panel", "grid", "widgets", "layout"],
 },
 ```
