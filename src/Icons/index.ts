@@ -130,6 +130,7 @@ import { MessageCircleIcon } from "./MessageCircleIcon";
 import { MicIcon } from "./MicIcon";
 import { MicOffIcon } from "./MicOffIcon";
 import { MinusIcon } from "./MinusIcon";
+import { MoonIcon } from "./MoonIcon";
 import { MoveLeftIcon } from "./MoveLeftIcon";
 import { MoveRightIcon } from "./MoveRightIcon";
 import { PaperclipIcon } from "./PaperclipIcon";
@@ -153,6 +154,7 @@ import { SparklesIcon } from "./SparklesIcon";
 import { SprayCanIcon } from "./SprayCanIcon";
 import { SquareArrowOutUpRightIcon } from "./SquareArrowOutUpRightIcon";
 import { StarIcon } from "./StarIcon";
+import { SunIcon } from "./SunIcon";
 import { SwissFrancIcon } from "./SwissFrancIcon";
 import { SwordsIcon } from "./SwordsIcon";
 import { TelescopeIcon } from "./TelescopeIcon";
@@ -2359,29 +2361,6 @@ const ICON_LIST: IconListItem[] = [
    "library",
    "writing",
    "written",
-   "writer",
-   "author",
-   "story",
-   "script",
-   "screenplay",
-   "fiction",
-   "novel",
-   "information",
-   "knowledge",
-   "education",
-   "high school",
-   "university",
-   "college",
-   "academy",
-   "student",
-   "study",
-   "learning",
-   "homework",
-   "research",
-   "documentation",
-   "revealed",
-   "blank",
-   "plai",
   ],
  },
  {
@@ -2396,36 +2375,6 @@ const ICON_LIST: IconListItem[] = [
    "pamphlet",
    "library",
    "written",
-   "authored",
-   "published",
-   "informed",
-   "knowledgeable",
-   "educated",
-   "schooled",
-   "homework",
-   "examined",
-   "tested",
-   "marked",
-   "passed",
-   "graduated",
-   "studied",
-   "learned",
-   "lesson",
-   "researched",
-   "documented",
-   "revealed",
-   "blank",
-   "plain language",
-   "true",
-   "truth",
-   "verified",
-   "corrected",
-   "task",
-   "todo",
-   "done",
-   "completed",
-   "finished",
-   "ticked",
   ],
  },
  {
@@ -2651,6 +2600,18 @@ const ICON_LIST: IconListItem[] = [
    "authentication",
    "finish",
   ],
+ },
+ {
+  name: "sun",
+  icon: SunIcon,
+  addedAt: "2025-12-08",
+  keywords: ["brightness", "light", "day", "weather", "sunny"],
+ },
+ {
+  name: "moon",
+  icon: MoonIcon,
+  addedAt: "2025-12-08",
+  keywords: ["dark", "night", "weather", "moon", "dark mode"],
  },
 ];
 
