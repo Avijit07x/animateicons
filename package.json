@@ -1,5 +1,5 @@
 {
-	"name": "projecticon",
+	"name": "AnimateIcons",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -21,7 +21,7 @@
 		"date-fns": "^4.1.0",
 		"lucide-react": "^0.533.0",
 		"motion": "^12.23.12",
-		"next": "^16.0.7",
+		"next": "16.0.10",
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
 		"tailwind-merge": "^3.3.1",
