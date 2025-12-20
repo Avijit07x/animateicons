@@ -44,16 +44,16 @@ const Navbar: React.FC = () => {
 
 	return (
 		<nav className="relative z-50 transition-all duration-300">
-			<div className="mx-auto max-w-7xl px-6 lg:px-8">
+			<div className="mx-auto max-w-7xl px-3 pt-2 md:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
 					{/* Logo */}
 					<div className="flex items-center">
 						<Link href="/" className="flex items-center space-x-2">
 							<Image
-								src="/logo.svg"
+								src="/winter-logo.svg"
 								alt="logo"
-								width={40}
-								height={40}
+								width={45}
+								height={45}
 								loading="eager"
 								className="max-md:size-10"
 							/>
