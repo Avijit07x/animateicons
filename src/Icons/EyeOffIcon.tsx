@@ -39,16 +39,16 @@ const EyeOffIcon = forwardRef<ExternalLinkIconHandle, EyeOffIconProps>(
    return {
     startAnimation: () => {
      if (reduced) {
-      arcControls.start("normal");
-      slashControls.start("normal");
+      arcControls.start("visible");
+      slashControls.start("visible");
      } else {
-      arcControls.start("animate");
-      slashControls.start("animate");
+      arcControls.start("hide");
+      slashControls.start("strike");
      }
     },
     stopAnimation: () => {
-     arcControls.start("normal");
-     slashControls.start("normal");
+     arcControls.start("visible");
+     slashControls.start("visible");
     },
    };
   });
@@ -57,8 +57,8 @@ const EyeOffIcon = forwardRef<ExternalLinkIconHandle, EyeOffIconProps>(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
     if (!isControlled.current) {
-     arcControls.start("animate");
-     slashControls.start("animate");
+     arcControls.start("hide");
+     slashControls.start("strike");
     } else onMouseEnter?.(e as any);
    },
    [arcControls, slashControls, isAnimated, reduced, onMouseEnter],
@@ -67,28 +67,40 @@ const EyeOffIcon = forwardRef<ExternalLinkIconHandle, EyeOffIconProps>(
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) {
-     arcControls.start("normal");
-     slashControls.start("normal");
+     arcControls.start("visible");
+     slashControls.start("visible");
     } else onMouseLeave?.(e as any);
    },
    [arcControls, slashControls, onMouseLeave],
   );
 
   const arcVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   visible: {
+    opacity: 1,
+    scale: 1,
+   },
+   hide: {
+    opacity: 0.4,
+    scale: 0.92,
+    transition: {
+     duration: 0.25 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1, 0.85, 1],
-    opacity: [0.4, 1, 0.9, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+   visible: {
+    pathLength: 1,
+    opacity: 1,
+   },
+   strike: {
+    pathLength: [0, 1],
+    opacity: [0.6, 1],
+    transition: {
+     duration: 0.35 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -110,29 +122,25 @@ const EyeOffIcon = forwardRef<ExternalLinkIconHandle, EyeOffIconProps>(
      strokeLinecap="round"
      strokeLinejoin="round"
     >
-     <motion.path
-      d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
-      variants={arcVariants}
-      initial="normal"
+     <motion.g
       animate={arcControls}
-     />
-     <motion.path
-      d="M14.084 14.158a3 3 0 0 1-4.242-4.242"
+      initial="visible"
       variants={arcVariants}
-      initial="normal"
-      animate={arcControls}
-     />
-     <motion.path
-      d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
-      variants={arcVariants}
-      initial="normal"
-      animate={arcControls}
-     />
+      style={{
+       transformBox: "fill-box",
+       transformOrigin: "center",
+      }}
+     >
+      <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+      <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+      <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+     </motion.g>
+
      <motion.path
       d="m2 2 20 20"
-      variants={slashVariants}
-      initial="normal"
       animate={slashControls}
+      initial="visible"
+      variants={slashVariants}
      />
     </svg>
    </motion.div>

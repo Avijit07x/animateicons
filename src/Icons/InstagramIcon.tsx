@@ -60,29 +60,64 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
   );
 
   const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    animate: {
-    scale: [1, 1.08, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 1.06, 1],
+    rotate: 0,
+    transition: {
+     duration: 0.4 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const frameVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
+    pathLength: [0.2, 1],
+    opacity: [0.6, 1],
+    transition: {
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+    },
+   },
+  };
+
+  const lensVariants: Variants = {
+   normal: {
+    scale: 1,
+    pathLength: 1,
+   },
+   animate: {
+    scale: [0.85, 1.05, 1],
     pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
+    transition: {
+     duration: 0.5 * duration,
+     delay: 0.1 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
-  const pulseVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const dotVariants: Variants = {
+   normal: {
+    scale: 1,
+    opacity: 1,
+   },
    animate: {
-    scale: [1, 1.4, 1],
+    scale: [1, 1.5, 1],
     opacity: [1, 0.4, 1],
-    transition: { duration: 1 * duration, repeat: 0, ease: "easeInOut" },
+    transition: {
+     duration: 0.35 * duration,
+     delay: 0.2 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -114,18 +149,18 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
       y="2"
       rx="5"
       ry="5"
-      variants={drawVariants}
+      variants={frameVariants}
      />
      <motion.path
       d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-      variants={drawVariants}
+      variants={lensVariants}
      />
      <motion.line
       x1="17.5"
       x2="17.51"
       y1="6.5"
       y2="6.5"
-      variants={pulseVariants}
+      variants={dotVariants}
      />
     </motion.svg>
    </motion.div>

@@ -59,26 +59,25 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
    [controls, onMouseLeave],
   );
 
-  const waveGroup: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const phoneVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    rotate: [0, -3, 3, -2, 2, 0],
-    scale: [1, 1.02, 1, 1.015, 1],
+    rotate: [0, -8, 8, -6, 6, 0],
     transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut" as const,
+     duration: 0.9 * duration,
+     ease: "easeInOut",
     },
    },
   };
 
-  const drawAndGlow: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const pulseVariants: Variants = {
+   normal: { opacity: 0, scale: 0.3 },
    animate: {
-    strokeDashoffset: [110, 0],
-    opacity: [0.55, 1, 0.9, 1],
+    opacity: [0, 0.25, 0],
+    scale: [0.3, 1.5],
     transition: {
      duration: 0.9 * duration,
-     ease: "easeInOut" as const,
+     ease: "easeOut",
     },
    },
   };
@@ -100,18 +99,26 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     className="lucide lucide-phone-icon lucide-phone"
     >
-     <motion.g variants={waveGroup} initial="normal" animate={controls}>
-      <motion.path
-       d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
-       strokeDasharray="110"
-       strokeDashoffset="110"
-       variants={drawAndGlow}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
+     <motion.circle
+      cx="12"
+      cy="12"
+      r="10"
+      fill="none"
+      variants={pulseVariants}
+      initial="normal"
+      animate={controls}
+     />
+     <motion.path
+      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+      variants={phoneVariants}
+      initial="normal"
+      animate={controls}
+      style={{
+       transformBox: "fill-box",
+       transformOrigin: "center",
+      }}
+     />
     </motion.svg>
    </motion.div>
   );

@@ -43,36 +43,29 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
   });
 
   const handleEnter = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
    [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const dotVariants: Variants = {
-   normal: { opacity: 1 },
-   animate: (i) => ({
-    opacity: [0.4, 0.8, 1, 0.8, 0.4, 1],
+   normal: { y: 0 },
+   animate: (i: number) => ({
+    y: [0, -3, 0],
     transition: {
-     duration: 0.8 * duration,
-     repeat: 0,
-     delay: i * 0.2,
+     duration: 0.35 * duration,
+     delay: i * 0.12,
      ease: "easeInOut",
     },
    }),
@@ -98,9 +91,9 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
      initial="normal"
      animate={controls}
     >
-     <motion.circle cx="12" cy="12" r="1" variants={dotVariants} custom={0} />
-     <motion.circle cx="19" cy="12" r="1" variants={dotVariants} custom={1} />
-     <motion.circle cx="5" cy="12" r="1" variants={dotVariants} custom={2} />
+     <motion.circle cx="5" cy="12" r="1" variants={dotVariants} custom={0} />
+     <motion.circle cx="12" cy="12" r="1" variants={dotVariants} custom={1} />
+     <motion.circle cx="19" cy="12" r="1" variants={dotVariants} custom={2} />
     </motion.svg>
    </motion.div>
   );

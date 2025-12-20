@@ -63,19 +63,32 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
   );
 
   const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.2 * duration, repeat: 0, ease: "easeInOut" },
+    scale: [1, 1.15, 0.92, 1],
+    rotate: [0, -4, 4, 0],
+    transition: {
+     duration: 0.9 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
   const pathVariants: Variants = {
-   normal: { pathLength: 1 },
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
+    pathLength: [0.2, 1],
+    opacity: [0.4, 1],
+    transition: {
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -101,8 +114,7 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
      variants={svgVariants}
     >
      <motion.path
-      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7
-            a1 1 0 0 1 1-1h3z"
+      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7 a1 1 0 0 1 1-1h3z"
       variants={pathVariants}
      />
     </motion.svg>

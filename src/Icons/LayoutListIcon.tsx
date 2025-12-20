@@ -59,21 +59,29 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
    [controls, onMouseLeave],
   );
 
-  const itemVariant: Variants = {
-   normal: { opacity: 1, x: 0 },
-   animate: {
-    opacity: [0, 1],
-    x: [-6, 0],
-    transition: { duration: 0.55 * duration },
-   },
+  const boxVariants: Variants = {
+   normal: { scale: 1, opacity: 1 },
+   animate: (i: number) => ({
+    scale: [0.85, 1.05, 1],
+    opacity: [0.6, 1],
+    transition: {
+     duration: 0.35 * duration,
+     delay: i * 0.08,
+     ease: "easeOut",
+    },
+   }),
   };
 
-  const lineVariant: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.55 * duration },
-   },
+  const lineVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: (i: number) => ({
+    scaleX: [0, 1],
+    transition: {
+     duration: 0.3 * duration,
+     delay: 0.15 + i * 0.07,
+     ease: "easeOut",
+    },
+   }),
   };
 
   return (
@@ -102,7 +110,8 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
       x="3"
       y="3"
       rx="1"
-      variants={itemVariant}
+      variants={boxVariants}
+      custom={0}
      />
      <motion.rect
       width="7"
@@ -110,12 +119,33 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
       x="3"
       y="14"
       rx="1"
-      variants={itemVariant}
+      variants={boxVariants}
+      custom={1}
      />
-     <motion.path d="M14 4h7" variants={lineVariant} />
-     <motion.path d="M14 9h7" variants={lineVariant} />
-     <motion.path d="M14 15h7" variants={lineVariant} />
-     <motion.path d="M14 20h7" variants={lineVariant} />
+     <motion.path
+      d="M14 4h7"
+      variants={lineVariants}
+      custom={0}
+      style={{ transformOrigin: "left" }}
+     />
+     <motion.path
+      d="M14 9h7"
+      variants={lineVariants}
+      custom={1}
+      style={{ transformOrigin: "left" }}
+     />
+     <motion.path
+      d="M14 15h7"
+      variants={lineVariants}
+      custom={2}
+      style={{ transformOrigin: "left" }}
+     />
+     <motion.path
+      d="M14 20h7"
+      variants={lineVariants}
+      custom={3}
+      style={{ transformOrigin: "left" }}
+     />
     </motion.svg>
    </motion.div>
   );

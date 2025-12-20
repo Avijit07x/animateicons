@@ -29,7 +29,7 @@ const EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(
   },
   ref,
  ) => {
-  const outerControls = useAnimation();
+  const eyeControls = useAnimation();
   const pupilControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
@@ -39,16 +39,16 @@ const EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(
    return {
     startAnimation: () => {
      if (reduced) {
-      outerControls.start("visible");
-      pupilControls.start("visible");
+      eyeControls.start("open");
+      pupilControls.start("center");
      } else {
-      outerControls.start("animate");
-      pupilControls.start("animate");
+      eyeControls.start("blink");
+      pupilControls.start("scan");
      }
     },
     stopAnimation: () => {
-     outerControls.start("visible");
-     pupilControls.start("visible");
+     eyeControls.start("open");
+     pupilControls.start("center");
     },
    };
   });
@@ -57,42 +57,47 @@ const EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
     if (!isControlled.current) {
-     outerControls.start("animate");
-     pupilControls.start("animate");
+     eyeControls.start("blink");
+     pupilControls.start("scan");
     } else {
      onMouseEnter?.(e as any);
     }
    },
-   [outerControls, pupilControls, onMouseEnter, reduced],
+   [eyeControls, pupilControls, onMouseEnter, reduced, isAnimated],
   );
 
   const handleLeave = useCallback(
-   (e?: React.MouseEvent<HTMLDivElement>) => {
+   (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) {
-     outerControls.start("visible");
-     pupilControls.start("visible");
+     eyeControls.start("open");
+     pupilControls.start("center");
     } else {
      onMouseLeave?.(e as any);
     }
    },
-   [outerControls, pupilControls, onMouseLeave],
+   [eyeControls, pupilControls, onMouseLeave],
   );
 
-  const outerVariants: Variants = {
-   visible: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+  const eyeVariants: Variants = {
+   open: { scaleY: 1 },
+   blink: {
+    scaleY: [1, 0.1, 1],
+    transition: {
+     duration: 0.25 * duration,
+     repeatDelay: 2.4,
+     ease: "easeInOut",
+    },
    },
   };
 
   const pupilVariants: Variants = {
-   visible: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.4, 1],
-    opacity: [1, 0.9, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+   center: { x: 0 },
+   scan: {
+    x: [-2, 2, -1, 1, 0],
+    transition: {
+     duration: 1.6 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -116,17 +121,21 @@ const EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(
     >
      <motion.path
       d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-      variants={outerVariants}
-      initial="visible"
-      animate={outerControls}
+      animate={eyeControls}
+      initial="open"
+      variants={eyeVariants}
+      style={{
+       transformBox: "fill-box",
+       transformOrigin: "center",
+      }}
      />
      <motion.circle
       cx="12"
       cy="12"
       r="3"
-      variants={pupilVariants}
-      initial="visible"
       animate={pupilControls}
+      initial="center"
+      variants={pupilVariants}
      />
     </svg>
    </motion.div>
