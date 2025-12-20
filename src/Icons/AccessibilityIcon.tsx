@@ -5,18 +5,21 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface HouseHandle {
+export interface AccessibilityIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface HouseProps extends HTMLMotionProps<"div"> {
+interface AccessibilityIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const HouseIcon = forwardRef<HouseHandle, HouseProps>(
+const AccessibilityIcon = forwardRef<
+ AccessibilityIconHandle,
+ AccessibilityIconProps
+>(
  (
   {
    onMouseEnter,
@@ -52,31 +55,47 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
   );
 
   const handleLeave = useCallback(
-   (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e as any);
+   (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) {
+     controls.start("normal");
+    } else {
+     onMouseLeave?.(e as any);
+    }
    },
    [controls, onMouseLeave],
   );
 
-  const baseVariants: Variants = {
-   normal: { opacity: 1 },
+  const containerVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    opacity: 0.65,
+    rotate: -6,
     transition: {
-     duration: 0.2 * duration,
+     duration: 0.35,
      ease: "easeOut",
     },
    },
   };
 
-  const doorVariants: Variants = {
-   normal: { opacity: 1 },
+  const wheelVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    opacity: [1, 0.4, 1],
+    rotate: 360,
     transition: {
-     duration: 0.35 * duration,
+     duration: 1.4 * duration,
+     repeat: Infinity,
+     ease: "linear",
+    },
+   },
+  };
+  const handVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: -25,
+    transition: {
+     duration: 0.7 * duration,
      ease: "easeInOut",
+     repeat: Infinity,
+     repeatType: "mirror",
     },
    },
   };
@@ -100,21 +119,20 @@ const HouseIcon = forwardRef<HouseHandle, HouseProps>(
      strokeLinejoin="round"
      animate={controls}
      initial="normal"
+     variants={containerVariants}
     >
-     <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10" />
-     <motion.path
-      d="M21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9"
-      variants={baseVariants}
-     />
-     <motion.path
-      d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
-      variants={doorVariants}
-     />
+     <circle cx="16" cy="4" r="1" />
+     <path d="m18 19 1-7-6 1" />
+     <motion.path d="m5 8 3-3 5.5 3-2.36 3.5" variants={handVariants} />
+     <motion.g variants={wheelVariants}>
+      <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
+      <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
+     </motion.g>
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-HouseIcon.displayName = "HouseIcon";
-export { HouseIcon };
+AccessibilityIcon.displayName = "AccessibilityIcon";
+export { AccessibilityIcon };

@@ -60,24 +60,32 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
   );
 
   const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    animate: {
-    scale: [1, 1.05, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.4 * duration, repeat: 0, ease: "easeInOut" },
+    scale: [1, 1.04, 1],
+    rotate: 0,
+    transition: {
+     duration: 0.35 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
   const shapeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: (i: number) => ({
     pathLength: [0, 1],
-    opacity: [0.6, 1],
+    opacity: [0.5, 1],
     transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut",
-     repeat: 0,
-     delay: i * 0.25,
+     duration: 0.35 * duration,
+     ease: "easeOut",
+     delay: i * 0.08,
     },
    }),
   };

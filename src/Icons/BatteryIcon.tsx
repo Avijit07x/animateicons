@@ -86,29 +86,48 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
   );
 
   const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    warning: {
-    rotate: [0, -4, 4, -2, 0],
-    scale: [1, 1.1, 0.95, 1.05, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    scale: [1, 1.05, 1],
+    rotate: [0, -2, 2, 0],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
   const rectVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    warning: {
-    pathLength: [1, 0.6, 1],
-    opacity: [1, 0.7, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    pathLength: [0.3, 1],
+    opacity: [0.4, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
   const tipVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: {
+    opacity: 1,
+    scale: 1,
+   },
    warning: {
-    y: [0, -2, 2, -1, 0],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    opacity: [1, 0.2, 1],
+    scale: [1, 1.4, 1],
+    transition: {
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     repeat: Infinity,
+    },
    },
   };
 

@@ -59,40 +59,29 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
    [controls, onMouseLeave],
   );
 
-  const circleVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
+  const lensVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    strokeDashoffset: [50, 0],
-    opacity: [0.3, 1],
-    scale: [1, 1.1, 1],
+    scale: 1.08,
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut" as const,
+     duration: 0.25 * duration,
+     ease: "easeOut",
     },
    },
   };
 
-  const handleVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const ringVariants: Variants = {
+   normal: {
+    strokeDasharray: "0 1",
+    opacity: 1,
+   },
    animate: {
-    strokeDashoffset: [20, 0],
-    opacity: [0, 1],
+    strokeDasharray: ["2 6", "6 6"],
+    strokeDashoffset: [0, -12],
+    opacity: [0.6, 1],
     transition: {
      duration: 0.6 * duration,
-     delay: 0.3,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const groupVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
-   animate: {
-    rotate: [0, 5, -5, 0],
-    scale: [1, 1.05, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeInOut" as const,
+     ease: "linear",
     },
    },
   };
@@ -114,27 +103,18 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     className="lucide lucide-search-icon lucide-search"
+     animate={controls}
+     initial="normal"
     >
-     <motion.g variants={groupVariants} initial="normal" animate={controls}>
-      <motion.circle
-       cx="11"
-       cy="11"
-       r="8"
-       strokeDasharray="50"
-       strokeDashoffset="50"
-       variants={circleVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="m21 21-4.34-4.34"
-       strokeDasharray="20"
-       strokeDashoffset="20"
-       variants={handleVariants}
-       initial="normal"
-       animate={controls}
-      />
+     <motion.g
+      variants={lensVariants}
+      style={{
+       transformBox: "fill-box",
+       transformOrigin: "center",
+      }}
+     >
+      <motion.circle cx="11" cy="11" r="8" variants={ringVariants} />
+      <path d="m21 21-4.34-4.34" />
      </motion.g>
     </motion.svg>
    </motion.div>

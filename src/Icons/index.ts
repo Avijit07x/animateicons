@@ -1,5 +1,6 @@
 import { AArrowDownIcon } from "./AArrowDownIcon";
 import { AArrowUpIcon } from "./AArrowUpIcon";
+import { AccessibilityIcon } from "./AccessibilityIcon";
 import { ActivityIcon } from "./ActivityIcon";
 import { ArrowDownUpIcon } from "./ArrowDownUpIcon";
 import { ArrowUp01Icon } from "./ArrowUp01Icon";
@@ -204,25 +205,7 @@ const ICON_LIST: IconListItem[] = [
   icon: MenuIcon,
   keywords: ["bars", "navigation", "hamburger", "options", "drawer", "sidebar"],
  },
- {
-  name: "ellipsis-vertical",
-  icon: EllipsisVerticalIcon,
-  keywords: ["menu", "options", "more", "overflow", "dots", "...", "vertical"],
- },
- {
-  name: "ellipsis",
-  icon: EllipsisIcon,
-  keywords: [
-   "etc",
-   "loader",
-   "progress",
-   "pending",
-   "menu",
-   "options",
-   "more",
-   "…",
-  ],
- },
+
  {
   name: "dashboard",
   icon: DashboardIcon,
@@ -273,6 +256,12 @@ const ICON_LIST: IconListItem[] = [
    "layer",
    "order",
   ],
+ },
+ {
+  name: "accessibility",
+  icon: AccessibilityIcon,
+  addedAt: "2025-12-20",
+  keywords: ["a11y", "accessibility", "accessible", "disabled", "handicap"],
  },
  {
   name: "check",
@@ -940,6 +929,25 @@ const ICON_LIST: IconListItem[] = [
    "multiply",
    "dismiss",
    "exit",
+  ],
+ },
+ {
+  name: "ellipsis-vertical",
+  icon: EllipsisVerticalIcon,
+  keywords: ["menu", "options", "more", "overflow", "dots", "...", "vertical"],
+ },
+ {
+  name: "ellipsis",
+  icon: EllipsisIcon,
+  keywords: [
+   "etc",
+   "loader",
+   "progress",
+   "pending",
+   "menu",
+   "options",
+   "more",
+   "…",
   ],
  },
  {

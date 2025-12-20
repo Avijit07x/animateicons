@@ -60,20 +60,48 @@ const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
   );
 
   const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    animate: {
-    scale: [1, 1.08, 0.95, 1],
-    rotate: [0, -3, 3, 0],
-    transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 1.06, 1],
+    rotate: 0,
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const mainPathVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
+   animate: {
+    pathLength: [0.3, 1],
+    opacity: [0.6, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+    },
+   },
+  };
+
+  const secondaryVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
+    opacity: [0, 1],
+    transition: {
+     duration: 0.45 * duration,
+     delay: 0.12 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -103,10 +131,16 @@ const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
               a2 2 0 0 0-2-2 
               2 2 0 0 0-2 2v7h-4v-7
               a6 6 0 0 1 6-6z"
-      variants={drawVariants}
+      variants={mainPathVariants}
      />
-     <motion.rect width="4" height="12" x="2" y="9" variants={drawVariants} />
-     <motion.circle cx="4" cy="4" r="2" variants={drawVariants} />
+     <motion.rect
+      width="4"
+      height="12"
+      x="2"
+      y="9"
+      variants={secondaryVariants}
+     />
+     <motion.circle cx="4" cy="4" r="2" variants={secondaryVariants} />
     </motion.svg>
    </motion.div>
   );

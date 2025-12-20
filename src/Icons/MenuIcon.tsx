@@ -45,33 +45,54 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
   const handleEnter = useCallback(
    (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
    [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e);
    },
    [controls, onMouseLeave],
   );
 
-  const lineVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: (i) => ({
-    x: [0, i % 2 === 0 ? 4 : -4, 0],
-    opacity: [1, 0.5, 1],
-    transition: { duration: 0.4 * duration, delay: i * 0.1 },
-   }),
+  const topVariants: Variants = {
+   normal: { y: 0, x: 0 },
+   animate: {
+    y: -1.5,
+    x: 1.5,
+    transition: {
+     duration: 0.25 * duration,
+     ease: "easeOut",
+    },
+   },
+  };
+
+  const midVariants: Variants = {
+   normal: { scaleX: 1, opacity: 1 },
+   animate: {
+    scaleX: 0.7,
+    opacity: 0.7,
+    transition: {
+     duration: 0.2 * duration,
+     ease: "easeInOut",
+    },
+   },
+  };
+
+  const bottomVariants: Variants = {
+   normal: { y: 0, x: 0 },
+   animate: {
+    y: 1.5,
+    x: -1.5,
+    transition: {
+     duration: 0.25 * duration,
+     ease: "easeOut",
+    },
+   },
   };
 
   return (
@@ -94,9 +115,9 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
      animate={controls}
      initial="normal"
     >
-     <motion.path d="M4 12h16" variants={lineVariants} custom={0} />
-     <motion.path d="M4 18h16" variants={lineVariants} custom={1} />
-     <motion.path d="M4 6h16" variants={lineVariants} custom={2} />
+     <motion.path d="M4 6h16" variants={topVariants} />
+     <motion.path d="M4 12h16" variants={midVariants} />
+     <motion.path d="M4 18h16" variants={bottomVariants} />
     </motion.svg>
    </motion.div>
   );
