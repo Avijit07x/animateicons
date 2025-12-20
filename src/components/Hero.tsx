@@ -39,8 +39,8 @@ const HeroSection: React.FC = () => {
 				className="bg-indigoDeep/5 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-3xl"
 			/>
 
-			<div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-				<div className="mt-10 flex flex-col md:mt-15 lg:flex-row lg:items-center lg:justify-between">
+			<div className="relative z-10 mx-auto max-w-7xl px-3 md:px-6 lg:px-8">
+				<div className="mt-5 flex flex-col md:mt-15 lg:flex-row lg:items-center lg:justify-between">
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}
 						animate={{ opacity: 1, y: 0 }}
