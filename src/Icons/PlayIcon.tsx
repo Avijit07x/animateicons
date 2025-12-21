@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ChromeIconHandle {
+export interface PlayIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface ChromeIconProps extends HTMLMotionProps<"div"> {
+interface PlayIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
+const PlayIcon = forwardRef<PlayIconHandle, PlayIconProps>(
  (
   {
    onMouseEnter,
@@ -59,43 +59,34 @@ const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: {
-    rotate: 0,
-   },
-   animate: {
-    rotate: [0, 300, 360],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const centerVariants: Variants = {
+  const iconVariants: Variants = {
    normal: {
     scale: 1,
-    opacity: 1,
    },
    animate: {
-    scale: [1, 1.25, 1],
-    opacity: [1, 0.7, 1],
+    scale: [1, 0.92, 1],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.25 * duration,
      ease: "easeOut",
     },
    },
   };
 
-  const sweepVariants: Variants = {
+  const playVariants: Variants = {
    normal: {
-    opacity: 0.8,
+    x: 0,
+    scale: 1,
+    pathLength: 1,
+    opacity: 1,
    },
    animate: {
-    opacity: [0.8, 0.25, 0.8],
+    x: [0, 1.5, 0],
+    scale: [1, 1.12, 1],
+    pathLength: [0.6, 1],
+    opacity: [0.6, 1],
     transition: {
      duration: 0.4 * duration,
-     ease: "easeInOut",
+     ease: "easeOut",
     },
    },
   };
@@ -117,29 +108,13 @@ const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     initial="normal"
      animate={controls}
+     initial="normal"
+     variants={iconVariants}
     >
-     <motion.circle cx="12" cy="12" r="10" variants={ringVariants} />
-
-     <motion.circle cx="12" cy="12" r="4" variants={centerVariants} />
-
-     <motion.line x1="21.17" y1="8" x2="12" y2="8" variants={sweepVariants} />
-     <motion.line
-      x1="3.95"
-      y1="6.06"
-      x2="8.54"
-      y2="14"
-      variants={sweepVariants}
-      transition={{ delay: 0.08 * duration }}
-     />
-     <motion.line
-      x1="10.88"
-      y1="21.94"
-      x2="15.46"
-      y2="14"
-      variants={sweepVariants}
-      transition={{ delay: 0.16 * duration }}
+     <motion.path
+      d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
+      variants={playVariants}
      />
     </motion.svg>
    </motion.div>
@@ -147,5 +122,5 @@ const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
  },
 );
 
-ChromeIcon.displayName = "ChromeIcon";
-export { ChromeIcon };
+PlayIcon.displayName = "PlayIcon";
+export { PlayIcon };

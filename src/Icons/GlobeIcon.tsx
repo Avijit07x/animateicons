@@ -79,20 +79,54 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
   );
 
   const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: {
+    scale: 1,
+    rotate: 0,
+   },
    animate: {
-    scale: [1, 1.05, 1],
-    rotate: [0, -4, 4, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
+    scale: [1, 1.03, 1],
+    rotate: 360,
+    transition: {
+     rotate: {
+      duration: 1.4 * duration,
+      ease: "linear",
+     },
+     scale: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+     },
+    },
    },
   };
 
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const outlineVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
+   animate: {
+    pathLength: [0.9, 1],
+    opacity: [0.8, 1],
+    transition: {
+     duration: 0.35 * duration,
+     ease: "easeOut",
+    },
+   },
+  };
+
+  const orbitVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
     pathLength: [0, 1],
     opacity: [0.5, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    transition: {
+     duration: 0.4 * duration,
+     delay: 0.08 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -121,19 +155,19 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
       cx="12"
       cy="12"
       r="10"
-      variants={pathVariants}
+      variants={outlineVariants}
       initial="normal"
       animate={pathControls}
      />
      <motion.path
       d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-      variants={pathVariants}
+      variants={orbitVariants}
       initial="normal"
       animate={pathControls}
      />
      <motion.path
       d="M2 12h20"
-      variants={pathVariants}
+      variants={orbitVariants}
       initial="normal"
       animate={pathControls}
      />
