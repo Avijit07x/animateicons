@@ -59,20 +59,18 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const lineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.5, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
   const iconVariants: Variants = {
-   normal: { scale: 1 },
+   normal: {
+    scaleX: 1,
+    y: 0,
+   },
    animate: {
-    scale: [1, 1.1, 0.9, 1],
-    transition: { duration: 1 * duration, repeat: 0, ease: "easeInOut" },
+    scaleX: [1, 0.55, 1],
+    y: [0, -1, 0],
+    transition: {
+     duration: 0.28 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -93,11 +91,10 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     animate={controls}
      initial="normal"
-     variants={iconVariants}
+     animate={controls}
     >
-     <motion.path d="M5 12h14" variants={lineVariants} />
+     <motion.path d="M5 12h14" variants={iconVariants} />
     </motion.svg>
    </motion.div>
   );

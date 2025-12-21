@@ -59,32 +59,47 @@ const CodeIcon = forwardRef<CodeHandle, CodeProps>(
    [controls, onMouseLeave],
   );
 
-  const ease = [0.11, 0.99, 0.24, 1] as const;
-
-  const groupScale: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const groupVariants: Variants = {
+   normal: {
+    scaleX: 1,
+   },
    animate: {
-    scale: [1, 1.03, 1],
-    rotate: [0, -0.5, 0],
-    transition: { duration: 0.8 * duration, ease },
+    scaleX: [1, 0.75, 1],
+    transition: {
+     duration: 0.28 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
-  const drawRight: Variants = {
-   normal: { strokeDasharray: "0 1", strokeDashoffset: 0 },
+  const leftBracket: Variants = {
+   normal: {
+    x: 0,
+    opacity: 1,
+   },
    animate: {
-    strokeDasharray: 32,
-    strokeDashoffset: [32, 0],
-    transition: { duration: 1.8 * duration, ease, delay: 0.12 },
+    x: [0, 3, 0],
+    opacity: [1, 0.6, 1],
+    transition: {
+     duration: 0.32 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
-  const drawLeft: Variants = {
-   normal: { strokeDasharray: "0 1", strokeDashoffset: 0 },
+  const rightBracket: Variants = {
+   normal: {
+    x: 0,
+    opacity: 1,
+   },
    animate: {
-    strokeDasharray: 32,
-    strokeDashoffset: [32, 0],
-    transition: { duration: 1.8 * duration, ease, delay: 0.28 },
+    x: [0, -3, 0],
+    opacity: [1, 0.6, 1],
+    transition: {
+     duration: 0.32 * duration,
+     delay: 0.05 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -105,18 +120,17 @@ const CodeIcon = forwardRef<CodeHandle, CodeProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     className="lucide lucide-code-icon lucide-code"
     >
-     <motion.g variants={groupScale} initial="normal" animate={controls}>
+     <motion.g variants={groupVariants} initial="normal" animate={controls}>
       <motion.path
-       d="m16 18 6-6-6-6"
-       variants={drawRight}
+       d="m8 6-6 6 6 6"
+       variants={leftBracket}
        initial="normal"
        animate={controls}
       />
       <motion.path
-       d="m8 6-6 6 6 6"
-       variants={drawLeft}
+       d="m16 18 6-6-6-6"
+       variants={rightBracket}
        initial="normal"
        animate={controls}
       />

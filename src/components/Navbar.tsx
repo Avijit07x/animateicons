@@ -1,10 +1,12 @@
 "use client";
 
 import { GithubIcon, GithubIconHandle } from "@/Icons/GithubIcon";
+import { isWinterSeason } from "@/utils/isWinterSeason";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import Heart from "./icons/Heart";
 import { StarIcon, StarIconHandle } from "./icons/StarIcon";
 import { NumberTicker } from "./magicui/number-ticker";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
@@ -15,6 +17,7 @@ const Navbar: React.FC = () => {
 	const starRef = useRef<StarIconHandle>(null);
 	const githubRef = useRef<GithubIconHandle>(null);
 	const toggleMenu = () => setIsOpen(!isOpen);
+	const winter = isWinterSeason();
 
 	useEffect(() => {
 		async function fetchStars() {
@@ -48,14 +51,14 @@ const Navbar: React.FC = () => {
 				<div className="flex h-16 items-center justify-between">
 					{/* Logo */}
 					<div className="flex items-center">
-						<Link href="/" className="flex items-center space-x-2">
+						<Link href="/" className="flex items-center gap-2">
 							<Image
-								src="/winter-logo.svg"
+								src={winter ? "/winter-logo.svg" : "/logo.svg"}
 								alt="logo"
 								width={45}
 								height={45}
 								loading="eager"
-								className="max-md:size-10"
+								className="max-md:size-10 -ml-0.5"
 							/>
 							<span className="text-lg font-semibold text-white">
 								AnimateIcons
@@ -68,7 +71,7 @@ const Navbar: React.FC = () => {
 						<Link
 							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
 							target="_blank"
-							className="text-zinc-300 transition-colors duration-200 hover:text-indigo-400"
+							className="text-zinc-300 transition-colors duration-200 hover:text-blue-600"
 						>
 							Docs
 						</Link>
@@ -84,7 +87,7 @@ const Navbar: React.FC = () => {
 									className="group hover:bg-primary/10 flex h-8 items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.438rem] text-sm font-medium text-white transition-colors duration-200"
 								>
 									<GithubIcon ref={githubRef} size={16} />
-									<span className="text-xs text-white">Star</span>
+									<span className="text-xs">Star</span>
 									<StarIcon ref={starRef} size={13} />
 									{stars !== null && (
 										<NumberTicker
@@ -102,18 +105,19 @@ const Navbar: React.FC = () => {
 						</Tooltip>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<button className="h-8">
-									<iframe
-										src="https://github.com/sponsors/Avijit07x/button"
-										title="Sponsor Avijit07x"
-										height="32"
-										width="114"
-									></iframe>
-								</button>
+								<Link
+									href="https://github.com/sponsors/Avijit07x"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:bg-primary/10 flex h-8 items-center justify-center gap-2 rounded-sm border border-gray-700 px-4 font-medium! text-white transition-colors duration-200"
+								>
+									<Heart className="size-4 text-pink-400" />
+									<span className="text-xs">Sponsor</span>
+								</Link>
 							</TooltipTrigger>
-							<TooltipContent>
+							<TooltipContent className="">
 								<span className="px-3! py-1.5! font-medium! text-blue-600!">
-									Sponsor this project
+									Support this project
 								</span>
 							</TooltipContent>
 						</Tooltip>
@@ -152,7 +156,7 @@ const Navbar: React.FC = () => {
 							href="https://github.com/Avijit07x/animateicons"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group hover:bg-primary/10 flex h-8 w-full items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.5rem] text-sm font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
+							className="group hover:bg-primary/10 flex h-9 w-full items-center justify-center space-x-2 rounded-sm border border-gray-700 px-5 py-[0.5rem] text-sm font-semibold text-zinc-300 transition-colors duration-200 hover:text-white"
 						>
 							<GithubIcon size={16} />
 							<span className="text-xs group-hover:text-white">Star</span>
@@ -164,14 +168,15 @@ const Navbar: React.FC = () => {
 								/>
 							)}
 						</Link>
-						<button className="h-8 w-full">
-							<iframe
-								src="https://github.com/sponsors/Avijit07x/button"
-								title="Sponsor Avijit07x"
-								height="32"
-								width="100%"
-							></iframe>
-						</button>
+						<Link
+							href="https://github.com/sponsors/Avijit07x"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:bg-primary/10 flex h-9 w-full items-center justify-center gap-2 rounded-sm border border-gray-700 px-5 text-sm text-zinc-300 transition-colors duration-200 hover:text-white"
+						>
+							<Heart className="size-5 text-pink-400" />
+							<span className="text-sm font-semibold">Sponsor</span>
+						</Link>
 					</div>
 				</div>
 			</div>

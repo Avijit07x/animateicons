@@ -135,8 +135,10 @@ import { MoonIcon } from "./MoonIcon";
 import { MoveLeftIcon } from "./MoveLeftIcon";
 import { MoveRightIcon } from "./MoveRightIcon";
 import { PaperclipIcon } from "./PaperclipIcon";
+import { PauseIcon } from "./PauseIcon";
 import { PhilippinePesoIcon } from "./PhilippinePesoIcon";
 import { PhoneIcon } from "./PhoneIcon";
+import { PlayIcon } from "./PlayIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PoundSterlingIcon } from "./PoundSterlingIcon";
 import { RussianRubleIcon } from "./RussianRubleIcon";
@@ -860,6 +862,18 @@ const ICON_LIST: IconListItem[] = [
   ],
  },
  // Actions
+ {
+  name: "play",
+  icon: PlayIcon,
+  addedAt: "2025-12-21",
+  keywords: ["music", "video", "play", "start", "pause", "stop", "resume"],
+ },
+ {
+  name: "pause",
+  icon: PauseIcon,
+  addedAt: "2025-12-21",
+  keywords: ["music", "video", "pause", "stop", "hold", "break", "resume"],
+ },
  {
   name: "plus",
   icon: PlusIcon,

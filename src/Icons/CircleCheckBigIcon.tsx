@@ -82,29 +82,45 @@ const CircleCheckBigIcon = forwardRef<
   );
 
   const svgVariants: Variants = {
-   normal: { scale: 1 },
+   normal: {
+    scale: 1,
+   },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
+    scale: [1, 1.12, 0.96, 1],
     transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
+     duration: 0.45 * duration,
+     ease: "easeOut",
     },
    },
   };
 
   const circleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: { pathLength: 1, opacity: 1 },
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
+   animate: {
+    pathLength: [0.7, 1],
+    opacity: [0.7, 1],
+    transition: {
+     duration: 0.35 * duration,
+     ease: "easeOut",
+    },
+   },
   };
 
   const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
     pathLength: [0, 1],
     opacity: 1,
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.42, 0, 0.58, 1],
+     duration: 0.3 * duration,
+     delay: 0.12 * duration,
+     ease: "easeOut",
     },
    },
   };
@@ -134,12 +150,13 @@ const CircleCheckBigIcon = forwardRef<
       d="M21.801 10A10 10 0 1 1 17 3.335"
       variants={circleVariants}
       initial="normal"
+      animate={controls}
      />
      <motion.path
       d="m9 11 3 3L22 4"
-      animate={tickControls}
-      initial="normal"
       variants={tickVariants}
+      initial="normal"
+      animate={tickControls}
      />
     </motion.svg>
    </motion.div>

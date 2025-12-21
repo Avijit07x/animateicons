@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: 0.1, duration: 0.7 }}
-								className="bg-primary/10 border-primary/20 inline-flex items-center space-x-2 rounded-full border px-4 py-2"
+								className="bg-primary/10 border-primary/20 inline-flex items-center space-x-2 rounded-full border px-4 py-2 shadow-xs"
 							>
 								<SparklesIcon size={14} className="text-primary" />
 								<span className="text-primary text-xs font-medium">
