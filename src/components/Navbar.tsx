@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
 								width={45}
 								height={45}
 								loading="eager"
-								className="max-md:size-10 -ml-0.5"
+								className="-ml-0.5 max-md:size-10"
 							/>
 							<span className="text-lg font-semibold text-white">
 								AnimateIcons
