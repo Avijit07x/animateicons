@@ -141,8 +141,12 @@ import { PhoneIcon } from "./PhoneIcon";
 import { PlayIcon } from "./PlayIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PoundSterlingIcon } from "./PoundSterlingIcon";
+import { QrCodeIcon } from "./QrCodeIcon";
 import { RussianRubleIcon } from "./RussianRubleIcon";
 import { SaudiRiyalIcon } from "./SaudiRiyalIcon";
+import { ScanIcon } from "./ScanIcon";
+import { ScanLineIcon } from "./ScanLineIcon";
+import { ScanQrCodeIcon } from "./ScanQrCodeIcon";
 import { SearchIcon } from "./SearchIcon";
 import { SendIcon } from "./SendIcon";
 import { SettingsIcon } from "./SettingsIcon";
@@ -325,6 +329,30 @@ const ICON_LIST: IconListItem[] = [
    "visibility",
    "vision",
   ],
+ },
+ {
+  name: "qr-code",
+  icon: QrCodeIcon,
+  addedAt: "2025-12-24",
+  keywords: ["scan", "barcode", "code", "qr", "quick response"],
+ },
+ {
+  name: "scan-qr-code",
+  icon: ScanQrCodeIcon,
+  addedAt: "2025-12-24",
+  keywords: ["scan", "barcode", "code", "qr", "quick response"],
+ },
+ {
+  name: "scan",
+  icon: ScanIcon,
+  addedAt: "2025-12-24",
+  keywords: ["scan", "barcode", "code", "qr", "quick response"],
+ },
+ {
+  name: "scan-line",
+  icon: ScanLineIcon,
+  addedAt: "2025-12-24",
+  keywords: ["scan", "barcode", "code", "qr", "quick response"],
  },
  // user
  {
