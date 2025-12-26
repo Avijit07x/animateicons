@@ -23,7 +23,7 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.9,
+   duration = 1,
    isAnimated = true,
    ...props
   },
@@ -65,16 +65,33 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
   const svgVariant: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 15, -15, 0],
-    transition: { duration: 0.9 * duration, ease: "easeOut", repeat: 0 },
+    rotate: 12,
+    transition: {
+     duration,
+     ease: [0.22, 1, 0.36, 1],
+    },
    },
   };
+
   const centerVariant: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.14, 1.05, 1],
-    opacity: [1, 0.95, 0.98, 1],
-    transition: { duration: 0.9 * duration, ease: "easeOut", repeat: 0 },
+    scale: [1, 1.18, 1],
+    transition: {
+     duration,
+     ease: "easeInOut",
+    },
+   },
+  };
+
+  const rayVariant: Variants = {
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.7, 1],
+    transition: {
+     duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -100,14 +117,14 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
      variants={svgVariant}
     >
      <motion.circle cx="12" cy="12" r="4" variants={centerVariant} />
-     <motion.path d="M12 2v2" />
-     <motion.path d="M12 20v2" />
-     <motion.path d="m4.93 4.93 1.41 1.41" />
-     <motion.path d="m17.66 17.66 1.41 1.41" />
-     <motion.path d="M2 12h2" />
-     <motion.path d="M20 12h2" />
-     <motion.path d="m6.34 17.66-1.41 1.41" />
-     <motion.path d="m19.07 4.93-1.41 1.41" />
+     <motion.path d="M12 2v2" variants={rayVariant} />
+     <motion.path d="M12 20v2" variants={rayVariant} />
+     <motion.path d="m4.93 4.93 1.41 1.41" variants={rayVariant} />
+     <motion.path d="m17.66 17.66 1.41 1.41" variants={rayVariant} />
+     <motion.path d="M2 12h2" variants={rayVariant} />
+     <motion.path d="M20 12h2" variants={rayVariant} />
+     <motion.path d="m6.34 17.66-1.41 1.41" variants={rayVariant} />
+     <motion.path d="m19.07 4.93-1.41 1.41" variants={rayVariant} />
     </motion.svg>
    </motion.div>
   );

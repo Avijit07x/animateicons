@@ -36,16 +36,9 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      pathControls.start("normal");
-     } else {
-      pathControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     pathControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? pathControls.start("normal") : pathControls.start("animate"),
+    stopAnimation: () => pathControls.start("normal"),
    };
   });
 
