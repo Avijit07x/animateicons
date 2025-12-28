@@ -63,33 +63,37 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
    normal: { scale: 1, rotate: 0 },
    animate: {
     scale: [1, 1.06, 0.98, 1],
-    rotate: [0, -3, 3, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut" },
+    rotate: [0, -2, 1, 0],
+    transition: {
+     duration: 0.85 * duration,
+     ease: [0.22, 1, 0.36, 1],
+    },
    },
   };
 
   const starVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { opacity: 1, scale: 1 },
    animate: {
-    pathLength: [0.9, 1, 1],
-    opacity: [0.8, 1, 1],
+    opacity: [0.6, 1, 1],
+    scale: [0.7, 1.15, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
+     duration: 0.7 * duration,
+     ease: "easeOut",
      delay: 0.05,
     },
    },
   };
 
   const crossVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
+   normal: { opacity: 0.9, scale: 1, rotate: 0 },
    animate: {
-    opacity: [0.6, 1, 0.8, 1],
-    scale: [0.9, 1.05, 1],
+    opacity: [0, 1],
+    scale: [0.4, 1],
+    rotate: [-45, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     delay: 0.18,
+     duration: 0.55 * duration,
+     ease: "easeOut",
+     delay: 0.16,
     },
    },
   };
@@ -97,12 +101,12 @@ const SparklesIcon = forwardRef<SparklesIconHandle, SparklesIconProps>(
   const dotVariants: Variants = {
    normal: { opacity: 1, scale: 1, y: 0 },
    animate: {
-    opacity: [0.7, 1, 1],
-    scale: [0.85, 1.1, 1],
-    y: [1.5, -0.5, 0],
+    opacity: [0, 1],
+    scale: [0.4, 1],
+    y: [4, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
+     duration: 0.5 * duration,
+     ease: "easeOut",
      delay: 0.28,
     },
    },
