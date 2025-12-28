@@ -90,30 +90,39 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
   const groupVariants: Variants = {
    normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    rotate: [0, -1.5, 1.5, 0],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+    scale: [1, 1.06, 0.98, 1],
+    rotate: [0, -2, 1, 0],
+    transition: {
+     duration: 0.9 * duration,
+     ease: [0.22, 1, 0.36, 1],
+    },
    },
   };
 
   const coinsVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1, opacity: 1, y: 0 },
    animate: {
-    scale: [1, 1.2, 0.95, 1],
-    opacity: [1, 0.9, 1],
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.1 },
+    scale: [0.7, 1.02, 1],
+    opacity: [0, 1, 1],
+    y: [-6, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeOut",
+     delay: 0.1,
+    },
    },
   };
 
   const handVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { pathLength: 1, opacity: 1, y: 0 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.6, 1],
+    opacity: [0.5, 1],
+    y: [2, 0],
     transition: {
-     duration: 1.1 * duration,
+     duration: 0.9 * duration,
      ease: "easeInOut",
-     delay: 0.15,
+     delay: 0.2,
     },
    },
   };
