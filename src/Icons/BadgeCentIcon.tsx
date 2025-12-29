@@ -88,14 +88,13 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
   );
 
   const outerVariants: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1 },
+   normal: { scale: 1, rotate: 0 },
    animate: {
-    strokeDashoffset: [260, 20, 0],
-    scale: [1, 0.985, 1.03, 1],
+    scale: [1, 1.02, 1],
+    rotate: [0, 180, 0],
     transition: {
-     duration: 1.2 * duration,
-     ease: [0.2, 0.85, 0.25, 1],
-     times: [0, 0.35, 0.7, 1],
+     duration: 1.1 * duration,
+     ease: "easeInOut",
     },
    },
   };
@@ -108,7 +107,7 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
     opacity: [0.9, 1, 1],
     transition: {
      duration: 0.8 * duration,
-     ease: [0.22, 0.9, 0.28, 1],
+     ease: "easeInOut",
      delay: 0.18,
     },
    },
