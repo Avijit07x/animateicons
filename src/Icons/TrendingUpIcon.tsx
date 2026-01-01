@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ThumbsDownIconHandle {
+export interface TrendingUpIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface ThumbsDownIconProps extends HTMLMotionProps<"div"> {
+interface TrendingUpIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
+const TrendingUpIcon = forwardRef<TrendingUpIconHandle, TrendingUpIconProps>(
  (
   {
    onMouseEnter,
@@ -45,9 +45,8 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
    [controls, reduced, isAnimated, onMouseEnter],
   );
@@ -60,41 +59,41 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
+  const iconVariants: Variants = {
    normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.08, 0.98, 1.03, 1],
-    rotate: [0, -8, 6, -4, 0],
+    scale: [1, 1.06, 0.98, 1],
+    rotate: [0, 3, -2, 0],
     transition: {
-     duration: 0.95 * duration,
-     ease: "easeInOut",
+     duration: 0.9 * duration,
+     ease: [0.22, 1, 0.36, 1],
     },
    },
   };
 
-  const stemVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { opacity: 1, x: 0, y: 0, rotate: 0 },
    animate: {
-    scaleY: [1, 0.92, 1.04, 1],
-    opacity: [1, 0.85, 1],
+    opacity: [0, 1],
+    x: [-4, 0],
+    y: [4, 0],
+    rotate: [8, 0],
     transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     delay: 0.08 * duration,
+     duration: 0.55 * duration,
+     ease: [0.16, 1, 0.3, 1],
+     delay: 0.12,
     },
    },
   };
 
-  const thumbVariants: Variants = {
-   normal: { rotate: 0, y: 0, scale: 1 },
+  const pathVariants: Variants = {
+   normal: { pathLength: 1, pathOffset: 0 },
    animate: {
-    rotate: [0, -8, 6, -4, 0],
-    y: [0, -4, -8, -4, 0],
-    scale: [1, 1.05, 1.1, 1.04, 1],
+    pathLength: [0, 1],
+    pathOffset: [1, 0],
     transition: {
-     duration: 0.95 * duration,
+     duration: 0.75 * duration,
      ease: "easeInOut",
-     delay: 0.05 * duration,
     },
    },
   };
@@ -116,16 +115,21 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     variants={svgVariants}
-     initial="normal"
      animate={controls}
+     initial="normal"
+     variants={iconVariants}
     >
-     <motion.path d="M17 14V2" variants={stemVariants} initial="normal" />
-
      <motion.path
-      d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"
-      variants={thumbVariants}
+      d="m22 7-8.5 8.5-5-5L2 17"
+      variants={pathVariants}
       initial="normal"
+      animate={controls}
+     />
+     <motion.path
+      d="M16 7h6v6"
+      variants={arrowVariants}
+      initial="normal"
+      animate={controls}
      />
     </motion.svg>
    </motion.div>
@@ -133,5 +137,5 @@ const ThumbsDownIcon = forwardRef<ThumbsDownIconHandle, ThumbsDownIconProps>(
  },
 );
 
-ThumbsDownIcon.displayName = "ThumbsDownIcon";
-export { ThumbsDownIcon };
+TrendingUpIcon.displayName = "TrendingUpIcon";
+export { TrendingUpIcon };

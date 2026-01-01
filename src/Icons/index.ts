@@ -170,6 +170,8 @@ import { ThumbsDownIcon } from "./ThumbsDownIcon";
 import { ThumbsUpIcon } from "./ThumbsUpIcon";
 import { Trash2Icon } from "./Trash2Icon";
 import { TrashIcon } from "./TrashIcon";
+import { TrendingDownIcon } from "./TrendingDownIcon";
+import { TrendingUpIcon } from "./TrendingUpIcon";
 import { TurkishLiraIcon } from "./TurkishLiraIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { UnlinkIcon } from "./UnlinkIcon";
@@ -2270,6 +2272,26 @@ const ICON_LIST: IconListItem[] = [
   name: "chart-no-axes-combined",
   icon: ChartNoAxesCombinedIcon,
   keywords: ["statistics", "analytics", "diagram", "graph", "trending up"],
+ },
+ {
+  name: "trending-down",
+  icon: TrendingDownIcon,
+  addedAt: "2026-01-01",
+  keywords: [
+   "decrease",
+   "decline",
+   "fall",
+   "drop",
+   "downward",
+   "trend",
+   "graph",
+  ],
+ },
+ {
+  name: "trending-up",
+  icon: TrendingUpIcon,
+  addedAt: "2026-01-01",
+  keywords: ["increase", "rise", "upward", "trend", "graph"],
  },
  {
   name: "book-open-text",

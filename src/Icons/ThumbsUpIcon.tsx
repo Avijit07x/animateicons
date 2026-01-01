@@ -59,45 +59,41 @@ const ThumbsUpIcon = forwardRef<ThumbsUpIconHandle, ThumbsUpIconProps>(
    [controls, onMouseLeave],
   );
 
-  const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
   const svgVariants: Variants = {
-   normal: { scale: 1 },
+   normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.08, 0.98, 1],
+    scale: [1, 1.08, 0.98, 1.03, 1],
+    rotate: [0, -8, 6, -4, 0],
     transition: {
-     duration: 1.0 * duration,
-     ease: smoothEase,
-     times: [0, 0.35, 0.7, 1],
+     duration: 0.95 * duration,
+     ease: "easeInOut",
     },
    },
   };
 
   const stemVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1, opacity: 1 },
    animate: {
-    pathLength: [0.6, 1],
-    opacity: [0.7, 1],
+    scaleY: [1, 0.92, 1.04, 1],
+    opacity: [1, 0.85, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: smoothEase,
-     delay: 0.02 * duration,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.08 * duration,
     },
    },
   };
 
   const thumbVariants: Variants = {
-   normal: { rotate: 0, y: 0, pathLength: 1, opacity: 1 },
+   normal: { rotate: 0, y: 0, scale: 1 },
    animate: {
-    rotate: [0, -20, 8, -4, 0],
-    y: [0, -10, -5, -2, 0],
-    pathLength: [0.8, 1, 0.6, 1, 1],
-    opacity: [0.9, 1, 0.85, 1, 1],
+    rotate: [0, -8, 6, -4, 0],
+    y: [0, -4, -8, -4, 0],
+    scale: [1, 1.05, 1.1, 1.04, 1],
     transition: {
      duration: 0.95 * duration,
-     ease: smoothEase,
-     times: [0, 0.35, 0.6, 0.85, 1],
-     delay: 0.04 * duration,
+     ease: "easeInOut",
+     delay: 0.05 * duration,
     },
    },
   };

@@ -60,28 +60,14 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
   );
 
   const lensVariants: Variants = {
-   normal: { scale: 1 },
+   normal: { x: 0, y: 0, rotate: 0, opacity: 1 },
    animate: {
-    scale: 1.08,
+    x: [0, 2, -2, 1, 0],
+    y: [0, -1, 2, -1, 0],
+    rotate: [0, 6, -6, 4, 0],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const ringVariants: Variants = {
-   normal: {
-    strokeDasharray: "0 1",
-    opacity: 1,
-   },
-   animate: {
-    strokeDasharray: ["2 6", "6 6"],
-    strokeDashoffset: [0, -12],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "linear",
+     duration: 1.2 * duration,
+     ease: "easeInOut" as const,
     },
    },
   };
@@ -106,14 +92,8 @@ const SearchIcon = forwardRef<SearchHandle, SearchProps>(
      animate={controls}
      initial="normal"
     >
-     <motion.g
-      variants={lensVariants}
-      style={{
-       transformBox: "fill-box",
-       transformOrigin: "center",
-      }}
-     >
-      <motion.circle cx="11" cy="11" r="8" variants={ringVariants} />
+     <motion.g variants={lensVariants}>
+      <motion.circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.34-4.34" />
      </motion.g>
     </motion.svg>
