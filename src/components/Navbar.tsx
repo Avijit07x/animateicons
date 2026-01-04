@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
 	const starRef = useRef<StarIconHandle>(null);
 	const githubRef = useRef<GithubIconHandle>(null);
 	const toggleMenu = () => setIsOpen(!isOpen);
-	const winter = isWinterSeason();
+	const isWinter = isWinterSeason();
 
 	useEffect(() => {
 		async function fetchStars() {
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
 					<div className="flex items-center">
 						<Link href="/" className="flex items-center gap-2">
 							<Image
-								src={winter ? "/winter-logo.svg" : "/logo.svg"}
+								src={isWinter ? "/winter-logo.svg" : "/logo.svg"}
 								alt="logo"
 								width={45}
 								height={45}

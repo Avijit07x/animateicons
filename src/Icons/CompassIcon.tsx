@@ -60,21 +60,25 @@ const CompassIcon = forwardRef<CompassIconHandle, CompassIconProps>(
   );
 
   const circleVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+   normal: { scale: 1 },
    animate: {
-    rotate: [0, 10, -6, 3, 0],
     scale: [1, 1.05, 0.98, 1],
-    transition: { duration: 0.9 * duration, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
   const needleVariants: Variants = {
-   normal: { rotate: 0, pathLength: 1, opacity: 1 },
+   normal: {
+    rotate: 0,
+    opacity: 1,
+   },
    animate: {
-    rotate: [0, -28, 8, -4, 0],
-    pathLength: [0.8, 1, 0.6, 1],
-    opacity: [0.9, 1, 0.85, 1],
-    transition: { duration: 1 * duration, ease: [0.22, 1, 0.36, 1] },
+    rotate: [0, 200, 170, 180],
+    opacity: [0.9, 1],
+    transition: {
+     duration: 1 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -102,9 +106,12 @@ const CompassIcon = forwardRef<CompassIconHandle, CompassIconProps>(
      <motion.path
       d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"
       variants={needleVariants}
-      initial="normal"
-      style={{ transformOrigin: "center" }}
+      style={{
+       transformBox: "fill-box",
+       transformOrigin: "center",
+      }}
      />
+
      <motion.circle
       cx="12"
       cy="12"

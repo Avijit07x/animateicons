@@ -75,12 +75,12 @@ const CmdSection: React.FC = () => {
 			>
 				<div className="flex w-full items-center justify-between gap-2 whitespace-nowrap">
 					<code className="line-clamp-1 flex flex-nowrap items-center">
-						npx shadcn@latest add "https://animateicons.vercel.app/icons/
+						npx shadcn@latest add "https://animateicons.in/icons/
 						<WordRotate
 							words={commands}
 							onWordChange={(word) =>
 								setCurrentCmd(
-									`npx shadcn@latest add "https://animateicons.vercel.app/icons/${word}"`,
+									`npx shadcn@latest add "https://animateicons.in/icons/${word}"`,
 								)
 							}
 						/>
@@ -94,12 +94,12 @@ const CmdSection: React.FC = () => {
 			>
 				<div className="flex w-full items-center justify-between gap-2 whitespace-nowrap">
 					<code className="line-clamp-1 flex flex-nowrap items-center">
-						pnpm dlx shadcn@latest add "https://animateicons.vercel.app/icons/
+						pnpm dlx shadcn@latest add "https://animateicons.in/icons/
 						<WordRotate
 							words={commands}
 							onWordChange={(word) =>
 								setCurrentCmd(
-									`pnpm dlx shadcn@latest add "https://animateicons.vercel.app/icons/${word}"`,
+									`pnpm dlx shadcn@latest add "https://animateicons.in/icons/${word}"`,
 								)
 							}
 						/>
@@ -114,12 +114,12 @@ const CmdSection: React.FC = () => {
 			>
 				<div className="flex w-full items-center justify-between gap-2 whitespace-nowrap">
 					<code className="line-clamp-1 flex items-center">
-						bunx shadcn@latest add "https://animateicons.vercel.app/icons/
+						bunx shadcn@latest add "https://animateicons.in/icons/
 						<WordRotate
 							words={commands}
 							onWordChange={(word) =>
 								setCurrentCmd(
-									`bunx shadcn@latest add "https://animateicons.vercel.app/icons/${word}"`,
+									`bunx shadcn@latest add "https://animateicons.in/icons/${word}"`,
 								)
 							}
 							className="inline-block"

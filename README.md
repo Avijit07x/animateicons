@@ -13,17 +13,17 @@ You can install any icon directly into your project using the **shadcn** CLI:
 ### npm example
 
 ```
-npx shadcn@latest add "https://animateicons.vercel.app/icons/bell.json"
+npx shadcn@latest add "https://animateicons.in/icons/bell.json"
 ```
 
 ### bun example
 
 ```
-bunx shadcn@latest add "https://animateicons.vercel.app/icons/bell.json"
+bunx shadcn@latest add "https://animateicons.in/icons/bell.json"
 ```
 
 Replace `bell.json` with any icon name from our gallery.
-View all icons → **[animateicons.vercel.app](https://animateicons.vercel.app)**
+View all icons → **[animateicons.vercel.app](https://animateicons.in)**
 
 ---
 

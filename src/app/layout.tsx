@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 		title: "AnimateIcons – Modern Animated React Icon Library",
 		description:
 			"Seamless, animated icons for React—make your interface stand out with beautifully smooth motion and easy customization. Built to help you create engaging experiences without the hassle.",
-		url: "https://animateicons.vercel.app",
+		url: "https://animateicons.in",
 		siteName: "AnimateIcons",
 		images: [
 			{
