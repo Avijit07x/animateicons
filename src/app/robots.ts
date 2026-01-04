@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
 			userAgent: "*",
 			allow: "/",
 		},
-		sitemap: "https://animateicons.vercel.app/sitemap.xml",
+		sitemap: "https://animateicons.in/sitemap.xml",
 	};
 }

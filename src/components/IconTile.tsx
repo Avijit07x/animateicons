@@ -47,7 +47,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 			}
 		}
 
-		const command = `${cliTool} shadcn@latest add "https://animateicons.vercel.app/icons/${item.name}.json"`;
+		const command = `${cliTool} shadcn@latest add "https://animateicons.in/icons/${item.name}.json"`;
 		await navigator.clipboard.writeText(command);
 		setCopiedCli(true);
 		setTimeout(() => setCopiedCli(false), 1500);
@@ -58,9 +58,9 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	}
 
 	return (
-		<div className="bg-primary/10 border-primary/20 hover:bg-primary/12 relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
+		<div className="bg-primary/10 border-primary/20 hover:bg-primary/12 hover:scale-102 relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all">
 			{item.addedAt && isNew(item.addedAt) && (
-				<span className="bg-primary/25 absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium text-gray-200">
+				<span className="bg-primary/25 absolute right-0 top-0 rounded-bl-md px-2 py-1 text-xs font-medium text-gray-200">
 					New
 				</span>
 			)}
@@ -118,7 +118,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Link
-							href={`https://v0.dev/chat/api/open?url=https://animateicons.vercel.app/icons/${item.name}.json`}
+							href={`https://v0.dev/chat/api/open?url=https://animateicons.in/icons/${item.name}.json`}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex size-6 items-center justify-center"
