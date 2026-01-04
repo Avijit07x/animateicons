@@ -3,9 +3,9 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: "https://animateicons.in",
+			url: "animateicons.in",
 			lastModified: new Date(),
-			changeFrequency: "yearly",
+			changeFrequency: "weekly",
 			priority: 1,
 		},
 	];
