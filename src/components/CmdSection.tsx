@@ -46,7 +46,7 @@ const CmdSection: React.FC = () => {
 				setActiveTab(value as "npm" | "pnpm" | "bun");
 				localStorage.setItem("tab", value);
 			}}
-			className="bg-primary/10 border-primary/20 lg:w-200 relative mt-5 w-full gap-0 rounded-md border shadow-lg"
+			className="bg-primary/10 border-primary/20 relative mt-5 w-full gap-0 rounded-md border shadow-lg lg:w-200"
 		>
 			<TabsList className="h-12 space-x-1.5 bg-transparent px-2 py-2.5">
 				<TabsTrigger
