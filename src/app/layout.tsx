@@ -44,6 +44,20 @@ export const metadata: Metadata = {
 		"React SVG Animation",
 		"Lightweight Icon Library",
 		"Animated UI Kit",
+		"animateicons",
+		"animate icons",
+		"react animate",
+		"animatedicons",
+		"animated icon",
+		"animatedicon",
+		"lucide icons",
+		"lucide animated",
+		"lucide animatedicons",
+		"shadcn",
+		"shadcn icons",
+		"shadcn animated icons",
+		"icon hover animation",
+		"animateicons.in",
 	],
 	openGraph: {
 		title: "AnimateIcons – Modern Animated React Icon Library",
@@ -75,6 +89,18 @@ export const metadata: Metadata = {
 				alt: "AnimateIcons OG Banner",
 			},
 		],
+	},
+	robots: {
+		index: true,
+		follow: true,
+		nocache: false,
+		googleBot: {
+			index: true,
+			follow: true,
+		},
+	},
+	alternates: {
+		canonical: "https://animateicons.in",
 	},
 };
 
