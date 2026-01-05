@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Heart from "./icons/Heart";
+import { ProductHunt } from "./icons/ProductHuntIcon";
 import { StarIcon, StarIconHandle } from "./icons/StarIcon";
 import { NumberTicker } from "./magicui/number-ticker";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
@@ -14,6 +15,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 const Navbar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [stars, setStars] = useState<number | null>(250);
+	const [phVotes, setPhVotes] = useState<number | null>(null);
 	const starRef = useRef<StarIconHandle>(null);
 	const githubRef = useRef<GithubIconHandle>(null);
 	const toggleMenu = () => setIsOpen(!isOpen);
@@ -35,6 +37,20 @@ const Navbar: React.FC = () => {
 		fetchStars();
 	}, []);
 
+	useEffect(() => {
+		async function fetchProductHuntVotes() {
+			try {
+				const res = await fetch("/api/producthunt");
+				if (!res.ok) return;
+
+				const data: { votes: number } = await res.json();
+				setPhVotes(data.votes);
+			} catch {}
+		}
+
+		fetchProductHuntVotes();
+	}, []);
+
 	const handleMouseEnter = () => {
 		starRef.current?.startAnimation();
 		githubRef.current?.startAnimation();
@@ -47,7 +63,7 @@ const Navbar: React.FC = () => {
 
 	return (
 		<nav className="relative z-50 transition-all duration-300">
-			<div className="mx-auto max-w-7xl px-3 pt-2 md:px-6 lg:px-8">
+			<div className="mx-auto max-w-7xl px-3 pt-1 md:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
 					{/* Logo */}
 					<div className="flex items-center">
@@ -69,13 +85,23 @@ const Navbar: React.FC = () => {
 					{/* Desktop Navigation */}
 					<div className="hidden items-center space-x-4 text-sm md:flex">
 						<Link
-							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
+							href="https://www.producthunt.com/products/animateicons"
 							target="_blank"
-							className="text-zinc-300 transition-colors duration-200 hover:text-blue-600"
+							rel="noopener noreferrer"
+							className="hover:bg-primary/10 flex h-8 items-center justify-center gap-2 rounded-sm border border-gray-700 px-4 font-sans font-medium! text-white transition-colors duration-200"
 						>
-							Docs
+							<ProductHunt className="size-4" />
+							<div>
+								<h3 className="text-[0.5rem] leading-1 uppercase">
+									find us on
+								</h3>
+								<h2 className="mt-2 text-[0.7rem] leading-1">Product Hunt</h2>
+							</div>
+							<div className="mt-0.5 flex flex-col items-center justify-center gap-0.5">
+								<div className="h-0 w-0 border-r-[0.25rem] border-b-[0.5rem] border-l-[0.25rem] border-r-transparent border-b-white border-l-transparent"></div>
+								<p className="text-[0.6rem]">{phVotes ?? "—"}</p>
+							</div>
 						</Link>
-
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link
@@ -103,6 +129,7 @@ const Navbar: React.FC = () => {
 								</span>
 							</TooltipContent>
 						</Tooltip>
+
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link
@@ -142,15 +169,6 @@ const Navbar: React.FC = () => {
 					}`}
 				>
 					<div className="bg-primary/10 border-primary/20 flex w-full flex-col items-center justify-center gap-4 rounded-lg border px-6 py-10 shadow-lg backdrop-blur-md">
-						{/* Docs */}
-						<Link
-							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
-							target="_blank"
-							className="w-full px-3 py-2 text-center font-medium text-zinc-300 transition-colors duration-200 hover:text-indigo-400"
-						>
-							Docs
-						</Link>
-
 						{/* GitHub Star */}
 						<Link
 							href="https://github.com/Avijit07x/animateicons"
@@ -176,6 +194,24 @@ const Navbar: React.FC = () => {
 						>
 							<Heart className="size-5 text-pink-400" />
 							<span className="text-sm font-semibold">Sponsor</span>
+						</Link>
+						<Link
+							href="https://www.producthunt.com/products/animateicons"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:bg-primary/10 flex h-8 w-full items-center justify-center gap-2 rounded-sm border border-gray-700 px-4 font-sans font-medium! text-white transition-colors duration-200"
+						>
+							<ProductHunt className="size-4.5" />
+							<div>
+								<h3 className="text-[0.5rem] leading-1 uppercase">
+									find us on
+								</h3>
+								<h2 className="mt-2 text-[0.7rem] leading-1">Product Hunt</h2>
+							</div>
+							<div className="mt-0.5 flex flex-col items-center justify-center gap-0.5">
+								<div className="h-0 w-0 border-r-[0.25rem] border-b-[0.5rem] border-l-[0.25rem] border-r-transparent border-b-white border-l-transparent"></div>
+								<p className="text-[0.6rem]">{phVotes ?? "—"}</p>
+							</div>
 						</Link>
 					</div>
 				</div>

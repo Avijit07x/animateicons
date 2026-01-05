@@ -150,6 +150,7 @@ import { ScanQrCodeIcon } from "./ScanQrCodeIcon";
 import { SearchIcon } from "./SearchIcon";
 import { SendIcon } from "./SendIcon";
 import { SettingsIcon } from "./SettingsIcon";
+import { ShareIcon } from "./ShareIcon";
 import { ShieldCheckIcon } from "./ShieldCheckIcon";
 import { ShieldUserIcon } from "./ShieldUserIcon";
 import { ShieldXIcon } from "./ShieldXIcon";
@@ -197,6 +198,7 @@ import { UserStarIcon } from "./UserStarIcon";
 import { UserXIcon } from "./UserXIcon";
 import { WalletIcon } from "./WalletIcon";
 import { WalletMinimalIcon } from "./WalletMinimalIcon";
+import { WebhookIcon } from "./WebhookIcon";
 import { WifiCogIcon } from "./WifiCogIcon";
 import { WifiIcon } from "./WifiIcon";
 import { WifiOffIcon } from "./WifiOffIcon";
@@ -1017,6 +1019,12 @@ const ICON_LIST: IconListItem[] = [
    "share",
    "paper-plane",
   ],
+ },
+ {
+  name: "share",
+  icon: ShareIcon,
+  addedAt: "2026-01-05",
+  keywords: ["submit", "share", "send"],
  },
  {
   name: "trash",
@@ -2576,6 +2584,12 @@ const ICON_LIST: IconListItem[] = [
   icon: MoonIcon,
   addedAt: "2025-12-08",
   keywords: ["dark", "night", "weather", "moon", "dark mode"],
+ },
+ {
+  name: "webhook",
+  icon: WebhookIcon,
+  addedAt: "2026-01-03",
+  keywords: ["webhook", "api", "integration", "connection", "notification"],
  },
 ];
 
