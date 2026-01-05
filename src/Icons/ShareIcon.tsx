@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface MoonIconHandle {
+export interface ShareIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface MoonIconProps extends HTMLMotionProps<"div"> {
+interface ShareIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
+const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
  (
   {
    onMouseEnter,
@@ -52,40 +52,37 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
+  const nodeVariants = (delay: number): Variants => ({
    normal: {
-    y: 0,
     scale: 1,
     opacity: 1,
    },
    animate: {
-    y: [0, -2, 0],
-    scale: [1, 1.04, 1],
+    scale: [1, 1.15, 1],
+    opacity: [0.7, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
+     duration: 0.45 * duration,
+     ease: [0.22, 1, 0.36, 1],
+     delay,
     },
    },
-  };
+  });
 
-  const pathVariant: Variants = {
+  const lineVariants: Variants = {
    normal: {
-    opacity: 0.85,
+    opacity: 1,
    },
    animate: {
-    opacity: [0.85, 1, 0.9],
+    opacity: [0.4, 1],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
     },
    },
@@ -105,16 +102,29 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
      viewBox="0 0 24 24"
      fill="none"
      stroke="currentColor"
-     strokeWidth={2}
+     strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
      animate={controls}
      initial="normal"
-     variants={svgVariants}
     >
-     <motion.path
-      d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-      variants={pathVariant}
+     <motion.circle cx="18" cy="5" r="3" variants={nodeVariants(0)} />
+     <motion.circle cx="6" cy="12" r="3" variants={nodeVariants(0.12)} />
+     <motion.circle cx="18" cy="19" r="3" variants={nodeVariants(0.24)} />
+
+     <motion.line
+      x1="8.59"
+      y1="13.51"
+      x2="15.42"
+      y2="17.49"
+      variants={lineVariants}
+     />
+     <motion.line
+      x1="15.41"
+      y1="6.51"
+      x2="8.59"
+      y2="10.49"
+      variants={lineVariants}
      />
     </motion.svg>
    </motion.div>
@@ -122,5 +132,5 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
  },
 );
 
-MoonIcon.displayName = "MoonIcon";
-export { MoonIcon };
+ShareIcon.displayName = "ShareIcon";
+export { ShareIcon };

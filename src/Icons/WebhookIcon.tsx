@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface MoonIconHandle {
+export interface WebhookHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface MoonIconProps extends HTMLMotionProps<"div"> {
+interface WebhookProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
+const WebhookIcon = forwardRef<WebhookHandle, WebhookProps>(
  (
   {
    onMouseEnter,
@@ -52,41 +52,39 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const svgVariants: Variants = {
    normal: {
-    y: 0,
     scale: 1,
     opacity: 1,
    },
    animate: {
-    y: [0, -2, 0],
-    scale: [1, 1.04, 1],
+    scale: [1, 1.06, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
+     duration: 0.6 * duration,
+     ease: "easeOut",
     },
    },
   };
 
-  const pathVariant: Variants = {
+  const pathVariants: Variants = {
    normal: {
-    opacity: 0.85,
+    strokeDasharray: "0 1",
+    opacity: 1,
    },
    animate: {
-    opacity: [0.85, 1, 0.9],
+    strokeDasharray: ["0 1", "20 6", "0 1"],
+    opacity: [0.6, 1, 0.6],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.9 * duration,
      ease: "easeInOut",
+     repeat: 1,
     },
    },
   };
@@ -105,7 +103,7 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
      viewBox="0 0 24 24"
      fill="none"
      stroke="currentColor"
-     strokeWidth={2}
+     strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
      animate={controls}
@@ -113,8 +111,16 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
      variants={svgVariants}
     >
      <motion.path
-      d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-      variants={pathVariant}
+      d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"
+      variants={pathVariants}
+     />
+     <motion.path
+      d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"
+      variants={pathVariants}
+     />
+     <motion.path
+      d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"
+      variants={pathVariants}
      />
     </motion.svg>
    </motion.div>
@@ -122,5 +128,5 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
  },
 );
 
-MoonIcon.displayName = "MoonIcon";
-export { MoonIcon };
+WebhookIcon.displayName = "WebhookIcon";
+export { WebhookIcon };
