@@ -713,17 +713,17 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "circle-chevron-down",
   icon: CircleChevronDownIcon,
-  keywords: ["dropdown", "expand", "menu", "arrow", "direction", "chevron"],
+  keywords: ["dropdown", "expand",  "arrow", "direction", "chevron"],
  },
  {
   name: "circle-chevron-left",
   icon: CircleChevronLeftIcon,
-  keywords: ["back", "previous", "menu", "<", "caret", "collapse"],
+  keywords: ["back", "previous",  "<", "caret", "collapse"],
  },
  {
   name: "circle-chevron-right",
   icon: CircleChevronRightIcon,
-  keywords: ["forward", "next", "menu", ">", "code", "caret", "expand"],
+  keywords: ["forward", "next",  ">", "code", "caret", "expand"],
  },
  {
   name: "circle-chevron-up",
@@ -733,7 +733,6 @@ const ICON_LIST: IconListItem[] = [
    "direction",
    "collapse",
    "dropdown",
-   "menu",
    "less",
    "caret",
   ],
@@ -743,12 +742,12 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "chevron-left",
   icon: ChevronLeftIcon,
-  keywords: ["back", "previous", "menu", "<", "caret", "collapse"],
+  keywords: ["back", "previous",  "<", "caret", "collapse"],
  },
  {
   name: "chevron-right",
   icon: ChevronRightIcon,
-  keywords: ["forward", "next", "menu", ">", "code", "caret", "expand"],
+  keywords: ["forward", "next", ">", "code", "caret", "expand"],
  },
  {
   name: "chevron-up",
@@ -758,7 +757,6 @@ const ICON_LIST: IconListItem[] = [
    "direction",
    "collapse",
    "dropdown",
-   "menu",
    "less",
    "caret",
   ],
@@ -771,7 +769,6 @@ const ICON_LIST: IconListItem[] = [
    "direction",
    "expand",
    "dropdown",
-   "menu",
    "more",
    "caret",
   ],
@@ -980,7 +977,7 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "ellipsis-vertical",
   icon: EllipsisVerticalIcon,
-  keywords: ["menu", "options", "more", "overflow", "dots", "...", "vertical"],
+  keywords: [ "options", "more", "overflow", "dots", "...", "vertical"],
  },
  {
   name: "ellipsis",
@@ -990,7 +987,6 @@ const ICON_LIST: IconListItem[] = [
    "loader",
    "progress",
    "pending",
-   "menu",
    "options",
    "more",
    "…",
