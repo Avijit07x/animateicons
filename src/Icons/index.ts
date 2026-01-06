@@ -713,36 +713,29 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "circle-chevron-down",
   icon: CircleChevronDownIcon,
-  keywords: ["dropdown", "expand",  "arrow", "direction", "chevron"],
+  keywords: ["dropdown", "expand", "arrow", "direction", "chevron"],
  },
  {
   name: "circle-chevron-left",
   icon: CircleChevronLeftIcon,
-  keywords: ["back", "previous",  "<", "caret", "collapse"],
+  keywords: ["back", "previous", "<", "caret", "collapse"],
  },
  {
   name: "circle-chevron-right",
   icon: CircleChevronRightIcon,
-  keywords: ["forward", "next",  ">", "code", "caret", "expand"],
+  keywords: ["forward", "next", ">", "code", "caret", "expand"],
  },
  {
   name: "circle-chevron-up",
   icon: CircleChevronUpIcon,
-  keywords: [
-   "arrow",
-   "direction",
-   "collapse",
-   "dropdown",
-   "less",
-   "caret",
-  ],
+  keywords: ["arrow", "direction", "collapse", "dropdown", "less", "caret"],
  },
 
  // Arrows & Direction
  {
   name: "chevron-left",
   icon: ChevronLeftIcon,
-  keywords: ["back", "previous",  "<", "caret", "collapse"],
+  keywords: ["back", "previous", "<", "caret", "collapse"],
  },
  {
   name: "chevron-right",
@@ -752,26 +745,12 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "chevron-up",
   icon: ChevronUpIcon,
-  keywords: [
-   "arrow",
-   "direction",
-   "collapse",
-   "dropdown",
-   "less",
-   "caret",
-  ],
+  keywords: ["arrow", "direction", "collapse", "dropdown", "less", "caret"],
  },
  {
   name: "chevron-down",
   icon: ChevronDownIcon,
-  keywords: [
-   "arrow",
-   "direction",
-   "expand",
-   "dropdown",
-   "more",
-   "caret",
-  ],
+  keywords: ["arrow", "direction", "expand", "dropdown", "more", "caret"],
  },
  {
   name: "move-left",
@@ -977,20 +956,12 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "ellipsis-vertical",
   icon: EllipsisVerticalIcon,
-  keywords: [ "options", "more", "overflow", "dots", "...", "vertical"],
+  keywords: ["options", "more", "overflow", "dots", "...", "vertical"],
  },
  {
   name: "ellipsis",
   icon: EllipsisIcon,
-  keywords: [
-   "etc",
-   "loader",
-   "progress",
-   "pending",
-   "options",
-   "more",
-   "…",
-  ],
+  keywords: ["etc", "loader", "progress", "pending", "options", "more", "…"],
  },
  {
   name: "copy",
