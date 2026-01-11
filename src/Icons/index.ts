@@ -340,12 +340,26 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "user-cog",
   icon: UserCogIcon,
-  keywords: ["settings", "account", "options", "admin", "preferences", "config"],
+  keywords: [
+   "settings",
+   "account",
+   "options",
+   "admin",
+   "preferences",
+   "config",
+  ],
  },
  {
   name: "user-round-cog",
   icon: UserRoundCogIcon,
-  keywords: ["settings", "account", "options", "admin", "preferences", "config"],
+  keywords: [
+   "settings",
+   "account",
+   "options",
+   "admin",
+   "preferences",
+   "config",
+  ],
  },
  {
   name: "user-lock",
