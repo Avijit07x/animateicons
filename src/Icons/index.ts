@@ -2,6 +2,8 @@ import { AArrowDownIcon } from "./AArrowDownIcon";
 import { AArrowUpIcon } from "./AArrowUpIcon";
 import { AccessibilityIcon } from "./AccessibilityIcon";
 import { ActivityIcon } from "./ActivityIcon";
+import { AngryIcon } from "./AngryIcon";
+import { AnnoyedIcon } from "./AnnoyedIcon";
 import { ArrowDownUpIcon } from "./ArrowDownUpIcon";
 import { ArrowUp01Icon } from "./ArrowUp01Icon";
 import { ArrowUp10Icon } from "./ArrowUp10Icon";
@@ -64,6 +66,7 @@ import { ClipboardIcon } from "./ClipboardIcon";
 import { CloudUploadIcon } from "./CloudUploadIcon";
 import { CodeIcon } from "./CodeIcon";
 import { CodeXmlIcon } from "./CodeXmlIcon";
+import { CoffeeIcon } from "./CoffeeIcon";
 import { CompassIcon } from "./CompassIcon";
 import { ContactIcon } from "./ContactIcon";
 import { ContactRoundIcon } from "./ContactRoundIcon";
@@ -1332,6 +1335,30 @@ const ICON_LIST: IconListItem[] = [
   icon: WebhookIcon,
   addedAt: "2026-01-03",
   keywords: ["webhook", "api", "integration", "connection", "notification"],
+ },
+ {
+  name: "angry",
+  icon: AngryIcon,
+  addedAt: "2026-01-17",
+  keywords: ["rage", "furious", "frustration", "error state", "warning"],
+ },
+ {
+  name: "annoyed",
+  icon: AnnoyedIcon,
+  addedAt: "2026-01-17",
+  keywords: [
+   "irritated",
+   "unimpressed",
+   "tired",
+   "minor error",
+   "subtle feedback",
+  ],
+ },
+ {
+  name: "coffee",
+  icon: CoffeeIcon,
+  addedAt: "2026-01-17",
+  keywords: ["drink", "cup", "mug", "tea", "cafe", "hot"],
  },
 ];
 

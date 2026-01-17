@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Heart from "./icons/Heart";
 import { ProductHunt } from "./icons/ProductHuntIcon";
 import { StarIcon, StarIconHandle } from "./icons/StarIcon";
 import { NumberTicker } from "./magicui/number-ticker";
@@ -85,6 +84,13 @@ const Navbar: React.FC = () => {
 					{/* Desktop Navigation */}
 					<div className="hidden items-center space-x-4 text-sm md:flex">
 						<Link
+							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
+							target="_blank"
+							className="text-zinc-300 transition-colors duration-200 hover:text-blue-500"
+						>
+							Docs
+						</Link>
+						<Link
 							href="https://www.producthunt.com/products/animateicons"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -129,25 +135,6 @@ const Navbar: React.FC = () => {
 								</span>
 							</TooltipContent>
 						</Tooltip>
-
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<Link
-									href="https://github.com/sponsors/Avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="hover:bg-primary/10 flex h-8 items-center justify-center gap-2 rounded-sm border border-gray-700 px-4 font-medium! text-white transition-colors duration-200"
-								>
-									<Heart className="size-4 text-pink-400" />
-									<span className="text-xs">Sponsor</span>
-								</Link>
-							</TooltipTrigger>
-							<TooltipContent className="">
-								<span className="px-3! py-1.5! font-medium! text-blue-600!">
-									Support this project
-								</span>
-							</TooltipContent>
-						</Tooltip>
 					</div>
 
 					{/* Mobile menu button */}
@@ -169,6 +156,13 @@ const Navbar: React.FC = () => {
 					}`}
 				>
 					<div className="bg-primary/10 border-primary/20 flex w-full flex-col items-center justify-center gap-4 rounded-lg border px-6 py-10 shadow-lg backdrop-blur-md">
+						<Link
+							href="https://github.com/Avijit07x/animateicons/blob/main/README.md"
+							target="_blank"
+							className="text-zinc-300 transition-colors duration-200 hover:text-blue-500"
+						>
+							Docs
+						</Link>
 						{/* GitHub Star */}
 						<Link
 							href="https://github.com/Avijit07x/animateicons"
@@ -186,15 +180,7 @@ const Navbar: React.FC = () => {
 								/>
 							)}
 						</Link>
-						<Link
-							href="https://github.com/sponsors/Avijit07x"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="hover:bg-primary/10 flex h-9 w-full items-center justify-center gap-2 rounded-sm border border-gray-700 px-5 text-sm text-zinc-300 transition-colors duration-200 hover:text-white"
-						>
-							<Heart className="size-5 text-pink-400" />
-							<span className="text-sm font-semibold">Sponsor</span>
-						</Link>
+
 						<Link
 							href="https://www.producthunt.com/products/animateicons"
 							target="_blank"
