@@ -171,12 +171,7 @@ const Sponsors: React.FC<Props> = () => {
 											)}
 										</span>
 									</div>
-									<motion.div
-										initial={{ opacity: 0, scale: 0.95 }}
-										animate={{ opacity: 1, scale: 1 }}
-										transition={{ duration: 0.25, ease: "easeOut" }}
-										className="flex justify-center pt-2"
-									>
+									<div className="flex justify-center pt-2">
 										<Image
 											src="qrcode.svg"
 											alt="UPI QR"
@@ -184,7 +179,7 @@ const Sponsors: React.FC<Props> = () => {
 											height={100}
 											className="rounded-xs"
 										/>
-									</motion.div>
+									</div>
 									<div className="flex items-center gap-2 text-xs text-zinc-200">
 										<span>UPI ID:</span>
 										<span>avijit07x@axl</span>
