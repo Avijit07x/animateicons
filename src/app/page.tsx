@@ -1,6 +1,7 @@
 import HeroSection from "@/components/Hero";
 import IconSection from "@/components/IconSection";
 import Navbar from "@/components/Navbar";
+import Sponsors from "@/components/Sponsors";
 
 const page = () => {
 	return (
@@ -10,6 +11,7 @@ const page = () => {
 			<div className="relative z-100 mx-auto max-w-7xl px-3 md:px-6 lg:px-8">
 				<IconSection />
 			</div>
+			<Sponsors />
 		</div>
 	);
 };
