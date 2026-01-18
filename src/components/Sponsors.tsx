@@ -54,18 +54,16 @@ const Sponsors: React.FC<Props> = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
+						transition={{ duration: 0.25, ease: "easeOut" }}
 						onClick={toggleSponsors}
-						className="fixed inset-0 z-150 bg-black/30 backdrop-blur-sm transition-colors duration-300"
+						className="fixed inset-0 z-150 bg-black/25 backdrop-blur-sm"
 					/>
 				)}
 			</AnimatePresence>
 
 			<div className="fixed right-7 bottom-5 z-200">
 				<motion.div
-					initial={{
-						y: 100,
-					}}
+					initial={{ y: 80 }}
 					animate={{
 						y: 0,
 						width: isOpen ? 280 : 44,
@@ -73,9 +71,25 @@ const Sponsors: React.FC<Props> = () => {
 						borderRadius: isOpen ? 20 : 999,
 					}}
 					transition={{
-						type: "spring",
-						stiffness: 290,
-						damping: 22,
+						y: {
+							type: "spring",
+							stiffness: 260,
+							damping: 28,
+						},
+						width: {
+							type: "spring",
+							stiffness: 260,
+							damping: 28,
+						},
+						height: {
+							type: "spring",
+							stiffness: 260,
+							damping: 28,
+						},
+						borderRadius: {
+							duration: 0.08,
+							ease: "linear",
+						},
 					}}
 					onAnimationComplete={() => {
 						if (isOpen) hoverEnabledRef.current = true;
@@ -92,11 +106,9 @@ const Sponsors: React.FC<Props> = () => {
 							<XIcon className="size-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
 						) : (
 							<motion.div
-								animate={{
-									scale: [1, 1.18, 1],
-								}}
+								animate={{ scale: [1, 1.12, 1] }}
 								transition={{
-									duration: 1.8,
+									duration: 2.6,
 									repeat: Infinity,
 									ease: "easeInOut",
 								}}
@@ -109,10 +121,13 @@ const Sponsors: React.FC<Props> = () => {
 					<AnimatePresence>
 						{isOpen && (
 							<motion.div
-								initial={{ opacity: 0, scale: 0.96 }}
-								animate={{ opacity: 1, scale: 1 }}
-								exit={{ opacity: 0, scale: 0.96 }}
-								transition={{ duration: 0.2, ease: "easeOut" }}
+								initial={{ opacity: 0, y: 8 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 6 }}
+								transition={{
+									duration: 0.25,
+									ease: "easeOut",
+								}}
 								className="flex w-full flex-col gap-3 px-4 pb-4"
 							>
 								<Link

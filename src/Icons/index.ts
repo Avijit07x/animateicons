@@ -135,6 +135,7 @@ import { MicIcon } from "./MicIcon";
 import { MicOffIcon } from "./MicOffIcon";
 import { MinusIcon } from "./MinusIcon";
 import { MoonIcon } from "./MoonIcon";
+import { MousePointerClickIcon } from "./MousePointerClickIcon";
 import { MoveLeftIcon } from "./MoveLeftIcon";
 import { MoveRightIcon } from "./MoveRightIcon";
 import { PaperclipIcon } from "./PaperclipIcon";
@@ -1359,6 +1360,12 @@ const ICON_LIST: IconListItem[] = [
   icon: CoffeeIcon,
   addedAt: "2026-01-17",
   keywords: ["drink", "cup", "mug", "tea", "cafe", "hot"],
+ },
+ {
+  name: "mouse-pointer-click",
+  icon: MousePointerClickIcon,
+  addedAt: "2026-01-18",
+  keywords: ["click", "select"],
  },
 ];
 
