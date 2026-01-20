@@ -80,9 +80,9 @@ const HeroSection: React.FC = () => {
 								className="max-w-2xl space-y-2 text-sm leading-relaxed text-zinc-300"
 							>
 								<p>
-									A sleek React library for animated SVG icons that move with
-									purpose. Transform static designs into engaging user
-									experiences with smooth, performant animations.
+									Free and open-source animated SVG icons for React with smooth
+									micro-interactions and lightweight performance. Designed to
+									bring motion and clarity to modern user interfaces.
 								</p>
 								<p>
 									built with{" "}
