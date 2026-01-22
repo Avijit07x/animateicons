@@ -441,7 +441,7 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["call", "mobile", "contact", "support", "device"],
  },
  {
-  name: "phone-call-icon",
+  name: "phone-call",
   icon: PhoneCallIcon,
   addedAt: "2026-01-22",
   keywords: ["call", "phone", "dial", "contact", "connect"],
