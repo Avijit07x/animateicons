@@ -141,7 +141,11 @@ import { MoveRightIcon } from "./MoveRightIcon";
 import { PaperclipIcon } from "./PaperclipIcon";
 import { PauseIcon } from "./PauseIcon";
 import { PhilippinePesoIcon } from "./PhilippinePesoIcon";
+import { PhoneCallIcon } from "./PhoneCallIcon";
+import { PhoneForwardedIcon } from "./PhoneForwardedIcon";
 import { PhoneIcon } from "./PhoneIcon";
+import { PhoneIncomingIcon } from "./PhoneIncomingIcon";
+import { PhoneMissedIcon } from "./PhoneMissedIcon";
 import { PlayIcon } from "./PlayIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PoundSterlingIcon } from "./PoundSterlingIcon";
@@ -161,6 +165,7 @@ import { ShieldXIcon } from "./ShieldXIcon";
 import { ShoppingBagIcon } from "./ShoppingBagIcon";
 import { ShoppingCartIcon } from "./ShoppingCartIcon";
 import { SignalIcon } from "./SignalIcon";
+import { SlidersHorizontalIcon } from "./SlidersHorizontalIcon";
 import { SnowflakeIcon } from "./SnowFlakeIcon";
 import { SparklesIcon } from "./SparklesIcon";
 import { SprayCanIcon } from "./SprayCanIcon";
@@ -436,9 +441,39 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["call", "mobile", "contact", "support", "device"],
  },
  {
+  name: "phone-call-icon",
+  icon: PhoneCallIcon,
+  addedAt: "2026-01-22",
+  keywords: ["call", "phone", "dial", "contact", "connect"],
+ },
+ {
+  name: "phone-forwarded",
+  icon: PhoneForwardedIcon,
+  addedAt: "2026-01-22",
+  keywords: ["forward", "redirect", "transfer", "call", "route"],
+ },
+ {
+  name: "phone-incoming",
+  icon: PhoneIncomingIcon,
+  addedAt: "2026-01-22",
+  keywords: ["incoming", "receive", "answer", "call", "ring"],
+ },
+ {
+  name: "phone-missed",
+  icon: PhoneMissedIcon,
+  addedAt: "2026-01-22",
+  keywords: ["missed", "declined", "unanswered", "call", "alert"],
+ },
+ {
   name: "search",
   icon: SearchIcon,
   keywords: ["find", "magnifier", "search", "explore", "query"],
+ },
+ {
+  name: "sliders-horizontal",
+  icon: SlidersHorizontalIcon,
+  addedAt: "2026-01-22",
+  keywords: ["filter", "settings", "adjust", "controls", "tune"],
  },
  {
   name: "house",
