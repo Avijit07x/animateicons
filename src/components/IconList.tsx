@@ -1,4 +1,5 @@
 import { ICON_LIST } from "@/Icons";
+import { differenceInDays } from "date-fns";
 import Fuse from "fuse.js";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useMemo } from "react";
@@ -24,9 +25,20 @@ const IconList: React.FC<Props> = ({ query }) => {
 		[],
 	);
 
-	const filteredItems = query.trim()
-		? fuse.search(query).map((r) => r.item)
-		: ICON_LIST;
+	const filteredItems = useMemo(() => {
+		const items = query.trim()
+			? fuse.search(query).map((r) => r.item)
+			: ICON_LIST;
+
+		const withNewFlag = items.map((item) => ({
+			item,
+			isNew: differenceInDays(new Date(), new Date(item.addedAt)) <= 3,
+		}));
+
+		withNewFlag.sort((a, b) => Number(b.isNew) - Number(a.isNew));
+
+		return withNewFlag.map((entry) => entry.item);
+	}, [query, fuse]);
 
 	return (
 		<AnimatePresence>
