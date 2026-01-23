@@ -8,21 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "network",
-    "graph",
-    "analytics",
-    "data",
-    "statistics",
     "chart",
-    "visualization",
-    "metrics",
-    "report",
-    "dashboard",
-    "nodes",
-    "connections",
-    "relationships",
-    "topology",
-    "mesh"
+    "graph",
+    "network",
+    "analytics",
+    "statistics",
+    "nodes"
   ],
   "files": [
     {

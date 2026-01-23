@@ -8,11 +8,10 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "clone",
     "duplicate",
-    "multiple",
+    "clone",
     "clipboard",
-    "copy"
+    "replicas"
   ],
   "files": [
     {

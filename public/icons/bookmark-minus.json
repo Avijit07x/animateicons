@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "clip",
-    "tag",
-    "delete",
-    "remove",
     "unsave",
-    "minus"
+    "remove",
+    "delete",
+    "unmark",
+    "clip"
   ],
   "files": [
     {

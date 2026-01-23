@@ -8,14 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "outwards",
-    "direction",
-    "north-east",
-    "diagonal",
+    "external",
+    "link",
     "share",
     "open",
-    "external",
-    "link"
+    "out"
   ],
   "files": [
     {

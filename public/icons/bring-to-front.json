@@ -9,14 +9,11 @@
   "devDependencies": [],
   "keywords": [
     "bring",
-    "send",
-    "move",
-    "over",
-    "forward",
     "front",
-    "overlap",
     "layer",
-    "order"
+    "order",
+    "stack",
+    "move"
   ],
   "files": [
     {

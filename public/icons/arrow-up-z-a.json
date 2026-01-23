@@ -10,13 +10,10 @@
   "keywords": [
     "filter",
     "sort",
-    "ascending",
     "descending",
-    "increasing",
-    "decreasing",
-    "rising",
-    "falling",
-    "alphabetical"
+    "alphabetical",
+    "order",
+    "rank"
   ],
   "files": [
     {

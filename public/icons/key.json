@@ -12,14 +12,8 @@
     "security",
     "access",
     "login",
-    "authentication",
-    "credentials",
-    "key",
-    "unlock",
-    "lock",
-    "private",
-    "safe",
-    "protection"
+    "auth",
+    "key"
   ],
   "files": [
     {

@@ -8,21 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "list",
     "options",
-    "items",
-    "collapse",
     "expand",
-    "details",
-    "disclosure",
-    "show",
-    "hide",
-    "toggle",
+    "collapse",
     "accordion",
-    "more",
-    "less",
-    "fold",
-    "unfold",
-    "vertica"
+    "menu"
   ],
   "files": [
     {

@@ -8,15 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "person",
     "remove",
     "delete",
     "account",
-    "unfriend",
-    "unfollow",
     "block",
     "ban",
-    "customer"
+    "unfriend"
   ],
   "files": [
     {

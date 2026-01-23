@@ -9,18 +9,11 @@
   "devDependencies": [],
   "keywords": [
     "settings",
-    "preferences",
     "account",
-    "configuration",
-    "user",
-    "person",
-    "profile",
-    "member",
-    "avatar",
-    "identity",
-    "login",
-    "logout",
-    "customer"
+    "options",
+    "admin",
+    "preferences",
+    "config"
   ],
   "files": [
     {

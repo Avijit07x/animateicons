@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "logo",
     "social",
-    "x",
-    "twitter",
     "tweet",
-    "post"
+    "post",
+    "x",
+    "network"
   ],
   "files": [
     {

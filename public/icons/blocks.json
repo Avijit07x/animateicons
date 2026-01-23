@@ -8,19 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "addon",
+    "blocks",
+    "components",
     "plugin",
-    "integration",
     "extension",
-    "package",
     "build",
-    "stack",
-    "toys",
-    "kids",
-    "children",
-    "learning",
-    "squares",
-    "corne"
+    "stack"
   ],
   "files": [
     {

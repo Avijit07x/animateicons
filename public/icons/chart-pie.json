@@ -8,21 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "pie",
-    "graph",
-    "analytics",
-    "data",
-    "statistics",
     "chart",
-    "visualization",
-    "metrics",
-    "report",
-    "dashboard",
-    "circle",
-    "segment",
-    "portion",
-    "percentage",
-    "distribution"
+    "graph",
+    "pie",
+    "analytics",
+    "statistics",
+    "circle"
   ],
   "files": [
     {

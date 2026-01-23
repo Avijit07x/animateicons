@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "alarm",
     "notification",
-    "sound",
-    "reminder",
-    "alert",
     "active",
+    "alarm",
+    "alert",
+    "reminder",
     "ringing"
   ],
   "files": [

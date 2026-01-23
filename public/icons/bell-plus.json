@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "notification",
-    "reminder",
-    "add",
-    "create",
-    "new",
     "subscribe",
-    "enable"
+    "notify",
+    "add",
+    "follow",
+    "alert"
   ],
   "files": [
     {

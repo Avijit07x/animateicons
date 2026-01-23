@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "forward",
     "next",
-    "menu",
-    ">",
-    "code",
-    "caret",
-    "expand"
+    "carat",
+    "right",
+    "forward",
+    "continue"
   ],
   "files": [
     {

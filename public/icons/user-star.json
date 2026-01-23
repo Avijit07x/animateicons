@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "person",
-    "account",
+    "user",
     "favorite",
-    "contact",
-    "review",
+    "star",
     "rating",
+    "review",
     "admin"
   ],
   "files": [

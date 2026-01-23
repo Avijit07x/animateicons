@@ -8,13 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "diff",
     "patch",
-    "difference",
     "compare",
-    "plus",
-    "minus",
-    "plus-minus",
-    "math"
+    "difference",
+    "math",
+    "calculator"
   ],
   "files": [
     {

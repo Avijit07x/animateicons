@@ -9,7 +9,9 @@
   "devDependencies": [],
   "keywords": [
     "copy",
-    "paste"
+    "paste",
+    "board",
+    "task"
   ],
   "files": [
     {

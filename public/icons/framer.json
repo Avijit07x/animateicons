@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "logo",
     "design",
+    "prototyping",
     "tool",
-    "motion",
     "animation",
-    "prototyping"
+    "react"
   ],
   "files": [
     {

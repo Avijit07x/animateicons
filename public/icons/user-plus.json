@@ -11,8 +11,9 @@
     "new",
     "add",
     "create",
-    "follow",
-    "subscribe"
+    "invite",
+    "subscribe",
+    "join"
   ],
   "files": [
     {

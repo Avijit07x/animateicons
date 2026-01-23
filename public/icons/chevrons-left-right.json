@@ -9,10 +9,9 @@
   "devDependencies": [],
   "keywords": [
     "expand",
-    "horizontal",
-    "unfold",
+    "width",
     "resize",
-    "swap",
+    "horizontal",
     "stretch"
   ],
   "files": [

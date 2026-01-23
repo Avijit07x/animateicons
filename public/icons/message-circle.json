@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "comment",
     "chat",
-    "conversation",
-    "feedback",
-    "speech bubble",
+    "comment",
+    "discussion",
     "reply",
-    "discussion"
+    "feedback"
   ],
   "files": [
     {

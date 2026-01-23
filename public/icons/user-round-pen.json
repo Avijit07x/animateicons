@@ -9,15 +9,11 @@
   "devDependencies": [],
   "keywords": [
     "edit",
-    "modify",
-    "change",
     "update",
-    "person",
-    "account",
     "profile",
-    "member",
-    "avatar",
-    "identity"
+    "modify",
+    "account",
+    "change"
   ],
   "files": [
     {

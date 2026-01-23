@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "arrow",
-    "direction",
+    "down",
+    "bottom",
     "expand",
-    "dropdown",
-    "menu",
-    "more",
-    "caret"
+    "south",
+    "below"
   ],
   "files": [
     {

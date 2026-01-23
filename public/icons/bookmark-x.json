@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "cancel",
-    "close",
-    "delete",
-    "remove",
-    "clear",
     "unsave",
-    "unbookmark"
+    "remove",
+    "delete",
+    "unmark",
+    "cancel"
   ],
   "files": [
     {

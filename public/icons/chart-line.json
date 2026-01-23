@@ -8,20 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "line",
-    "graph",
-    "analytics",
-    "data",
-    "statistics",
     "chart",
-    "visualization",
-    "metrics",
-    "report",
-    "dashboard",
-    "trend",
-    "curve",
-    "plot",
-    "series"
+    "graph",
+    "line",
+    "analytics",
+    "statistics",
+    "trend"
   ],
   "files": [
     {

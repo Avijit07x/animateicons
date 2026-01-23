@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "contact",
+    "round",
     "user",
     "person",
-    "family",
-    "friend",
-    "acquaintance",
-    "listing",
-    "networking"
+    "profile"
   ],
   "files": [
     {

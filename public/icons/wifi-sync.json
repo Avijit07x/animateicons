@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "connection",
-    "signal",
-    "wireless",
-    "synchronize",
-    "reconnect",
-    "reset",
-    "restart"
+    "sync",
+    "network",
+    "wifi",
+    "refresh",
+    "reload"
   ],
   "files": [
     {

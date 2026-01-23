@@ -9,17 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "wireless",
-    "connection",
     "network",
     "internet",
-    "hotspot",
     "signal",
-    "antenna",
-    "router",
-    "modem",
-    "data",
-    "coverage",
-    "reception"
+    "wifi"
   ],
   "files": [
     {

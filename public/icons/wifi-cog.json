@@ -8,16 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "connection",
-    "signal",
-    "wireless",
-    "directory",
     "settings",
-    "control",
-    "preferences",
-    "cog",
-    "edit",
-    "gear"
+    "network",
+    "wifi",
+    "config",
+    "setup"
   ],
   "files": [
     {

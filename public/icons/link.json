@@ -8,15 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "chain",
     "url",
     "hyperlink",
     "connection",
-    "attachment",
-    "reference",
-    "linked",
-    "website",
-    "linking"
+    "link",
+    "website"
   ],
   "files": [
     {

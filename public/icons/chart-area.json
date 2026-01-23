@@ -8,18 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "bar",
-    "graph",
-    "analytics",
-    "data",
-    "statistics",
     "chart",
-    "visualization",
-    "metrics",
-    "report",
-    "dashboard",
-    "bars",
-    "histogram"
+    "graph",
+    "area",
+    "analytics",
+    "statistics",
+    "data"
   ],
   "files": [
     {

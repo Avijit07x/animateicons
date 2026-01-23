@@ -8,19 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "filter",
-    "bidirectional",
-    "two-way",
-    "2-way",
-    "swap",
-    "switch",
-    "network",
-    "traffic",
-    "flow",
-    "mobile data",
-    "internet",
     "sort",
-    "reorder",
+    "filter",
+    "swap",
+    "order",
+    "switch",
     "move"
   ],
   "files": [

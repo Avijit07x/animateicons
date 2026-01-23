@@ -8,26 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "login",
     "signin",
     "enter",
     "access",
-    "authenticate",
-    "user",
-    "account",
-    "join",
-    "enter account",
-    "arrow",
-    "door",
-    "authorization",
-    "member",
-    "profile",
-    "welcome",
-    "in",
-    "login page",
-    "credentials",
-    "id",
-    "username",
-    "password"
+    "auth",
+    "account"
   ],
   "files": [
     {

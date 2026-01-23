@@ -8,14 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "person",
-    "account",
-    "contact",
+    "search",
+    "user",
     "find",
-    "scan",
     "magnifier",
-    "magnifying glass",
-    "lens"
+    "lookup",
+    "explore"
   ],
   "files": [
     {

@@ -8,18 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "cog",
     "settings",
-    "preferences",
     "configuration",
     "options",
-    "gear",
-    "setup",
-    "tools",
-    "customize",
-    "adjust",
-    "manage",
-    "control"
+    "preferences",
+    "gear"
   ],
   "files": [
     {

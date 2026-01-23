@@ -8,13 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "followed",
-    "subscribed",
+    "user",
+    "check",
+    "verify",
+    "approve",
     "done",
-    "todo",
-    "tick",
-    "complete",
-    "task"
+    "account"
   ],
   "files": [
     {

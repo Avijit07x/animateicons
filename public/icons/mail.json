@@ -9,12 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "email",
-    "envelope",
-    "communication",
     "message",
-    "mailbox",
     "inbox",
-    "newsletter"
+    "send",
+    "letter"
   ],
   "files": [
     {

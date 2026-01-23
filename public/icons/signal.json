@@ -11,18 +11,9 @@
     "wifi",
     "connection",
     "network",
-    "bars",
-    "cellular",
-    "reception",
-    "coverage",
-    "strength",
-    "data",
-    "internet",
-    "wireless",
-    "hotspot",
     "signal",
-    "antenna",
-    "tower"
+    "data",
+    "internet"
   ],
   "files": [
     {

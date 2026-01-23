@@ -12,17 +12,7 @@
     "place",
     "marker",
     "gps",
-    "navigation",
-    "destination",
     "map",
-    "position",
-    "address",
-    "coordinates",
-    "travel",
-    "trip",
-    "journey",
-    "waypoint",
-    "geolocation",
     "pin"
   ],
   "files": [

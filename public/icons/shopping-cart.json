@@ -8,13 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "trolley",
-    "cart",
-    "basket",
-    "store",
+    "buy",
     "purchase",
-    "e-commerce",
-    "checkout"
+    "store",
+    "checkout",
+    "ecommerce"
   ],
   "files": [
     {

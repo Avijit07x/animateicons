@@ -9,12 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "mute",
-    "record",
-    "sound",
+    "silent",
     "disable",
-    "microphone",
-    "no audio",
-    "silence"
+    "quiet",
+    "no sound"
   ],
   "files": [
     {

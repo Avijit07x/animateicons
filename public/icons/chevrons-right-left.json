@@ -9,10 +9,9 @@
   "devDependencies": [],
   "keywords": [
     "collapse",
-    "fold",
-    "horizontal",
+    "width",
     "resize",
-    "swap",
+    "horizontal",
     "compress"
   ],
   "files": [

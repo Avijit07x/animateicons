@@ -9,14 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "location",
-    "waypoint",
     "marker",
-    "drop",
     "done",
-    "tick",
     "complete",
-    "task",
-    "added"
+    "pin"
   ],
   "files": [
     {

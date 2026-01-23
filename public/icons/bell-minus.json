@@ -8,14 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "alarm",
-    "notification",
+    "unsubscribe",
     "silent",
-    "delete",
-    "remove",
     "mute",
-    "disable",
-    "unsubscribe"
+    "remove",
+    "quiet"
   ],
   "files": [
     {

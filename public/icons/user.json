@@ -8,15 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "user",
     "person",
-    "account",
     "profile",
-    "member",
+    "account",
     "avatar",
-    "identity",
-    "login",
-    "logout",
-    "customer"
+    "member"
   ],
   "files": [
     {

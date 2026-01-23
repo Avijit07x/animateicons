@@ -11,9 +11,8 @@
     "money",
     "finance",
     "payment",
-    "cash",
-    "billfold",
-    "purse"
+    "card",
+    "transaction"
   ],
   "files": [
     {

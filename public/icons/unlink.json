@@ -9,15 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "break",
-    "chain",
     "disconnect",
     "remove",
-    "detach",
     "separate",
-    "cut",
-    "link",
-    "unlinked",
-    "unlinking"
+    "unlink"
   ],
   "files": [
     {

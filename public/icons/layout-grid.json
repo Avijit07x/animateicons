@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "masonry",
-    "brick",
-    "panel",
+    "layout",
     "grid",
-    "widgets",
-    "layout"
+    "masonry",
+    "panel",
+    "widgets"
   ],
   "files": [
     {

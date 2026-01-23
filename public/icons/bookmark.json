@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "read",
-    "clip",
-    "marker",
-    "tag",
     "save",
-    "favorite"
+    "favorite",
+    "tag",
+    "mark",
+    "clip"
   ],
   "files": [
     {

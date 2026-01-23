@@ -8,17 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "users",
     "group",
     "team",
     "people",
-    "members",
     "community",
-    "contacts",
-    "network",
-    "friends",
-    "family",
-    "collaborators",
-    "connections"
+    "network"
   ],
   "files": [
     {

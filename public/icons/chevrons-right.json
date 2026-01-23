@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "turn",
-    "corner",
-    "forward",
+    "right",
     "double",
-    "fast-forward",
-    "jump"
+    "fast",
+    "forward",
+    "next"
   ],
   "files": [
     {

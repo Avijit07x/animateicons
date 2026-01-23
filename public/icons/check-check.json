@@ -8,12 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "check",
+    "double",
     "done",
-    "todo",
-    "tick",
-    "complete",
-    "task",
-    "multiple"
+    "all",
+    "success",
+    "confirm"
   ],
   "files": [
     {

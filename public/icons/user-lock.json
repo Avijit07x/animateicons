@@ -8,13 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "person",
     "lock",
-    "locked",
+    "security",
     "account",
-    "secure",
-    "privacy",
-    "access control"
+    "private",
+    "protected",
+    "access"
   ],
   "files": [
     {

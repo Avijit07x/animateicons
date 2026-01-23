@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "dropdown",
     "expand",
+    "dropdown",
+    "more",
     "menu",
-    "arrow",
-    "direction",
-    "chevron"
+    "bottom"
   ],
   "files": [
     {

@@ -13,12 +13,7 @@
     "debit",
     "credit",
     "money",
-    "finance",
-    "visa",
-    "mastercard",
-    "amex",
-    "stripe",
-    "paypal"
+    "finance"
   ],
   "files": [
     {

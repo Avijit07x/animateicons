@@ -12,9 +12,7 @@
     "motion",
     "health",
     "fitness",
-    "waveform",
-    "monitor",
-    "analytics"
+    "monitor"
   ],
   "files": [
     {

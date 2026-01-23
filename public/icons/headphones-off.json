@@ -8,12 +8,11 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "music",
-    "audio",
     "mute",
-    "off",
+    "silent",
+    "no audio",
     "disabled",
-    "no sound"
+    "quiet"
   ],
   "files": [
     {

@@ -8,9 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "folder",
     "file",
     "document",
-    "folder"
+    "directory",
+    "archive",
+    "open"
   ],
   "files": [
     {

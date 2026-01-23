@@ -8,26 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
+    "logout",
     "signout",
     "exit",
     "leave",
-    "close session",
-    "logout button",
-    "end session",
-    "arrow",
-    "door",
-    "account",
-    "disconnect",
-    "user",
-    "remove access",
-    "quit",
-    "log out",
-    "session",
-    "profile",
-    "end",
-    "security",
-    "authentication",
-    "finish"
+    "close",
+    "account"
   ],
   "files": [
     {

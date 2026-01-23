@@ -9,13 +9,10 @@
   "devDependencies": [],
   "keywords": [
     "record",
-    "sound",
-    "listen",
-    "radio",
-    "podcast",
-    "microphone",
     "voice",
-    "input"
+    "sound",
+    "audio",
+    "speak"
   ],
   "files": [
     {

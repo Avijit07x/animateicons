@@ -8,14 +8,12 @@
   ],
   "devDependencies": [],
   "keywords": [
-    "equaliser",
     "sound",
     "music",
-    "frequency",
-    "track",
-    "voice",
-    "levels",
-    "spectrum"
+    "waveform",
+    "volume",
+    "equalizer",
+    "voice"
   ],
   "files": [
     {
