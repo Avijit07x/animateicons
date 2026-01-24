@@ -99,6 +99,7 @@ import { FlameIcon } from "./FlameIcon";
 import { FolderIcon } from "./FolderIcon";
 import { FolderOpenIcon } from "./FolderOpenIcon";
 import { FramerIcon } from "./FramerIcon";
+import { GamepadIcon } from "./GamepadIcon";
 import { GeorgianLariIcon } from "./GeorgianLariIcon";
 import { GithubIcon } from "./GithubIcon";
 import { GlobeIcon } from "./GlobeIcon";
@@ -152,6 +153,7 @@ import { PlayIcon } from "./PlayIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PoundSterlingIcon } from "./PoundSterlingIcon";
 import { QrCodeIcon } from "./QrCodeIcon";
+import { RocketIcon } from "./RocketIcon";
 import { RussianRubleIcon } from "./RussianRubleIcon";
 import { SaudiRiyalIcon } from "./SaudiRiyalIcon";
 import { ScanIcon } from "./ScanIcon";
@@ -1595,6 +1597,18 @@ const ICON_LIST: IconListItem[] = [
   icon: MousePointerClickIcon,
   addedAt: "2026-01-18",
   keywords: ["click", "select"],
+ },
+ {
+  name: "rocket",
+  icon: RocketIcon,
+  addedAt: "2026-01-24",
+  keywords: ["launch", "startup", "boost", "deploy", "speed"],
+ },
+ {
+  name: "gamepad",
+  icon: GamepadIcon,
+  addedAt: "2026-01-24",
+  keywords: ["game", "controller", "console", "play", "gaming"],
  },
 ];
 
