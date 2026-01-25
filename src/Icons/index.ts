@@ -153,6 +153,8 @@ import { PlayIcon } from "./PlayIcon";
 import { PlusIcon } from "./PlusIcon";
 import { PoundSterlingIcon } from "./PoundSterlingIcon";
 import { QrCodeIcon } from "./QrCodeIcon";
+import { ReplyAllIcon } from "./ReplyAllIcon";
+import { ReplyIcon } from "./ReplyIcon";
 import { RocketIcon } from "./RocketIcon";
 import { RussianRubleIcon } from "./RussianRubleIcon";
 import { SaudiRiyalIcon } from "./SaudiRiyalIcon";
@@ -789,6 +791,18 @@ const ICON_LIST: IconListItem[] = [
   icon: SendIcon,
   addedAt: "2025-10-23",
   keywords: ["message", "chat", "email", "submit", "fly"],
+ },
+ {
+  name: "reply",
+  icon: ReplyIcon,
+  addedAt: "2026-01-24",
+  keywords: ["reply", "respond", "back", "return", "answer"],
+ },
+ {
+  name: "reply-all",
+  icon: ReplyAllIcon,
+  addedAt: "2026-01-24",
+  keywords: ["reply all", "respond all", "group reply", "broadcast", "answer"],
  },
  {
   name: "share",
