@@ -73,6 +73,9 @@ const HeroSection: React.FC = () => {
 						>
 							<GitHub className="size-4.5" />
 							<span className="font-medium">Open Source</span>
+							<span className="border-border text-textSecondary rounded-full border px-2 py-0.5 text-[10px]">
+								MIT
+							</span>
 						</motion.div>
 					</Link>
 
@@ -109,10 +112,10 @@ const HeroSection: React.FC = () => {
 					<motion.div variants={itemVariants}>
 						<Link
 							href="/icons/lucide"
-							className="border-border text-textPrimary bg-primaryHover hover:bg-primaryHover/90 flex items-center justify-center gap-1.5 rounded-full border px-6 py-2.5 text-sm font-semibold transition-all duration-300"
+							className="flex items-center justify-center gap-1.5 rounded-full bg-[var(--cta-bg)] px-6 py-2.5 text-sm font-semibold text-[var(--cta-text)] transition-colors duration-200 hover:bg-[var(--cta-bg-hover)] focus-visible:ring-2 focus-visible:ring-[rgba(226,58,46,0.35)] focus-visible:outline-none"
 						>
 							<span>Browse icons</span>
-							<ArrowRight className="size-4.5" />
+							<ArrowRight className="size-4.5" aria-hidden="true" />
 						</Link>
 					</motion.div>
 				</motion.div>

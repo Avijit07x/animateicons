@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Transition, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CopyIconHandle {
+export interface HuCopyIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface CopyIconProps extends HTMLMotionProps<"div"> {
+export interface HuCopyIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
+const HuCopyIcon = forwardRef<HuCopyIconHandle, HuCopyIconProps>(
  (
   {
    onMouseEnter,
@@ -52,15 +52,13 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
+
   const defaultTransition: Transition = {
    type: "spring",
    stiffness: 160,
@@ -86,17 +84,18 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
   };
 
   const pathVariants: Variants = {
-   normal: { x: 0, y: 0 },
+   normal: { x: 0, y: 0, opacity: 1 },
    animate: {
     x: 3,
     y: 3,
+    opacity: 0,
     transition: defaultTransition,
    },
   };
 
   return (
    <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
+    className={cn("relative inline-flex", className)}
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
@@ -108,29 +107,19 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
      viewBox="0 0 24 24"
      fill="none"
      stroke="currentColor"
-     strokeWidth="2"
+     strokeWidth="1.5"
      strokeLinecap="round"
      strokeLinejoin="round"
+     animate={controls}
+     initial="normal"
     >
-     <motion.rect
-      width="14"
-      height="14"
-      x="8"
-      y="8"
-      rx="2"
-      ry="2"
+     <motion.path
+      d="M9 15C9 12.1716 9 10.7574 9.87868 9.87868C10.7574 9 12.1716 9 15 9H16C18.8284 9 20.2426 9 21.1213 9.87868C22 10.7574 22 12.1716 22 15V16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H15C12.1716 22 10.7574 22 9.87868 21.1213C9 20.2426 9 18.8284 9 16V15Z"
       variants={boxVariants}
-      animate={controls}
-      transition={{
-       ...defaultTransition,
-       duration: 0.7 * duration,
-      }}
      />
      <motion.path
-      d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+      d="M17 9C17 6.04291 16.9528 4.51121 16.092 3.46243C15.9258 3.25989 15.7401 3.07418 15.5376 2.90796C14.4312 2 12.7875 2 9.5 2C6.21252 2 4.56878 2 3.46243 2.90796C3.25989 3.07417 3.07418 3.25989 2.90796 3.46243C2 4.56878 2 6.21252 2 9.5C2 12.7875 2 14.4312 2.90796 15.5376C3.07417 15.7401 3.25989 15.9258 3.46243 16.092C4.51121 16.9528 6.04291 16.9975 9 17"
       variants={pathVariants}
-      animate={controls}
-      transition={defaultTransition}
      />
     </motion.svg>
    </motion.div>
@@ -138,6 +127,6 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
  },
 );
 
-CopyIcon.displayName = "CopyIcon";
+HuCopyIcon.displayName = "HuCopyIcon";
 
-export { CopyIcon };
+export { HuCopyIcon };

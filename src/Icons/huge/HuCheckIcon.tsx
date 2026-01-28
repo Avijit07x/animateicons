@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkIconHandle {
+export interface HuCheckIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BookmarkIconProps extends HTMLMotionProps<"div"> {
+interface HuCheckIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
+const HuCheckIcon = forwardRef<HuCheckIconHandle, HuCheckIconProps>(
  (
   {
    onMouseEnter,
@@ -30,7 +30,6 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparkControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -53,23 +52,21 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bookmarkVariants: Variants = {
-   normal: { y: 0, scale: 1 },
+  const tickVariants: Variants = {
+   normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },
    animate: {
-    y: [0, -2, 1, 0],
-    scale: [1, 1.04, 0.98, 1],
+    strokeDashoffset: [24, 0],
+    scale: [1, 1.15, 1],
+    opacity: [0.5, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
     },
    },
@@ -77,7 +74,7 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
 
   return (
    <motion.div
-    className={cn("relative inline-flex", className)}
+    className={cn("inline-flex items-center justify-center", className)}
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
@@ -89,19 +86,23 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
      viewBox="0 0 24 24"
      fill="none"
      stroke="currentColor"
-     strokeWidth="2"
+     strokeWidth="1.5"
      strokeLinecap="round"
      strokeLinejoin="round"
-     variants={bookmarkVariants}
-     animate={controls}
-     initial="normal"
     >
-     <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+     <motion.path
+      d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
+      strokeDasharray="24"
+      strokeDashoffset="0"
+      variants={tickVariants}
+      initial="normal"
+      animate={controls}
+     />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BookmarkIcon.displayName = "BookmarkIcon";
-export { BookmarkIcon };
+HuCheckIcon.displayName = "HuCheckIcon";
+export { HuCheckIcon };

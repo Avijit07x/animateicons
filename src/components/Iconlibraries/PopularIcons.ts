@@ -1,3 +1,13 @@
+import { HuBellIcon } from "@/Icons/huge/HuBellIcon";
+import { HuBookmarkIcon } from "@/Icons/huge/HuBookmarkIcon";
+import { HuCheckCheckIcon } from "@/Icons/huge/HuCheckCheckIcon";
+import { HuCheckIcon } from "@/Icons/huge/HuCheckIcon";
+import { HuChevronRightIcon } from "@/Icons/huge/HuChevronRightIcon";
+import { HuCopyIcon } from "@/Icons/huge/HuCopyIcon";
+import { HuDownloadIcon } from "@/Icons/huge/HuDownloadIcon";
+import { HuEyeIcon } from "@/Icons/huge/HuEyeIcon";
+import { HuHeartIcon } from "@/Icons/huge/HuHeartIcon";
+import { HuSearchIcon } from "@/Icons/huge/HuSearchIcon";
 import { ActivityIcon } from "@/Icons/lucide/ActivityIcon";
 import { BellIcon } from "@/Icons/lucide/BellIcon";
 import { BookmarkIcon } from "@/Icons/lucide/BookmarkIcon";
@@ -73,4 +83,16 @@ export const LucideIcons: AnimatedIconComponent[] = [
 	TrashIcon,
 	UploadIcon,
 	UserIcon,
+];
+export const HugeIcons: AnimatedIconComponent[] = [
+	HuHeartIcon,
+	HuSearchIcon,
+	HuBellIcon,
+	HuBookmarkIcon,
+	HuCopyIcon,
+	HuEyeIcon,
+	HuCheckIcon,
+	HuCheckCheckIcon,
+	HuChevronRightIcon,
+	HuDownloadIcon,
 ];

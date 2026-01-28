@@ -119,7 +119,7 @@ export default function RootLayout({
 			</head>
 			<body className={`${geistSans.variable} antialiased`}>
 				<Navbar />
-				{children}
+				<main>{children}</main>
 				<Footer />
 				<Analytics />
 			</body>

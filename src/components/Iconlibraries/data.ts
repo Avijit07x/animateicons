@@ -1,4 +1,4 @@
-import { LucideIcons } from "@/components/Iconlibraries/PopularIcons";
+import { HugeIcons, LucideIcons } from "@/components/Iconlibraries/PopularIcons";
 import huge from "./assets/huge.png";
 import lucide from "./assets/lucide.svg";
 
@@ -24,7 +24,7 @@ export const iconLibraries: IconLibraryCardData[] = [
 			href: huge,
 			className: "size-6 rounded",
 		},
-		icons: LucideIcons,
+		icons: HugeIcons,
 		href: "/icons/huge",
 	},
 ];

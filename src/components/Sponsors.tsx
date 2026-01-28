@@ -1,19 +1,19 @@
 "use client";
 
+import { HuHeartIcon } from "@/Icons/huge/HuHeartIcon";
 import { CoffeeIcon, CoffeeIconHandle } from "@/Icons/lucide/CoffeeIcon";
 import { CopyIcon, CopyIconHandle } from "@/Icons/lucide/CopyIcon";
 import {
 	DollarSignIcon,
 	DollarSignIconHandle,
 } from "@/Icons/lucide/DollarSignIcon";
-import { HeartIcon, HeartIconHandle } from "@/Icons/lucide/HeartIcon";
+import { HeartIconHandle } from "@/Icons/lucide/HeartIcon";
 import { XIcon } from "@/Icons/lucide/XIcon";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { CheckIcon } from "./icons/CheckIcon";
-import Heart from "./icons/Heart";
 
 type Props = {};
 type AnimatableIconHandle = {
@@ -104,20 +104,12 @@ const Sponsors: React.FC<Props> = () => {
 						className={`${
 							isOpen ? "m-2 ml-auto size-6" : "size-11"
 						} group flex items-center justify-center`}
+						aria-label="sponsor this project"
 					>
 						{isOpen ? (
 							<XIcon className="size-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
 						) : (
-							<motion.div
-								animate={{ scale: [1, 1.12, 1] }}
-								transition={{
-									duration: 2.6,
-									repeat: Infinity,
-									ease: "easeInOut",
-								}}
-							>
-								<Heart className="size-4.5 text-pink-500" />
-							</motion.div>
+							<HuHeartIcon ref={heartRef} className="size-4.5 text-pink-500" />
 						)}
 					</button>
 
@@ -131,12 +123,12 @@ const Sponsors: React.FC<Props> = () => {
 									duration: 0.25,
 									ease: "easeOut",
 								}}
-								className="flex w-full flex-col gap-3 px-4 pb-4"
+								className="text-textPrimary flex w-full flex-col gap-3 px-4 pb-4"
 							>
 								<Link
 									href="https://buymeacoffee.com/avijit07x"
 									target="_blank"
-									className="bg-primary/10 hover:bg-primary/15 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
+									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={() => handleHover(coffeeRef)}
 								>
 									<CoffeeIcon
@@ -149,17 +141,20 @@ const Sponsors: React.FC<Props> = () => {
 								<Link
 									href="https://github.com/sponsors/avijit07x"
 									target="_blank"
-									className="bg-primary/10 hover:bg-primary/15 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
+									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={() => handleHover(heartRef)}
 								>
-									<HeartIcon ref={heartRef} className="size-4 text-pink-500" />
+									<HuHeartIcon
+										ref={heartRef}
+										className="size-4 text-pink-500"
+									/>
 									<span>GitHub Sponsors</span>
 								</Link>
 
 								<Link
 									href="https://paypal.me/avijit07x"
 									target="_blank"
-									className="bg-primary/10 hover:bg-primary/15 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
+									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={() => handleHover(dollarRef)}
 								>
 									<DollarSignIcon
@@ -174,7 +169,7 @@ const Sponsors: React.FC<Props> = () => {
 									onClick={handleCopyUpi}
 									onMouseEnter={() => handleHover(copyRef)}
 									onMouseLeave={() => copyRef?.current?.stopAnimation()}
-									className="bg-primary/10 hover:bg-primary/15 flex flex-col items-center gap-2 rounded-md px-3 py-3 text-sm transition-colors duration-300"
+									className="bg-primary/20 hover:bg-primary/25 flex flex-col items-center gap-2 rounded-md px-3 py-3 text-sm transition-colors duration-300"
 								>
 									<div className="flex w-full items-center justify-between">
 										<span className="font-medium">UPI Payment</span>
@@ -184,7 +179,7 @@ const Sponsors: React.FC<Props> = () => {
 											) : (
 												<CopyIcon
 													ref={copyRef}
-													className="size-3.5 text-blue-500"
+													className="size-3.5 text-gray-400"
 												/>
 											)}
 										</span>
@@ -198,7 +193,7 @@ const Sponsors: React.FC<Props> = () => {
 											className="rounded-xs"
 										/>
 									</div>
-									<div className="flex items-center gap-2 text-xs text-zinc-200">
+									<div className="text-textSecondary flex items-center gap-2 text-xs">
 										<span>UPI ID:</span>
 										<span>avijit07x@axl</span>
 									</div>

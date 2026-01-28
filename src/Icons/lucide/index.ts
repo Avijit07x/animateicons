@@ -1,4 +1,4 @@
-import { AArrowDownIcon } from "../AArrowDownIcon";
+import { AArrowDownIcon } from "./AArrowDownIcon";
 import { AArrowUpIcon } from "./AArrowUpIcon";
 import { AccessibilityIcon } from "./AccessibilityIcon";
 import { ActivityIcon } from "./ActivityIcon";

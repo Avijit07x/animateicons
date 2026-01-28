@@ -53,7 +53,7 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 						height={100}
 						alt={title}
 					/>
-					<h3 className="text-primaryHover text-lg font-semibold lg:text-xl">
+					<h3 className="text-primary text-lg font-semibold lg:text-xl">
 						{title}
 					</h3>
 				</div>
@@ -67,7 +67,7 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true }}
-					className="mb-6 flex flex-wrap items-center gap-5"
+					className="my-6 flex flex-wrap items-center gap-5"
 				>
 					{icons.map((Icon, index) => (
 						<motion.div key={index} variants={iconVariants}>

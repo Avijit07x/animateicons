@@ -75,6 +75,9 @@
 	--sidebar-accent-foreground: oklch(0.205 0 0);
 	--sidebar-border: oklch(0.922 0 0);
 	--sidebar-ring: oklch(0.708 0 0);
+	--cta-bg: #e3260d;
+	--cta-bg-hover: #c83227;
+	--cta-text: #ffffff;
 }
 
 .dark {
@@ -109,19 +112,6 @@
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-[#1A1A2E] text-white antialiased;
-		font-family: var(--font-geist-mono), monospace;
-	}
-	button {
-		@apply cursor-pointer text-inherit;
-	}
 }
 
 @theme {
@@ -181,6 +171,9 @@
 
 	body {
 		@apply bg-bgDark font-sans;
-		user-select: var(--color-primary);
+	}
+
+	button {
+		@apply cursor-pointer text-inherit;
 	}
 }

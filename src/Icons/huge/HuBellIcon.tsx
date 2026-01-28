@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkIconHandle {
+export interface HuBellIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BookmarkIconProps extends HTMLMotionProps<"div"> {
+interface HuBellIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
+const HuBellIcon = forwardRef<HuBellIconHandle, HuBellIconProps>(
  (
   {
    onMouseEnter,
@@ -30,7 +30,6 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparkControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -54,22 +53,29 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
 
   const handleLeave = useCallback(
    (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bookmarkVariants: Variants = {
-   normal: { y: 0, scale: 1 },
+  const bellVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    y: [0, -2, 1, 0],
-    scale: [1, 1.04, 0.98, 1],
+    rotate: [0, -18, 15, -10, 6, -3, 0],
     transition: {
-     duration: 0.9 * duration,
+     duration: 1.6 * duration,
+     ease: "easeInOut",
+    },
+   },
+  };
+
+  const clapperVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -4, 4, -2, 2, 0],
+    transition: {
+     duration: 1.6 * duration,
      ease: "easeInOut",
     },
    },
@@ -92,16 +98,20 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     variants={bookmarkVariants}
      animate={controls}
      initial="normal"
+     variants={bellVariants}
     >
-     <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+     <motion.path
+      d="M15.5 18C15.5 19.933 13.933 21.5 12 21.5C10.067 21.5 8.5 19.933 8.5 18"
+      variants={clapperVariants}
+     />
+     <path d="M19.2311 18H4.76887C3.79195 18 3 17.208 3 16.2311C3 15.762 3.18636 15.3121 3.51809 14.9803L4.12132 14.3771C4.68393 13.8145 5 13.0514 5 12.2558V9.5C5 5.63401 8.13401 2.5 12 2.5C15.866 2.5 19 5.634 19 9.5V12.2558C19 13.0514 19.3161 13.8145 19.8787 14.3771L20.4819 14.9803C20.8136 15.3121 21 15.762 21 16.2311C21 17.208 20.208 18 19.2311 18Z" />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BookmarkIcon.displayName = "BookmarkIcon";
-export { BookmarkIcon };
+HuBellIcon.displayName = "HuBellIcon";
+export { HuBellIcon };

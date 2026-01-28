@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkIconHandle {
+export interface HuHeartIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BookmarkIconProps extends HTMLMotionProps<"div"> {
+interface HuHeartIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
+const HuHeartIcon = forwardRef<HuHeartIconHandle, HuHeartIconProps>(
  (
   {
    onMouseEnter,
@@ -30,7 +30,6 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparkControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -54,30 +53,50 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
 
   const handleLeave = useCallback(
    (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bookmarkVariants: Variants = {
-   normal: { y: 0, scale: 1 },
+  const svgVariant: Variants = {
+   normal: { scale: 1 },
    animate: {
-    y: [0, -2, 1, 0],
-    scale: [1, 1.04, 0.98, 1],
+    scale: [1, 1.06, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.3 * duration,
+     delay: 0.9 * duration,
      ease: "easeInOut",
+    },
+   },
+  };
+
+  const pathVariant: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+    fillOpacity: 0,
+   },
+   animate: {
+    pathLength: [0, 1],
+    fillOpacity: [0],
+    transition: {
+     pathLength: {
+      duration: 0.8 * duration,
+      ease: "easeInOut",
+     },
+     fillOpacity: {
+      duration: 0.3 * duration,
+      delay: 0.8 * duration,
+      ease: "easeInOut",
+     },
     },
    },
   };
 
   return (
    <motion.div
-    className={cn("relative inline-flex", className)}
+    className={cn("inline-flex items-center justify-center", className)}
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
@@ -87,21 +106,24 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
      width={size}
      height={size}
      viewBox="0 0 24 24"
-     fill="none"
+     fill="currentColor"
      stroke="currentColor"
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     variants={bookmarkVariants}
      animate={controls}
      initial="normal"
+     variants={svgVariant}
     >
-     <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+     <motion.path
+      d="M10.4107 19.9677C7.58942 17.858 2 13.0348 2 8.69444C2 5.82563 4.10526 3.5 7 3.5C8.5 3.5 10 4 12 6C14 4 15.5 3.5 17 3.5C19.8947 3.5 22 5.82563 22 8.69444C22 13.0348 16.4106 17.858 13.5893 19.9677C12.6399 20.6776 11.3601 20.6776 10.4107 19.9677Z"
+      variants={pathVariant}
+     />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BookmarkIcon.displayName = "BookmarkIcon";
-export { BookmarkIcon };
+HuHeartIcon.displayName = "HuHeartIcon";
+export { HuHeartIcon };

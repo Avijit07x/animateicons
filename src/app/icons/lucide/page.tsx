@@ -1,15 +1,9 @@
-import React from 'react';
+import React from "react";
 
-type Props = {
-  
-};
+type Props = {};
 
 const page: React.FC<Props> = () => {
-    return (
-      <div>
-        lucide
-      </div>
-  );
+	return <div>lucide</div>;
 };
 
 export default page;

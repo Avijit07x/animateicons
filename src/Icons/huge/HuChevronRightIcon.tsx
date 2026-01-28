@@ -5,18 +5,21 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BookmarkIconHandle {
+export interface HuChevronRightIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BookmarkIconProps extends HTMLMotionProps<"div"> {
+interface HuChevronRightIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
+const HuChevronRightIcon = forwardRef<
+ HuChevronRightIconHandle,
+ HuChevronRightIconProps
+>(
  (
   {
    onMouseEnter,
@@ -30,7 +33,6 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparkControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -53,31 +55,38 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bookmarkVariants: Variants = {
-   normal: { y: 0, scale: 1 },
+  const arrowVariants: Variants = {
+   normal: { x: 0, opacity: 1 },
    animate: {
-    y: [0, -2, 1, 0],
-    scale: [1, 1.04, 0.98, 1],
+    x: [0, 4, 0],
+    opacity: [1, 0.6, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
+     duration: 0.8 * duration,
+    },
+   },
+  };
+
+  const trailVariants: Variants = {
+   normal: { x: 0, opacity: 0 },
+   animate: {
+    x: [6, 10],
+    opacity: [0, 0.4, 0],
+    transition: {
+     duration: 0.8 * duration,
     },
    },
   };
 
   return (
    <motion.div
-    className={cn("relative inline-flex", className)}
+    className={cn("inline-flex items-center justify-center", className)}
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
@@ -89,19 +98,25 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
      viewBox="0 0 24 24"
      fill="none"
      stroke="currentColor"
-     strokeWidth="2"
+     strokeWidth="1.5"
      strokeLinecap="round"
      strokeLinejoin="round"
-     variants={bookmarkVariants}
      animate={controls}
      initial="normal"
     >
-     <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+     <motion.path
+      d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+      variants={trailVariants}
+     />
+     <motion.path
+      d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+      variants={arrowVariants}
+     />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BookmarkIcon.displayName = "BookmarkIcon";
-export { BookmarkIcon };
+HuChevronRightIcon.displayName = "HuChevronRightIcon";
+export { HuChevronRightIcon };

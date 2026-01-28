@@ -69,7 +69,6 @@ const ChevronRightIcon = forwardRef<
     opacity: [1, 0.6, 1],
     transition: {
      duration: 0.8 * duration,
-     repeat: 0,
     },
    },
   };
@@ -78,10 +77,9 @@ const ChevronRightIcon = forwardRef<
    normal: { x: 0, opacity: 0 },
    animate: {
     x: [6, 10],
-    opacity: [0.4, 0],
+    opacity: [0, 0.4, 0],
     transition: {
      duration: 0.8 * duration,
-     repeat: 0,
     },
    },
   };
