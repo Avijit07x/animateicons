@@ -1,16 +1,13 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import ogImg from "./og.png";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
 	subsets: ["latin"],
 });
 
@@ -120,10 +117,10 @@ export default function RootLayout({
 					content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ""}
 				/>
 			</head>
-			<body
-				className={`${geistMono.variable} ${geistSans.variable} antialiased`}
-			>
+			<body className={`${geistSans.variable} antialiased`}>
+				<Navbar />
 				{children}
+				<Footer />
 				<Analytics />
 			</body>
 		</html>

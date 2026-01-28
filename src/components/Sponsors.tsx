@@ -1,10 +1,13 @@
 "use client";
 
-import { CoffeeIcon, CoffeeIconHandle } from "@/Icons/CoffeeIcon";
-import { CopyIcon, CopyIconHandle } from "@/Icons/CopyIcon";
-import { DollarSignIcon, DollarSignIconHandle } from "@/Icons/DollarSignIcon";
-import { HeartIcon, HeartIconHandle } from "@/Icons/HeartIcon";
-import { XIcon } from "@/Icons/XIcon";
+import { CoffeeIcon, CoffeeIconHandle } from "@/Icons/lucide/CoffeeIcon";
+import { CopyIcon, CopyIconHandle } from "@/Icons/lucide/CopyIcon";
+import {
+	DollarSignIcon,
+	DollarSignIconHandle,
+} from "@/Icons/lucide/DollarSignIcon";
+import { HeartIcon, HeartIconHandle } from "@/Icons/lucide/HeartIcon";
+import { XIcon } from "@/Icons/lucide/XIcon";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,0 +1,58 @@
+import Link from "next/link";
+import React from "react";
+
+const Footer: React.FC = () => {
+	return (
+		<footer className="border-t border-[var(--color-divider)]/50">
+			<div className="mx-auto max-w-6xl px-4 py-10">
+				<div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+					<div className="space-y-2">
+						<h3 className="text-sm font-semibold text-[var(--color-textPrimary)]">
+							AnimateIcons
+						</h3>
+						<p className="max-w-xs text-xs text-[var(--color-textMuted)]">
+							An open-source animated SVG icon library for modern React
+							interfaces. Built for performance and smooth micro-interactions.
+						</p>
+					</div>
+
+					<div className="flex flex-wrap gap-6 text-sm">
+						<Link
+							href="/icons/lucide"
+							className="text-[var(--color-textSecondary)] hover:text-[var(--color-textPrimary)]"
+						>
+							Icons
+						</Link>
+						<Link
+							href="/docs"
+							className="text-[var(--color-textSecondary)] hover:text-[var(--color-textPrimary)]"
+						>
+							Docs
+						</Link>
+						<Link
+							href="https://github.com/Avijit07x/animateicons"
+							target="_blank"
+							className="text-[var(--color-textSecondary)] hover:text-[var(--color-textPrimary)]"
+						>
+							GitHub
+						</Link>
+						<Link
+							href="https://twitter.com/avijit07x"
+							target="_blank"
+							className="text-[var(--color-textSecondary)] hover:text-[var(--color-textPrimary)]"
+						>
+							Twitter
+						</Link>
+					</div>
+				</div>
+
+				<div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[var(--color-divider)]/50 pt-6 text-xs text-[var(--color-textMuted)] md:flex-row">
+					<span>Open source · MIT licensed</span>
+					<span>Created by Avijit Dey</span>
+				</div>
+			</div>
+		</footer>
+	);
+};
+
+export default Footer;

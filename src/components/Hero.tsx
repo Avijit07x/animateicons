@@ -1,21 +1,49 @@
 "use client";
 
-import { ICON_COUNT } from "@/Icons";
-import { SparklesIcon } from "lucide-react";
-import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { motion, Variants } from "motion/react";
 import Link from "next/link";
 import React from "react";
 import CmdSection from "./CmdSection";
+import { GitHub } from "./icons/Github";
+
+const containerVariants: Variants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.12,
+			delayChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants: Variants = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+			ease: "easeOut",
+		},
+	},
+};
 
 const HeroSection: React.FC = () => {
 	return (
-		<div className="relative">
-			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 0.7 }}
-				className="from-primary/10 absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent"
+		<div className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden">
+			<div
+				className="pointer-events-none absolute inset-0 z-0"
+				style={{
+					backgroundImage: `
+						repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(75, 85, 99, 0.08) 20px, rgba(75, 85, 99, 0.08) 21px),
+						repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(107, 114, 128, 0.06) 30px, rgba(107, 114, 128, 0.06) 31px),
+						repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(55, 65, 81, 0.05) 40px, rgba(55, 65, 81, 0.05) 41px),
+						repeating-linear-gradient(150deg, transparent, transparent 35px, rgba(31, 41, 55, 0.04) 35px, rgba(31, 41, 55, 0.04) 36px)`,
+				}}
 			/>
+
 			<motion.div
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
@@ -25,95 +53,69 @@ const HeroSection: React.FC = () => {
 					repeat: Infinity,
 					repeatType: "reverse",
 				}}
-				className="bg-primary/5 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl"
-			/>
-			<motion.div
-				initial={{ opacity: 0, scale: 0.7 }}
-				animate={{ opacity: 1, scale: 1 }}
-				transition={{
-					duration: 1.2,
-					delay: 1,
-					repeat: Infinity,
-					repeatType: "reverse",
-				}}
-				className="bg-indigoDeep/5 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-3xl"
+				className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-primary)]/5 blur-3xl"
 			/>
 
-			<div className="relative z-10 mx-auto max-w-7xl px-3 md:px-6 lg:px-8">
-				<div className="mt-5 flex flex-col md:mt-15 lg:flex-row lg:items-center lg:justify-between">
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.7 }}
-						className="space-y-8"
+			<div className="relative z-10 mx-auto w-full max-w-3xl px-4 text-center">
+				<motion.div
+					variants={containerVariants}
+					initial="hidden"
+					animate="show"
+					className="flex flex-col items-center gap-8"
+				>
+					<Link
+						href={"https://github.com/Avijit07x/animateicons"}
+						target="_blank"
 					>
-						<div className="space-y-6">
-							<motion.div
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.1, duration: 0.7 }}
-								className="bg-primary/10 border-primary/20 inline-flex items-center space-x-2 rounded-full border px-4 py-2 shadow-xs"
-							>
-								<SparklesIcon size={14} className="text-primary" />
-								<span className="text-primary text-xs font-medium">
-									{`Now with ${ICON_COUNT}+ animated icons`}
-								</span>
-							</motion.div>
+						<motion.div
+							variants={itemVariants}
+							className="border-border bg-surface text-textPrimary hover:bg-surfaceHover -mb-2 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs"
+						>
+							<GitHub className="size-4.5" />
+							<span className="font-medium">Open Source</span>
+						</motion.div>
+					</Link>
 
-							<motion.h1
-								initial={{ opacity: 0, y: 10 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.2, duration: 0.7 }}
-								className="text-4xl leading-tight font-bold"
-							>
-								<span className="from-primary via-indigoDeep to-accent bg-gradient-to-r bg-clip-text text-transparent">
-									Make Every <br className="hidden max-sm:block" /> Icon Move
-								</span>
-								<br />
-								<span className="text-white">with AnimateIcons</span>
-							</motion.h1>
+					<motion.h1
+						variants={itemVariants}
+						className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+					>
+						<span className="text-[var(--color-primary)]">
+							Make Every Icon Move
+						</span>
+						<br />
+						<span className="font-medium text-[var(--color-textPrimary)]">
+							with AnimateIcons
+						</span>
+					</motion.h1>
 
-							<motion.div
-								initial={{ opacity: 0, y: 10 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.3, duration: 0.8 }}
-								className="max-w-2xl space-y-2 text-sm leading-relaxed text-zinc-300"
-							>
-								<p>
-									Free and open-source animated SVG icons for React with smooth
-									micro-interactions and lightweight performance. Designed to
-									bring motion and clarity to modern user interfaces.
-								</p>
-								<p>
-									built with{" "}
-									<Link
-										href={"https://motion.dev/"}
-										target="_blank"
-										className="underline"
-									>
-										motion
-									</Link>{" "}
-									and{" "}
-									<Link
-										href={"https://lucide.dev/"}
-										target="_blank"
-										className="underline"
-									>
-										lucide
-									</Link>
-								</p>
-							</motion.div>
-
-							<motion.div
-								initial={{ opacity: 0, y: 10 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.4, duration: 0.8 }}
-							>
-								<CmdSection />
-							</motion.div>
-						</div>
+					<motion.div
+						variants={itemVariants}
+						className="max-w-xl space-y-2 text-sm leading-relaxed text-zinc-300"
+					>
+						<p>
+							Free and open-source animated SVG icons for React with smooth
+							micro-interactions and lightweight performance.
+						</p>
 					</motion.div>
-				</div>
+
+					<motion.div
+						variants={itemVariants}
+						className="flex w-full items-center justify-center"
+					>
+						<CmdSection />
+					</motion.div>
+
+					<motion.div variants={itemVariants}>
+						<Link
+							href="/icons/lucide"
+							className="border-border text-textPrimary bg-primaryHover hover:bg-primaryHover/90 flex items-center justify-center gap-1.5 rounded-full border px-6 py-2.5 text-sm font-semibold transition-all duration-300"
+						>
+							<span>Browse icons</span>
+							<ArrowRight className="size-4.5" />
+						</Link>
+					</motion.div>
+				</motion.div>
 			</div>
 		</div>
 	);

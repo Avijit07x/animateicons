@@ -1,6 +1,6 @@
 "use client";
 
-import { ICON_COUNT } from "@/Icons";
+import { ICON_COUNT } from "@/Icons/lucide";
 import { Command } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
