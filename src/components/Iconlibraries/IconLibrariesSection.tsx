@@ -42,7 +42,7 @@ const iconVariants: Variants = {
 
 const IconLibrariesSection: React.FC = () => {
 	return (
-		<section className="relative border-t border-[var(--color-divider)]/50 py-24">
+		<section className="relative border-t border-[var(--color-divider)]/50 py-18 lg:py-24">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="mb-14 text-center">
 					<h2 className="text-2xl font-semibold text-[var(--color-textPrimary)] sm:text-3xl">

@@ -176,4 +176,80 @@
 	button {
 		@apply cursor-pointer text-inherit;
 	}
+	.bg-grid {
+		pointer-events: none;
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+
+		background-image:
+			repeating-linear-gradient(
+				0deg,
+				transparent,
+				transparent 14px,
+				rgba(75, 85, 99, 0.14) 14px,
+				rgba(75, 85, 99, 0.14) 15px
+			),
+			repeating-linear-gradient(
+				90deg,
+				transparent,
+				transparent 14px,
+				rgba(107, 114, 128, 0.12) 14px,
+				rgba(107, 114, 128, 0.12) 15px
+			),
+			repeating-linear-gradient(
+				60deg,
+				transparent,
+				transparent 20px,
+				rgba(55, 65, 81, 0.1) 20px,
+				rgba(55, 65, 81, 0.1) 21px
+			),
+			repeating-linear-gradient(
+				150deg,
+				transparent,
+				transparent 18px,
+				rgba(31, 41, 55, 0.08) 18px,
+				rgba(31, 41, 55, 0.08) 19px
+			);
+	}
+
+	@media (min-width: 768px) {
+		.bg-grid {
+			background-image:
+				repeating-linear-gradient(
+					0deg,
+					transparent,
+					transparent 20px,
+					rgba(75, 85, 99, 0.08) 20px,
+					rgba(75, 85, 99, 0.08) 21px
+				),
+				repeating-linear-gradient(
+					90deg,
+					transparent,
+					transparent 30px,
+					rgba(107, 114, 128, 0.06) 30px,
+					rgba(107, 114, 128, 0.06) 31px
+				),
+				repeating-linear-gradient(
+					60deg,
+					transparent,
+					transparent 40px,
+					rgba(55, 65, 81, 0.05) 40px,
+					rgba(55, 65, 81, 0.05) 41px
+				),
+				repeating-linear-gradient(
+					150deg,
+					transparent,
+					transparent 35px,
+					rgba(31, 41, 55, 0.04) 35px,
+					rgba(31, 41, 55, 0.04) 36px
+				);
+		}
+	}
+}
+
+@layer base {
+	body {
+		@apply bg-background text-foreground;
+	}
 }

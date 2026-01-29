@@ -63,6 +63,13 @@ const Navbar: React.FC = () => {
 
 						<div className="hidden items-center gap-2 text-sm md:flex">
 							<Link
+								href="/icons/lucide"
+								className="hover:text-primaryHover hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200"
+							>
+								Icons
+							</Link>
+							<Separator orientation={"vertical"} className="h-4! w-1" />
+							<Link
 								href="/docs"
 								className="hover:text-primaryHover hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200"
 							>

@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -117,10 +117,11 @@ export default function RootLayout({
 					content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ""}
 				/>
 			</head>
-			<body className={`${geistSans.variable} antialiased`}>
-				<Navbar />
-				<main>{children}</main>
-				<Footer />
+			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
+			
+					<Navbar />
+					<main>{children}</main>
+	
 				<Analytics />
 			</body>
 		</html>
