@@ -291,7 +291,7 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
 			onClick={toggleSidebar}
 			title="Toggle Sidebar"
 			className={cn(
-				"hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex",
+				"hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 sm:flex",
 				"in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
 				"[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
 				"hover:group-data-[collapsible=offcanvas]:bg-sidebar group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full",
@@ -481,7 +481,7 @@ const sidebarMenuButtonVariants = cva(
 				default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
 				outline:
 					"bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
-				dark: "bg-transparent text-textPrimary hover:bg-surfaceHover hover:text-textPrimary focus-visible:bg-[var(--color-surfaceHover)] focus-visible:text-textPrimary active:bg-[var(--color-surfaceHover)] active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary",
+				dark: "bg-transparent text-textPrimary hover:bg-surfaceHover hover:text-textPrimary focus-visible:bg-surfaceHover focus-visible:text-textPrimary active:bg-surfaceHover active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary",
 			},
 			size: {
 				default: "h-8 text-sm",

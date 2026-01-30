@@ -1,13 +1,13 @@
 import {
-	Sidebar,
-	SidebarContent,
-	SidebarGroup,
-	SidebarGroupContent,
-	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarMenu,
-	SidebarMenuButton,
-	SidebarMenuItem,
+    Sidebar,
+    SidebarContent,
+    SidebarGroup,
+    SidebarGroupContent,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +17,7 @@ type Props = {};
 const AppSidebar: React.FC<Props> = () => {
 	return (
 		<Sidebar className="text-textPrimary bg-surface border-border/50 border-r">
-			<SidebarHeader className="bg-bgDark px-4 py-3 text-sm font-semibold text-[var(--color-primary)]">
+			<SidebarHeader className="bg-bgDark px-4 py-3 text-sm font-semibold text-primary">
 				<Link href="/" className="flex items-center gap-2">
 					<Image
 						src={"/logo.svg"}
@@ -36,7 +36,7 @@ const AppSidebar: React.FC<Props> = () => {
 			<SidebarContent className="bg-bgDark gap-2">
 				{/* Navigation */}
 				<SidebarGroup>
-					<SidebarGroupLabel className="text-xs text-[var(--color-textMuted)]">
+					<SidebarGroupLabel className="text-xs text-textMuted">
 						Navigation
 					</SidebarGroupLabel>
 					<SidebarGroupContent>
@@ -64,7 +64,7 @@ const AppSidebar: React.FC<Props> = () => {
 
 				{/* Icon Libraries */}
 				<SidebarGroup>
-					<SidebarGroupLabel className="text-xs text-[var(--color-textMuted)]">
+					<SidebarGroupLabel className="text-xs text-textMuted">
 						Icon Libraries
 					</SidebarGroupLabel>
 					<SidebarGroupContent>
@@ -86,7 +86,7 @@ const AppSidebar: React.FC<Props> = () => {
 
 				{/* Categories */}
 				<SidebarGroup className="flex-1 overflow-y-auto">
-					<SidebarGroupLabel className="text-xs text-[var(--color-textMuted)]">
+					<SidebarGroupLabel className="text-xs text-textMuted">
 						Categories
 					</SidebarGroupLabel>
 					<SidebarGroupContent>

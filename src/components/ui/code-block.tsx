@@ -100,14 +100,14 @@ export function CodeBlock({
 										"hover:bg-surfaceHover",
 										activeTab === index
 											? "text-textPrimary"
-											: "text-[var(--color-textMuted)]",
+											: "text-textMuted",
 									)}
 								>
 									{tab.label}
 									{activeTab === index && (
 										<motion.div
 											layoutId="activeTabIndicator"
-											className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-[var(--color-textPrimary)]"
+											className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-textPrimary"
 											transition={{
 												type: "spring",
 												stiffness: 500,

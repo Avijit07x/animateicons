@@ -249,6 +249,6 @@
 }
 @layer components {
 	.sidebar-item {
-		@apply text-textPrimary hover:text-textPrimary focus-visible:text-textPrimary active:text-textPrimary data-[active=true]:text-textPrimary hover:bg-surfaceHover data-[active=true]:bg-surfaceElevated bg-transparent focus-visible:bg-[var(--color-surfaceHover)] active:bg-[var(--color-surfaceHover)];
+		@apply text-textPrimary hover:text-textPrimary focus-visible:text-textPrimary active:text-textPrimary data-[active=true]:text-textPrimary hover:bg-surfaceHover data-[active=true]:bg-surfaceElevated bg-transparent focus-visible:bg-surfaceHover active:bg-surfaceHover;
 	}
 }

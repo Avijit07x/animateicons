@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
 					variants={itemVariants}
 					className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
 				>
-					<span className="text-color-primary">Make Every Icon Move</span>
+					<span className="text-primary">Make Every Icon Move</span>
 					<br />
 					<span className="text-textPrimary font-medium">
 						with AnimateIcons
@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
 				<motion.div variants={itemVariants}>
 					<Link
 						href="/icons/lucide"
-						className="flex items-center justify-center gap-1.5 rounded-full bg-[var(--cta-bg)] px-6 py-2.5 text-sm font-semibold text-[var(--cta-text)] transition-colors duration-200 hover:bg-[var(--cta-bg-hover)]"
+						className="flex items-center justify-center gap-1.5 rounded-full bg-(--cta-bg) px-6 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors duration-200 hover:bg-(--cta-bg-hover)"
 					>
 						<span>Browse icons</span>
 						<ArrowRight className="size-4.5" aria-hidden="true" />
