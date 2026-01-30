@@ -5,8 +5,8 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CopyIcon, CopyIconHandle } from "@/icons/lucide/CopyIcon";
-import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/TerminalIcon";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
+import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
 import { differenceInDays } from "date-fns";
 import Link from "next/link";
 import React, { useState } from "react";

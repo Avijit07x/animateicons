@@ -31,3 +31,30 @@ type FeatureItem = {
 		ref: React.RefObject;
 	}>;
 };
+
+type RegistryFile = {
+	path: string;
+	type: "registry:ui";
+};
+
+type RegistryItem = {
+	name: string;
+	type: "registry:ui";
+	registryDependencies: string[];
+	dependencies: string[];
+	devDependencies: string[];
+	files: RegistryFile[];
+};
+
+type Registry = {
+	$schema: string;
+	name: string;
+	homepage: string;
+	items: RegistryItem[];
+};
+
+type IconListItem = {
+	name: string;
+	icon?: { name?: string };
+	keywords: string[];
+};

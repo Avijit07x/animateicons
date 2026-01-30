@@ -1,6 +1,6 @@
 "use client";
 
-import { CopyIcon, CopyIconHandle } from "@/icons/lucide/CopyIcon";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import React from "react";
 import { CheckIcon } from "./icons/CheckIcon";
 import { Button } from "./ui/button";

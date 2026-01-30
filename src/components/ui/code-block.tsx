@@ -20,6 +20,12 @@ interface CodeBlockProps {
 	language?: string;
 	className?: string;
 }
+const commands = [
+	"lu-loader.json",
+	"hu-heart.json",
+	"lu-lock.json",
+	"hu-copy.json",
+];
 
 export function CodeBlock({
 	tabs,
@@ -28,13 +34,13 @@ export function CodeBlock({
 	className,
 }: CodeBlockProps) {
 	const [activeTab, setActiveTab] = useState(0);
+	const [activeCommand, setActiveCommand] = useState(commands[0]);
+
 	const [copied, setCopied] = useState(false);
 	const [direction, setDirection] = useState(0);
 	const preRef = useRef<HTMLPreElement>(null);
 	const copyRef = useRef<CopyIconHandle>(null);
 	const [hasOverflow, setHasOverflow] = useState(false);
-
-	const commands = ["loader.json", "heart.json", "lock.json", "copy.json"];
 
 	const codeContent = useMemo(() => {
 		if (tabs && tabs.length > 0) return tabs;
@@ -58,7 +64,8 @@ export function CodeBlock({
 	}, [activeTab]);
 
 	const handleCopy = async () => {
-		await navigator.clipboard.writeText(currentCode);
+		const fullCommand = `${currentCode}${activeCommand}`;
+		await navigator.clipboard.writeText(fullCommand);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
 	};

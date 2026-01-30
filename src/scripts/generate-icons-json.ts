@@ -1,12 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-type IconListItem = {
-	name: string;
-	icon?: { name?: string };
-	keywords: string[];
-};
-
 const ROOT = process.cwd();
 const ICONS_ROOT = path.join(ROOT, "src", "icons");
 
