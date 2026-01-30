@@ -1,6 +1,7 @@
 "use client";
 
 import { HuHeartIcon, HuHeartIconHandle } from "@/Icons/huge/HuHeartIcon";
+import handleHover from "@/utils/handleHover";
 import { isWinterSeason } from "@/utils/isWinterSeason";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,15 +32,6 @@ const Navbar: React.FC = () => {
 		fetchStars();
 	}, []);
 
-	const handleHover = (e: React.MouseEvent) => {
-		if (e.type === "mouseenter") {
-			heartRef.current?.startAnimation();
-		}
-		if (e.type === "mouseleave") {
-			heartRef.current?.stopAnimation();
-		}
-	};
-
 	return (
 		<header className="sticky top-0 z-50">
 			<nav className="bg-bgDark backdrop-blur-3xl">
@@ -68,13 +60,6 @@ const Navbar: React.FC = () => {
 							>
 								Icons
 							</Link>
-							<Separator orientation={"vertical"} className="h-4! w-1" />
-							<Link
-								href="/docs"
-								className="hover:text-primaryHover hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200"
-							>
-								Docs
-							</Link>
 
 							<Separator orientation={"vertical"} className="h-4! w-1" />
 							<Tooltip>
@@ -83,8 +68,8 @@ const Navbar: React.FC = () => {
 										href="https://github.com/sponsors/Avijit07x"
 										target="_blank"
 										rel="noopener noreferrer"
-										onMouseEnter={handleHover}
-										onMouseLeave={handleHover}
+										onMouseEnter={(e) => handleHover(e, heartRef)}
+										onMouseLeave={(e) => handleHover(e, heartRef)}
 										className="hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
 									>
 										<HuHeartIcon

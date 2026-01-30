@@ -61,11 +61,9 @@ const HeroSection: React.FC = () => {
 					variants={itemVariants}
 					className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
 				>
-					<span className="text-[var(--color-primary)]">
-						Make Every Icon Move
-					</span>
+					<span className="text-color-primary">Make Every Icon Move</span>
 					<br />
-					<span className="font-medium text-[var(--color-textPrimary)]">
+					<span className="text-textPrimary font-medium">
 						with AnimateIcons
 					</span>
 				</motion.h1>
@@ -76,7 +74,14 @@ const HeroSection: React.FC = () => {
 				>
 					<p>
 						Free and open-source animated SVG icons for React with smooth
-						micro-interactions and lightweight performance.
+						micro-interactions and lightweight performance, built with{" "}
+						<Link
+							href={"https://motion.dev/"}
+							className="underline"
+							target="_blank"
+						>
+							Motion
+						</Link>
 					</p>
 				</motion.div>
 

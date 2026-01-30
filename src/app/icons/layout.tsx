@@ -1,40 +1,20 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-
+import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
+import AppSidebar from "./_components/AppSidebar";
 
 type Props = {
 	children: React.ReactNode;
 };
 
-const layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children }) => {
 	return (
-		<div className="mx-auto max-w-7xl!">
-			<SidebarProvider>
+		<SidebarProvider>
+			<div className="flex min-h-svh w-full">
 				<AppSidebar />
-				<SidebarTrigger />
-				{children}
-			</SidebarProvider>
-		</div>
+				<main className="flex-1 overflow-y-auto px-6 py-3">{children}</main>
+			</div>
+		</SidebarProvider>
 	);
 };
 
-export default layout;
-
-import {
-	Sidebar,
-	SidebarContent,
-	SidebarGroup,
-	SidebarHeader,
-} from "@/components/ui/sidebar";
-
-export function AppSidebar() {
-	return (
-		<Sidebar className="border-0">
-			<SidebarHeader />
-			<SidebarContent className="bg-bgDark! border-0">
-				<SidebarGroup />
-				<SidebarGroup />
-			</SidebarContent>
-		</Sidebar>
-	);
-}
+export default Layout;

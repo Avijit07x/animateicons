@@ -42,9 +42,9 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 			initial="hidden"
 			whileInView="show"
 			viewport={{ once: true }}
-			className="group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surfaceElevated)] p-3 transition-colors duration-300 hover:bg-[var(--color-surfaceHover)]"
+			className="group hover:bg-surfaceHover bg-surfaceElevated border-border overflow-hidden rounded-2xl border p-3 transition-colors duration-300"
 		>
-			<div className="space-y-4 rounded-xl bg-[var(--color-surface)] p-6">
+			<div className="bg-surface space-y-4 rounded-xl p-6">
 				<div className="flex items-center justify-start gap-2">
 					<Image
 						src={img.href}
@@ -58,9 +58,7 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 					</h3>
 				</div>
 
-				<p className="text-sm text-[var(--color-textSecondary)]">
-					{description}
-				</p>
+				<p className="text-textSecondary text-sm">{description}</p>
 
 				<motion.div
 					variants={iconRowVariants}
@@ -82,7 +80,7 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 
 			<Link
 				href={href}
-				className="flex items-center justify-between bg-[var(--color-surfaceElevated)] px-6 py-4 text-sm text-[var(--color-textPrimary)] transition-colors duration-300 group-hover:bg-[var(--color-surfaceHover)]"
+				className="text-textPrimary group-hover:bg-surfaceHover bg-surfaceElevated flex items-center justify-between px-6 py-4 text-sm transition-colors duration-300"
 			>
 				<span>Explore</span>
 				<MoveRightIcon size={18} />

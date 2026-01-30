@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import { SidebarProvider } from "@/components/ui/sidebar";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -118,10 +116,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
-			
-					<Navbar />
-					<main>{children}</main>
-	
+				{children}
 				<Analytics />
 			</body>
 		</html>

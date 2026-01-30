@@ -9,6 +9,7 @@ import {
 } from "@/Icons/lucide/DollarSignIcon";
 import { HeartIconHandle } from "@/Icons/lucide/HeartIcon";
 import { XIcon } from "@/Icons/lucide/XIcon";
+import handleHover from "@/utils/handleHover";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,9 +17,6 @@ import React, { useRef, useState } from "react";
 import { CheckIcon } from "./icons/CheckIcon";
 
 type Props = {};
-type AnimatableIconHandle = {
-	startAnimation: () => void;
-};
 
 const Sponsors: React.FC<Props> = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -26,21 +24,15 @@ const Sponsors: React.FC<Props> = () => {
 	const hoverEnabledRef = useRef(false);
 	const dollarRef = useRef<DollarSignIconHandle>(null);
 	const heartRef = useRef<HeartIconHandle>(null);
+	const heRef = useRef<HeartIconHandle>(null);
 	const coffeeRef = useRef<CoffeeIconHandle>(null);
 	const copyRef = useRef<CopyIconHandle>(null);
 
-	const handleHover = <T extends AnimatableIconHandle>(
-		ref: React.RefObject<T | null>,
-	) => {
-		if (!hoverEnabledRef.current) return;
-		ref?.current?.startAnimation();
-	};
-
 	const toggleSponsors = () => {
 		setIsOpen(!isOpen);
-
 		hoverEnabledRef.current = false;
 	};
+
 	const handleCopyUpi = async () => {
 		try {
 			await navigator.clipboard.writeText("avijit07x@axl");
@@ -97,7 +89,7 @@ const Sponsors: React.FC<Props> = () => {
 					onAnimationComplete={() => {
 						if (isOpen) hoverEnabledRef.current = true;
 					}}
-					className="from-bgDark to-bgDark border-primary/25 relative flex flex-col overflow-hidden border bg-gradient-to-br via-zinc-900"
+					className="from-bgDark to-bgDark border-primary/25 relative flex flex-col overflow-hidden border bg-linear-to-br via-zinc-900"
 				>
 					<button
 						onClick={toggleSponsors}
@@ -105,11 +97,13 @@ const Sponsors: React.FC<Props> = () => {
 							isOpen ? "m-2 ml-auto size-6" : "size-11"
 						} group flex items-center justify-center`}
 						aria-label="sponsor this project"
+						onMouseEnter={(e) => handleHover(e, heRef)}
+						onMouseLeave={(e) => handleHover(e, heRef)}
 					>
 						{isOpen ? (
 							<XIcon className="size-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
 						) : (
-							<HuHeartIcon ref={heartRef} className="size-4.5 text-pink-500" />
+							<HuHeartIcon ref={heRef} className="size-4.5 text-pink-500" />
 						)}
 					</button>
 
@@ -129,7 +123,8 @@ const Sponsors: React.FC<Props> = () => {
 									href="https://buymeacoffee.com/avijit07x"
 									target="_blank"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={() => handleHover(coffeeRef)}
+									onMouseEnter={(e) => handleHover(e, coffeeRef)}
+									onMouseLeave={(e) => handleHover(e, coffeeRef)}
 								>
 									<CoffeeIcon
 										ref={coffeeRef}
@@ -142,7 +137,8 @@ const Sponsors: React.FC<Props> = () => {
 									href="https://github.com/sponsors/avijit07x"
 									target="_blank"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={() => handleHover(heartRef)}
+									onMouseEnter={(e) => handleHover(e, heartRef)}
+									onMouseLeave={(e) => handleHover(e, heartRef)}
 								>
 									<HuHeartIcon
 										ref={heartRef}
@@ -155,7 +151,8 @@ const Sponsors: React.FC<Props> = () => {
 									href="https://paypal.me/avijit07x"
 									target="_blank"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={() => handleHover(dollarRef)}
+									onMouseEnter={(e) => handleHover(e, dollarRef)}
+									onMouseLeave={(e) => handleHover(e, dollarRef)}
 								>
 									<DollarSignIcon
 										ref={dollarRef}
@@ -167,8 +164,8 @@ const Sponsors: React.FC<Props> = () => {
 
 								<button
 									onClick={handleCopyUpi}
-									onMouseEnter={() => handleHover(copyRef)}
-									onMouseLeave={() => copyRef?.current?.stopAnimation()}
+									onMouseEnter={(e) => handleHover(e, copyRef)}
+									onMouseLeave={(e) => handleHover(e, copyRef)}
 									className="bg-primary/20 hover:bg-primary/25 flex flex-col items-center gap-2 rounded-md px-3 py-3 text-sm transition-colors duration-300"
 								>
 									<div className="flex w-full items-center justify-between">

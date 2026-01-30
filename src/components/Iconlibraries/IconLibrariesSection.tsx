@@ -42,13 +42,13 @@ const iconVariants: Variants = {
 
 const IconLibrariesSection: React.FC = () => {
 	return (
-		<section className="relative border-t border-[var(--color-divider)]/50 py-18 lg:py-24">
+		<section className="border-divider/50 relative border-t py-18 lg:py-24">
 			<div className="mx-auto max-w-6xl px-4">
 				<div className="mb-14 text-center">
-					<h2 className="text-2xl font-semibold text-[var(--color-textPrimary)] sm:text-3xl">
+					<h2 className="text-textPrimary text-2xl font-semibold sm:text-3xl">
 						Icon libraries, animated
 					</h2>
-					<p className="mt-3 text-sm text-[var(--color-textSecondary)]">
+					<p className="text-textSecondary mt-3 text-sm">
 						Popular icon sets rebuilt with smooth motion and interactions.
 					</p>
 				</div>

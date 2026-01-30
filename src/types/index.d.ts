@@ -28,5 +28,6 @@ type FeatureItem = {
 	Icon: React.ComponentType<{
 		size?: number;
 		className?: string;
+		ref: React.RefObject;
 	}>;
 };

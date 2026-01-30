@@ -38,14 +38,14 @@ export function WordRotate({
 	}, [index, words, onWordChange]);
 
 	return (
-		<div className="overflow-hidden py-2">
+		<div className="min-w-30 overflow-y-hidden">
 			<AnimatePresence mode="wait">
 				<motion.span
 					key={words[index]}
 					className={cn("inline-flex items-center justify-center", className)}
 					{...motionProps}
 				>
-					{words[index]}"
+					{words[index]}
 				</motion.span>
 			</AnimatePresence>
 		</div>

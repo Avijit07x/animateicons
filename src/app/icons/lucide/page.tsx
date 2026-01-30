@@ -3,7 +3,7 @@ import React from "react";
 type Props = {};
 
 const page: React.FC<Props> = () => {
-	return <div>lucide</div>;
+	return <div className="text-white">lucide</div>;
 };
 
 export default page;

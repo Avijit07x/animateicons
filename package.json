@@ -2,6 +2,7 @@
 	"name": "animateicons",
 	"version": "0.1.0",
 	"private": true,
+	"packageManager": "pnpm@9.0.0",
 	"scripts": {
 		"prebuild": "tsx src/scripts/generate-icons-json.ts",
 		"dev": "next dev --turbopack",
@@ -18,7 +19,6 @@
 		"@radix-ui/react-tabs": "^1.1.12",
 		"@radix-ui/react-tooltip": "^1.2.8",
 		"@radix-ui/react-use-controllable-state": "^1.2.2",
-		"@shikijs/transformers": "^3.21.0",
 		"@vercel/analytics": "^1.5.0",
 		"babel-plugin-react-compiler": "^1.0.0",
 		"class-variance-authority": "^0.7.1",
@@ -30,8 +30,6 @@
 		"next": "^16.1.6",
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
-		"react-icons": "^5.5.0",
-		"shiki": "^3.21.0",
 		"tailwind-merge": "^3.3.1",
 		"use-debounce": "^10.0.6"
 	},

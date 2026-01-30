@@ -1,9 +1,12 @@
 "use client";
 
+import { CopyIcon, CopyIconHandle } from "@/Icons/lucide/CopyIcon";
 import { cn } from "@/lib/utils";
-import { Check, Copy } from "lucide-react";
+import handleHover from "@/utils/handleHover";
+import { Check } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { WordRotate } from "../magicui/word-rotate";
 
 interface CodeTab {
 	label: string;
@@ -28,7 +31,10 @@ export function CodeBlock({
 	const [copied, setCopied] = useState(false);
 	const [direction, setDirection] = useState(0);
 	const preRef = useRef<HTMLPreElement>(null);
+	const copyRef = useRef<CopyIconHandle>(null);
 	const [hasOverflow, setHasOverflow] = useState(false);
+
+	const commands = ["loader.json", "heart.json", "lock.json", "copy.json"];
 
 	const codeContent = useMemo(() => {
 		if (tabs && tabs.length > 0) return tabs;
@@ -68,9 +74,9 @@ export function CodeBlock({
 		<div
 			className={cn(
 				"group relative overflow-hidden rounded-2xl border p-0.5",
-				"border-[var(--color-border)]",
-				"bg-[var(--color-surface)]",
-				"text-[var(--color-textPrimary)]",
+				"border-border",
+				"bg-surface",
+				"text-textPrimary",
 				className,
 			)}
 		>
@@ -91,9 +97,9 @@ export function CodeBlock({
 									className={cn(
 										"relative my-1 mb-1.5 flex items-center gap-1.5 rounded-lg px-2 font-medium transition-colors",
 										"first:ml-2.5",
-										"hover:bg-[var(--color-surfaceHover)]",
+										"hover:bg-surfaceHover",
 										activeTab === index
-											? "text-[var(--color-textPrimary)]"
+											? "text-textPrimary"
 											: "text-[var(--color-textMuted)]",
 									)}
 								>
@@ -122,14 +128,16 @@ export function CodeBlock({
 					whileTap={{ scale: 0.95 }}
 					className={cn(
 						"absolute top-2 right-2 z-10 flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium",
-						"border border-[var(--color-border)]",
-						"bg-[var(--color-surfaceElevated)]/80 backdrop-blur",
-						"text-[var(--color-textSecondary)]",
+						"border-border border",
+						"bg-surfaceElevated/80 backdrop-blur",
+						"text-textSecondary",
 						"opacity-70 group-hover:opacity-100",
-						"hover:bg-[var(--color-surfaceHover)] hover:text-[var(--color-textPrimary)]",
+						"hover:text-textPrimary hover:bg-surfaceHover",
 						"transition-all",
 					)}
 					aria-label="Copy code"
+					onMouseEnter={(e) => handleHover(e, copyRef)}
+					onMouseLeave={(e) => handleHover(e, copyRef)}
 				>
 					<span className="relative size-3.5">
 						<motion.div
@@ -142,7 +150,7 @@ export function CodeBlock({
 							transition={{ duration: 0.2 }}
 							className="absolute inset-0"
 						>
-							<Copy className="size-full" />
+							<CopyIcon ref={copyRef} className="size-full" />
 						</motion.div>
 						<motion.div
 							initial={false}
@@ -164,7 +172,7 @@ export function CodeBlock({
 					ref={preRef}
 					className={cn(
 						"m-0 p-4 text-sm leading-relaxed",
-						"bg-[var(--color-surfaceElevated)]",
+						"bg-surfaceElevated",
 						codeContent.length > 1 ? "rounded-b-2xl" : "rounded-2xl",
 						hasOverflow ? "overflow-x-auto" : "overflow-x-hidden",
 					)}
@@ -185,9 +193,10 @@ export function CodeBlock({
 								filter: "blur(4px)",
 							}}
 							transition={{ duration: 0.15, ease: "easeOut" }}
-							className="block font-mono whitespace-pre text-[var(--color-textPrimary)] "
+							className="text-textPrimary flex items-center font-mono whitespace-pre"
 						>
 							{currentCode}
+							<WordRotate words={commands} />
 						</motion.code>
 					</AnimatePresence>
 				</pre>
