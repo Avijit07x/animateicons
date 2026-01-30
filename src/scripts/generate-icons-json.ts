@@ -3,119 +3,114 @@ import path from "node:path";
 
 type IconListItem = {
 	name: string;
-	icon: { name?: string };
+	icon?: { name?: string };
 	keywords: string[];
 };
 
 const ROOT = process.cwd();
-const ICONS_DIR = path.join(ROOT, "src", "Icons");
-const ICONS_INDEX = path.join(ICONS_DIR, "index.ts");
-const PUBLIC_ICONS_DIR = path.join(ROOT, "public", "icons");
+const ICONS_ROOT = path.join(ROOT, "src", "icons");
+
+const LIBRARIES = [
+	{
+		name: "huge",
+		prefix: "hu",
+		dir: path.join(ICONS_ROOT, "huge"),
+		index: path.join(ICONS_ROOT, "huge", "index.ts"),
+	},
+	{
+		name: "lucide",
+		prefix: "lu",
+		dir: path.join(ICONS_ROOT, "lucide"),
+		index: path.join(ICONS_ROOT, "lucide", "index.ts"),
+	},
+] as const;
+
+const PUBLIC_ICONS_DIR = path.join(ROOT, "public", "r");
 
 const ensureDir = (dir: string) => {
 	if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 };
 
-function toPascalFromKebab(kebab: string): string {
-	return (
-		kebab
-			.split("-")
-			.map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-			.join("") + "Icon"
-	);
+function normalizeKebabName(name: string): string {
+	return name
+		.replace(/[A-Z]{2,}/g, (m) => m.toLowerCase().split("").join("-"))
+		.replace(/\d+/g, (m) => m.split("").join("-"))
+		.replace(/--+/g, "-")
+		.toLowerCase();
 }
 
-function loadIconList(): IconListItem[] {
-	const mod = require(ICONS_INDEX);
+function loadIconList(indexPath: string): IconListItem[] {
+	const mod = require(indexPath);
 	if (!mod || !mod.ICON_LIST) {
-		throw new Error("ICON_LIST not exported from src/Icons/index.ts");
+		throw new Error(`ICON_LIST not exported from ${indexPath}`);
 	}
 	return mod.ICON_LIST as IconListItem[];
-}
-
-function makeSafeFilename(name: string) {
-	return name.replace(/[^a-z0-9._-]/gi, "-");
-}
-
-function stubContentFor(name: string) {
-	const pascal = toPascalFromKebab(name);
-	return `export const ${pascal} = () => null;\nexport default ${pascal};\n`;
 }
 
 function main() {
 	ensureDir(PUBLIC_ICONS_DIR);
 
-	const iconList = loadIconList();
+	LIBRARIES.forEach((lib) => {
+		const iconList = loadIconList(lib.index);
 
-	const allowedNames = new Set<string>();
-	iconList.forEach((item) => {
-		if (item.icon?.name) allowedNames.add(item.icon.name);
-		allowedNames.add(toPascalFromKebab(item.name));
-	});
+		const tsxFiles = fs.existsSync(lib.dir)
+			? fs.readdirSync(lib.dir).filter((f) => f.endsWith("-icon.tsx"))
+			: [];
 
-	const dirEntries = fs.existsSync(ICONS_DIR) ? fs.readdirSync(ICONS_DIR) : [];
-	const tsxFiles = dirEntries.filter((f) => f.endsWith(".tsx"));
+		const allowedFiles = new Set<string>();
+		iconList.forEach((item) => {
+			const normalized = normalizeKebabName(item.name);
+			allowedFiles.add(`${normalized}-icon`);
+		});
 
-	const unmatched: string[] = [];
-	tsxFiles.forEach((file) => {
-		const base = path.basename(file, ".tsx");
-		if (!allowedNames.has(base)) unmatched.push(base);
-	});
+		const unmatched: string[] = [];
+		tsxFiles.forEach((file) => {
+			const base = path.basename(file, ".tsx");
+			if (!allowedFiles.has(base)) unmatched.push(base);
+		});
 
-	if (unmatched.length > 0) {
-		console.error(
-			"The following .tsx files do not have matching entries in ICON_LIST:",
-		);
-		unmatched.forEach((name) => console.error(name));
-		throw new Error("Unmatched .tsx files found. See console for list.");
-	}
-
-	iconList.forEach((item) => {
-		let filePath = "";
-		const compName = item.icon?.name || "";
-
-		const guess1 = path.join(ICONS_DIR, `${compName}.tsx`);
-		const guess2 = path.join(ICONS_DIR, `${toPascalFromKebab(item.name)}.tsx`);
-
-		if (fs.existsSync(guess1)) filePath = guess1;
-		else if (fs.existsSync(guess2)) filePath = guess2;
-
-		let content = "";
-		let sourceBasename = "";
-
-		if (filePath) {
-			try {
-				content = fs.readFileSync(filePath, "utf8");
-				sourceBasename = path.basename(filePath);
-			} catch {
-				content = stubContentFor(item.name);
-				sourceBasename = `${makeSafeFilename(item.name)}.tsx`;
-			}
-		} else {
-			content = stubContentFor(item.name);
-			sourceBasename = `${makeSafeFilename(item.name)}.tsx`;
+		if (unmatched.length > 0) {
+			console.error(`Unmatched .tsx files in ${lib.name}:`);
+			unmatched.forEach((n) => console.error(n));
+			throw new Error(`Unmatched ${lib.name} icons`);
 		}
 
-		const iconJson = {
-			name: item.name,
-			type: "registry:component",
-			addGlobalCss: false,
-			registryDependencies: [],
-			dependencies: ["motion"],
-			devDependencies: [],
-			keywords: item.keywords ?? [],
-			files: [
-				{
-					path: sourceBasename,
-					content,
-					type: "registry:component",
-				},
-			],
-		};
+		iconList.forEach((item) => {
+			const normalizedName = normalizeKebabName(item.name);
+			const sourceBasename = `${normalizedName}-icon.tsx`;
+			const filePath = path.join(lib.dir, sourceBasename);
 
-		const outFilePath = path.join(PUBLIC_ICONS_DIR, `${item.name}.json`);
-		fs.writeFileSync(outFilePath, JSON.stringify(iconJson, null, 2), "utf8");
+			if (!fs.existsSync(filePath)) {
+				throw new Error(`Missing icon file: ${filePath}`);
+			}
+
+			const content = fs.readFileSync(filePath, "utf8");
+
+			const iconJson = {
+				$schema: "https://ui.shadcn.com/schema/registry-item.json",
+				name: normalizedName,
+				type: "registry:ui",
+				addGlobalCss: false,
+				registryDependencies: [],
+				dependencies: ["motion"],
+				devDependencies: [],
+				files: [
+					{
+						path: sourceBasename,
+						content,
+						type: "registry:ui",
+					},
+				],
+			};
+
+			const outFilePath = path.join(
+				PUBLIC_ICONS_DIR,
+				`${lib.prefix}-${normalizedName}.json`,
+			);
+
+			fs.writeFileSync(outFilePath, JSON.stringify(iconJson, null, 2), "utf8");
+		});
 	});
 }
 
-// main();
+main();

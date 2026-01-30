@@ -9,17 +9,17 @@ const CmdSection: React.FC = () => {
 			tabs={[
 				{
 					label: "npm",
-					code: "npx shadcn@latest add https://animateicons.in/icons/",
+					code: "npx shadcn@latest add https://animateicons.in/r/",
 					language: "bash",
 				},
 				{
 					label: "pnpm",
-					code: "pnpm dlx shadcn@latest add https://animateicons.in/icons/",
+					code: "pnpm dlx shadcn@latest add https://animateicons.in/r/",
 					language: "bash",
 				},
 				{
 					label: "bun",
-					code: "bunx shadcn@latest add https://animateicons.in/icons/",
+					code: "bunx shadcn@latest add https://animateicons.in/r/",
 					language: "bash",
 				},
 			]}

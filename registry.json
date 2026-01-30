@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry.json",
+	"name": "animateicons",
+	"homepage": "https://animateicons.in",
+	"items": [
+		{
+			"name": "a-arrow-down",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "a-arrow-down.tsx",
+					"type": "registry:ui"
+				}
+			]
+		}
+	]
+}

@@ -1,14 +1,13 @@
 "use client";
 
-import { HuHeartIcon } from "@/Icons/huge/HuHeartIcon";
-import { CoffeeIcon, CoffeeIconHandle } from "@/Icons/lucide/CoffeeIcon";
-import { CopyIcon, CopyIconHandle } from "@/Icons/lucide/CopyIcon";
+import { HeartIcon, HeartIconHandle } from "@/icons/huge/heart-icon";
+import { CoffeeIcon, CoffeeIconHandle } from "@/icons/lucide/coffee-icon";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import {
 	DollarSignIcon,
 	DollarSignIconHandle,
-} from "@/Icons/lucide/DollarSignIcon";
-import { HeartIconHandle } from "@/Icons/lucide/HeartIcon";
-import { XIcon } from "@/Icons/lucide/XIcon";
+} from "@/icons/lucide/dollar-sign-icon";
+import { XIcon } from "@/icons/lucide/x-icon";
 import handleHover from "@/utils/handleHover";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -103,7 +102,7 @@ const Sponsors: React.FC<Props> = () => {
 						{isOpen ? (
 							<XIcon className="size-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
 						) : (
-							<HuHeartIcon ref={heRef} className="size-4.5 text-pink-500" />
+							<HeartIcon ref={heRef} className="size-4.5 text-pink-500" />
 						)}
 					</button>
 
@@ -140,10 +139,7 @@ const Sponsors: React.FC<Props> = () => {
 									onMouseEnter={(e) => handleHover(e, heartRef)}
 									onMouseLeave={(e) => handleHover(e, heartRef)}
 								>
-									<HuHeartIcon
-										ref={heartRef}
-										className="size-4 text-pink-500"
-									/>
+									<HeartIcon ref={heartRef} className="size-4 text-pink-500" />
 									<span>GitHub Sponsors</span>
 								</Link>
 

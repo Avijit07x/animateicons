@@ -1,6 +1,6 @@
 "use client";
 
-import { HuHeartIcon, HuHeartIconHandle } from "@/Icons/huge/HuHeartIcon";
+import { HeartIcon, HeartIconHandle } from "@/icons/huge/heart-icon";
 import handleHover from "@/utils/handleHover";
 import { isWinterSeason } from "@/utils/isWinterSeason";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const Navbar: React.FC = () => {
 	const [stars, setStars] = useState<number | null>(250);
-	const heartRef = useRef<HuHeartIconHandle>(null);
+	const heartRef = useRef<HeartIconHandle>(null);
 	const isWinter = isWinterSeason();
 
 	useEffect(() => {
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
 										onMouseLeave={(e) => handleHover(e, heartRef)}
 										className="hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
 									>
-										<HuHeartIcon
+										<HeartIcon
 											ref={heartRef}
 											className="size-4.5 text-pink-500"
 										/>
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 										{stars !== null && (
 											<NumberTicker
 												value={stars}
-												className="text-textPrimary min-w-7 !text-xs"
+												className="text-textPrimary min-w-7 text-xs!"
 											/>
 										)}
 									</Link>
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
 								rel="noopener noreferrer"
 								className="hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
 							>
-								<HuHeartIcon className="size-4.5 text-pink-500" />
+								<HeartIcon className="size-4.5 text-pink-500" />
 							</Link>
 							<Separator orientation={"vertical"} className="h-4! w-1" />
 							<Link
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
 								{stars !== null && (
 									<NumberTicker
 										value={stars}
-										className="text-textPrimary min-w-7 !text-xs"
+										className="text-textPrimary min-w-7 text-xs!"
 									/>
 								)}
 							</Link>

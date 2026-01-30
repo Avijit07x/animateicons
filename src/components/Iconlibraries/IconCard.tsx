@@ -1,4 +1,4 @@
-import { MoveRightIcon } from "@/Icons/lucide/MoveRightIcon";
+import { MoveRightIcon } from "@/icons/lucide/move-right-icon";
 import { motion, Variants } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";

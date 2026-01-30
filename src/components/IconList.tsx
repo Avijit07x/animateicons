@@ -1,4 +1,4 @@
-import { ICON_LIST } from "@/Icons/lucide";
+import { ICON_LIST } from "@/icons/lucide";
 import { differenceInDays } from "date-fns";
 import Fuse from "fuse.js";
 import { AnimatePresence, motion } from "motion/react";

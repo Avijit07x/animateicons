@@ -1,6 +1,6 @@
 "use client";
 
-import { CopyIcon, CopyIconHandle } from "@/Icons/lucide/CopyIcon";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import { cn } from "@/lib/utils";
 import handleHover from "@/utils/handleHover";
 import { Check } from "lucide-react";
@@ -98,16 +98,14 @@ export function CodeBlock({
 										"relative my-1 mb-1.5 flex items-center gap-1.5 rounded-lg px-2 font-medium transition-colors",
 										"first:ml-2.5",
 										"hover:bg-surfaceHover",
-										activeTab === index
-											? "text-textPrimary"
-											: "text-textMuted",
+										activeTab === index ? "text-textPrimary" : "text-textMuted",
 									)}
 								>
 									{tab.label}
 									{activeTab === index && (
 										<motion.div
 											layoutId="activeTabIndicator"
-											className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-textPrimary"
+											className="bg-textPrimary absolute right-0 bottom-0 left-0 h-0.5 rounded-full"
 											transition={{
 												type: "spring",
 												stiffness: 500,

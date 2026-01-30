@@ -1,7 +1,7 @@
-import { BadgeCentIcon } from "@/Icons/lucide/BadgeCentIcon";
-import { SettingsIcon } from "@/Icons/lucide/SettingsIcon";
-import { SparklesIcon } from "@/Icons/lucide/SparklesIcon";
-import { ZapIcon } from "@/Icons/lucide/ZapIcon";
+import { BadgeCentIcon } from "@/icons/lucide/badge-cent-icon";
+import { SettingsIcon } from "@/icons/lucide/settings-icon";
+import { SparklesIcon } from "@/icons/lucide/sparkles-icon";
+import { ZapIcon } from "@/icons/lucide/zap-icon";
 
 export const featureList: FeatureItem[] = [
 	{
