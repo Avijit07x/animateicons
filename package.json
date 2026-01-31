@@ -4,7 +4,7 @@
 	"private": true,
 	"packageManager": "pnpm@10.0.0",
 	"scripts": {
-		"gen:icons": "tsx src/scripts/generate-icons-json.ts && tsx src/scripts/generate-registry.ts",
+		"gen:icons": "tsx scripts/generate-icons-json.ts && tsx scripts/generate-registry.ts",
 		"prebuild": "pnpm run gen:icons",
 		"dev": "pnpm run gen:icons && next dev --turbopack",
 		"build": "next build",

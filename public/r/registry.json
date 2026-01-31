@@ -7,12 +7,15 @@
       "name": "hu-bell",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/bell-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/bell-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bell.tsx"
         }
       ]
     },
@@ -20,12 +23,15 @@
       "name": "hu-bookmark",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/bookmark-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/bookmark-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark.tsx"
         }
       ]
     },
@@ -33,12 +39,15 @@
       "name": "hu-check-check",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/check-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/check-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/check-check.tsx"
         }
       ]
     },
@@ -46,12 +55,15 @@
       "name": "hu-check",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/check.tsx"
         }
       ]
     },
@@ -59,12 +71,15 @@
       "name": "hu-chevron-right",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/chevron-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/chevron-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevron-right.tsx"
         }
       ]
     },
@@ -72,12 +87,15 @@
       "name": "hu-copy",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/copy-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/copy-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/copy.tsx"
         }
       ]
     },
@@ -85,12 +103,15 @@
       "name": "hu-download",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/download-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/download-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/download.tsx"
         }
       ]
     },
@@ -98,12 +119,15 @@
       "name": "hu-eye",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/eye-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/eye-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/eye.tsx"
         }
       ]
     },
@@ -111,12 +135,15 @@
       "name": "hu-heart",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/heart-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/heart-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart.tsx"
         }
       ]
     },
@@ -124,12 +151,15 @@
       "name": "hu-search",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [],
+      "dependencies": [
+        "motion"
+      ],
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/huge/search-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/huge/search-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/search.tsx"
         }
       ]
     },
@@ -143,8 +173,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/a-arrow-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/a-arrow-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/a-arrow-down.tsx"
         }
       ]
     },
@@ -158,8 +189,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/a-arrow-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/a-arrow-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/a-arrow-up.tsx"
         }
       ]
     },
@@ -173,8 +205,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/accessibility-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/accessibility-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/accessibility.tsx"
         }
       ]
     },
@@ -188,8 +221,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/activity-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/activity-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/activity.tsx"
         }
       ]
     },
@@ -203,8 +237,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/angry-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/angry-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/angry.tsx"
         }
       ]
     },
@@ -218,8 +253,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/annoyed-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/annoyed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/annoyed.tsx"
         }
       ]
     },
@@ -233,8 +269,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/arrow-down-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/arrow-down-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-down-up.tsx"
         }
       ]
     },
@@ -248,8 +285,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/arrow-up-0-1-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/arrow-up-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-up-0-1.tsx"
         }
       ]
     },
@@ -263,8 +301,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/arrow-up-1-0-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/arrow-up-1-0-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-up-1-0.tsx"
         }
       ]
     },
@@ -278,8 +317,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/arrow-up-a-z-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/arrow-up-a-z-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-up-a-z.tsx"
         }
       ]
     },
@@ -293,8 +333,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/arrow-up-z-a-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/arrow-up-z-a-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-up-z-a.tsx"
         }
       ]
     },
@@ -308,8 +349,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/atom-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/atom-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/atom.tsx"
         }
       ]
     },
@@ -323,8 +365,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/audio-lines-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/audio-lines-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/audio-lines.tsx"
         }
       ]
     },
@@ -338,8 +381,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/badge-cent-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/badge-cent-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/badge-cent.tsx"
         }
       ]
     },
@@ -353,8 +397,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/badge-dollar-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/badge-dollar-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/badge-dollar.tsx"
         }
       ]
     },
@@ -368,8 +413,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/baggage-claim-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/baggage-claim-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/baggage-claim.tsx"
         }
       ]
     },
@@ -383,8 +429,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/battery-full-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/battery-full-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/battery-full.tsx"
         }
       ]
     },
@@ -398,8 +445,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/battery-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/battery-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/battery.tsx"
         }
       ]
     },
@@ -413,8 +461,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bell-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bell-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bell.tsx"
         }
       ]
     },
@@ -428,8 +477,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bell-minus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bell-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bell-minus.tsx"
         }
       ]
     },
@@ -443,8 +493,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bell-plus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bell-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bell-plus.tsx"
         }
       ]
     },
@@ -458,8 +509,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bell-ring-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bell-ring-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bell-ring.tsx"
         }
       ]
     },
@@ -473,8 +525,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/biceps-flexed-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/biceps-flexed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/biceps-flexed.tsx"
         }
       ]
     },
@@ -488,8 +541,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bitcoin-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bitcoin-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bitcoin.tsx"
         }
       ]
     },
@@ -503,8 +557,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/blend-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/blend-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/blend.tsx"
         }
       ]
     },
@@ -518,8 +573,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/blocks-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/blocks-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/blocks.tsx"
         }
       ]
     },
@@ -533,8 +589,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bolt-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bolt-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bolt.tsx"
         }
       ]
     },
@@ -548,8 +605,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/book-open-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/book-open-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/book-open-check.tsx"
         }
       ]
     },
@@ -563,8 +621,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/book-open-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/book-open-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/book-open.tsx"
         }
       ]
     },
@@ -578,8 +637,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/book-open-text-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/book-open-text-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/book-open-text.tsx"
         }
       ]
     },
@@ -593,8 +653,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bookmark-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bookmark-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-check.tsx"
         }
       ]
     },
@@ -608,8 +669,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bookmark-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bookmark-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark.tsx"
         }
       ]
     },
@@ -623,8 +685,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bookmark-minus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bookmark-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-minus.tsx"
         }
       ]
     },
@@ -638,8 +701,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bookmark-plus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bookmark-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-plus.tsx"
         }
       ]
     },
@@ -653,8 +717,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bookmark-x-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bookmark-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-x.tsx"
         }
       ]
     },
@@ -668,8 +733,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/brain-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/brain-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/brain.tsx"
         }
       ]
     },
@@ -683,8 +749,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/bring-to-front-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/bring-to-front-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bring-to-front.tsx"
         }
       ]
     },
@@ -698,8 +765,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-area-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-area-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-area.tsx"
         }
       ]
     },
@@ -713,8 +781,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-bar-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-bar-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-bar.tsx"
         }
       ]
     },
@@ -728,8 +797,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-column-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-column-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-column.tsx"
         }
       ]
     },
@@ -743,8 +813,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-line-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-line-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-line.tsx"
         }
       ]
     },
@@ -758,8 +829,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-network-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-network-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-network.tsx"
         }
       ]
     },
@@ -773,8 +845,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-no-axes-combined-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-no-axes-combined-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-no-axes-combined.tsx"
         }
       ]
     },
@@ -788,8 +861,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-pie-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-pie-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-pie.tsx"
         }
       ]
     },
@@ -803,8 +877,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chart-scatter-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chart-scatter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-scatter.tsx"
         }
       ]
     },
@@ -818,8 +893,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/check-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/check-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/check-check.tsx"
         }
       ]
     },
@@ -833,8 +909,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/check.tsx"
         }
       ]
     },
@@ -848,8 +925,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevron-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevron-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevron-down.tsx"
         }
       ]
     },
@@ -863,8 +941,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevron-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevron-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevron-left.tsx"
         }
       ]
     },
@@ -878,8 +957,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevron-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevron-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevron-right.tsx"
         }
       ]
     },
@@ -893,8 +973,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevron-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevron-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevron-up.tsx"
         }
       ]
     },
@@ -908,8 +989,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-down.tsx"
         }
       ]
     },
@@ -923,8 +1005,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-left.tsx"
         }
       ]
     },
@@ -938,8 +1021,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-left-right-ellipsis-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-left-right-ellipsis-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-left-right-ellipsis.tsx"
         }
       ]
     },
@@ -953,8 +1037,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-left-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-left-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-left-right.tsx"
         }
       ]
     },
@@ -968,8 +1053,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-right.tsx"
         }
       ]
     },
@@ -983,8 +1069,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-right-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-right-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-right-left.tsx"
         }
       ]
     },
@@ -998,8 +1085,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chevrons-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chevrons-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-up.tsx"
         }
       ]
     },
@@ -1013,8 +1101,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/chrome-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/chrome-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chrome.tsx"
         }
       ]
     },
@@ -1028,8 +1117,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-check-big-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-check-big-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-check-big.tsx"
         }
       ]
     },
@@ -1043,8 +1133,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-check.tsx"
         }
       ]
     },
@@ -1058,8 +1149,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-chevron-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-chevron-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-chevron-down.tsx"
         }
       ]
     },
@@ -1073,8 +1165,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-chevron-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-chevron-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-chevron-left.tsx"
         }
       ]
     },
@@ -1088,8 +1181,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-chevron-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-chevron-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-chevron-right.tsx"
         }
       ]
     },
@@ -1103,8 +1197,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-chevron-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-chevron-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-chevron-up.tsx"
         }
       ]
     },
@@ -1118,8 +1213,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/circle-plus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/circle-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-plus.tsx"
         }
       ]
     },
@@ -1133,8 +1229,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/clipboard-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/clipboard-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clipboard.tsx"
         }
       ]
     },
@@ -1148,8 +1245,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/cloud-upload-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/cloud-upload-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/cloud-upload.tsx"
         }
       ]
     },
@@ -1163,8 +1261,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/code-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/code-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/code.tsx"
         }
       ]
     },
@@ -1178,8 +1277,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/code-xml-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/code-xml-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/code-xml.tsx"
         }
       ]
     },
@@ -1193,8 +1293,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/coffee-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/coffee-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/coffee.tsx"
         }
       ]
     },
@@ -1208,8 +1309,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/compass-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/compass-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/compass.tsx"
         }
       ]
     },
@@ -1223,8 +1325,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/contact-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/contact-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/contact.tsx"
         }
       ]
     },
@@ -1238,8 +1341,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/contact-round-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/contact-round-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/contact-round.tsx"
         }
       ]
     },
@@ -1253,8 +1357,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/copy-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/copy-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/copy.tsx"
         }
       ]
     },
@@ -1268,8 +1373,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-down-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-down-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-down-left.tsx"
         }
       ]
     },
@@ -1283,8 +1389,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-down-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-down-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-down-right.tsx"
         }
       ]
     },
@@ -1298,8 +1405,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-left-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-left-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-left-down.tsx"
         }
       ]
     },
@@ -1313,8 +1421,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-left-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-left-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-left-up.tsx"
         }
       ]
     },
@@ -1328,8 +1437,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-right-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-right-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-right-down.tsx"
         }
       ]
     },
@@ -1343,8 +1453,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-right-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-right-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-right-up.tsx"
         }
       ]
     },
@@ -1358,8 +1469,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-up-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-up-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-up-left.tsx"
         }
       ]
     },
@@ -1373,8 +1485,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/corner-up-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/corner-up-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/corner-up-right.tsx"
         }
       ]
     },
@@ -1388,8 +1501,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/credit-card-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/credit-card-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card.tsx"
         }
       ]
     },
@@ -1403,8 +1517,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/dashboard-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/dashboard-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dashboard.tsx"
         }
       ]
     },
@@ -1418,8 +1533,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/diff-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/diff-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/diff.tsx"
         }
       ]
     },
@@ -1433,8 +1549,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/dollar-sign-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/dollar-sign-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dollar-sign.tsx"
         }
       ]
     },
@@ -1448,8 +1565,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/download-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/download-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/download.tsx"
         }
       ]
     },
@@ -1463,8 +1581,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/ellipsis-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/ellipsis-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ellipsis.tsx"
         }
       ]
     },
@@ -1478,8 +1597,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/ellipsis-vertical-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/ellipsis-vertical-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ellipsis-vertical.tsx"
         }
       ]
     },
@@ -1493,8 +1613,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/euro-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/euro-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/euro.tsx"
         }
       ]
     },
@@ -1508,8 +1629,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/external-link-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/external-link-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/external-link.tsx"
         }
       ]
     },
@@ -1523,8 +1645,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/eye-closed-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/eye-closed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/eye-closed.tsx"
         }
       ]
     },
@@ -1538,8 +1661,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/eye-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/eye-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/eye.tsx"
         }
       ]
     },
@@ -1553,8 +1677,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/eye-off-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/eye-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/eye-off.tsx"
         }
       ]
     },
@@ -1568,8 +1693,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/facebook-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/facebook-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/facebook.tsx"
         }
       ]
     },
@@ -1583,8 +1709,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/figma-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/figma-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/figma.tsx"
         }
       ]
     },
@@ -1598,8 +1725,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/flame-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/flame-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/flame.tsx"
         }
       ]
     },
@@ -1613,8 +1741,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/folder-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/folder-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/folder.tsx"
         }
       ]
     },
@@ -1628,8 +1757,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/folder-open-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/folder-open-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/folder-open.tsx"
         }
       ]
     },
@@ -1643,8 +1773,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/framer-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/framer-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/framer.tsx"
         }
       ]
     },
@@ -1658,8 +1789,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/gamepad-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/gamepad-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/gamepad.tsx"
         }
       ]
     },
@@ -1673,8 +1805,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/georgian-lari-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/georgian-lari-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/georgian-lari.tsx"
         }
       ]
     },
@@ -1688,8 +1821,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/github-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/github-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/github.tsx"
         }
       ]
     },
@@ -1703,8 +1837,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/globe-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/globe-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/globe.tsx"
         }
       ]
     },
@@ -1718,8 +1853,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/globe-lock-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/globe-lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/globe-lock.tsx"
         }
       ]
     },
@@ -1733,8 +1869,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/hand-coins-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/hand-coins-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/hand-coins.tsx"
         }
       ]
     },
@@ -1748,8 +1885,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/headphones-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/headphones-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headphones.tsx"
         }
       ]
     },
@@ -1763,8 +1901,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/headphones-off-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/headphones-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headphones-off.tsx"
         }
       ]
     },
@@ -1778,8 +1917,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/headset-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/headset-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headset.tsx"
         }
       ]
     },
@@ -1793,8 +1933,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/heart-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/heart-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart.tsx"
         }
       ]
     },
@@ -1808,8 +1949,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/house-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/house-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/house.tsx"
         }
       ]
     },
@@ -1823,8 +1965,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/indian-rupee-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/indian-rupee-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/indian-rupee.tsx"
         }
       ]
     },
@@ -1838,8 +1981,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/info-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/info-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/info.tsx"
         }
       ]
     },
@@ -1853,8 +1997,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/instagram-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/instagram-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/instagram.tsx"
         }
       ]
     },
@@ -1868,8 +2013,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/key-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/key-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/key.tsx"
         }
       ]
     },
@@ -1883,8 +2029,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/key-round-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/key-round-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/key-round.tsx"
         }
       ]
     },
@@ -1898,8 +2045,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/key-square-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/key-square-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/key-square.tsx"
         }
       ]
     },
@@ -1913,8 +2061,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/layout-grid-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/layout-grid-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-grid.tsx"
         }
       ]
     },
@@ -1928,8 +2077,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/layout-list-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/layout-list-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-list.tsx"
         }
       ]
     },
@@ -1943,8 +2093,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/link-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/link-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/link.tsx"
         }
       ]
     },
@@ -1958,8 +2109,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/linkedin-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/linkedin-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/linkedin.tsx"
         }
       ]
     },
@@ -1973,8 +2125,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/list-chevrons-up-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/list-chevrons-up-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-chevrons-up-down.tsx"
         }
       ]
     },
@@ -1988,8 +2141,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/loader-circle-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/loader-circle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/loader-circle.tsx"
         }
       ]
     },
@@ -2003,8 +2157,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/loader-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/loader-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/loader.tsx"
         }
       ]
     },
@@ -2018,8 +2173,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/lock-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lock.tsx"
         }
       ]
     },
@@ -2033,8 +2189,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/login-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/login-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/login.tsx"
         }
       ]
     },
@@ -2048,8 +2205,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/logout-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/logout-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/logout.tsx"
         }
       ]
     },
@@ -2063,8 +2221,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/mail-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/mail-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mail.tsx"
         }
       ]
     },
@@ -2078,8 +2237,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/mails-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/mails-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mails.tsx"
         }
       ]
     },
@@ -2093,8 +2253,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/map-pin-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/map-pin-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/map-pin-check.tsx"
         }
       ]
     },
@@ -2108,8 +2269,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/map-pin-check-inside-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/map-pin-check-inside-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/map-pin-check-inside.tsx"
         }
       ]
     },
@@ -2123,8 +2285,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/map-pin-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/map-pin-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/map-pin.tsx"
         }
       ]
     },
@@ -2138,8 +2301,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/map-pinned-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/map-pinned-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/map-pinned.tsx"
         }
       ]
     },
@@ -2153,8 +2317,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/menu-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/menu-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/menu.tsx"
         }
       ]
     },
@@ -2168,8 +2333,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/message-circle-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/message-circle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle.tsx"
         }
       ]
     },
@@ -2183,8 +2349,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/mic-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/mic-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mic.tsx"
         }
       ]
     },
@@ -2198,8 +2365,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/mic-off-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/mic-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mic-off.tsx"
         }
       ]
     },
@@ -2213,8 +2381,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/minus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/minus.tsx"
         }
       ]
     },
@@ -2228,8 +2397,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/moon-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/moon-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/moon.tsx"
         }
       ]
     },
@@ -2243,8 +2413,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/mouse-pointer-click-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/mouse-pointer-click-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mouse-pointer-click.tsx"
         }
       ]
     },
@@ -2258,8 +2429,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/move-left-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/move-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-left.tsx"
         }
       ]
     },
@@ -2273,8 +2445,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/move-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/move-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-right.tsx"
         }
       ]
     },
@@ -2288,8 +2461,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/paperclip-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/paperclip-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/paperclip.tsx"
         }
       ]
     },
@@ -2303,8 +2477,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/pause-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/pause-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pause.tsx"
         }
       ]
     },
@@ -2318,8 +2493,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/philippine-peso-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/philippine-peso-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/philippine-peso.tsx"
         }
       ]
     },
@@ -2333,8 +2509,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/phone-call-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/phone-call-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/phone-call.tsx"
         }
       ]
     },
@@ -2348,8 +2525,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/phone-forwarded-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/phone-forwarded-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/phone-forwarded.tsx"
         }
       ]
     },
@@ -2363,8 +2541,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/phone-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/phone-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/phone.tsx"
         }
       ]
     },
@@ -2378,8 +2557,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/phone-incoming-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/phone-incoming-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/phone-incoming.tsx"
         }
       ]
     },
@@ -2393,8 +2573,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/phone-missed-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/phone-missed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/phone-missed.tsx"
         }
       ]
     },
@@ -2408,8 +2589,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/play-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/play-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/play.tsx"
         }
       ]
     },
@@ -2423,8 +2605,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/plus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/plus.tsx"
         }
       ]
     },
@@ -2438,8 +2621,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/pound-sterling-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/pound-sterling-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pound-sterling.tsx"
         }
       ]
     },
@@ -2453,8 +2637,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/qr-code-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/qr-code-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/qr-code.tsx"
         }
       ]
     },
@@ -2468,8 +2653,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/reply-all-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/reply-all-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/reply-all.tsx"
         }
       ]
     },
@@ -2483,8 +2669,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/reply-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/reply-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/reply.tsx"
         }
       ]
     },
@@ -2498,8 +2685,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/rocket-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/rocket-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/rocket.tsx"
         }
       ]
     },
@@ -2513,8 +2701,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/russian-ruble-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/russian-ruble-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/russian-ruble.tsx"
         }
       ]
     },
@@ -2528,8 +2717,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/saudi-riyal-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/saudi-riyal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/saudi-riyal.tsx"
         }
       ]
     },
@@ -2543,8 +2733,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/scan-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/scan-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/scan.tsx"
         }
       ]
     },
@@ -2558,8 +2749,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/scan-line-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/scan-line-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/scan-line.tsx"
         }
       ]
     },
@@ -2573,8 +2765,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/scan-qr-code-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/scan-qr-code-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/scan-qr-code.tsx"
         }
       ]
     },
@@ -2588,8 +2781,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/search-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/search-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/search.tsx"
         }
       ]
     },
@@ -2603,8 +2797,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/send-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/send-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/send.tsx"
         }
       ]
     },
@@ -2618,8 +2813,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/settings-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/settings-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/settings.tsx"
         }
       ]
     },
@@ -2633,8 +2829,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/share-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/share-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/share.tsx"
         }
       ]
     },
@@ -2648,8 +2845,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/shield-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/shield-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-check.tsx"
         }
       ]
     },
@@ -2663,8 +2861,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/shield-user-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/shield-user-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-user.tsx"
         }
       ]
     },
@@ -2678,8 +2877,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/shield-x-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/shield-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-x.tsx"
         }
       ]
     },
@@ -2693,8 +2893,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/shopping-bag-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/shopping-bag-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shopping-bag.tsx"
         }
       ]
     },
@@ -2708,8 +2909,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/shopping-cart-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/shopping-cart-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shopping-cart.tsx"
         }
       ]
     },
@@ -2723,8 +2925,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/signal-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/signal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/signal.tsx"
         }
       ]
     },
@@ -2738,8 +2941,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/sliders-horizontal-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/sliders-horizontal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/sliders-horizontal.tsx"
         }
       ]
     },
@@ -2753,8 +2957,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/snow-flake-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/snow-flake-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/snow-flake.tsx"
         }
       ]
     },
@@ -2768,8 +2973,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/sparkles-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/sparkles-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/sparkles.tsx"
         }
       ]
     },
@@ -2783,8 +2989,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/spray-can-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/spray-can-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/spray-can.tsx"
         }
       ]
     },
@@ -2798,8 +3005,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/square-arrow-out-up-right-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/square-arrow-out-up-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-out-up-right.tsx"
         }
       ]
     },
@@ -2813,8 +3021,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/star-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/star-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star.tsx"
         }
       ]
     },
@@ -2828,8 +3037,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/sun-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/sun-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/sun.tsx"
         }
       ]
     },
@@ -2843,8 +3053,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/swiss-franc-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/swiss-franc-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/swiss-franc.tsx"
         }
       ]
     },
@@ -2858,8 +3069,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/swords-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/swords-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/swords.tsx"
         }
       ]
     },
@@ -2873,8 +3085,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/telescope-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/telescope-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/telescope.tsx"
         }
       ]
     },
@@ -2888,8 +3101,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/terminal-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/terminal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/terminal.tsx"
         }
       ]
     },
@@ -2903,8 +3117,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/thumbs-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/thumbs-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/thumbs-down.tsx"
         }
       ]
     },
@@ -2918,8 +3133,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/thumbs-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/thumbs-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/thumbs-up.tsx"
         }
       ]
     },
@@ -2933,8 +3149,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/trash-2-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/trash-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/trash-2.tsx"
         }
       ]
     },
@@ -2948,8 +3165,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/trash-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/trash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/trash.tsx"
         }
       ]
     },
@@ -2963,8 +3181,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/trending-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/trending-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/trending-down.tsx"
         }
       ]
     },
@@ -2978,8 +3197,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/trending-up-down-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/trending-up-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/trending-up-down.tsx"
         }
       ]
     },
@@ -2993,8 +3213,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/trending-up-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/trending-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/trending-up.tsx"
         }
       ]
     },
@@ -3008,8 +3229,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/turkish-lira-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/turkish-lira-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/turkish-lira.tsx"
         }
       ]
     },
@@ -3023,8 +3245,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/twitter-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/twitter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/twitter.tsx"
         }
       ]
     },
@@ -3038,8 +3261,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/unlink-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/unlink-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/unlink.tsx"
         }
       ]
     },
@@ -3053,8 +3277,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/upload-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/upload-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/upload.tsx"
         }
       ]
     },
@@ -3068,8 +3293,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-check.tsx"
         }
       ]
     },
@@ -3083,8 +3309,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-cog-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-cog.tsx"
         }
       ]
     },
@@ -3098,8 +3325,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user.tsx"
         }
       ]
     },
@@ -3113,8 +3341,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-lock-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-lock.tsx"
         }
       ]
     },
@@ -3128,8 +3357,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-minus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-minus.tsx"
         }
       ]
     },
@@ -3143,8 +3373,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-pen-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-pen-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-pen.tsx"
         }
       ]
     },
@@ -3158,8 +3389,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-plus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-plus.tsx"
         }
       ]
     },
@@ -3173,8 +3405,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-check-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-check.tsx"
         }
       ]
     },
@@ -3188,8 +3421,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-cog-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-cog.tsx"
         }
       ]
     },
@@ -3203,8 +3437,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round.tsx"
         }
       ]
     },
@@ -3218,8 +3453,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-minus-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-minus.tsx"
         }
       ]
     },
@@ -3233,8 +3469,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-pen-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-pen-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-pen.tsx"
         }
       ]
     },
@@ -3248,8 +3485,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-search-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-search-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-search.tsx"
         }
       ]
     },
@@ -3263,8 +3501,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-round-x-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-round-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-x.tsx"
         }
       ]
     },
@@ -3278,8 +3517,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-search-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-search-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-search.tsx"
         }
       ]
     },
@@ -3293,8 +3533,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-star-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-star-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-star.tsx"
         }
       ]
     },
@@ -3308,8 +3549,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/user-x-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/user-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-x.tsx"
         }
       ]
     },
@@ -3323,8 +3565,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/users-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/users-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/users.tsx"
         }
       ]
     },
@@ -3338,8 +3581,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/users-round-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/users-round-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/users-round.tsx"
         }
       ]
     },
@@ -3353,8 +3597,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wallet-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wallet-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wallet.tsx"
         }
       ]
     },
@@ -3368,8 +3613,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wallet-minimal-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wallet-minimal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wallet-minimal.tsx"
         }
       ]
     },
@@ -3383,8 +3629,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/webhook-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/webhook-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/webhook.tsx"
         }
       ]
     },
@@ -3398,8 +3645,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wifi-cog-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wifi-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-cog.tsx"
         }
       ]
     },
@@ -3413,8 +3661,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wifi-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wifi-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi.tsx"
         }
       ]
     },
@@ -3428,8 +3677,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wifi-off-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wifi-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-off.tsx"
         }
       ]
     },
@@ -3443,8 +3693,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wifi-pen-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wifi-pen-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-pen.tsx"
         }
       ]
     },
@@ -3458,8 +3709,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/wifi-sync-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/wifi-sync-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-sync.tsx"
         }
       ]
     },
@@ -3473,8 +3725,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/x-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/x.tsx"
         }
       ]
     },
@@ -3488,8 +3741,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/yen-yuan-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/yen-yuan-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/yen-yuan.tsx"
         }
       ]
     },
@@ -3503,8 +3757,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "src/icons/lucide/zap-icon.tsx",
-          "type": "registry:ui"
+          "path": "icons/lucide/zap-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/zap.tsx"
         }
       ]
     }
