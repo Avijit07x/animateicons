@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 						<h3 className="text-textPrimary text-sm font-semibold">
 							AnimateIcons
 						</h3>
-						<p className="max-w-xs text-xs text-textMuted">
+						<p className="text-textMuted max-w-xs text-xs">
 							An open-source animated SVG icon library for modern React
 							interfaces. Built for performance and smooth micro-interactions.
 						</p>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="border-divider/50 mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-xs text-textMuted md:flex-row">
+				<div className="border-divider/50 text-textMuted mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-xs md:flex-row">
 					<span>Open source · MIT licensed</span>
 					<span>Created by Avijit Dey</span>
 				</div>

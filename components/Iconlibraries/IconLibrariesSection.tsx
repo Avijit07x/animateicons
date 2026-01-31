@@ -72,7 +72,7 @@ const IconLibrariesSection: React.FC = () => {
 					))}
 				</motion.div>
 
-				<p className="mt-12 text-center text-xs text-textMuted">
+				<p className="text-textMuted mt-12 text-center text-xs">
 					More icon libraries will be added over time.
 				</p>
 			</div>

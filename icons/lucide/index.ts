@@ -232,7 +232,6 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2025-12-13",
   keywords: ["menu", "navigation", "options", "sidebar", "list"],
  },
-
  {
   name: "dashboard",
   icon: DashboardIcon,
@@ -757,7 +756,7 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["subtract", "remove", "decrease", "reduce", "negative"],
  },
  {
-  name: "X",
+  name: "x",
   icon: XIcon,
   addedAt: "2025-08-07",
   keywords: ["cancel", "close", "delete", "remove", "exit", "stop"],

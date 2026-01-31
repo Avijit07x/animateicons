@@ -2,15 +2,19 @@
 import { differenceInDays } from "date-fns";
 import Link from "next/link";
 import React, { useState } from "react";
-import { getIconCode } from "../actions/getIconCode";
-import { CopyIcon, CopyIconHandle } from "../icons/lucide/copy-icon";
+import { getIconCode } from "../../../actions/getIconCode";
+import { CheckIcon } from "../../../components/icons/CheckIcon";
+import { V0Icon, V0IconHandle } from "../../../components/icons/V0Icon";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "../../../components/ui/tooltip";
+import { CopyIcon, CopyIconHandle } from "../../../icons/lucide/copy-icon";
 import {
 	TerminalIcon,
 	TerminalIconHandle,
-} from "../icons/lucide/terminal-icon";
-import { CheckIcon } from "./icons/CheckIcon";
-import { V0Icon, V0IconHandle } from "./icons/V0Icon";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+} from "../../../icons/lucide/terminal-icon";
 
 type Props = {
 	item: IconListItem;
@@ -57,15 +61,15 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	}
 
 	return (
-		<div className="bg-primary/10 border-primary/20 hover:bg-primary/12 relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
+		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
 			{item.addedAt && isNew(item.addedAt) && (
-				<span className="bg-primary/25 absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium text-gray-200">
+				<span className="absolute top-0 right-0 rounded-bl-md bg-(--cta-bg) px-2 py-1 text-xs font-medium text-gray-200">
 					New
 				</span>
 			)}
 
 			<IconComponent
-				className="hover:bg-primary/15 inline-block cursor-pointer rounded-xl p-3"
+				className="hover:bg-surface inline-block cursor-pointer rounded-xl p-3"
 				size={23}
 			/>
 			<p className="line-clamp-1 text-gray-300">{item.name}</p>
@@ -89,7 +93,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 					</TooltipTrigger>
 					<TooltipContent
 						side="bottom"
-						className="px-3! py-1.5! font-medium! text-blue-600!"
+						className="text-primary px-3! py-1.5! font-medium!"
 					>
 						copy shadcn/cli command
 					</TooltipContent>
@@ -109,7 +113,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 					</TooltipTrigger>
 					<TooltipContent
 						side="bottom"
-						className="px-3! py-1.5! font-medium! text-blue-600!"
+						className="text-primary px-3! py-1.5! font-medium!"
 					>
 						copy code
 					</TooltipContent>
@@ -130,7 +134,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 					</TooltipTrigger>
 					<TooltipContent
 						side="bottom"
-						className="px-3! py-1.5! font-medium! text-blue-600!"
+						className="text-primary px-3! py-1.5! font-medium!"
 					>
 						open in v0.dev
 					</TooltipContent>

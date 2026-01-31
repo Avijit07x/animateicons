@@ -4,13 +4,18 @@
 	"private": true,
 	"packageManager": "pnpm@10.0.0",
 	"scripts": {
-		"gen:icons": "tsx scripts/generate-icons-json.ts && tsx scripts/generate-registry.ts",
-		"prebuild": "pnpm run gen:icons",
-		"dev": "pnpm run gen:icons && next dev --turbopack",
+		"format": "prettier --write .",
+		"gen:icons-json": "tsx scripts/generate-icons-json.ts",
+		"gen:registry": "tsx scripts/generate-registry.ts",
+		"gen:icons": "pnpm run gen:icons-json && pnpm run gen:registry",
+		"check:icons": "tsx scripts/check-duplicate-icons.ts",
+		"check:registry": "tsx scripts/check-registry.ts",
+		"check:all": "pnpm run format && pnpm run check:icons && pnpm run check:registry",
+		"prebuild": "pnpm run gen:icons && pnpm run check:all",
+		"dev": "pnpm run gen:icons && pnpm run check:all && next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"p": "prettier --write ."
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"@radix-ui/react-dialog": "^1.1.15",
