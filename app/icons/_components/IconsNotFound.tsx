@@ -3,22 +3,24 @@ import React from "react";
 
 const IconsNotFound: React.FC = () => {
 	return (
-		<motion.div
-			initial={{ opacity: 0, y: 24, scale: 0.98 }}
-			animate={{ opacity: 1, y: 0, scale: 1 }}
-			transition={{ duration: 0.45, ease: "easeOut" }}
-			className="border-primary/20 bg-primary/10 mx-auto mt-12 flex max-w-sm flex-col items-center gap-2 rounded-lg border px-6 py-6 text-center shadow-lg backdrop-blur"
-		>
-			<h2 className="text-sm font-semibold tracking-wide text-zinc-300">
-				No icons found
-			</h2>
+		<div className="flex h-full w-full items-center justify-center">
+			<motion.div
+				initial={{ opacity: 0, y: 24, scale: 0.98 }}
+				animate={{ opacity: 1, y: 0, scale: 1 }}
+				transition={{ duration: 0.45, ease: "easeOut" }}
+				className="border-border/50 bg-surfaceElevated mx-auto mt-12 flex min-w-sm flex-col items-center gap-2 rounded-lg border px-6 py-6 text-center shadow-lg backdrop-blur"
+			>
+				<h2 className="text-textPrimary text-sm font-semibold tracking-wide">
+					No icons found
+				</h2>
 
-			<p className="text-muted-foreground text-xs leading-relaxed">
-				No results match your search.
-				<br />
-				Try using different or simpler keywords.
-			</p>
-		</motion.div>
+				<p className="text-muted-foreground text-xs leading-relaxed">
+					No results match your search.
+					<br />
+					Try using different or simpler keywords.
+				</p>
+			</motion.div>
+		</div>
 	);
 };
 

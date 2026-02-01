@@ -1,7 +1,7 @@
 "use client";
 import { HeartIconHandle } from "@/icons/huge/heart-icon";
 import Link from "next/link";
-import React, { SetStateAction, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GitHub } from "../../../components/icons/Github";
 import { NumberTicker } from "../../../components/magicui/number-ticker";
 import { Separator } from "../../../components/ui/separator";
@@ -14,12 +14,9 @@ import { HeartIcon } from "../../../icons/huge/heart-icon";
 import handleHover from "../../../utils/handleHover";
 import SearchBar from "./SearchBar";
 
-type Props = {
-	query: string;
-	setQuery: React.Dispatch<SetStateAction<string>>;
-};
+type Props = {};
 
-const Navbar: React.FC<Props> = ({ query, setQuery }) => {
+const Navbar: React.FC<Props> = () => {
 	const [stars, setStars] = useState<number | null>(250);
 	const heartRef = useRef<HeartIconHandle>(null);
 
@@ -41,7 +38,7 @@ const Navbar: React.FC<Props> = ({ query, setQuery }) => {
 
 	return (
 		<div className="border-border/50 bg-bgDark sticky top-0 z-50 flex h-15 w-full items-center justify-between border-b px-6 py-3">
-			<SearchBar setQuery={setQuery} query={query} />
+			<SearchBar />
 			<div className="hidden items-center gap-2 text-sm md:flex">
 				<Link
 					href="/icons/lucide"

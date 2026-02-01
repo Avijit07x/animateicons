@@ -3,29 +3,22 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-export async function getIconCode(iconName: string) {
+export type IconLibrary = "lucide" | "huge";
+
+export async function getIconCode(iconName: string, library: IconLibrary) {
 	try {
 		const ROOT = process.cwd();
-		const ICONS_DIR = path.join(ROOT, "src", "Icons");
 
-		const pascalName =
-			iconName
-				.split("-")
-				.map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-				.join("") + "Icon";
+		const ICONS_DIR = path.join(ROOT, "icons", library);
 
-		const filePath = path.join(ICONS_DIR, `${pascalName}.tsx`);
+		const fileName = `${iconName}-icon.tsx`;
+		const filePath = path.join(ICONS_DIR, fileName);
 
-		try {
-			await fs.access(filePath);
-		} catch {
-			throw new Error(`Icon file not found: ${filePath}`);
-		}
+		await fs.access(filePath);
 
 		const content = await fs.readFile(filePath, "utf8");
 		return content;
-	} catch (err) {
-		console.error(err);
+	} catch {
 		return "";
 	}
 }

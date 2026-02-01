@@ -1,4 +1,5 @@
 "use client";
+import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { differenceInDays } from "date-fns";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -26,11 +27,16 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	const cliRef = React.useRef<TerminalIconHandle>(null);
 	const codeRef = React.useRef<CopyIconHandle>(null);
 	const v0Ref = React.useRef<V0IconHandle>(null);
+	const library = useIconLibrary();
+
+	if (!library) {
+		throw new Error("useIconLibrary used outside /icons route");
+	}
 
 	const IconComponent = item.icon;
 
 	const copyToClipboard = async () => {
-		const code = await getIconCode(item.name);
+		const code = await getIconCode(item.name, library);
 		if (code) {
 			await navigator.clipboard.writeText(code);
 			setCopied(true);
@@ -63,7 +69,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	return (
 		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
 			{item.addedAt && isNew(item.addedAt) && (
-				<span className="absolute top-0 right-0 rounded-bl-md bg-(--cta-bg) px-2 py-1 text-xs font-medium text-gray-200">
+				<span className="bg-surface text-primaryHover absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium">
 					New
 				</span>
 			)}
