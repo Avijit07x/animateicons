@@ -1,5 +1,7 @@
 "use client";
+
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import handleHover from "@/utils/handleHover";
 import { differenceInDays } from "date-fns";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -27,7 +29,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	const cliRef = React.useRef<TerminalIconHandle>(null);
 	const codeRef = React.useRef<CopyIconHandle>(null);
 	const v0Ref = React.useRef<V0IconHandle>(null);
-	const library = useIconLibrary();
+	const { library, prefix } = useIconLibrary();
 
 	if (!library) {
 		throw new Error("useIconLibrary used outside /icons route");
@@ -49,14 +51,14 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		if (typeof window !== "undefined") {
 			const savedTab = localStorage.getItem("tab");
 			if (savedTab === "bun") {
-				cliTool = "bunx";
+				cliTool = "bunx --bun";
 			}
 			if (savedTab === "pnpm") {
 				cliTool = "pnpm dlx";
 			}
 		}
 
-		const command = `${cliTool} shadcn@latest add "https://animateicons.in/icons/${item.name}.json"`;
+		const command = `${cliTool} shadcn@latest add https://animateicons.in/icons/${prefix}-${item.name}.json`;
 		await navigator.clipboard.writeText(command);
 		setCopiedCli(true);
 		setTimeout(() => setCopiedCli(false), 1500);
@@ -87,8 +89,8 @@ const IconTile: React.FC<Props> = ({ item }) => {
 							className="flex size-6 items-center justify-center"
 							onClick={copyCliCommand}
 							aria-label={copiedCli ? "CLI Copied" : "Copy CLI Command"}
-							onMouseEnter={() => cliRef.current?.startAnimation()}
-							onMouseLeave={() => cliRef.current?.stopAnimation()}
+							onMouseEnter={(e) => handleHover(e, cliRef)}
+							onMouseLeave={(e) => handleHover(e, cliRef)}
 						>
 							{copiedCli ? (
 								<CheckIcon />
@@ -111,8 +113,8 @@ const IconTile: React.FC<Props> = ({ item }) => {
 							className="flex size-6 items-center justify-center"
 							onClick={copyToClipboard}
 							aria-label={copied ? "Code Copied" : "Copy JSX Code"}
-							onMouseEnter={() => codeRef.current?.startAnimation()}
-							onMouseLeave={() => codeRef.current?.stopAnimation()}
+							onMouseEnter={(e) => handleHover(e, codeRef)}
+							onMouseLeave={(e) => handleHover(e, codeRef)}
 						>
 							{copied ? <CheckIcon /> : <CopyIcon size={17} ref={codeRef} />}
 						</button>
@@ -132,8 +134,8 @@ const IconTile: React.FC<Props> = ({ item }) => {
 							rel="noopener noreferrer"
 							className="flex size-6 items-center justify-center"
 							aria-label="Open in v0.dev"
-							onMouseEnter={() => v0Ref.current?.startAnimation()}
-							onMouseLeave={() => v0Ref.current?.stopAnimation()}
+							onMouseEnter={(e) => handleHover(e, v0Ref)}
+							onMouseLeave={(e) => handleHover(e, v0Ref)}
 						>
 							<V0Icon size={22} ref={v0Ref} />
 						</Link>

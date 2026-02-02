@@ -20,7 +20,7 @@ const ICON_LIST_MAP = {
 
 const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearch();
-	const library = useIconLibrary();
+	const { library } = useIconLibrary();
 
 	const icons = library ? ICON_LIST_MAP[library] : [];
 
@@ -65,7 +65,7 @@ const IconList: React.FC = () => {
 	return (
 		<AnimatePresence mode="popLayout">
 			{filteredItems.length > 0 ? (
-				<div className="mt-5 grid w-full grid-cols-1 gap-4 px-6 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+				<div className="576:grid-cols-2 900:grid-cols-3 mt-5 grid w-full grid-cols-1 gap-4 px-6 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
 					{filteredItems.map((item, i) => (
 						<IconTile key={item.name ?? i} item={item} />
 					))}

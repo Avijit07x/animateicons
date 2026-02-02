@@ -3,17 +3,30 @@
 import { usePathname } from "next/navigation";
 
 export type IconLibrary = "lucide" | "huge";
+export type IconLibraryPrefix = "lu" | "hu";
 
-export const useIconLibrary = (): IconLibrary | null => {
+type IconLibraryResult = {
+	library: IconLibrary | null;
+	prefix: IconLibraryPrefix | null;
+};
+
+export const useIconLibrary = (): IconLibraryResult => {
 	const pathname = usePathname();
-	if (!pathname) return null;
+
+	if (!pathname) {
+		return { library: null, prefix: null };
+	}
 
 	const segments = pathname.split("/").filter(Boolean);
 	const library = segments[1];
 
-	if (library === "lucide" || library === "huge") {
-		return library;
+	if (library === "lucide") {
+		return { library: "lucide", prefix: "lu" };
 	}
 
-	return null;
+	if (library === "huge") {
+		return { library: "huge", prefix: "hu" };
+	}
+
+	return { library: null, prefix: null };
 };

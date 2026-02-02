@@ -5,7 +5,6 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { HeartIcon, HeartIconHandle } from "../icons/huge/heart-icon";
 import handleHover from "../utils/handleHover";
-import { isWinterSeason } from "../utils/isWinterSeason";
 import { GitHub } from "./icons/Github";
 import { NumberTicker } from "./magicui/number-ticker";
 import { Separator } from "./ui/separator";
@@ -14,7 +13,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 const Navbar: React.FC = () => {
 	const [stars, setStars] = useState<number | null>(250);
 	const heartRef = useRef<HeartIconHandle>(null);
-	const isWinter = isWinterSeason();
 
 	useEffect(() => {
 		async function fetchStars() {
@@ -40,7 +38,7 @@ const Navbar: React.FC = () => {
 						<div className="flex items-center">
 							<Link href="/" className="flex items-center gap-2">
 								<Image
-									src={isWinter ? "/winter-logo.svg" : "/logo.svg"}
+									src={"/logo.svg"}
 									alt="logo"
 									width={40}
 									height={40}

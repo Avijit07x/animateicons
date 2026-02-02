@@ -22,7 +22,9 @@ const Page = () => {
 		<div className="flex w-full flex-col">
 			<Navbar />
 			<main className="min-h-[calc(100dvh-3.75rem)] py-3">
-				<IconList />
+				<div className="mx-auto max-w-7xl h-full w-full">
+					<IconList />
+				</div>
 			</main>
 		</div>
 	);

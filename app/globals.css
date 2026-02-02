@@ -115,6 +115,9 @@
 }
 
 @theme {
+	--breakpoint-576: 36rem;
+	--breakpoint-900: 56.25rem;
+
 	--color-bgDark: #000000;
 
 	--color-primary: #f45b48;

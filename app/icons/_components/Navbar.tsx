@@ -12,6 +12,7 @@ import {
 } from "../../../components/ui/tooltip";
 import { HeartIcon } from "../../../icons/huge/heart-icon";
 import handleHover from "../../../utils/handleHover";
+import PackageManagerToggle from "./PackageManagerToggle";
 import SearchBar from "./SearchBar";
 
 type Props = {};
@@ -37,60 +38,66 @@ const Navbar: React.FC<Props> = () => {
 	}, []);
 
 	return (
-		<div className="border-border/50 bg-bgDark sticky top-0 z-50 flex h-15 w-full items-center justify-between border-b px-6 py-3">
-			<SearchBar />
-			<div className="hidden items-center gap-2 text-sm md:flex">
-				<Link
-					href="/icons/lucide"
-					className="hover:text-primaryHover hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200"
-				>
-					Icons
-				</Link>
+		<div className="border-border/50 bg-bgDark sticky top-0 z-50 h-15 w-full border-b px-6 py-3">
+			<div className="mx-auto flex max-w-7xl items-center justify-between">
+				<div className="flex items-center justify-center gap-4">
+					<SearchBar />
 
-				<Separator orientation={"vertical"} className="h-4! w-1" />
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="https://github.com/sponsors/Avijit07x"
-							target="_blank"
-							rel="noopener noreferrer"
-							onMouseEnter={(e) => handleHover(e, heartRef)}
-							onMouseLeave={(e) => handleHover(e, heartRef)}
-							className="hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
-						>
-							<HeartIcon ref={heartRef} className="size-4.5 text-pink-500" />
-							<span>Sponsor</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent>
-						<span className="px-3! py-1.5! text-black">
-							Sponsor this project
-						</span>
-					</TooltipContent>
-				</Tooltip>
-				<Separator orientation={"vertical"} className="h-4! w-1" />
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="https://github.com/Avijit07x/animateicons"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="hover:bg-surface flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
-						>
-							<GitHub className="size-4.5" />
+					<PackageManagerToggle />
+				</div>
+				<div className="hidden items-center gap-2 text-sm md:flex">
+					<Link
+						href="/icons/lucide"
+						className="hover:text-primaryHover hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200"
+					>
+						Icons
+					</Link>
 
-							{stars !== null && (
-								<NumberTicker
-									value={stars}
-									className="text-textPrimary min-w-7 text-xs!"
-								/>
-							)}
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent>
-						<span className="px-3! py-1.5! text-black!">View on Github</span>
-					</TooltipContent>
-				</Tooltip>
+					<Separator orientation={"vertical"} className="h-4! w-1" />
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Link
+								href="https://github.com/sponsors/Avijit07x"
+								target="_blank"
+								rel="noopener noreferrer"
+								onMouseEnter={(e) => handleHover(e, heartRef)}
+								onMouseLeave={(e) => handleHover(e, heartRef)}
+								className="hover:bg-surface text-textPrimary flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
+							>
+								<HeartIcon ref={heartRef} className="size-4.5 text-pink-500" />
+								<span>Sponsor</span>
+							</Link>
+						</TooltipTrigger>
+						<TooltipContent>
+							<span className="px-3! py-1.5! text-black">
+								Sponsor this project
+							</span>
+						</TooltipContent>
+					</Tooltip>
+					<Separator orientation={"vertical"} className="h-4! w-1" />
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Link
+								href="https://github.com/Avijit07x/animateicons"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="hover:bg-surface flex items-center justify-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
+							>
+								<GitHub className="size-4.5" />
+
+								{stars !== null && (
+									<NumberTicker
+										value={stars}
+										className="text-textPrimary min-w-7 text-xs!"
+									/>
+								)}
+							</Link>
+						</TooltipTrigger>
+						<TooltipContent>
+							<span className="px-3! py-1.5! text-black!">View on Github</span>
+						</TooltipContent>
+					</Tooltip>
+				</div>
 			</div>
 		</div>
 	);
