@@ -28,7 +28,7 @@ const SearchBar: React.FC<Props> = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [focused, setFocused] = useState(false);
 	const { query, setQuery } = useIconSearch();
-	const library = useIconLibrary();
+	const { library } = useIconLibrary();
 
 	const ICON_COUNT = library ? ICON_LIST_COUNT[library] : "";
 
