@@ -1,9 +1,15 @@
 "use client";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import dynamic from "next/dynamic";
 import IconLibraryEmptyState from "../_components/IconLibraryEmptyState";
-import IconList from "../_components/IconList";
+import IconListSkeleton from "../_components/IconListSkeleton";
 import Navbar from "../_components/Navbar";
+
+const IconList = dynamic(() => import("../_components/IconList"), {
+	ssr: false,
+	loading: () => <IconListSkeleton />,
+});
 
 const Page = () => {
 	const library = useIconLibrary();

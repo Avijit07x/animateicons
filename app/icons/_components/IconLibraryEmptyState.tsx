@@ -25,7 +25,7 @@ const IconLibraryEmptyState: React.FC<Props> = () => {
 					<div className="mt-2 flex gap-3">
 						<a
 							href="/icons/lucide"
-							className="bg-(--cta-bg) rounded-md px-4 py-2 text-sm font-medium text-(--cta-text) transition hover:opacity-90"
+							className="rounded-md bg-(--cta-bg) px-4 py-2 text-sm font-medium text-(--cta-text) transition hover:opacity-90"
 						>
 							Browse Lucide Icons
 						</a>
