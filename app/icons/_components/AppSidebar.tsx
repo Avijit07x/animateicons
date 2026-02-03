@@ -32,8 +32,8 @@ type Props = {};
 
 const AppSidebar: React.FC<Props> = () => {
 	return (
-		<Sidebar className="border-border/50 bg-surface text-textPrimary border-r">
-			<SidebarHeader className="border-border/50 bg-bgDark text-primary border-b px-4 py-3 text-sm font-semibold">
+		<Sidebar className="border-border/50! bg-surface text-textPrimary border-r max-md:border-0">
+			<SidebarHeader className="border-border/50! bg-bgDark text-primary border-b px-4 py-3 text-sm font-semibold">
 				<Link href="/" className="flex items-center gap-2">
 					<Image
 						src="/logo.svg"
@@ -43,7 +43,7 @@ const AppSidebar: React.FC<Props> = () => {
 						loading="eager"
 						className="-ml-0.5 max-md:size-10"
 					/>
-					<span className="font-semibold text-white max-sm:hidden">
+					<span className="font-semibold text-white">
 						AnimateIcons
 					</span>
 				</Link>
@@ -93,7 +93,7 @@ const AppSidebar: React.FC<Props> = () => {
 					<SidebarGroupContent>
 						<SidebarMenu>
 							<SidebarMenuItem>
-								<SidebarMenuButton asChild variant="dark">
+								<SidebarMenuButton asChild isActive variant="dark">
 									<Link
 										href="/icons/lucide"
 										className="flex items-center gap-2"

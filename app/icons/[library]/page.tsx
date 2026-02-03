@@ -21,8 +21,8 @@ const Page = () => {
 	return (
 		<div className="flex w-full flex-col">
 			<Navbar />
-			<main className="min-h-[calc(100dvh-3.75rem)] py-3">
-				<div className="mx-auto h-full w-full max-w-7xl">
+			<main className="min-h-[calc(100dvh-3.75rem)] px-4 lg:px-6 py-3">
+				<div className="mx-auto max-w-384 h-full w-full">
 					<IconList />
 				</div>
 			</main>

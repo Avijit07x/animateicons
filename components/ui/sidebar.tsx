@@ -1,29 +1,29 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
+import { Slot } from "radix-ui";
 import * as React from "react";
 
-import { useIsMobile } from "../../hooks/useMobile";
-import { cn } from "../../lib/utils";
-import { Button } from "./button";
-import { Input } from "./input";
-import { Separator } from "./separator";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import {
 	Sheet,
 	SheetContent,
 	SheetDescription,
 	SheetHeader,
 	SheetTitle,
-} from "./sheet";
-import { Skeleton } from "./skeleton";
+} from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from "./tooltip";
+} from "@/components/ui/tooltip";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -273,7 +273,7 @@ function SidebarTrigger({
 			}}
 			{...props}
 		>
-			<PanelLeftIcon />
+			<PanelLeftIcon className="size-4.5" />
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);
@@ -398,7 +398,7 @@ function SidebarGroupLabel({
 	asChild = false,
 	...props
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
-	const Comp = asChild ? Slot : "div";
+	const Comp = asChild ? Slot.Root : "div";
 
 	return (
 		<Comp
@@ -419,7 +419,7 @@ function SidebarGroupAction({
 	asChild = false,
 	...props
 }: React.ComponentProps<"button"> & { asChild?: boolean }) {
-	const Comp = asChild ? Slot : "button";
+	const Comp = asChild ? Slot.Root : "button";
 
 	return (
 		<Comp
@@ -481,7 +481,7 @@ const sidebarMenuButtonVariants = cva(
 				default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
 				outline:
 					"bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
-				dark: "bg-transparent text-textPrimary hover:bg-surfaceHover hover:text-textPrimary focus-visible:bg-surfaceHover focus-visible:text-textPrimary active:bg-surfaceHover active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary",
+				dark: "bg-transparent text-textPrimary hover:bg-surfaceHover hover:text-textPrimary focus-visible:bg-surfaceHover focus-visible:text-textPrimary active:bg-surfaceHover active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary rounded-full",
 			},
 			size: {
 				default: "h-8 text-sm",
@@ -509,7 +509,7 @@ function SidebarMenuButton({
 	isActive?: boolean;
 	tooltip?: string | React.ComponentProps<typeof TooltipContent>;
 } & VariantProps<typeof sidebarMenuButtonVariants>) {
-	const Comp = asChild ? Slot : "button";
+	const Comp = asChild ? Slot.Root : "button";
 	const { isMobile, state } = useSidebar();
 
 	const button = (
@@ -555,7 +555,7 @@ function SidebarMenuAction({
 	asChild?: boolean;
 	showOnHover?: boolean;
 }) {
-	const Comp = asChild ? Slot : "button";
+	const Comp = asChild ? Slot.Root : "button";
 
 	return (
 		<Comp
@@ -678,7 +678,7 @@ function SidebarMenuSubButton({
 	size?: "sm" | "md";
 	isActive?: boolean;
 }) {
-	const Comp = asChild ? Slot : "a";
+	const Comp = asChild ? Slot.Root : "a";
 
 	return (
 		<Comp

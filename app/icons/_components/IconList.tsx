@@ -10,6 +10,7 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "../../../icons/lucide";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useIconSearch } from "../_context/IconSearchContext";
+import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconsNotFound from "./IconsNotFound";
 import IconTile from "./IconTile";
 
@@ -59,13 +60,13 @@ const IconList: React.FC = () => {
 	}, [debouncedQuery, fuse, icons]);
 
 	if (!library) {
-		return <IconsNotFound />;
+		return <IconLibraryEmptyState />;
 	}
 
 	return (
 		<AnimatePresence mode="popLayout">
 			{filteredItems.length > 0 ? (
-				<div className="576:grid-cols-2 900:grid-cols-3 mt-5 grid w-full grid-cols-1 gap-4 px-6 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+				<div className="576:grid-cols-2 900:grid-cols-3 mt-3 grid w-full grid-cols-1 gap-4 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
 					{filteredItems.map((item, i) => (
 						<IconTile key={item.name ?? i} item={item} />
 					))}

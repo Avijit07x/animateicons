@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "./Navbar";
 
 type Props = {};
 
 const IconLibraryEmptyState: React.FC<Props> = () => {
 	return (
 		<div className="flex w-full flex-col">
-			<Navbar />
 			<main className="flex min-h-[calc(100dvh-3.75rem)] items-center justify-center px-6">
 				<div className="flex max-w-md flex-col items-center gap-4 text-center">
 					<div className="border-border bg-surfaceElevated text-textMuted rounded-full border px-4 py-1 text-xs">

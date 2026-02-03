@@ -117,6 +117,7 @@
 @theme {
 	--breakpoint-576: 36rem;
 	--breakpoint-900: 56.25rem;
+	--breakpoint-8xl: 96rem;
 
 	--color-bgDark: #000000;
 
@@ -253,5 +254,14 @@
 @layer components {
 	.sidebar-item {
 		@apply text-textPrimary hover:text-textPrimary focus-visible:text-textPrimary active:text-textPrimary data-[active=true]:text-textPrimary hover:bg-surfaceHover data-[active=true]:bg-surfaceElevated focus-visible:bg-surfaceHover active:bg-surfaceHover bg-transparent;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
 	}
 }

@@ -34,7 +34,7 @@ const SearchBar: React.FC<Props> = () => {
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if ((isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === "f") {
+			if ((isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === "k") {
 				e.preventDefault();
 				inputRef.current?.focus();
 			}
@@ -67,13 +67,13 @@ const SearchBar: React.FC<Props> = () => {
 				<InputGroupAddon>
 					<SearchIcon className="text-textMuted size-4" />
 				</InputGroupAddon>
-				<InputGroupAddon align="inline-end" className="gap-1">
+				<InputGroupAddon align="inline-end" className="gap-1 ">
 					{showEsc ? (
-						<Kbd className="bg-surface">ESC</Kbd>
+						<Kbd className="bg-surface text-[0.65rem]!">ESC</Kbd>
 					) : (
 						<>
-							<Kbd className="bg-surface">{isMac ? "⌘" : "Ctrl"}</Kbd>
-							<Kbd className="bg-surface">F</Kbd>
+							<Kbd className="bg-surface text-[0.65rem]!">{isMac ? "⌘" : "Ctrl"}</Kbd>
+							<Kbd className="bg-surface text-[0.65rem]!">K</Kbd>
 						</>
 					)}
 				</InputGroupAddon>
