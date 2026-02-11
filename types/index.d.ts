@@ -1,6 +1,7 @@
 type IconListItem = {
 	name: string;
 	icon: React.ElementType;
+	category?: string[];
 	addedAt: string;
 	keywords: string[];
 };

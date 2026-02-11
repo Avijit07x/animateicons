@@ -1,7 +1,7 @@
 import React from "react";
 import { SidebarProvider } from "../../components/ui/sidebar";
 import AppSidebar from "./_components/AppSidebar";
-import { IconSearchProvider } from "./_context/IconSearchContext";
+import { IconSearchProvider } from "./_contexts/IconSearchContext";
 
 type Props = {
 	children: React.ReactNode;

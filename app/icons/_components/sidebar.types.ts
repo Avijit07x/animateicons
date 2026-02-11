@@ -1,22 +1,14 @@
-// sidebar.types.ts
-import type { ComponentType } from "react";
-
-export type SidebarIcon = ComponentType<{ className?: string }>;
-
-export type SidebarLinkItem = {
+export type SidebarItem = {
 	label: string;
-	href: string;
-	icon: SidebarIcon;
+	href?: string;
+	name?: string;
+	icon?: React.ComponentType<{ className?: string }>;
+	target?: string;
+	isActive?: boolean;
 };
 
-export type SidebarStaticItem = {
-	label: string;
-	icon: SidebarIcon;
-};
-
-export type SidebarItem = SidebarLinkItem | SidebarStaticItem;
-
-export type SidebarGroup = {
+export type SidebarGroupConfig = {
 	label: string;
 	items: SidebarItem[];
+	scrollable?: boolean;
 };

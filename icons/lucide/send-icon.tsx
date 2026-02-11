@@ -60,33 +60,21 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
   );
 
   const svgVariants: Variants = {
-   normal: { rotate: 0, x: 0, y: 0, scale: 1 },
-   animate: {
-    rotate: [0, -5, 2, 0],
-    x: [0, 4, -1, 0],
-    y: [0, -2, 0, 0],
-    scale: [1, 1.04, 1, 1],
-    transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut",
-     when: "beforeChildren",
-     staggerChildren: 0.08,
-     repeat: 0,
-    },
+   normal: {
+    x: 0,
+    y: 0,
+    scale: 1,
+    opacity: 1,
    },
-  };
-
-  const trailVariants: Variants = {
-   normal: { opacity: 0, x: 0, scaleX: 1, originX: 1 },
    animate: {
-    opacity: [0, 0.5, 0],
-    x: [-4, -6, -8],
-    scaleX: [0.8, 1, 1.1],
+    scale: [1, 0.85, 0, 0, 1],
+    x: [0, 6, 16, -16, 0],
+    y: [0, -4, -16, 16, 0],
+    opacity: [1, 1, 0, 0, 1],
     transition: {
-     duration: 0.5 * duration,
-     ease: "easeOut",
-     repeat: 0,
-     delay: 0.05,
+     duration: 1.4 * duration,
+     ease: "easeInOut",
+     times: [0, 0.2, 0.4, 0.6, 1],
     },
    },
   };
@@ -114,15 +102,6 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
     >
      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
      <path d="m21.854 2.147-10.94 10.939" />
-     <motion.line
-      x1="6"
-      y1="12"
-      x2="11"
-      y2="12"
-      stroke="currentColor"
-      strokeWidth="2"
-      variants={trailVariants}
-     />
     </motion.svg>
    </motion.div>
   );

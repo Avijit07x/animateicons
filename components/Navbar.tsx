@@ -1,8 +1,9 @@
 "use client";
 
+import { useGithubStars } from "@/contexts/GithubStarContext";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { HeartIcon, HeartIconHandle } from "../icons/huge/heart-icon";
 import handleHover from "../utils/handleHover";
 import { GitHub } from "./icons/Github";
@@ -10,25 +11,11 @@ import { NumberTicker } from "./magicui/number-ticker";
 import { Separator } from "./ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
-const Navbar: React.FC = () => {
-	const [stars, setStars] = useState<number | null>(250);
+type Props = {};
+
+const Navbar: React.FC<Props> = () => {
 	const heartRef = useRef<HeartIconHandle>(null);
-
-	useEffect(() => {
-		async function fetchStars() {
-			try {
-				const res = await fetch("/api/stars");
-				if (!res.ok) throw new Error("Failed to fetch stars");
-
-				const data: { stars: number } = await res.json();
-				setStars(data.stars);
-			} catch (error) {
-				console.error(error);
-			}
-		}
-
-		fetchStars();
-	}, []);
+	const { stars } = useGithubStars();
 
 	return (
 		<header className="sticky top-0 z-50">
@@ -78,7 +65,7 @@ const Navbar: React.FC = () => {
 									</Link>
 								</TooltipTrigger>
 								<TooltipContent>
-									<span className="px-3! py-1.5! text-black">
+									<span className="px-3! py-1.5! font-medium text-black!">
 										Sponsor this project
 									</span>
 								</TooltipContent>
@@ -103,7 +90,7 @@ const Navbar: React.FC = () => {
 									</Link>
 								</TooltipTrigger>
 								<TooltipContent>
-									<span className="px-3! py-1.5! text-black!">
+									<span className="px-3! py-1.5! font-medium text-black!">
 										View on Github
 									</span>
 								</TooltipContent>

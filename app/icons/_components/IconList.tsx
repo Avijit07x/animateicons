@@ -9,7 +9,7 @@ import { ICON_LIST as HUGE_ICON_LIST } from "../../../icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "../../../icons/lucide";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { useIconSearch } from "../_context/IconSearchContext";
+import { useIconSearch } from "../_contexts/IconSearchContext";
 import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconsNotFound from "./IconsNotFound";
 import IconTile from "./IconTile";

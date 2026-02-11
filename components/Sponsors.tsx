@@ -95,7 +95,9 @@ const Sponsors: React.FC<Props> = () => {
 						className={`${
 							isOpen ? "m-2 ml-auto size-6" : "size-11"
 						} group flex items-center justify-center`}
-						aria-label="sponsor this project"
+						aria-label={isOpen ? "Close sponsor panel" : "Open sponsor options"}
+						aria-expanded={isOpen}
+						aria-controls="sponsor-panel"
 						onMouseEnter={(e) => handleHover(e, heRef)}
 						onMouseLeave={(e) => handleHover(e, heRef)}
 					>
@@ -121,6 +123,8 @@ const Sponsors: React.FC<Props> = () => {
 								<Link
 									href="https://buymeacoffee.com/avijit07x"
 									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Support via Buy Me a Coffee"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={(e) => handleHover(e, coffeeRef)}
 									onMouseLeave={(e) => handleHover(e, coffeeRef)}
@@ -135,6 +139,8 @@ const Sponsors: React.FC<Props> = () => {
 								<Link
 									href="https://github.com/sponsors/avijit07x"
 									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Sponsor on GitHub"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={(e) => handleHover(e, heartRef)}
 									onMouseLeave={(e) => handleHover(e, heartRef)}
@@ -146,6 +152,8 @@ const Sponsors: React.FC<Props> = () => {
 								<Link
 									href="https://paypal.me/avijit07x"
 									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Donate via PayPal"
 									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
 									onMouseEnter={(e) => handleHover(e, dollarRef)}
 									onMouseLeave={(e) => handleHover(e, dollarRef)}
@@ -162,6 +170,8 @@ const Sponsors: React.FC<Props> = () => {
 									onClick={handleCopyUpi}
 									onMouseEnter={(e) => handleHover(e, copyRef)}
 									onMouseLeave={(e) => handleHover(e, copyRef)}
+									aria-label="Copy UPI ID and view QR code for payment"
+									aria-live="polite"
 									className="bg-primary/20 hover:bg-primary/25 flex flex-col items-center gap-2 rounded-md px-3 py-3 text-sm transition-colors duration-300"
 								>
 									<div className="flex w-full items-center justify-between">
@@ -180,7 +190,7 @@ const Sponsors: React.FC<Props> = () => {
 									<div className="flex justify-center pt-2">
 										<Image
 											src="qrcode.svg"
-											alt="UPI QR"
+											alt="UPI QR code for avijit07x@axl payment"
 											width={150}
 											height={100}
 											className="rounded-xs"

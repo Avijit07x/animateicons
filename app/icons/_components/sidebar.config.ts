@@ -1,39 +1,47 @@
-// sidebar.config.ts
-import HugeIcon from "@/components/icons/HugeIcon";
-import LucideIcon from "@/components/icons/LucideIcon";
 import {
 	BarChart3,
 	BookOpen,
 	Bot,
 	Code,
 	Database,
-	Heart,
 	Home,
 	LayoutGrid,
 	MoreHorizontal,
 	Palette,
+	Send,
 	Shield,
 } from "lucide-react";
-import { SidebarGroup } from "./sidebar.types";
+import { SidebarGroupConfig } from "./sidebar.types";
 
-export const SIDEBAR_CONFIG: SidebarGroup[] = [
+export const sidebarConfig: SidebarGroupConfig[] = [
 	{
 		label: "Navigation",
 		items: [
 			{ label: "Home", href: "/", icon: Home },
-			{ label: "Favorites", href: "/favorites", icon: Heart },
 			{ label: "Docs", href: "/icons/docs", icon: BookOpen },
+			{
+				label: "Submit",
+				href: "https://github.com/Avijit07x/animateicons?tab=contributing-ov-file#getting-started",
+				target: "_blank",
+				icon: Send,
+			},
 		],
 	},
 	{
 		label: "Icon Libraries",
 		items: [
-			{ label: "Lucide Icons", href: "/icons/lucide", icon: LucideIcon },
-			{ label: "Huge Icons", href: "/icons/huge", icon: HugeIcon },
+			{ label: "Lucide Icons", name: "lucide", href: "/icons/lucide" },
+			{
+				label: "Huge Icons",
+				name: "huge",
+				isActive: true,
+				href: "/icons/huge",
+			},
 		],
 	},
 	{
 		label: "Categories",
+		scrollable: true,
 		items: [
 			{ label: "Layouts", icon: LayoutGrid },
 			{ label: "Development", icon: Code },

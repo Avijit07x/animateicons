@@ -1,18 +1,9 @@
+"use client";
+
 import HugeIcon from "@/components/icons/HugeIcon";
 import LucideIcon from "@/components/icons/LucideIcon";
-import {
-	BarChart3,
-	BookOpen,
-	Bot,
-	Code,
-	Database,
-	Heart,
-	Home,
-	LayoutGrid,
-	MoreHorizontal,
-	Palette,
-	Shield,
-} from "lucide-react";
+
+import { useIconLibrary } from "@/hooks/useIconLibrary";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -27,12 +18,23 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from "../../../components/ui/sidebar";
+import { sidebarConfig } from "./sidebar.config";
 
-type Props = {};
+const libraryIconMap: Record<string, React.ReactNode> = {
+	"Lucide Icons": <LucideIcon className="size-4" />,
+	"Huge Icons": <HugeIcon className="size-4" />,
+};
 
-const AppSidebar: React.FC<Props> = () => {
+const AppSidebar: React.FC = () => {
+	const { library } = useIconLibrary();
+
+	const isLibraryActive = (name?: string) => {
+		if (!name) return false;
+		return name === library;
+	};
+
 	return (
-		<Sidebar className="border-border/50! bg-surface text-textPrimary border-r max-md:border-0">
+		<Sidebar className="border-border/50! bg-surface text-textPrimary border-r">
 			<SidebarHeader className="border-border/50! bg-bgDark text-primary border-b px-4 py-3 text-sm font-semibold">
 				<Link href="/" className="flex items-center gap-2">
 					<Image
@@ -43,105 +45,64 @@ const AppSidebar: React.FC<Props> = () => {
 						loading="eager"
 						className="-ml-0.5 max-md:size-10"
 					/>
-					<span className="font-semibold text-white">
-						AnimateIcons
-					</span>
+					<span className="font-semibold text-white">AnimateIcons</span>
 				</Link>
 			</SidebarHeader>
 
 			<SidebarContent className="bg-bgDark gap-2">
-				<SidebarGroup>
-					<SidebarGroupLabel className="text-textMuted text-xs">
-						Navigation
-					</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							<SidebarMenuItem>
-								<SidebarMenuButton asChild variant="dark">
-									<Link href="/" className="flex items-center gap-2">
-										<Home className="size-4" />
-										Home
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
+				{sidebarConfig.map((group) => (
+					<SidebarGroup
+						key={group.label}
+						className={group.scrollable ? "flex-1 overflow-y-auto" : ""}
+					>
+						<SidebarGroupLabel className="text-textMuted text-xs">
+							{group.label}
+						</SidebarGroupLabel>
 
-							<SidebarMenuItem>
-								<SidebarMenuButton asChild variant="dark">
-									<Link href="/favorites" className="flex items-center gap-2">
-										<Heart className="size-4" />
-										Favorites
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
+						<SidebarGroupContent>
+							<SidebarMenu className="gap-[0.563rem]">
+								{group.items.map((item) => {
+									const Icon = item.icon;
+									const customIcon = libraryIconMap[item.label];
 
-							<SidebarMenuItem>
-								<SidebarMenuButton asChild variant="dark">
-									<Link href="/icons/docs" className="flex items-center gap-2">
-										<BookOpen className="size-4" />
-										Docs
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
+									const content = (
+										<>
+											{customIcon
+												? customIcon
+												: Icon && <Icon className="size-4" />}
+											{item.label}
+										</>
+									);
 
-				<SidebarGroup>
-					<SidebarGroupLabel className="text-textMuted text-xs">
-						Icon Libraries
-					</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							<SidebarMenuItem>
-								<SidebarMenuButton asChild isActive variant="dark">
-									<Link
-										href="/icons/lucide"
-										className="flex items-center gap-2"
-									>
-										<LucideIcon className="size-4" />
-										Lucide Icons
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
-
-							<SidebarMenuItem>
-								<SidebarMenuButton asChild variant="dark">
-									<Link href="/icons/huge" className="flex items-center gap-2">
-										<HugeIcon className="size-4" />
-										Huge Icons
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
-
-				<SidebarGroup className="flex-1 overflow-y-auto">
-					<SidebarGroupLabel className="text-textMuted text-xs">
-						Categories
-					</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							{[
-								{ label: "Layouts", icon: LayoutGrid },
-								{ label: "Development", icon: Code },
-								{ label: "Analytics", icon: BarChart3 },
-								{ label: "AI & Automation", icon: Bot },
-								{ label: "Database", icon: Database },
-								{ label: "Design", icon: Palette },
-								{ label: "Security", icon: Shield },
-								{ label: "Others", icon: MoreHorizontal },
-							].map(({ label, icon: Icon }) => (
-								<SidebarMenuItem key={label}>
-									<SidebarMenuButton variant="dark" className="gap-2">
-										<Icon className="size-4" />
-										{label}
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-							))}
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
+									return (
+										<SidebarMenuItem key={item.label}>
+											<SidebarMenuButton
+												asChild={!!item.href}
+												variant="dark"
+												isActive={isLibraryActive(item.name)}
+												className="gap-2"
+											>
+												{item.href ? (
+													<Link
+														href={item.href}
+														className="flex items-center gap-2"
+														target={item.target && item.target}
+													>
+														{content}
+													</Link>
+												) : (
+													<span className="flex items-center gap-2">
+														{content}
+													</span>
+												)}
+											</SidebarMenuButton>
+										</SidebarMenuItem>
+									);
+								})}
+							</SidebarMenu>
+						</SidebarGroupContent>
+					</SidebarGroup>
+				))}
 			</SidebarContent>
 		</Sidebar>
 	);

@@ -11,34 +11,16 @@ import { SearchIcon } from "./search-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
-  name: "bell",
-  icon: BellIcon,
-  addedAt: "2025-10-09",
-  keywords: ["notification", "alarm", "alert", "reminder", "ring"],
+  name: "eye",
+  addedAt: "2025-11-12",
+  icon: EyeIcon,
+  keywords: ["eye", "show", "visible", "view", "watch", "preview"],
  },
  {
   name: "bookmark",
   icon: BookmarkIcon,
   addedAt: "2025-12-17",
   keywords: ["save", "favorite", "tag", "mark", "clip"],
- },
- {
-  name: "check",
-  icon: CheckIcon,
-  addedAt: "2025-09-18",
-  keywords: ["check", "tick", "done", "confirm", "success", "ok"],
- },
- {
-  name: "check-check",
-  icon: CheckCheckIcon,
-  addedAt: "2025-09-30",
-  keywords: ["check", "double", "done", "all", "success", "confirm"],
- },
- {
-  name: "chevron-right",
-  icon: ChevronRightIcon,
-  addedAt: "2025-09-08",
-  keywords: ["next", "carat", "right", "forward", "continue"],
  },
  {
   name: "copy",
@@ -53,12 +35,6 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["export", "file", "save", "fetch", "get"],
  },
  {
-  name: "eye",
-  addedAt: "2025-11-12",
-  icon: EyeIcon,
-  keywords: ["eye", "show", "visible", "view", "watch", "preview"],
- },
- {
   name: "heart",
   icon: HeartIcon,
   addedAt: "2025-12-30",
@@ -69,6 +45,30 @@ const ICON_LIST: IconListItem[] = [
   icon: SearchIcon,
   addedAt: "2025-12-08",
   keywords: ["find", "magnifier", "search", "explore", "query"],
+ },
+ {
+  name: "check",
+  icon: CheckIcon,
+  addedAt: "2025-09-18",
+  keywords: ["check", "tick", "done", "confirm", "success", "ok"],
+ },
+ {
+  name: "check-check",
+  icon: CheckCheckIcon,
+  addedAt: "2025-09-30",
+  keywords: ["check", "double", "done", "all", "success", "confirm"],
+ },
+ {
+  name: "bell",
+  icon: BellIcon,
+  addedAt: "2025-10-09",
+  keywords: ["notification", "alarm", "alert", "reminder", "ring"],
+ },
+ {
+  name: "chevron-right",
+  icon: ChevronRightIcon,
+  addedAt: "2025-09-08",
+  keywords: ["next", "carat", "right", "forward", "continue"],
  },
 ];
 const ICON_COUNT = ICON_LIST.length;

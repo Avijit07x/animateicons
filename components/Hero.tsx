@@ -44,6 +44,8 @@ const HeroSection: React.FC = () => {
 				<Link
 					href={"https://github.com/Avijit07x/animateicons"}
 					target="_blank"
+					aria-label="View AnimateIcons GitHub repository"
+					rel="noopener noreferrer"
 				>
 					<motion.div
 						variants={itemVariants}
@@ -96,6 +98,7 @@ const HeroSection: React.FC = () => {
 					<Link
 						href="/icons/lucide"
 						className="flex items-center justify-center gap-1.5 rounded-full bg-(--cta-bg) px-6 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors duration-200 hover:bg-(--cta-bg-hover)"
+						aria-label="Browse Lucide animated icons"
 					>
 						<span>Browse icons</span>
 						<ArrowRight className="size-4.5" aria-hidden="true" />

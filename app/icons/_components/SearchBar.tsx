@@ -11,7 +11,7 @@ import { SearchIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { ICON_COUNT as HUGE_ICON_COUNT } from "../../../icons/huge";
 import { ICON_COUNT as LUCIDE_ICON_COUNT } from "../../../icons/lucide";
-import { useIconSearch } from "../_context/IconSearchContext";
+import { useIconSearch } from "../_contexts/IconSearchContext";
 
 const isMac =
 	typeof navigator !== "undefined" &&
@@ -67,12 +67,14 @@ const SearchBar: React.FC<Props> = () => {
 				<InputGroupAddon>
 					<SearchIcon className="text-textMuted size-4" />
 				</InputGroupAddon>
-				<InputGroupAddon align="inline-end" className="gap-1 ">
+				<InputGroupAddon align="inline-end" className="gap-1">
 					{showEsc ? (
 						<Kbd className="bg-surface text-[0.65rem]!">ESC</Kbd>
 					) : (
 						<>
-							<Kbd className="bg-surface text-[0.65rem]!">{isMac ? "⌘" : "Ctrl"}</Kbd>
+							<Kbd className="bg-surface text-[0.65rem]!">
+								{isMac ? "⌘" : "Ctrl"}
+							</Kbd>
 							<Kbd className="bg-surface text-[0.65rem]!">K</Kbd>
 						</>
 					)}
