@@ -1,75 +1,32 @@
-const Page: React.FC = () => {
-	return (
-		<div className="text-textPrimary mx-auto w-full max-w-5xl py-12">
-			<div className="mb-8">
-				<h1 className="text-2xl font-semibold">Installation</h1>
-			</div>
+"use client";
 
-			<div className="mt-12 space-y-16">
-				<section id="install" className="space-y-4">
-					<p className="text-textSecondary max-w-2xl text-sm">
-						Install icons directly into your project using the shadcn CLI.
-					</p>
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import CodeBlock from "../_components/CodeBlock";
 
-					<div className="bg-surfaceElevated border-border relative overflow-x-auto rounded-lg border">
-						<pre className="text-textSecondary p-4 text-sm">
-							<code>
-								pnpm dlx shadcn@latest add{" "}
-								https://animateicons.in/icons/eye.json
-							</code>
-						</pre>
-					</div>
-				</section>
+const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
 
-				<section id="usage" className="space-y-4">
-					<h2 className="text-xl font-medium">Usage</h2>
-					<p className="text-textSecondary max-w-2xl text-sm">
-						Import the icon component and use it like any other React component.
-					</p>
-
-					<div className="bg-surfaceElevated border-border relative overflow-x-auto rounded-lg border">
-						<pre className="text-textSecondary p-4 text-sm">
-							<code>{`import { EyeIcon } from "@/components/eye"
+const usageCode = `import { EyeIcon } from "@/components/ui/eye"
 
 export default function Example() {
 	return <EyeIcon size={24} />
-}`}</code>
-						</pre>
-					</div>
-				</section>
+}`;
 
-				<section id="props" className="space-y-4">
-					<h2 className="text-xl font-medium">Props</h2>
-					<p className="text-textSecondary max-w-2xl text-sm">
-						All props are optional. Icons behave like standard React components.
-					</p>
-
-					<div className="bg-surfaceElevated border-border relative overflow-x-auto rounded-lg border">
-						<pre className="text-textSecondary p-4 text-sm leading-6">
-							<code>{`size?: number
+const propsCode = `size?: number
 className?: string
 
 duration?: number
 isAnimated?: boolean
 
 onMouseEnter?: () => void
-onMouseLeave?: () => void`}</code>
-						</pre>
-					</div>
-				</section>
+onMouseLeave?: () => void`;
 
-				<section id="api" className="space-y-4">
-					<h2 className="text-xl font-medium">Imperative API</h2>
-					<p className="text-textSecondary max-w-2xl text-sm">
-						Control animations imperatively using refs.
-					</p>
-
-					<div className="bg-surfaceElevated border-border relative overflow-x-auto rounded-lg border">
-						<pre className="text-textSecondary p-4 text-sm">
-							<code>{`"use client"
+const apiCode = `"use client"
 
 import { useRef } from "react"
-import { EyeIcon, type EyeIconHandle } from "@/components/eye"
+import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye"
 
 export default function Demo() {
 	const ref = useRef<EyeIconHandle>(null)
@@ -82,10 +39,80 @@ export default function Demo() {
 			</button>
 		</>
 	)
-}`}</code>
-						</pre>
-					</div>
-				</section>
+}`;
+
+const Page: React.FC = () => {
+	const router = useRouter();
+	return (
+		<div className="min-w-0 flex-1">
+			<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
+				<div className="mb-10 flex items-center gap-3">
+					<Button
+						variant={"link"}
+						onClick={() => {
+							router.back();
+						}}
+						className="border-border hover:bg-surfaceElevated flex h-9 w-9 items-center justify-center rounded-md border transition text-textPrimary!"
+					>
+						<ArrowLeft className="h-4 w-4" />
+					</Button>
+
+					<h1 className="text-2xl font-semibold">Installation</h1>
+				</div>
+
+				<div className="space-y-16">
+					<section className="space-y-4">
+						<h2 className="text-xl font-medium">1. Setup shadcn/ui</h2>
+						<p className="text-textSecondary max-w-2xl text-sm">
+							These icons use the shadcn CLI. If you have not installed shadcn
+							yet, follow the official guide first.
+						</p>
+
+						<Link
+							href="https://ui.shadcn.com/docs/installation"
+							target="_blank"
+							className="text-sm font-medium underline underline-offset-4"
+						>
+							Open shadcn installation guide
+						</Link>
+					</section>
+
+					<section className="space-y-4">
+						<h2 className="text-xl font-medium">2. Install Icon</h2>
+						<p className="text-textSecondary max-w-2xl text-sm">
+							Install the icon directly into your project.
+						</p>
+
+						<CodeBlock code={installCode} lang="bash" />
+					</section>
+
+					<section className="space-y-4">
+						<h2 className="text-xl font-medium">Usage</h2>
+						<p className="text-textSecondary max-w-2xl text-sm">
+							Import and use the icon like any React component.
+						</p>
+
+						<CodeBlock code={usageCode} />
+					</section>
+
+					<section className="space-y-4">
+						<h2 className="text-xl font-medium">Props</h2>
+						<p className="text-textSecondary max-w-2xl text-sm">
+							All props are optional.
+						</p>
+
+						<CodeBlock code={propsCode} lang="ts" />
+					</section>
+
+					<section className="space-y-4">
+						<h2 className="text-xl font-medium">Imperative API</h2>
+						<p className="text-textSecondary max-w-2xl text-sm">
+							Control animations programmatically using refs.
+						</p>
+
+						<CodeBlock code={apiCode} />
+					</section>
+				</div>
 			</div>
 		</div>
 	);

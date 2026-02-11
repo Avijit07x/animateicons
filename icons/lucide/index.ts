@@ -225,7 +225,6 @@ import { YenYuanIcon } from "./yen-yuan-icon";
 import { ZapIcon } from "./zap-icon";
 
 const ICON_LIST: IconListItem[] = [
- // UI & Navigation
  {
   name: "menu",
   icon: MenuIcon,
@@ -247,7 +246,6 @@ const ICON_LIST: IconListItem[] = [
   category: ["Layout"],
   keywords: ["layout", "grid", "masonry", "panel", "widgets"],
  },
-
  {
   name: "blocks",
   icon: BlocksIcon,
@@ -266,7 +264,7 @@ const ICON_LIST: IconListItem[] = [
   name: "bring-to-front",
   icon: BringToFrontIcon,
   addedAt: "2025-12-12",
-  category: ["Arrows", "Layout"],
+  category: ["Design", "Layout"],
   keywords: ["bring", "front", "layer", "order", "stack", "move"],
  },
  {
@@ -280,66 +278,67 @@ const ICON_LIST: IconListItem[] = [
   name: "check",
   icon: CheckIcon,
   addedAt: "2025-09-18",
-  category: ["Tools"],
+  category: ["Notification"],
   keywords: ["check", "tick", "done", "confirm", "success", "ok"],
  },
  {
   name: "check-check",
   icon: CheckCheckIcon,
   addedAt: "2025-09-30",
-  category: ["Tools"],
+  category: ["Notification"],
   keywords: ["check", "double", "done", "all", "success", "confirm"],
  },
  {
   name: "eye",
   addedAt: "2025-11-12",
   icon: EyeIcon,
-  category: ["Tools"],
+  category: ["Security"],
   keywords: ["eye", "show", "visible", "view", "watch", "preview"],
  },
  {
   name: "eye-closed",
   addedAt: "2025-11-12",
   icon: EyeClosedIcon,
-  category: ["Tools"],
+  category: ["Security"],
   keywords: ["eye", "closed", "hide", "invisible", "conceal", "private"],
  },
  {
   name: "eye-off",
   addedAt: "2025-11-12",
   icon: EyeOffIcon,
-  category: ["Tools"],
+  category: ["Security"],
   keywords: ["eye", "off", "hide", "invisible", "disable", "private"],
  },
  {
   name: "qr-code",
   icon: QrCodeIcon,
   addedAt: "2025-12-24",
-  category: ["Charts", "Coding & development"],
+  category: ["Devices"],
   keywords: ["qr", "code", "scan", "barcode", "reader"],
  },
  {
   name: "scan-qr-code",
   icon: ScanQrCodeIcon,
   addedAt: "2025-12-24",
-  category: ["Charts", "Coding & development"],
+  category: ["Devices"],
   keywords: ["scan", "qr", "code", "barcode", "read"],
  },
  {
   name: "scan",
   icon: ScanIcon,
   addedAt: "2025-12-24",
-  category: ["Charts"],
+  category: ["Devices"],
   keywords: ["scan", "read", "detect", "barcode", "qr"],
  },
  {
   name: "scan-line",
   icon: ScanLineIcon,
   addedAt: "2025-12-24",
-  category: ["Charts"],
+  category: ["Devices"],
   keywords: ["scan", "line", "barcode", "read", "detect"],
  },
- // user
+
+ // People
  {
   name: "user",
   icon: UserIcon,
@@ -372,28 +371,28 @@ const ICON_LIST: IconListItem[] = [
   name: "contact",
   icon: ContactIcon,
   addedAt: "2025-11-30",
-  category: ["Devices", "People"],
+  category: ["People"],
   keywords: ["contact", "user", "person", "address", "phone"],
  },
  {
   name: "user-check",
   icon: UserCheckIcon,
   addedAt: "2026-01-06",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["user", "check", "verify", "approve", "done", "account"],
  },
  {
   name: "user-round-check",
   icon: UserRoundCheckIcon,
   addedAt: "2025-08-25",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["user", "round", "check", "verify", "approve", "done"],
  },
  {
   name: "user-cog",
   icon: UserCogIcon,
   addedAt: "2025-07-29",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: [
    "settings",
    "account",
@@ -407,7 +406,7 @@ const ICON_LIST: IconListItem[] = [
   name: "user-round-cog",
   icon: UserRoundCogIcon,
   addedAt: "2025-12-21",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: [
    "settings",
    "account",
@@ -428,28 +427,28 @@ const ICON_LIST: IconListItem[] = [
   name: "user-minus",
   icon: UserMinusIcon,
   addedAt: "2025-10-25",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["remove", "delete", "account", "block", "ban", "unfriend"],
  },
  {
   name: "user-round-minus",
   icon: UserRoundMinusIcon,
   addedAt: "2025-07-28",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["remove", "delete", "account", "block", "ban", "unfriend"],
  },
  {
   name: "user-pen",
   icon: UserPenIcon,
   addedAt: "2025-10-27",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["edit", "update", "profile", "modify", "account", "change"],
  },
  {
   name: "user-round-pen",
   icon: UserRoundPenIcon,
   addedAt: "2025-08-24",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["edit", "update", "profile", "modify", "account", "change"],
  },
  {
@@ -463,77 +462,77 @@ const ICON_LIST: IconListItem[] = [
   name: "user-search",
   icon: UserSearchIcon,
   addedAt: "2025-10-03",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["search", "user", "find", "magnifier", "lookup", "explore"],
  },
  {
   name: "user-round-search",
   icon: UserRoundSearchIcon,
   addedAt: "2025-11-28",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["search", "user", "find", "magnifier", "lookup", "explore"],
  },
  {
   name: "user-x",
   icon: UserXIcon,
   addedAt: "2025-08-02",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["delete", "remove", "ban", "block", "account"],
  },
  {
   name: "user-round-x",
   icon: UserRoundXIcon,
   addedAt: "2025-08-23",
-  category: ["People", "Tools"],
+  category: ["People"],
   keywords: ["delete", "remove", "ban", "block", "account"],
  },
  {
   name: "user-star",
   icon: UserStarIcon,
   addedAt: "2025-08-25",
-  category: ["Emoji", "People"],
+  category: ["People", "Social"],
   keywords: ["user", "favorite", "star", "rating", "review", "admin"],
  },
  {
   name: "users",
   icon: UsersIcon,
   addedAt: "2025-11-13",
-  category: ["Connectivity", "People"],
+  category: ["People", "Social"],
   keywords: ["users", "group", "team", "people", "community", "network"],
  },
  {
   name: "users-round",
   icon: UsersRoundIcon,
   addedAt: "2025-09-20",
-  category: ["Connectivity", "People"],
+  category: ["People", "Social"],
   keywords: ["users", "group", "team", "people", "community", "network"],
  },
  {
   name: "phone",
   icon: PhoneIcon,
   addedAt: "2025-10-05",
-  category: ["Devices", "People"],
+  category: ["Devices", "Communication"],
   keywords: ["call", "mobile", "contact", "support", "device"],
  },
  {
   name: "phone-call",
   icon: PhoneCallIcon,
   addedAt: "2026-01-22",
-  category: ["Devices", "People"],
+  category: ["Devices", "Communication"],
   keywords: ["call", "phone", "dial", "contact", "connect"],
  },
  {
   name: "phone-forwarded",
   icon: PhoneForwardedIcon,
   addedAt: "2026-01-22",
-  category: ["Devices", "Navigation, Maps, and POIs"],
+  category: ["Communication"],
   keywords: ["forward", "redirect", "transfer", "call", "route"],
  },
  {
   name: "phone-incoming",
   icon: PhoneIncomingIcon,
   addedAt: "2026-01-22",
-  category: ["Devices"],
+  category: ["Devices", "Communication"],
   keywords: ["incoming", "receive", "answer", "call", "ring"],
  },
  {
@@ -547,7 +546,7 @@ const ICON_LIST: IconListItem[] = [
   name: "search",
   icon: SearchIcon,
   addedAt: "2025-12-08",
-  category: ["Navigation, Maps, and POIs", "Tools"],
+  category: ["Tools"],
   keywords: ["find", "magnifier", "search", "explore", "query"],
  },
  {
@@ -557,6 +556,7 @@ const ICON_LIST: IconListItem[] = [
   category: ["Tools"],
   keywords: ["filter", "settings", "adjust", "controls", "tune"],
  },
+
  {
   name: "house",
   icon: HouseIcon,
@@ -582,14 +582,14 @@ const ICON_LIST: IconListItem[] = [
   name: "upload",
   icon: UploadIcon,
   addedAt: "2026-01-02",
-  category: ["File icons", "Weather"],
+  category: ["File icons"],
   keywords: ["import", "file", "cloud", "server", "publish"],
  },
  {
   name: "cloud-upload",
   icon: CloudUploadIcon,
   addedAt: "2025-11-03",
-  category: ["File icons", "Weather"],
+  category: ["File icons"],
   keywords: ["import", "file", "cloud", "server", "publish"],
  },
  {
@@ -603,14 +603,14 @@ const ICON_LIST: IconListItem[] = [
   name: "circle-check",
   icon: CircleCheckIcon,
   addedAt: "2025-11-05",
-  category: ["Tools"],
+  category: ["Notification"],
   keywords: ["done", "success", "complete", "task", "status"],
  },
  {
   name: "circle-check-big",
   icon: CircleCheckBigIcon,
   addedAt: "2026-01-09",
-  category: ["Tools"],
+  category: ["Notification"],
   keywords: ["done", "success", "complete", "task", "status"],
  },
  {
@@ -624,7 +624,7 @@ const ICON_LIST: IconListItem[] = [
   name: "circle-chevron-left",
   icon: CircleChevronLeftIcon,
   addedAt: "2025-08-08",
-  category: ["Arrows", "Time & calendar"],
+  category: ["Arrows"],
   keywords: ["back", "previous", "return", "west", "history"],
  },
  {
@@ -643,6 +643,7 @@ const ICON_LIST: IconListItem[] = [
  },
 
  // Arrows & Direction
+
  {
   name: "chevron-left",
   icon: ChevronLeftIcon,
@@ -671,6 +672,7 @@ const ICON_LIST: IconListItem[] = [
   category: ["Arrows"],
   keywords: ["down", "bottom", "expand", "south", "below"],
  },
+
  {
   name: "move-left",
   icon: MoveLeftIcon,
@@ -797,6 +799,7 @@ const ICON_LIST: IconListItem[] = [
   category: ["Layout"],
   keywords: ["list", "options", "expand", "collapse", "accordion", "menu"],
  },
+
  // Actions
  {
   name: "play",
@@ -816,35 +819,35 @@ const ICON_LIST: IconListItem[] = [
   name: "plus",
   icon: PlusIcon,
   addedAt: "2025-09-01",
-  category: ["Tools"],
+  category: ["Tools", "Mathematics"],
   keywords: ["plus", "add", "new", "create", "positive"],
  },
  {
   name: "circle-plus",
   icon: CirclePlusIcon,
   addedAt: "2025-11-08",
-  category: ["Tools"],
+  category: ["Tools", "Mathematics"],
   keywords: ["plus", "add", "new", "create", "positive", "more"],
  },
  {
   name: "diff",
   icon: DiffIcon,
   addedAt: "2025-11-22",
-  category: ["Tools"],
+  category: ["Tools", "Mathematics"],
   keywords: ["diff", "patch", "compare", "difference", "math", "calculator"],
  },
  {
   name: "minus",
   icon: MinusIcon,
   addedAt: "2025-12-28",
-  category: ["Tools"],
+  category: ["Tools", "Mathematics"],
   keywords: ["subtract", "remove", "decrease", "reduce", "negative"],
  },
  {
   name: "x",
   icon: XIcon,
   addedAt: "2025-08-07",
-  category: ["Tools"],
+  category: ["Tools", "Mathematics"],
   keywords: ["cancel", "close", "delete", "remove", "exit", "stop"],
  },
  {
@@ -900,35 +903,35 @@ const ICON_LIST: IconListItem[] = [
   name: "share",
   icon: ShareIcon,
   addedAt: "2026-01-05",
-  category: ["Communication", "Tools"],
+  category: ["Communication"],
   keywords: ["forward", "distribute", "social", "send", "link"],
  },
  {
   name: "trash",
   icon: TrashIcon,
   addedAt: "2025-08-09",
-  category: ["Tools"],
+  category: ["File icons"],
   keywords: ["delete", "remove", "bin", "garbage", "rubbish"],
  },
  {
   name: "trash-2",
   icon: Trash2Icon,
   addedAt: "2025-08-09",
-  category: ["Tools"],
+  category: ["File icons"],
   keywords: ["delete", "remove", "bin", "garbage", "rubbish"],
  },
  {
   name: "bookmark",
   icon: BookmarkIcon,
   addedAt: "2025-12-17",
-  category: ["Shopping"],
+  category: ["File icons"],
   keywords: ["save", "favorite", "tag", "mark", "clip"],
  },
  {
   name: "bookmark-check",
   icon: BookmarkCheckIcon,
   addedAt: "2025-10-29",
-  category: ["File icons", "Tools"],
+  category: ["File icons"],
   keywords: ["saved", "favorite", "done", "added", "clip"],
  },
  {
@@ -942,153 +945,153 @@ const ICON_LIST: IconListItem[] = [
   name: "bookmark-minus",
   icon: BookmarkMinusIcon,
   addedAt: "2025-08-28",
-  category: ["Tools"],
+  category: ["File icons"],
   keywords: ["unsave", "remove", "delete", "unmark", "clip"],
  },
  {
   name: "bookmark-x",
   icon: BookmarkXIcon,
   addedAt: "2025-09-09",
-  category: ["Tools"],
+  category: ["File icons"],
   keywords: ["unsave", "remove", "delete", "unmark", "cancel"],
  },
 
  // Communication & Media
- {
+{
   name: "message-circle",
   icon: MessageCircleIcon,
   addedAt: "2025-08-23",
   category: ["Communication"],
   keywords: ["chat", "comment", "discussion", "reply", "feedback"],
- },
- {
+},
+{
   name: "mail",
   icon: MailIcon,
   addedAt: "2026-01-08",
   category: ["Communication", "Mail"],
   keywords: ["email", "message", "inbox", "send", "letter"],
- },
- {
+},
+{
   name: "mails",
   icon: MailsIcon,
   addedAt: "2025-08-27",
   category: ["Mail"],
   keywords: ["email", "messages", "inbox", "conversation", "letters"],
- },
- {
+},
+{
   name: "mic",
   icon: MicIcon,
   addedAt: "2025-09-05",
   category: ["Multimedia"],
   keywords: ["record", "voice", "sound", "audio", "speak"],
- },
- {
+},
+{
   name: "mic-off",
   icon: MicOffIcon,
   addedAt: "2025-09-16",
   category: ["Multimedia"],
   keywords: ["mute", "silent", "disable", "quiet", "no sound"],
- },
- {
+},
+{
   name: "headphones",
   icon: HeadphonesIcon,
   addedAt: "2026-01-16",
   category: ["Multimedia"],
   keywords: ["music", "audio", "listen", "sound", "device"],
- },
- {
+},
+{
   name: "headset",
   icon: HeadsetIcon,
   addedAt: "2025-10-07",
-  category: ["Multimedia"],
+  category: ["Communication", "Multimedia"],
   keywords: ["support", "call", "agent", "operator", "audio", "headset"],
- },
- {
+},
+{
   name: "headphones-off",
   icon: HeadphonesOffIcon,
   addedAt: "2026-01-02",
-  category: ["Devices"],
+  category: ["Multimedia"],
   keywords: ["mute", "silent", "no audio", "disabled", "quiet"],
- },
- {
+},
+{
   name: "audio-lines",
   icon: AudioLinesIcon,
   addedAt: "2025-11-20",
   category: ["Multimedia"],
   keywords: ["sound", "music", "waveform", "volume", "equalizer", "voice"],
- },
+},
 
- // Notifications
- {
+// Notifications
+{
   name: "bell",
   icon: BellIcon,
   addedAt: "2025-10-09",
   category: ["Notification"],
   keywords: ["notification", "alarm", "alert", "reminder", "ring"],
- },
- {
+},
+{
   name: "bell-ring",
   icon: BellRingIcon,
   addedAt: "2025-12-03",
   category: ["Notification"],
   keywords: ["notification", "active", "alarm", "alert", "reminder", "ringing"],
- },
- {
+},
+{
   name: "bell-plus",
   icon: BellPlusIcon,
   addedAt: "2025-07-29",
   category: ["Notification"],
   keywords: ["subscribe", "notify", "add", "follow", "alert"],
- },
- {
+},
+{
   name: "bell-minus",
   icon: BellMinusIcon,
   addedAt: "2025-11-13",
-  category: ["Tools"],
+  category: ["Notification"],
   keywords: ["unsubscribe", "silent", "mute", "remove", "quiet"],
- },
+},
 
- // Security & Privacy
- {
+// Security & Privacy
+{
   name: "lock",
   icon: LockIcon,
   addedAt: "2025-07-30",
   category: ["Security"],
   keywords: ["security", "password", "secure", "private", "access"],
- },
+},
 
- // Commerce
- {
+// Commerce
+{
   name: "baggage-claim",
   icon: BaggageClaimIcon,
   addedAt: "2026-01-23",
   category: ["Travel"],
   keywords: ["baggage", "luggage", "airport", "travel", "suitcase", "claim"],
- },
-
- {
+},
+{
   name: "shopping-cart",
   icon: ShoppingCartIcon,
   addedAt: "2025-10-29",
-  category: ["Buildings", "Shopping"],
+  category: ["Shopping"],
   keywords: ["buy", "purchase", "store", "checkout", "ecommerce"],
- },
- {
+},
+{
   name: "shopping-bag",
   icon: ShoppingBagIcon,
   addedAt: "2025-08-30",
-  category: ["Buildings", "Shopping"],
+  category: ["Shopping"],
   keywords: ["buy", "purchase", "store", "mall", "retail"],
- },
+},
 
- // Social & Brands
- {
+// Social & Brands
+{
   name: "github",
   icon: GithubIcon,
   addedAt: "2025-08-02",
   category: ["Brands", "Coding & development"],
   keywords: ["code", "git", "repo", "version control", "social"],
- },
+},
+
  {
   name: "twitter",
   icon: TwitterIcon,
@@ -1267,7 +1270,7 @@ const ICON_LIST: IconListItem[] = [
   name: "code",
   icon: CodeIcon,
   addedAt: "2025-09-27",
-  category: ["Coding & development", "Tools"],
+  category: ["Coding & development"],
   keywords: ["source", "programming", "html", "xml", "code", "dev"],
  },
  {
@@ -1288,7 +1291,7 @@ const ICON_LIST: IconListItem[] = [
   name: "wifi-cog",
   icon: WifiCogIcon,
   addedAt: "2025-10-25",
-  category: ["Connectivity", "Tools"],
+  category: ["Connectivity"],
   keywords: ["settings", "network", "wifi", "config", "setup"],
  },
  {
@@ -1302,7 +1305,7 @@ const ICON_LIST: IconListItem[] = [
   name: "wifi-pen",
   icon: WifiPenIcon,
   addedAt: "2025-10-25",
-  category: ["Connectivity", "Tools"],
+  category: ["Connectivity"],
   keywords: ["edit", "wifi", "pen", "change", "network"],
  },
  {
@@ -1351,21 +1354,21 @@ const ICON_LIST: IconListItem[] = [
   name: "square-arrow-out-up-right",
   icon: SquareArrowOutUpRightIcon,
   addedAt: "2025-11-19",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["external", "link", "share", "open", "out"],
  },
  {
   name: "external-link",
   icon: ExternalLinkIcon,
   addedAt: "2025-12-08",
-  category: ["Connectivity", "Tools"],
+  category: ["Connectivity"],
   keywords: ["external", "link", "share", "open", "out"],
  },
  {
   name: "link",
   icon: LinkIcon,
   addedAt: "2025-12-07",
-  category: ["Connectivity", "Tools"],
+  category: ["Connectivity"],
   keywords: ["url", "hyperlink", "connection", "link", "website"],
  },
  {
@@ -1449,7 +1452,7 @@ const ICON_LIST: IconListItem[] = [
   name: "shield-check",
   icon: ShieldCheckIcon,
   addedAt: "2025-10-07",
-  category: ["Security", "Tools"],
+  category: ["Security"],
   keywords: ["cybersecurity", "secure", "safety", "protected", "guardian"],
  },
  {
@@ -1683,35 +1686,35 @@ const ICON_LIST: IconListItem[] = [
   name: "arrow-up-0-1",
   icon: ArrowUp01Icon,
   addedAt: "2025-10-30",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["filter", "sort", "ascending", "numerical", "order", "rank"],
  },
  {
   name: "arrow-up-1-0",
   icon: ArrowUp10Icon,
   addedAt: "2025-11-14",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["filter", "sort", "descending", "numerical", "order", "rank"],
  },
  {
   name: "arrow-up-a-z",
   icon: ArrowUpAzIcon,
   addedAt: "2025-09-15",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["filter", "sort", "ascending", "alphabetical", "order", "rank"],
  },
  {
   name: "arrow-up-z-a",
   icon: ArrowUpZaIcon,
   addedAt: "2026-01-19",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["filter", "sort", "descending", "alphabetical", "order", "rank"],
  },
  {
   name: "arrow-down-up",
   icon: ArrowDownUpIcon,
   addedAt: "2025-11-28",
-  category: ["Arrows", "Tools"],
+  category: ["Arrows"],
   keywords: ["sort", "filter", "swap", "order", "switch", "move"],
  },
  {

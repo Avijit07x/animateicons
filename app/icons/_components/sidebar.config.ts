@@ -1,16 +1,4 @@
-import {
-	BarChart3,
-	BookOpen,
-	Bot,
-	Code,
-	Database,
-	Home,
-	LayoutGrid,
-	MoreHorizontal,
-	Palette,
-	Send,
-	Shield,
-} from "lucide-react";
+import { BookOpen, Home, Send } from "lucide-react";
 import { SidebarGroupConfig } from "./sidebar.types";
 
 export const sidebarConfig: SidebarGroupConfig[] = [
@@ -37,20 +25,6 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 				isActive: true,
 				href: "/icons/huge",
 			},
-		],
-	},
-	{
-		label: "Categories",
-		scrollable: true,
-		items: [
-			{ label: "Layouts", icon: LayoutGrid },
-			{ label: "Development", icon: Code },
-			{ label: "Analytics", icon: BarChart3 },
-			{ label: "AI & Automation", icon: Bot },
-			{ label: "Database", icon: Database },
-			{ label: "Design", icon: Palette },
-			{ label: "Security", icon: Shield },
-			{ label: "Others", icon: MoreHorizontal },
 		],
 	},
 ];

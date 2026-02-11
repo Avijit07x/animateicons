@@ -1,6 +1,7 @@
 import React from "react";
 import { SidebarProvider } from "../../components/ui/sidebar";
 import AppSidebar from "./_components/AppSidebar";
+import CategoryContextProvider from "./_contexts/CategoryContext";
 import { IconSearchProvider } from "./_contexts/IconSearchContext";
 
 type Props = {
@@ -10,13 +11,14 @@ type Props = {
 const Layout: React.FC<Props> = ({ children }) => {
 	return (
 		<SidebarProvider>
-			<IconSearchProvider>
-				<div className="flex min-h-dvh w-full">
-					<AppSidebar />
-
-					{children}
-				</div>
-			</IconSearchProvider>
+			<CategoryContextProvider>
+				<IconSearchProvider>
+					<div className="flex min-h-dvh w-full">
+						<AppSidebar />
+						{children}
+					</div>
+				</IconSearchProvider>
+			</CategoryContextProvider>
 		</SidebarProvider>
 	);
 };

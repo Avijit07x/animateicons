@@ -4,6 +4,9 @@ import HugeIcon from "@/components/icons/HugeIcon";
 import LucideIcon from "@/components/icons/LucideIcon";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
+import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { getCategories } from "@/utils/getCategories";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -18,6 +21,7 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from "../../../components/ui/sidebar";
+import { useCategory } from "../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
 
 const libraryIconMap: Record<string, React.ReactNode> = {
@@ -27,6 +31,11 @@ const libraryIconMap: Record<string, React.ReactNode> = {
 
 const AppSidebar: React.FC = () => {
 	const { library } = useIconLibrary();
+	const { category, setCategory } = useCategory();
+	const icons = library === "lucide" ? LUCIDE_ICON_LIST : HUGE_ICON_LIST;
+
+	const categories = React.useMemo(() => getCategories(icons), [icons]);
+	const totalCount = icons.length;
 
 	const isLibraryActive = (name?: string) => {
 		if (!name) return false;
@@ -79,8 +88,17 @@ const AppSidebar: React.FC = () => {
 											<SidebarMenuButton
 												asChild={!!item.href}
 												variant="dark"
-												isActive={isLibraryActive(item.name)}
+												isActive={
+													group.label === "Categories"
+														? category === item.label
+														: isLibraryActive(item.name)
+												}
 												className="gap-2"
+												onClick={() => {
+													if (group.label === "Categories") {
+														setCategory(item.label);
+													}
+												}}
 											>
 												{item.href ? (
 													<Link
@@ -103,6 +121,44 @@ const AppSidebar: React.FC = () => {
 						</SidebarGroupContent>
 					</SidebarGroup>
 				))}
+				<SidebarGroup className="flex-1 overflow-y-auto">
+					<SidebarGroupLabel className="text-textMuted text-xs">
+						Categories
+					</SidebarGroupLabel>
+					<SidebarGroupContent>
+						<SidebarMenu className="gap-[0.563rem]">
+							<SidebarMenuItem key="all">
+								<SidebarMenuButton
+									variant="dark"
+									isActive={category === "all"}
+									className="justify-between gap-2"
+									onClick={() => setCategory("all")}
+								>
+									<span className="flex items-center gap-2">All</span>
+									<span className="text-muted-foreground text-xs">
+										{totalCount}
+									</span>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+
+							{categories.map((cat) => (
+								<SidebarMenuItem key={cat.name}>
+									<SidebarMenuButton
+										variant="dark"
+										isActive={category === cat.name}
+										className="justify-between gap-2"
+										onClick={() => setCategory(cat.name)}
+									>
+										<span className="flex items-center gap-2">{cat.name}</span>
+										<span className="text-muted-foreground text-xs">
+											{cat.count}
+										</span>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+							))}
+						</SidebarMenu>
+					</SidebarGroupContent>
+				</SidebarGroup>
 			</SidebarContent>
 		</Sidebar>
 	);

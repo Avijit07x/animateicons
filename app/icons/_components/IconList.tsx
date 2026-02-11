@@ -9,6 +9,7 @@ import { ICON_LIST as HUGE_ICON_LIST } from "../../../icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "../../../icons/lucide";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { useCategory } from "../_contexts/CategoryContext";
 import { useIconSearch } from "../_contexts/IconSearchContext";
 import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconsNotFound from "./IconsNotFound";
@@ -22,6 +23,7 @@ const ICON_LIST_MAP = {
 const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearch();
 	const { library } = useIconLibrary();
+	const { category } = useCategory();
 
 	const icons = library ? ICON_LIST_MAP[library] : [];
 
@@ -42,10 +44,15 @@ const IconList: React.FC = () => {
 	const filteredItems = useMemo(() => {
 		if (!icons.length) return [];
 
-		const items =
-			debouncedQuery.trim() && fuse
-				? fuse.search(debouncedQuery).map((r) => r.item)
-				: icons;
+		let items = icons;
+
+		if (category !== "all") {
+			items = items.filter((icon) => icon.category?.includes(category));
+		}
+
+		if (debouncedQuery.trim() && fuse) {
+			items = fuse.search(debouncedQuery).map((r) => r.item);
+		}
 
 		const withNewFlag = items.map((item) => ({
 			item,
@@ -57,7 +64,7 @@ const IconList: React.FC = () => {
 		withNewFlag.sort((a, b) => Number(b.isNew) - Number(a.isNew));
 
 		return withNewFlag.map((entry) => entry.item);
-	}, [debouncedQuery, fuse, icons]);
+	}, [debouncedQuery, fuse, icons, category]);
 
 	if (!library) {
 		return <IconLibraryEmptyState />;

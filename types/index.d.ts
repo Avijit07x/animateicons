@@ -55,8 +55,4 @@ type Registry = {
 	items: RegistryItem[];
 };
 
-type IconListItem = {
-	name: string;
-	icon?: { name?: string };
-	keywords: string[];
-};
+
