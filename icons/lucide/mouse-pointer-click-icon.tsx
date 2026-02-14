@@ -87,7 +87,7 @@ const MousePointerClickIcon = forwardRef<
    },
    animate: {
     opacity: [0, 1, 0, 1],
-    scale: [0.6, 1.2],
+    scale: [0.6, 1.2, 1],
     transition: {
      duration: 0.6 * duration,
      ease: "easeOut",

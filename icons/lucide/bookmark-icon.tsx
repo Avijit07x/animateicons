@@ -30,7 +30,6 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const sparkControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
@@ -64,13 +63,18 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
   );
 
   const bookmarkVariants: Variants = {
-   normal: { y: 0, scale: 1 },
+   normal: {
+    y: 0,
+    scaleX: 1,
+    scaleY: 1,
+   },
    animate: {
-    y: [0, -2, 1, 0],
-    scale: [1, 1.04, 0.98, 1],
+    y: [0, -4, 0],
+    scaleY: [1, 1.1, 0.95, 1],
+    scaleX: [1, 0.97, 1.02, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
+     duration: 0.45 * duration,
+     ease: "easeOut",
     },
    },
   };

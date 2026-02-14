@@ -957,140 +957,140 @@ const ICON_LIST: IconListItem[] = [
  },
 
  // Communication & Media
-{
+ {
   name: "message-circle",
   icon: MessageCircleIcon,
   addedAt: "2025-08-23",
   category: ["Communication"],
   keywords: ["chat", "comment", "discussion", "reply", "feedback"],
-},
-{
+ },
+ {
   name: "mail",
   icon: MailIcon,
   addedAt: "2026-01-08",
   category: ["Communication", "Mail"],
   keywords: ["email", "message", "inbox", "send", "letter"],
-},
-{
+ },
+ {
   name: "mails",
   icon: MailsIcon,
   addedAt: "2025-08-27",
   category: ["Mail"],
   keywords: ["email", "messages", "inbox", "conversation", "letters"],
-},
-{
+ },
+ {
   name: "mic",
   icon: MicIcon,
   addedAt: "2025-09-05",
   category: ["Multimedia"],
   keywords: ["record", "voice", "sound", "audio", "speak"],
-},
-{
+ },
+ {
   name: "mic-off",
   icon: MicOffIcon,
   addedAt: "2025-09-16",
   category: ["Multimedia"],
   keywords: ["mute", "silent", "disable", "quiet", "no sound"],
-},
-{
+ },
+ {
   name: "headphones",
   icon: HeadphonesIcon,
   addedAt: "2026-01-16",
   category: ["Multimedia"],
   keywords: ["music", "audio", "listen", "sound", "device"],
-},
-{
+ },
+ {
   name: "headset",
   icon: HeadsetIcon,
   addedAt: "2025-10-07",
   category: ["Communication", "Multimedia"],
   keywords: ["support", "call", "agent", "operator", "audio", "headset"],
-},
-{
+ },
+ {
   name: "headphones-off",
   icon: HeadphonesOffIcon,
   addedAt: "2026-01-02",
   category: ["Multimedia"],
   keywords: ["mute", "silent", "no audio", "disabled", "quiet"],
-},
-{
+ },
+ {
   name: "audio-lines",
   icon: AudioLinesIcon,
   addedAt: "2025-11-20",
   category: ["Multimedia"],
   keywords: ["sound", "music", "waveform", "volume", "equalizer", "voice"],
-},
+ },
 
-// Notifications
-{
+ // Notifications
+ {
   name: "bell",
   icon: BellIcon,
   addedAt: "2025-10-09",
   category: ["Notification"],
   keywords: ["notification", "alarm", "alert", "reminder", "ring"],
-},
-{
+ },
+ {
   name: "bell-ring",
   icon: BellRingIcon,
   addedAt: "2025-12-03",
   category: ["Notification"],
   keywords: ["notification", "active", "alarm", "alert", "reminder", "ringing"],
-},
-{
+ },
+ {
   name: "bell-plus",
   icon: BellPlusIcon,
   addedAt: "2025-07-29",
   category: ["Notification"],
   keywords: ["subscribe", "notify", "add", "follow", "alert"],
-},
-{
+ },
+ {
   name: "bell-minus",
   icon: BellMinusIcon,
   addedAt: "2025-11-13",
   category: ["Notification"],
   keywords: ["unsubscribe", "silent", "mute", "remove", "quiet"],
-},
+ },
 
-// Security & Privacy
-{
+ // Security & Privacy
+ {
   name: "lock",
   icon: LockIcon,
   addedAt: "2025-07-30",
   category: ["Security"],
   keywords: ["security", "password", "secure", "private", "access"],
-},
+ },
 
-// Commerce
-{
+ // Commerce
+ {
   name: "baggage-claim",
   icon: BaggageClaimIcon,
   addedAt: "2026-01-23",
   category: ["Travel"],
   keywords: ["baggage", "luggage", "airport", "travel", "suitcase", "claim"],
-},
-{
+ },
+ {
   name: "shopping-cart",
   icon: ShoppingCartIcon,
   addedAt: "2025-10-29",
   category: ["Shopping"],
   keywords: ["buy", "purchase", "store", "checkout", "ecommerce"],
-},
-{
+ },
+ {
   name: "shopping-bag",
   icon: ShoppingBagIcon,
   addedAt: "2025-08-30",
   category: ["Shopping"],
   keywords: ["buy", "purchase", "store", "mall", "retail"],
-},
+ },
 
-// Social & Brands
-{
+ // Social & Brands
+ {
   name: "github",
   icon: GithubIcon,
   addedAt: "2025-08-02",
   category: ["Brands", "Coding & development"],
   keywords: ["code", "git", "repo", "version control", "social"],
-},
+ },
 
  {
   name: "twitter",
@@ -1194,7 +1194,6 @@ const ICON_LIST: IconListItem[] = [
   category: ["Tools"],
   keywords: ["dislike", "disapprove", "bad", "downvote", "negative"],
  },
-
  {
   name: "activity",
   icon: ActivityIcon,

@@ -54,5 +54,3 @@ type Registry = {
 	homepage: string;
 	items: RegistryItem[];
 };
-
-

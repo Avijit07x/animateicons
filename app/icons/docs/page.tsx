@@ -32,12 +32,15 @@ export default function Demo() {
 	const ref = useRef<EyeIconHandle>(null)
 
 	return (
-		<>
-			<EyeIcon ref={ref} />
-			<button onClick={() => ref.current?.startAnimation()}>
-				Animate
-			</button>
-		</>
+		<div className="flex items-center gap-6">
+			<button
+				onMouseEnter={() => ref.current?.startAnimation()}
+				onMouseLeave={() => ref.current?.stopAnimation()}
+				className="cursor-pointer"
+			>
+				<EyeIcon ref={ref} size={28} duration={1} />
+			</button>	
+		</div>
 	)
 }`;
 
@@ -52,7 +55,7 @@ const Page: React.FC = () => {
 						onClick={() => {
 							router.back();
 						}}
-						className="border-border hover:bg-surfaceElevated flex h-9 w-9 items-center justify-center rounded-md border transition text-textPrimary!"
+						className="border-border hover:bg-surfaceElevated text-textPrimary! flex h-9 w-9 items-center justify-center rounded-md border transition"
 					>
 						<ArrowLeft className="h-4 w-4" />
 					</Button>

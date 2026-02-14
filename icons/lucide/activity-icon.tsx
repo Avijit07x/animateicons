@@ -63,15 +63,19 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
   );
 
   const activityVariants: Variants = {
-   normal: { strokeDasharray: "none", opacity: 1 },
+   normal: {
+    strokeDasharray: "none",
+    strokeDashoffset: 0,
+    opacity: 1,
+   },
    animate: {
-    strokeDasharray: "80 80",
-    strokeDashoffset: [80, 0, -80],
-    opacity: [0.6, 1, 0.6],
+    strokeDasharray: "60 120",
+    strokeDashoffset: [0, -180],
     transition: {
-     duration: 2 * duration,
+     duration: 1.4 * duration,
+     ease: "linear",
      repeat: Infinity,
-     ease: "easeInOut",
+     repeatType: "loop",
     },
    },
   };
@@ -97,7 +101,7 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
      initial="normal"
     >
      <motion.path
-      d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+      d="M2 12h2.49a2 2 0 0 0 1.92-1.46l2.35-8.36a.25.25 0 0 1 .48 0l5.52 19.64a.25.25 0 0 0 .48 0l2.35-8.36A2 2 0 0 1 19.52 12H22"
       variants={activityVariants}
      />
     </motion.svg>

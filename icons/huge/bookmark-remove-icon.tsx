@@ -5,18 +5,21 @@ import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { cn } from "../../lib/utils";
 
-export interface BellIconHandle {
+export interface BookmarkRemoveIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BellIconProps extends HTMLMotionProps<"div"> {
+interface BookmarkRemoveIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
+const BookmarkRemoveIcon = forwardRef<
+ BookmarkRemoveIconHandle,
+ BookmarkRemoveIconProps
+>(
  (
   {
    onMouseEnter,
@@ -52,30 +55,40 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
     else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bellVariants: Variants = {
-   normal: { rotate: 0 },
+  const bookmarkVariants: Variants = {
+   normal: {
+    y: 0,
+    scaleX: 1,
+    scaleY: 1,
+   },
    animate: {
-    rotate: [0, -18, 15, -10, 6, -3, 0],
+    y: [0, -4, 0],
+    scaleY: [1, 1.1, 0.95, 1],
+    scaleX: [1, 0.97, 1.02, 1],
     transition: {
-     duration: 1.6 * duration,
-     ease: "easeInOut",
+     duration: 0.45 * duration,
+     ease: "easeOut",
     },
    },
   };
 
-  const clapperVariants: Variants = {
-   normal: { x: 0 },
+  const crossVariants: Variants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+   },
    animate: {
-    x: [0, -4, 4, -2, 2, 0],
+    pathLength: [0, 1],
+    opacity: 1,
     transition: {
-     duration: 1.6 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
     },
    },
@@ -83,7 +96,7 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
 
   return (
    <motion.div
-    className={cn("relative inline-flex", className)}
+    className={cn("inline-flex items-center justify-center", className)}
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
@@ -98,20 +111,21 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
      strokeWidth="2"
      strokeLinecap="round"
      strokeLinejoin="round"
-     animate={controls}
      initial="normal"
-     variants={bellVariants}
+     animate={controls}
+     variants={bookmarkVariants}
     >
+     <path d="M11 2C7.22876 2 5.34315 2 4.17157 3.12874C3 4.25748 3 6.07416 3 9.70753V17.9808C3 20.2867 3 21.4396 3.77285 21.8523C5.26947 22.6514 8.0768 19.9852 9.41 19.1824C10.1832 18.7168 10.5698 18.484 11 18.484C11.4302 18.484 11.8168 18.7168 12.59 19.1824C13.9232 19.9852 16.7305 22.6514 18.2272 21.8523C19 21.4396 19 20.2867 19 17.9808V12" />
+
      <motion.path
-      d="M15.5 18C15.5 19.933 13.933 21.5 12 21.5C10.067 21.5 8.5 19.933 8.5 18"
-      variants={clapperVariants}
+      d="M21 2L14 8.99954M21 9L14 2.00046"
+      variants={crossVariants}
      />
-     <path d="M19.2311 18H4.76887C3.79195 18 3 17.208 3 16.2311C3 15.762 3.18636 15.3121 3.51809 14.9803L4.12132 14.3771C4.68393 13.8145 5 13.0514 5 12.2558V9.5C5 5.63401 8.13401 2.5 12 2.5C15.866 2.5 19 5.634 19 9.5V12.2558C19 13.0514 19.3161 13.8145 19.8787 14.3771L20.4819 14.9803C20.8136 15.3121 21 15.762 21 16.2311C21 17.208 20.208 18 19.2311 18Z" />
     </motion.svg>
    </motion.div>
   );
  },
 );
 
-BellIcon.displayName = "BellIcon";
-export { BellIcon };
+BookmarkRemoveIcon.displayName = "BookmarkRemoveIcon";
+export { BookmarkRemoveIcon };

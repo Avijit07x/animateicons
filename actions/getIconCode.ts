@@ -5,20 +5,25 @@ import path from "node:path";
 
 export type IconLibrary = "lucide" | "huge";
 
-export async function getIconCode(iconName: string, library: IconLibrary) {
+const ROOT = process.cwd();
+const ICONS_BASE_DIR = path.join(ROOT, "icons");
+
+function sanitize(name: string) {
+	return name.replace(/[^a-z0-9-]/gi, "").toLowerCase();
+}
+
+export async function getIconCode(
+	iconName: string,
+	library: IconLibrary,
+): Promise<string | null> {
 	try {
-		const ROOT = process.cwd();
+		const safeName = sanitize(iconName);
+		if (!safeName) return null;
 
-		const ICONS_DIR = path.join(ROOT, "icons", library);
+		const filePath = path.join(ICONS_BASE_DIR, library, `${safeName}-icon.tsx`);
 
-		const fileName = `${iconName}-icon.tsx`;
-		const filePath = path.join(ICONS_DIR, fileName);
-
-		await fs.access(filePath);
-
-		const content = await fs.readFile(filePath, "utf8");
-		return content;
+		return await fs.readFile(filePath, "utf8");
 	} catch {
-		return "";
+		return null;
 	}
 }

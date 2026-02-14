@@ -38,6 +38,7 @@
 		"react": "^19.2.1",
 		"react-dom": "^19.2.1",
 		"shiki": "^3.22.0",
+		"swr": "^2.4.0",
 		"tailwind-merge": "^3.3.1",
 		"use-debounce": "^10.0.6"
 	},

@@ -71,7 +71,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	return (
 		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
 			{item.addedAt && isNew(item.addedAt) && (
-				<span className="bg-surface text-primaryHover absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium">
+				<span className="bg-surface text-textSecondary absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium">
 					New
 				</span>
 			)}

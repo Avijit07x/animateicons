@@ -1,6 +1,6 @@
 "use client";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { useGithubStars } from "@/contexts/GithubStarContext";
+import { useGithubStars } from "@/hooks/useGithubStars";
 import { HeartIconHandle } from "@/icons/huge/heart-icon";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,6 +40,12 @@ const Navbar: React.FC<Props> = () => {
 						/>
 					</Link>
 				</div>
+
+				<div className="hidden items-center justify-center gap-4 lg:flex">
+					<SearchBar />
+
+					<PackageManagerToggle />
+				</div>
 				<div className="flex items-center justify-center gap-2 lg:hidden">
 					<Link
 						href="https://github.com/sponsors/Avijit07x"
@@ -64,11 +70,6 @@ const Navbar: React.FC<Props> = () => {
 							/>
 						)}
 					</Link>
-				</div>
-				<div className="hidden items-center justify-center gap-4 lg:flex">
-					<SearchBar />
-
-					<PackageManagerToggle />
 				</div>
 				<div className="hidden items-center gap-2 text-sm lg:flex">
 					<Tooltip>

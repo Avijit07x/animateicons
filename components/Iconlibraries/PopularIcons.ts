@@ -1,13 +1,34 @@
-import { BellIcon as HuBellIcon } from "../../icons/huge/bell-icon";
+import { ActivityIcon as HuActivityIcon } from "../../icons/huge/activity-icon";
+import { BookmarkCheckIcon as HuBookmarkCheckIcon } from "../../icons/huge/bookmark-check-icon";
 import { BookmarkIcon as HuBookmarkIcon } from "../../icons/huge/bookmark-icon";
+import { BookmarkMinusIcon as HuBookmarkMinusIcon } from "../../icons/huge/bookmark-minus-icon";
+import { BookmarkRemoveIcon as HuBookmarkRemoveIcon } from "../../icons/huge/bookmark-remove-icon";
 import { CheckCheckIcon as HuCheckCheckIcon } from "../../icons/huge/check-check-icon";
 import { CheckIcon as HuCheckIcon } from "../../icons/huge/check-icon";
 import { ChevronRightIcon as HuChevronRightIcon } from "../../icons/huge/chevron-right-icon";
+import { Compass01Icon as HuCompass01Icon } from "../../icons/huge/compass-0-1-icon";
+import { Compass02Icon as HuCompass02Icon } from "../../icons/huge/compass-0-2-icon";
 import { CopyIcon as HuCopyIcon } from "../../icons/huge/copy-icon";
+import { Dashboard01Icon as HuDashboard01Icon } from "../../icons/huge/dashboard-0-1-icon";
+import { Dashboard02Icon as HuDashboard02Icon } from "../../icons/huge/dashboard-0-2-icon";
+import { Dashboard03Icon as HuDashboard03Icon } from "../../icons/huge/dashboard-0-3-icon";
+import { DiscordIcon as HuDiscordIcon } from "../../icons/huge/discord-icon";
 import { DownloadIcon as HuDownloadIcon } from "../../icons/huge/download-icon";
 import { EyeIcon as HuEyeIcon } from "../../icons/huge/eye-icon";
+import { FacebookIcon as HuFacebookIcon } from "../../icons/huge/facebook-icon";
+import { FigmaIcon as HuFigmaIcon } from "../../icons/huge/figma-icon";
+import { GithubIcon as HuGithubIcon } from "../../icons/huge/github-icon";
 import { HeartIcon as HuHeartIcon } from "../../icons/huge/heart-icon";
+import { Loading01Icon as HuLoading01Icon } from "../../icons/huge/loading-0-1-icon";
+import { Loading02Icon as HuLoading02Icon } from "../../icons/huge/loading-0-2-icon";
+import { Menu01Icon as HuMenu01Icon } from "../../icons/huge/menu-0-1-icon";
+import { Menu02Icon as HuMenu02Icon } from "../../icons/huge/menu-0-2-icon";
+import { MousePointerClick01Icon as HuMousePointerClick01Icon } from "../../icons/huge/mouse-pointer-click-0-1-icon";
+import { NotificationIcon as HuNotificationIcon } from "../../icons/huge/notification-icon";
+import { NotificationOffIcon as HuNotificationOffIcon } from "../../icons/huge/notification-off-icon";
 import { SearchIcon as HuSearchIcon } from "../../icons/huge/search-icon";
+import { Settings01Icon as HuSettings01Icon } from "../../icons/huge/settings-0-1-icon";
+import { TwitterIcon as HuTwitterIcon } from "../../icons/huge/twitter-icon";
 
 import { ActivityIcon } from "../../icons/lucide/activity-icon";
 import { BellIcon } from "../../icons/lucide/bell-icon";
@@ -54,47 +75,69 @@ export type AnimatedIconComponent = ForwardRefExoticComponent<
 >;
 
 export const LucideIcons: AnimatedIconComponent[] = [
-	ActivityIcon,
-	BellIcon,
-	BookmarkIcon,
-	ChartBarIcon,
-	CheckIcon,
-	ChevronRightIcon,
-	CopyIcon,
-	DashboardIcon,
-	DownloadIcon,
-	ExternalLinkIcon,
-	EyeIcon,
-	FolderIcon,
-	HeartIcon,
-	HouseIcon,
-	LayoutGridIcon,
-	LinkIcon,
-	LoaderIcon,
-	LockIcon,
-	MailIcon,
 	MenuIcon,
+	DashboardIcon,
+	LayoutGridIcon,
+	HouseIcon,
+	SearchIcon,
+	CopyIcon,
+	DownloadIcon,
+	UploadIcon,
+	ShareIcon,
+	ExternalLinkIcon,
+	BellIcon,
+	CheckIcon,
+	EyeIcon,
+	BookmarkIcon,
+	HeartIcon,
+	StarIcon,
+	FolderIcon,
+	LinkIcon,
+	SettingsIcon,
+	LockIcon,
+	UserIcon,
+	MailIcon,
+	ActivityIcon,
+	ChartBarIcon,
+	LoaderIcon,
+	SunIcon,
 	MoonIcon,
+	ChevronRightIcon,
 	MoveRightIcon,
 	PlusIcon,
-	SearchIcon,
-	SettingsIcon,
-	ShareIcon,
-	StarIcon,
-	SunIcon,
 	TrashIcon,
-	UploadIcon,
-	UserIcon,
 ];
+
 export const HugeIcons: AnimatedIconComponent[] = [
-	HuHeartIcon,
+	HuMenu01Icon,
+	HuDashboard01Icon,
 	HuSearchIcon,
-	HuBellIcon,
-	HuBookmarkIcon,
 	HuCopyIcon,
-	HuEyeIcon,
+	HuDownloadIcon,
+	HuNotificationIcon,
+	HuNotificationOffIcon,
 	HuCheckIcon,
 	HuCheckCheckIcon,
+	HuEyeIcon,
+	HuBookmarkIcon,
+	HuBookmarkCheckIcon,
+	HuBookmarkMinusIcon,
+	HuBookmarkRemoveIcon,
+	HuHeartIcon,
+	HuSettings01Icon,
+	HuActivityIcon,
+	HuLoading01Icon,
+	HuLoading02Icon,
 	HuChevronRightIcon,
-	HuDownloadIcon,
+	HuCompass01Icon,
+	HuCompass02Icon,
+	HuMousePointerClick01Icon,
+	HuMenu02Icon,
+	HuDashboard02Icon,
+	HuDashboard03Icon,
+	HuGithubIcon,
+	HuFigmaIcon,
+	HuDiscordIcon,
+	HuFacebookIcon,
+	HuTwitterIcon,
 ];

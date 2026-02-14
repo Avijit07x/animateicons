@@ -63,11 +63,19 @@ const BookmarkCheckIcon = forwardRef<
   );
 
   const bookmarkVariants: Variants = {
-   normal: { scale: 1, y: 0 },
+   normal: {
+    y: 0,
+    scaleX: 1,
+    scaleY: 1,
+   },
    animate: {
-    scale: [1, 1.08, 0.96, 1],
-    y: [0, -2, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
+    y: [0, -4, 0],
+    scaleY: [1, 1.1, 0.95, 1],
+    scaleX: [1, 0.97, 1.02, 1],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeOut",
+    },
    },
   };
 

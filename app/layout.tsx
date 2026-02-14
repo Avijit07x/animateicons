@@ -1,4 +1,3 @@
-import GithubStarContextProvider from "@/contexts/GithubStarContext";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -117,7 +116,7 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
-				<GithubStarContextProvider>{children}</GithubStarContextProvider>
+				{children}
 				<Analytics />
 			</body>
 		</html>

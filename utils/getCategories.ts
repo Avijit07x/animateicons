@@ -1,4 +1,3 @@
-
 export const getCategories = (icons: { category?: string[] }[]) => {
 	const map: Record<string, number> = {};
 

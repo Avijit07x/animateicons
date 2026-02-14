@@ -1,6 +1,6 @@
 "use client";
 
-import { useGithubStars } from "@/contexts/GithubStarContext";
+import { useGithubStars } from "@/hooks/useGithubStars";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";

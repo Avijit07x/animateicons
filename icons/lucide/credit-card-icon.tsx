@@ -171,7 +171,7 @@ const CreditCardIcon = forwardRef<CardHandle, CardProps>(
       <motion.path
        d="M5 15 H15"
        stroke="currentColor"
-       strokeWidth="1.5"
+       strokeWidth="2"
        variants={swipeLine}
        initial="normal"
        animate={swipeControls}

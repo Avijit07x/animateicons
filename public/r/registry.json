@@ -4,7 +4,7 @@
   "homepage": "https://animateicons.in",
   "items": [
     {
-      "name": "hu-bell",
+      "name": "hu-activity",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": [
@@ -13,9 +13,25 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/huge/bell-icon.tsx",
+          "path": "icons/huge/activity-icon.tsx",
           "type": "registry:ui",
-          "target": "components/icons/bell.tsx"
+          "target": "components/icons/activity.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-bookmark-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/bookmark-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-check.tsx"
         }
       ]
     },
@@ -32,6 +48,38 @@
           "path": "icons/huge/bookmark-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/bookmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-bookmark-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/bookmark-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-bookmark-remove",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/bookmark-remove-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-remove.tsx"
         }
       ]
     },
@@ -84,6 +132,38 @@
       ]
     },
     {
+      "name": "hu-compass-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/compass-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/compass-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-compass-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/compass-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/compass-0-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-copy",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -96,6 +176,70 @@
           "path": "icons/huge/copy-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-dashboard-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/dashboard-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dashboard-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-dashboard-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/dashboard-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dashboard-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-dashboard-0-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/dashboard-0-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dashboard-0-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-discord",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/discord-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/discord.tsx"
         }
       ]
     },
@@ -132,6 +276,54 @@
       ]
     },
     {
+      "name": "hu-facebook",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/facebook-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/facebook.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-figma",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/figma-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/figma.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-github",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/github-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/github.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-heart",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -148,6 +340,134 @@
       ]
     },
     {
+      "name": "hu-loading-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/loading-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/loading-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-loading-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/loading-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/loading-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-menu-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/menu-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/menu-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-menu-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/menu-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/menu-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-mouse-pointer-click-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/mouse-pointer-click-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mouse-pointer-click-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-new-twitter",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/new-twitter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/new-twitter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-notification",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/notification-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/notification.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-notification-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/notification-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/notification-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-search",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -160,6 +480,54 @@
           "path": "icons/huge/search-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-settings-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/settings-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/settings-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-settings-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/settings-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/settings-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-twitter",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/twitter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/twitter.tsx"
         }
       ]
     },

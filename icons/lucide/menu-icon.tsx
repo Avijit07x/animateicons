@@ -60,37 +60,49 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
   );
 
   const topVariants: Variants = {
-   normal: { y: 0, x: 0 },
+   normal: {
+    x: 0,
+    scaleX: 1,
+   },
    animate: {
-    y: -1.5,
-    x: 1.5,
+    x: 3,
+    scaleX: 0.85,
     transition: {
      duration: 0.25 * duration,
      ease: "easeOut",
+     delay: 0,
     },
    },
   };
 
-  const midVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const middleVariants: Variants = {
+   normal: {
+    x: 0,
+    scaleX: 1,
+   },
    animate: {
+    x: 5,
     scaleX: 0.7,
-    opacity: 0.7,
     transition: {
-     duration: 0.2 * duration,
-     ease: "easeInOut",
+     duration: 0.25 * duration,
+     ease: "easeOut",
+     delay: 0.05 * duration,
     },
    },
   };
 
   const bottomVariants: Variants = {
-   normal: { y: 0, x: 0 },
+   normal: {
+    x: 0,
+    scaleX: 1,
+   },
    animate: {
-    y: 1.5,
-    x: -1.5,
+    x: 7,
+    scaleX: 0.55,
     transition: {
      duration: 0.25 * duration,
      ease: "easeOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -115,9 +127,23 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
      animate={controls}
      initial="normal"
     >
-     <motion.path d="M4 6h16" variants={topVariants} />
-     <motion.path d="M4 12h16" variants={midVariants} />
-     <motion.path d="M4 18h16" variants={bottomVariants} />
+     <motion.path
+      d="M4 6h16"
+      variants={topVariants}
+      style={{ transformOrigin: "left center" }}
+     />
+
+     <motion.path
+      d="M4 12h16"
+      variants={middleVariants}
+      style={{ transformOrigin: "left center" }}
+     />
+
+     <motion.path
+      d="M4 18h16"
+      variants={bottomVariants}
+      style={{ transformOrigin: "left center" }}
+     />
     </motion.svg>
    </motion.div>
   );
