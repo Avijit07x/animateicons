@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/input-group";
 import { Kbd } from "@/components/ui/kbd";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge";
+import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide";
 import { SearchIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { ICON_COUNT as HUGE_ICON_COUNT } from "../../../icons/huge";
-import { ICON_COUNT as LUCIDE_ICON_COUNT } from "../../../icons/lucide";
-import { useIconSearch } from "../_contexts/IconSearchContext";
+import { useIconSearch } from "../../_contexts/IconSearchContext";
 
 const isMac =
 	typeof navigator !== "undefined" &&

@@ -18,12 +18,16 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 	{
 		label: "Icon Libraries",
 		items: [
-			{ label: "Lucide Icons", name: "lucide", href: "/icons/lucide" },
+			{
+				label: "Lucide Icons",
+				name: "lucide",
+				href: "/icons/lucide",
+			},
 			{
 				label: "Huge Icons",
 				name: "huge",
-				isActive: true,
 				href: "/icons/huge",
+				isBeta: true,
 			},
 		],
 	},

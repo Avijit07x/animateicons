@@ -19,7 +19,7 @@ const CmdSection: React.FC = () => {
 				},
 				{
 					label: "bun",
-					code: "bunx shadcn@latest add https://animateicons.in/r/",
+					code: "bunx --bun shadcn@latest add https://animateicons.in/r/",
 					language: "bash",
 				},
 			]}

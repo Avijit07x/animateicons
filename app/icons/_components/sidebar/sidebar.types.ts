@@ -5,6 +5,7 @@ export type SidebarItem = {
 	icon?: React.ComponentType<{ className?: string }>;
 	target?: string;
 	isActive?: boolean;
+	isBeta?: boolean;
 };
 
 export type SidebarGroupConfig = {

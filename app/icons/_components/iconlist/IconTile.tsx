@@ -1,23 +1,20 @@
 "use client";
 
-import { useIconLibrary } from "@/hooks/useIconLibrary";
-import handleHover from "@/utils/handleHover";
-import { differenceInDays } from "date-fns";
-import Link from "next/link";
-import React, { useState } from "react";
-import { getIconCode } from "../../../actions/getIconCode";
-import { CheckIcon } from "../../../components/icons/CheckIcon";
-import { V0Icon, V0IconHandle } from "../../../components/icons/V0Icon";
+import { getIconCode } from "@/actions/getIconCode";
+import { CheckIcon } from "@/components/icons/CheckIcon";
+import { V0Icon, V0IconHandle } from "@/components/icons/V0Icon";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "../../../components/ui/tooltip";
-import { CopyIcon, CopyIconHandle } from "../../../icons/lucide/copy-icon";
-import {
-	TerminalIcon,
-	TerminalIconHandle,
-} from "../../../icons/lucide/terminal-icon";
+} from "@/components/ui/tooltip";
+import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
+import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
+import handleHover from "@/utils/handleHover";
+import { differenceInDays } from "date-fns";
+import Link from "next/link";
+import React, { useState } from "react";
 
 type Props = {
 	item: IconListItem;

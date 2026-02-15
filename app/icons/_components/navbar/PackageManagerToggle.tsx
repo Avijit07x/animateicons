@@ -25,7 +25,7 @@ const PackageManagerToggle: React.FC = () => {
 	};
 
 	return (
-		<div className="bg-surfaceElevated border-border inline-flex h-9 items-center rounded-full border p-1 text-sm">
+		<div className="bg-surfaceElevated border-border hidden h-9 items-center justify-center rounded-full border p-1 text-sm lg:flex">
 			{OPTIONS.map((pm) => {
 				const active = pm === value;
 

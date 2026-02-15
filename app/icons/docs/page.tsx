@@ -1,10 +1,6 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import CodeBlock from "../_components/CodeBlock";
+import BackButton from "../_components/docs/BackButton";
+import CodeBlock from "../_components/docs/CodeBlock";
 
 const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
 
@@ -45,20 +41,11 @@ export default function Demo() {
 }`;
 
 const Page: React.FC = () => {
-	const router = useRouter();
 	return (
 		<div className="min-w-0 flex-1">
 			<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
 				<div className="mb-10 flex items-center gap-3">
-					<Button
-						variant={"link"}
-						onClick={() => {
-							router.back();
-						}}
-						className="border-border hover:bg-surfaceElevated text-textPrimary! flex h-9 w-9 items-center justify-center rounded-md border transition"
-					>
-						<ArrowLeft className="h-4 w-4" />
-					</Button>
+					<BackButton />
 
 					<h1 className="text-2xl font-semibold">Installation</h1>
 				</div>

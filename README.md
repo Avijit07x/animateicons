@@ -13,13 +13,13 @@ You can install any icon directly into your project using the **shadcn** CLI:
 ### npm example
 
 ```
-npx shadcn@latest add "https://animateicons.in/icons/bell.json"
+npx shadcn@latest add "https://animateicons.in/r/lu-bell.json"
 ```
 
 ### bun example
 
 ```
-bunx shadcn@latest add "https://animateicons.in/icons/bell.json"
+bunx --bun shadcn@latest add "https://animateicons.in/r/lu-bell.json"
 ```
 
 Replace `bell.json` with any icon name from our gallery.
@@ -33,7 +33,7 @@ After installing an icon, import it into your component:
 
 ```tsx
 "use client";
-import { AtomIcon } from "./components/AtomIcon";
+import { AtomIcon } from "@/components/AtomIcon";
 
 export default function Page() {
 	return <AtomIcon size={28} duration={1} isAnimated={true} />;
@@ -45,7 +45,7 @@ export default function Page() {
 ```tsx
 "use client";
 import { useRef } from "react";
-import { BellRingIcon, BellRingIconHandle } from "./components/BellRingIcon";
+import { BellRingIcon, BellRingIconHandle } from "@/components/BellRingIcon";
 
 export default function Page() {
 	const bellRef = useRef<BellRingIconHandle>(null);

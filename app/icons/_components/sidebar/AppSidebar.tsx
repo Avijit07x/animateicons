@@ -2,13 +2,6 @@
 
 import HugeIcon from "@/components/icons/HugeIcon";
 import LucideIcon from "@/components/icons/LucideIcon";
-import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
-import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
-import { getCategories } from "@/utils/getCategories";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
 import {
 	Sidebar,
 	SidebarContent,
@@ -19,9 +12,17 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
-} from "../../../components/ui/sidebar";
-import { useCategory } from "../_contexts/CategoryContext";
+} from "@/components/ui/sidebar";
+import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
+import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { getCategories } from "@/utils/getCategories";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { useCategory } from "../../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
+import SidebarRequest from "./SidebarRequest";
 
 const libraryIconMap: Record<string, React.ReactNode> = {
 	"Lucide Icons": <LucideIcon className="size-4" />,
@@ -78,7 +79,15 @@ const AppSidebar: React.FC = () => {
 											{customIcon
 												? customIcon
 												: Icon && <Icon className="size-4" />}
-											{item.label}
+
+											<span className="flex items-center gap-2">
+												{item.label}
+												{item.isBeta && (
+													<span className="border-primary/40 text-primary rounded border px-1.5 py-0.5 text-[10px] leading-none font-semibold">
+														BETA
+													</span>
+												)}
+											</span>
 										</>
 									);
 
@@ -120,7 +129,7 @@ const AppSidebar: React.FC = () => {
 						</SidebarGroupContent>
 					</SidebarGroup>
 				))}
-				<SidebarGroup className="flex-1 overflow-y-auto">
+				<SidebarGroup className="min-h-50 flex-1 overflow-y-auto">
 					<SidebarGroupLabel className="text-textMuted text-xs">
 						Categories
 					</SidebarGroupLabel>
@@ -158,6 +167,8 @@ const AppSidebar: React.FC = () => {
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</SidebarGroup>
+
+				<SidebarRequest />
 			</SidebarContent>
 		</Sidebar>
 	);

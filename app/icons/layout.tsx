@@ -1,6 +1,6 @@
 import React from "react";
 import { SidebarProvider } from "../../components/ui/sidebar";
-import AppSidebar from "./_components/AppSidebar";
+import AppSidebar from "./_components/sidebar/AppSidebar";
 import CategoryContextProvider from "./_contexts/CategoryContext";
 import { IconSearchProvider } from "./_contexts/IconSearchContext";
 

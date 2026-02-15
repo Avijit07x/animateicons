@@ -189,6 +189,7 @@ import { TrashIcon } from "./trash-icon";
 import { TrendingDownIcon } from "./trending-down-icon";
 import { TrendingUpDownIcon } from "./trending-up-down-icon";
 import { TrendingUpIcon } from "./trending-up-icon";
+import { TriangleAlertIcon } from "./triangle-alert-icon";
 import { TurkishLiraIcon } from "./turkish-lira-icon";
 import { TwitterIcon } from "./twitter-icon";
 import { UnlinkIcon } from "./unlink-icon";
@@ -1049,6 +1050,21 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2025-11-13",
   category: ["Notification"],
   keywords: ["unsubscribe", "silent", "mute", "remove", "quiet"],
+ },
+ {
+  name: "triangle-alert",
+  icon: TriangleAlertIcon,
+  addedAt: "2026-02-15",
+  category: ["Notification"],
+  keywords: [
+   "warning",
+   "alert",
+   "error",
+   "danger",
+   "caution",
+   "issue",
+   "problem",
+  ],
  },
 
  // Security & Privacy
