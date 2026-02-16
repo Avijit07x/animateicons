@@ -1,6 +1,6 @@
 # AnimateIcons
 
-![AnimateIcons Preview](./src/app/og.png)
+![AnimateIcons Preview](./app/og.png)
 
 Free and open-source animated SVG icons for React, built for smooth micro-interactions, easy customization, and lightweight performance.
 

@@ -53,7 +53,6 @@ const AppSidebar: React.FC = () => {
 		}
 	};
 
-	console.log({ library });
 	return (
 		<Sidebar className="border-border/50! bg-surface text-textPrimary border-r">
 			<SidebarHeader className="border-border/50! bg-bgDark text-primary border-b px-4 py-3 text-sm font-semibold">

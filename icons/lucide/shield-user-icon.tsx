@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { cn } from "../../lib/utils";
 
 export interface ShieldUserHandle {
  startAnimation: () => void;
