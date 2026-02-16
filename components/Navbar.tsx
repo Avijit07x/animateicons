@@ -31,7 +31,10 @@ const Navbar = () => {
 							>
 								Icons
 							</Link>
-							<Separator orientation="vertical" className="hidden md:flex h-4! w-1" />
+							<Separator
+								orientation="vertical"
+								className="hidden h-4! w-1 md:flex"
+							/>
 							<NavbarActions />
 						</div>
 					</div>

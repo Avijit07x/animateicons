@@ -55,7 +55,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 			}
 		}
 
-		const command = `${cliTool} shadcn@latest add https://animateicons.in/icons/${prefix}-${item.name}.json`;
+		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${item.name}.json`;
 		await navigator.clipboard.writeText(command);
 		setCopiedCli(true);
 		setTimeout(() => setCopiedCli(false), 1500);
@@ -126,7 +126,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Link
-							href={`https://v0.dev/chat/api/open?url=https://animateicons.in/icons/${item.name}.json`}
+							href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${item.name}.json`}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex size-6 items-center justify-center"

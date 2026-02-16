@@ -108,14 +108,14 @@ const ICON_LIST: IconListItem[] = [
   icon: Loading01Icon,
   addedAt: "2026-02-13",
   category: ["Layout"],
-  keywords: ["loading", "wait", "busy", "progress", "spinner"],
+  keywords: ["loading", "loader", "wait", "busy", "progress", "spinner"],
  },
  {
   name: "loading-0-2",
   icon: Loading02Icon,
   addedAt: "2026-02-13",
   category: ["Layout"],
-  keywords: ["loading", "wait", "busy", "progress", "spinner"],
+  keywords: ["loading", "loader", "wait", "busy", "progress", "spinner"],
  },
  {
   name: "copy",

@@ -3140,6 +3140,20 @@
 			]
 		},
 		{
+			"name": "lu-triangle-alert",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/lucide/triangle-alert-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/triangle-alert.tsx"
+				}
+			]
+		},
+		{
 			"name": "lu-turkish-lira",
 			"type": "registry:ui",
 			"registryDependencies": [],

@@ -863,7 +863,7 @@ const ICON_LIST: IconListItem[] = [
   icon: EllipsisIcon,
   addedAt: "2025-11-02",
   category: ["Layout"],
-  keywords: ["options", "more", "loading", "waiting", "dots"],
+  keywords: ["options", "more", "loading", "waiting", "dots", "loader"],
  },
  {
   name: "copy",
@@ -1171,7 +1171,7 @@ const ICON_LIST: IconListItem[] = [
   icon: LoaderCircleIcon,
   addedAt: "2025-08-18",
   category: ["Layout"],
-  keywords: ["loading", "progress", "spinner", "circle", "busy"],
+  keywords: ["loading", "progress", "spinner", "circle", "busy", "loader"],
  },
  {
   name: "battery-full",

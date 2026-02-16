@@ -13,33 +13,6 @@ const containerVariants: Variants = {
 	},
 };
 
-const cardVariants: Variants = {
-	hidden: { opacity: 0, y: 24 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.5, ease: "easeOut" },
-	},
-};
-
-const iconRowVariants: Variants = {
-	hidden: {},
-	show: {
-		transition: {
-			staggerChildren: 0.08,
-		},
-	},
-};
-
-const iconVariants: Variants = {
-	hidden: { opacity: 0, y: 8 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.4 },
-	},
-};
-
 const IconLibrariesSection: React.FC = () => {
 	return (
 		<section className="border-divider/50 relative border-t py-18 lg:py-24">
@@ -73,7 +46,7 @@ const IconLibrariesSection: React.FC = () => {
 				</motion.div>
 
 				<p className="text-textMuted mt-12 text-center text-xs">
-					More icon libraries will be added over time.
+					The library is updated regularly with new icon sets.
 				</p>
 			</div>
 		</section>

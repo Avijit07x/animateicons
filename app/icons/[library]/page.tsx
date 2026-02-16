@@ -1,3 +1,4 @@
+import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import IconListClient from "../_components/iconlist/IconListClient";
 import Navbar from "../_components/navbar/Navbar";
 
@@ -10,6 +11,7 @@ const Page = () => {
 					<IconListClient />
 				</div>
 			</main>
+			<ReducedMotionNotice />
 		</div>
 	);
 };

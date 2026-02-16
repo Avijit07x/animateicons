@@ -14,10 +14,10 @@ const IconListClient = () => {
 	const isMobile = useIsMobile();
 
 	return (
-		<div>
+		<>
 			{isMobile ? <SearchBar /> : null}
 			<IconList />;
-		</div>
+		</>
 	);
 };
 

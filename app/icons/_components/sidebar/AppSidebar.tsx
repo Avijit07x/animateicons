@@ -19,6 +19,7 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { getCategories } from "@/utils/getCategories";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
@@ -32,7 +33,8 @@ const libraryIconMap: Record<string, React.ReactNode> = {
 const AppSidebar: React.FC = () => {
 	const { library } = useIconLibrary();
 	const { category, setCategory } = useCategory();
-	const icons = library === "lucide" ? LUCIDE_ICON_LIST : HUGE_ICON_LIST;
+	const router = useRouter();
+	const icons = library === "huge" ? HUGE_ICON_LIST : LUCIDE_ICON_LIST;
 
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
 	const totalCount = icons.length;
@@ -42,6 +44,16 @@ const AppSidebar: React.FC = () => {
 		return name === library;
 	};
 
+	const handleCategory = (cat: string) => {
+		if (library) {
+			setCategory(cat);
+		} else {
+			router.replace("lucide");
+			setCategory(cat);
+		}
+	};
+
+	console.log({ library });
 	return (
 		<Sidebar className="border-border/50! bg-surface text-textPrimary border-r">
 			<SidebarHeader className="border-border/50! bg-bgDark text-primary border-b px-4 py-3 text-sm font-semibold">
@@ -129,6 +141,7 @@ const AppSidebar: React.FC = () => {
 						</SidebarGroupContent>
 					</SidebarGroup>
 				))}
+
 				<SidebarGroup className="min-h-50 flex-1 overflow-y-auto">
 					<SidebarGroupLabel className="text-textMuted text-xs">
 						Categories
@@ -140,7 +153,7 @@ const AppSidebar: React.FC = () => {
 									variant="dark"
 									isActive={category === "all"}
 									className="justify-between gap-2"
-									onClick={() => setCategory("all")}
+									onClick={() => handleCategory("all")}
 								>
 									<span className="flex items-center gap-2">All</span>
 									<span className="text-muted-foreground text-xs">
@@ -155,7 +168,7 @@ const AppSidebar: React.FC = () => {
 										variant="dark"
 										isActive={category === cat.name}
 										className="justify-between gap-2"
-										onClick={() => setCategory(cat.name)}
+										onClick={() => handleCategory(cat.name)}
 									>
 										<span className="flex items-center gap-2">{cat.name}</span>
 										<span className="text-muted-foreground text-xs">

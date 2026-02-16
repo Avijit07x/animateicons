@@ -80,10 +80,10 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 
 			<Link
 				href={href}
-				className="text-textPrimary group-hover:bg-surfaceHover bg-surfaceElevated flex items-center justify-between px-6 py-4 text-sm transition-colors duration-300"
+				className="text-textPrimary group-hover:bg-surfaceHover bg-surfaceElevated flex items-center justify-between px-6 py-4 text-sm font-semibold transition-colors duration-300"
 			>
 				<span>Explore</span>
-				<MoveRightIcon size={18} />
+				<MoveRightIcon size={20} />
 			</Link>
 		</motion.div>
 	);
