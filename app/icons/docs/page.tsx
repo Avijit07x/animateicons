@@ -65,7 +65,7 @@ const Page: React.FC = () => {
 					animated SVG icons in your React or Next.js project.
 				</p>
 
-				<div className="space-y-16 mt-5">
+				<div className="mt-5 space-y-16">
 					<section className="space-y-4">
 						<h2 className="text-xl font-medium">1. Setup shadcn/ui</h2>
 						<p className="text-textSecondary max-w-2xl text-sm">
