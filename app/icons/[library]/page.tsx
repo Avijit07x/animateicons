@@ -30,6 +30,7 @@ export async function generateMetadata({
 			url: `https://animateicons.in/icons/${library}`,
 			siteName: "AnimateIcons",
 			type: "website",
+			images: ["/og.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
@@ -37,6 +38,7 @@ export async function generateMetadata({
 			description: isLucide
 				? "Animated Lucide SVG icons for React with smooth motion and micro-interactions."
 				: "Animated Huge SVG icons for React with smooth motion and lightweight performance.",
+			images: ["/og.png"],
 		},
 		alternates: {
 			canonical: `/icons/${library}`,

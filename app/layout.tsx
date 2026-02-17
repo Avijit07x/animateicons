@@ -72,12 +72,14 @@ export const metadata: Metadata = {
 		siteName: "AnimateIcons",
 		locale: "en_US",
 		type: "website",
+		images: ["/og.png"],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "AnimateIcons – Modern Animated React Icon Library",
 		description:
 			"Free and open-source animated SVG icon library for React with smooth micro-interactions, easy customization, and lightweight performance.",
+		images: ["/og.png"],
 	},
 	robots: {
 		index: true,
