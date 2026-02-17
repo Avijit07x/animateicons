@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useRef } from "react";
-import handleHover from "../../utils/handleHover";
+import handleHover from "@/utils/handleHover";
 
 type Props = {
 	feature: FeatureItem;

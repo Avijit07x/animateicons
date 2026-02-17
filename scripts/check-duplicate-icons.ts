@@ -62,25 +62,30 @@ function findDuplicates(entries: IconEntry[]) {
 }
 
 function main() {
-	console.log("Checking ICON_LIST duplicates...\n");
+	console.log("🔍 Checking ICON_LIST for duplicate names...\n");
 
 	const entries = buildIconEntries();
 	const duplicates = findDuplicates(entries);
 
 	if (duplicates.size === 0) {
-		console.log("No duplicate ICON_LIST names\n");
+		console.log("✅ No duplicate icon names found.");
+		console.log("ICON_LIST validation passed.\n");
 		return;
 	}
 
-	console.log("DUPLICATE ICON_LIST NAMES:\n");
+	console.log("❌ Duplicate icon names detected:\n");
 
 	for (const [name, list] of duplicates) {
-		console.log(`Name: "${name}"`);
+		console.log(`🔁 Name: "${name}"`);
 		for (const e of list) {
-			console.log(`  - ${e.file}:${e.line} (${e.source})`);
+			console.log(`   • ${e.source} → ${e.file}:${e.line}`);
 		}
 		console.log("");
 	}
+
+	console.log(
+		"Please ensure each icon name is unique within and across libraries.\n",
+	);
 
 	process.exit(1);
 }

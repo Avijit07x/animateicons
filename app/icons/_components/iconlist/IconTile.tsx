@@ -149,4 +149,4 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	);
 };
 
-export default IconTile;
+export default React.memo(IconTile);

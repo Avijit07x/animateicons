@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
-import { CopyIcon, CopyIconHandle } from "../../icons/lucide/copy-icon";
-import handleHover from "../../utils/handleHover";
+import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
+import handleHover from "@/utils/handleHover";
 import { WordRotate } from "../magicui/word-rotate";
 
 interface CodeTab {

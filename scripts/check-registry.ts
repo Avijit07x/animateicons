@@ -20,7 +20,7 @@ function findDuplicates(names: string[]): string[] {
 }
 
 function main() {
-	console.log("Checking registry.json consistency...\n");
+	console.log("🔍 Checking registry.json consistency...\n");
 
 	const rootPath = join(ROOT, "registry.json");
 	const publicPath = join(ROOT, "public", "r", "registry.json");
@@ -36,29 +36,34 @@ function main() {
 	const rootDuplicates = findDuplicates(rootNames);
 	if (rootDuplicates.length > 0) {
 		hasError = true;
-		console.log("Duplicate names in root registry.json:");
-		[...new Set(rootDuplicates)].forEach((n) => console.log(`  - ${n}`));
+		console.log("❌ Duplicate names in registry.json:");
+		[...new Set(rootDuplicates)].forEach((n) => console.log(`   • ${n}`));
 		console.log("");
 	}
 
 	const publicDuplicates = findDuplicates(publicNames);
 	if (publicDuplicates.length > 0) {
 		hasError = true;
-		console.log("Duplicate names in public/r/registry.json:");
-		[...new Set(publicDuplicates)].forEach((n) => console.log(`  - ${n}`));
+		console.log("❌ Duplicate names in public/r/registry.json:");
+		[...new Set(publicDuplicates)].forEach((n) => console.log(`   • ${n}`));
 		console.log("");
 	}
 
 	if (rootNames.join("|") !== publicNames.join("|")) {
 		hasError = true;
-		console.log("Root and public registry.json are not identical\n");
+		console.log("❌ Registry mismatch detected.");
+		console.log(
+			"   registry.json and public/r/registry.json are not identical.\n",
+		);
 	}
 
 	if (!hasError) {
-		console.log("Registry files are valid and in sync\n");
+		console.log("✅ Registry validation passed.");
+		console.log("Both registry files are valid and in sync.\n");
 		return;
 	}
 
+	console.log("Please fix the above issues before committing.\n");
 	process.exit(1);
 }
 

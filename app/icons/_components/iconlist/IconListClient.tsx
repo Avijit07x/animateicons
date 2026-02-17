@@ -16,7 +16,7 @@ const IconListClient = () => {
 	return (
 		<>
 			{isMobile ? <SearchBar /> : null}
-			<IconList />;
+			<IconList />
 		</>
 	);
 };

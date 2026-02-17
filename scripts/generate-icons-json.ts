@@ -42,69 +42,93 @@ function loadIconList(indexPath: string): IconListItem[] {
 }
 
 function main() {
+	console.log("🔍 Building public icon registry...\n");
+
 	ensureDir(PUBLIC_ICONS_DIR);
 
-	LIBRARIES.forEach((lib) => {
-		const iconList = loadIconList(lib.index);
+	let totalGenerated = 0;
 
-		const tsxFiles = fs.existsSync(lib.dir)
-			? fs.readdirSync(lib.dir).filter((f) => f.endsWith("-icon.tsx"))
-			: [];
+	try {
+		LIBRARIES.forEach((lib) => {
+			console.log(`📦 Processing library: ${lib.name}`);
 
-		const allowedFiles = new Set<string>();
-		iconList.forEach((item) => {
-			const normalized = normalizeKebabName(item.name);
-			allowedFiles.add(`${normalized}-icon`);
-		});
+			const iconList = loadIconList(lib.index);
 
-		const unmatched: string[] = [];
-		tsxFiles.forEach((file) => {
-			const base = path.basename(file, ".tsx");
-			if (!allowedFiles.has(base)) unmatched.push(base);
-		});
+			const tsxFiles = fs.existsSync(lib.dir)
+				? fs.readdirSync(lib.dir).filter((f) => f.endsWith("-icon.tsx"))
+				: [];
 
-		if (unmatched.length > 0) {
-			console.error(`Unmatched .tsx files in ${lib.name}:`);
-			unmatched.forEach((n) => console.error(n));
-			throw new Error(`Unmatched ${lib.name} icons`);
-		}
+			const allowedFiles = new Set<string>();
+			iconList.forEach((item) => {
+				const normalized = normalizeKebabName(item.name);
+				allowedFiles.add(`${normalized}-icon`);
+			});
 
-		iconList.forEach((item) => {
-			const normalizedName = normalizeKebabName(item.name);
-			const sourceBasename = `${normalizedName}-icon.tsx`;
-			const filePath = path.join(lib.dir, sourceBasename);
+			const unmatched: string[] = [];
+			tsxFiles.forEach((file) => {
+				const base = path.basename(file, ".tsx");
+				if (!allowedFiles.has(base)) unmatched.push(base);
+			});
 
-			if (!fs.existsSync(filePath)) {
-				throw new Error(`Missing icon file: ${filePath}`);
+			if (unmatched.length > 0) {
+				console.error(`❌ Unregistered icon files in ${lib.name}:`);
+				unmatched.forEach((n) => console.error(`   • ${n}.tsx`));
+				throw new Error(`Found unregistered ${lib.name} icons`);
 			}
 
-			const content = fs.readFileSync(filePath, "utf8");
+			iconList.forEach((item) => {
+				const normalizedName = normalizeKebabName(item.name);
+				const sourceBasename = `${normalizedName}-icon.tsx`;
+				const filePath = path.join(lib.dir, sourceBasename);
 
-			const iconJson = {
-				$schema: "https://ui.shadcn.com/schema/registry-item.json",
-				name: normalizedName,
-				type: "registry:ui",
-				addGlobalCss: false,
-				registryDependencies: [],
-				dependencies: ["motion"],
-				devDependencies: [],
-				files: [
-					{
-						path: sourceBasename,
-						content,
-						type: "registry:ui",
-					},
-				],
-			};
+				if (!fs.existsSync(filePath)) {
+					throw new Error(`Missing icon file for "${item.name}" → ${filePath}`);
+				}
 
-			const outFilePath = path.join(
-				PUBLIC_ICONS_DIR,
-				`${lib.prefix}-${normalizedName}.json`,
-			);
+				const content = fs.readFileSync(filePath, "utf8");
 
-			fs.writeFileSync(outFilePath, JSON.stringify(iconJson, null, 2), "utf8");
+				const iconJson = {
+					$schema: "https://ui.shadcn.com/schema/registry-item.json",
+					name: normalizedName,
+					type: "registry:ui",
+					addGlobalCss: false,
+					registryDependencies: [],
+					dependencies: ["motion"],
+					devDependencies: [],
+					files: [
+						{
+							path: sourceBasename,
+							content,
+							type: "registry:ui",
+						},
+					],
+				};
+
+				const outFilePath = path.join(
+					PUBLIC_ICONS_DIR,
+					`${lib.prefix}-${normalizedName}.json`,
+				);
+
+				fs.writeFileSync(
+					outFilePath,
+					JSON.stringify(iconJson, null, 2),
+					"utf8",
+				);
+
+				totalGenerated++;
+			});
+
+			console.log(`✅ ${lib.name}: ${iconList.length} icons processed\n`);
 		});
-	});
+
+		console.log("🎉 Registry build completed successfully.");
+		console.log(`Total files generated: ${totalGenerated}\n`);
+	} catch (error) {
+		console.error("\n❌ Registry build failed.");
+		console.error(error instanceof Error ? error.message : error);
+		console.error("\nPlease fix the issues and run the script again.\n");
+		process.exit(1);
+	}
 }
 
 main();

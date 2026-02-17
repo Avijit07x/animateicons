@@ -43,7 +43,16 @@ const Footer: React.FC = () => {
 
 				<div className="border-divider/50 text-textMuted mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-xs md:flex-row">
 					<span>Open source · MIT licensed</span>
-					<span>Created by Avijit Dey</span>
+					<span>
+						Created by{" "}
+						<Link
+							target="_blank"
+							href={"https://github.com/avijit07x"}
+							className="hover:underline"
+						>
+							Avijit Dey
+						</Link>
+					</span>
 				</div>
 			</div>
 		</footer>
