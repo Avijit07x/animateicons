@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import React from "react";
-type Props = {};
 
-const page: React.FC<Props> = () => {
-	redirect("/icons/lucide");
+export const metadata: Metadata = {
+	robots: {
+		index: false,
+		follow: true,
+	},
+	alternates: {
+		canonical: "/icons/lucide",
+	},
 };
 
-export default page;
+export default function Page() {
+	redirect("/icons/lucide");
+}

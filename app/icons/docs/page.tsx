@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import BackButton from "../_components/docs/BackButton";
 import CodeBlock from "../_components/docs/CodeBlock";
@@ -40,6 +41,15 @@ export default function Demo() {
 	)
 }`;
 
+export const metadata: Metadata = {
+	title: "Install AnimateIcons",
+	description:
+		"Learn how to install AnimateIcons using the shadcn CLI and add free animated SVG icons to your React or Next.js project.",
+	alternates: {
+		canonical: "/docs",
+	},
+};
+
 const Page: React.FC = () => {
 	return (
 		<div className="min-w-0 flex-1">
@@ -47,10 +57,15 @@ const Page: React.FC = () => {
 				<div className="mb-10 flex items-center gap-3">
 					<BackButton />
 
-					<h1 className="text-2xl font-semibold">Installation</h1>
+					<h1 className="text-2xl font-semibold">Install AnimateIcons</h1>
 				</div>
 
-				<div className="space-y-16">
+				<p className="text-textSecondary mt-2 max-w-2xl text-sm">
+					Learn how to install AnimateIcons using the shadcn CLI and start using
+					animated SVG icons in your React or Next.js project.
+				</p>
+
+				<div className="space-y-16 mt-5">
 					<section className="space-y-4">
 						<h2 className="text-xl font-medium">1. Setup shadcn/ui</h2>
 						<p className="text-textSecondary max-w-2xl text-sm">
@@ -77,7 +92,7 @@ const Page: React.FC = () => {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-xl font-medium">Usage</h2>
+						<h2 className="text-xl font-medium">Basic Usage</h2>
 						<p className="text-textSecondary max-w-2xl text-sm">
 							Import and use the icon like any React component.
 						</p>
@@ -86,7 +101,7 @@ const Page: React.FC = () => {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-xl font-medium">Props</h2>
+						<h2 className="text-xl font-medium">Icon Props</h2>
 						<p className="text-textSecondary max-w-2xl text-sm">
 							All props are optional.
 						</p>
