@@ -34,7 +34,7 @@ Please avoid using npm or yarn to prevent lockfile conflicts.
 1. Fork the repository and clone it:
 
 ```bash
-git clone https://github.com/avijit07x/animateicons.git
+git clone https://github.com/your-username/animateicons.git
 ```
 
 2. Navigate to the project directory:
