@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import ogImg from "./og.png";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -71,14 +70,7 @@ export const metadata: Metadata = {
 			"Free and open-source animated SVG icon library for React with smooth micro-interactions, easy customization, and lightweight performance.",
 		url: "https://animateicons.in",
 		siteName: "AnimateIcons",
-		images: [
-			{
-				url: new URL(ogImg.src, baseUrl).toString(),
-				width: ogImg.width,
-				height: ogImg.height,
-				alt: "AnimateIcons OG Banner",
-			},
-		],
+
 		locale: "en_US",
 		type: "website",
 	},
@@ -87,14 +79,6 @@ export const metadata: Metadata = {
 		title: "AnimateIcons – Modern Animated React Icon Library",
 		description:
 			"Free and open-source animated SVG icon library for React with smooth micro-interactions, easy customization, and lightweight performance.",
-		images: [
-			{
-				url: new URL(ogImg.src, baseUrl).toString(),
-				width: ogImg.width,
-				height: ogImg.height,
-				alt: "AnimateIcons OG Banner",
-			},
-		],
 	},
 	robots: {
 		index: true,
