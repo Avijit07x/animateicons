@@ -5,11 +5,12 @@
 	"tsx": true,
 	"tailwind": {
 		"config": "",
-		"css": "src/app/globals.css",
+		"css": "app/globals.css",
 		"baseColor": "neutral",
 		"cssVariables": true,
 		"prefix": ""
 	},
+	"iconLibrary": "lucide",
 	"aliases": {
 		"components": "@/components",
 		"utils": "@/lib/utils",
@@ -17,5 +18,8 @@
 		"lib": "@/lib",
 		"hooks": "@/hooks"
 	},
-	"iconLibrary": "lucide"
+	"registries": {
+		"@kibo-ui": "https://www.kibo-ui.com/r/{name}.json",
+		"@magicui": "https://magicui.design/r/{name}"
+	}
 }

@@ -1,290 +1,279 @@
 # Contributing to AnimateIcons
 
 Thank you for your interest in contributing!
-AnimateIcons is a library of **beautiful animated SVG icons** built with [React](https://react.dev/), [motion/react](https://motion.dev/), and [Lucide](https://lucide.dev/).
 
-We welcome contributions of **new icons, bug fixes, and improvements**.  
-Please follow the guide below to keep the codebase clean and consistent.
+AnimateIcons is a collection of **animated SVG icons** built with React and motion/react, supporting multiple icon libraries such as **Lucide** and **Huge**.
+
+We welcome contributions of:
+
+- New icons
+- Bug fixes
+- Performance improvements
+- Documentation updates
+
+Please follow the guidelines below to keep the project consistent and maintainable.
+
+---
+
+## Prerequisites
+
+This project uses **pnpm** for dependency management.
+
+Install pnpm globally if you don’t have it:
+
+```bash
+npm install -g pnpm
+```
+
+Please avoid using npm or yarn to prevent lockfile conflicts.
 
 ---
 
 ## Getting Started
 
-1. **Fork** the repo and clone it:
+1. Fork the repository and clone it:
 
-   ```bash
-   git clone https://github.com/avijit07x/animateicons.git
-   ```
+```bash
+git clone https://github.com/avijit07x/animateicons.git
+```
 
 2. Navigate to the project directory:
 
-   ```bash
-   cd animateicons
-   ```
+```bash
+cd animateicons
+```
 
 3. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+pnpm install
+```
 
-4. Start the dev server:
+4. Start the development server:
 
-   ```bash
-   npm run dev
-   ```
+```bash
+pnpm dev
+```
 
-This will run the docs playground where you can preview your icon.
+This will run the docs playground where you can preview and test icons.
+
+---
+
+## Project Structure
+
+AnimateIcons supports multiple icon libraries. Each library maintains its own icons and `ICON_LIST`.
+
+```
+icons/
+ ├─ lucide/
+ │   ├─ index.ts
+ │   └─ Icon files...
+ └─ huge/
+     ├─ index.ts
+     └─ Icon files...
+```
+
+- `icons/lucide/index.ts` exports the Lucide `ICON_LIST`
+- `icons/huge/index.ts` exports the Huge `ICON_LIST`
+
+Always add your icon to the appropriate library.
 
 ---
 
 ## Adding a New Icon
 
-All icons live inside the `src/icons/` directory.
-Each icon is a **React component** (with animation support via `motion/react`), and all icons are registered in `src/icons/index.ts` through the `ICON_LIST` array.
+### 1. Choose the Library
 
----
+Add your icon to one of the following folders:
 
-### 1. Create Your Icon File
-
-- Go to `src/icons/`
-- Copy the template below into a new file, e.g. `DashboardIcon.tsx`
-
-```tsx
-"use client";
-
-"use client";
-
-import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-
-export interface DashboardIconHandle {
-	startAnimation: () => void;
-	stopAnimation: () => void;
-}
-
-interface DashboardIconProps extends HTMLMotionProps<"div"> {
-	size?: number;
-	duration?: number;
-	isAnimated?: boolean;
-}
-
-const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
-	(
-		{
-			onMouseEnter,
-			onMouseLeave,
-			className,
-			size = 24,
-			duration = 1,
-			isAnimated = true,
-			...props
-		},
-		ref,
-	) => {
-		const controls = useAnimation();
-		const reduced = useReducedMotion();
-		const isControlled = useRef(false);
-
-		useImperativeHandle(ref, () => {
-			isControlled.current = true;
-			return {
-				startAnimation: () =>
-					reduced ? controls.start("normal") : controls.start("animate"),
-				stopAnimation: () => controls.start("normal"),
-			};
-		});
-
-		const handleEnter = useCallback(
-			(e?: React.MouseEvent<HTMLDivElement>) => {
-				if (!isAnimated || reduced) return;
-				if (!isControlled.current) controls.start("animate");
-				else onMouseEnter?.(e as any);
-			},
-			[controls, reduced, onMouseEnter],
-		);
-
-		const handleLeave = useCallback(
-			(e?: React.MouseEvent<HTMLDivElement>) => {
-				if (!isControlled.current) controls.start("normal");
-				else onMouseLeave?.(e as any);
-			},
-			[controls, onMouseLeave],
-		);
-
-		const iconVariants: Variants = {
-			normal: { scale: 1, rotate: 0 },
-			animate: {
-				scale: [1, 1.05, 0.95, 1],
-				rotate: [0, -2, 2, 0],
-				transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
-			},
-		};
-
-		const tileVariants: Variants = {
-			normal: { opacity: 1, scale: 1, y: 0 },
-			animate: (i: number) => ({
-				opacity: [0.5, 1, 0.8, 1],
-				scale: [0.9, 1.1, 1],
-				y: [2, -2, 0],
-				transition: {
-					duration: 1.2 * duration,
-					ease: "easeInOut",
-					repeat: 0,
-					delay: i * 0.2,
-				},
-			}),
-		};
-
-		return (
-			<motion.div
-				className={cn("inline-flex items-center justify-center", className)}
-				onMouseEnter={handleEnter}
-				onMouseLeave={handleLeave}
-				{...props}
-			>
-				<motion.svg
-					xmlns="http://www.w3.org/2000/svg"
-					width={size}
-					height={size}
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					animate={controls}
-					initial="normal"
-					variants={iconVariants}
-				>
-					<motion.rect
-						width="7"
-						height="9"
-						x="3"
-						y="3"
-						rx="1"
-						variants={tileVariants}
-						custom={0}
-						initial="normal"
-						animate={controls}
-					/>
-					<motion.rect
-						width="7"
-						height="5"
-						x="14"
-						y="3"
-						rx="1"
-						variants={tileVariants}
-						custom={1}
-						initial="normal"
-						animate={controls}
-					/>
-					<motion.rect
-						width="7"
-						height="9"
-						x="14"
-						y="12"
-						rx="1"
-						variants={tileVariants}
-						custom={2}
-						initial="normal"
-						animate={controls}
-					/>
-					<motion.rect
-						width="7"
-						height="5"
-						x="3"
-						y="16"
-						rx="1"
-						variants={tileVariants}
-						custom={3}
-						initial="normal"
-						animate={controls}
-					/>
-				</motion.svg>
-			</motion.div>
-		);
-	},
-);
-
-DashboardIcon.displayName = "DashboardIcon";
-export { DashboardIcon };
+```
+icons/lucide/
+icons/huge/
 ```
 
+Your icon style must match the selected library.
+
 ---
 
-### 2. Add the Icon to `index.ts`
+### 2. Create the Icon File
 
-Open `src/icons/index.ts` and:
+Example:
 
-1.  **Import your icon** at the top:
+```
+icons/lucide/dashboard-icon.tsx
+```
+
+or
+
+```
+icons/huge/dashboard-icon.tsx
+```
+
+**Important**
+
+Use the existing icon template from the same folder.
+
+Each library already contains icons that follow the correct structure and animation pattern.  
+Open any existing icon in that folder and copy its implementation as a starting point.
+
+All new icons must follow the **exact structure** of existing icons in the target folder.
+
+**Do not:**
+
+- Create a custom component structure
+- Change animation architecture
+- Use a different animation pattern
+- Add new dependencies
+
+Requirements:
+
+- Must be a React component
+- Animation implemented using `motion/react`
+- Hover animation support
+- Imperative control support (`startAnimation`, `stopAnimation`)
+- Follow the naming convention: `your-icon-name-icon.tsx`
+
+Use the existing icons as a reference template.
+
+---
+
+### 3. Register the Icon
+
+Each library has its own `index.ts`.
+
+#### For Lucide
+
+Open:
+
+```
+icons/lucide/index.ts
+```
+
+Import your icon:
 
 ```ts
-import { DashboardIcon } from "./DashboardIcon";
+import { YourIconName } from "./your-icon-name-icon";
 ```
 
-2.  **Add it inside the `ICON_LIST` array** with a unique name and keywords:
+Add it to the `ICON_LIST`:
 
 ```ts
 {
-	name: "dashboard",
-	icon: DashboardIcon,
+	name: "your-icon-name",
+	icon: YourIconName,
+	category: ["CategoryName"],
 	addedAt: "YYYY-MM-DD",
-	keywords: ["masonry", "brick", "panel", "grid", "widgets", "layout"],
-},
+	keywords: ["keyword1", "keyword2"],
+}
 ```
 
+**Important**
+
+Naming rules:
+
+- File name: `your-icon-name-icon.tsx`
+- Import path: `"./your-icon-name-icon"`
+- Component name: `YourIconName`
+- `name` field should **not include `-icon`**
+
+**Example**
+
+| Item           | Format               |
+| -------------- | -------------------- |
+| File name      | `dashboard-icon.tsx` |
+| Import path    | `./dashboard-icon`   |
+| Component name | `DashboardIcon`      |
+| name field     | `"dashboard"`        |
+
+#### For Huge
+
+Open:
+
+```
+icons/huge/index.ts
+```
+
+Repeat the same steps and add the icon to that library’s `ICON_LIST`.
+
 ---
 
-### 3. Test Your Icon
+### 4. Test Your Icon
 
-- Run the dev playground with `npm run dev`
-- Make sure animation works on **hover** and with **programmatic control**.
-
----
-
-## Commit & PR Guidelines
-
-1. Create a new branch:
+Run the playground:
 
 ```bash
-git checkout -b feat/new-icon-name
+pnpm dev
 ```
 
-2. Commit message style:
-   - `feat: add DashboardIcon`
-   - `fix: fix bug in DashboardIcon`
+Then:
 
-3. Push and open a Pull Request to the `dev` branch:
-
-   ```bash
-   git push origin feat/new-icon-name
-   ```
+- Select the correct library (Lucide or Huge)
+- Verify hover animation works
+- Test programmatic control if applicable
+- Check responsiveness and visual consistency
 
 ---
 
-## PR Checklist
+## Icon Guidelines
 
-Before submitting a PR, make sure:
+- Match the visual style of the target library
+- Keep animations smooth and subtle (0.3s – 0.8s recommended)
+- Avoid heavy or distracting motion
+- Keep SVG structure clean and minimal
+- Reuse existing animation patterns when possible
 
-- [ ] Icon follows the template
-- [ ] Icon is based on [Lucide](https://lucide.dev/) (no custom/random SVGs)
-- [ ] Animations implemented using [motion/react](https://motion.dev/) (correct import pattern followed)
-- [ ] Icon added and registered in src/icons/index.ts (import at top + entry in ICON_LIST with unique name & keywords)
-- [ ] Tested locally in playground
-- [ ] PR should target `dev` branch only. Maintainers will merge `dev` → `main` during release.
+---
+
+## Commit Guidelines
+
+Create a feature branch:
+
+```bash
+git checkout -b feat/icon-name
+```
+
+Commit message examples:
+
+- `feat: add dashboard-icon`
+- `fix: correct animation in dashboard-icon`
+- `perf: optimize icon rendering`
+
+Push your branch:
+
+```bash
+git push origin feat/icon-name
+```
+
+Then open a Pull Request to the **dev** branch.
+
+Maintainers will merge `dev → main` during release.
+
+---
+
+## Pull Request Checklist
+
+Before submitting your PR:
+
+- [ ] Icon follows the existing template and structure
+- [ ] Animation implemented using `motion/react`
+- [ ] Icon added to the correct library (lucide or huge)
+- [ ] Icon registered in the corresponding `index.ts`
+- [ ] Tested locally using `pnpm dev`
+- [ ] PR targets the **dev** branch
 
 ---
 
 ## Tips
 
-- Use **Lucide icons** as a base whenever possible for consistency.
-- Keep animations subtle and smooth (0.3s – 0.8s).
-- Follow the existing **naming convention**: `SomethingIcon.tsx`
+- Match the visual style of the target library (Lucide or Huge)
+- Use Lucide shapes as a base when contributing to the Lucide library
+- Keep animations subtle and consistent with existing icons
+- Keep changes focused and minimal
+- Small, well-scoped PRs are preferred
+- Check existing icons in the target folder for consistency before adding a new one
 
 ---
 
-Thanks for contributing!
-Together, we’re making AnimateIcons better for everyone.
+## Thank You
+
+Your contributions help make AnimateIcons better for everyone.

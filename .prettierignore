@@ -1,1 +1,6 @@
-public/
+node_modules
+.pnpm-store
+.next
+dist
+build
+coverage
