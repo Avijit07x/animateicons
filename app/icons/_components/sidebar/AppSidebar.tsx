@@ -75,7 +75,7 @@ const AppSidebar: React.FC = () => {
 						key={group.label}
 						className={group.scrollable ? "flex-1 overflow-y-auto" : ""}
 					>
-						<SidebarGroupLabel className="text-textMuted text-xs">
+						<SidebarGroupLabel className="text-textSecondary text-xs">
 							{group.label}
 						</SidebarGroupLabel>
 
@@ -142,7 +142,7 @@ const AppSidebar: React.FC = () => {
 				))}
 
 				<SidebarGroup className="min-h-50 flex-1 overflow-y-auto">
-					<SidebarGroupLabel className="text-textMuted text-xs">
+					<SidebarGroupLabel className="text-textSecondary text-xs">
 						Categories
 					</SidebarGroupLabel>
 					<SidebarGroupContent>
@@ -155,7 +155,7 @@ const AppSidebar: React.FC = () => {
 									onClick={() => handleCategory("all")}
 								>
 									<span className="flex items-center gap-2">All</span>
-									<span className="text-muted-foreground text-xs">
+									<span className="text-textSecondary text-xs">
 										{totalCount}
 									</span>
 								</SidebarMenuButton>
@@ -170,7 +170,7 @@ const AppSidebar: React.FC = () => {
 										onClick={() => handleCategory(cat.name)}
 									>
 										<span className="flex items-center gap-2">{cat.name}</span>
-										<span className="text-muted-foreground text-xs">
+										<span className="text-textSecondary text-xs">
 											{cat.count}
 										</span>
 									</SidebarMenuButton>

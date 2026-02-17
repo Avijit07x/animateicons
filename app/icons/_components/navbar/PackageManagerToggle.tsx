@@ -35,7 +35,7 @@ const PackageManagerToggle: React.FC = () => {
 						onClick={() => onChange(pm)}
 						className={cn(
 							"relative z-10 flex items-center justify-center rounded-full px-3 py-1 select-none",
-							active ? "text-white" : "text-textMuted hover:text-white",
+							active ? "text-white" : "text-textSecondary! hover:text-white",
 						)}
 					>
 						{active && (
