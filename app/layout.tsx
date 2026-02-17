@@ -9,8 +9,10 @@ const geistSans = Geist({
 	subsets: ["latin"],
 });
 
+const baseUrl = "https://animateicons.in";
+
 export const metadata: Metadata = {
-	metadataBase: new URL("https://animateicons.in"),
+	metadataBase: new URL(baseUrl),
 
 	title: {
 		default: "AnimateIcons | Free Modern Animated React Icon Library",
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
 		siteName: "AnimateIcons",
 		images: [
 			{
-				url: ogImg.src,
+				url: new URL(ogImg.src, baseUrl).toString(),
 				width: ogImg.width,
 				height: ogImg.height,
 				alt: "AnimateIcons OG Banner",
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
 			"Free and open-source animated SVG icon library for React with smooth micro-interactions, easy customization, and lightweight performance.",
 		images: [
 			{
-				url: ogImg.src,
+				url: new URL(ogImg.src, baseUrl).toString(),
 				width: ogImg.width,
 				height: ogImg.height,
 				alt: "AnimateIcons OG Banner",
