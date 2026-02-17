@@ -67,15 +67,22 @@ const SearchBar: React.FC<Props> = () => {
 				<InputGroupAddon>
 					<SearchIcon className="text-textMuted size-4" />
 				</InputGroupAddon>
-				<InputGroupAddon align="inline-end" className="gap-1">
+				<InputGroupAddon
+					align="inline-end"
+					className="text-textSecondary! gap-1"
+				>
 					{showEsc ? (
-						<Kbd className="bg-surface text-[0.65rem]!">ESC</Kbd>
+						<Kbd className="bg-surface text-textSecondary! text-[0.65rem]!">
+							ESC
+						</Kbd>
 					) : (
 						<>
-							<Kbd className="bg-surface text-[0.65rem]!">
+							<Kbd className="bg-surface text-textSecondary! text-[0.65rem]!">
 								{isMac ? "⌘" : "Ctrl"}
 							</Kbd>
-							<Kbd className="bg-surface text-[0.65rem]!">K</Kbd>
+							<Kbd className="bg-surface text-textSecondary! text-[0.65rem]!">
+								K
+							</Kbd>
 						</>
 					)}
 				</InputGroupAddon>
