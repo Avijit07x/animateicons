@@ -1,10 +1,15 @@
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import type { Metadata } from "next";
+import {
+	getLibraryConfig,
+	LIBRARY_CONFIG,
+	type LibraryId,
+} from "@/utils/libraryConfig";
 import IconListClient from "../_components/iconlist/IconListClient";
 import Navbar from "../_components/navbar/Navbar";
 
 export function generateStaticParams() {
-	return [{ library: "lucide" }, { library: "huge" }];
+	return Object.keys(LIBRARY_CONFIG).map((library) => ({ library }));
 }
 
 export async function generateMetadata({
@@ -13,20 +18,14 @@ export async function generateMetadata({
 	params: Promise<{ library: string }>;
 }): Promise<Metadata> {
 	const { library } = await params;
-
-	const isLucide = library === "lucide";
-	const name = isLucide ? "Lucide" : "Huge";
+	const { name, description, ogDescription } = getLibraryConfig(library);
 
 	return {
 		title: `${name} Animated Icons for React`,
-		description: isLucide
-			? "Free and open-source animated Lucide icons for React. Smooth SVG micro-interactions built with motion, lightweight and fully customizable for modern web apps."
-			: "Free and open-source animated Huge icons for React. High-quality SVG animations with smooth micro-interactions, optimized for performance and customization.",
+		description,
 		openGraph: {
 			title: `${name} Animated Icons for React | AnimateIcons`,
-			description: isLucide
-				? "Animated Lucide SVG icons for React with smooth motion and micro-interactions."
-				: "Animated Huge SVG icon library for React with smooth motion and lightweight performance.",
+			description: ogDescription,
 			url: `https://animateicons.in/icons/${library}`,
 			siteName: "AnimateIcons",
 			type: "website",
@@ -35,9 +34,7 @@ export async function generateMetadata({
 		twitter: {
 			card: "summary_large_image",
 			title: `${name} Animated Icons for React | AnimateIcons`,
-			description: isLucide
-				? "Animated Lucide SVG icons for React with smooth motion and micro-interactions."
-				: "Animated Huge SVG icons for React with smooth motion and lightweight performance.",
+			description: ogDescription,
 			images: ["/og.png"],
 		},
 		alternates: {
@@ -47,12 +44,12 @@ export async function generateMetadata({
 }
 
 type Props = {
-	params: Promise<{ library: "lucide" | "huge" }>;
+	params: Promise<{ library: LibraryId }>;
 };
 
 const Page: React.FC<Props> = async ({ params }) => {
 	const { library } = await params;
-	const name = library === "lucide" ? "Lucide" : "Huge";
+	const { name } = getLibraryConfig(library);
 
 	return (
 		<div className="flex w-full flex-col">

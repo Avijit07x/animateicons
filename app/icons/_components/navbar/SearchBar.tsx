@@ -12,6 +12,7 @@ import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide";
 import { SearchIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useIconSearch } from "../../_contexts/IconSearchContext";
+import { FONTAWESOME_ICON_COUNT } from "@/icons/fontawesome";
 
 const isMac =
 	typeof navigator !== "undefined" &&
@@ -20,6 +21,7 @@ const isMac =
 const ICON_LIST_COUNT = {
 	lucide: LUCIDE_ICON_COUNT,
 	huge: HUGE_ICON_COUNT,
+	fontawesome: FONTAWESOME_ICON_COUNT,
 } as const;
 
 type Props = {};

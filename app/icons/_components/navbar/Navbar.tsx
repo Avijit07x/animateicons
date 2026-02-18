@@ -3,6 +3,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import NavbarLibraryControls from "./NavbarLibraryControls";
 import PackageManagerToggle from "./PackageManagerToggle";
 import SearchBar from "./SearchBar";
 
@@ -30,6 +31,8 @@ const Navbar: React.FC<Props> = () => {
 					<SearchBar />
 
 					<PackageManagerToggle />
+
+					<NavbarLibraryControls />
 				</div>
 
 				<div className="flex items-center gap-2 text-sm">

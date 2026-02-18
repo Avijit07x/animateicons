@@ -1,6 +1,7 @@
 "use client";
 
 import { getIconCode } from "@/actions/getIconCode";
+import { useFontAwesomeType } from "@/app/icons/_contexts/FontAwesomeTypeContext";
 import { CheckIcon } from "@/components/icons/CheckIcon";
 import { V0Icon, V0IconHandle } from "@/components/icons/V0Icon";
 import {
@@ -27,12 +28,14 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	const codeRef = React.useRef<CopyIconHandle>(null);
 	const v0Ref = React.useRef<V0IconHandle>(null);
 	const { library, prefix } = useIconLibrary();
+	const { iconType } = useFontAwesomeType();
 
 	if (!library) {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
 	const IconComponent = item.icon;
+	const iconTypeProps = library === "fontawesome" ? { type: iconType } : {};
 
 	const copyToClipboard = async () => {
 		const code = await getIconCode(item.name, library);
@@ -76,6 +79,7 @@ const IconTile: React.FC<Props> = ({ item }) => {
 			<IconComponent
 				className="hover:bg-surface inline-block cursor-pointer rounded-xl p-3"
 				size={23}
+				{...iconTypeProps}
 			/>
 			<p className="line-clamp-1 text-gray-300">{item.name}</p>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import FontAwesomeIcon from "@/components/icons/FontAwesomeIcon";
 import HugeIcon from "@/components/icons/HugeIcon";
 import LucideIcon from "@/components/icons/LucideIcon";
 import {
@@ -14,6 +15,7 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { ICON_LIST as FONTFAWESOME_ICON_LIST } from "@/icons/fontawesome";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { getCategories } from "@/utils/getCategories";
@@ -28,13 +30,20 @@ import SidebarRequest from "./SidebarRequest";
 const libraryIconMap: Record<string, React.ReactNode> = {
 	"Lucide Icons": <LucideIcon className="size-4" />,
 	"Huge Icons": <HugeIcon className="size-4" />,
+	FontAwesome: <FontAwesomeIcon className="size-4" />,
+};
+
+const ICON_LIST_MAP: Record<string, typeof LUCIDE_ICON_LIST> = {
+	lucide: LUCIDE_ICON_LIST,
+	huge: HUGE_ICON_LIST,
+	fontawesome: FONTFAWESOME_ICON_LIST,
 };
 
 const AppSidebar: React.FC = () => {
 	const { library } = useIconLibrary();
 	const { category, setCategory } = useCategory();
 	const router = useRouter();
-	const icons = library === "huge" ? HUGE_ICON_LIST : LUCIDE_ICON_LIST;
+	const icons = (library && ICON_LIST_MAP[library]) ?? LUCIDE_ICON_LIST;
 
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
 	const totalCount = icons.length;

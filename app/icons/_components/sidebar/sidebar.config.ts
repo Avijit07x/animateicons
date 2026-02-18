@@ -29,6 +29,12 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 				href: "/icons/huge",
 				isBeta: true,
 			},
+			{
+				label: "FontAwesome",
+				name: "fontawesome",
+				href: "/icons/fontawesome",
+				isBeta: true,
+			},
 		],
 	},
 ];

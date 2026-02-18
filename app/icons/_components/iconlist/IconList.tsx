@@ -3,6 +3,7 @@
 import { AnimatePresence } from "motion/react";
 import React from "react";
 
+import { ICON_LIST as FONTFAWESOME_ICON_LIST } from "@/icons/fontawesome";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 
@@ -18,6 +19,7 @@ import IconTile from "./IconTile";
 const ICON_LIST_MAP = {
 	lucide: LUCIDE_ICON_LIST,
 	huge: HUGE_ICON_LIST,
+	fontawesome: FONTFAWESOME_ICON_LIST,
 } as const;
 
 const IconList: React.FC = () => {

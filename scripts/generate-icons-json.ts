@@ -10,12 +10,24 @@ const LIBRARIES = [
 		prefix: "hu",
 		dir: path.join(ICONS_ROOT, "huge"),
 		index: path.join(ICONS_ROOT, "huge", "index.ts"),
+		filePattern: (name: string) => `${name}-icon.tsx`,
+		filePath: (dir: string, name: string) => path.join(dir, `${name}-icon.tsx`),
 	},
 	{
 		name: "lucide",
 		prefix: "lu",
 		dir: path.join(ICONS_ROOT, "lucide"),
 		index: path.join(ICONS_ROOT, "lucide", "index.ts"),
+		filePattern: (name: string) => `${name}-icon.tsx`,
+		filePath: (dir: string, name: string) => path.join(dir, `${name}-icon.tsx`),
+	},
+	{
+		name: "fontawesome",
+		prefix: "fa",
+		dir: path.join(ICONS_ROOT, "fontawesome"),
+		index: path.join(ICONS_ROOT, "fontawesome", "index.ts"),
+		filePattern: (name: string) => `${name}-icon.tsx`,
+		filePath: (dir: string, name: string) => path.join(dir, `${name}-icon.tsx`),
 	},
 ] as const;
 
@@ -78,8 +90,8 @@ function main() {
 
 			iconList.forEach((item) => {
 				const normalizedName = normalizeKebabName(item.name);
-				const sourceBasename = `${normalizedName}-icon.tsx`;
-				const filePath = path.join(lib.dir, sourceBasename);
+				const sourceBasename = lib.filePattern(normalizedName);
+				const filePath = lib.filePath(lib.dir, normalizedName);
 
 				if (!fs.existsSync(filePath)) {
 					throw new Error(`Missing icon file for "${item.name}" → ${filePath}`);

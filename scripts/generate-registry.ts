@@ -8,11 +8,25 @@ const ICONS = [
 		lib: "huge",
 		prefix: "hu",
 		dir: path.join(ROOT, "icons", "huge"),
+		filePattern: /-icon\.tsx$/,
+		toBaseName: (filename: string) => filename.replace(/-icon\.tsx$/, ""),
+		toPath: (lib: string, file: string) => `icons/${lib}/${file}`,
 	},
 	{
 		lib: "lucide",
 		prefix: "lu",
 		dir: path.join(ROOT, "icons", "lucide"),
+		filePattern: /-icon\.tsx$/,
+		toBaseName: (filename: string) => filename.replace(/-icon\.tsx$/, ""),
+		toPath: (lib: string, file: string) => `icons/${lib}/${file}`,
+	},
+	{
+		lib: "fontawesome",
+		prefix: "fa",
+		dir: path.join(ROOT, "icons", "fontawesome"),
+		filePattern: /-icon\.tsx$/,
+		toBaseName: (filename: string) => filename.replace(/-icon\.tsx$/, ""),
+		toPath: (lib: string, file: string) => `icons/${lib}/${file}`,
 	},
 ];
 
@@ -26,10 +40,6 @@ function ensureDir(dir: string) {
 	}
 }
 
-function toBaseName(filename: string): string {
-	return filename.replace(/-icon\.tsx$/, "");
-}
-
 function main() {
 	console.log("🔍 Generating registry.json...\n");
 
@@ -37,7 +47,7 @@ function main() {
 	let totalFiles = 0;
 
 	try {
-		ICONS.forEach(({ lib, prefix, dir }) => {
+		ICONS.forEach(({ lib, prefix, dir, filePattern, toBaseName, toPath }) => {
 			if (!fs.existsSync(dir)) {
 				console.log(`⚠️  Skipping ${lib} (directory not found)`);
 				return;
@@ -47,7 +57,7 @@ function main() {
 
 			const files = fs
 				.readdirSync(dir)
-				.filter((file) => file.endsWith("-icon.tsx"));
+				.filter((file) => filePattern.test(file));
 
 			if (files.length === 0) {
 				console.log(`   No icon files found\n`);
@@ -66,7 +76,7 @@ function main() {
 					devDependencies: [],
 					files: [
 						{
-							path: `icons/${lib}/${file}`,
+							path: toPath(lib, file),
 							type: "registry:ui",
 							target: `components/icons/${baseName}.tsx`,
 						},

@@ -42,9 +42,9 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 			initial="hidden"
 			whileInView="show"
 			viewport={{ once: true }}
-			className="group hover:bg-surfaceHover bg-surfaceElevated border-border overflow-hidden rounded-2xl border p-3 transition-colors duration-300"
+			className="flex flex-col group hover:bg-surfaceHover bg-surfaceElevated border-border overflow-hidden rounded-2xl border p-3 transition-colors duration-300"
 		>
-			<div className="bg-surface space-y-4 rounded-xl p-6">
+			<div className="bg-surface space-y-4 rounded-xl p-6 grow">
 				<div className="flex items-center justify-start gap-2">
 					<Image
 						src={img.href}
