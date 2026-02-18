@@ -42,5 +42,5 @@ const ICON_LIST: IconListItem[] = [
  },
 ];
 
-const ICON_COUNT = ICON_LIST.length;
-export { ICON_COUNT, ICON_LIST };
+const FONTAWESOME_ICON_COUNT = ICON_LIST.length;
+export { FONTAWESOME_ICON_COUNT, ICON_LIST };
