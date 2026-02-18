@@ -1,4 +1,5 @@
-import { HugeIcons, LucideIcons } from "./PopularIcons";
+import { FontAwesomeIcons, HugeIcons, LucideIcons } from "./PopularIcons";
+import fontawesome from "./assets/fontawesome.svg";
 import huge from "./assets/huge.png";
 import lucide from "./assets/lucide.svg";
 
@@ -26,5 +27,17 @@ export const iconLibraries: IconLibraryCardData[] = [
 		},
 		icons: HugeIcons,
 		href: "/icons/huge",
+	},
+	{
+		id: "fontawesome",
+		title: "FontAwesome",
+		description:
+			"Professional icon library with Solid, Regular and Pro styles. Animated for modern interfaces.",
+		img: {
+			href: fontawesome,
+			className: "size-6 rounded",
+		},
+		icons: FontAwesomeIcons,
+		href: "/icons/fontawesome",
 	},
 ];

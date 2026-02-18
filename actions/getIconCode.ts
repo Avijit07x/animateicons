@@ -3,7 +3,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-export type IconLibrary = "lucide" | "huge";
+export type IconLibrary = "lucide" | "huge" | "fontawesome";
 
 const ROOT = process.cwd();
 const ICONS_BASE_DIR = path.join(ROOT, "icons");

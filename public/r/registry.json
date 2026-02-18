@@ -3628,6 +3628,76 @@
 					"target": "components/icons/zap.tsx"
 				}
 			]
+		},
+		{
+			"name": "fa-bars",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/fontawesome/bars-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/bars.tsx"
+				}
+			]
+		},
+		{
+			"name": "fa-bell",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/fontawesome/bell-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/bell.tsx"
+				}
+			]
+		},
+		{
+			"name": "fa-close",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/fontawesome/close-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/close.tsx"
+				}
+			]
+		},
+		{
+			"name": "fa-house",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/fontawesome/house-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/house.tsx"
+				}
+			]
+		},
+		{
+			"name": "fa-search",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/fontawesome/search-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/search.tsx"
+				}
+			]
 		}
 	]
 }

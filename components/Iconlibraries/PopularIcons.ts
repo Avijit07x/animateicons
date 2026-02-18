@@ -1,3 +1,5 @@
+import { BellIcon as FaBellIcon } from "@/icons/fontawesome/bell-icon";
+
 import { ActivityIcon as HuActivityIcon } from "@/icons/huge/activity-icon";
 import { BookmarkCheckIcon as HuBookmarkCheckIcon } from "@/icons/huge/bookmark-check-icon";
 import { BookmarkIcon as HuBookmarkIcon } from "@/icons/huge/bookmark-icon";
@@ -141,3 +143,5 @@ export const HugeIcons: AnimatedIconComponent[] = [
 	HuFacebookIcon,
 	HuTwitterIcon,
 ];
+
+export const FontAwesomeIcons: AnimatedIconComponent[] = [FaBellIcon];

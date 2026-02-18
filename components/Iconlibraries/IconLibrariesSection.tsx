@@ -31,7 +31,7 @@ const IconLibrariesSection: React.FC = () => {
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true, margin: "-80px" }}
-					className="grid gap-6 md:grid-cols-2"
+					className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
 				>
 					{iconLibraries.map((data) => (
 						<IconCard
