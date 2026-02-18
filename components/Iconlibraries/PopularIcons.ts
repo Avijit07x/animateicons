@@ -63,6 +63,10 @@ import { SunIcon } from "@/icons/lucide/sun-icon";
 import { TrashIcon } from "@/icons/lucide/trash-icon";
 import { UploadIcon } from "@/icons/lucide/upload-icon";
 import { UserIcon } from "@/icons/lucide/user-icon";
+import { BarsIcon as FaBarsIcon } from "@/icons/fontawesome/bars-icon";
+import { HouseIcon as FaHouseIcon } from "@/icons/fontawesome/house-icon";
+import { SearchIcon as FaSearchIcon } from "@/icons/fontawesome/search-icon";
+import { CloseIcon as FaCloseIcon } from "@/icons/fontawesome/close-icon";
 
 import type { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -144,4 +148,4 @@ export const HugeIcons: AnimatedIconComponent[] = [
 	HuTwitterIcon,
 ];
 
-export const FontAwesomeIcons: AnimatedIconComponent[] = [FaBellIcon];
+export const FontAwesomeIcons: AnimatedIconComponent[] = [FaBellIcon, FaBarsIcon, FaHouseIcon, FaSearchIcon, FaCloseIcon];

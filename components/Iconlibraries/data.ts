@@ -1,5 +1,5 @@
 import { FontAwesomeIcons, HugeIcons, LucideIcons } from "./PopularIcons";
-import fontawesome from "./assets/fontawesome.svg";
+import fontawesome from "./assets/fontawesome.png";
 import huge from "./assets/huge.png";
 import lucide from "./assets/lucide.svg";
 
