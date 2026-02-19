@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 	description:
 		"Learn how to install AnimateIcons using the shadcn CLI and add free animated SVG icons to your React or Next.js project.",
 	alternates: {
-		canonical: "/docs",
+		canonical: "/icons/docs",
 	},
 };
 
