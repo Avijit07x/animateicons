@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BackButton from "../_components/docs/BackButton";
 import CodeBlock from "../_components/docs/CodeBlock";
+import OpenInAI from "../_components/docs/OpenInAI";
 
 const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
 
@@ -54,10 +55,16 @@ const Page: React.FC = () => {
 	return (
 		<div className="min-w-0 flex-1">
 			<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
-				<div className="mb-10 flex items-center gap-3">
-					<BackButton />
+				<div className="mb-10 flex w-full flex-wrap items-center justify-between gap-5">
+					<div className="flex items-center gap-3">
+						<BackButton />
 
-					<h1 className="text-2xl font-semibold">Install AnimateIcons</h1>
+						<h1 className="text-2xl font-semibold">Install AnimateIcons</h1>
+					</div>
+					<OpenInAI
+						pageUrl="https://animateicons.in/icons/docs"
+						title="AnimateIcons Documentation"
+					/>
 				</div>
 
 				<p className="text-textSecondary mt-2 max-w-2xl text-sm">
