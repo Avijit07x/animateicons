@@ -24,7 +24,7 @@ const CodeBlock = async ({ code, lang = "tsx", title }: Props) => {
 			<CopyButton code={code} />
 
 			<div
-				className="text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-4"
+				className="text-sm max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-4"
 				dangerouslySetInnerHTML={{ __html: html }}
 			/>
 		</div>
