@@ -23,6 +23,7 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    onMouseLeave,
    className,
    size = 24,
+   duration = 0.4,
    isAnimated = true,
    ...props
   },
@@ -63,6 +64,8 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    animate: {
     scale: 1.03,
     transition: {
+     duration,
+     ease: [0.22, 1, 0.36, 1],
      type: "spring",
      stiffness: 260,
      damping: 18,
@@ -76,6 +79,8 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    animate: {
     y: -2,
     transition: {
+     duration,
+     ease: [0.22, 1, 0.36, 1],
      type: "spring",
      stiffness: 280,
      damping: 20,
@@ -89,11 +94,13 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    animate: {
     y: -0.5,
     transition: {
+     duration,
+     ease: [0.22, 1, 0.36, 1],
+     delay: duration * 0.05,
      type: "spring",
      stiffness: 300,
      damping: 22,
      mass: 0.5,
-     delay: 0.03,
     },
    },
   };
