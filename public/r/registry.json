@@ -1092,6 +1092,38 @@
       ]
     },
     {
+      "name": "lu-box",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/box-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/box.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-boxes",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/boxes-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/boxes.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-brain",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2816,6 +2848,22 @@
           "path": "icons/lucide/move-right-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/move-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-package-open",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/package-open-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/package-open.tsx"
         }
       ]
     },
