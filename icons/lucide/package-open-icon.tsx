@@ -66,6 +66,10 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
     transition: {
      duration,
      ease: [0.22, 1, 0.36, 1],
+     type: "spring",
+     stiffness: 260,
+     damping: 18,
+     mass: 0.6,
     },
    },
   };
@@ -77,6 +81,10 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
     transition: {
      duration,
      ease: [0.22, 1, 0.36, 1],
+     type: "spring",
+     stiffness: 280,
+     damping: 20,
+     mass: 0.5,
     },
    },
   };
@@ -89,6 +97,10 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
      duration,
      ease: [0.22, 1, 0.36, 1],
      delay: duration * 0.05,
+     type: "spring",
+     stiffness: 300,
+     damping: 22,
+     mass: 0.5,
     },
    },
   };
