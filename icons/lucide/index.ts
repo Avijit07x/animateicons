@@ -33,6 +33,8 @@ import { BookmarkIcon } from "./bookmark-icon";
 import { BookmarkMinusIcon } from "./bookmark-minus-icon";
 import { BookmarkPlusIcon } from "./bookmark-plus-icon";
 import { BookmarkXIcon } from "./bookmark-x-icon";
+import { BoxIcon } from "./box-icon";
+import { BoxesIcon } from "./boxes-icon";
 import { BrainIcon } from "./brain-icon";
 import { BringToFrontIcon } from "./bring-to-front-icon";
 import { ChartAreaIcon } from "./chart-area-icon";
@@ -141,6 +143,7 @@ import { MoonIcon } from "./moon-icon";
 import { MousePointerClickIcon } from "./mouse-pointer-click-icon";
 import { MoveLeftIcon } from "./move-left-icon";
 import { MoveRightIcon } from "./move-right-icon";
+import { PackageOpenIcon } from "./package-open-icon";
 import { PaperclipIcon } from "./paperclip-icon";
 import { PauseIcon } from "./pause-icon";
 import { PhilippinePesoIcon } from "./philippine-peso-icon";
@@ -1863,6 +1866,35 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-01-24",
   category: ["Gaming", "Multimedia"],
   keywords: ["game", "controller", "console", "play", "gaming"],
+ },
+ {
+  name: "box",
+  icon: BoxIcon,
+  addedAt: "2026-02-26",
+  category: ["Logistics", "E-commerce", "Storage"],
+  keywords: ["box", "package", "parcel", "delivery", "shipping"],
+ },
+ {
+  name: "boxes",
+  icon: BoxesIcon,
+  addedAt: "2026-02-26",
+  category: ["Logistics", "E-commerce", "Warehouse"],
+  keywords: [
+   "box",
+   "packages",
+   "inventory",
+   "storage",
+   "warehouse",
+   "shipment",
+   "delivery",
+  ],
+ },
+ {
+  name: "package-open",
+  icon: PackageOpenIcon,
+  addedAt: "2026-02-26",
+  category: ["Logistics", "E-commerce", "Fulfillment"],
+  keywords: ["package", "unbox", "delivery", "received", "fulfillment"],
  },
 ];
 
