@@ -21,6 +21,7 @@ import { BellMinusIcon } from "./bell-minus-icon";
 import { BellPlusIcon } from "./bell-plus-icon";
 import { BellRingIcon } from "./bell-ring-icon";
 import { BicepsFlexedIcon } from "./biceps-flexed-icon";
+import { BikeIcon } from "./bike-icon";
 import { BitcoinIcon } from "./bitcoin-icon";
 import { BlendIcon } from "./blend-icon";
 import { BlocksIcon } from "./blocks-icon";
@@ -118,6 +119,7 @@ import { InstagramIcon } from "./instagram-icon";
 import { KeyIcon } from "./key-icon";
 import { KeyRoundIcon } from "./key-round-icon";
 import { KeySquareIcon } from "./key-square-icon";
+import { LayersIcon } from "./layers-icon";
 import { LayoutGridIcon } from "./layout-grid-icon";
 import { LayoutListIcon } from "./layout-list-icon";
 import { LinkIcon } from "./link-icon";
@@ -242,6 +244,13 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2025-10-10",
   category: ["Layout"],
   keywords: ["dashboard", "layout", "grid", "panel", "widgets"],
+ },
+ {
+  name: "layers",
+  icon: LayersIcon,
+  addedAt: "2026-03-04",
+  category: ["Layout", "Architecture"],
+  keywords: ["layers", "stack", "stacked", "levels", "architecture"],
  },
  {
   name: "layout-grid",
@@ -1895,6 +1904,13 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-02-26",
   category: ["Logistics", "E-commerce", "Fulfillment"],
   keywords: ["package", "unbox", "delivery", "received", "fulfillment"],
+ },
+ {
+  name: "bike",
+  icon: BikeIcon,
+  addedAt: "2026-03-04",
+  category: ["Transportation"],
+  keywords: ["bike", "bicycle", "cycle", "cycling"],
  },
 ];
 

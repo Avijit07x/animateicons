@@ -788,6 +788,20 @@
 			]
 		},
 		{
+			"name": "lu-bike",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/lucide/bike-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/bike.tsx"
+				}
+			]
+		},
+		{
 			"name": "lu-bitcoin",
 			"type": "registry:ui",
 			"registryDependencies": [],
@@ -2142,6 +2156,20 @@
 					"path": "icons/lucide/key-square-icon.tsx",
 					"type": "registry:ui",
 					"target": "components/icons/key-square.tsx"
+				}
+			]
+		},
+		{
+			"name": "lu-layers",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/lucide/layers-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/layers.tsx"
 				}
 			]
 		},
