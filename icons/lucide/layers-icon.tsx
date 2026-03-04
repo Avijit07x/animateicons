@@ -23,7 +23,7 @@ const LayersIcon = forwardRef<LayersIconHandle, LayersIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.9,
+   duration = 0.2,
    isAnimated = true,
    ...props
   },
@@ -64,10 +64,8 @@ const LayersIcon = forwardRef<LayersIconHandle, LayersIconProps>(
    animate: {
     scale: 1.05,
     transition: {
-     type: "spring",
-     stiffness: 160,
-     damping: 18,
-     mass: 0.6,
+     duration,
+     ease: "easeOut",
     },
    },
   };
@@ -78,10 +76,8 @@ const LayersIcon = forwardRef<LayersIconHandle, LayersIconProps>(
     y: -(i + 1) * 4,
     opacity: 1,
     transition: {
-     type: "spring",
-     stiffness: 180,
-     damping: 20,
-     mass: 0.6,
+     duration,
+     ease: "easeOut",
      delay: i * 0.07,
     },
    }),
