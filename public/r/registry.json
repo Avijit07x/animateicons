@@ -2932,6 +2932,22 @@
       ]
     },
     {
+      "name": "lu-pencil-line",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/pencil-line-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pencil-line.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-philippine-peso",
       "type": "registry:ui",
       "registryDependencies": [],
