@@ -33,7 +33,7 @@ After installing an icon, import it into your component:
 
 ```tsx
 "use client";
-import { AtomIcon } from "@/components/atom-icon";
+import { AtomIcon } from "@/components/atom";
 
 export default function Page() {
 	return <AtomIcon size={28} duration={1} isAnimated={true} />;
@@ -45,7 +45,7 @@ export default function Page() {
 ```tsx
 "use client";
 import { useRef } from "react";
-import { BellRingIcon, BellRingIconHandle } from "@/components/bell-ring-icon";
+import { BellRingIcon, BellRingIconHandle } from "@/components/bell-ring";
 
 export default function Page() {
 	const bellRef = useRef<BellRingIconHandle>(null);
