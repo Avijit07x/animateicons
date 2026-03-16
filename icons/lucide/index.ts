@@ -104,6 +104,10 @@ import { FolderOpenIcon } from "./folder-open-icon";
 import { FramerIcon } from "./framer-icon";
 import { GamepadIcon } from "./gamepad-icon";
 import { GeorgianLariIcon } from "./georgian-lari-icon";
+import { GitBranchIcon } from "./git-branch-icon";
+import { GitBranchMinusIcon } from "./git-branch-minus-icon";
+import { GitBranchPlusIcon } from "./git-branch-plus-icon";
+import { GitCommitHorizontalIcon } from "./git-commit-horizontal-icon";
 import { GithubIcon } from "./github-icon";
 import { GlobeIcon } from "./globe-icon";
 import { GlobeLockIcon } from "./globe-lock-icon";
@@ -590,6 +594,34 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2025-11-06",
   category: ["Coding & development"],
   keywords: ["code", "command", "shell", "console", "cli"],
+ },
+ {
+  name: "git-branch",
+  icon: GitBranchIcon,
+  addedAt: "2026-03-14",
+  category: ["Coding & development"],
+  keywords: ["git", "branch", "version control", "vcs", "fork"],
+ },
+ {
+  name: "git-branch-minus",
+  icon: GitBranchMinusIcon,
+  addedAt: "2026-03-14",
+  category: ["Coding & development"],
+  keywords: ["git", "branch", "minus", "remove", "version control"],
+ },
+ {
+  name: "git-branch-plus",
+  icon: GitBranchPlusIcon,
+  addedAt: "2026-03-14",
+  category: ["Coding & development"],
+  keywords: ["git", "branch", "plus", "add", "version control"],
+ },
+ {
+  name: "git-commit-horizontal",
+  icon: GitCommitHorizontalIcon,
+  addedAt: "2026-03-14",
+  category: ["Coding & development"],
+  keywords: ["git", "commit", "horizontal", "version control"],
  },
  {
   name: "upload",

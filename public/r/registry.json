@@ -2228,6 +2228,70 @@
       ]
     },
     {
+      "name": "lu-git-branch",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-branch-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-branch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-branch-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-branch-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-branch-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-branch-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-branch-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-branch-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-commit-horizontal",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-commit-horizontal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-commit-horizontal.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-github",
       "type": "registry:ui",
       "registryDependencies": [],
