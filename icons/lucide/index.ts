@@ -1,4 +1,4 @@
-import { AArrowDownIcon } from "./a-arrow-down-icon";
+﻿import { AArrowDownIcon } from "./a-arrow-down-icon";
 import { AArrowUpIcon } from "./a-arrow-up-icon";
 import { AccessibilityIcon } from "./accessibility-icon";
 import { ActivityIcon } from "./activity-icon";
@@ -152,6 +152,7 @@ import { MoveRightIcon } from "./move-right-icon";
 import { PackageOpenIcon } from "./package-open-icon";
 import { PaperclipIcon } from "./paperclip-icon";
 import { PauseIcon } from "./pause-icon";
+import { PencilLineIcon } from "./pencil-line-icon";
 import { PhilippinePesoIcon } from "./philippine-peso-icon";
 import { PhoneCallIcon } from "./phone-call-icon";
 import { PhoneForwardedIcon } from "./phone-forwarded-icon";
@@ -1943,6 +1944,13 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-03-04",
   category: ["Transportation"],
   keywords: ["bike", "bicycle", "cycle", "cycling"],
+ },
+ {
+  name: "pencil-line",
+  icon: PencilLineIcon,
+  addedAt: "2026-03-05",
+  category: ["Design", "Text formatting"],
+  keywords: ["pencil", "line", "edit", "draw", "write", "draft"],
  },
 ];
 
