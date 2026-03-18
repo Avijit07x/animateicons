@@ -1,3 +1,6 @@
+type IconLibrary = "lucide" | "huge";
+type IconLibraryPrefix = "lu" | "hu";
+
 type IconListItem = {
 	name: string;
 	icon: React.ElementType;

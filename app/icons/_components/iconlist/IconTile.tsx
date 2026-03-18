@@ -8,21 +8,32 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
 import handleHover from "@/utils/handleHover";
-import { differenceInDays } from "date-fns";
+import { Loader } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import { useIconTileState } from "../../_contexts/IconTileContext";
 
 type Props = {
-	item: IconListItem;
+	item: IconFilteredItem;
 };
 
+const codeCache = new Map<string, string>();
+
 const IconTile: React.FC<Props> = ({ item }) => {
-	const [copied, setCopied] = useState(false);
-	const [copiedCli, setCopiedCli] = useState(false);
+	const {
+		copiedCodeId,
+		setCopiedCodeId,
+		copiedCliId,
+		setCopiedCliId,
+		loadingId,
+		setLoadingId,
+	} = useIconTileState();
+
 	const cliRef = React.useRef<TerminalIconHandle>(null);
 	const codeRef = React.useRef<CopyIconHandle>(null);
 	const v0Ref = React.useRef<V0IconHandle>(null);
@@ -32,42 +43,60 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
+	const tileId = `${library}-${item.name}`;
+	const isCopied = copiedCodeId === tileId;
+	const isCopiedCli = copiedCliId === tileId;
+	const isLoading = loadingId === tileId;
+
 	const IconComponent = item.icon;
 
 	const copyToClipboard = async () => {
-		const code = await getIconCode(item.name, library);
+		let code = codeCache.get(tileId);
+
+		if (!code) {
+			setLoadingId(tileId);
+			const fetchedCode = await getIconCode(item.name, library);
+			if (fetchedCode) {
+				code = fetchedCode;
+				codeCache.set(tileId, code);
+			}
+			setLoadingId(null);
+		}
+
 		if (code) {
 			await navigator.clipboard.writeText(code);
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1500);
+			setCopiedCodeId(tileId);
+			setTimeout(() => setCopiedCodeId(null), 1500);
 		}
 	};
 
+	const cliToolPref = React.useSyncExternalStore(
+		(callback) => {
+			if (typeof window === "undefined") return () => {};
+			window.addEventListener("storage", callback);
+			return () => window.removeEventListener("storage", callback);
+		},
+		() => (typeof window !== "undefined" ? localStorage.getItem("tab") : null),
+		() => null,
+	);
+
 	const copyCliCommand = async () => {
 		let cliTool = "npx";
-		if (typeof window !== "undefined") {
-			const savedTab = localStorage.getItem("tab");
-			if (savedTab === "bun") {
-				cliTool = "bunx --bun";
-			}
-			if (savedTab === "pnpm") {
-				cliTool = "pnpm dlx";
-			}
+		if (cliToolPref === "bun") {
+			cliTool = "bunx --bun";
+		} else if (cliToolPref === "pnpm") {
+			cliTool = "pnpm dlx";
 		}
 
 		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${item.name}.json`;
 		await navigator.clipboard.writeText(command);
-		setCopiedCli(true);
-		setTimeout(() => setCopiedCli(false), 1500);
+		setCopiedCliId(tileId);
+		setTimeout(() => setCopiedCliId(null), 1500);
 	};
-
-	function isNew(addedAt: string) {
-		return differenceInDays(new Date(), new Date(addedAt)) <= 3;
-	}
 
 	return (
 		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
-			{item.addedAt && isNew(item.addedAt) && (
+			{item.isNew && (
 				<span className="bg-surface text-textSecondary absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium">
 					New
 				</span>
@@ -85,11 +114,11 @@ const IconTile: React.FC<Props> = ({ item }) => {
 						<button
 							className="flex size-6 items-center justify-center"
 							onClick={copyCliCommand}
-							aria-label={copiedCli ? "CLI Copied" : "Copy CLI Command"}
+							aria-label={isCopiedCli ? "CLI Copied" : "Copy CLI Command"}
 							onMouseEnter={(e) => handleHover(e, cliRef)}
 							onMouseLeave={(e) => handleHover(e, cliRef)}
 						>
-							{copiedCli ? (
+							{isCopiedCli ? (
 								<CheckIcon />
 							) : (
 								<TerminalIcon size={18} ref={cliRef} />
@@ -109,11 +138,17 @@ const IconTile: React.FC<Props> = ({ item }) => {
 						<button
 							className="flex size-6 items-center justify-center"
 							onClick={copyToClipboard}
-							aria-label={copied ? "Code Copied" : "Copy JSX Code"}
+							aria-label={isCopied ? "Code Copied" : "Copy JSX Code"}
 							onMouseEnter={(e) => handleHover(e, codeRef)}
 							onMouseLeave={(e) => handleHover(e, codeRef)}
 						>
-							{copied ? <CheckIcon /> : <CopyIcon size={17} ref={codeRef} />}
+							{isCopied ? (
+								<CheckIcon />
+							) : isLoading ? (
+								<Loader size={17} className="animate-spin" />
+							) : (
+								<CopyIcon size={17} ref={codeRef} />
+							)}
 						</button>
 					</TooltipTrigger>
 					<TooltipContent

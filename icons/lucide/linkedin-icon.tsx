@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface LinkedInIconHandle {
+export interface LinkedinIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface LinkedInIconProps extends HTMLMotionProps<"div"> {
+interface LinkedinIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
+const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
  (
   {
    onMouseEnter,
@@ -147,5 +147,5 @@ const LinkedInIcon = forwardRef<LinkedInIconHandle, LinkedInIconProps>(
  },
 );
 
-LinkedInIcon.displayName = "LinkedInIcon";
-export { LinkedInIcon };
+LinkedinIcon.displayName = "LinkedinIcon";
+export { LinkedinIcon };

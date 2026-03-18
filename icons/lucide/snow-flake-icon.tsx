@@ -5,18 +5,18 @@ import type { HTMLMotionProps } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SnowflakeIconHandle {
+export interface SnowFlakeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface SnowflakeIconProps extends HTMLMotionProps<"div"> {
+interface SnowFlakeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
+const SnowFlakeIcon = forwardRef<SnowFlakeIconHandle, SnowFlakeIconProps>(
  (
   {
    onMouseEnter,
@@ -125,5 +125,5 @@ const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
  },
 );
 
-SnowflakeIcon.displayName = "SnowflakeIcon";
-export { SnowflakeIcon };
+SnowFlakeIcon.displayName = "SnowFlakeIcon";
+export { SnowFlakeIcon };
