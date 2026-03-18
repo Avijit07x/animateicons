@@ -13,8 +13,10 @@ import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
 import handleHover from "@/utils/handleHover";
+import { Loader } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import { useIconTileState } from "../../_contexts/IconTileContext";
 
 type Props = {
 	item: IconFilteredItem;
@@ -23,8 +25,15 @@ type Props = {
 const codeCache = new Map<string, string>();
 
 const IconTile: React.FC<Props> = ({ item }) => {
-	const [copied, setCopied] = useState(false);
-	const [copiedCli, setCopiedCli] = useState(false);
+	const {
+		copiedCodeId,
+		setCopiedCodeId,
+		copiedCliId,
+		setCopiedCliId,
+		loadingId,
+		setLoadingId,
+	} = useIconTileState();
+
 	const cliRef = React.useRef<TerminalIconHandle>(null);
 	const codeRef = React.useRef<CopyIconHandle>(null);
 	const v0Ref = React.useRef<V0IconHandle>(null);
@@ -34,24 +43,30 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
+	const tileId = `${library}-${item.name}`;
+	const isCopied = copiedCodeId === tileId;
+	const isCopiedCli = copiedCliId === tileId;
+	const isLoading = loadingId === tileId;
+
 	const IconComponent = item.icon;
 
 	const copyToClipboard = async () => {
-		const cacheKey = `${library}-${item.name}`;
-		let code = codeCache.get(cacheKey);
+		let code = codeCache.get(tileId);
 
 		if (!code) {
+			setLoadingId(tileId);
 			const fetchedCode = await getIconCode(item.name, library);
 			if (fetchedCode) {
 				code = fetchedCode;
-				codeCache.set(cacheKey, code);
+				codeCache.set(tileId, code);
 			}
+			setLoadingId(null);
 		}
 
 		if (code) {
 			await navigator.clipboard.writeText(code);
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1500);
+			setCopiedCodeId(tileId);
+			setTimeout(() => setCopiedCodeId(null), 1500);
 		}
 	};
 
@@ -75,8 +90,8 @@ const IconTile: React.FC<Props> = ({ item }) => {
 
 		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${item.name}.json`;
 		await navigator.clipboard.writeText(command);
-		setCopiedCli(true);
-		setTimeout(() => setCopiedCli(false), 1500);
+		setCopiedCliId(tileId);
+		setTimeout(() => setCopiedCliId(null), 1500);
 	};
 
 	return (
@@ -99,11 +114,11 @@ const IconTile: React.FC<Props> = ({ item }) => {
 						<button
 							className="flex size-6 items-center justify-center"
 							onClick={copyCliCommand}
-							aria-label={copiedCli ? "CLI Copied" : "Copy CLI Command"}
+							aria-label={isCopiedCli ? "CLI Copied" : "Copy CLI Command"}
 							onMouseEnter={(e) => handleHover(e, cliRef)}
 							onMouseLeave={(e) => handleHover(e, cliRef)}
 						>
-							{copiedCli ? (
+							{isCopiedCli ? (
 								<CheckIcon />
 							) : (
 								<TerminalIcon size={18} ref={cliRef} />
@@ -123,11 +138,17 @@ const IconTile: React.FC<Props> = ({ item }) => {
 						<button
 							className="flex size-6 items-center justify-center"
 							onClick={copyToClipboard}
-							aria-label={copied ? "Code Copied" : "Copy JSX Code"}
+							aria-label={isCopied ? "Code Copied" : "Copy JSX Code"}
 							onMouseEnter={(e) => handleHover(e, codeRef)}
 							onMouseLeave={(e) => handleHover(e, codeRef)}
 						>
-							{copied ? <CheckIcon /> : <CopyIcon size={17} ref={codeRef} />}
+							{isCopied ? (
+								<CheckIcon />
+							) : isLoading ? (
+								<Loader size={17} className="animate-spin" />
+							) : (
+								<CopyIcon size={17} ref={codeRef} />
+							)}
 						</button>
 					</TooltipTrigger>
 					<TooltipContent
