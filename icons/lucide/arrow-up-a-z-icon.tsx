@@ -5,18 +5,18 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ArrowUpAzIconHandle {
+export interface ArrowUpAZIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface ArrowUpAzIconProps extends HTMLMotionProps<"div"> {
+interface ArrowUpAZIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
 }
 
-const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
+const ArrowUpAZIcon = forwardRef<ArrowUpAZIconHandle, ArrowUpAZIconProps>(
  (
   {
    onMouseEnter,
@@ -172,5 +172,5 @@ const ArrowUpAzIcon = forwardRef<ArrowUpAzIconHandle, ArrowUpAzIconProps>(
  },
 );
 
-ArrowUpAzIcon.displayName = "ArrowUpAzIcon";
-export { ArrowUpAzIcon };
+ArrowUpAZIcon.displayName = "ArrowUpAZIcon";
+export { ArrowUpAZIcon };

@@ -2,9 +2,6 @@
 
 import { usePathname } from "next/navigation";
 
-export type IconLibrary = "lucide" | "huge";
-export type IconLibraryPrefix = "lu" | "hu";
-
 type IconLibraryResult = {
 	library: IconLibrary | null;
 	prefix: IconLibraryPrefix | null;
@@ -20,12 +17,15 @@ export const useIconLibrary = (): IconLibraryResult => {
 	const segments = pathname.split("/").filter(Boolean);
 	const library = segments[1];
 
-	if (library === "lucide") {
-		return { library: "lucide", prefix: "lu" };
-	}
+	const LIBRARY_MAP: Record<string, IconLibraryPrefix> = {
+		lucide: "lu",
+		huge: "hu",
+	};
 
-	if (library === "huge") {
-		return { library: "huge", prefix: "hu" };
+	const prefix = LIBRARY_MAP[library];
+
+	if (prefix) {
+		return { library: library as IconLibrary, prefix };
 	}
 
 	return { library: null, prefix: null };

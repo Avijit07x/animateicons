@@ -8,17 +8,19 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
 import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
 import handleHover from "@/utils/handleHover";
-import { differenceInDays } from "date-fns";
 import Link from "next/link";
 import React, { useState } from "react";
 
 type Props = {
-	item: IconListItem;
+	item: IconFilteredItem;
 };
+
+const codeCache = new Map<string, string>();
 
 const IconTile: React.FC<Props> = ({ item }) => {
 	const [copied, setCopied] = useState(false);
@@ -35,7 +37,17 @@ const IconTile: React.FC<Props> = ({ item }) => {
 	const IconComponent = item.icon;
 
 	const copyToClipboard = async () => {
-		const code = await getIconCode(item.name, library);
+		const cacheKey = `${library}-${item.name}`;
+		let code = codeCache.get(cacheKey);
+
+		if (!code) {
+			const fetchedCode = await getIconCode(item.name, library);
+			if (fetchedCode) {
+				code = fetchedCode;
+				codeCache.set(cacheKey, code);
+			}
+		}
+
 		if (code) {
 			await navigator.clipboard.writeText(code);
 			setCopied(true);
@@ -43,16 +55,22 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		}
 	};
 
+	const cliToolPref = React.useSyncExternalStore(
+		(callback) => {
+			if (typeof window === "undefined") return () => {};
+			window.addEventListener("storage", callback);
+			return () => window.removeEventListener("storage", callback);
+		},
+		() => (typeof window !== "undefined" ? localStorage.getItem("tab") : null),
+		() => null,
+	);
+
 	const copyCliCommand = async () => {
 		let cliTool = "npx";
-		if (typeof window !== "undefined") {
-			const savedTab = localStorage.getItem("tab");
-			if (savedTab === "bun") {
-				cliTool = "bunx --bun";
-			}
-			if (savedTab === "pnpm") {
-				cliTool = "pnpm dlx";
-			}
+		if (cliToolPref === "bun") {
+			cliTool = "bunx --bun";
+		} else if (cliToolPref === "pnpm") {
+			cliTool = "pnpm dlx";
 		}
 
 		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${item.name}.json`;
@@ -61,13 +79,9 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		setTimeout(() => setCopiedCli(false), 1500);
 	};
 
-	function isNew(addedAt: string) {
-		return differenceInDays(new Date(), new Date(addedAt)) <= 3;
-	}
-
 	return (
 		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
-			{item.addedAt && isNew(item.addedAt) && (
+			{item.isNew && (
 				<span className="bg-surface text-textSecondary absolute top-0 right-0 rounded-bl-md px-2 py-1 text-xs font-medium">
 					New
 				</span>

@@ -139,65 +139,46 @@ Use the existing icons as a reference template.
 
 ### 3. Register the Icon
 
-Each library has its own `index.ts`.
+We use an automated JSON-based registry. **You do not need to manually edit any `index.ts` files!**
 
-#### For Lucide
+Open the corresponding JSON manifest in the `data/` directory:
+- For Lucide: `data/lucide-icons.json`
+- For Huge: `data/huge-icons.json`
 
-Open:
+Add a new JSON object for your icon to the array:
 
-```
-icons/lucide/index.ts
-```
-
-Import your icon:
-
-```ts
-import { YourIconName } from "./your-icon-name-icon";
-```
-
-Add it to the `ICON_LIST`:
-
-```ts
+```json
 {
-	name: "your-icon-name",
-	icon: YourIconName,
-	category: ["CategoryName"],
-	addedAt: "YYYY-MM-DD",
-	keywords: ["keyword1", "keyword2"],
+  "name": "your-icon-name",
+  "addedAt": "YYYY-MM-DD",
+  "category": ["CategoryName"],
+  "keywords": ["keyword1", "keyword2"]
 }
 ```
 
-**Important**
-
-Naming rules:
-
-- File name: `your-icon-name-icon.tsx`
-- Import path: `"./your-icon-name-icon"`
-- Component name: `YourIconName`
-- `name` field should **not include `-icon`**
+**Important Naming Rules:**
+- The `name` string in the JSON **must match** your filename exactly, minus the `-icon` suffix.
+- The exported React component **must** exactly match the PascalCase of your filename.
 
 **Example**
 
-| Item           | Format               |
-| -------------- | -------------------- |
-| File name      | `dashboard-icon.tsx` |
-| Import path    | `./dashboard-icon`   |
-| Component name | `DashboardIcon`      |
-| name field     | `"dashboard"`        |
+| Item           | Format                 |
+| -------------- | ---------------------- |
+| File name      | `dashboard-icon.tsx`   |
+| Component      | `DashboardIcon`        |
+| JSON name      | `"dashboard"`          |
 
-#### For Huge
+### 4. Generate the Registry
 
-Open:
+Run the following command to automatically build the index map so the application can use it:
 
+```bash
+pnpm run gen:icons
 ```
-icons/huge/index.ts
-```
-
-Repeat the same steps and add the icon to that library’s `ICON_LIST`.
 
 ---
 
-### 4. Test Your Icon
+### 5. Test Your Icon
 
 Run the playground:
 
@@ -257,7 +238,7 @@ Before submitting your PR:
 - [ ] Icon follows the existing template and structure
 - [ ] Animation implemented using `motion/react`
 - [ ] Icon added to the correct library (lucide or huge)
-- [ ] Icon registered in the corresponding `index.ts`
+- [ ] Icon added to the correct JSON manifest and `pnpm run gen:icons` was run
 - [ ] Tested locally using `pnpm dev`
 - [ ] PR targets the **dev** branch
 

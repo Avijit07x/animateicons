@@ -80,3 +80,4 @@ export default function Page() {
 
 > **Note:** This project is a work in progress — new animated icons are added regularly.
 > We’d love your feedback and contributions as the project evolves!
+> **Want to add a new icon?** Check out our [Contribution Guide](./CONTRIBUTING.md) for step-by-step instructions.

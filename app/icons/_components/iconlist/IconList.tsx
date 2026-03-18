@@ -8,7 +8,7 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useCategory } from "../../_contexts/CategoryContext";
-import { useIconSearch } from "../../_contexts/IconSearchContext";
+import { useIconSearchResult } from "../../_contexts/IconSearchContext";
 
 import { useIconSearchFilter } from "@/hooks/useIconFilter";
 import IconLibraryEmptyState from "./IconLibraryEmptyState";
@@ -21,7 +21,7 @@ const ICON_LIST_MAP = {
 } as const;
 
 const IconList: React.FC = () => {
-	const { debouncedQuery } = useIconSearch();
+	const { debouncedQuery } = useIconSearchResult();
 	const { library } = useIconLibrary();
 	const { category } = useCategory();
 
@@ -38,7 +38,7 @@ const IconList: React.FC = () => {
 	}
 
 	return (
-		<AnimatePresence mode="popLayout">
+		<AnimatePresence>
 			{filteredItems.length > 0 ? (
 				<>
 					<div className="576:grid-cols-2 900:grid-cols-3 mt-3 grid w-full grid-cols-1 gap-4 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">

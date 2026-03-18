@@ -10,11 +10,13 @@ type Params = {
 	query: string;
 };
 
+export type IconFilteredItem = IconListItem & { isNew: boolean };
+
 export const useIconSearchFilter = ({
 	icons,
 	category,
 	query,
-}: Params): IconListItem[] => {
+}: Params): IconFilteredItem[] => {
 	const categoryIcons = useMemo(() => {
 		if (!icons.length) return [];
 		if (category === "all") return icons;
@@ -23,9 +25,9 @@ export const useIconSearchFilter = ({
 	}, [icons, category]);
 
 	const fuse = useMemo(() => {
-		if (!categoryIcons.length) return null;
+		if (!icons.length) return null;
 
-		return new Fuse(categoryIcons, {
+		return new Fuse(icons, {
 			keys: [
 				{ name: "name", weight: 0.9 },
 				{ name: "keywords", weight: 0.1 },
@@ -35,7 +37,7 @@ export const useIconSearchFilter = ({
 			minMatchCharLength: 2,
 			includeScore: true,
 		});
-	}, [categoryIcons]);
+	}, [icons]);
 
 	const filteredItems = useMemo(() => {
 		if (!categoryIcons.length) return [];
@@ -44,49 +46,57 @@ export const useIconSearchFilter = ({
 		let items = categoryIcons;
 
 		if (q.length >= 2) {
-			const exactMatches = categoryIcons.filter(
-				(icon) => icon.name.toLowerCase() === q,
-			);
+			const exact: IconListItem[] = [];
+			const startsWith: IconListItem[] = [];
+			const contains: IconListItem[] = [];
 
-			if (exactMatches.length > 0) {
-				items = exactMatches;
-			} else {
-				const startsWithMatches = categoryIcons.filter((icon) =>
-					icon.name.toLowerCase().startsWith(q),
-				);
-
-				const containsMatches = categoryIcons.filter((icon) =>
-					icon.name.toLowerCase().includes(q),
-				);
-
-				const combined = [
-					...startsWithMatches,
-					...containsMatches.filter(
-						(item) => !startsWithMatches.some((s) => s.name === item.name),
-					),
-				];
-
-				if (combined.length > 0) {
-					items = combined;
-				} else if (fuse) {
-					items = fuse
-						.search(q)
-						.filter((r) => (r.score ?? 1) < 0.4)
-						.map((r) => r.item);
+			for (const icon of categoryIcons) {
+				const name = icon.name.toLowerCase();
+				if (name === q) {
+					exact.push(icon);
+				} else if (name.startsWith(q)) {
+					startsWith.push(icon);
+				} else if (name.includes(q)) {
+					contains.push(icon);
 				}
 			}
+
+			const customMatches = [...exact, ...startsWith, ...contains];
+			let fuseMatches: IconListItem[] = [];
+
+			if (fuse) {
+				const isAll = category === "all";
+				fuseMatches = fuse
+					.search(q)
+					.filter(
+						(r) =>
+							(r.score ?? 1) < 0.4 &&
+							(isAll || categoryIcons.some((ci) => ci.name === r.item.name)),
+					)
+					.map((r) => r.item);
+			}
+
+			const uniqueItems = new Map<string, IconListItem>();
+
+			for (const icon of [...customMatches, ...fuseMatches]) {
+				if (!uniqueItems.has(icon.name)) {
+					uniqueItems.set(icon.name, icon);
+				}
+			}
+
+			items = Array.from(uniqueItems.values());
 		}
 
 		const now = new Date();
 
 		return items
 			.map((item) => ({
-				item,
-				isNew:
-					item.addedAt && differenceInDays(now, new Date(item.addedAt)) <= 3,
+				...item,
+				isNew: !!(
+					item.addedAt && differenceInDays(now, new Date(item.addedAt)) <= 3
+				),
 			}))
-			.sort((a, b) => Number(b.isNew) - Number(a.isNew))
-			.map((entry) => entry.item);
+			.sort((a, b) => Number(b.isNew) - Number(a.isNew));
 	}, [query, fuse, categoryIcons]);
 
 	return filteredItems;
