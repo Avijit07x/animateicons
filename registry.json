@@ -2292,6 +2292,102 @@
       ]
     },
     {
+      "name": "lu-git-commit-vertical",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-commit-vertical-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-commit-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-compare-arrows",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-compare-arrows-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-compare-arrows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-compare",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-compare-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-compare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-fork",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-fork-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-fork.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-merge-conflict",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-merge-conflict-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-merge-conflict.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-git-merge",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/git-merge-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/git-merge.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-github",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2304,6 +2400,22 @@
           "path": "icons/lucide/github-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-gitlab",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/gitlab-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/gitlab.tsx"
         }
       ]
     },
