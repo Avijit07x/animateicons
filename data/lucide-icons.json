@@ -340,10 +340,52 @@
 		"keywords": ["git", "branch", "plus", "add", "version control"]
 	},
 	{
+		"name": "git-fork",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "fork", "version control"]
+	},
+	{
+		"name": "git-merge",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "merge", "version control"]
+	},
+	{
+		"name": "git-merge-conflict",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "merge", "conflict", "version control"]
+	},
+	{
+		"name": "gitlab",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["gitlab", "code", "hosting", "version control"]
+	},
+	{
+		"name": "git-compare",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "compare", "version control"]
+	},
+	{
+		"name": "git-compare-arrows",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "compare", "arrows", "version control"]
+	},
+	{
 		"name": "git-commit-horizontal",
 		"addedAt": "2026-03-14",
 		"category": ["Coding & development"],
 		"keywords": ["git", "commit", "horizontal", "version control"]
+	},
+	{
+		"name": "git-commit-vertical",
+		"addedAt": "2026-03-19",
+		"category": ["Coding & development"],
+		"keywords": ["git", "commit", "vertical", "version control"]
 	},
 	{
 		"name": "upload",
@@ -434,6 +476,30 @@
 		"addedAt": "2025-11-30",
 		"category": ["Arrows"],
 		"keywords": ["right", "next", "move", "east", "forward"]
+	},
+	{
+		"name": "move-vertical",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "vertical", "up", "down", "arrows"]
+	},
+	{
+		"name": "move-diagonal",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "arrows", "resize"]
+	},
+	{
+		"name": "move-diagonal-2",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "arrows", "resize"]
+	},
+	{
+		"name": "move-horizontal",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "horizontal", "arrows", "left", "right"]
 	},
 	{
 		"name": "chevrons-left",

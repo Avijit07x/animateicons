@@ -142,6 +142,7 @@ Use the existing icons as a reference template.
 We use an automated JSON-based registry. **You do not need to manually edit any `index.ts` files!**
 
 Open the corresponding JSON manifest in the `data/` directory:
+
 - For Lucide: `data/lucide-icons.json`
 - For Huge: `data/huge-icons.json`
 
@@ -149,24 +150,25 @@ Add a new JSON object for your icon to the array:
 
 ```json
 {
-  "name": "your-icon-name",
-  "addedAt": "YYYY-MM-DD",
-  "category": ["CategoryName"],
-  "keywords": ["keyword1", "keyword2"]
+	"name": "your-icon-name",
+	"addedAt": "YYYY-MM-DD",
+	"category": ["CategoryName"],
+	"keywords": ["keyword1", "keyword2"]
 }
 ```
 
 **Important Naming Rules:**
+
 - The `name` string in the JSON **must match** your filename exactly, minus the `-icon` suffix.
 - The exported React component **must** exactly match the PascalCase of your filename.
 
 **Example**
 
-| Item           | Format                 |
-| -------------- | ---------------------- |
-| File name      | `dashboard-icon.tsx`   |
-| Component      | `DashboardIcon`        |
-| JSON name      | `"dashboard"`          |
+| Item      | Format               |
+| --------- | -------------------- |
+| File name | `dashboard-icon.tsx` |
+| Component | `DashboardIcon`      |
+| JSON name | `"dashboard"`        |
 
 ### 4. Generate the Registry
 

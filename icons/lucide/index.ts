@@ -50,7 +50,14 @@ import { TerminalIcon } from "./terminal-icon";
 import { GitBranchIcon } from "./git-branch-icon";
 import { GitBranchMinusIcon } from "./git-branch-minus-icon";
 import { GitBranchPlusIcon } from "./git-branch-plus-icon";
+import { GitForkIcon } from "./git-fork-icon";
+import { GitMergeIcon } from "./git-merge-icon";
+import { GitMergeConflictIcon } from "./git-merge-conflict-icon";
+import { GitlabIcon } from "./gitlab-icon";
+import { GitCompareIcon } from "./git-compare-icon";
+import { GitCompareArrowsIcon } from "./git-compare-arrows-icon";
 import { GitCommitHorizontalIcon } from "./git-commit-horizontal-icon";
+import { GitCommitVerticalIcon } from "./git-commit-vertical-icon";
 import { UploadIcon } from "./upload-icon";
 import { CloudUploadIcon } from "./cloud-upload-icon";
 import { DownloadIcon } from "./download-icon";
@@ -66,6 +73,10 @@ import { ChevronUpIcon } from "./chevron-up-icon";
 import { ChevronDownIcon } from "./chevron-down-icon";
 import { MoveLeftIcon } from "./move-left-icon";
 import { MoveRightIcon } from "./move-right-icon";
+import { MoveVerticalIcon } from "./move-vertical-icon";
+import { MoveDiagonalIcon } from "./move-diagonal-icon";
+import { MoveDiagonal2Icon } from "./move-diagonal-2-icon";
+import { MoveHorizontalIcon } from "./move-horizontal-icon";
 import { ChevronsLeftIcon } from "./chevrons-left-icon";
 import { ChevronsRightIcon } from "./chevrons-right-icon";
 import { ChevronsUpIcon } from "./chevrons-up-icon";
@@ -600,11 +611,60 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["git", "branch", "plus", "add", "version control"],
   },
   {
+    name: "git-fork",
+    icon: GitForkIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "fork", "version control"],
+  },
+  {
+    name: "git-merge",
+    icon: GitMergeIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "merge", "version control"],
+  },
+  {
+    name: "git-merge-conflict",
+    icon: GitMergeConflictIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "merge", "conflict", "version control"],
+  },
+  {
+    name: "gitlab",
+    icon: GitlabIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["gitlab", "code", "hosting", "version control"],
+  },
+  {
+    name: "git-compare",
+    icon: GitCompareIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "compare", "version control"],
+  },
+  {
+    name: "git-compare-arrows",
+    icon: GitCompareArrowsIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "compare", "arrows", "version control"],
+  },
+  {
     name: "git-commit-horizontal",
     icon: GitCommitHorizontalIcon,
     addedAt: "2026-03-14",
     category: ["Coding & development"],
     keywords: ["git", "commit", "horizontal", "version control"],
+  },
+  {
+    name: "git-commit-vertical",
+    icon: GitCommitVerticalIcon,
+    addedAt: "2026-03-19",
+    category: ["Coding & development"],
+    keywords: ["git", "commit", "vertical", "version control"],
   },
   {
     name: "upload",
@@ -710,6 +770,34 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-30",
     category: ["Arrows"],
     keywords: ["right", "next", "move", "east", "forward"],
+  },
+  {
+    name: "move-vertical",
+    icon: MoveVerticalIcon,
+    addedAt: "2026-03-29",
+    category: ["Arrows"],
+    keywords: ["move", "vertical", "up", "down", "arrows"],
+  },
+  {
+    name: "move-diagonal",
+    icon: MoveDiagonalIcon,
+    addedAt: "2026-03-29",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "arrows", "resize"],
+  },
+  {
+    name: "move-diagonal-2",
+    icon: MoveDiagonal2Icon,
+    addedAt: "2026-03-29",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "arrows", "resize"],
+  },
+  {
+    name: "move-horizontal",
+    icon: MoveHorizontalIcon,
+    addedAt: "2026-03-29",
+    category: ["Arrows"],
+    keywords: ["move", "horizontal", "arrows", "left", "right"],
   },
   {
     name: "chevrons-left",
