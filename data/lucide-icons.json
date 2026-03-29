@@ -478,6 +478,30 @@
 		"keywords": ["right", "next", "move", "east", "forward"]
 	},
 	{
+		"name": "move-vertical",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "vertical", "up", "down", "arrows"]
+	},
+	{
+		"name": "move-diagonal",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "arrows", "resize"]
+	},
+	{
+		"name": "move-diagonal-2",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "arrows", "resize"]
+	},
+	{
+		"name": "move-horizontal",
+		"addedAt": "2026-03-29",
+		"category": ["Arrows"],
+		"keywords": ["move", "horizontal", "arrows", "left", "right"]
+	},
+	{
 		"name": "chevrons-left",
 		"addedAt": "2025-08-24",
 		"category": ["Arrows"],

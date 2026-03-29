@@ -3028,6 +3028,54 @@
       ]
     },
     {
+      "name": "lu-move-diagonal-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/move-diagonal-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-diagonal-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-move-diagonal",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/move-diagonal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-diagonal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-move-horizontal",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/move-horizontal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-horizontal.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-move-left",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3056,6 +3104,22 @@
           "path": "icons/lucide/move-right-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/move-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-move-vertical",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/move-vertical-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/move-vertical.tsx"
         }
       ]
     },
