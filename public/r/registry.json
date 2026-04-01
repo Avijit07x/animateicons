@@ -1780,6 +1780,22 @@
       ]
     },
     {
+      "name": "lu-copyright",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/copyright-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/copyright.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-corner-down-left",
       "type": "registry:ui",
       "registryDependencies": [],

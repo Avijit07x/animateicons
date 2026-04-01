@@ -694,6 +694,12 @@
 		"keywords": ["forward", "distribute", "social", "send", "link"]
 	},
 	{
+		"name": "copyright",
+		"addedAt": "2026-04-01",
+		"category": ["Legal", "Document"],
+		"keywords": ["copyright", "legal", "ip", "intellectual property", "rights"]
+	},
+	{
 		"name": "trash",
 		"addedAt": "2025-08-09",
 		"category": ["File icons"],
