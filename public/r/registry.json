@@ -3508,6 +3508,22 @@
       ]
     },
     {
+      "name": "lu-share-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/share-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/share-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-share",
       "type": "registry:ui",
       "registryDependencies": [],

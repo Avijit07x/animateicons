@@ -108,6 +108,7 @@ import { SendIcon } from "./send-icon";
 import { ReplyIcon } from "./reply-icon";
 import { ReplyAllIcon } from "./reply-all-icon";
 import { ShareIcon } from "./share-icon";
+import { Share2Icon } from "./share-2-icon";
 import { TrashIcon } from "./trash-icon";
 import { Trash2Icon } from "./trash-2-icon";
 import { BookmarkIcon } from "./bookmark-icon";
@@ -1029,6 +1030,13 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-01-05",
   category: ["Communication"],
   keywords: ["forward", "distribute", "social", "send", "link"],
+ },
+ {
+  name: "share-2",
+  icon: Share2Icon,
+  addedAt: "2026-04-01",
+  category: ["Communication"],
+  keywords: ["share", "share2", "forward", "social", "distribution"],
  },
  {
   name: "trash",
