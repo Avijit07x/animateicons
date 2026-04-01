@@ -5,31 +5,19 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface MoveDiagonal2IconHandle {
+export interface Share2IconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface MoveDiagonal2IconProps extends HTMLMotionProps<"div"> {
+interface Share2IconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
- isAnimated?: boolean;
 }
 
-const MoveDiagonal2Icon = forwardRef<
- MoveDiagonal2IconHandle,
- MoveDiagonal2IconProps
->(
+const Share2Icon = forwardRef<Share2IconHandle, Share2IconProps>(
  (
-  {
-   onMouseEnter,
-   onMouseLeave,
-   className,
-   size = 24,
-   duration = 0.6,
-   isAnimated = true,
-   ...props
-  },
+  { onMouseEnter, onMouseLeave, className, size = 24, duration = 1, ...props },
   ref,
  ) => {
   const controls = useAnimation();
@@ -47,11 +35,11 @@ const MoveDiagonal2Icon = forwardRef<
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isAnimated || reduced) return;
+    if (reduced) return;
     if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [controls, reduced, isAnimated, onMouseEnter],
+   [controls, reduced, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -63,30 +51,33 @@ const MoveDiagonal2Icon = forwardRef<
   );
 
   const iconVariants: Variants = {
-   normal: { scale: 1 },
+   normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.05, 1],
-    transition: { duration: duration, ease: "easeInOut" },
+    scale: [1, 1.1, 0.95, 1],
+    rotate: [0, -5, 5, 0],
+    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
    },
   };
 
-  const topLeftVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1 },
+  const circleVariants: Variants = {
+   normal: { scale: 1, opacity: 1 },
    animate: {
-    x: [-1, -3, 0],
-    y: [-1, -3, 0],
+    scale: [1, 1.2, 1],
     opacity: [1, 0.7, 1],
-    transition: { duration: duration, ease: "easeInOut" },
+    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
    },
   };
 
-  const bottomRightVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1 },
+  const lineVariants: Variants = {
+   normal: { pathLength: 1, opacity: 1 },
    animate: {
-    x: [1, 3, 0],
-    y: [1, 3, 0],
-    opacity: [1, 0.7, 1],
-    transition: { duration: duration, ease: "easeInOut" },
+    pathLength: [0, 1],
+    opacity: [0.5, 1],
+    transition: {
+     duration: 1.4 * duration,
+     ease: "easeInOut",
+     repeat: 0,
+    },
    },
   };
 
@@ -111,20 +102,22 @@ const MoveDiagonal2Icon = forwardRef<
      initial="normal"
      variants={iconVariants}
     >
-     <path d="m5 5 14 14" />
-
-     <motion.path
-      d="M5 11V5h6"
-      variants={topLeftVariants}
-      initial="normal"
-      animate={controls}
+     <motion.circle cx="18" cy="5" r="3" variants={circleVariants} />
+     <motion.circle cx="6" cy="12" r="3" variants={circleVariants} />
+     <motion.circle cx="18" cy="19" r="3" variants={circleVariants} />
+     <motion.line
+      x1="8.59"
+      x2="15.42"
+      y1="13.51"
+      y2="17.49"
+      variants={lineVariants}
      />
-
-     <motion.path
-      d="M19 13v6h-6"
-      variants={bottomRightVariants}
-      initial="normal"
-      animate={controls}
+     <motion.line
+      x1="15.41"
+      x2="8.59"
+      y1="6.51"
+      y2="10.49"
+      variants={lineVariants}
      />
     </motion.svg>
    </motion.div>
@@ -132,5 +125,5 @@ const MoveDiagonal2Icon = forwardRef<
  },
 );
 
-MoveDiagonal2Icon.displayName = "MoveDiagonal2Icon";
-export { MoveDiagonal2Icon };
+Share2Icon.displayName = "Share2Icon";
+export { Share2Icon };
