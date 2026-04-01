@@ -1,7 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+} from "react";
 import { useDebounce } from "use-debounce";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type IconSearchInputContextValue = {
 	query: string;
@@ -20,11 +26,42 @@ const IconSearchResultContext =
 export const IconSearchProvider: React.FC<{
 	children: React.ReactNode;
 }> = ({ children }) => {
-	const [query, setQuery] = useState("");
+	const router = useRouter();
+	const searchParams = useSearchParams();
+
+	const query = searchParams?.get("q") ?? "";
 	const [debouncedQuery] = useDebounce(query, 300);
 
-	const inputValue = useMemo(() => ({ query, setQuery }), [query, setQuery]);
+	const setQuery = useCallback<React.Dispatch<React.SetStateAction<string>>>(
+		(value) => {
+			const previousQuery = searchParams?.get("q") ?? "";
+			const nextQuery =
+				typeof value === "function" ? value(previousQuery) : value;
 
+			if (nextQuery === previousQuery) {
+				return;
+			}
+
+			const nextSearchParams = new URLSearchParams(
+				searchParams?.toString() ?? "",
+			);
+
+			if (nextQuery) {
+				nextSearchParams.set("q", nextQuery);
+			} else {
+				nextSearchParams.delete("q");
+			}
+
+			const nextUrl = `${window.location.pathname}${
+				nextSearchParams.toString() ? `?${nextSearchParams.toString()}` : ""
+			}`;
+
+			router.replace(nextUrl, { scroll: false });
+		},
+		[router, searchParams],
+	);
+
+	const inputValue = useMemo(() => ({ query, setQuery }), [query, setQuery]);
 	const resultValue = useMemo(() => ({ debouncedQuery }), [debouncedQuery]);
 
 	return (
