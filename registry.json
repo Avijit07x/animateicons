@@ -2552,6 +2552,20 @@
 			]
 		},
 		{
+			"name": "lu-mars",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/lucide/mars-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/mars.tsx"
+				}
+			]
+		},
+		{
 			"name": "lu-menu",
 			"type": "registry:ui",
 			"registryDependencies": [],
@@ -3752,6 +3766,20 @@
 					"path": "icons/lucide/users-round-icon.tsx",
 					"type": "registry:ui",
 					"target": "components/icons/users-round.tsx"
+				}
+			]
+		},
+		{
+			"name": "lu-venus",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"dependencies": ["motion"],
+			"devDependencies": [],
+			"files": [
+				{
+					"path": "icons/lucide/venus-icon.tsx",
+					"type": "registry:ui",
+					"target": "components/icons/venus.tsx"
 				}
 			]
 		},

@@ -244,6 +244,8 @@ import { BoxIcon } from "./box-icon";
 import { BoxesIcon } from "./boxes-icon";
 import { PackageOpenIcon } from "./package-open-icon";
 import { BikeIcon } from "./bike-icon";
+import { MarsIcon } from "./mars-icon";
+import { VenusIcon } from "./venus-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
@@ -2003,6 +2005,20 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-03-04",
   category: ["Transportation"],
   keywords: ["bike", "bicycle", "cycle", "cycling"],
+ },
+ {
+  name: "mars",
+  icon: MarsIcon,
+  addedAt: "2026-04-04",
+  category: ["Science", "People"],
+  keywords: ["mars", "male", "symbol", "planet", "astronomy"],
+ },
+ {
+  name: "venus",
+  icon: VenusIcon,
+  addedAt: "2026-04-04",
+  category: ["Science", "People"],
+  keywords: ["venus", "female", "symbol", "planet", "astronomy"],
  },
 ];
 
