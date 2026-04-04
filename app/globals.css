@@ -224,29 +224,29 @@
 					0deg,
 					transparent,
 					transparent 20px,
-					rgba(75, 85, 99, 0.18) 20px,
-					rgba(75, 85, 99, 0.18) 21px
+					rgba(75, 85, 99, 0.24) 20px,
+					rgba(75, 85, 99, 0.24) 21px
 				),
 				repeating-linear-gradient(
 					90deg,
 					transparent,
 					transparent 30px,
-					rgba(107, 114, 128, 0.16) 30px,
-					rgba(107, 114, 128, 0.16) 31px
+					rgba(107, 114, 128, 0.22) 30px,
+					rgba(107, 114, 128, 0.22) 31px
 				),
 				repeating-linear-gradient(
 					60deg,
 					transparent,
 					transparent 40px,
-					rgba(55, 65, 81, 0.14) 40px,
-					rgba(55, 65, 81, 0.14) 41px
+					rgba(55, 65, 81, 0.2) 40px,
+					rgba(55, 65, 81, 0.2) 41px
 				),
 				repeating-linear-gradient(
 					150deg,
 					transparent,
 					transparent 35px,
-					rgba(31, 41, 55, 0.12) 35px,
-					rgba(31, 41, 55, 0.12) 36px
+					rgba(31, 41, 55, 0.18) 35px,
+					rgba(31, 41, 55, 0.18) 36px
 				);
 		}
 	}
