@@ -1,0 +1,73 @@
+name: Publish @animateicons/react
+
+# Triggered manually OR on a tag matching `v*` (e.g. v0.1.0).
+# The job:
+#   1. Builds the npm package (regenerates barrels first)
+#   2. Runs smoke tests against the built dist/
+#   3. Enforces the size budget
+#   4. Publishes with --provenance so consumers can verify the artifact
+#      came from this repo + this commit (npm public registry feature).
+#
+# Required secrets:
+#   NPM_TOKEN — npm automation token with publish permission for
+#               @animateicons. Create at https://www.npmjs.com/settings/<user>/tokens
+#               (type: "Automation" so 2FA is bypassed for CI).
+#
+# To publish a release:
+#   pnpm -F @animateicons/react version 0.2.0
+#   git tag v0.2.0 && git push --tags
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "npm dist-tag (latest, next, beta, ...)"
+        required: false
+        default: "latest"
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  id-token: write # required for npm provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build npm package
+        run: pnpm --filter @animateicons/react build
+
+      - name: Smoke-test built artifact
+        run: pnpm --filter @animateicons/react test:smoke
+
+      - name: Check bundle size budget
+        run: pnpm --filter @animateicons/react size
+
+      - name: Inspect tarball contents (audit log)
+        run: pnpm --filter @animateicons/react pack:check
+
+      - name: Publish to npm
+        working-directory: npm
+        run: npm publish --provenance --access public --tag ${{ github.event.inputs.tag || 'latest' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

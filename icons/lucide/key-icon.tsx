@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface KeyHandle {
+export interface KeyIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface KeyProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const KeyIcon = forwardRef<KeyHandle, KeyProps>(
+const KeyIcon = forwardRef<KeyIconHandle, KeyProps>(
  (
   {
    onMouseEnter,

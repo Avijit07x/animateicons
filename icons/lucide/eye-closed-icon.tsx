@@ -11,7 +11,7 @@ import {
  useRef,
 } from "react";
 
-export interface ExternalLinkIconHandle {
+export interface EyeClosedIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -23,7 +23,7 @@ interface EyeClosedIconProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const EyeClosedIcon = forwardRef<ExternalLinkIconHandle, EyeClosedIconProps>(
+const EyeClosedIcon = forwardRef<EyeClosedIconHandle, EyeClosedIconProps>(
  (
   {
    onMouseEnter,

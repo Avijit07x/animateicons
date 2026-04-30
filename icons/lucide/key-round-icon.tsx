@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface KeyRoundHandle {
+export interface KeyRoundIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface KeyRoundProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const KeyRoundIcon = forwardRef<KeyRoundHandle, KeyRoundProps>(
+const KeyRoundIcon = forwardRef<KeyRoundIconHandle, KeyRoundProps>(
  (
   {
    onMouseEnter,

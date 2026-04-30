@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ShieldUserHandle {
+export interface ShieldUserIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface ShieldUserProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const ShieldUserIcon = forwardRef<ShieldUserHandle, ShieldUserProps>(
+const ShieldUserIcon = forwardRef<ShieldUserIconHandle, ShieldUserProps>(
  (
   {
    onMouseEnter,

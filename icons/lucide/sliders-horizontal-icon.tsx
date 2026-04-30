@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SlidersHorizontalHandle {
+export interface SlidersHorizontalIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -18,7 +18,7 @@ interface SlidersHorizontalProps extends HTMLMotionProps<"div"> {
 }
 
 const SlidersHorizontalIcon = forwardRef<
- SlidersHorizontalHandle,
+ SlidersHorizontalIconHandle,
  SlidersHorizontalProps
 >(
  (

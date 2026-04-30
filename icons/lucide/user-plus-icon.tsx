@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserPlusHandle {
+export interface UserPlusIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface UserPlusProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const UserPlusIcon = forwardRef<UserPlusHandle, UserPlusProps>(
+const UserPlusIcon = forwardRef<UserPlusIconHandle, UserPlusProps>(
  (
   {
    onMouseEnter,

@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface ExternalLinkIconHandle {
+export interface EyeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface EyeIconProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const EyeIcon = forwardRef<ExternalLinkIconHandle, EyeIconProps>(
+const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
  (
   {
    onMouseEnter,

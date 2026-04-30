@@ -1,0 +1,10 @@
+dist/
+node_modules/
+.tsbuildinfo
+*.log
+
+# Auto-generated barrels — track manually if you want fewer regen-on-build
+# diffs in your PRs, otherwise leave ignored.
+src/index.ts
+src/lucide.ts
+src/huge.ts

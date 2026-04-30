@@ -39,3 +39,15 @@ jobs:
         run: pnpm build
         env:
           NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Typecheck npm package
+        run: pnpm --filter @animateicons/react typecheck
+
+      - name: Build npm package
+        run: pnpm --filter @animateicons/react build
+
+      - name: Smoke-test npm package against built dist
+        run: pnpm --filter @animateicons/react test:smoke
+
+      - name: Enforce npm bundle size budget
+        run: pnpm --filter @animateicons/react size

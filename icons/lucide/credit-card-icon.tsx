@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface CardHandle {
+export interface CreditCardIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface CardProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const CreditCardIcon = forwardRef<CardHandle, CardProps>(
+const CreditCardIcon = forwardRef<CreditCardIconHandle, CardProps>(
  (
   {
    onMouseEnter,

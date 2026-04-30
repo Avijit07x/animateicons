@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserRoundHandle {
+export interface UserRoundIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface UserRoundProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const UserRoundIcon = forwardRef<UserRoundHandle, UserRoundProps>(
+const UserRoundIcon = forwardRef<UserRoundIconHandle, UserRoundProps>(
  (
   {
    onMouseEnter,

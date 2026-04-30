@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface PhoneIncomingHandle {
+export interface PhoneIncomingIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,10 @@ interface PhoneIncomingProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const PhoneIncomingIcon = forwardRef<PhoneIncomingHandle, PhoneIncomingProps>(
+const PhoneIncomingIcon = forwardRef<
+ PhoneIncomingIconHandle,
+ PhoneIncomingProps
+>(
  (
   {
    onMouseEnter,

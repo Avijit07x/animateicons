@@ -1,0 +1,120 @@
+{
+	"name": "@animateicons/react",
+	"version": "0.1.1",
+	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
+	"license": "MIT",
+	"author": "Avijit Dey",
+	"homepage": "https://animateicons.in",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Avijit07x/animateicons.git",
+		"directory": "npm"
+	},
+	"bugs": {
+		"url": "https://github.com/Avijit07x/animateicons/issues"
+	},
+	"keywords": [
+		"icons",
+		"animated icons",
+		"animated svg",
+		"react icons",
+		"motion icons",
+		"motion react",
+		"svg icons",
+		"lucide animated",
+		"huge animated"
+	],
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./lucide": {
+			"types": "./dist/lucide.d.ts",
+			"import": "./dist/lucide.js",
+			"require": "./dist/lucide.cjs"
+		},
+		"./huge": {
+			"types": "./dist/huge.d.ts",
+			"import": "./dist/huge.js",
+			"require": "./dist/huge.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"sideEffects": false,
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"engines": {
+		"node": ">=18.17.0"
+	},
+	"scripts": {
+		"gen": "node scripts/generate-exports.mjs",
+		"normalize-handles": "node scripts/normalize-handle-names.mjs",
+		"build": "pnpm run gen && tsup",
+		"dev": "pnpm run gen && tsup --watch",
+		"typecheck": "tsc --noEmit",
+		"test:smoke": "node --test __tests__/consume.test.mjs",
+		"size": "size-limit",
+		"pack:check": "npm pack --dry-run",
+		"prepublishOnly": "pnpm run build && pnpm run test:smoke && pnpm run size"
+	},
+	"size-limit": [
+		{
+			"name": "lucide (full barrel + motion runtime)",
+			"path": "dist/lucide.js",
+			"limit": "70 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		},
+		{
+			"name": "huge (full barrel + motion runtime)",
+			"path": "dist/huge.js",
+			"limit": "50 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		},
+		{
+			"name": "single icon (motion runtime dominates)",
+			"path": "dist/lucide.js",
+			"import": "{ BellRingIcon }",
+			"limit": "65 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		}
+	],
+	"dependencies": {
+		"motion": "^12.0.0"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
+	},
+	"devDependencies": {
+		"@size-limit/preset-small-lib": "^11.1.6",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"size-limit": "^11.1.6",
+		"tsup": "^8.3.0",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

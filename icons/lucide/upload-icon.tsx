@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UploadHandle {
+export interface UploadIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface UploadProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const UploadIcon = forwardRef<UploadHandle, UploadProps>(
+const UploadIcon = forwardRef<UploadIconHandle, UploadProps>(
  (
   {
    onMouseEnter,

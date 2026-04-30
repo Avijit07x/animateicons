@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface IndianRupeeHandle {
+export interface IndianRupeeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface IndianRupeeProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const IndianRupeeIcon = forwardRef<IndianRupeeHandle, IndianRupeeProps>(
+const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeProps>(
  (
   {
    onMouseEnter,

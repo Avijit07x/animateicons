@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserPenHandle {
+export interface UserPenIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface UserPenProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const UserPenIcon = forwardRef<UserPenHandle, UserPenProps>(
+const UserPenIcon = forwardRef<UserPenIconHandle, UserPenProps>(
  (
   {
    onMouseEnter,

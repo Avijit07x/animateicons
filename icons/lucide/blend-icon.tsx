@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface BlendHandle {
+export interface BlendIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface BlendProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const BlendIcon = forwardRef<BlendHandle, BlendProps>(
+const BlendIcon = forwardRef<BlendIconHandle, BlendProps>(
  (
   {
    onMouseEnter,

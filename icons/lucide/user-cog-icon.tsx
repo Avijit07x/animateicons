@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserCogHandle {
+export interface UserCogIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface UserCogProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const UserCogIcon = forwardRef<UserCogHandle, UserCogProps>(
+const UserCogIcon = forwardRef<UserCogIconHandle, UserCogProps>(
  (
   {
    onMouseEnter,

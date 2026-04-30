@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface SignalHandle {
+export interface SignalIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface SignalProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const SignalIcon = forwardRef<SignalHandle, SignalProps>(
+const SignalIcon = forwardRef<SignalIconHandle, SignalProps>(
  (
   {
    onMouseEnter,

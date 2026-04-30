@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface DownloadHandle {
+export interface DownloadIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -17,7 +17,7 @@ interface DownloadProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const DownloadIcon = forwardRef<DownloadHandle, DownloadProps>(
+const DownloadIcon = forwardRef<DownloadIconHandle, DownloadProps>(
  (
   {
    onMouseEnter,

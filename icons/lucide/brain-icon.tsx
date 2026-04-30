@@ -11,7 +11,7 @@ import {
  useRef,
 } from "react";
 
-export interface BrainHandle {
+export interface BrainIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -23,7 +23,7 @@ interface BrainProps extends HTMLMotionProps<"div"> {
  color?: string;
 }
 
-const BrainIcon = forwardRef<BrainHandle, BrainProps>(
+const BrainIcon = forwardRef<BrainIconHandle, BrainProps>(
  (
   {
    onMouseEnter,

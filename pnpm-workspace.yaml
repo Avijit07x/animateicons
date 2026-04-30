@@ -1,0 +1,5 @@
+# Workspace declaration for the AnimateIcons repo.
+# Root: the Next.js gallery + icon source files.
+# `npm/`: the @animateicons/react publishable package.
+packages:
+  - "npm"

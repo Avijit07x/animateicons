@@ -5,7 +5,7 @@ import type { HTMLMotionProps, Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
-export interface UserRoundCheckHandle {
+export interface UserRoundCheckIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
@@ -18,7 +18,7 @@ interface UserRoundCheckProps extends HTMLMotionProps<"div"> {
 }
 
 const UserRoundCheckIcon = forwardRef<
- UserRoundCheckHandle,
+ UserRoundCheckIconHandle,
  UserRoundCheckProps
 >(
  (
