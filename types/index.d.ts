@@ -14,7 +14,11 @@ type IconLibraryCardData = {
 	title: string;
 	description: string;
 	img: {
-		href: string;
+		// Accept either a remote URL/string path OR a statically-imported
+		// image (`import logo from "./assets/foo.png"` resolves to
+		// StaticImageData). Next/Image accepts both — the AnimateIcons
+		// IconCard does too.
+		href: string | import("next/image").StaticImageData;
 		className: string;
 	};
 
