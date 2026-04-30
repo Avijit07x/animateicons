@@ -40,8 +40,8 @@ const IconsError: React.FC<Props> = ({ error, reset }) => {
 					Something broke loading icons
 				</h2>
 				<p className="text-textSecondary text-sm">
-					We logged the error. Try again, and if it keeps happening let us
-					know on GitHub.
+					We logged the error. Try again, and if it keeps happening let us know
+					on GitHub.
 				</p>
 				{error.digest ? (
 					<p className="text-textMuted font-mono text-xs">

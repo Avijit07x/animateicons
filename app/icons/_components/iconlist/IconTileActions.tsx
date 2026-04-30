@@ -60,7 +60,12 @@ type Props = {
  */
 const codeCache = new Map<string, string>();
 
-const IconTileActions: React.FC<Props> = ({ tileId, library, prefix, name }) => {
+const IconTileActions: React.FC<Props> = ({
+	tileId,
+	library,
+	prefix,
+	name,
+}) => {
 	const isCopied = useIsCopiedCode(tileId);
 	const isCopiedCli = useIsCopiedCli(tileId);
 	const isLoading = useIsLoading(tileId);

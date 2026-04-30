@@ -62,7 +62,7 @@ Browse the full set at **[animateicons.in](https://animateicons.in/icons/lucide)
 import { BellRingIcon } from "@/components/ui/bell-ring";
 
 export default function Notifications() {
-  return <BellRingIcon size={24} color="#f45b48" />;
+	return <BellRingIcon size={24} color="#f45b48" />;
 }
 ```
 
@@ -72,20 +72,20 @@ That's it. Hover it. The icon animates.
 
 ## Features
 
-| Feature | What you get |
-|---|---|
-| **281 icons** | 248 Lucide-style + 33 Huge-style, growing every release |
-| **Hover animation** | On by default, no setup |
-| **Imperative API** | Refs expose `startAnimation()` / `stopAnimation()` |
-| **Color prop** | `<Icon color="#f45b48" />`, also Tailwind `text-*` classes work |
-| **Duration prop** | Multiplier — `duration={1.5}` = 1.5x slower |
-| **Disable per icon** | `isAnimated={false}` |
-| **Reduced motion** | Automatically respects OS setting |
-| **TypeScript-first** | Per-icon `*Handle` types for refs |
-| **Live playground** | [animateicons.in](https://animateicons.in/icons/lucide) — click any icon to tweak it |
-| **MDX docs** | [/icons/docs](https://animateicons.in/icons/docs) |
-| **URL-synced search** | Shareable filtered links — `/icons/lucide?q=bell` |
-| **SEO-optimized** | Per-page metadata, JSON-LD structured data, sitemap |
+| Feature               | What you get                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| **281 icons**         | 248 Lucide-style + 33 Huge-style, growing every release                              |
+| **Hover animation**   | On by default, no setup                                                              |
+| **Imperative API**    | Refs expose `startAnimation()` / `stopAnimation()`                                   |
+| **Color prop**        | `<Icon color="#f45b48" />`, also Tailwind `text-*` classes work                      |
+| **Duration prop**     | Multiplier — `duration={1.5}` = 1.5x slower                                          |
+| **Disable per icon**  | `isAnimated={false}`                                                                 |
+| **Reduced motion**    | Automatically respects OS setting                                                    |
+| **TypeScript-first**  | Per-icon `*Handle` types for refs                                                    |
+| **Live playground**   | [animateicons.in](https://animateicons.in/icons/lucide) — click any icon to tweak it |
+| **MDX docs**          | [/icons/docs](https://animateicons.in/icons/docs)                                    |
+| **URL-synced search** | Shareable filtered links — `/icons/lucide?q=bell`                                    |
+| **SEO-optimized**     | Per-page metadata, JSON-LD structured data, sitemap                                  |
 
 ---
 
@@ -93,25 +93,25 @@ That's it. Hover it. The icon animates.
 
 ```ts
 interface IconProps {
-  // Visual
-  size?: number;          // default 24
-  color?: string;         // any CSS color: hex, rgb, hsl, var(--token)
-  className?: string;
+	// Visual
+	size?: number; // default 24
+	color?: string; // any CSS color: hex, rgb, hsl, var(--token)
+	className?: string;
 
-  // Animation
-  duration?: number;      // default 1 — multiplier (0.5 = 2x faster)
-  isAnimated?: boolean;   // default true — false disables hover animation
+	// Animation
+	duration?: number; // default 1 — multiplier (0.5 = 2x faster)
+	isAnimated?: boolean; // default true — false disables hover animation
 
-  // DOM
-  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  style?: React.CSSProperties;
+	// DOM
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+	style?: React.CSSProperties;
 }
 
 // Imperative handle exposed via ref
 interface IconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
+	startAnimation: () => void;
+	stopAnimation: () => void;
 }
 ```
 
@@ -155,17 +155,17 @@ import { useRef } from "react";
 import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye";
 
 export default function Demo() {
-  const ref = useRef<EyeIconHandle>(null);
+	const ref = useRef<EyeIconHandle>(null);
 
-  return (
-    <button
-      onMouseEnter={() => ref.current?.startAnimation()}
-      onMouseLeave={() => ref.current?.stopAnimation()}
-      className="cursor-pointer"
-    >
-      <EyeIcon ref={ref} size={28} duration={1} />
-    </button>
-  );
+	return (
+		<button
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
+			className="cursor-pointer"
+		>
+			<EyeIcon ref={ref} size={28} duration={1} />
+		</button>
+	);
 }
 ```
 

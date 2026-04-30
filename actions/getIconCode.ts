@@ -67,11 +67,7 @@ export async function getIconCode(
 	}
 
 	try {
-		const filePath = path.join(
-			ICONS_BASE_DIR,
-			library,
-			`${safeName}-icon.tsx`,
-		);
+		const filePath = path.join(ICONS_BASE_DIR, library, `${safeName}-icon.tsx`);
 		return await fs.readFile(filePath, "utf8");
 	} catch (err) {
 		console.error("[getIconCode] file read failed", {
