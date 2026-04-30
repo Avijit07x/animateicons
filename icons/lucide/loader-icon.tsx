@@ -14,6 +14,7 @@ interface LoaderIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const LoaderIcon = forwardRef<LoaderIconHandle, LoaderIconProps>(
@@ -25,6 +26,7 @@ const LoaderIcon = forwardRef<LoaderIconHandle, LoaderIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -81,6 +83,7 @@ const LoaderIcon = forwardRef<LoaderIconHandle, LoaderIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

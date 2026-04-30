@@ -14,6 +14,7 @@ interface AnnoyedIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
@@ -25,6 +26,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -110,6 +112,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

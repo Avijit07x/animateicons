@@ -14,6 +14,7 @@ interface ClipboardIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
@@ -25,6 +26,7 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -99,6 +101,7 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

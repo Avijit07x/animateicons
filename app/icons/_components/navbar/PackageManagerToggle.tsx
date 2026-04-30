@@ -2,37 +2,31 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-
-type PackageManager = "npm" | "pnpm" | "bun";
+import {
+	type PackageManager,
+	usePackageManager,
+} from "../../_contexts/PackageManagerContext";
 
 const OPTIONS: PackageManager[] = ["npm", "pnpm", "bun"];
-const STORAGE_KEY = "tab";
 
 const PackageManagerToggle: React.FC = () => {
-	const [value, setValue] = useState<PackageManager>("npm");
-
-	useEffect(() => {
-		const saved = localStorage.getItem(STORAGE_KEY) as PackageManager | null;
-		if (saved && OPTIONS.includes(saved)) {
-			setValue(saved);
-		}
-	}, []);
-
-	const onChange = (pm: PackageManager) => {
-		setValue(pm);
-		localStorage.setItem(STORAGE_KEY, pm);
-	};
+	const { packageManager, setPackageManager } = usePackageManager();
 
 	return (
-		<div className="bg-surfaceElevated border-border hidden h-9 items-center justify-center rounded-full border p-1 text-sm lg:flex">
+		<div
+			role="radiogroup"
+			aria-label="Package manager"
+			className="bg-surfaceElevated border-border hidden h-9 items-center justify-center rounded-full border p-1 text-sm lg:flex"
+		>
 			{OPTIONS.map((pm) => {
-				const active = pm === value;
+				const active = pm === packageManager;
 
 				return (
 					<button
 						key={pm}
-						onClick={() => onChange(pm)}
+						role="radio"
+						aria-checked={active}
+						onClick={() => setPackageManager(pm)}
 						className={cn(
 							"relative z-10 flex items-center justify-center rounded-full px-3 py-1 select-none",
 							active ? "text-white" : "text-textSecondary! hover:text-white",

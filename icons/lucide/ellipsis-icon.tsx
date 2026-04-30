@@ -14,6 +14,7 @@ interface EllipsisIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
@@ -25,6 +26,7 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -77,6 +79,7 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

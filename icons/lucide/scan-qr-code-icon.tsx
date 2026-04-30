@@ -14,6 +14,7 @@ interface ScanQrCodeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
@@ -25,6 +26,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -100,6 +102,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

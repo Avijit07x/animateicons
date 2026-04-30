@@ -14,6 +14,7 @@ interface PaperclipIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
@@ -25,6 +26,7 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -75,6 +77,7 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

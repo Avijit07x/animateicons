@@ -14,6 +14,7 @@ interface LockIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
@@ -25,6 +26,7 @@ const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -77,6 +79,7 @@ const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

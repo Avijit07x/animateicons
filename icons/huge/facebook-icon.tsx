@@ -14,6 +14,7 @@ interface FacebookIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
@@ -25,6 +26,7 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -96,6 +98,7 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      width={size}

@@ -14,6 +14,7 @@ interface UserLockIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
@@ -25,6 +26,7 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -81,6 +83,7 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

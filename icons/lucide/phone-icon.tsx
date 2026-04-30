@@ -14,6 +14,7 @@ interface PhoneProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
@@ -25,6 +26,7 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -88,6 +90,7 @@ const PhoneIcon = forwardRef<PhoneHandle, PhoneProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

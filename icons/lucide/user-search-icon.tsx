@@ -14,6 +14,7 @@ interface UserSearchProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const UserSearchIcon = forwardRef<UserSearchHandle, UserSearchProps>(
@@ -25,6 +26,7 @@ const UserSearchIcon = forwardRef<UserSearchHandle, UserSearchProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -99,6 +101,7 @@ const UserSearchIcon = forwardRef<UserSearchHandle, UserSearchProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

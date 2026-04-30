@@ -14,6 +14,7 @@ interface TelescopeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
@@ -25,6 +26,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -155,6 +157,7 @@ const TelescopeIcon = forwardRef<TelescopeIconHandle, TelescopeIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ interface WifiIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
@@ -25,6 +26,7 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -159,6 +161,7 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

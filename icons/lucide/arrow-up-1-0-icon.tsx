@@ -14,6 +14,7 @@ interface ArrowUp10IconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
@@ -25,6 +26,7 @@ const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -121,6 +123,7 @@ const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

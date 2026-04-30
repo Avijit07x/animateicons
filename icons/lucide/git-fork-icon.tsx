@@ -14,6 +14,7 @@ interface GitForkIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
@@ -25,6 +26,7 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
    size = 24,
    duration = 0.8,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -128,6 +130,7 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

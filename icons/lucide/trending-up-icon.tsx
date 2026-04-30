@@ -14,6 +14,7 @@ interface TrendingUpIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const TrendingUpIcon = forwardRef<TrendingUpIconHandle, TrendingUpIconProps>(
@@ -25,6 +26,7 @@ const TrendingUpIcon = forwardRef<TrendingUpIconHandle, TrendingUpIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -104,6 +106,7 @@ const TrendingUpIcon = forwardRef<TrendingUpIconHandle, TrendingUpIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

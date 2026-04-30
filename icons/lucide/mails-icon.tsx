@@ -14,6 +14,7 @@ interface MailsIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
@@ -25,6 +26,7 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -103,6 +105,7 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ interface BoxIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
@@ -25,6 +26,7 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
    size = 24,
    duration = 0.6,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -93,6 +95,7 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ interface Menu02IconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const Menu02Icon = forwardRef<Menu02IconHandle, Menu02IconProps>(
@@ -25,6 +26,7 @@ const Menu02Icon = forwardRef<Menu02IconHandle, Menu02IconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -107,6 +109,7 @@ const Menu02Icon = forwardRef<Menu02IconHandle, Menu02IconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

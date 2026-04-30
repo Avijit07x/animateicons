@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * useIconSearchFilter
+ *
+ * Filter + rank hook powering the AnimateIcons gallery search. Combines
+ * a custom prefix/contains scorer (so "bell" puts "bell" before
+ * "bell-ring" before "doorbell") with a Fuse.js fuzzy fallback for
+ * typos. Also flags icons added in the last three days as `isNew` so
+ * the gallery can decorate them.
+ */
+
 import { differenceInDays } from "date-fns";
 import Fuse from "fuse.js";
 import { useMemo } from "react";

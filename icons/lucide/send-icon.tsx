@@ -14,6 +14,7 @@ interface SendIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
@@ -25,6 +26,7 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -85,6 +87,7 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

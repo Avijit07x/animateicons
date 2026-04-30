@@ -14,6 +14,7 @@ interface GitMergeConflictIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const GitMergeConflictIcon = forwardRef<
@@ -28,6 +29,7 @@ const GitMergeConflictIcon = forwardRef<
    size = 24,
    duration = 0.85,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -134,6 +136,7 @@ const GitMergeConflictIcon = forwardRef<
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

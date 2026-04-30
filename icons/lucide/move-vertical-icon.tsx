@@ -14,6 +14,7 @@ interface MoveVerticalIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const MoveVerticalIcon = forwardRef<
@@ -28,6 +29,7 @@ const MoveVerticalIcon = forwardRef<
    size = 24,
    duration = 0.6,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -94,6 +96,7 @@ const MoveVerticalIcon = forwardRef<
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

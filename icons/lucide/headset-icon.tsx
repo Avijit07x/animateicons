@@ -14,6 +14,7 @@ interface HeadsetIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
@@ -25,6 +26,7 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -109,6 +111,7 @@ const HeadsetIcon = forwardRef<HeadsetIconHandle, HeadsetIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

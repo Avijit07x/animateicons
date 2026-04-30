@@ -14,6 +14,7 @@ interface DiscordIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const DiscordIcon = forwardRef<DiscordIconHandle, DiscordIconProps>(
@@ -25,6 +26,7 @@ const DiscordIcon = forwardRef<DiscordIconHandle, DiscordIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -94,6 +96,7 @@ const DiscordIcon = forwardRef<DiscordIconHandle, DiscordIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      width={size}

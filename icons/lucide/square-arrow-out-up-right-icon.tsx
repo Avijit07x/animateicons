@@ -14,6 +14,7 @@ interface SquareArrowOutUpRightIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const SquareArrowOutUpRightIcon = forwardRef<
@@ -28,6 +29,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -101,6 +103,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useRef } from "react";
+import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 
 type Props = {
@@ -9,10 +10,7 @@ type Props = {
 };
 
 const FeatureCard: React.FC<Props> = ({ feature }) => {
-	const iconRef = useRef<{
-		startAnimation: () => void;
-		stopAnimation: () => void;
-	} | null>(null);
+	const iconRef = useRef<IconHandle | null>(null);
 
 	return (
 		<motion.div

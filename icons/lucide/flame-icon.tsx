@@ -14,6 +14,7 @@ interface FlameIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
@@ -25,6 +26,7 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
    size = 24,
    duration = 1.3,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -94,6 +96,7 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

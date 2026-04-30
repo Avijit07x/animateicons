@@ -14,6 +14,7 @@ interface UnlinkIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
@@ -25,6 +26,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -120,6 +122,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

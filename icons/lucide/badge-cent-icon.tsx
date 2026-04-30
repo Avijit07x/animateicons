@@ -14,6 +14,7 @@ interface BadgeCentIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
@@ -25,6 +26,7 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -132,6 +134,7 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ interface GitBranchPlusIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const GitBranchPlusIcon = forwardRef<
@@ -28,6 +29,7 @@ const GitBranchPlusIcon = forwardRef<
    size = 24,
    duration = 0.8,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -147,6 +149,7 @@ const GitBranchPlusIcon = forwardRef<
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <svg
      xmlns="http://www.w3.org/2000/svg"

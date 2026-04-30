@@ -14,6 +14,7 @@ interface VenusIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
@@ -25,6 +26,7 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
    size = 24,
    duration = 0.8,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -139,6 +141,7 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

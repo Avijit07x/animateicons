@@ -1,5 +1,7 @@
 "use client";
 
+import Section from "@/components/section/Section";
+import SectionHeader from "@/components/section/SectionHeader";
 import { motion, Variants } from "motion/react";
 import { iconLibraries } from "./data";
 import IconCard from "./IconCard";
@@ -15,41 +17,36 @@ const containerVariants: Variants = {
 
 const IconLibrariesSection: React.FC = () => {
 	return (
-		<section className="border-divider/50 relative border-t py-18 lg:py-24">
-			<div className="mx-auto max-w-6xl px-4">
-				<div className="mb-14 text-center">
-					<h2 className="text-textPrimary text-2xl font-semibold sm:text-3xl">
-						Icon libraries, animated
-					</h2>
-					<p className="text-textSecondary mt-3 text-sm">
-						Popular icon sets rebuilt with smooth motion and interactions.
-					</p>
-				</div>
+		<Section>
+			<SectionHeader
+				title="Icon libraries, animated"
+				subtitle="Popular icon sets rebuilt with smooth motion and interactions."
+				spacing="tight"
+			/>
 
-				<motion.div
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="show"
-					viewport={{ once: true, margin: "-80px" }}
-					className="grid gap-6 md:grid-cols-2"
-				>
-					{iconLibraries.map((data) => (
-						<IconCard
-							key={data.id}
-							icons={data.icons}
-							description={data.description}
-							img={data.img}
-							title={data.title}
-							href={data.href}
-						/>
-					))}
-				</motion.div>
+			<motion.div
+				variants={containerVariants}
+				initial="hidden"
+				whileInView="show"
+				viewport={{ once: true, margin: "-80px" }}
+				className="grid gap-6 md:grid-cols-2"
+			>
+				{iconLibraries.map((data) => (
+					<IconCard
+						key={data.id}
+						icons={data.icons}
+						description={data.description}
+						img={data.img}
+						title={data.title}
+						href={data.href}
+					/>
+				))}
+			</motion.div>
 
-				<p className="text-textMuted mt-12 text-center text-xs">
-					The library is updated regularly with new icon sets.
-				</p>
-			</div>
-		</section>
+			<p className="text-textMuted mt-12 text-center text-xs">
+				The library is updated regularly with new icon sets.
+			</p>
+		</Section>
 	);
 };
 

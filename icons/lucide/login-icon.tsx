@@ -14,6 +14,7 @@ interface LoginIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const LoginIcon = forwardRef<LoginIconHandle, LoginIconProps>(
@@ -25,6 +26,7 @@ const LoginIcon = forwardRef<LoginIconHandle, LoginIconProps>(
    size = 28,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -101,6 +103,7 @@ const LoginIcon = forwardRef<LoginIconHandle, LoginIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

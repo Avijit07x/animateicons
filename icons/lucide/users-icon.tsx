@@ -14,6 +14,7 @@ interface UsersProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const UsersIcon = forwardRef<UsersHandle, UsersProps>(
@@ -25,6 +26,7 @@ const UsersIcon = forwardRef<UsersHandle, UsersProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -102,6 +104,7 @@ const UsersIcon = forwardRef<UsersHandle, UsersProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

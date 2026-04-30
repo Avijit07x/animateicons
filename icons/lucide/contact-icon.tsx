@@ -14,6 +14,7 @@ interface ContactProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const ContactIcon = forwardRef<ContactHandle, ContactProps>(
@@ -25,6 +26,7 @@ const ContactIcon = forwardRef<ContactHandle, ContactProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -101,6 +103,7 @@ const ContactIcon = forwardRef<ContactHandle, ContactProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@ interface SunIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
@@ -25,6 +26,7 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -101,6 +103,7 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

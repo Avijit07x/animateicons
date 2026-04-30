@@ -14,6 +14,7 @@ interface Compass01IconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const Compass01Icon = forwardRef<Compass01IconHandle, Compass01IconProps>(
@@ -25,6 +26,7 @@ const Compass01Icon = forwardRef<Compass01IconHandle, Compass01IconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -87,6 +89,7 @@ const Compass01Icon = forwardRef<Compass01IconHandle, Compass01IconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

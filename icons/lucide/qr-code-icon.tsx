@@ -14,6 +14,7 @@ interface QrCodeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const QrCodeIcon = forwardRef<QrCodeIconHandle, QrCodeIconProps>(
@@ -25,6 +26,7 @@ const QrCodeIcon = forwardRef<QrCodeIconHandle, QrCodeIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -105,6 +107,7 @@ const QrCodeIcon = forwardRef<QrCodeIconHandle, QrCodeIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

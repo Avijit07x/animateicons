@@ -185,6 +185,10 @@
 		position: absolute;
 		inset: 0;
 		z-index: 0;
+		/* Single knob for the whole grid intensity. Scales all line
+		   colors proportionally so we don't have to tweak 8 rgba alpha
+		   values across the mobile + desktop rule sets. Lower = subtler. */
+		opacity: 0.55;
 
 		background-image:
 			repeating-linear-gradient(

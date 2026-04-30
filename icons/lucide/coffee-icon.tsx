@@ -14,6 +14,7 @@ interface CoffeeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const CoffeeIcon = forwardRef<CoffeeIconHandle, CoffeeIconProps>(
@@ -25,6 +26,7 @@ const CoffeeIcon = forwardRef<CoffeeIconHandle, CoffeeIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -97,6 +99,7 @@ const CoffeeIcon = forwardRef<CoffeeIconHandle, CoffeeIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

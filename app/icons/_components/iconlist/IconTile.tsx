@@ -1,98 +1,50 @@
 "use client";
 
-import { getIconCode } from "@/actions/getIconCode";
-import { CheckIcon } from "@/components/icons/CheckIcon";
-import { V0Icon, V0IconHandle } from "@/components/icons/V0Icon";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
+/**
+ * IconTile
+ *
+ * SRP: render one AnimateIcons tile in the gallery grid — the animated
+ * icon, its name, and the action row. The action buttons are delegated
+ * to IconTileActions so this component stays pure with respect to
+ * copy/load state. With React.memo, this means the heavy AnimateIcons
+ * component (with its motion/react variants and SVG paths) only
+ * re-renders when its own props change, even when other tiles fire
+ * copy actions.
+ */
+
 import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { CopyIcon, CopyIconHandle } from "@/icons/lucide/copy-icon";
-import { TerminalIcon, TerminalIconHandle } from "@/icons/lucide/terminal-icon";
+import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
-import { Loader } from "lucide-react";
-import Link from "next/link";
 import React from "react";
-import { useIconTileState } from "../../_contexts/IconTileContext";
+import {
+	iconNameToComponent,
+	usePlayground,
+} from "../../_contexts/PlaygroundContext";
+import IconTileActions from "./IconTileActions";
 
 type Props = {
 	item: IconFilteredItem;
 };
 
-const codeCache = new Map<string, string>();
-
 const IconTile: React.FC<Props> = ({ item }) => {
-	const {
-		copiedCodeId,
-		setCopiedCodeId,
-		copiedCliId,
-		setCopiedCliId,
-		loadingId,
-		setLoadingId,
-	} = useIconTileState();
-
-	const cliRef = React.useRef<TerminalIconHandle>(null);
-	const codeRef = React.useRef<CopyIconHandle>(null);
-	const v0Ref = React.useRef<V0IconHandle>(null);
 	const { library, prefix } = useIconLibrary();
+	const { openPlayground } = usePlayground();
+	const iconRef = React.useRef<IconHandle>(null);
 
-	if (!library) {
+	if (!library || !prefix) {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
 	const tileId = `${library}-${item.name}`;
-	const isCopied = copiedCodeId === tileId;
-	const isCopiedCli = copiedCliId === tileId;
-	const isLoading = loadingId === tileId;
-
 	const IconComponent = item.icon;
 
-	const copyToClipboard = async () => {
-		let code = codeCache.get(tileId);
-
-		if (!code) {
-			setLoadingId(tileId);
-			const fetchedCode = await getIconCode(item.name, library);
-			if (fetchedCode) {
-				code = fetchedCode;
-				codeCache.set(tileId, code);
-			}
-			setLoadingId(null);
-		}
-
-		if (code) {
-			await navigator.clipboard.writeText(code);
-			setCopiedCodeId(tileId);
-			setTimeout(() => setCopiedCodeId(null), 1500);
-		}
-	};
-
-	const cliToolPref = React.useSyncExternalStore(
-		(callback) => {
-			if (typeof window === "undefined") return () => {};
-			window.addEventListener("storage", callback);
-			return () => window.removeEventListener("storage", callback);
-		},
-		() => (typeof window !== "undefined" ? localStorage.getItem("tab") : null),
-		() => null,
-	);
-
-	const copyCliCommand = async () => {
-		let cliTool = "npx";
-		if (cliToolPref === "bun") {
-			cliTool = "bunx --bun";
-		} else if (cliToolPref === "pnpm") {
-			cliTool = "pnpm dlx";
-		}
-
-		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${item.name}.json`;
-		await navigator.clipboard.writeText(command);
-		setCopiedCliId(tileId);
-		setTimeout(() => setCopiedCliId(null), 1500);
-	};
+	const handleOpen = () =>
+		openPlayground({
+			name: item.name,
+			Component: IconComponent,
+			componentName: iconNameToComponent(item.name),
+		});
 
 	return (
 		<div className="bg-surfaceElevated border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
@@ -102,84 +54,31 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				</span>
 			)}
 
-			<IconComponent
-				className="hover:bg-surface inline-block cursor-pointer rounded-xl p-3"
-				size={23}
-			/>
+			<div
+				role="button"
+				tabIndex={0}
+				aria-label={`Open ${item.name} in playground`}
+				onClick={handleOpen}
+				onKeyDown={(e) => {
+					if (e.key === "Enter" || e.key === " ") {
+						e.preventDefault();
+						handleOpen();
+					}
+				}}
+				onMouseEnter={(e) => handleHover(e, iconRef)}
+				onMouseLeave={(e) => handleHover(e, iconRef)}
+				className="hover:bg-surface inline-block size-12 cursor-pointer items-center justify-center rounded-xl p-3"
+			>
+				<IconComponent ref={iconRef} size={23} />
+			</div>
 			<p className="line-clamp-1 text-gray-300">{item.name}</p>
 
-			<div className="mt-2 flex items-center justify-center gap-6">
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<button
-							className="flex size-6 items-center justify-center"
-							onClick={copyCliCommand}
-							aria-label={isCopiedCli ? "CLI Copied" : "Copy CLI Command"}
-							onMouseEnter={(e) => handleHover(e, cliRef)}
-							onMouseLeave={(e) => handleHover(e, cliRef)}
-						>
-							{isCopiedCli ? (
-								<CheckIcon />
-							) : (
-								<TerminalIcon size={18} ref={cliRef} />
-							)}
-						</button>
-					</TooltipTrigger>
-					<TooltipContent
-						side="bottom"
-						className="text-primary px-3! py-1.5! font-medium!"
-					>
-						copy shadcn/cli command
-					</TooltipContent>
-				</Tooltip>
-
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<button
-							className="flex size-6 items-center justify-center"
-							onClick={copyToClipboard}
-							aria-label={isCopied ? "Code Copied" : "Copy JSX Code"}
-							onMouseEnter={(e) => handleHover(e, codeRef)}
-							onMouseLeave={(e) => handleHover(e, codeRef)}
-						>
-							{isCopied ? (
-								<CheckIcon />
-							) : isLoading ? (
-								<Loader size={17} className="animate-spin" />
-							) : (
-								<CopyIcon size={17} ref={codeRef} />
-							)}
-						</button>
-					</TooltipTrigger>
-					<TooltipContent
-						side="bottom"
-						className="text-primary px-3! py-1.5! font-medium!"
-					>
-						copy code
-					</TooltipContent>
-				</Tooltip>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${item.name}.json`}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex size-6 items-center justify-center"
-							aria-label="Open in v0.dev"
-							onMouseEnter={(e) => handleHover(e, v0Ref)}
-							onMouseLeave={(e) => handleHover(e, v0Ref)}
-						>
-							<V0Icon size={22} ref={v0Ref} />
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent
-						side="bottom"
-						className="text-primary px-3! py-1.5! font-medium!"
-					>
-						open in v0.dev
-					</TooltipContent>
-				</Tooltip>
-			</div>
+			<IconTileActions
+				tileId={tileId}
+				library={library}
+				prefix={prefix}
+				name={item.name}
+			/>
 		</div>
 	);
 };

@@ -14,6 +14,7 @@ interface MailIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
@@ -25,6 +26,7 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -122,6 +124,7 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
     initial="normal"
     animate={containerControls}
     variants={containerVariants}

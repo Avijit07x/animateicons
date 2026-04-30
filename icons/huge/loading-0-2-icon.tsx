@@ -14,6 +14,7 @@ interface Loading02IconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const Loading02Icon = forwardRef<Loading02IconHandle, Loading02IconProps>(
@@ -25,6 +26,7 @@ const Loading02Icon = forwardRef<Loading02IconHandle, Loading02IconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -81,6 +83,7 @@ const Loading02Icon = forwardRef<Loading02IconHandle, Loading02IconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

@@ -35,37 +35,38 @@ const ReducedMotionWarning: React.FC = () => {
 					transition={{ duration: 0.35, ease: "easeOut" }}
 					className="fixed right-5 bottom-5 z-50"
 				>
-					<div className="border-warning/40 bg-surfaceElevated relative w-90 overflow-hidden rounded-xl border shadow-xl">
+					<div
+						role="status"
+						aria-live="polite"
+						className="border-warning/40 bg-surfaceElevated relative w-90 overflow-hidden rounded-xl border shadow-xl"
+					>
 						<div className="bg-warning absolute top-0 left-0 h-full w-1" />
 
-						<div className="border-warning/40 bg-surfaceElevated relative w-90 overflow-hidden rounded-xl border shadow-xl">
-							<div className="bg-warning absolute top-0 left-0 h-full w-1" />
+						<Button
+							size="icon"
+							variant="ghost"
+							onClick={handleDismiss}
+							aria-label="Dismiss reduced motion notice"
+							className="text-textMuted hover:text-textPrimary absolute top-2 right-2 hover:bg-transparent"
+						>
+							<XIcon className="size-4" />
+						</Button>
 
-							<Button
-								size="icon"
-								variant="ghost"
-								onClick={handleDismiss}
-								className="text-textMuted hover:text-textPrimary absolute top-2 right-2 hover:bg-transparent"
-							>
-								<XIcon className="size-4" />
-							</Button>
+						<div className="flex items-start gap-3 p-4 pr-10">
+							<div className="bg-warning/10 text-warning flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm font-bold">
+								!
+							</div>
 
-							<div className="flex items-start gap-3 p-4 pr-10">
-								<div className="bg-warning/10 text-warning flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm font-bold">
-									!
-								</div>
+							<div className="flex-1 space-y-1">
+								<p className="text-textPrimary text-sm font-semibold">
+									Animations are turned off
+								</p>
 
-								<div className="flex-1 space-y-1">
-									<p className="text-textPrimary text-sm font-semibold">
-										Animations are turned off
-									</p>
-
-									<p className="text-textSecondary text-xs leading-relaxed">
-										Your system has Reduce Motion enabled, so icon animations
-										are disabled. Turn off “Reduce Motion” in your system
-										settings to experience full animations.
-									</p>
-								</div>
+								<p className="text-textSecondary text-xs leading-relaxed">
+									Your system has Reduce Motion enabled, so icon animations are
+									disabled. Turn off &ldquo;Reduce Motion&rdquo; in your system
+									settings to experience full animations.
+								</p>
 							</div>
 						</div>
 					</div>

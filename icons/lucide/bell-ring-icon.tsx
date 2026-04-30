@@ -14,6 +14,7 @@ interface BellRingIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
+ color?: string;
 }
 
 const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
@@ -25,6 +26,7 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
    size = 24,
    duration = 1,
    isAnimated = true,
+   color,
    ...props
   },
   ref,
@@ -92,6 +94,7 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
     onMouseEnter={handleEnter}
     onMouseLeave={handleLeave}
     {...props}
+    style={{ color, ...props.style }}
    >
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
