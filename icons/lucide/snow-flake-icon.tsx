@@ -1,16 +1,30 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
+import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
 export interface SnowFlakeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface SnowFlakeIconProps extends HTMLMotionProps<"div"> {
+interface SnowFlakeIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;

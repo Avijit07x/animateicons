@@ -1,16 +1,30 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
 export interface MapPinnedIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface MapPinnedIconProps extends HTMLMotionProps<"div"> {
+interface MapPinnedIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;

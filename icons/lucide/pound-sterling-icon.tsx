@@ -1,16 +1,30 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { HTMLMotionProps, Variants } from "motion/react";
+import type { Variants } from "motion/react";
 import { motion, useAnimation, useReducedMotion } from "motion/react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
 export interface PoundSterlingIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface PoundSterlingIconProps extends HTMLMotionProps<"div"> {
+interface PoundSterlingIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
