@@ -11,7 +11,7 @@
 
 ## Install
 
-`react` and `react-dom` are peer dependencies. `motion` is bundled.
+`react` and `react-dom` are peer dependencies. `motion` is bundled — no separate install needed.
 
 ```bash
 pnpm add @animateicons/react

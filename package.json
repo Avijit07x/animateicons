@@ -21,7 +21,8 @@
 		"test:watch": "vitest",
 		"verify": "pnpm run check:all && pnpm run typecheck && pnpm run test && pnpm --filter @animateicons/react verify",
 		"ship": "pnpm run verify && pnpm run build",
-		"release:npm": "pnpm --filter @animateicons/react release",
+		"changeset": "changeset",
+		"changeset:version": "changeset version",
 		"release:npm:patch": "pnpm --filter @animateicons/react release:patch && git push --follow-tags",
 		"release:npm:minor": "pnpm --filter @animateicons/react release:minor && git push --follow-tags",
 		"release:npm:major": "pnpm --filter @animateicons/react release:major && git push --follow-tags"
@@ -51,6 +52,8 @@
 		"use-debounce": "^10.1.1"
 	},
 	"devDependencies": {
+		"@changesets/changelog-github": "^0.5.0",
+		"@changesets/cli": "^2.27.10",
 		"@tailwindcss/postcss": "^4.2.4",
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.2",
