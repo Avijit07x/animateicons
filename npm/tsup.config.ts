@@ -13,7 +13,9 @@ import { defineConfig } from "tsup";
  * - Aliases: each icon source file imports `@/lib/utils` and
  *   `@/types/icon` from the AnimateIcons monorepo. Esbuild rewrites
  *   them to the package-local versions during bundling.
- * - peerDeps (react, motion) stay external — no double-bundling.
+ * - react / react-dom stay external (peer deps). motion is intentionally
+ *   bundled into dist so consumers install a single package and never
+ *   hit a dual-package hazard from their own motion version.
  */
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,7 +36,7 @@ export default defineConfig({
 	// Minify the runtime JS. Roughly 30% smaller before brotli.
 	// .d.ts files are not minified (would break editor experience).
 	minify: true,
-	external: ["react", "react-dom", "motion", "motion/react"],
+	external: ["react", "react-dom"],
 	// banner: { js } is unreliable here because tsup splits the `cn`
 	// helper into a separate chunk file and esbuild loses the directive
 	// on the entry. We re-inject deterministically via onSuccess.

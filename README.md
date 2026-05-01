@@ -27,7 +27,7 @@ Pick one of the two paths below. Both ship the same icons and the same API — t
 
 Recommended for most apps. One install, all 281 icons available.
 
-**1. Install the package** — `motion` is bundled.
+**1. Install the package** — `motion` is bundled, no separate install needed.
 
 ```bash
 pnpm add @animateicons/react

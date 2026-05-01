@@ -57,6 +57,9 @@ jobs:
       - name: Build npm package
         run: pnpm --filter @animateicons/react build
 
+      - name: Codegen integrity test
+        run: pnpm --filter @animateicons/react test:codegen
+
       - name: Smoke-test built artifact
         run: pnpm --filter @animateicons/react test:smoke
 

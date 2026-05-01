@@ -3,6 +3,10 @@ node_modules/
 .tsbuildinfo
 *.log
 
+# Local packed tarballs from `npm pack` / `pnpm pack` / publish dry-runs.
+# The real publish artifact is built fresh by CI — never commit these.
+*.tgz
+
 # Auto-generated barrels — track manually if you want fewer regen-on-build
 # diffs in your PRs, otherwise leave ignored.
 src/index.ts

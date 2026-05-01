@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -52,6 +52,7 @@
 	"sideEffects": false,
 	"files": [
 		"dist/**/*.{js,cjs,d.ts,d.cts}",
+		"CHANGELOG.md",
 		"README.md",
 		"LICENSE"
 	],
@@ -66,37 +67,37 @@
 		"build": "pnpm run gen && tsup",
 		"dev": "pnpm run gen && tsup --watch",
 		"typecheck": "tsc --noEmit",
+		"test:codegen": "node --test __tests__/generate-exports.test.mjs",
 		"test:smoke": "node --test __tests__/consume.test.mjs",
 		"size": "size-limit",
 		"pack:check": "npm pack --dry-run",
-		"verify": "pnpm run normalize && pnpm run check:naming && pnpm run typecheck && pnpm run build && pnpm run test:smoke && pnpm run size",
-		"release": "pnpm run verify && pnpm publish --access public --no-git-checks",
-		"release:patch": "pnpm version patch && pnpm run release",
-		"release:minor": "pnpm version minor && pnpm run release",
-		"release:major": "pnpm version major && pnpm run release",
-		"prepublishOnly": "pnpm run check:naming && pnpm run build && pnpm run test:smoke && pnpm run size"
+		"verify": "pnpm run normalize && pnpm run check:naming && pnpm run typecheck && pnpm run build && pnpm run test:codegen && pnpm run test:smoke && pnpm run size",
+		"release:patch": "pnpm version patch",
+		"release:minor": "pnpm version minor",
+		"release:major": "pnpm version major",
+		"prepack": "pnpm run check:naming && pnpm run build && pnpm run test:codegen && pnpm run test:smoke && pnpm run size"
 	},
 	"size-limit": [
 		{
-			"name": "lucide (full barrel + motion runtime)",
+			"name": "lucide (full barrel + motion bundled)",
 			"path": "dist/lucide.js",
-			"limit": "70 kB",
+			"limit": "120 kB",
 			"ignore": [
 				"react",
 				"react-dom"
 			]
 		},
 		{
-			"name": "huge (full barrel + motion runtime)",
+			"name": "huge (full barrel + motion bundled)",
 			"path": "dist/huge.js",
-			"limit": "50 kB",
+			"limit": "100 kB",
 			"ignore": [
 				"react",
 				"react-dom"
 			]
 		},
 		{
-			"name": "single icon (motion runtime dominates)",
+			"name": "single icon (motion bundled)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
 			"limit": "65 kB",
@@ -106,9 +107,6 @@
 			]
 		}
 	],
-	"dependencies": {
-		"motion": "^12.0.0"
-	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",
 		"react-dom": "^18.0.0 || ^19.0.0"
@@ -117,6 +115,7 @@
 		"@size-limit/preset-small-lib": "^11.1.6",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
+		"motion": "^12.0.0",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
 		"size-limit": "^11.1.6",

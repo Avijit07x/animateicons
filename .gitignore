@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# packed tarballs — `npm pack` / `pnpm pack` output. Real publish artifacts
+# are built fresh by CI; never commit these.
+*.tgz
