@@ -10,14 +10,14 @@ export interface KeyRoundIconHandle {
  stopAnimation: () => void;
 }
 
-interface KeyRoundProps extends HTMLMotionProps<"div"> {
+interface KeyRoundIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const KeyRoundIcon = forwardRef<KeyRoundIconHandle, KeyRoundProps>(
+const KeyRoundIcon = forwardRef<KeyRoundIconHandle, KeyRoundIconProps>(
  (
   {
    onMouseEnter,

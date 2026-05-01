@@ -10,7 +10,7 @@ export interface UserRoundMinusIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserRoundMinusProps extends HTMLMotionProps<"div"> {
+interface UserRoundMinusIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
@@ -19,7 +19,7 @@ interface UserRoundMinusProps extends HTMLMotionProps<"div"> {
 
 const UserRoundMinusIcon = forwardRef<
  UserRoundMinusIconHandle,
- UserRoundMinusProps
+ UserRoundMinusIconProps
 >(
  (
   {

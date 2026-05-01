@@ -11,6 +11,7 @@
  */
 
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import type { IconConfig, TriggerMode } from "./useIconConfig";
 
 type Props = {
@@ -22,13 +23,16 @@ const TRIGGERS: TriggerMode[] = ["hover", "click", "loop"];
 
 /** Tailwind class chain for the AnimateIcons-styled range slider — keep here, not duplicated. */
 const sliderClass = cn(
-	"h-1.5 w-full cursor-pointer appearance-none rounded-full bg-surfaceElevated",
+	"h-1.5 w-full cursor-pointer appearance-none rounded-full",
+	"bg-surfaceElevated/80 ring-border/60 ring-1 ring-inset",
+	"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]",
 	// WebKit thumb
 	"[&::-webkit-slider-thumb]:appearance-none",
 	"[&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4",
 	"[&::-webkit-slider-thumb]:rounded-full",
 	"[&::-webkit-slider-thumb]:bg-primary",
-	"[&::-webkit-slider-thumb]:shadow-md",
+	"[&::-webkit-slider-thumb]:ring-2 [&::-webkit-slider-thumb]:ring-primary-foreground/20",
+	"[&::-webkit-slider-thumb]:shadow-[0_4px_10px_-2px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]",
 	"[&::-webkit-slider-thumb]:transition-transform",
 	"[&::-webkit-slider-thumb]:hover:scale-110",
 	// Firefox thumb
@@ -36,6 +40,7 @@ const sliderClass = cn(
 	"[&::-moz-range-thumb]:border-0",
 	"[&::-moz-range-thumb]:rounded-full",
 	"[&::-moz-range-thumb]:bg-primary",
+	"[&::-moz-range-thumb]:shadow-[0_4px_10px_-2px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]",
 );
 
 const Row: React.FC<{
@@ -98,10 +103,14 @@ const PlaygroundControls: React.FC<Props> = ({ config, update }) => {
 				>
 					Color
 				</label>
-				<div className="bg-surfaceElevated border-border/60 flex items-center gap-3 rounded-md border px-3 py-2">
+				<div className="border-border/60 relative flex items-center gap-3 overflow-hidden rounded-xl border bg-gradient-to-b from-white/[0.03] to-white/[0.01] px-3 py-2 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]">
+					<span
+						aria-hidden="true"
+						className="pointer-events-none absolute inset-x-3 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+					/>
 					<label
 						htmlFor="pg-color"
-						className="border-border/40 relative h-6 w-6 cursor-pointer overflow-hidden rounded border"
+						className="ring-border/40 relative h-6 w-6 cursor-pointer overflow-hidden rounded-md shadow-[0_1px_2px_rgba(0,0,0,0.4)] ring-1 ring-inset"
 						style={{ background: config.color }}
 					>
 						<input
@@ -125,7 +134,12 @@ const PlaygroundControls: React.FC<Props> = ({ config, update }) => {
 				<div
 					role="radiogroup"
 					aria-label="Trigger mode"
-					className="bg-surfaceElevated border-border/60 flex gap-1 rounded-full border p-1"
+					className={cn(
+						"flex gap-1 rounded-full p-1",
+						"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
+						"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",
+						"backdrop-blur",
+					)}
 				>
 					{TRIGGERS.map((t) => {
 						const active = config.trigger === t;
@@ -137,12 +151,23 @@ const PlaygroundControls: React.FC<Props> = ({ config, update }) => {
 								aria-checked={active}
 								onClick={() => update("trigger", t)}
 								className={cn(
-									"flex-1 rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors",
+									"relative z-10 flex-1 rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors",
 									active
-										? "bg-primary text-white"
+										? "text-primary"
 										: "text-textSecondary hover:text-textPrimary",
 								)}
 							>
+								{active && (
+									<motion.span
+										layoutId="playground-trigger-pill"
+										className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
+										transition={{
+											type: "spring",
+											stiffness: 380,
+											damping: 32,
+										}}
+									/>
+								)}
 								{t}
 							</button>
 						);

@@ -3,6 +3,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import React, { Suspense } from "react";
 import AppSidebar from "./_components/sidebar/AppSidebar";
 import CategoryContextProvider from "./_contexts/CategoryContext";
+import { DistributionProvider } from "./_contexts/DistributionContext";
 import { IconSearchProvider } from "./_contexts/IconSearchContext";
 import { PackageManagerProvider } from "./_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "./_contexts/PlaygroundContext";
@@ -23,6 +24,7 @@ const PROVIDERS = [
 	CategoryContextProvider,
 	IconSearchProvider,
 	PackageManagerProvider,
+	DistributionProvider,
 	PlaygroundProvider,
 ];
 

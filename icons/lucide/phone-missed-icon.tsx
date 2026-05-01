@@ -10,14 +10,14 @@ export interface PhoneMissedIconHandle {
  stopAnimation: () => void;
 }
 
-interface PhoneMissedProps extends HTMLMotionProps<"div"> {
+interface PhoneMissedIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const PhoneMissedIcon = forwardRef<PhoneMissedIconHandle, PhoneMissedProps>(
+const PhoneMissedIcon = forwardRef<PhoneMissedIconHandle, PhoneMissedIconProps>(
  (
   {
    onMouseEnter,

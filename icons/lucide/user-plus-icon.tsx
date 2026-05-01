@@ -10,14 +10,14 @@ export interface UserPlusIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserPlusProps extends HTMLMotionProps<"div"> {
+interface UserPlusIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserPlusIcon = forwardRef<UserPlusIconHandle, UserPlusProps>(
+const UserPlusIcon = forwardRef<UserPlusIconHandle, UserPlusIconProps>(
  (
   {
    onMouseEnter,

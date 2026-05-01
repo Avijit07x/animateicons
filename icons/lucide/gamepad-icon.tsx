@@ -10,14 +10,14 @@ export interface GamepadIconHandle {
  stopAnimation: () => void;
 }
 
-interface GamepadProps extends HTMLMotionProps<"div"> {
+interface GamepadIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const GamepadIcon = forwardRef<GamepadIconHandle, GamepadProps>(
+const GamepadIcon = forwardRef<GamepadIconHandle, GamepadIconProps>(
  (
   {
    onMouseEnter,

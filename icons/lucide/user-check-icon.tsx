@@ -10,14 +10,14 @@ export interface UserCheckIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserCheckProps extends HTMLMotionProps<"div"> {
+interface UserCheckIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckProps>(
+const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
  (
   {
    onMouseEnter,

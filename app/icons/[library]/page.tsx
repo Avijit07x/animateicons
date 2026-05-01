@@ -1,3 +1,4 @@
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import JsonLd from "@/components/JsonLd";
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
@@ -45,6 +46,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 		<div className="flex w-full flex-col">
 			<JsonLd data={jsonLd} />
 
+			<AnnouncementBanner />
 			<Navbar />
 			<main className="min-h-[calc(100dvh-3.75rem)] px-4 py-3 lg:px-6">
 				<div className="mx-auto h-full w-full max-w-384">

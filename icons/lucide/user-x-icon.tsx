@@ -10,14 +10,14 @@ export interface UserXIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserXProps extends HTMLMotionProps<"div"> {
+interface UserXIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserXIcon = forwardRef<UserXIconHandle, UserXProps>(
+const UserXIcon = forwardRef<UserXIconHandle, UserXIconProps>(
  (
   {
    onMouseEnter,

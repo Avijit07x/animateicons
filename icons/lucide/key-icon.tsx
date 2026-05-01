@@ -10,14 +10,14 @@ export interface KeyIconHandle {
  stopAnimation: () => void;
 }
 
-interface KeyProps extends HTMLMotionProps<"div"> {
+interface KeyIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const KeyIcon = forwardRef<KeyIconHandle, KeyProps>(
+const KeyIcon = forwardRef<KeyIconHandle, KeyIconProps>(
  (
   {
    onMouseEnter,

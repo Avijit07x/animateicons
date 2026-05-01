@@ -10,14 +10,14 @@ export interface UploadIconHandle {
  stopAnimation: () => void;
 }
 
-interface UploadProps extends HTMLMotionProps<"div"> {
+interface UploadIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UploadIcon = forwardRef<UploadIconHandle, UploadProps>(
+const UploadIcon = forwardRef<UploadIconHandle, UploadIconProps>(
  (
   {
    onMouseEnter,

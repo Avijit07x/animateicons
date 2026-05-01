@@ -6,11 +6,19 @@ import OpenInAI from "../_components/docs/OpenInAI";
 export const metadata = {
 	title: "Install AnimateIcons",
 	description:
-		"Learn how to install AnimateIcons using the shadcn CLI and add free animated SVG icons to your React or Next.js project.",
+		"Install AnimateIcons via the @animateicons/react npm package or the shadcn CLI.",
 	alternates: {
 		canonical: "/icons/docs",
 	},
 };
+
+export const npmInstallCode = `pnpm add @animateicons/react`;
+
+export const npmUsageCode = `import { EyeIcon } from "@animateicons/react/lucide"
+
+export default function Example() {
+	return <EyeIcon size={24} color="#f45b48" />
+}`;
 
 export const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
 
@@ -20,28 +28,20 @@ export default function Example() {
 	return <EyeIcon size={24} color="#f45b48" />
 }`;
 
-export const colorCode = `// 1. Color prop — sets currentColor inline
+export const stylingCode = `// Color — sets currentColor inline
 <EyeIcon color="#f45b48" />
 
-// 2. Tailwind utility — works because icons use stroke="currentColor"
+// Tailwind utility — works because icons stroke="currentColor"
 
 <EyeIcon className="text-primary" />
 
-// 3. CSS variable — for themed designs
+// Speed — duration is a multiplier (lower = faster)
 
-<EyeIcon style={{ color: "var(--brand)" }} />
-`;
+<EyeIcon duration={0.6} />
 
-export const animationControlCode = `// Animation runs on hover by default
-<EyeIcon size={28} />
+// Disable hover animation
 
-// Slow it down (or speed it up) with duration (multiplier)
-
-<EyeIcon size={28} duration={1.5} />
-
-// Disable hover animation entirely
-
-<EyeIcon size={28} isAnimated={false} />
+<EyeIcon isAnimated={false} />
 `;
 
 export const apiCode = `"use client"
@@ -56,50 +56,35 @@ export default function Demo() {
     	<button
     		onMouseEnter={() => ref.current?.startAnimation()}
     		onMouseLeave={() => ref.current?.stopAnimation()}
-    		className="cursor-pointer"
     	>
-    		<EyeIcon ref={ref} size={28} duration={1} />
+    		<EyeIcon ref={ref} size={28} />
     	</button>
     )
 
 }`;
 
 export const propsCode = `interface IconProps {
-	// Visual
-	size?: number          // default 24
-	color?: string         // any CSS color (#hex, rgb, hsl, var())
+	size?: number
+	color?: string
 	className?: string
-
-    // Animation
-    duration?: number      // default 1 (multiplier — 0.5 is 2x faster)
-    isAnimated?: boolean   // default true; false disables hover animation
-
-    // DOM
-    onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
-    onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
-    style?: React.CSSProperties
-
+	duration?: number
+	isAnimated?: boolean
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
+	style?: React.CSSProperties
 }
 
-// Imperative handle exposed via ref
 interface IconHandle {
 startAnimation: () => void
 stopAnimation: () => void
 }`;
-
-export const reducedMotionCode = `// Animations automatically respect the user's OS setting:
-//   System Settings → Accessibility → Reduce Motion (macOS)
-//   Settings → Ease of Access → Display → Show animations (Windows)
-//
-// When Reduce Motion is on, hover and imperative play are no-ops.
-// You don't need to do anything — the icons handle this for you.`;
 
 <div className="min-w-0 flex-1">
 	<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
 		<div className="mb-10 flex w-full flex-wrap items-center justify-between gap-5">
 			<div className="flex items-center gap-3">
 				<BackButton />
-				<h1 className="text-2xl font-semibold">Install AnimateIcons</h1>
+				<h1 className="text-2xl font-semibold">Installation</h1>
 			</div>
 			<OpenInAI
 				pageUrl="https://animateicons.in/icons/docs"
@@ -107,63 +92,63 @@ export const reducedMotionCode = `// Animations automatically respect the user's
 			/>
 		</div>
 
-AnimateIcons ships animated SVG icons as individual React components you install via the shadcn CLI. Each icon is a self-contained file you own — no runtime dependency, no lock-in. Pick one from the <Link href="/icons/lucide" className="text-textPrimary underline underline-offset-4">Lucide</Link> or <Link href="/icons/huge" className="text-textPrimary underline underline-offset-4">Huge</Link> libraries to get started.
+Pick one of the two paths below. Both ship the same icons and the same API — the only difference is whether you depend on the package or own the source.
 
-<div className="mt-10 space-y-14">
+<div className="space-y-14">
 
-<section id="setup" className="scroll-mt-20 space-y-4">
+<section id="install-npm" className="scroll-mt-20 space-y-6">
 
-## 1. Setup shadcn/ui
+## npm package
 
-These icons use the shadcn CLI. If you have not installed shadcn yet, follow the official guide first.
+Recommended for most apps. One install, all 281 icons available.
 
-<Link
-	href="https://ui.shadcn.com/docs/installation"
-	target="_blank"
-	className="text-sm font-medium underline underline-offset-4"
->
-	Open shadcn installation guide
-</Link>
+#### 1. Install the package
+
+Use any package manager — npm, pnpm, yarn, or bun. `motion` is bundled.
+
+<CodeBlock code={npmInstallCode} lang="bash" title="Terminal" />
+
+#### 2. Import an icon
+
+Lucide and Huge are exposed as scoped subpaths because some icon names overlap (`HeartIcon`, `CopyIcon`, etc.).
+
+<CodeBlock code={npmUsageCode} title="Example.tsx" />
+
+That's it — the icon animates on hover by default.
 
 </section>
 
-<section id="install" className="scroll-mt-20 space-y-4">
+<section id="install-shadcn" className="scroll-mt-20 space-y-6">
 
-## 2. Install an icon
+## shadcn CLI
 
-Each icon is added individually. Replace `lu-eye` with the icon you want.
+Use this if you want each icon copied into your codebase as a single file you can edit.
+
+#### 1. Set up shadcn
+
+If your project doesn't have shadcn yet, follow the <Link href="https://ui.shadcn.com/docs/installation" target="_blank" className="underline underline-offset-4">shadcn installation guide</Link> first.
+
+#### 2. Add an icon
+
+Browse the <Link href="/icons/lucide" className="underline underline-offset-4">Lucide</Link> or <Link href="/icons/huge" className="underline underline-offset-4">Huge</Link> gallery, click any tile to copy its install command, or replace `lu-eye` below with the icon you want.
 
 <CodeBlock code={installCode} lang="bash" title="Terminal" />
 
-</section>
+The icon lands at `components/ui/<name>.tsx`.
 
-<section id="usage" className="scroll-mt-20 space-y-4">
-
-## 3. Basic usage
-
-Import and use the icon like any React component. Animation runs on hover automatically.
+#### 3. Import and use
 
 <CodeBlock code={usageCode} title="Example.tsx" />
 
 </section>
 
-<section id="color" className="scroll-mt-20 space-y-4">
+<section id="styling" className="scroll-mt-20 space-y-4">
 
-## Color & styling
+## Styling
 
-Icons use `stroke="currentColor"` so they inherit the CSS `color` of any ancestor. Three equivalent ways to set it:
+Every icon strokes `currentColor`, so it inherits the surrounding text color. You can also pass `color`, `className`, or use the `duration` and `isAnimated` props to control playback.
 
-<CodeBlock code={colorCode} title="Coloring icons" />
-
-</section>
-
-<section id="animation" className="scroll-mt-20 space-y-4">
-
-## Animation control
-
-Hover animation is on by default. Use `duration` to scale playback speed and `isAnimated` to disable it.
-
-<CodeBlock code={animationControlCode} title="Tweaking animation" />
+<CodeBlock code={stylingCode} title="Styling.tsx" />
 
 </section>
 
@@ -171,7 +156,7 @@ Hover animation is on by default. Use `duration` to scale playback speed and `is
 
 ## Imperative API
 
-Need to trigger animation from a parent (e.g. on click, on focus, programmatically)? Pass a ref. Each icon exports a `*Handle` type for it.
+Need to trigger an animation from a parent — on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
 
 <CodeBlock code={apiCode} title="Demo.tsx" />
 
@@ -181,19 +166,9 @@ Need to trigger animation from a parent (e.g. on click, on focus, programmatical
 
 ## Props & types
 
-Every icon shares the same props and handle interface.
+<CodeBlock code={propsCode} lang="ts" title="Types" />
 
-<CodeBlock code={propsCode} lang="ts" title="Icon types" />
-
-</section>
-
-<section id="reduced-motion" className="scroll-mt-20 space-y-4">
-
-## Reduced motion
-
-All icons respect `prefers-reduced-motion`. No extra work required.
-
-<CodeBlock code={reducedMotionCode} lang="ts" />
+Animations respect the OS-level **Reduce Motion** preference — no extra setup required.
 
 </section>
 

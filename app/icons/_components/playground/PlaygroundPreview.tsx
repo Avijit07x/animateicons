@@ -52,13 +52,27 @@ const PlaygroundPreview: React.FC<Props> = ({ Icon, config }) => {
 			onClick={handleClick}
 			onMouseEnter={(e) => config.trigger === "hover" && handleHover(e, ref)}
 			onMouseLeave={(e) => config.trigger === "hover" && handleHover(e, ref)}
-			className="bg-surface border-border/60 relative flex h-64 w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border"
+			className="border-border/60 relative flex h-64 w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border bg-gradient-to-b from-white/[0.03] to-white/[0.01] shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)]"
 			style={{
 				backgroundImage:
 					"radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
 				backgroundSize: "16px 16px",
 			}}
 		>
+			{/* Top edge bevel — matches NpmHighlightCard / GLASS_CARD */}
+			<span
+				aria-hidden="true"
+				className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+			/>
+			{/* Soft primary glow behind the icon */}
+			<span
+				aria-hidden="true"
+				className="pointer-events-none absolute inset-0"
+				style={{
+					backgroundImage:
+						"radial-gradient(circle at center, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 55%)",
+				}}
+			/>
 			<span className="text-textMuted absolute top-3 left-3 font-mono text-[10px] tracking-wider uppercase">
 				{config.size}px
 			</span>

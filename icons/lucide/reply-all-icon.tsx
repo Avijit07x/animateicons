@@ -10,14 +10,14 @@ export interface ReplyAllIconHandle {
  stopAnimation: () => void;
 }
 
-interface ReplyAllProps extends HTMLMotionProps<"div"> {
+interface ReplyAllIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const ReplyAllIcon = forwardRef<ReplyAllIconHandle, ReplyAllProps>(
+const ReplyAllIcon = forwardRef<ReplyAllIconHandle, ReplyAllIconProps>(
  (
   {
    onMouseEnter,

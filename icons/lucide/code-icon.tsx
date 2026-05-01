@@ -10,14 +10,14 @@ export interface CodeIconHandle {
  stopAnimation: () => void;
 }
 
-interface CodeProps extends HTMLMotionProps<"div"> {
+interface CodeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const CodeIcon = forwardRef<CodeIconHandle, CodeProps>(
+const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
  (
   {
    onMouseEnter,

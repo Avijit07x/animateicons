@@ -16,7 +16,12 @@ const PackageManagerToggle: React.FC = () => {
 		<div
 			role="radiogroup"
 			aria-label="Package manager"
-			className="bg-surfaceElevated border-border hidden h-9 items-center justify-center rounded-full border p-1 text-sm lg:flex"
+			className={cn(
+				"hidden h-9 items-center justify-center rounded-full p-1 text-sm lg:flex",
+				"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
+				"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",
+				"backdrop-blur",
+			)}
 		>
 			{OPTIONS.map((pm) => {
 				const active = pm === packageManager;
@@ -28,18 +33,20 @@ const PackageManagerToggle: React.FC = () => {
 						aria-checked={active}
 						onClick={() => setPackageManager(pm)}
 						className={cn(
-							"relative z-10 flex items-center justify-center rounded-full px-3 py-1 select-none",
-							active ? "text-white" : "text-textSecondary! hover:text-white",
+							"relative z-10 flex items-center justify-center rounded-full px-3 py-1 font-medium transition-colors select-none",
+							active
+								? "text-primary"
+								: "text-textSecondary hover:text-textPrimary",
 						)}
 					>
 						{active && (
 							<motion.span
 								layoutId="package-manager-pill"
-								className="bg-surface absolute inset-0 -z-10 rounded-full"
+								className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
 								transition={{
-									type: "tween",
-									duration: 0.22,
-									ease: [0.4, 0, 0.2, 1],
+									type: "spring",
+									stiffness: 380,
+									damping: 32,
 								}}
 							/>
 						)}

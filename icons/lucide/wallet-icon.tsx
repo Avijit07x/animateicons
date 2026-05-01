@@ -10,14 +10,14 @@ export interface WalletIconHandle {
  stopAnimation: () => void;
 }
 
-interface WalletProps extends HTMLMotionProps<"div"> {
+interface WalletIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const WalletIcon = forwardRef<WalletIconHandle, WalletProps>(
+const WalletIcon = forwardRef<WalletIconHandle, WalletIconProps>(
  (
   {
    onMouseEnter,

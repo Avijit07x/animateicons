@@ -10,14 +10,14 @@ export interface ShieldUserIconHandle {
  stopAnimation: () => void;
 }
 
-interface ShieldUserProps extends HTMLMotionProps<"div"> {
+interface ShieldUserIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const ShieldUserIcon = forwardRef<ShieldUserIconHandle, ShieldUserProps>(
+const ShieldUserIcon = forwardRef<ShieldUserIconHandle, ShieldUserIconProps>(
  (
   {
    onMouseEnter,

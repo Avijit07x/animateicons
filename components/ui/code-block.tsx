@@ -19,6 +19,17 @@ interface CodeBlockProps {
 	code?: string;
 	language?: string;
 	className?: string;
+	/**
+	 * When true, appends a rotating example icon suffix (e.g. `hu-heart.json`)
+	 * to the displayed code and to the copied command. Designed for the
+	 * shadcn install line where the rotating suffix sells the catalog.
+	 *
+	 * Leave false (default) for any tab whose code is already complete
+	 * (npm/pnpm/bun add commands, raw imports, etc.) — otherwise the
+	 * suffix gets glued onto the end and produces nonsense like
+	 * `npm i @animateicons/reacthu-heart.json`.
+	 */
+	withRotatingIcon?: boolean;
 }
 
 const commands = [
@@ -33,6 +44,7 @@ export function CodeBlock({
 	code,
 	language = "bash",
 	className,
+	withRotatingIcon = false,
 }: CodeBlockProps) {
 	const [activeTab, setActiveTab] = useState(0);
 	const [activeCommand, setActiveCommand] = useState(commands[0]);
@@ -65,7 +77,9 @@ export function CodeBlock({
 	}, [activeTab]);
 
 	const handleCopy = async () => {
-		const fullCommand = `${currentCode}${activeCommand}`;
+		const fullCommand = withRotatingIcon
+			? `${currentCode}${activeCommand}`
+			: currentCode;
 		await navigator.clipboard.writeText(fullCommand);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
@@ -202,7 +216,7 @@ export function CodeBlock({
 							className="text-textPrimary flex items-center font-mono whitespace-pre"
 						>
 							{currentCode}
-							<WordRotate words={commands} />
+							{withRotatingIcon && <WordRotate words={commands} />}
 						</motion.code>
 					</AnimatePresence>
 				</pre>

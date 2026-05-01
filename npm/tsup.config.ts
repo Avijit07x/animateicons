@@ -26,9 +26,14 @@ export default defineConfig({
 	},
 	format: ["esm", "cjs"],
 	dts: true,
-	sourcemap: true,
+	// Sourcemaps add ~3.6 MB unpacked install size for the consumer.
+	// Skip them — debugging into the package is rare for icon code.
+	sourcemap: false,
 	clean: true,
 	treeshake: true,
+	// Minify the runtime JS. Roughly 30% smaller before brotli.
+	// .d.ts files are not minified (would break editor experience).
+	minify: true,
 	external: ["react", "react-dom", "motion", "motion/react"],
 	// banner: { js } is unreliable here because tsup splits the `cn`
 	// helper into a separate chunk file and esbuild loses the directive

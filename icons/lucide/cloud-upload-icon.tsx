@@ -10,14 +10,14 @@ export interface CloudUploadIconHandle {
  stopAnimation: () => void;
 }
 
-interface CloudUploadProps extends HTMLMotionProps<"div"> {
+interface CloudUploadIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadProps>(
+const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadIconProps>(
  (
   {
    onMouseEnter,

@@ -10,14 +10,14 @@ export interface ZapIconHandle {
  stopAnimation: () => void;
 }
 
-interface ZapProps extends HTMLMotionProps<"div"> {
+interface ZapIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const ZapIcon = forwardRef<ZapIconHandle, ZapProps>(
+const ZapIcon = forwardRef<ZapIconHandle, ZapIconProps>(
  (
   {
    onMouseEnter,

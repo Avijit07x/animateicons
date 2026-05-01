@@ -10,14 +10,14 @@ export interface DownloadIconHandle {
  stopAnimation: () => void;
 }
 
-interface DownloadProps extends HTMLMotionProps<"div"> {
+interface DownloadIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const DownloadIcon = forwardRef<DownloadIconHandle, DownloadProps>(
+const DownloadIcon = forwardRef<DownloadIconHandle, DownloadIconProps>(
  (
   {
    onMouseEnter,

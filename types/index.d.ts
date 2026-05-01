@@ -13,6 +13,8 @@ type IconLibraryCardData = {
 	id?: string;
 	title: string;
 	description: string;
+	/** Total icons in the library — rendered as a stat in the card header. */
+	count: number;
 	img: {
 		// Accept either a remote URL/string path OR a statically-imported
 		// image (`import logo from "./assets/foo.png"` resolves to

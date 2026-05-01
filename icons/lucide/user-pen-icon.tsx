@@ -10,14 +10,14 @@ export interface UserPenIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserPenProps extends HTMLMotionProps<"div"> {
+interface UserPenIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserPenIcon = forwardRef<UserPenIconHandle, UserPenProps>(
+const UserPenIcon = forwardRef<UserPenIconHandle, UserPenIconProps>(
  (
   {
    onMouseEnter,

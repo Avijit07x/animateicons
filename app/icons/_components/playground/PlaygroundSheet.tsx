@@ -110,26 +110,39 @@ const PlaygroundSheet: React.FC<Props> = ({ open, onOpenChange, icon }) => {
 								>
 									Reset
 								</Button>
-								<Button
-									size="xs"
+								<button
 									type="button"
 									onClick={handleCopy}
 									onMouseEnter={(e) => handleHover(e, copyRef)}
 									onMouseLeave={(e) => handleHover(e, copyRef)}
-									className="bg-primary hover:bg-primaryHover text-white"
+									className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-3 py-1.5 text-xs font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_8px_22px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_12px_30px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98]"
 								>
+									<span
+										aria-hidden="true"
+										className="pointer-events-none absolute inset-x-3 top-px h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+									/>
 									{copied ? (
 										<CheckIcon />
 									) : (
 										<CopyIcon ref={copyRef} size={14} />
 									)}
 									{copied ? "Copied" : "Copy"}
-								</Button>
+								</button>
 							</div>
 						</div>
-						<pre className="bg-surfaceElevated border-border/60 text-textPrimary overflow-x-auto rounded-lg border p-4 text-xs leading-relaxed">
-							<code className="font-mono">{snippet}</code>
-						</pre>
+						<div className="border-border/60 relative overflow-hidden rounded-2xl border bg-gradient-to-b from-white/[0.03] to-white/[0.01]">
+							<span
+								aria-hidden="true"
+								className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+							/>
+							<div className="border-border/40 text-textSecondary flex items-center justify-between border-b px-4 py-2 text-[11px] tracking-wide uppercase">
+								<span>Usage</span>
+								<span className="text-textMuted lowercase">tsx</span>
+							</div>
+							<pre className="text-textPrimary overflow-x-auto px-4 py-3 text-xs leading-relaxed">
+								<code className="font-mono">{snippet}</code>
+							</pre>
+						</div>
 					</div>
 				</div>
 			</SheetContent>

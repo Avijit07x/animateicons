@@ -1,91 +1,88 @@
-import { motion, Variants } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+
+/**
+ * IconLibraryPoster — editorial-style showcase block for one icon library.
+ * Replaces the previous card / marquee layouts.
+ *
+ * Composition:
+ *   - Massive library name (oversized typography, faded behind content)
+ *   - Stat-first: the icon count is the visual anchor
+ *   - Description as a single line of supporting copy
+ *   - Compact icon row as proof
+ *   - Inline CTA chip
+ *
+ * No card chrome, no borders, no marquee. The typography carries the
+ * hierarchy.
+ */
+
 import { MoveRightIcon } from "@/icons/lucide/move-right-icon";
+import Link from "next/link";
 
-const cardVariants: Variants = {
-	hidden: { opacity: 0, y: 24 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.5, ease: "easeOut" },
-	},
-};
-
-const iconRowVariants: Variants = {
-	hidden: {},
-	show: {
-		transition: {
-			staggerChildren: 0.08,
-		},
-	},
-};
-
-const iconVariants: Variants = {
-	hidden: { opacity: 0, y: 8 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.4 },
-	},
-};
 const IconCard: React.FC<IconLibraryCardData> = ({
 	icons,
 	description,
-	img,
 	title,
+	count,
 	href,
 }) => {
+	// Library name without the trailing " Icons" — feels less repetitive
+	// once it's used as oversized display type.
+	const displayName = title.replace(/\s*Icons$/i, "");
+	const previewIcons = icons.slice(0, 10);
+
 	return (
-		<motion.div
-			variants={cardVariants}
-			initial="hidden"
-			whileInView="show"
-			viewport={{ once: true }}
-			className="group hover:bg-surfaceHover bg-surfaceElevated border-border overflow-hidden rounded-2xl border p-3 transition-colors duration-300"
-		>
-			<div className="bg-surface space-y-4 rounded-xl p-6">
-				<div className="flex items-center justify-start gap-2">
-					<Image
-						src={img.href}
-						className={img.className}
-						width={100}
-						height={100}
-						alt={title}
-					/>
-					<h3 className="text-primary text-lg font-semibold lg:text-xl">
-						{title}
-					</h3>
-				</div>
-
-				<p className="text-textSecondary text-sm">{description}</p>
-
-				<motion.div
-					variants={iconRowVariants}
-					initial="hidden"
-					whileInView="show"
-					viewport={{ once: true }}
-					className="my-6 flex flex-wrap items-center gap-5"
-				>
-					{icons.map((Icon, index) => (
-						<motion.div key={index} variants={iconVariants}>
-							<Icon
-								size={28}
-								className="hover:text-primary text-textSecondary cursor-pointer transition-colors duration-300"
-							/>
-						</motion.div>
-					))}
-				</motion.div>
+		<article className="group/poster relative flex flex-col gap-8 py-4">
+			{/* Big watermark name behind the content */}
+			<div
+				aria-hidden="true"
+				className="text-textPrimary/[0.04] pointer-events-none absolute inset-x-0 top-0 -z-10 truncate text-[8rem] leading-none font-bold tracking-tight uppercase select-none lg:text-[12rem]"
+			>
+				{displayName}
 			</div>
 
+			{/* Stat block */}
+			<div className="flex items-end gap-4">
+				<span className="text-textPrimary text-6xl leading-none font-bold tabular-nums lg:text-7xl">
+					{count}
+				</span>
+				<div className="text-textSecondary pb-2 text-sm leading-tight">
+					<div className="text-textPrimary text-base font-semibold">
+						{displayName}
+					</div>
+					<div>animated icons</div>
+				</div>
+			</div>
+
+			{/* Supporting copy */}
+			<p className="text-textSecondary max-w-md text-sm leading-relaxed">
+				{description}
+			</p>
+
+			{/* Icon proof row */}
+			<div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+				{previewIcons.map((Icon, index) => (
+					<div
+						key={index}
+						className="text-textSecondary hover:text-primary transition-colors"
+					>
+						<Icon size={24} />
+					</div>
+				))}
+			</div>
+
+			{/* CTA */}
 			<Link
 				href={href}
-				className="text-textPrimary group-hover:bg-surfaceHover bg-surfaceElevated flex items-center justify-between px-6 py-4 text-sm font-semibold transition-colors duration-300"
+				aria-label={`Browse ${title}`}
+				className="text-textPrimary hover:text-primary inline-flex w-fit items-center gap-1.5 text-sm font-semibold transition-colors"
 			>
-				<span>Explore</span>
-				<MoveRightIcon size={20} />
+				Browse {displayName}
+				<MoveRightIcon
+					size={18}
+					className="transition-transform duration-300 group-hover/poster:translate-x-1"
+				/>
 			</Link>
-		</motion.div>
+		</article>
 	);
 };
 

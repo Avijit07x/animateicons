@@ -10,7 +10,7 @@ export interface UserRoundCheckIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserRoundCheckProps extends HTMLMotionProps<"div"> {
+interface UserRoundCheckIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
@@ -19,7 +19,7 @@ interface UserRoundCheckProps extends HTMLMotionProps<"div"> {
 
 const UserRoundCheckIcon = forwardRef<
  UserRoundCheckIconHandle,
- UserRoundCheckProps
+ UserRoundCheckIconProps
 >(
  (
   {

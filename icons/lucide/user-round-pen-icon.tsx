@@ -10,14 +10,17 @@ export interface UserRoundPenIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserRoundPenProps extends HTMLMotionProps<"div"> {
+interface UserRoundPenIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserRoundPenIcon = forwardRef<UserRoundPenIconHandle, UserRoundPenProps>(
+const UserRoundPenIcon = forwardRef<
+ UserRoundPenIconHandle,
+ UserRoundPenIconProps
+>(
  (
   {
    onMouseEnter,

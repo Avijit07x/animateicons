@@ -10,14 +10,14 @@ export interface UserSearchIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserSearchProps extends HTMLMotionProps<"div"> {
+interface UserSearchIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchProps>(
+const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
  (
   {
    onMouseEnter,

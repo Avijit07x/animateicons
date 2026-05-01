@@ -10,7 +10,7 @@ export interface UserRoundSearchIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserRoundSearchProps extends HTMLMotionProps<"div"> {
+interface UserRoundSearchIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
@@ -19,7 +19,7 @@ interface UserRoundSearchProps extends HTMLMotionProps<"div"> {
 
 const UserRoundSearchIcon = forwardRef<
  UserRoundSearchIconHandle,
- UserRoundSearchProps
+ UserRoundSearchIconProps
 >(
  (
   {

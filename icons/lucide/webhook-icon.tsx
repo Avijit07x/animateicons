@@ -10,14 +10,14 @@ export interface WebhookIconHandle {
  stopAnimation: () => void;
 }
 
-interface WebhookProps extends HTMLMotionProps<"div"> {
+interface WebhookIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const WebhookIcon = forwardRef<WebhookIconHandle, WebhookProps>(
+const WebhookIcon = forwardRef<WebhookIconHandle, WebhookIconProps>(
  (
   {
    onMouseEnter,

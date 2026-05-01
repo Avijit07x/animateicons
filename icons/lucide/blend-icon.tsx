@@ -10,14 +10,14 @@ export interface BlendIconHandle {
  stopAnimation: () => void;
 }
 
-interface BlendProps extends HTMLMotionProps<"div"> {
+interface BlendIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const BlendIcon = forwardRef<BlendIconHandle, BlendProps>(
+const BlendIcon = forwardRef<BlendIconHandle, BlendIconProps>(
  (
   {
    onMouseEnter,

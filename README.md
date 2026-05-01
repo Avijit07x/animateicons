@@ -2,8 +2,7 @@
 
 # AnimateIcons
 
-**281 animated SVG icons for React, two ways to ship them.**
-Hover and imperative triggers, configurable size, color, and duration. Built on `motion/react`.
+**281 animated SVG icons for React.** Hover and imperative triggers, configurable size, color, and duration. Built on `motion/react`.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/react?color=f45b48&label=%40animateicons%2Freact)](https://www.npmjs.com/package/@animateicons/react)
 [![License](https://img.shields.io/badge/License-MIT-f45b48.svg)](./LICENSE)
@@ -20,24 +19,21 @@ Hover and imperative triggers, configurable size, color, and duration. Built on 
 
 ---
 
-## Two ways to install
+## Installation
 
-| Distribution    | Best for                                                                 | What you get                                                              |
-| --------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| **npm package** | Production apps, monorepos, anywhere you want updates                    | `pnpm add @animateicons/react`, tree-shakeable imports                    |
-| **shadcn CLI**  | Owning the source, customizing per-icon, smaller payload for one-off use | One file copies into `components/ui/`, no runtime dependency on this repo |
+Pick one of the two paths below. Both ship the same icons and the same API — the only difference is whether you depend on the package or own the source.
 
-Pick whichever fits. Both ship the exact same icons, the exact same animations.
+### npm package
 
----
+Recommended for most apps. One install, all 281 icons available.
 
-## Quick start
-
-### Option A — npm package
+**1. Install the package** — `motion` is bundled.
 
 ```bash
 pnpm add @animateicons/react
 ```
+
+**2. Import an icon** — Lucide and Huge are exposed as scoped subpaths because some icon names overlap (`HeartIcon`, `CopyIcon`, etc.).
 
 ```tsx
 import { BellRingIcon } from "@animateicons/react/lucide";
@@ -47,14 +43,23 @@ export function Notifications() {
 }
 ```
 
-Full docs at [npm/README.md](./npm/README.md) and on [npmjs.com](https://www.npmjs.com/package/@animateicons/react).
+That's it — the icon animates on hover by default.
 
-### Option B — shadcn CLI
+### shadcn CLI
+
+Use this if you want each icon copied into your codebase as a single file you can edit.
+
+**1. Set up shadcn** — if your project doesn't have it yet, follow the [shadcn installation guide](https://ui.shadcn.com/docs/installation).
+
+**2. Add an icon** — browse the [Lucide](https://animateicons.in/icons/lucide) or [Huge](https://animateicons.in/icons/huge) gallery, click any tile to copy its install command, or replace `lu-bell-ring` below with the icon you want.
 
 ```bash
-pnpm dlx shadcn@latest init                                   # if you haven't already
 pnpm dlx shadcn@latest add https://animateicons.in/r/lu-bell-ring.json
 ```
+
+The icon lands at `components/ui/<name>.tsx`.
+
+**3. Import and use**
 
 ```tsx
 import { BellRingIcon } from "@/components/ui/bell-ring";
@@ -64,20 +69,50 @@ export function Notifications() {
 }
 ```
 
-Browse the gallery at **[animateicons.in](https://animateicons.in/icons/lucide)** — every tile has one-click copy buttons for both routes.
+---
+
+## Styling
+
+Every icon strokes `currentColor`, so it inherits the surrounding text color. You can also pass `color`, `className`, or use the `duration` and `isAnimated` props to control playback.
+
+```tsx
+// Color — sets currentColor inline
+<EyeIcon color="#f45b48" />
+
+// Tailwind utility — works because icons stroke="currentColor"
+<EyeIcon className="text-primary" />
+
+// Speed — duration is a multiplier (lower = faster)
+<EyeIcon duration={0.6} />
+
+// Disable hover animation
+<EyeIcon isAnimated={false} />
+```
 
 ---
 
-## Why AnimateIcons
+## Imperative API
 
-Most icon libraries are static SVGs. AnimateIcons gives you the same icon coverage, but each one is a self-contained React component with motion baked in.
+Need to trigger an animation from a parent — on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
 
-- **Hover animation by default.** Drop one in, it just works.
-- **Imperative API.** Drive animations from refs (`startAnimation()` / `stopAnimation()`) for click, focus, scroll, or any custom trigger.
-- **Accessibility automatic.** Every icon respects `prefers-reduced-motion` — no flag to set.
-- **TypeScript-first.** Per-icon `*Handle` types and a shared `IconHandle` type for generic refs.
-- **Themeable.** Works with `currentColor`, Tailwind utilities, and CSS variables out of the box.
-- **No vendor lock-in.** Pick the npm package for convenience or the shadcn CLI to own the source. Switch any time.
+```tsx
+"use client";
+import { useRef } from "react";
+import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye";
+
+export function Demo() {
+	const ref = useRef<EyeIconHandle>(null);
+
+	return (
+		<button
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
+		>
+			<EyeIcon ref={ref} size={28} />
+		</button>
+	);
+}
+```
 
 ---
 
@@ -85,14 +120,14 @@ Most icon libraries are static SVGs. AnimateIcons gives you the same icon covera
 
 ```ts
 interface IconProps {
-	size?: number; // default 24
-	color?: string; // any CSS color: hex, rgb, hsl, var(--token)
+	size?: number;
+	color?: string;
 	className?: string;
-	style?: React.CSSProperties;
-	duration?: number; // animation speed multiplier — default 1, 0.5 = 2x faster
-	isAnimated?: boolean; // default true — false disables hover trigger
+	duration?: number;
+	isAnimated?: boolean;
 	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
 	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+	style?: React.CSSProperties;
 }
 
 interface IconHandle {
@@ -101,48 +136,7 @@ interface IconHandle {
 }
 ```
 
-Each icon also exports a named handle alias (`BellRingIconHandle`, `EyeIconHandle`, etc.) for ergonomic ref typing at the call site.
-
----
-
-## Examples
-
-### Color and styling
-
-```tsx
-<EyeIcon color="#f45b48" />                            // inline color
-<EyeIcon className="text-primary" />                   // Tailwind utility (uses currentColor)
-<EyeIcon style={{ color: "var(--brand)" }} />          // CSS variable
-```
-
-### Animation control
-
-```tsx
-<EyeIcon size={28} />                  // default — hover to animate
-<EyeIcon size={28} duration={1.5} />   // slow down
-<EyeIcon size={28} isAnimated={false} /> // disable hover trigger entirely
-```
-
-### Imperative trigger
-
-```tsx
-"use client";
-import { useRef } from "react";
-import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye";
-
-export function FocusableEye() {
-	const ref = useRef<EyeIconHandle>(null);
-
-	return (
-		<button
-			onFocus={() => ref.current?.startAnimation()}
-			onBlur={() => ref.current?.stopAnimation()}
-		>
-			<EyeIcon ref={ref} />
-		</button>
-	);
-}
-```
+Animations respect the OS-level **Reduce Motion** preference — no extra setup required.
 
 ---
 
@@ -151,13 +145,13 @@ export function FocusableEye() {
 ```
 animateicons/
 ├── icons/
-│   ├── lucide/          248 Lucide-style icons (source of truth)
-│   └── huge/            33  Huge-style icons (source of truth)
-├── npm/                 @animateicons/react published package (tsup build)
+│   ├── lucide/          248 Lucide-style icons
+│   └── huge/             33 Huge-style icons
+├── npm/                 @animateicons/react published package
 ├── app/
-│   ├── icons/[library]/ /icons/lucide, /icons/huge gallery
-│   └── icons/docs/      MDX-powered install guide
-├── components/          shared UI primitives (Hero, Section, etc.)
+│   ├── icons/[library]/ gallery routes
+│   └── icons/docs/      install guide (MDX)
+├── components/          shared UI (Hero, Section, etc.)
 ├── hooks/               useIconFilter, useIconAnimation
 ├── tests/               Vitest + React Testing Library
 └── scripts/             registry codegen, codemods
@@ -171,53 +165,41 @@ animateicons/
 git clone https://github.com/Avijit07x/animateicons.git
 cd animateicons
 pnpm install
-pnpm dev                 # gallery at http://localhost:3000
+pnpm dev
 ```
 
-### Common scripts
+Common scripts:
 
 ```bash
-pnpm dev                          # gallery dev server (Turbopack)
-pnpm build                        # production build
-pnpm test                         # vitest run
-pnpm typecheck                    # tsc --noEmit
+pnpm dev          # gallery dev server (Turbopack)
+pnpm build        # production build
+pnpm test         # vitest run
+pnpm typecheck    # tsc --noEmit
 
-pnpm --filter @animateicons/react build      # build the npm package
-pnpm --filter @animateicons/react test:smoke # smoke-test the built dist
-pnpm --filter @animateicons/react size       # enforce bundle size budgets
+pnpm --filter @animateicons/react build       # build the npm package
+pnpm --filter @animateicons/react test:smoke  # smoke-test the built dist
 ```
 
 ---
 
-## Contributing new icons
+## Contributing
 
-PRs adding icons are welcome. Each icon is a single React component file following the same template — copy any existing icon and adapt the SVG paths and motion variants.
+PRs adding icons are welcome. Each icon is a single React component file — copy any existing one as a template.
 
-1. Create `icons/<library>/<name>-icon.tsx` from an existing icon as a template
+1. Create `icons/<library>/<name>-icon.tsx` from an existing icon
 2. Register it in `icons/<library>/index.ts`
 3. Run `pnpm gen:icons` to regenerate the public registry
 4. Open a PR against `dev`
 
-Full workflow in **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
-
----
-
-## Roadmap
-
-- More libraries (Phosphor-style, Tabler-style)
-- Animation type taxonomy (filter by spin / pulse / morph / draw)
-- Per-icon detail pages with embedded playground
-- Visual regression suite for icon-source changes
-
-Open issues and PRs welcome — even a single icon is a meaningful contribution.
+Full workflow in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ---
 
 ## License
 
-[MIT](./LICENSE) — use it however you want, in any project, commercial or otherwise.
+[MIT](./LICENSE).
 
-If AnimateIcons saves you time, consider [sponsoring the project](https://github.com/sponsors/Avijit07x) so it keeps growing.
+If AnimateIcons saves you time, consider [sponsoring the project](https://github.com/sponsors/Avijit07x).
 
 ---
 

@@ -10,7 +10,7 @@ export interface PhoneForwardedIconHandle {
  stopAnimation: () => void;
 }
 
-interface PhoneForwardedProps extends HTMLMotionProps<"div"> {
+interface PhoneForwardedIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
@@ -19,7 +19,7 @@ interface PhoneForwardedProps extends HTMLMotionProps<"div"> {
 
 const PhoneForwardedIcon = forwardRef<
  PhoneForwardedIconHandle,
- PhoneForwardedProps
+ PhoneForwardedIconProps
 >(
  (
   {

@@ -10,14 +10,14 @@ export interface TrashIconHandle {
  stopAnimation: () => void;
 }
 
-interface DashboardIconProps extends HTMLMotionProps<"div"> {
+interface TrashIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const TrashIcon = forwardRef<TrashIconHandle, DashboardIconProps>(
+const TrashIcon = forwardRef<TrashIconHandle, TrashIconProps>(
  (
   {
    onMouseEnter,

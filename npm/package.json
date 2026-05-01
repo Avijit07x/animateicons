@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -31,16 +31,19 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
+			"module-sync": "./dist/index.js",
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
 		},
 		"./lucide": {
 			"types": "./dist/lucide.d.ts",
+			"module-sync": "./dist/lucide.js",
 			"import": "./dist/lucide.js",
 			"require": "./dist/lucide.cjs"
 		},
 		"./huge": {
 			"types": "./dist/huge.d.ts",
+			"module-sync": "./dist/huge.js",
 			"import": "./dist/huge.js",
 			"require": "./dist/huge.cjs"
 		},
@@ -48,7 +51,7 @@
 	},
 	"sideEffects": false,
 	"files": [
-		"dist",
+		"dist/**/*.{js,cjs,d.ts,d.cts}",
 		"README.md",
 		"LICENSE"
 	],
@@ -57,14 +60,21 @@
 	},
 	"scripts": {
 		"gen": "node scripts/generate-exports.mjs",
+		"normalize": "node scripts/normalize-icon-names.mjs",
 		"normalize-handles": "node scripts/normalize-handle-names.mjs",
+		"check:naming": "node scripts/check-icon-naming.mjs",
 		"build": "pnpm run gen && tsup",
 		"dev": "pnpm run gen && tsup --watch",
 		"typecheck": "tsc --noEmit",
 		"test:smoke": "node --test __tests__/consume.test.mjs",
 		"size": "size-limit",
 		"pack:check": "npm pack --dry-run",
-		"prepublishOnly": "pnpm run build && pnpm run test:smoke && pnpm run size"
+		"verify": "pnpm run normalize && pnpm run check:naming && pnpm run typecheck && pnpm run build && pnpm run test:smoke && pnpm run size",
+		"release": "pnpm run verify && pnpm publish --access public --no-git-checks",
+		"release:patch": "pnpm version patch && pnpm run release",
+		"release:minor": "pnpm version minor && pnpm run release",
+		"release:major": "pnpm version major && pnpm run release",
+		"prepublishOnly": "pnpm run check:naming && pnpm run build && pnpm run test:smoke && pnpm run size"
 	},
 	"size-limit": [
 		{
@@ -111,7 +121,6 @@
 		"react-dom": "^19.2.4",
 		"size-limit": "^11.1.6",
 		"tsup": "^8.3.0",
-		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"
 	},
 	"publishConfig": {

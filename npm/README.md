@@ -1,23 +1,25 @@
 # @animateicons/react
 
-Animated SVG icons for React. Hover to animate, or drive animations imperatively from refs. 281 icons across two libraries, fully tree-shakeable, ESM + CJS, RSC-ready.
+281 animated SVG icons for React. Hover and imperative triggers, configurable size, color, and duration. Built on `motion/react`.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/react?color=f45b48)](https://www.npmjs.com/package/@animateicons/react)
 [![bundle](https://img.shields.io/bundlephobia/minzip/@animateicons/react)](https://bundlephobia.com/package/@animateicons/react)
 [![types](https://img.shields.io/npm/types/@animateicons/react?color=blue)](https://www.npmjs.com/package/@animateicons/react)
 [![license](https://img.shields.io/npm/l/@animateicons/react?color=f45b48)](./LICENSE)
 
+[**Browse icons →**](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [**Docs →**](https://animateicons.in/icons/docs)
+
 ## Install
+
+`react` and `react-dom` are peer dependencies. `motion` is bundled.
 
 ```bash
 pnpm add @animateicons/react
 ```
 
-`react` and `react-dom` are peer dependencies. `motion` is bundled — no separate install needed.
-
 ## Usage
 
-Lucide and Huge icons live on separate subpath imports because their names overlap (`HeartIcon`, `CopyIcon`, etc.):
+Lucide and Huge are exposed as scoped subpaths because some icon names overlap (`HeartIcon`, `CopyIcon`, etc.).
 
 ```tsx
 import { BellRingIcon } from "@animateicons/react/lucide";
@@ -28,25 +30,29 @@ export function Notifications() {
 }
 ```
 
-Hover-to-animate works out of the box. No setup, no providers.
+That's it — the icon animates on hover by default.
 
-## Props
+## Styling
 
-```ts
-interface IconProps {
-	size?: number; // default 24
-	color?: string; // any CSS color (hex, rgb, hsl, var(--token))
-	className?: string;
-	style?: React.CSSProperties;
-	duration?: number; // animation speed multiplier — default 1, 0.5 = 2x faster
-	isAnimated?: boolean; // default true — false disables hover trigger
-	// ...all standard HTMLDivElement props
-}
+Every icon strokes `currentColor`, so it inherits the surrounding text color. You can also pass `color`, `className`, or use the `duration` and `isAnimated` props to control playback.
+
+```tsx
+// Color — sets currentColor inline
+<BellRingIcon color="#f45b48" />
+
+// Tailwind utility — works because icons stroke="currentColor"
+<BellRingIcon className="text-primary" />
+
+// Speed — duration is a multiplier (lower = faster)
+<BellRingIcon duration={0.6} />
+
+// Disable hover animation
+<BellRingIcon isAnimated={false} />
 ```
 
 ## Imperative API
 
-Every icon's ref exposes `startAnimation()` and `stopAnimation()`:
+Need to trigger an animation from a parent — on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
 
 ```tsx
 "use client";
@@ -76,31 +82,44 @@ The shared `IconHandle` type is also exported from the root for generic ref typi
 import type { IconHandle } from "@animateicons/react";
 ```
 
-## Accessibility
+## Props & types
 
-All icons honor `prefers-reduced-motion` automatically. When the user has reduced motion enabled, hover and imperative triggers become no-ops. Nothing to configure.
+```ts
+interface IconProps {
+	size?: number;
+	color?: string;
+	className?: string;
+	duration?: number;
+	isAnimated?: boolean;
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+	style?: React.CSSProperties;
+}
+
+interface IconHandle {
+	startAnimation: () => void;
+	stopAnimation: () => void;
+}
+```
+
+Animations respect the OS-level **Reduce Motion** preference — no extra setup required.
 
 ## Compatibility
 
-| Constraint       | Supported                                           |
-| ---------------- | --------------------------------------------------- |
-| React            | 18 or 19                                            |
-| Node (tooling)   | ≥ 18.17                                             |
-| Module formats   | ESM + CommonJS                                      |
-| TypeScript       | strict-mode types ship with the package             |
-| RSC / Next 13–16 | every icon carries a `"use client"` directive       |
-| Tree-shaking     | `sideEffects: false`, ESM imports drop unused icons |
-
-Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) — every release links back to the GitHub commit that built it.
+| Requirement    | Supported                                     |
+| -------------- | --------------------------------------------- |
+| React          | 18 or 19                                      |
+| Module formats | ESM + CommonJS                                |
+| TypeScript     | strict-mode types ship with the package       |
+| Next.js        | every icon carries a `"use client"` directive |
 
 ## Links
 
-- **Gallery & live playground**: [animateicons.in](https://animateicons.in/icons/lucide)
-- **Documentation**: [animateicons.in/icons/docs](https://animateicons.in/icons/docs)
+- **Gallery**: [animateicons.in](https://animateicons.in/icons/lucide)
+- **Docs**: [animateicons.in/icons/docs](https://animateicons.in/icons/docs)
 - **Repository**: [github.com/Avijit07x/animateicons](https://github.com/Avijit07x/animateicons)
-- **Changelog**: [GitHub releases](https://github.com/Avijit07x/animateicons/releases)
 - **Issues**: [github.com/Avijit07x/animateicons/issues](https://github.com/Avijit07x/animateicons/issues)
 
 ## License
 
-MIT © [Avijit Dey](https://github.com/Avijit07x). See [LICENSE](./LICENSE).
+MIT © [Avijit Dey](https://github.com/Avijit07x).

@@ -10,14 +10,14 @@ export interface ContactIconHandle {
  stopAnimation: () => void;
 }
 
-interface ContactProps extends HTMLMotionProps<"div"> {
+interface ContactIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const ContactIcon = forwardRef<ContactIconHandle, ContactProps>(
+const ContactIcon = forwardRef<ContactIconHandle, ContactIconProps>(
  (
   {
    onMouseEnter,

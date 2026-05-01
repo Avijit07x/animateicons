@@ -40,6 +40,9 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Check icon naming consistency
+        run: pnpm --filter @animateicons/react check:naming
+
       - name: Typecheck npm package
         run: pnpm --filter @animateicons/react typecheck
 

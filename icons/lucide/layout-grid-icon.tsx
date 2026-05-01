@@ -10,14 +10,14 @@ export interface LayoutGridIconHandle {
  stopAnimation: () => void;
 }
 
-interface LayoutGridProps extends HTMLMotionProps<"div"> {
+interface LayoutGridIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const LayoutGridIcon = forwardRef<LayoutGridIconHandle, LayoutGridProps>(
+const LayoutGridIcon = forwardRef<LayoutGridIconHandle, LayoutGridIconProps>(
  (
   {
    onMouseEnter,

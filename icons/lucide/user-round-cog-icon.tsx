@@ -10,14 +10,17 @@ export interface UserRoundCogIconHandle {
  stopAnimation: () => void;
 }
 
-interface UserRoundCogProps extends HTMLMotionProps<"div"> {
+interface UserRoundCogIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const UserRoundCogIcon = forwardRef<UserRoundCogIconHandle, UserRoundCogProps>(
+const UserRoundCogIcon = forwardRef<
+ UserRoundCogIconHandle,
+ UserRoundCogIconProps
+>(
  (
   {
    onMouseEnter,

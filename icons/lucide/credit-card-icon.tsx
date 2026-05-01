@@ -10,14 +10,14 @@ export interface CreditCardIconHandle {
  stopAnimation: () => void;
 }
 
-interface CardProps extends HTMLMotionProps<"div"> {
+interface CreditCardIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const CreditCardIcon = forwardRef<CreditCardIconHandle, CardProps>(
+const CreditCardIcon = forwardRef<CreditCardIconHandle, CreditCardIconProps>(
  (
   {
    onMouseEnter,

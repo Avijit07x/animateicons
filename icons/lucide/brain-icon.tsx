@@ -16,14 +16,14 @@ export interface BrainIconHandle {
  stopAnimation: () => void;
 }
 
-interface BrainProps extends HTMLMotionProps<"div"> {
+interface BrainIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const BrainIcon = forwardRef<BrainIconHandle, BrainProps>(
+const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
  (
   {
    onMouseEnter,

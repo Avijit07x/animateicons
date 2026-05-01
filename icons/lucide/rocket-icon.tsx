@@ -10,14 +10,14 @@ export interface RocketIconHandle {
  stopAnimation: () => void;
 }
 
-interface RocketProps extends HTMLMotionProps<"div"> {
+interface RocketIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const RocketIcon = forwardRef<RocketIconHandle, RocketProps>(
+const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
  (
   {
    onMouseEnter,

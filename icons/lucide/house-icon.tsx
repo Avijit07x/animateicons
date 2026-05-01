@@ -10,14 +10,14 @@ export interface HouseIconHandle {
  stopAnimation: () => void;
 }
 
-interface HouseProps extends HTMLMotionProps<"div"> {
+interface HouseIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const HouseIcon = forwardRef<HouseIconHandle, HouseProps>(
+const HouseIcon = forwardRef<HouseIconHandle, HouseIconProps>(
  (
   {
    onMouseEnter,

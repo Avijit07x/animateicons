@@ -10,14 +10,14 @@ export interface SignalIconHandle {
  stopAnimation: () => void;
 }
 
-interface SignalProps extends HTMLMotionProps<"div"> {
+interface SignalIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const SignalIcon = forwardRef<SignalIconHandle, SignalProps>(
+const SignalIcon = forwardRef<SignalIconHandle, SignalIconProps>(
  (
   {
    onMouseEnter,

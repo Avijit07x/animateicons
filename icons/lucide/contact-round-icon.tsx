@@ -10,14 +10,17 @@ export interface ContactRoundIconHandle {
  stopAnimation: () => void;
 }
 
-interface ContactRoundProps extends HTMLMotionProps<"div"> {
+interface ContactRoundIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const ContactRoundIcon = forwardRef<ContactRoundIconHandle, ContactRoundProps>(
+const ContactRoundIcon = forwardRef<
+ ContactRoundIconHandle,
+ ContactRoundIconProps
+>(
  (
   {
    onMouseEnter,

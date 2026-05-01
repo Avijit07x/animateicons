@@ -28,11 +28,19 @@ import { CheckIcon } from "@/components/icons/CheckIcon";
 import { V0Icon, type V0IconHandle } from "@/components/icons/V0Icon";
 import { CopyIcon, type CopyIconHandle } from "@/icons/lucide/copy-icon";
 import {
+	PackageOpenIcon,
+	type PackageOpenIconHandle,
+} from "@/icons/lucide/package-open-icon";
+import {
 	TerminalIcon,
 	type TerminalIconHandle,
 } from "@/icons/lucide/terminal-icon";
 import { Loader } from "lucide-react";
 import { useRef } from "react";
+import {
+	npmImportLine,
+	useDistribution,
+} from "../../_contexts/DistributionContext";
 import {
 	useIconTileDispatch,
 	useIsCopiedCli,
@@ -72,15 +80,20 @@ const IconTileActions: React.FC<Props> = ({
 	const { setCopiedCodeId, setCopiedCliId, setLoadingId } =
 		useIconTileDispatch();
 	const { packageManager } = usePackageManager();
+	const { distribution } = useDistribution();
 
 	const cliRef = useRef<TerminalIconHandle>(null);
+	const npmRef = useRef<PackageOpenIconHandle>(null);
 	const codeRef = useRef<CopyIconHandle>(null);
 	const v0Ref = useRef<V0IconHandle>(null);
 
-	const copyCliCommand = async () => {
-		const cliTool = cliCommandFor(packageManager);
-		const command = `${cliTool} shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
-		await navigator.clipboard.writeText(command);
+	const copyInstallSnippet = async () => {
+		const payload =
+			distribution === "npm"
+				? npmImportLine(name, library as "lucide" | "huge")
+				: `${cliCommandFor(packageManager)} shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
+
+		await navigator.clipboard.writeText(payload);
 		setCopiedCliId(tileId);
 		window.setTimeout(() => setCopiedCliId(null), 1500);
 	};
@@ -105,15 +118,29 @@ const IconTileActions: React.FC<Props> = ({
 		}
 	};
 
+	const isNpm = distribution === "npm";
+
 	return (
 		<div className="mt-2 flex items-center justify-center gap-6">
 			<IconAction
-				tooltip="copy shadcn/cli command"
-				ariaLabel={isCopiedCli ? "CLI Copied" : "Copy CLI Command"}
-				iconRef={cliRef}
-				onClick={copyCliCommand}
+				tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}
+				ariaLabel={
+					isCopiedCli
+						? "Copied"
+						: isNpm
+							? "Copy npm import"
+							: "Copy CLI Command"
+				}
+				iconRef={isNpm ? npmRef : cliRef}
+				onClick={copyInstallSnippet}
 			>
-				{isCopiedCli ? <CheckIcon /> : <TerminalIcon size={18} ref={cliRef} />}
+				{isCopiedCli ? (
+					<CheckIcon />
+				) : isNpm ? (
+					<PackageOpenIcon size={18} ref={npmRef} />
+				) : (
+					<TerminalIcon size={18} ref={cliRef} />
+				)}
 			</IconAction>
 
 			<IconAction

@@ -10,7 +10,7 @@ export interface SlidersHorizontalIconHandle {
  stopAnimation: () => void;
 }
 
-interface SlidersHorizontalProps extends HTMLMotionProps<"div"> {
+interface SlidersHorizontalIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
@@ -19,7 +19,7 @@ interface SlidersHorizontalProps extends HTMLMotionProps<"div"> {
 
 const SlidersHorizontalIcon = forwardRef<
  SlidersHorizontalIconHandle,
- SlidersHorizontalProps
+ SlidersHorizontalIconProps
 >(
  (
   {

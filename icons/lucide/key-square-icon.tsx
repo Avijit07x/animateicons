@@ -10,14 +10,14 @@ export interface KeySquareIconHandle {
  stopAnimation: () => void;
 }
 
-interface KeySquareProps extends HTMLMotionProps<"div"> {
+interface KeySquareIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const KeySquareIcon = forwardRef<KeySquareIconHandle, KeySquareProps>(
+const KeySquareIcon = forwardRef<KeySquareIconHandle, KeySquareIconProps>(
  (
   {
    onMouseEnter,

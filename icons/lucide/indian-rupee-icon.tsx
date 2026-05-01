@@ -10,14 +10,14 @@ export interface IndianRupeeIconHandle {
  stopAnimation: () => void;
 }
 
-interface IndianRupeeProps extends HTMLMotionProps<"div"> {
+interface IndianRupeeIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeProps>(
+const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeIconProps>(
  (
   {
    onMouseEnter,

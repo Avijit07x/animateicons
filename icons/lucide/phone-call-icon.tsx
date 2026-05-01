@@ -10,14 +10,14 @@ export interface PhoneCallIconHandle {
  stopAnimation: () => void;
 }
 
-interface PhoneCallProps extends HTMLMotionProps<"div"> {
+interface PhoneCallIconProps extends HTMLMotionProps<"div"> {
  size?: number;
  duration?: number;
  isAnimated?: boolean;
  color?: string;
 }
 
-const PhoneCallIcon = forwardRef<PhoneCallIconHandle, PhoneCallProps>(
+const PhoneCallIcon = forwardRef<PhoneCallIconHandle, PhoneCallIconProps>(
  (
   {
    onMouseEnter,
