@@ -62,7 +62,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 				className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
 			/>
 
-			<div className="border-border/40 text-textSecondary flex items-center justify-between gap-3 border-b px-4 py-2 text-[11px] tracking-wide uppercase">
+			<div className="border-border/40 text-textSecondary flex items-center justify-between gap-2 border-b px-3 py-2 text-[10px] tracking-wide uppercase sm:px-4 sm:text-[11px]">
 				<span>Install</span>
 
 				<div
@@ -111,7 +111,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 
 			<div className="relative">
 				<div
-					className={`overflow-x-auto px-4 py-3 pr-12 text-sm ${SHIKI_RESET}`}
+					className={`overflow-x-auto px-3 py-3 pr-10 text-xs sm:px-4 sm:pr-12 sm:text-sm ${SHIKI_RESET}`}
 					dangerouslySetInnerHTML={{ __html: highlightedByPm[pm] }}
 				/>
 				<button

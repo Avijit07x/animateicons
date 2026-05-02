@@ -42,7 +42,7 @@ const AnnouncementBanner: React.FC = () => {
 						<div className="text-textPrimary flex min-w-0 items-center gap-2">
 							<span
 								aria-hidden="true"
-								className="bg-primary text-primary-foreground hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase sm:inline-flex"
+								className="bg-primary hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide text-(--cta-text) uppercase sm:inline-flex"
 							>
 								New
 							</span>

@@ -47,7 +47,6 @@ type LinkVariantProps = BaseProps & {
 type Props = ButtonVariantProps | LinkVariantProps;
 
 const TRIGGER_CLASS = "flex size-6 items-center justify-center";
-const TOOLTIP_CLASS = "text-primary px-3! py-1.5! font-medium!";
 
 const IconAction: React.FC<Props> = (props) => {
 	const { tooltip, ariaLabel, iconRef, children } = props;
@@ -84,9 +83,7 @@ const IconAction: React.FC<Props> = (props) => {
 	return (
 		<Tooltip>
 			<TooltipTrigger asChild>{trigger}</TooltipTrigger>
-			<TooltipContent side="bottom" className={TOOLTIP_CLASS}>
-				{tooltip}
-			</TooltipContent>
+			<TooltipContent side="bottom">{tooltip}</TooltipContent>
 		</Tooltip>
 	);
 };

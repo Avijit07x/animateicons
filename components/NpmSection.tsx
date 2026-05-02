@@ -97,8 +97,8 @@ const NpmSection = async () => {
 				spacing="tight"
 			/>
 
-			<div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-				<ul className="grid h-full gap-5 sm:grid-cols-2">
+			<div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
+				<ul className="grid h-full min-w-0 gap-4 sm:grid-cols-2 sm:gap-5">
 					{HIGHLIGHTS.map(({ Icon, title, body }) => (
 						<NpmHighlightCard
 							key={title}
@@ -109,7 +109,7 @@ const NpmSection = async () => {
 					))}
 				</ul>
 
-				<div className="flex flex-col gap-4">
+				<div className="flex min-w-0 flex-col gap-4">
 					<NpmInstallTabs
 						highlightedByPm={{
 							npm: npmHtml,
@@ -124,22 +124,24 @@ const NpmSection = async () => {
 							aria-hidden="true"
 							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
 						/>
-						<div className="border-border/40 text-textSecondary flex items-center justify-between border-b px-4 py-2 text-[11px] tracking-wide uppercase">
+						<div className="border-border/40 text-textSecondary flex items-center justify-between gap-2 border-b px-3 py-2 text-[10px] tracking-wide uppercase sm:px-4 sm:text-[11px]">
 							<span>Usage</span>
-							<span className="text-textMuted">Notifications.tsx</span>
+							<span className="text-textMuted truncate">
+								Notifications.tsx
+							</span>
 						</div>
 						<div
-							className={`overflow-x-auto px-4 py-3 text-xs leading-relaxed sm:text-sm ${SHIKI_RESET}`}
+							className={`overflow-x-auto px-3 py-3 text-xs leading-relaxed sm:px-4 sm:text-sm ${SHIKI_RESET}`}
 							dangerouslySetInnerHTML={{ __html: usageHtml }}
 						/>
 					</div>
 
-					<div className="flex flex-wrap items-center gap-3 pt-1">
+					<div className="flex flex-wrap items-center gap-2 pt-1 sm:gap-3">
 						<Link
 							href="https://www.npmjs.com/package/@animateicons/react"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-5 py-2 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98]"
+							className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-4 py-2 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98] sm:px-5"
 						>
 							{/* Subtle top-edge highlight, like a glass bevel */}
 							<span
@@ -154,7 +156,7 @@ const NpmSection = async () => {
 						</Link>
 						<Link
 							href="/icons/docs#install-npm"
-							className="text-textPrimary hover:text-primary inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors"
+							className="text-textPrimary hover:text-primary inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition-colors sm:px-4"
 						>
 							Read the docs
 						</Link>

@@ -1,56 +1,79 @@
+import { CompassIcon } from "@/icons/lucide/compass-icon";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
-const NotFound: React.FC = () => {
+/**
+ * 404 page — on-brand glass card with the same surface vocabulary as
+ * the rest of the site (gradient surface, border-border/60, top-edge
+ * shimmer, primary radial glow). The compass icon hints "we'll help
+ * you find your way" without saying it.
+ */
+export default function NotFound() {
 	return (
-		<div className="relative flex min-h-dvh items-center justify-center px-6 text-white">
-			<div
-				className="pointer-events-none absolute inset-0 z-0"
+		<div
+			className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-16"
+			style={{
+				backgroundImage:
+					"radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
+				backgroundSize: "20px 20px",
+			}}
+		>
+			<span
+				aria-hidden="true"
+				className="pointer-events-none absolute inset-0"
 				style={{
-					backgroundImage: `
-						repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(75, 85, 99, 0.08) 20px, rgba(75, 85, 99, 0.08) 21px),
-						repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(107, 114, 128, 0.06) 30px, rgba(107, 114, 128, 0.06) 31px),
-						repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(55, 65, 81, 0.05) 40px, rgba(55, 65, 81, 0.05) 41px),
-						repeating-linear-gradient(150deg, transparent, transparent 35px, rgba(31, 41, 55, 0.04) 35px, rgba(31, 41, 55, 0.04) 36px)`,
+					backgroundImage:
+						"radial-gradient(circle at center, color-mix(in oklab, var(--color-primary) 14%, transparent), transparent 55%)",
 				}}
 			/>
-			<div className="w-full max-w-md rounded-2xl border border-white/10 bg-zinc-900/60 p-8 backdrop-blur">
-				<div className="mb-6 text-center">
-					<p className="mb-2 text-xs tracking-wider text-zinc-500 uppercase">
-						404 error
+
+			<div className="border-border/60 text-textPrimary relative w-full max-w-md overflow-hidden rounded-2xl border bg-gradient-to-b from-white/[0.03] to-white/[0.01] p-8 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)] backdrop-blur">
+				<span
+					aria-hidden="true"
+					className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+				/>
+
+				<div className="mb-7 flex flex-col items-center gap-4 text-center">
+					<div className="border-border/60 bg-bgDark/60 text-primary inline-flex size-14 items-center justify-center rounded-2xl border">
+						<CompassIcon size={28} />
+					</div>
+					<div className="space-y-1.5">
+						<p className="text-textMuted text-[11px] tracking-[0.2em] uppercase">
+							404 · Page not found
+						</p>
+						<h1 className="text-textPrimary text-2xl font-semibold tracking-tight sm:text-3xl">
+							Lost the trail
+						</h1>
+					</div>
+					<p className="text-textSecondary max-w-xs text-sm leading-relaxed">
+						This page doesn't exist (or never did). Head back home or browse
+						the icon gallery.
 					</p>
-					<h1 className="text-4xl font-semibold tracking-tight">
-						Page not found
-					</h1>
 				</div>
 
-				<p className="mb-8 text-center text-sm leading-relaxed text-zinc-400">
-					The page you are looking for does not exist or may have been moved.
-					Check the URL or return to the homepage.
-				</p>
-
-				<div className="flex flex-col gap-3">
+				<div className="flex flex-col gap-2.5">
 					<Link
 						href="/"
-						className="rounded-lg bg-white px-4 py-2 text-center text-sm font-medium text-black transition hover:bg-zinc-200"
+						className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-5 py-2.5 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98]"
 					>
-						Go to homepage
+						<span
+							aria-hidden="true"
+							className="pointer-events-none absolute inset-x-5 top-px h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+						/>
+						Go home
+						<ArrowRight
+							className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+							aria-hidden="true"
+						/>
 					</Link>
-
 					<Link
-						href="/icons"
-						className="rounded-lg border border-white/15 px-4 py-2 text-center text-sm text-white transition hover:bg-white/5"
+						href="/icons/lucide"
+						className="border-border/60 hover:border-primary/40 text-textPrimary inline-flex items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
 					>
 						Browse icons
 					</Link>
 				</div>
-
-				<p className="mt-6 text-center text-xs text-zinc-500">
-					If you believe this is a mistake, please contact support.
-				</p>
 			</div>
 		</div>
 	);
-};
-
-export default NotFound;
+}

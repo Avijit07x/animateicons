@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
+import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
@@ -126,10 +127,10 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="dark">
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
 				<JsonLd data={siteJsonLd} />
-				{children}
+				<CommandSearchProvider>{children}</CommandSearchProvider>
 				<Analytics />
 			</body>
 		</html>

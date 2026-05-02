@@ -6,7 +6,6 @@ import CategoryContextProvider from "./_contexts/CategoryContext";
 import { DistributionProvider } from "./_contexts/DistributionContext";
 import { IconSearchProvider } from "./_contexts/IconSearchContext";
 import { PackageManagerProvider } from "./_contexts/PackageManagerContext";
-import { PlaygroundProvider } from "./_contexts/PlaygroundContext";
 
 type Props = {
 	children: React.ReactNode;
@@ -15,9 +14,9 @@ type Props = {
 /**
  * Provider order for the AnimateIcons /icons gallery layout.
  * SidebarProvider is OUTERMOST so the sidebar can read its own state,
- * then category / search / package-manager / playground stack inward.
- * Adding a new AnimateIcons feature with its own context is now a
- * single-line change to this array.
+ * then category / search / package-manager stack inward. Adding a new
+ * AnimateIcons feature with its own context is now a single-line
+ * change to this array.
  */
 const PROVIDERS = [
 	SidebarProvider,
@@ -25,7 +24,6 @@ const PROVIDERS = [
 	IconSearchProvider,
 	PackageManagerProvider,
 	DistributionProvider,
-	PlaygroundProvider,
 ];
 
 /**

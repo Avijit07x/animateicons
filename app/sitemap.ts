@@ -19,8 +19,27 @@ const latestAddedAt = (list: { addedAt: string }[]): Date => {
 	return Number.isNaN(d.getTime()) ? new Date() : d;
 };
 
+/** Build a per-icon sitemap entry. Each detail page gets its own URL
+ *  with `addedAt` driving lastModified so freshly-added icons signal
+ *  themselves to crawlers. */
+const iconEntry = (
+	library: "lucide" | "huge",
+	item: { name: string; addedAt: string },
+): MetadataRoute.Sitemap[number] => {
+	const d = new Date(item.addedAt);
+	return {
+		url: `${baseUrl}/icons/${library}/${item.name}`,
+		lastModified: Number.isNaN(d.getTime()) ? new Date() : d,
+		changeFrequency: "monthly",
+		priority: 0.6,
+	};
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
 	const now = new Date();
+
+	const lucideIconEntries = LUCIDE_ICON_LIST.map((i) => iconEntry("lucide", i));
+	const hugeIconEntries = HUGE_ICON_LIST.map((i) => iconEntry("huge", i));
 
 	return [
 		{
@@ -47,5 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "monthly",
 			priority: 0.7,
 		},
+		...lucideIconEntries,
+		...hugeIconEntries,
 	];
 }

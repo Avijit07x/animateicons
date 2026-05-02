@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CommandSearchTrigger from "./command-search/CommandSearchTrigger";
 import NavbarActions from "./NavbarActions";
 import { Separator } from "./ui/separator";
 
@@ -31,6 +32,7 @@ const Navbar = () => {
 							>
 								Icons
 							</Link>
+							<CommandSearchTrigger />
 							<Separator
 								orientation="vertical"
 								className="hidden h-4! w-1 md:flex"
