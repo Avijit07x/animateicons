@@ -1,30 +1,31 @@
 /**
  * Per-icon Open Graph image generator.
  *
- * Next.js auto-wires this file: visiting /icons/lucide/bell-ring's
- * social meta produces /icons/lucide/bell-ring/opengraph-image as the
- * og:image URL. The image is rendered via Satori (next/og) at request
- * time and cached by the CDN.
+ * Visiting /icons/lucide/bell-ring's social meta produces this route as
+ * the og:image URL. The image is rendered via Satori (next/og) at
+ * request time and cached by the CDN per URL.
  *
- * For Lucide icons we render the matching component from lucide-react
- * inside the card so the social preview shows the actual icon glyph.
- * For Huge icons we don't have a matching static-SVG package, so we
- * fall back to a brand-led card with the icon name large — still
- * unique per URL, just without the glyph.
+ * Strategy for the glyph: instead of importing lucide-react (which has
+ * mismatched names like "Dashboard" → "LayoutDashboard" + ships ~250KB
+ * to the function), we read the project's own icon source file from
+ * disk and extract its `d="…"` path data with a regex. That guarantees
+ * every icon — including custom ones not in lucide-react — renders
+ * with its actual shape.
  *
- * Output: 1200×630 PNG, the standard OG card size (Twitter / LinkedIn /
- * Slack / Discord / iMessage all crop to this aspect).
+ * Strategy for the brand: read public/logo.svg as base64 so the OG
+ * shows the real AnimateIcons mark instead of a generic "A" placeholder.
+ *
+ * Output: 1200×630 PNG.
  */
 
+import fs from "node:fs/promises";
+import path from "node:path";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { ImageResponse } from "next/og";
-import * as Lucide from "lucide-react";
 
-// Node runtime instead of edge — `import * as Lucide` pulls every
-// lucide-react icon, which exceeds Vercel's 1MB edge function limit.
-// Node functions on Vercel allow up to 50MB. The OG image is cached
-// by the CDN per URL, so the slower cold start is paid once.
+// Node runtime — `fs` access for icon source + logo, plus larger size
+// budget than edge (50MB on Vercel Hobby).
 export const runtime = "nodejs";
 export const alt = "AnimateIcons";
 export const size = { width: 1200, height: 630 };
@@ -35,20 +36,116 @@ type LibraryKey = "lucide" | "huge";
 const isLibrary = (v: string): v is LibraryKey =>
 	v === "lucide" || v === "huge";
 
-/** "bell-ring" → "BellRing" for lucide-react export lookup. */
-const toPascalCase = (s: string): string =>
-	s
+const toComponentName = (s: string): string =>
+	`${s
 		.split("-")
 		.map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-		.join("");
-
-/** "bell-ring" → "BellRingIcon" — the AnimateIcons component name. */
-const toComponentName = (s: string): string => `${toPascalCase(s)}Icon`;
+		.join("")}Icon`;
 
 const PRIMARY = "#f45b48";
 const BG = "#0b0b0b";
 const TEXT = "#e5e7eb";
 const SUBTLE = "#7c7c7c";
+
+/** Every SVG shape primitive an AnimateIcons source might use. Some
+ *  icons are pure `<path>`, others mix `<circle>`, `<rect>`, `<line>`,
+ *  `<ellipse>`, `<polyline>`, `<polygon>` — all need to be picked up. */
+const SHAPE_TAGS = [
+	"path",
+	"circle",
+	"rect",
+	"line",
+	"ellipse",
+	"polyline",
+	"polygon",
+] as const;
+type ShapeTag = (typeof SHAPE_TAGS)[number];
+
+/** Whitelist of standard SVG presentation attrs we forward to the OG.
+ *  Keeps motion-specific props (variants/animate/initial/transition)
+ *  from leaking into Satori's render. */
+const VALID_ATTRS = new Set([
+	"d",
+	"cx",
+	"cy",
+	"r",
+	"rx",
+	"ry",
+	"x",
+	"y",
+	"x1",
+	"y1",
+	"x2",
+	"y2",
+	"width",
+	"height",
+	"points",
+	"transform",
+	"opacity",
+	"fill",
+	"stroke",
+	"strokeWidth",
+	"strokeLinecap",
+	"strokeLinejoin",
+]);
+
+type Shape = { tag: ShapeTag; attrs: Record<string, string> };
+
+/** Read the icon source file and extract every shape primitive plus
+ *  its attributes. Handles `<path>`, `<motion.path>`, and the rest. */
+const readIconShapes = async (
+	library: LibraryKey,
+	name: string,
+): Promise<Shape[]> => {
+	try {
+		const filePath = path.join(
+			process.cwd(),
+			"icons",
+			library,
+			`${name}-icon.tsx`,
+		);
+		const source = await fs.readFile(filePath, "utf8");
+
+		const tagPattern = SHAPE_TAGS.join("|");
+		const elementRe = new RegExp(
+			`<(?:motion\\.)?(${tagPattern})\\b([^>]*?)/?>`,
+			"g",
+		);
+		const attrRe =
+			/(\w+)=(?:"([^"]*)"|'([^']*)'|\{\s*["']([^"']+)["']\s*\})/g;
+
+		const shapes: Shape[] = [];
+		for (const elMatch of source.matchAll(elementRe)) {
+			const tag = elMatch[1] as ShapeTag;
+			const attrsStr = elMatch[2] ?? "";
+			const attrs: Record<string, string> = {};
+			for (const aMatch of attrsStr.matchAll(attrRe)) {
+				const [, key, dq, sq, expr] = aMatch;
+				if (!VALID_ATTRS.has(key)) continue;
+				attrs[key] = dq ?? sq ?? expr ?? "";
+			}
+			// Skip shapes with no useful geometry — e.g., `<motion.path variants={...} />`
+			// without a `d` attribute, or `<circle>` with no cx/cy.
+			if (Object.keys(attrs).length === 0) continue;
+			shapes.push({ tag, attrs });
+		}
+		return shapes;
+	} catch {
+		return [];
+	}
+};
+
+/** Read /public/logo.svg as a base64 data URL. Returns null if the
+ *  file is missing so the OG card still renders without it. */
+const readLogoDataUrl = async (): Promise<string | null> => {
+	try {
+		const filePath = path.join(process.cwd(), "public", "logo.svg");
+		const buf = await fs.readFile(filePath);
+		return `data:image/svg+xml;base64,${buf.toString("base64")}`;
+	} catch {
+		return null;
+	}
+};
 
 export default async function OGImage({
 	params,
@@ -57,8 +154,6 @@ export default async function OGImage({
 }) {
 	const { library, name } = await params;
 
-	// Validate the icon exists; otherwise render a generic AnimateIcons
-	// card so we never serve a broken OG image.
 	const validLibrary = isLibrary(library) ? library : null;
 	const list =
 		validLibrary === "lucide"
@@ -76,23 +171,12 @@ export default async function OGImage({
 				? "Huge"
 				: "";
 
-	// Pull the matching glyph from lucide-react when applicable.
-	let GlyphComponent: React.ComponentType<{
-		size?: number;
-		color?: string;
-		strokeWidth?: number;
-	}> | null = null;
-	if (validLibrary === "lucide" && item) {
-		const exportKey = toPascalCase(item.name);
-		const candidate = (Lucide as Record<string, unknown>)[exportKey];
-		if (typeof candidate === "function" || typeof candidate === "object") {
-			GlyphComponent = candidate as React.ComponentType<{
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			}>;
-		}
-	}
+	const [iconShapes, logoDataUrl] = await Promise.all([
+		validLibrary && item
+			? readIconShapes(validLibrary, name)
+			: Promise.resolve([] as Shape[]),
+		readLogoDataUrl(),
+	]);
 
 	return new ImageResponse(
 		(
@@ -109,7 +193,7 @@ export default async function OGImage({
 					color: TEXT,
 				}}
 			>
-				{/* Top brand row */}
+				{/* Brand row */}
 				<div
 					style={{
 						display: "flex",
@@ -120,22 +204,33 @@ export default async function OGImage({
 						letterSpacing: -0.3,
 					}}
 				>
-					<div
-						style={{
-							width: 40,
-							height: 40,
-							borderRadius: 10,
-							background: `linear-gradient(180deg, ${PRIMARY}, ${PRIMARY}cc)`,
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							color: "#ffffff",
-							fontWeight: 700,
-							fontSize: 22,
-						}}
-					>
-						A
-					</div>
+					{logoDataUrl ? (
+						// eslint-disable-next-line @next/next/no-img-element
+						<img
+							src={logoDataUrl}
+							width={44}
+							height={44}
+							alt=""
+							style={{ display: "block" }}
+						/>
+					) : (
+						<div
+							style={{
+								width: 44,
+								height: 44,
+								borderRadius: 10,
+								background: `linear-gradient(180deg, ${PRIMARY}, ${PRIMARY}cc)`,
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								color: "#ffffff",
+								fontWeight: 700,
+								fontSize: 22,
+							}}
+						>
+							A
+						</div>
+					)}
 					<span>AnimateIcons</span>
 				</div>
 
@@ -200,8 +295,8 @@ export default async function OGImage({
 						</p>
 					</div>
 
-					{/* Glyph card (lucide only) */}
-					{GlyphComponent && (
+					{/* Glyph card — uses the project's actual icon shapes from disk */}
+					{iconShapes.length > 0 && (
 						<div
 							style={{
 								display: "flex",
@@ -215,10 +310,25 @@ export default async function OGImage({
 									"linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
 								boxShadow:
 									"inset 0 1px 0 rgba(255,255,255,0.06), 0 30px 80px -30px rgba(0,0,0,0.6)",
-								color: PRIMARY,
 							}}
 						>
-							<GlyphComponent size={140} strokeWidth={1.6} />
+							<svg
+								width={140}
+								height={140}
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke={PRIMARY}
+								strokeWidth={1.6}
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
+								{iconShapes.map((shape, i) => {
+									// Render each captured shape with its attributes. Cast
+									// because TS can't narrow the dynamic tag → element map.
+									const Tag = shape.tag as React.ElementType;
+									return <Tag key={i} {...shape.attrs} />;
+								})}
+							</svg>
 						</div>
 					)}
 				</div>
