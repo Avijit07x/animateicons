@@ -21,7 +21,11 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { ImageResponse } from "next/og";
 import * as Lucide from "lucide-react";
 
-export const runtime = "edge";
+// Node runtime instead of edge — `import * as Lucide` pulls every
+// lucide-react icon, which exceeds Vercel's 1MB edge function limit.
+// Node functions on Vercel allow up to 50MB. The OG image is cached
+// by the CDN per URL, so the slower cold start is paid once.
+export const runtime = "nodejs";
 export const alt = "AnimateIcons";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

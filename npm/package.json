@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
