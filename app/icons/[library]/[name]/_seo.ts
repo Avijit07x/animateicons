@@ -51,19 +51,20 @@ export const buildIconMetadata = ({
 			...keywords,
 			`${libDisplay} animated icons`,
 		],
+		// Note: `images` is intentionally omitted here so Next.js picks
+		// up the per-icon `opengraph-image.tsx` co-located in this route.
+		// Setting `images` explicitly would override the dynamic OG.
 		openGraph: {
 			title,
 			description,
 			url,
 			siteName: "AnimateIcons",
 			type: "article",
-			images: ["/og.png"],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title,
 			description,
-			images: ["/og.png"],
 		},
 		alternates: {
 			canonical: `/icons/${library}/${name}`,
