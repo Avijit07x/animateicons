@@ -126,9 +126,7 @@ const NpmSection = async () => {
 						/>
 						<div className="border-border/40 text-textSecondary flex items-center justify-between gap-2 border-b px-3 py-2 text-[10px] tracking-wide uppercase sm:px-4 sm:text-[11px]">
 							<span>Usage</span>
-							<span className="text-textMuted truncate">
-								Notifications.tsx
-							</span>
+							<span className="text-textMuted truncate">Notifications.tsx</span>
 						</div>
 						<div
 							className={`overflow-x-auto px-3 py-3 text-xs leading-relaxed sm:px-4 sm:text-sm ${SHIKI_RESET}`}

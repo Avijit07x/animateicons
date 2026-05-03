@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -114,45 +120,47 @@ const MailsIcon = forwardRef<MailsIconHandle, MailsIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M17 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 1-1.732"
-      variants={outlineVariants}
-     />
-     <motion.path
-      d="m22 5.5-6.419 4.179a2 2 0 0 1-2.162 0L7 5.5"
-      variants={flapVariants}
-     />
-     <motion.rect
-      x="7"
-      y="3"
-      width="15"
-      height="12"
-      rx="2"
-      variants={outlineVariants}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+     >
+      <m.path
+       d="M17 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 1-1.732"
+       variants={outlineVariants}
+      />
+      <m.path
+       d="m22 5.5-6.419 4.179a2 2 0 0 1-2.162 0L7 5.5"
+       variants={flapVariants}
+      />
+      <m.rect
+       x="7"
+       y="3"
+       width="15"
+       height="12"
+       rx="2"
+       variants={outlineVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

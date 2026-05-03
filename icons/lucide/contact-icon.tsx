@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -112,67 +118,69 @@ const ContactIcon = forwardRef<ContactIconHandle, ContactIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-contact-icon lucide-contact"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M16 2v2"
-      variants={lineVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
-      strokeDasharray="30"
-      strokeDashoffset="0"
-      variants={curveVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M8 2v2"
-      variants={lineVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.circle
-      cx="12"
-      cy="11"
-      r="3"
-      variants={circleVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.rect
-      x="3"
-      y="4"
-      width="18"
-      height="18"
-      rx="2"
-      strokeDasharray="100"
-      strokeDashoffset="0"
-      variants={rectVariants}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-contact-icon lucide-contact"
+     >
+      <m.path
+       d="M16 2v2"
+       variants={lineVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
+       strokeDasharray="30"
+       strokeDashoffset="0"
+       variants={curveVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M8 2v2"
+       variants={lineVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.circle
+       cx="12"
+       cy="11"
+       r="3"
+       variants={circleVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       x="3"
+       y="4"
+       width="18"
+       height="18"
+       rx="2"
+       strokeDasharray="100"
+       strokeDashoffset="0"
+       variants={rectVariants}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

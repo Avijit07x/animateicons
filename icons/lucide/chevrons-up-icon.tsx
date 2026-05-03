@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -104,38 +110,40 @@ const ChevronsUpIcon = forwardRef<ChevronsUpIconHandle, ChevronsUpIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth={2}
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="m17 11-5-5-5 5"
-      variants={leadingChevron}
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
       stroke="currentColor"
-     />
-     <motion.path
-      d="m17 18-5-5-5 5"
-      variants={trailingChevron}
-      stroke="currentColor"
-     />
-    </motion.svg>
-   </motion.div>
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.path
+       d="m17 11-5-5-5 5"
+       variants={leadingChevron}
+       stroke="currentColor"
+      />
+      <m.path
+       d="m17 18-5-5-5 5"
+       variants={trailingChevron}
+       stroke="currentColor"
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

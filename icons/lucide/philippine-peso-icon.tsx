@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -128,57 +134,59 @@ const PhilippinePesoIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
-     className="lucide lucide-philippine-peso-icon lucide-philippine-peso"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <g opacity={0.35}>
-      <path d="M20 11H4" />
-      <path d="M20 7H4" />
-      <path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7" />
-     </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+      className="lucide lucide-philippine-peso-icon lucide-philippine-peso"
+     >
+      <g opacity={0.35}>
+       <path d="M20 11H4" />
+       <path d="M20 7H4" />
+       <path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7" />
+      </g>
 
-     <motion.path
-      d="M20 7H4"
-      pathLength={1}
-      variants={topStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M20 11H4"
-      pathLength={1}
-      variants={midStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7"
-      pathLength={1}
-      variants={pStroke}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M20 7H4"
+       pathLength={1}
+       variants={topStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M20 11H4"
+       pathLength={1}
+       variants={midStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7"
+       pathLength={1}
+       variants={pStroke}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -107,58 +113,54 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={controls}
-     variants={containerVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M12 3V9H9C7.34315 9 6 7.65685 6 6C6 4.34315 7.34315 3 9 3H12Z"
-      variants={segmentVariants}
-      custom={0}
-     />
+     <m.svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+      initial="normal"
+      animate={controls}
+      variants={containerVariants}
+     >
+      <m.path
+       d="M12 3V9H9C7.34315 9 6 7.65685 6 6C6 4.34315 7.34315 3 9 3H12Z"
+       variants={segmentVariants}
+       custom={0}
+      />
 
-     <motion.path
-      d="M12 3V9H15C16.6569 9 18 7.65685 18 6C18 4.34315 16.6569 3 15 3H12Z"
-      variants={segmentVariants}
-      custom={1}
-     />
+      <m.path
+       d="M12 3V9H15C16.6569 9 18 7.65685 18 6C18 4.34315 16.6569 3 15 3H12Z"
+       variants={segmentVariants}
+       custom={1}
+      />
 
-     <motion.path
-      d="M12 9V15H9C7.34315 15 6 13.6569 6 12C6 10.3431 7.34315 9 9 9H12Z"
-      variants={segmentVariants}
-      custom={2}
-     />
+      <m.path
+       d="M12 9V15H9C7.34315 15 6 13.6569 6 12C6 10.3431 7.34315 9 9 9H12Z"
+       variants={segmentVariants}
+       custom={2}
+      />
 
-     <motion.path
-      d="M9 21C10.6569 21 12 19.6569 12 18V15H9C7.34315 15 6 16.3431 6 18C6 19.6569 7.34315 21 9 21Z"
-      variants={segmentVariants}
-      custom={3}
-     />
+      <m.path
+       d="M9 21C10.6569 21 12 19.6569 12 18V15H9C7.34315 15 6 16.3431 6 18C6 19.6569 7.34315 21 9 21Z"
+       variants={segmentVariants}
+       custom={3}
+      />
 
-     <motion.circle
-      cx="15"
-      cy="12"
-      r="3"
-      variants={segmentVariants}
-      custom={4}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.circle cx="15" cy="12" r="3" variants={segmentVariants} custom={4} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

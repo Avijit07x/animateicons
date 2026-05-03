@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -125,57 +131,59 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
-     className="lucide lucide-swiss-franc-icon lucide-swiss-franc"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <g opacity={0.35}>
-      <path d="M10 21V3h8" />
-      <path d="M6 16h9" />
-      <path d="M10 9.5h7" />
-     </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+      className="lucide lucide-swiss-franc-icon lucide-swiss-franc"
+     >
+      <g opacity={0.35}>
+       <path d="M10 21V3h8" />
+       <path d="M6 16h9" />
+       <path d="M10 9.5h7" />
+      </g>
 
-     <motion.path
-      d="M10 21V3h8"
-      pathLength={1}
-      variants={mainStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M10 9.5h7"
-      pathLength={1}
-      variants={topStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M6 16h9"
-      pathLength={1}
-      variants={midStroke}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M10 21V3h8"
+       pathLength={1}
+       variants={mainStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M10 9.5h7"
+       pathLength={1}
+       variants={topStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M6 16h9"
+       pathLength={1}
+       variants={midStroke}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -57,9 +57,7 @@ const CommandSearchTrigger: React.FC = () => {
 				<path d="m21 21-4.3-4.3" />
 			</svg>
 			<span className="hidden sm:inline">Search icons</span>
-			<Kbd className="hidden sm:inline-flex">
-				{isMac ? "⌘K" : "Ctrl K"}
-			</Kbd>
+			<Kbd className="hidden sm:inline-flex">{isMac ? "⌘K" : "Ctrl K"}</Kbd>
 		</button>
 	);
 };

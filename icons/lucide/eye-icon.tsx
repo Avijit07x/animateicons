@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -118,44 +124,46 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth={2}
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-      animate={eyeControls}
-      initial="open"
-      variants={eyeVariants}
-      style={{
-       transformBox: "fill-box",
-       transformOrigin: "center",
-      }}
-     />
-     <motion.circle
-      cx="12"
-      cy="12"
-      r="3"
-      animate={pupilControls}
-      initial="center"
-      variants={pupilVariants}
-     />
-    </svg>
-   </motion.div>
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+       animate={eyeControls}
+       initial="open"
+       variants={eyeVariants}
+       style={{
+        transformBox: "fill-box",
+        transformOrigin: "center",
+       }}
+      />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="3"
+       animate={pupilControls}
+       initial="center"
+       variants={pupilVariants}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

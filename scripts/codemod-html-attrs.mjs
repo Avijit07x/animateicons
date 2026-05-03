@@ -87,8 +87,7 @@ const transform = (source) => {
 			// the existing react value import.
 			out = out.replace(
 				reactValueImportRe,
-				(line) =>
-					`${line}\nimport type { HTMLAttributes } from "react";`,
+				(line) => `${line}\nimport type { HTMLAttributes } from "react";`,
 			);
 		} else {
 			out = `import type { HTMLAttributes } from "react";\n${out}`;

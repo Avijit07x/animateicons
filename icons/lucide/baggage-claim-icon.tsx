@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -124,47 +130,42 @@ const BaggageClaimIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={controls}
-     variants={iconVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2"
-      variants={beltVariants}
-     />
-     <motion.path
-      d="M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10"
-      variants={bagVariants}
-     />
-     <motion.rect
-      width="13"
-      height="8"
-      x="8"
-      y="6"
-      rx="1"
-      variants={bagVariants}
-     />
-     <motion.circle cx="18" cy="20" r="2" variants={wheelVariants} />
-     <motion.circle cx="9" cy="20" r="2" variants={wheelVariants} />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      initial="normal"
+      animate={controls}
+      variants={iconVariants}
+     >
+      <m.path
+       d="M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2"
+       variants={beltVariants}
+      />
+      <m.path
+       d="M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10"
+       variants={bagVariants}
+      />
+      <m.rect width="13" height="8" x="8" y="6" rx="1" variants={bagVariants} />
+      <m.circle cx="18" cy="20" r="2" variants={wheelVariants} />
+      <m.circle cx="9" cy="20" r="2" variants={wheelVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

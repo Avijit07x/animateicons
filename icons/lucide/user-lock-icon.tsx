@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -92,56 +98,58 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="10"
-      cy="7"
-      r="4"
-      variants={headBodyVariants}
-      animate={controls}
-      initial="normal"
-     />
-     <motion.path
-      d="M10.3 15H7a4 4 0 0 0-4 4v2"
-      variants={headBodyVariants}
-      animate={controls}
-      initial="normal"
-     />
-     <motion.path
-      d="M15 15.5V14a2 2 0 0 1 4 0v1.5"
-      variants={lockVariants}
-      animate={controls}
-      initial="normal"
-     />
-     <motion.rect
-      width="8"
-      height="5"
-      x="13"
-      y="16"
-      rx=".899"
-      variants={lockVariants}
-      animate={controls}
-      initial="normal"
-     />
-    </svg>
-   </motion.div>
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.circle
+       cx="10"
+       cy="7"
+       r="4"
+       variants={headBodyVariants}
+       animate={controls}
+       initial="normal"
+      />
+      <m.path
+       d="M10.3 15H7a4 4 0 0 0-4 4v2"
+       variants={headBodyVariants}
+       animate={controls}
+       initial="normal"
+      />
+      <m.path
+       d="M15 15.5V14a2 2 0 0 1 4 0v1.5"
+       variants={lockVariants}
+       animate={controls}
+       initial="normal"
+      />
+      <m.rect
+       width="8"
+       height="5"
+       x="13"
+       y="16"
+       rx=".899"
+       variants={lockVariants}
+       animate={controls}
+       initial="normal"
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

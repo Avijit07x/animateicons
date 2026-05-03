@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -144,63 +150,65 @@ const HandCoinsIcon = forwardRef<HandCoinsIconHandle, HandCoinsIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={groupControls}
-     variants={groupVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       initial="normal"
-      animate={handControls}
-      variants={handVariants}
-     />
-     <motion.path
-      d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"
-      initial="normal"
-      animate={handControls}
-      variants={handVariants}
-     />
-     <motion.path
-      d="m2 16 6 6"
-      initial="normal"
-      animate={handControls}
-      variants={handVariants}
-     />
-     <motion.circle
-      cx="16"
-      cy="9"
-      r="2.9"
-      initial="normal"
-      animate={coinsControls}
-      variants={coinsVariants}
-     />
-     <motion.circle
-      cx="6"
-      cy="5"
-      r="3"
-      initial="normal"
-      animate={coinsControls}
-      variants={coinsVariants}
-     />
-    </motion.svg>
-   </motion.div>
+      animate={groupControls}
+      variants={groupVariants}
+     >
+      <m.path
+       d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"
+       initial="normal"
+       animate={handControls}
+       variants={handVariants}
+      />
+      <m.path
+       d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"
+       initial="normal"
+       animate={handControls}
+       variants={handVariants}
+      />
+      <m.path
+       d="m2 16 6 6"
+       initial="normal"
+       animate={handControls}
+       variants={handVariants}
+      />
+      <m.circle
+       cx="16"
+       cy="9"
+       r="2.9"
+       initial="normal"
+       animate={coinsControls}
+       variants={coinsVariants}
+      />
+      <m.circle
+       cx="6"
+       cy="5"
+       r="3"
+       initial="normal"
+       animate={coinsControls}
+       variants={coinsVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

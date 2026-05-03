@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -88,45 +94,47 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
-     <path d="M2 12h8.5" />
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
+      <path d="M2 12h8.5" />
 
-     <motion.path
-      d="M20 6V4a2 2 0 1 0-4 0v2"
-      variants={lockVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.rect
-      width="8"
-      height="5"
-      x="14"
-      y="6"
-      rx="1"
-      variants={lockVariants}
-      initial="normal"
-      animate={controls}
-     />
-    </svg>
-   </motion.div>
+      <m.path
+       d="M20 6V4a2 2 0 1 0-4 0v2"
+       variants={lockVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="8"
+       height="5"
+       x="14"
+       y="6"
+       rx="1"
+       variants={lockVariants}
+       initial="normal"
+       animate={controls}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -126,53 +132,51 @@ const KeyRoundIcon = forwardRef<KeyRoundIconHandle, KeyRoundIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-key-round-icon lucide-key-round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={groupSway} initial="normal" animate={controls}>
-      <motion.path
-       d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
-       strokeDasharray="140"
-       strokeDashoffset="140"
-       variants={keyPathVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.g
-       variants={biteNudgeVariants}
-       initial="normal"
-       animate={controls}
-      >
-       <motion.path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172" />
-      </motion.g>
-      <motion.circle
-       cx="16.5"
-       cy="7.5"
-       r=".5"
-       fill="currentColor"
-       variants={headPulseVariants}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-key-round-icon lucide-key-round"
+     >
+      <m.g variants={groupSway} initial="normal" animate={controls}>
+       <m.path
+        d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
+        strokeDasharray="140"
+        strokeDashoffset="140"
+        variants={keyPathVariants}
+        initial="normal"
+        animate={controls}
+       />
+       <m.g variants={biteNudgeVariants} initial="normal" animate={controls}>
+        <m.path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172" />
+       </m.g>
+       <m.circle
+        cx="16.5"
+        cy="7.5"
+        r=".5"
+        fill="currentColor"
+        variants={headPulseVariants}
+        initial="normal"
+        animate={controls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

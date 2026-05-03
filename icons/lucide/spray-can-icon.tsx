@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -108,43 +114,45 @@ const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
   ];
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     {sprayDots.map((d, i) => (
-      <motion.path
-       key={i}
-       d={d}
-       variants={sprayVariants}
-       custom={i}
-       animate={controls}
-       initial="normal"
-      />
-     ))}
-     <rect width="4" height="4" x="15" y="5" />
-     <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2" />
-     <path d="m13 14 8-2" />
-     <path d="m13 19 8-2" />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+     >
+      {sprayDots.map((d, i) => (
+       <m.path
+        key={i}
+        d={d}
+        variants={sprayVariants}
+        custom={i}
+        animate={controls}
+        initial="normal"
+       />
+      ))}
+      <rect width="4" height="4" x="15" y="5" />
+      <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2" />
+      <path d="m13 14 8-2" />
+      <path d="m13 19 8-2" />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

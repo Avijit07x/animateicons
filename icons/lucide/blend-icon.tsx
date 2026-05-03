@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -123,51 +129,53 @@ const BlendIcon = forwardRef<BlendIconHandle, BlendIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-blend-icon lucide-blend"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={groupVariants} initial="normal" animate={controls}>
-      <motion.circle
-       cx="9"
-       cy="9"
-       r="7"
-       strokeDasharray="48"
-       strokeDashoffset="48"
-       variants={leftCircle}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.g variants={overlapPulse} initial="normal" animate={controls}>
-       <motion.circle
-        cx="15"
-        cy="15"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-blend-icon lucide-blend"
+     >
+      <m.g variants={groupVariants} initial="normal" animate={controls}>
+       <m.circle
+        cx="9"
+        cy="9"
         r="7"
         strokeDasharray="48"
         strokeDashoffset="48"
-        variants={rightCircle}
+        variants={leftCircle}
         initial="normal"
         animate={controls}
        />
-      </motion.g>
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.g variants={overlapPulse} initial="normal" animate={controls}>
+        <m.circle
+         cx="15"
+         cy="15"
+         r="7"
+         strokeDasharray="48"
+         strokeDashoffset="48"
+         variants={rightCircle}
+         initial="normal"
+         animate={controls}
+        />
+       </m.g>
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

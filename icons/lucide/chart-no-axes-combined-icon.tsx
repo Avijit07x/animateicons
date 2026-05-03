@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -140,65 +146,67 @@ const ChartNoAxesCombinedIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={groupControls}
-     variants={groupVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M12 16v5"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       initial="normal"
-      animate={barsControls}
-      variants={barVariant(0)}
-     />
-     <motion.path
-      d="M16 14v7"
-      initial="normal"
-      animate={barsControls}
-      variants={barVariant(0.06)}
-     />
-     <motion.path
-      d="M20 10v11"
-      initial="normal"
-      animate={barsControls}
-      variants={barVariant(0.12)}
-     />
-     <motion.path
-      d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"
-      initial="normal"
-      animate={lineControls}
-      variants={lineVariants}
-     />
-     <motion.path
-      d="M4 18v3"
-      initial="normal"
-      animate={barsControls}
-      variants={barVariant(0.18)}
-     />
-     <motion.path
-      d="M8 14v7"
-      initial="normal"
-      animate={barsControls}
-      variants={barVariant(0.24)}
-     />
-    </motion.svg>
-   </motion.div>
+      animate={groupControls}
+      variants={groupVariants}
+     >
+      <m.path
+       d="M12 16v5"
+       initial="normal"
+       animate={barsControls}
+       variants={barVariant(0)}
+      />
+      <m.path
+       d="M16 14v7"
+       initial="normal"
+       animate={barsControls}
+       variants={barVariant(0.06)}
+      />
+      <m.path
+       d="M20 10v11"
+       initial="normal"
+       animate={barsControls}
+       variants={barVariant(0.12)}
+      />
+      <m.path
+       d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"
+       initial="normal"
+       animate={lineControls}
+       variants={lineVariants}
+      />
+      <m.path
+       d="M4 18v3"
+       initial="normal"
+       animate={barsControls}
+       variants={barVariant(0.18)}
+      />
+      <m.path
+       d="M8 14v7"
+       initial="normal"
+       animate={barsControls}
+       variants={barVariant(0.24)}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

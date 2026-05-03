@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -143,51 +149,53 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-      initial="normal"
-      animate={outerControls}
-      variants={outerVariants}
-      style={{ strokeDasharray: 260, transformOrigin: "12px 12px" }}
-     />
-     <motion.path
-      d="M12 7v10"
-      initial="normal"
-      animate={lineControls}
-      variants={lineVariants}
-      style={{
-       strokeDasharray: 16,
-       strokeLinecap: "round",
-       transformOrigin: "12px 12px",
-      }}
-     />
-     <motion.path
-      d="M15.4 10a4 4 0 1 0 0 4"
-      initial="normal"
-      animate={semiControls}
-      variants={semiVariants}
-      style={{ strokeDasharray: 80, strokeLinecap: "round" }}
-     />
-    </svg>
-   </motion.div>
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+       initial="normal"
+       animate={outerControls}
+       variants={outerVariants}
+       style={{ strokeDasharray: 260, transformOrigin: "12px 12px" }}
+      />
+      <m.path
+       d="M12 7v10"
+       initial="normal"
+       animate={lineControls}
+       variants={lineVariants}
+       style={{
+        strokeDasharray: 16,
+        strokeLinecap: "round",
+        transformOrigin: "12px 12px",
+       }}
+      />
+      <m.path
+       d="M15.4 10a4 4 0 1 0 0 4"
+       initial="normal"
+       animate={semiControls}
+       variants={semiVariants}
+       style={{ strokeDasharray: 80, strokeLinecap: "round" }}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -46,8 +46,8 @@ export default function NotFound() {
 						</h1>
 					</div>
 					<p className="text-textSecondary max-w-xs text-sm leading-relaxed">
-						This page doesn't exist (or never did). Head back home or browse
-						the icon gallery.
+						This page doesn't exist (or never did). Head back home or browse the
+						icon gallery.
 					</p>
 				</div>
 

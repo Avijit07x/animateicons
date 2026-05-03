@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -112,37 +118,35 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M8 12h.01" variants={dot} custom={0} />
-     <motion.path d="M12 12h.01" variants={dot} custom={1} />
-     <motion.path d="M16 12h.01" variants={dot} custom={2} />
-     <motion.path d="m7 7-5 5 5 5" variants={leftArrow} stroke="currentColor" />
-     <motion.path
-      d="m17 7 5 5-5 5"
-      variants={rightArrow}
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
       stroke="currentColor"
-     />
-    </motion.svg>
-   </motion.div>
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.path d="M8 12h.01" variants={dot} custom={0} />
+      <m.path d="M12 12h.01" variants={dot} custom={1} />
+      <m.path d="M16 12h.01" variants={dot} custom={2} />
+      <m.path d="m7 7-5 5 5 5" variants={leftArrow} stroke="currentColor" />
+      <m.path d="m17 7 5 5-5 5" variants={rightArrow} stroke="currentColor" />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

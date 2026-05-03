@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -115,41 +121,43 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M10 10v4" variants={barVariants} custom={0} />
-     <motion.path d="M14 10v4" variants={barVariants} custom={1} />
-     <motion.path d="M6 10v4" variants={barVariants} custom={2} />
-     <motion.rect
-      x="2"
-      y="6"
-      width="16"
-      height="12"
-      rx="2"
-      variants={rectVariants}
-     />
-     <motion.path d="M22 14v-4" variants={rectVariants} />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+     >
+      <m.path d="M10 10v4" variants={barVariants} custom={0} />
+      <m.path d="M14 10v4" variants={barVariants} custom={1} />
+      <m.path d="M6 10v4" variants={barVariants} custom={2} />
+      <m.rect
+       x="2"
+       y="6"
+       width="16"
+       height="12"
+       rx="2"
+       variants={rectVariants}
+      />
+      <m.path d="M22 14v-4" variants={rectVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

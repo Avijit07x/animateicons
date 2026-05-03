@@ -69,7 +69,9 @@ const findRelatedIcons = (
 			continue;
 		// More shared tokens = higher relevance.
 		const candTokens = candidate.name.split("-");
-		const sharedTokens = candTokens.filter((t) => baseTokens.includes(t)).length;
+		const sharedTokens = candTokens.filter((t) =>
+			baseTokens.includes(t),
+		).length;
 		scored.push({ item: candidate, score: sharedTokens });
 	}
 	scored.sort((a, b) => b.score - a.score);
@@ -157,10 +159,7 @@ const Page = async ({ params }: Props) => {
 					aria-label="Breadcrumb"
 					className="text-textSecondary flex flex-wrap items-center gap-1.5 text-xs"
 				>
-					<Link
-						href="/"
-						className="hover:text-textPrimary transition-colors"
-					>
+					<Link href="/" className="hover:text-textPrimary transition-colors">
 						Home
 					</Link>
 					<span>/</span>

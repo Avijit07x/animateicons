@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -191,71 +197,73 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth={2}
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={groupControls}
-     variants={groupVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M12 20h.01"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
       initial="normal"
-      animate={dotControls}
-      variants={dotVariants}
-     />
-     <motion.path
-      d="M8.5 16.429a5 5 0 0 1 7 0"
-      initial="normal"
-      animate={arcSmallControls}
-      variants={arcSmallVariants}
-     />
-     <motion.path
-      d="M5 12.859a10 10 0 0 1 5.17-2.69"
-      initial="normal"
-      animate={arcMidControls}
-      variants={arcMidVariants}
-     />
-     <motion.path
-      d="M19 12.859a10 10 0 0 0-2.007-1.523"
-      initial="normal"
-      animate={arcMidControls}
-      variants={arcMidVariants}
-     />
-     <motion.path
-      d="M2 8.82a15 15 0 0 1 4.177-2.643"
-      initial="normal"
-      animate={arcLargeControls}
-      variants={arcLargeVariants}
-     />
-     <motion.path
-      d="M22 8.82a15 15 0 0 0-11.288-3.764"
-      initial="normal"
-      animate={arcLargeControls}
-      variants={arcLargeVariants}
-     />
-     <motion.path
-      d="m2 2 20 20"
-      initial="normal"
-      animate={slashControls}
-      variants={slashVariants}
-     />
-    </motion.svg>
-   </motion.div>
+      animate={groupControls}
+      variants={groupVariants}
+     >
+      <m.path
+       d="M12 20h.01"
+       initial="normal"
+       animate={dotControls}
+       variants={dotVariants}
+      />
+      <m.path
+       d="M8.5 16.429a5 5 0 0 1 7 0"
+       initial="normal"
+       animate={arcSmallControls}
+       variants={arcSmallVariants}
+      />
+      <m.path
+       d="M5 12.859a10 10 0 0 1 5.17-2.69"
+       initial="normal"
+       animate={arcMidControls}
+       variants={arcMidVariants}
+      />
+      <m.path
+       d="M19 12.859a10 10 0 0 0-2.007-1.523"
+       initial="normal"
+       animate={arcMidControls}
+       variants={arcMidVariants}
+      />
+      <m.path
+       d="M2 8.82a15 15 0 0 1 4.177-2.643"
+       initial="normal"
+       animate={arcLargeControls}
+       variants={arcLargeVariants}
+      />
+      <m.path
+       d="M22 8.82a15 15 0 0 0-11.288-3.764"
+       initial="normal"
+       animate={arcLargeControls}
+       variants={arcLargeVariants}
+      />
+      <m.path
+       d="m2 2 20 20"
+       initial="normal"
+       animate={slashControls}
+       variants={slashVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

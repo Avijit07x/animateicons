@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -125,51 +131,49 @@ const ListChevronsUpDownIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth={2}
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M3 5h8" variants={lineVariant} stroke="currentColor" />
-     <motion.path
-      d="M3 12h8"
-      variants={lineVariant}
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
       stroke="currentColor"
-      transition={{ delay: 0.06 }}
-     />
-     <motion.path
-      d="M3 19h8"
-      variants={lineVariant}
-      stroke="currentColor"
-      transition={{ delay: 0.12 }}
-     />
-     <motion.path
-      d="m15 8 3-3 3 3"
-      variants={topChevron}
-      stroke="currentColor"
-     />
-     <motion.path
-      d="m15 16 3 3 3-3"
-      variants={bottomChevron}
-      stroke="currentColor"
-     />
-    </motion.svg>
-   </motion.div>
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.path d="M3 5h8" variants={lineVariant} stroke="currentColor" />
+      <m.path
+       d="M3 12h8"
+       variants={lineVariant}
+       stroke="currentColor"
+       transition={{ delay: 0.06 }}
+      />
+      <m.path
+       d="M3 19h8"
+       variants={lineVariant}
+       stroke="currentColor"
+       transition={{ delay: 0.12 }}
+      />
+      <m.path d="m15 8 3-3 3 3" variants={topChevron} stroke="currentColor" />
+      <m.path
+       d="m15 16 3 3 3-3"
+       variants={bottomChevron}
+       stroke="currentColor"
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

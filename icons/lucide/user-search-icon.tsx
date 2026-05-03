@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -110,47 +116,49 @@ const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-user-search-icon lucide-user-search"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="10"
-      cy="7"
-      r="4"
-      variants={headVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M10.3 15H7a4 4 0 0 0-4 4v2"
-      strokeDasharray="40"
-      strokeDashoffset="40"
-      variants={bodyVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.g variants={searchVariants} initial="normal" animate={controls}>
-      <motion.circle cx="17" cy="17" r="3" />
-      <motion.path d="m21 21-1.9-1.9" />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-user-search-icon lucide-user-search"
+     >
+      <m.circle
+       cx="10"
+       cy="7"
+       r="4"
+       variants={headVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M10.3 15H7a4 4 0 0 0-4 4v2"
+       strokeDasharray="40"
+       strokeDashoffset="40"
+       variants={bodyVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.g variants={searchVariants} initial="normal" animate={controls}>
+       <m.circle cx="17" cy="17" r="3" />
+       <m.path d="m21 21-1.9-1.9" />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

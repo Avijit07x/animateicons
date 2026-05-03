@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -108,41 +114,43 @@ const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
    },
   };
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-      initial="normal"
-      animate={pathControls}
-      variants={pathVariants}
-      style={{ strokeDasharray: 120, strokeLinecap: "round" }}
-     />
-     <motion.circle
-      cx="12"
-      cy="10"
-      r="3"
-      initial="normal"
-      animate={circleControls}
-      variants={circleVariants}
-     />
-    </svg>
-   </motion.div>
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+       initial="normal"
+       animate={pathControls}
+       variants={pathVariants}
+       style={{ strokeDasharray: 120, strokeLinecap: "round" }}
+      />
+      <m.circle
+       cx="12"
+       cy="10"
+       r="3"
+       initial="normal"
+       animate={circleControls}
+       variants={circleVariants}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

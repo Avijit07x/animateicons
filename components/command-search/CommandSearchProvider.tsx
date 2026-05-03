@@ -80,6 +80,8 @@ export const CommandSearchProvider: React.FC<{
 export const useCommandSearch = (): Ctx => {
 	const ctx = useContext(CommandSearchContext);
 	if (!ctx)
-		throw new Error("useCommandSearch must be used inside CommandSearchProvider");
+		throw new Error(
+			"useCommandSearch must be used inside CommandSearchProvider",
+		);
 	return ctx;
 };

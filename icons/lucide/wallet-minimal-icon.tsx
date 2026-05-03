@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -136,72 +142,74 @@ const WalletMinimalIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-wallet-minimal-icon lucide-wallet-minimal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={wrapperVariants} initial="normal" animate={controls}>
-      <defs>
-       <linearGradient id="wm-shimmer" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-        <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
-        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-       </linearGradient>
-      </defs>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-wallet-minimal-icon lucide-wallet-minimal"
+     >
+      <m.g variants={wrapperVariants} initial="normal" animate={controls}>
+       <defs>
+        <linearGradient id="wm-shimmer" x1="0" x2="1" y1="0" y2="0">
+         <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+         <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
+         <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+        </linearGradient>
+       </defs>
 
-      <motion.path
-       d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"
-       strokeDasharray="120"
-       strokeDashoffset="120"
-       variants={outlineVariants}
-       initial="normal"
-       animate={controls}
-      />
+       <m.path
+        d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"
+        strokeDasharray="120"
+        strokeDashoffset="120"
+        variants={outlineVariants}
+        initial="normal"
+        animate={controls}
+       />
 
-      <motion.path
-       d="M17 14h.01"
-       variants={dotPopVariants}
-       initial="normal"
-       animate={controls}
-      />
+       <m.path
+        d="M17 14h.01"
+        variants={dotPopVariants}
+        initial="normal"
+        animate={controls}
+       />
 
-      <motion.path
-       d="M17 14h.01"
-       variants={latchSnapVariants}
-       initial="normal"
-       animate={controls}
-      />
+       <m.path
+        d="M17 14h.01"
+        variants={latchSnapVariants}
+        initial="normal"
+        animate={controls}
+       />
 
-      <motion.rect
-       x="2"
-       y="4"
-       width="20"
-       height="16"
-       rx="3"
-       fill="url(#wm-shimmer)"
-       variants={shimmerVariants}
-       initial="normal"
-       animate={controls}
-       style={{ pointerEvents: "none" }}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.rect
+        x="2"
+        y="4"
+        width="20"
+        height="16"
+        rx="3"
+        fill="url(#wm-shimmer)"
+        variants={shimmerVariants}
+        initial="normal"
+        animate={controls}
+        style={{ pointerEvents: "none" }}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

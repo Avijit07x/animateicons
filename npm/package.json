@@ -79,28 +79,28 @@
 	},
 	"size-limit": [
 		{
-			"name": "lucide (full barrel + motion bundled)",
+			"name": "lucide (full barrel + LazyMotion domMin)",
 			"path": "dist/lucide.js",
-			"limit": "120 kB",
+			"limit": "55 kB",
 			"ignore": [
 				"react",
 				"react-dom"
 			]
 		},
 		{
-			"name": "huge (full barrel + motion bundled)",
+			"name": "huge (full barrel + LazyMotion domMin)",
 			"path": "dist/huge.js",
-			"limit": "100 kB",
+			"limit": "40 kB",
 			"ignore": [
 				"react",
 				"react-dom"
 			]
 		},
 		{
-			"name": "single icon (motion bundled)",
+			"name": "single icon (LazyMotion domMin)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
-			"limit": "65 kB",
+			"limit": "50 kB",
 			"ignore": [
 				"react",
 				"react-dom"

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -122,44 +128,40 @@ const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={iconVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M16 8a6 6 0 0 1 6 6v7h-4v-7
-              a2 2 0 0 0-2-2 
-              2 2 0 0 0-2 2v7h-4v-7
-              a6 6 0 0 1 6-6z"
-      variants={mainPathVariants}
-     />
-     <motion.rect
-      width="4"
-      height="12"
-      x="2"
-      y="9"
-      variants={secondaryVariants}
-     />
-     <motion.circle cx="4" cy="4" r="2" variants={secondaryVariants} />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={iconVariants}
+     >
+      <m.path
+       d="M16 8a6 6 0 0 1 6 6v7h-4v-7
+	              a2 2 0 0 0-2-2 
+	              2 2 0 0 0-2 2v7h-4v-7
+	              a6 6 0 0 1 6-6z"
+       variants={mainPathVariants}
+      />
+      <m.rect width="4" height="12" x="2" y="9" variants={secondaryVariants} />
+      <m.circle cx="4" cy="4" r="2" variants={secondaryVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

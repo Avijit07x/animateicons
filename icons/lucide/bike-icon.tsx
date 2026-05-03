@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -122,62 +128,64 @@ const BikeIcon = forwardRef<BikeIconHandle, BikeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn(
-     "inline-flex items-center justify-center overflow-hidden",
-     className,
-    )}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={bikeVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn(
+      "inline-flex items-center justify-center overflow-hidden",
+      className,
+     )}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g
-      variants={wheelVariants}
-      style={{ transformOrigin: "5.5px 17.5px" }}
-      initial="normal"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       animate={controls}
-     >
-      <circle cx="5.5" cy="17.5" r="3.5" />
-     </motion.g>
-
-     <motion.g
-      variants={frontWheelVariants}
-      style={{ transformOrigin: "18.5px 17.5px" }}
       initial="normal"
-      animate={controls}
+      variants={bikeVariants}
      >
-      <circle cx="18.5" cy="17.5" r="3.5" />
-     </motion.g>
+      <m.g
+       variants={wheelVariants}
+       style={{ transformOrigin: "5.5px 17.5px" }}
+       initial="normal"
+       animate={controls}
+      >
+       <circle cx="5.5" cy="17.5" r="3.5" />
+      </m.g>
 
-     <motion.g
-      variants={pedalVariants}
-      style={{ transformOrigin: "12px 14px" }}
-      initial="normal"
-      animate={controls}
-     >
-      <circle cx="12" cy="14" r="0.8" />
-     </motion.g>
+      <m.g
+       variants={frontWheelVariants}
+       style={{ transformOrigin: "18.5px 17.5px" }}
+       initial="normal"
+       animate={controls}
+      >
+       <circle cx="18.5" cy="17.5" r="3.5" />
+      </m.g>
 
-     <circle cx="15" cy="5" r="1" />
+      <m.g
+       variants={pedalVariants}
+       style={{ transformOrigin: "12px 14px" }}
+       initial="normal"
+       animate={controls}
+      >
+       <circle cx="12" cy="14" r="0.8" />
+      </m.g>
 
-     <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
-    </motion.svg>
-   </motion.div>
+      <circle cx="15" cy="5" r="1" />
+
+      <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -116,63 +122,65 @@ const QrCodeIcon = forwardRef<QrCodeIconHandle, QrCodeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     variants={container}
-     initial="normal"
-     animate={controls}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.rect
-      width="5"
-      height="5"
-      x="3"
-      y="3"
-      rx="1"
-      variants={block(-2, -2)}
-     />
-     <motion.rect
-      width="5"
-      height="5"
-      x="16"
-      y="3"
-      rx="1"
-      variants={block(2, -2)}
-     />
-     <motion.rect
-      width="5"
-      height="5"
-      x="3"
-      y="16"
-      rx="1"
-      variants={block(-2, 2)}
-     />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      variants={container}
+      initial="normal"
+      animate={controls}
+     >
+      <m.rect
+       width="5"
+       height="5"
+       x="3"
+       y="3"
+       rx="1"
+       variants={block(-2, -2)}
+      />
+      <m.rect
+       width="5"
+       height="5"
+       x="16"
+       y="3"
+       rx="1"
+       variants={block(2, -2)}
+      />
+      <m.rect
+       width="5"
+       height="5"
+       x="3"
+       y="16"
+       rx="1"
+       variants={block(-2, 2)}
+      />
 
-     <motion.path d="M21 16h-3a2 2 0 0 0-2 2v3" variants={bit} />
-     <motion.path d="M21 21v.01" variants={bit} />
-     <motion.path d="M12 7v3a2 2 0 0 1-2 2H7" variants={bit} />
-     <motion.path d="M3 12h.01" variants={bit} />
-     <motion.path d="M12 3h.01" variants={bit} />
-     <motion.path d="M12 16v.01" variants={bit} />
-     <motion.path d="M16 12h1" variants={bit} />
-     <motion.path d="M21 12v.01" variants={bit} />
-     <motion.path d="M12 21v-1" variants={bit} />
-    </motion.svg>
-   </motion.div>
+      <m.path d="M21 16h-3a2 2 0 0 0-2 2v3" variants={bit} />
+      <m.path d="M21 21v.01" variants={bit} />
+      <m.path d="M12 7v3a2 2 0 0 1-2 2H7" variants={bit} />
+      <m.path d="M3 12h.01" variants={bit} />
+      <m.path d="M12 3h.01" variants={bit} />
+      <m.path d="M12 16v.01" variants={bit} />
+      <m.path d="M16 12h1" variants={bit} />
+      <m.path d="M21 12v.01" variants={bit} />
+      <m.path d="M12 21v-1" variants={bit} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

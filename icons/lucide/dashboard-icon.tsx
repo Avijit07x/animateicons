@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -101,73 +107,75 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={iconVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.rect
-      width="7"
-      height="9"
-      x="3"
-      y="3"
-      rx="1"
-      variants={tileVariants}
-      custom={0}
-      initial="normal"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       animate={controls}
-     />
-     <motion.rect
-      width="7"
-      height="5"
-      x="14"
-      y="3"
-      rx="1"
-      variants={tileVariants}
-      custom={1}
       initial="normal"
-      animate={controls}
-     />
-     <motion.rect
-      width="7"
-      height="9"
-      x="14"
-      y="12"
-      rx="1"
-      variants={tileVariants}
-      custom={2}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.rect
-      width="7"
-      height="5"
-      x="3"
-      y="16"
-      rx="1"
-      variants={tileVariants}
-      custom={3}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      variants={iconVariants}
+     >
+      <m.rect
+       width="7"
+       height="9"
+       x="3"
+       y="3"
+       rx="1"
+       variants={tileVariants}
+       custom={0}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="5"
+       x="14"
+       y="3"
+       rx="1"
+       variants={tileVariants}
+       custom={1}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="9"
+       x="14"
+       y="12"
+       rx="1"
+       variants={tileVariants}
+       custom={2}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="5"
+       x="3"
+       y="16"
+       rx="1"
+       variants={tileVariants}
+       custom={3}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

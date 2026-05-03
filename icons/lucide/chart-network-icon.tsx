@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -125,36 +131,38 @@ const ChartNetworkIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     variants={chartVariants}
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="m13.11 7.664 1.78 2.672" variants={pathVariants} />
-     <motion.path d="m14.162 12.788-3.324 1.424" variants={pathVariants} />
-     <motion.path d="m20 4-6.06 1.515" variants={pathVariants} />
-     <motion.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={pathVariants} />
-     <motion.circle cx="12" cy="6" r="2" variants={circleVariants} />
-     <motion.circle cx="16" cy="12" r="2" variants={circleVariants} />
-     <motion.circle cx="9" cy="15" r="2" variants={circleVariants} />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      variants={chartVariants}
+      animate={controls}
+      initial="normal"
+     >
+      <m.path d="m13.11 7.664 1.78 2.672" variants={pathVariants} />
+      <m.path d="m14.162 12.788-3.324 1.424" variants={pathVariants} />
+      <m.path d="m20 4-6.06 1.515" variants={pathVariants} />
+      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={pathVariants} />
+      <m.circle cx="12" cy="6" r="2" variants={circleVariants} />
+      <m.circle cx="16" cy="12" r="2" variants={circleVariants} />
+      <m.circle cx="9" cy="15" r="2" variants={circleVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

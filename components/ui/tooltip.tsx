@@ -58,7 +58,7 @@ function TooltipContent({
 				sideOffset={sideOffset}
 				className={cn(
 					"relative z-50 w-fit origin-(--radix-tooltip-content-transform-origin) overflow-hidden",
-					"rounded-full px-3 py-1 text-[11px] font-medium tracking-wide whitespace-nowrap text-balance",
+					"rounded-full px-3 py-1 text-[11px] font-medium tracking-wide text-balance whitespace-nowrap",
 					// Same recipe as the navbar pill toggles + Hero install picker.
 					"border-border/80 text-primary from-surface to-surfaceElevated border bg-gradient-to-b",
 					"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",

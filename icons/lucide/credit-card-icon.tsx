@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -146,56 +152,58 @@ const CreditCardIcon = forwardRef<CreditCardIconHandle, CreditCardIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-credit-card-icon lucide-credit-card"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={cardTilt} initial="normal" animate={controls}>
-      <motion.rect
-       width="20"
-       height="14"
-       x="2"
-       y="5"
-       rx="2"
-       variants={embossPulse}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.line
-       x1="2"
-       x2="22"
-       y1="10"
-       y2="10"
-       variants={stripeSlide}
-       initial="normal"
-       animate={stripeControls}
-      />
-      <motion.path
-       d="M5 15 H15"
-       stroke="currentColor"
-       strokeWidth="2"
-       variants={swipeLine}
-       initial="normal"
-       animate={swipeControls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-credit-card-icon lucide-credit-card"
+     >
+      <m.g variants={cardTilt} initial="normal" animate={controls}>
+       <m.rect
+        width="20"
+        height="14"
+        x="2"
+        y="5"
+        rx="2"
+        variants={embossPulse}
+        initial="normal"
+        animate={controls}
+       />
+       <m.line
+        x1="2"
+        x2="22"
+        y1="10"
+        y2="10"
+        variants={stripeSlide}
+        initial="normal"
+        animate={stripeControls}
+       />
+       <m.path
+        d="M5 15 H15"
+        stroke="currentColor"
+        strokeWidth="2"
+        variants={swipeLine}
+        initial="normal"
+        animate={swipeControls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

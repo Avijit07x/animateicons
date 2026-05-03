@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -125,57 +131,59 @@ const TurkishLiraIcon = forwardRef<TurkishLiraIconHandle, TurkishLiraIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
-     className="lucide lucide-turkish-lira-icon lucide-turkish-lira"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <g opacity={0.35}>
-      <path d="M15 4 5 9" />
-      <path d="m15 8.5-10 5" />
-      <path d="M18 12a9 9 0 0 1-9 9V3" />
-     </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+      className="lucide lucide-turkish-lira-icon lucide-turkish-lira"
+     >
+      <g opacity={0.35}>
+       <path d="M15 4 5 9" />
+       <path d="m15 8.5-10 5" />
+       <path d="M18 12a9 9 0 0 1-9 9V3" />
+      </g>
 
-     <motion.path
-      d="M15 4 5 9"
-      pathLength={1}
-      variants={topSlash}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="m15 8.5-10 5"
-      pathLength={1}
-      variants={midSlash}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M18 12a9 9 0 0 1-9 9V3"
-      pathLength={1}
-      variants={mainStroke}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M15 4 5 9"
+       pathLength={1}
+       variants={topSlash}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="m15 8.5-10 5"
+       pathLength={1}
+       variants={midSlash}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M18 12a9 9 0 0 1-9 9V3"
+       pathLength={1}
+       variants={mainStroke}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

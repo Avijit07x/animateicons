@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Transition, Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -111,46 +117,48 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.rect
-      width="14"
-      height="14"
-      x="8"
-      y="8"
-      rx="2"
-      ry="2"
-      variants={boxVariants}
-      animate={controls}
-      transition={{
-       ...defaultTransition,
-       duration: 0.7 * duration,
-      }}
-     />
-     <motion.path
-      d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
-      variants={pathVariants}
-      animate={controls}
-      transition={defaultTransition}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.rect
+       width="14"
+       height="14"
+       x="8"
+       y="8"
+       rx="2"
+       ry="2"
+       variants={boxVariants}
+       animate={controls}
+       transition={{
+        ...defaultTransition,
+        duration: 0.7 * duration,
+       }}
+      />
+      <m.path
+       d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+       variants={pathVariants}
+       animate={controls}
+       transition={defaultTransition}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

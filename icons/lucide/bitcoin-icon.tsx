@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -104,124 +110,126 @@ const BitcoinIcon = forwardRef<BitcoinIconHandle, BitcoinIconProps>(
   });
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-bitcoin-icon lucide-bitcoin"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={groupSway} initial="normal" animate={controls}>
-      <g>
-       <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894" />
-       <path d="M10.551 19.089L5.86 18.047" />
-       <path d="M10.551 19.089l-.347 1.97" />
-       <path d="M12.114 12.195c4.924.869 6.14-6.025 1.215-6.893" />
-       <path d="M12.114 12.195l-3.94-.694" />
-       <path d="M13.329 5.301L8.29 4.26" />
-       <path d="M14.198 5.302l.348-1.97" />
-       <path d="M7.48 20.364l3.126-17.727" />
-      </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-bitcoin-icon lucide-bitcoin"
+     >
+      <m.g variants={groupSway} initial="normal" animate={controls}>
+       <g>
+        <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894" />
+        <path d="M10.551 19.089L5.86 18.047" />
+        <path d="M10.551 19.089l-.347 1.97" />
+        <path d="M12.114 12.195c4.924.869 6.14-6.025 1.215-6.893" />
+        <path d="M12.114 12.195l-3.94-.694" />
+        <path d="M13.329 5.301L8.29 4.26" />
+        <path d="M14.198 5.302l.348-1.97" />
+        <path d="M7.48 20.364l3.126-17.727" />
+       </g>
 
-      <motion.path
-       d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894"
-       pathLength={1}
-       variants={drawStroke(0.06, 0.55)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M10.551 19.089L5.86 18.047"
-       pathLength={1}
-       variants={drawStroke(0.12, 0.45)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M10.551 19.089l-.347 1.97"
-       pathLength={1}
-       variants={drawStroke(0.18, 0.4)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M12.114 12.195c4.924.869 6.14-6.025 1.215-6.893"
-       pathLength={1}
-       variants={drawStroke(0.26, 0.6)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M12.114 12.195l-3.94-.694"
-       pathLength={1}
-       variants={drawStroke(0.32, 0.45)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M13.329 5.301L8.29 4.26"
-       pathLength={1}
-       variants={drawStroke(0.4, 0.45)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M14.198 5.302l.348-1.97"
-       pathLength={1}
-       variants={drawStroke(0.46, 0.4)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M7.48 20.364l3.126-17.727"
-       pathLength={1}
-       variants={drawStroke(0.54, 0.75)}
-       initial="normal"
-       animate={controls}
-      />
+       <m.path
+        d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894"
+        pathLength={1}
+        variants={drawStroke(0.06, 0.55)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M10.551 19.089L5.86 18.047"
+        pathLength={1}
+        variants={drawStroke(0.12, 0.45)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M10.551 19.089l-.347 1.97"
+        pathLength={1}
+        variants={drawStroke(0.18, 0.4)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M12.114 12.195c4.924.869 6.14-6.025 1.215-6.893"
+        pathLength={1}
+        variants={drawStroke(0.26, 0.6)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M12.114 12.195l-3.94-.694"
+        pathLength={1}
+        variants={drawStroke(0.32, 0.45)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M13.329 5.301L8.29 4.26"
+        pathLength={1}
+        variants={drawStroke(0.4, 0.45)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M14.198 5.302l.348-1.97"
+        pathLength={1}
+        variants={drawStroke(0.46, 0.4)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M7.48 20.364l3.126-17.727"
+        pathLength={1}
+        variants={drawStroke(0.54, 0.75)}
+        initial="normal"
+        animate={controls}
+       />
 
-      <motion.circle
-       cx="12.2"
-       cy="12.2"
-       r="0.9"
-       fill="currentColor"
-       variants={spark(0.28)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.circle
-       cx="10.6"
-       cy="19.1"
-       r="0.8"
-       fill="currentColor"
-       variants={spark(0.16)}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.circle
-       cx="14.3"
-       cy="5.3"
-       r="0.7"
-       fill="currentColor"
-       variants={spark(0.48)}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.circle
+        cx="12.2"
+        cy="12.2"
+        r="0.9"
+        fill="currentColor"
+        variants={spark(0.28)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.circle
+        cx="10.6"
+        cy="19.1"
+        r="0.8"
+        fill="currentColor"
+        variants={spark(0.16)}
+        initial="normal"
+        animate={controls}
+       />
+       <m.circle
+        cx="14.3"
+        cy="5.3"
+        r="0.7"
+        fill="currentColor"
+        variants={spark(0.48)}
+        initial="normal"
+        animate={controls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

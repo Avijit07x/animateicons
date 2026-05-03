@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -121,35 +127,37 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     variants={container}
-     initial="normal"
-     animate={controls}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle cx="12" cy="12" r="10" variants={face} />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      variants={container}
+      initial="normal"
+      animate={controls}
+     >
+      <m.circle cx="12" cy="12" r="10" variants={face} />
 
-     <motion.path d="M8 9h2" variants={eye(-1)} />
-     <motion.path d="M14 9h2" variants={eye(1)} />
+      <m.path d="M8 9h2" variants={eye(-1)} />
+      <m.path d="M14 9h2" variants={eye(1)} />
 
-     <motion.path d="M8 15h8" variants={mouth} />
-    </motion.svg>
-   </motion.div>
+      <m.path d="M8 15h8" variants={mouth} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

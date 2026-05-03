@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -150,51 +156,53 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="12"
-      cy="9"
-      r="6"
-      variants={circleVariants}
-      initial="normal"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       animate={controls}
-     />
+      initial="normal"
+     >
+      <m.circle
+       cx="12"
+       cy="9"
+       r="6"
+       variants={circleVariants}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.path
-      d="M12 15v7"
-      variants={stemVariants}
-      initial="normal"
-      animate={controls}
-     />
+      <m.path
+       d="M12 15v7"
+       variants={stemVariants}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.path
-      d="M9 19h6"
-      variants={crossVariants}
-      initial="normal"
-      animate={controls}
-      style={{ originX: "12px", originY: "19px" }}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M9 19h6"
+       variants={crossVariants}
+       initial="normal"
+       animate={controls}
+       style={{ originX: "12px", originY: "19px" }}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

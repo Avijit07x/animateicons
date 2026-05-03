@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -148,62 +154,64 @@ const EyeClosedIcon = forwardRef<EyeClosedIconHandle, EyeClosedIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth={2}
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={squeezeControls}
-     variants={squeezeVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M2 8a10.645 10.645 0 0 0 20 0"
-      variants={arcVariants}
-      initial="normal"
-      animate={arcControls}
-     />
-     <motion.path
-      d="m15 18-.722-3.25"
-      custom={0}
-      variants={lashesVariants}
-      initial="normal"
-      animate={lashesControls}
-     />
-     <motion.path
-      d="m9 18 .722-3.25"
-      custom={1}
-      variants={lashesVariants}
-      initial="normal"
-      animate={lashesControls}
-     />
-     <motion.path
-      d="m20 15-1.726-2.05"
-      custom={2}
-      variants={lashesVariants}
-      initial="normal"
-      animate={lashesControls}
-     />
-     <motion.path
-      d="m4 15 1.726-2.05"
-      custom={3}
-      variants={lashesVariants}
-      initial="normal"
-      animate={lashesControls}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={squeezeControls}
+      variants={squeezeVariants}
+     >
+      <m.path
+       d="M2 8a10.645 10.645 0 0 0 20 0"
+       variants={arcVariants}
+       initial="normal"
+       animate={arcControls}
+      />
+      <m.path
+       d="m15 18-.722-3.25"
+       custom={0}
+       variants={lashesVariants}
+       initial="normal"
+       animate={lashesControls}
+      />
+      <m.path
+       d="m9 18 .722-3.25"
+       custom={1}
+       variants={lashesVariants}
+       initial="normal"
+       animate={lashesControls}
+      />
+      <m.path
+       d="m20 15-1.726-2.05"
+       custom={2}
+       variants={lashesVariants}
+       initial="normal"
+       animate={lashesControls}
+      />
+      <m.path
+       d="m4 15 1.726-2.05"
+       custom={3}
+       variants={lashesVariants}
+       initial="normal"
+       animate={lashesControls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -156,72 +162,74 @@ const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-indian-rupee-icon lucide-indian-rupee"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={groupSettle} initial="normal" animate={controls}>
-      <g opacity={0.3}>
-       <path d="M6 3h12" />
-       <path d="M6 8h12" />
-       <path d="M9 13c6.667 0 6.667-10 0-10" />
-       <path d="M6 13h3" />
-       <path d="m6 13 8.5 8" />
-      </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-indian-rupee-icon lucide-indian-rupee"
+     >
+      <m.g variants={groupSettle} initial="normal" animate={controls}>
+       <g opacity={0.3}>
+        <path d="M6 3h12" />
+        <path d="M6 8h12" />
+        <path d="M9 13c6.667 0 6.667-10 0-10" />
+        <path d="M6 13h3" />
+        <path d="m6 13 8.5 8" />
+       </g>
 
-      <motion.path
-       d="M6 3h12"
-       pathLength={1}
-       variants={drawTop}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M6 8h12"
-       pathLength={1}
-       variants={drawMid}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M9 13c6.667 0 6.667-10 0-10"
-       pathLength={1}
-       variants={drawCurve}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M6 13h3"
-       pathLength={1}
-       variants={drawNotch}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="m6 13 8.5 8"
-       pathLength={1}
-       variants={diagonalResolve}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.path
+        d="M6 3h12"
+        pathLength={1}
+        variants={drawTop}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M6 8h12"
+        pathLength={1}
+        variants={drawMid}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M9 13c6.667 0 6.667-10 0-10"
+        pathLength={1}
+        variants={drawCurve}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M6 13h3"
+        pathLength={1}
+        variants={drawNotch}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="m6 13 8.5 8"
+        pathLength={1}
+        variants={diagonalResolve}
+        initial="normal"
+        animate={controls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

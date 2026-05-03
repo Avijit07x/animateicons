@@ -107,12 +107,14 @@ const readIconShapes = async (
 		const source = await fs.readFile(filePath, "utf8");
 
 		const tagPattern = SHAPE_TAGS.join("|");
+		// Match `<path>`, `<motion.path>`, and `<m.path>` (the lazy
+		// motion variant). The latter is what every icon source uses
+		// after the LazyMotion size-optimization codemod.
 		const elementRe = new RegExp(
-			`<(?:motion\\.)?(${tagPattern})\\b([^>]*?)/?>`,
+			`<(?:motion\\.|m\\.)?(${tagPattern})\\b([^>]*?)/?>`,
 			"g",
 		);
-		const attrRe =
-			/(\w+)=(?:"([^"]*)"|'([^']*)'|\{\s*["']([^"']+)["']\s*\})/g;
+		const attrRe = /(\w+)=(?:"([^"]*)"|'([^']*)'|\{\s*["']([^"']+)["']\s*\})/g;
 
 		const shapes: Shape[] = [];
 		for (const elMatch of source.matchAll(elementRe)) {
@@ -179,188 +181,186 @@ export default async function OGImage({
 	]);
 
 	return new ImageResponse(
-		(
+		<div
+			style={{
+				width: "100%",
+				height: "100%",
+				display: "flex",
+				flexDirection: "column",
+				backgroundColor: BG,
+				backgroundImage: `radial-gradient(circle at 80% 20%, ${PRIMARY}25, transparent 60%), radial-gradient(circle at 20% 80%, ${PRIMARY}15, transparent 55%)`,
+				padding: 64,
+				fontFamily: "sans-serif",
+				color: TEXT,
+			}}
+		>
+			{/* Brand row */}
 			<div
 				style={{
-					width: "100%",
-					height: "100%",
 					display: "flex",
-					flexDirection: "column",
-					backgroundColor: BG,
-					backgroundImage: `radial-gradient(circle at 80% 20%, ${PRIMARY}25, transparent 60%), radial-gradient(circle at 20% 80%, ${PRIMARY}15, transparent 55%)`,
-					padding: 64,
-					fontFamily: "sans-serif",
-					color: TEXT,
+					alignItems: "center",
+					gap: 14,
+					fontSize: 22,
+					fontWeight: 600,
+					letterSpacing: -0.3,
 				}}
 			>
-				{/* Brand row */}
-				<div
-					style={{
-						display: "flex",
-						alignItems: "center",
-						gap: 14,
-						fontSize: 22,
-						fontWeight: 600,
-						letterSpacing: -0.3,
-					}}
-				>
-					{logoDataUrl ? (
-						// eslint-disable-next-line @next/next/no-img-element
-						<img
-							src={logoDataUrl}
-							width={44}
-							height={44}
-							alt=""
-							style={{ display: "block" }}
-						/>
-					) : (
-						<div
-							style={{
-								width: 44,
-								height: 44,
-								borderRadius: 10,
-								background: `linear-gradient(180deg, ${PRIMARY}, ${PRIMARY}cc)`,
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								color: "#ffffff",
-								fontWeight: 700,
-								fontSize: 22,
-							}}
-						>
-							A
-						</div>
-					)}
-					<span>AnimateIcons</span>
-				</div>
-
-				{/* Center content */}
-				<div
-					style={{
-						display: "flex",
-						flex: 1,
-						flexDirection: "row",
-						alignItems: "center",
-						justifyContent: "space-between",
-						gap: 48,
-					}}
-				>
+				{logoDataUrl ? (
+					// eslint-disable-next-line @next/next/no-img-element
+					<img
+						src={logoDataUrl}
+						width={44}
+						height={44}
+						alt=""
+						style={{ display: "block" }}
+					/>
+				) : (
 					<div
 						style={{
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "flex-start",
-							gap: 16,
-							flex: 1,
-						}}
-					>
-						{libraryDisplay && (
-							<div
-								style={{
-									display: "flex",
-									padding: "6px 14px",
-									borderRadius: 999,
-									border: `1px solid ${PRIMARY}55`,
-									color: PRIMARY,
-									fontSize: 16,
-									fontWeight: 600,
-									letterSpacing: 1.4,
-									textTransform: "uppercase",
-								}}
-							>
-								{libraryDisplay}
-							</div>
-						)}
-						<h1
-							style={{
-								fontSize: 88,
-								fontWeight: 700,
-								letterSpacing: -2,
-								lineHeight: 1.05,
-								margin: 0,
-								color: TEXT,
-							}}
-						>
-							{componentName}
-						</h1>
-						<p
-							style={{
-								fontSize: 26,
-								color: SUBTLE,
-								margin: 0,
-								fontWeight: 400,
-							}}
-						>
-							{item ? "Animated React icon" : "Free animated icons for React"}
-						</p>
-					</div>
-
-					{/* Glyph card — uses the project's actual icon shapes from disk */}
-					{iconShapes.length > 0 && (
-						<div
-							style={{
-								display: "flex",
-								width: 280,
-								height: 280,
-								alignItems: "center",
-								justifyContent: "center",
-								borderRadius: 32,
-								border: "1px solid rgba(255,255,255,0.1)",
-								background:
-									"linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
-								boxShadow:
-									"inset 0 1px 0 rgba(255,255,255,0.06), 0 30px 80px -30px rgba(0,0,0,0.6)",
-							}}
-						>
-							<svg
-								width={140}
-								height={140}
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke={PRIMARY}
-								strokeWidth={1.6}
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							>
-								{iconShapes.map((shape, i) => {
-									// Render each captured shape with its attributes. Cast
-									// because TS can't narrow the dynamic tag → element map.
-									const Tag = shape.tag as React.ElementType;
-									return <Tag key={i} {...shape.attrs} />;
-								})}
-							</svg>
-						</div>
-					)}
-				</div>
-
-				{/* Bottom install hint */}
-				<div
-					style={{
-						display: "flex",
-						alignItems: "center",
-						gap: 16,
-						fontSize: 22,
-						color: SUBTLE,
-						fontFamily: "monospace",
-					}}
-				>
-					<div
-						style={{
+							width: 44,
+							height: 44,
+							borderRadius: 10,
+							background: `linear-gradient(180deg, ${PRIMARY}, ${PRIMARY}cc)`,
 							display: "flex",
 							alignItems: "center",
-							padding: "10px 18px",
-							borderRadius: 14,
-							border: "1px solid rgba(255,255,255,0.1)",
-							background: "rgba(255,255,255,0.03)",
+							justifyContent: "center",
+							color: "#ffffff",
+							fontWeight: 700,
+							fontSize: 22,
+						}}
+					>
+						A
+					</div>
+				)}
+				<span>AnimateIcons</span>
+			</div>
+
+			{/* Center content */}
+			<div
+				style={{
+					display: "flex",
+					flex: 1,
+					flexDirection: "row",
+					alignItems: "center",
+					justifyContent: "space-between",
+					gap: 48,
+				}}
+			>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "flex-start",
+						gap: 16,
+						flex: 1,
+					}}
+				>
+					{libraryDisplay && (
+						<div
+							style={{
+								display: "flex",
+								padding: "6px 14px",
+								borderRadius: 999,
+								border: `1px solid ${PRIMARY}55`,
+								color: PRIMARY,
+								fontSize: 16,
+								fontWeight: 600,
+								letterSpacing: 1.4,
+								textTransform: "uppercase",
+							}}
+						>
+							{libraryDisplay}
+						</div>
+					)}
+					<h1
+						style={{
+							fontSize: 88,
+							fontWeight: 700,
+							letterSpacing: -2,
+							lineHeight: 1.05,
+							margin: 0,
 							color: TEXT,
 						}}
 					>
-						pnpm add @animateicons/react
-					</div>
-					<span style={{ display: "flex" }}>animateicons.in</span>
+						{componentName}
+					</h1>
+					<p
+						style={{
+							fontSize: 26,
+							color: SUBTLE,
+							margin: 0,
+							fontWeight: 400,
+						}}
+					>
+						{item ? "Animated React icon" : "Free animated icons for React"}
+					</p>
 				</div>
+
+				{/* Glyph card — uses the project's actual icon shapes from disk */}
+				{iconShapes.length > 0 && (
+					<div
+						style={{
+							display: "flex",
+							width: 280,
+							height: 280,
+							alignItems: "center",
+							justifyContent: "center",
+							borderRadius: 32,
+							border: "1px solid rgba(255,255,255,0.1)",
+							background:
+								"linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
+							boxShadow:
+								"inset 0 1px 0 rgba(255,255,255,0.06), 0 30px 80px -30px rgba(0,0,0,0.6)",
+						}}
+					>
+						<svg
+							width={140}
+							height={140}
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke={PRIMARY}
+							strokeWidth={1.6}
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							{iconShapes.map((shape, i) => {
+								// Render each captured shape with its attributes. Cast
+								// because TS can't narrow the dynamic tag → element map.
+								const Tag = shape.tag as React.ElementType;
+								return <Tag key={i} {...shape.attrs} />;
+							})}
+						</svg>
+					</div>
+				)}
 			</div>
-		),
+
+			{/* Bottom install hint */}
+			<div
+				style={{
+					display: "flex",
+					alignItems: "center",
+					gap: 16,
+					fontSize: 22,
+					color: SUBTLE,
+					fontFamily: "monospace",
+				}}
+			>
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						padding: "10px 18px",
+						borderRadius: 14,
+						border: "1px solid rgba(255,255,255,0.1)",
+						background: "rgba(255,255,255,0.03)",
+						color: TEXT,
+					}}
+				>
+					pnpm add @animateicons/react
+				</div>
+				<span style={{ display: "flex" }}>animateicons.in</span>
+			</div>
+		</div>,
 		{
 			...size,
 		},

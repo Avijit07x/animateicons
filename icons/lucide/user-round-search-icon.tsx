@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -116,47 +122,49 @@ const UserRoundSearchIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-user-round-search-icon lucide-user-round-search"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="10"
-      cy="8"
-      r="5"
-      variants={headVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M2 21a8 8 0 0 1 10.434-7.62"
-      strokeDasharray="60"
-      strokeDashoffset="60"
-      variants={bodyVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.g variants={searchVariants} initial="normal" animate={controls}>
-      <motion.circle cx="18" cy="18" r="3" />
-      <motion.path d="m22 22-1.9-1.9" />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-user-round-search-icon lucide-user-round-search"
+     >
+      <m.circle
+       cx="10"
+       cy="8"
+       r="5"
+       variants={headVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M2 21a8 8 0 0 1 10.434-7.62"
+       strokeDasharray="60"
+       strokeDashoffset="60"
+       variants={bodyVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.g variants={searchVariants} initial="normal" animate={controls}>
+       <m.circle cx="18" cy="18" r="3" />
+       <m.path d="m22 22-1.9-1.9" />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

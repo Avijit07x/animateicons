@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -103,33 +109,35 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("relative inline-flex", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={bellVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("relative inline-flex", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M10.268 21a2 2 0 0 0 3.464 0" variants={clapperVariants} />
-     <motion.path d="M22 8c0-2.3-.8-4.3-2-6" variants={waveVariants} />
-     <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
-     <motion.path d="M4 2C2.8 3.7 2 5.7 2 8" variants={waveVariants} />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={bellVariants}
+     >
+      <m.path d="M10.268 21a2 2 0 0 0 3.464 0" variants={clapperVariants} />
+      <m.path d="M22 8c0-2.3-.8-4.3-2-6" variants={waveVariants} />
+      <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+      <m.path d="M4 2C2.8 3.7 2 5.7 2 8" variants={waveVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

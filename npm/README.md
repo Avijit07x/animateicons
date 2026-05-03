@@ -53,7 +53,10 @@ Trigger animation from a parent via ref:
 ```tsx
 "use client";
 import { useRef } from "react";
-import { BellRingIcon, type BellRingIconHandle } from "@animateicons/react/lucide";
+import {
+	BellRingIcon,
+	type BellRingIconHandle,
+} from "@animateicons/react/lucide";
 
 export default function Bell() {
 	const ref = useRef<BellRingIconHandle>(null);
@@ -71,13 +74,13 @@ export default function Bell() {
 
 ## Props
 
-| Prop          | Type      | Default     |
-| ------------- | --------- | ----------- |
-| `size`        | `number`  | `24`        |
-| `color`       | `string`  | `currentColor` |
-| `duration`    | `number`  | `1`         |
-| `isAnimated`  | `boolean` | `true`      |
-| `className`   | `string`  | —           |
+| Prop         | Type      | Default        |
+| ------------ | --------- | -------------- |
+| `size`       | `number`  | `24`           |
+| `color`      | `string`  | `currentColor` |
+| `duration`   | `number`  | `1`            |
+| `isAnimated` | `boolean` | `true`         |
+| `className`  | `string`  | —              |
 
 ## License
 

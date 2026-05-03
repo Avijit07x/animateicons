@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -118,45 +124,47 @@ const Menu02Icon = forwardRef<Menu02IconHandle, Menu02IconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={controls}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M20 5L4 5"
-      variants={topVariants}
-      style={{ transformOrigin: "right center" }}
-     />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      initial="normal"
+      animate={controls}
+     >
+      <m.path
+       d="M20 5L4 5"
+       variants={topVariants}
+       style={{ transformOrigin: "right center" }}
+      />
 
-     <motion.path
-      d="M20 12L10 12"
-      variants={middleVariants}
-      style={{ transformOrigin: "right center" }}
-     />
+      <m.path
+       d="M20 12L10 12"
+       variants={middleVariants}
+       style={{ transformOrigin: "right center" }}
+      />
 
-     <motion.path
-      d="M20 19L4 19"
-      variants={bottomVariants}
-      style={{ transformOrigin: "right center" }}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M20 19L4 19"
+       variants={bottomVariants}
+       style={{ transformOrigin: "right center" }}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

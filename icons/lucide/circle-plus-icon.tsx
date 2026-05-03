@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -93,37 +99,39 @@ const CirclePlusIcon = forwardRef<CirclePlusIconHandle, CirclePlusIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="12"
-      cy="12"
-      r="10"
-      variants={circleAnim}
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
       stroke="currentColor"
-     />
-     <motion.path d="M8 12h8" variants={plusLine} stroke="currentColor" />
-     <motion.path d="M12 8v8" variants={plusLine} stroke="currentColor" />
-    </motion.svg>
-   </motion.div>
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={circleAnim}
+       stroke="currentColor"
+      />
+      <m.path d="M8 12h8" variants={plusLine} stroke="currentColor" />
+      <m.path d="M12 8v8" variants={plusLine} stroke="currentColor" />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

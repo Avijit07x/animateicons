@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -101,70 +107,72 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.rect
-      width="7"
-      height="7"
-      x="3"
-      y="3"
-      rx="1"
-      variants={boxVariants}
-      custom={0}
-     />
-     <motion.rect
-      width="7"
-      height="7"
-      x="3"
-      y="14"
-      rx="1"
-      variants={boxVariants}
-      custom={1}
-     />
-     <motion.path
-      d="M14 4h7"
-      variants={lineVariants}
-      custom={0}
-      style={{ transformOrigin: "left" }}
-     />
-     <motion.path
-      d="M14 9h7"
-      variants={lineVariants}
-      custom={1}
-      style={{ transformOrigin: "left" }}
-     />
-     <motion.path
-      d="M14 15h7"
-      variants={lineVariants}
-      custom={2}
-      style={{ transformOrigin: "left" }}
-     />
-     <motion.path
-      d="M14 20h7"
-      variants={lineVariants}
-      custom={3}
-      style={{ transformOrigin: "left" }}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.rect
+       width="7"
+       height="7"
+       x="3"
+       y="3"
+       rx="1"
+       variants={boxVariants}
+       custom={0}
+      />
+      <m.rect
+       width="7"
+       height="7"
+       x="3"
+       y="14"
+       rx="1"
+       variants={boxVariants}
+       custom={1}
+      />
+      <m.path
+       d="M14 4h7"
+       variants={lineVariants}
+       custom={0}
+       style={{ transformOrigin: "left" }}
+      />
+      <m.path
+       d="M14 9h7"
+       variants={lineVariants}
+       custom={1}
+       style={{ transformOrigin: "left" }}
+      />
+      <m.path
+       d="M14 15h7"
+       variants={lineVariants}
+       custom={2}
+       style={{ transformOrigin: "left" }}
+      />
+      <m.path
+       d="M14 20h7"
+       variants={lineVariants}
+       custom={3}
+       style={{ transformOrigin: "left" }}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

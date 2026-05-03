@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -115,83 +121,85 @@ const Dashboard03Icon = forwardRef<Dashboard03IconHandle, Dashboard03IconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <defs>
-      <linearGradient id="dashboard03-sweep" x1="0" y1="0" x2="1" y2="1">
-       <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-       <stop offset="50%" stopColor="currentColor" stopOpacity="0.25" />
-       <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-      </linearGradient>
-     </defs>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+     >
+      <defs>
+       <linearGradient id="dashboard03-sweep" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+       </linearGradient>
+      </defs>
 
-     <motion.g variants={gridVariants} initial="normal" animate={controls}>
-      <motion.g
-       variants={tileVariants}
-       custom={0}
-       initial="normal"
-       animate={controls}
-      >
-       <path d="M10.5 6.75C10.5 4.67893 8.82107 3 6.75 3C4.67893 3 3 4.67893 3 6.75C3 8.82107 4.67893 10.5 6.75 10.5C8.82107 10.5 10.5 8.82107 10.5 6.75Z" />
-      </motion.g>
+      <m.g variants={gridVariants} initial="normal" animate={controls}>
+       <m.g
+        variants={tileVariants}
+        custom={0}
+        initial="normal"
+        animate={controls}
+       >
+        <path d="M10.5 6.75C10.5 4.67893 8.82107 3 6.75 3C4.67893 3 3 4.67893 3 6.75C3 8.82107 4.67893 10.5 6.75 10.5C8.82107 10.5 10.5 8.82107 10.5 6.75Z" />
+       </m.g>
 
-      <motion.g
-       variants={tileVariants}
-       custom={1}
-       initial="normal"
-       animate={controls}
-      >
-       <path d="M21 6.75C21 4.67893 19.3211 3 17.25 3C15.1789 3 13.5 4.67893 13.5 6.75C13.5 8.82107 15.1789 10.5 17.25 10.5C19.3211 10.5 21 8.82107 21 6.75Z" />
-      </motion.g>
+       <m.g
+        variants={tileVariants}
+        custom={1}
+        initial="normal"
+        animate={controls}
+       >
+        <path d="M21 6.75C21 4.67893 19.3211 3 17.25 3C15.1789 3 13.5 4.67893 13.5 6.75C13.5 8.82107 15.1789 10.5 17.25 10.5C19.3211 10.5 21 8.82107 21 6.75Z" />
+       </m.g>
 
-      <motion.g
-       variants={tileVariants}
-       custom={2}
-       initial="normal"
-       animate={controls}
-      >
-       <path d="M21 17.25C21 15.1789 19.3211 13.5 17.25 13.5C15.1789 13.5 13.5 15.1789 13.5 17.25C13.5 19.3211 15.1789 21 17.25 21C19.3211 21 21 19.3211 21 17.25Z" />
-      </motion.g>
+       <m.g
+        variants={tileVariants}
+        custom={2}
+        initial="normal"
+        animate={controls}
+       >
+        <path d="M21 17.25C21 15.1789 19.3211 13.5 17.25 13.5C15.1789 13.5 13.5 15.1789 13.5 17.25C13.5 19.3211 15.1789 21 17.25 21C19.3211 21 21 19.3211 21 17.25Z" />
+       </m.g>
 
-      <motion.g
-       variants={tileVariants}
-       custom={3}
-       initial="normal"
-       animate={controls}
-      >
-       <path d="M10.5 17.25C10.5 15.1789 8.82107 13.5 6.75 13.5C4.67893 13.5 3 15.1789 3 17.25C3 19.3211 4.67893 21 6.75 21C8.82107 21 10.5 19.3211 10.5 17.25Z" />
-      </motion.g>
+       <m.g
+        variants={tileVariants}
+        custom={3}
+        initial="normal"
+        animate={controls}
+       >
+        <path d="M10.5 17.25C10.5 15.1789 8.82107 13.5 6.75 13.5C4.67893 13.5 3 15.1789 3 17.25C3 19.3211 4.67893 21 6.75 21C8.82107 21 10.5 19.3211 10.5 17.25Z" />
+       </m.g>
 
-      <motion.rect
-       x="2"
-       y="2"
-       width="20"
-       height="20"
-       rx="6"
-       fill="url(#dashboard03-sweep)"
-       variants={sweepVariants}
-       initial="normal"
-       animate={controls}
-       style={{ pointerEvents: "none" }}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.rect
+        x="2"
+        y="2"
+        width="20"
+        height="20"
+        rx="6"
+        fill="url(#dashboard03-sweep)"
+        variants={sweepVariants}
+        initial="normal"
+        animate={controls}
+        style={{ pointerEvents: "none" }}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -97,34 +103,36 @@ const ScanLineIcon = forwardRef<ScanLineIconHandle, ScanLineIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={controls}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={frame} />
-     <motion.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={frame} />
-     <motion.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={frame} />
-     <motion.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={frame} />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      initial="normal"
+      animate={controls}
+     >
+      <m.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={frame} />
+      <m.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={frame} />
+      <m.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={frame} />
+      <m.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={frame} />
 
-     <motion.path d="M7 12h10" variants={scanLine} />
-    </motion.svg>
-   </motion.div>
+      <m.path d="M7 12h10" variants={scanLine} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

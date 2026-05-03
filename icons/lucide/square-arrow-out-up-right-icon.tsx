@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -112,46 +118,48 @@ const SquareArrowOutUpRightIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
-      variants={boxVariants}
-      initial="normal"
-      animate={boxControls}
-     />
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+       variants={boxVariants}
+       initial="normal"
+       animate={boxControls}
+      />
 
-     <motion.path
-      d="m21 3-9 9"
-      variants={arrowVariants}
-      initial="normal"
-      animate={arrowControls}
-     />
+      <m.path
+       d="m21 3-9 9"
+       variants={arrowVariants}
+       initial="normal"
+       animate={arrowControls}
+      />
 
-     <motion.path
-      d="M15 3h6v6"
-      variants={arrowVariants}
-      initial="normal"
-      animate={arrowControls}
-     />
-    </svg>
-   </motion.div>
+      <m.path
+       d="M15 3h6v6"
+       variants={arrowVariants}
+       initial="normal"
+       animate={arrowControls}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

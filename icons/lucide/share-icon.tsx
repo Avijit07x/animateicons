@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -105,46 +111,48 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle cx="18" cy="5" r="3" variants={nodeVariants(0)} />
-     <motion.circle cx="6" cy="12" r="3" variants={nodeVariants(0.12)} />
-     <motion.circle cx="18" cy="19" r="3" variants={nodeVariants(0.24)} />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.circle cx="18" cy="5" r="3" variants={nodeVariants(0)} />
+      <m.circle cx="6" cy="12" r="3" variants={nodeVariants(0.12)} />
+      <m.circle cx="18" cy="19" r="3" variants={nodeVariants(0.24)} />
 
-     <motion.line
-      x1="8.59"
-      y1="13.51"
-      x2="15.42"
-      y2="17.49"
-      variants={lineVariants}
-     />
-     <motion.line
-      x1="15.41"
-      y1="6.51"
-      x2="8.59"
-      y2="10.49"
-      variants={lineVariants}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.line
+       x1="8.59"
+       y1="13.51"
+       x2="15.42"
+       y2="17.49"
+       variants={lineVariants}
+      />
+      <m.line
+       x1="15.41"
+       y1="6.51"
+       x2="8.59"
+       y2="10.49"
+       variants={lineVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

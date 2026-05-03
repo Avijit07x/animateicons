@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -134,65 +140,67 @@ const SaudiRiyalIcon = forwardRef<SaudiRiyalIconHandle, SaudiRiyalIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
-     className="lucide lucide-saudi-riyal-icon lucide-saudi-riyal"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <g opacity={0.35}>
-      <path d="m20 19.5-5.5 1.2" />
-      <path d="M14.5 4v11.22a1 1 0 0 0 1.242.97L20 15.2" />
-      <path d="m2.978 19.351 5.549-1.363A2 2 0 0 0 10 16V2" />
-      <path d="M20 10 4 13.5" />
-     </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+      className="lucide lucide-saudi-riyal-icon lucide-saudi-riyal"
+     >
+      <g opacity={0.35}>
+       <path d="m20 19.5-5.5 1.2" />
+       <path d="M14.5 4v11.22a1 1 0 0 0 1.242.97L20 15.2" />
+       <path d="m2.978 19.351 5.549-1.363A2 2 0 0 0 10 16V2" />
+       <path d="M20 10 4 13.5" />
+      </g>
 
-     <motion.path
-      d="m2.978 19.351 5.549-1.363A2 2 0 0 0 10 16V2"
-      pathLength={1}
-      variants={leftMain}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M20 10 4 13.5"
-      pathLength={1}
-      variants={crossStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M14.5 4v11.22a1 1 0 0 0 1.242.97L20 15.2"
-      pathLength={1}
-      variants={rightMain}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="m20 19.5-5.5 1.2"
-      pathLength={1}
-      variants={tailStroke}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="m2.978 19.351 5.549-1.363A2 2 0 0 0 10 16V2"
+       pathLength={1}
+       variants={leftMain}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M20 10 4 13.5"
+       pathLength={1}
+       variants={crossStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M14.5 4v11.22a1 1 0 0 0 1.242.97L20 15.2"
+       pathLength={1}
+       variants={rightMain}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="m20 19.5-5.5 1.2"
+       pathLength={1}
+       variants={tailStroke}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -138,44 +144,46 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="m6 8-4 4 4 4"
-      animate={leftControls}
-      initial="normal"
-      variants={leftArrowVariants}
-     />
-     <motion.path
-      d="m18 16 4-4-4-4"
-      animate={rightControls}
-      initial="normal"
-      variants={rightArrowVariants}
-     />
-     <motion.path
-      d="m14.5 4-5 16"
-      animate={slashControls}
-      initial="normal"
-      variants={slashVariants}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="m6 8-4 4 4 4"
+       animate={leftControls}
+       initial="normal"
+       variants={leftArrowVariants}
+      />
+      <m.path
+       d="m18 16 4-4-4-4"
+       animate={rightControls}
+       initial="normal"
+       variants={rightArrowVariants}
+      />
+      <m.path
+       d="m14.5 4-5 16"
+       animate={slashControls}
+       initial="normal"
+       variants={slashVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

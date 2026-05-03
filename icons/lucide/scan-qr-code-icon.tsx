@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -111,38 +117,40 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     variants={container}
-     initial="normal"
-     animate={controls}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M17 12v4a1 1 0 0 1-1 1h-4" variants={scanBit(0)} />
-     <motion.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={scanBit(0.05)} />
-     <motion.path d="M17 8V7" variants={scanBit(0.1)} />
-     <motion.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={scanBit(0.15)} />
-     <motion.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={scanBit(0.2)} />
-     <motion.path d="M7 17h.01" variants={scanBit(0.25)} />
-     <motion.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={scanBit(0.3)} />
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      variants={container}
+      initial="normal"
+      animate={controls}
+     >
+      <m.path d="M17 12v4a1 1 0 0 1-1 1h-4" variants={scanBit(0)} />
+      <m.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={scanBit(0.05)} />
+      <m.path d="M17 8V7" variants={scanBit(0.1)} />
+      <m.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={scanBit(0.15)} />
+      <m.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={scanBit(0.2)} />
+      <m.path d="M7 17h.01" variants={scanBit(0.25)} />
+      <m.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={scanBit(0.3)} />
 
-     <motion.rect x="7" y="7" width="5" height="5" rx="1" variants={core} />
-    </motion.svg>
-   </motion.div>
+      <m.rect x="7" y="7" width="5" height="5" rx="1" variants={core} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

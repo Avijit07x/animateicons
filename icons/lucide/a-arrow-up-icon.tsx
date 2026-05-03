@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -192,53 +198,55 @@ const AArrowUpIcon = forwardRef<AArrowUpIconHandle, AArrowUpIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     initial="normal"
-     animate={groupControls}
-     variants={groupVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="m14 11 4-4 4 4"
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       initial="normal"
-      animate={headControls}
-      variants={headVariants}
-     />
-     <motion.path
-      d="M18 16V7"
-      initial="normal"
-      animate={stemControls}
-      variants={stemVariants}
-     />
-     <motion.path
-      d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"
-      initial="normal"
-      animate={diagControls}
-      variants={diagVariants}
-     />
-     <motion.path
-      d="M3.304 13h6.392"
-      initial="normal"
-      animate={barControls}
-      variants={barVariants}
-     />
-    </motion.svg>
-   </motion.div>
+      animate={groupControls}
+      variants={groupVariants}
+     >
+      <m.path
+       d="m14 11 4-4 4 4"
+       initial="normal"
+       animate={headControls}
+       variants={headVariants}
+      />
+      <m.path
+       d="M18 16V7"
+       initial="normal"
+       animate={stemControls}
+       variants={stemVariants}
+      />
+      <m.path
+       d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"
+       initial="normal"
+       animate={diagControls}
+       variants={diagVariants}
+      />
+      <m.path
+       d="M3.304 13h6.392"
+       initial="normal"
+       animate={barControls}
+       variants={barVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

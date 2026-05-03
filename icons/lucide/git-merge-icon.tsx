@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -116,52 +122,54 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="6"
-      cy="6"
-      r="3"
-      style={{ transformOrigin: "center" }}
-      variants={sourceNode}
-      initial="normal"
-      animate={controls}
-     />
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.circle
+       cx="6"
+       cy="6"
+       r="3"
+       style={{ transformOrigin: "center" }}
+       variants={sourceNode}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.path
-      d="M6 21V9a9 9 0 0 0 9 11"
-      variants={mergePath}
-      initial="normal"
-      animate={controls}
-     />
+      <m.path
+       d="M6 21V9a9 9 0 0 0 9 11"
+       variants={mergePath}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.circle
-      cx="18"
-      cy="18"
-      r="3"
-      style={{ transformOrigin: "center" }}
-      variants={resultNode}
-      initial="normal"
-      animate={controls}
-     />
-    </svg>
-   </motion.div>
+      <m.circle
+       cx="18"
+       cy="18"
+       r="3"
+       style={{ transformOrigin: "center" }}
+       variants={resultNode}
+       initial="normal"
+       animate={controls}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

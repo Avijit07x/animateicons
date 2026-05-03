@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -134,49 +140,51 @@ const KeyIcon = forwardRef<KeyIconHandle, KeyIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-key-icon lucide-key"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={sequence} initial="normal" animate={controls}>
-      <motion.circle
-       cx="7.5"
-       cy="15.5"
-       r="5.5"
-       variants={ringLock}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="m21 2-9.6 9.6"
-       variants={shaftSlide}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"
-       variants={headTurn}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-key-icon lucide-key"
+     >
+      <m.g variants={sequence} initial="normal" animate={controls}>
+       <m.circle
+        cx="7.5"
+        cy="15.5"
+        r="5.5"
+        variants={ringLock}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="m21 2-9.6 9.6"
+        variants={shaftSlide}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"
+        variants={headTurn}
+        initial="normal"
+        animate={controls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -139,69 +145,71 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.circle
-      cx="12"
-      cy="18"
-      r="3"
-      style={{ transformOrigin: "center" }}
-      variants={bottomNode}
-      initial="normal"
-      animate={controls}
-     />
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.circle
+       cx="12"
+       cy="18"
+       r="3"
+       style={{ transformOrigin: "center" }}
+       variants={bottomNode}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.path
-      d="M12 12v3"
-      variants={trunk}
-      initial="normal"
-      animate={controls}
-     />
+      <m.path
+       d="M12 12v3"
+       variants={trunk}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.path
-      d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"
-      variants={branch}
-      initial="normal"
-      animate={controls}
-     />
+      <m.path
+       d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"
+       variants={branch}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.circle
-      cx="6"
-      cy="6"
-      r="3"
-      style={{ transformOrigin: "center" }}
-      variants={leftNode}
-      initial="normal"
-      animate={controls}
-     />
+      <m.circle
+       cx="6"
+       cy="6"
+       r="3"
+       style={{ transformOrigin: "center" }}
+       variants={leftNode}
+       initial="normal"
+       animate={controls}
+      />
 
-     <motion.circle
-      cx="18"
-      cy="6"
-      r="3"
-      style={{ transformOrigin: "center" }}
-      variants={rightNode}
-      initial="normal"
-      animate={controls}
-     />
-    </svg>
-   </motion.div>
+      <m.circle
+       cx="18"
+       cy="6"
+       r="3"
+       style={{ transformOrigin: "center" }}
+       variants={rightNode}
+       initial="normal"
+       animate={controls}
+      />
+     </svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

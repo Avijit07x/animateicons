@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -138,49 +144,45 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={iconVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.rect
-      width="20"
-      height="20"
-      x="2"
-      y="2"
-      rx="5"
-      ry="5"
-      variants={frameVariants}
-     />
-     <motion.path
-      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-      variants={lensVariants}
-     />
-     <motion.line
-      x1="17.5"
-      x2="17.51"
-      y1="6.5"
-      y2="6.5"
-      variants={dotVariants}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={iconVariants}
+     >
+      <m.rect
+       width="20"
+       height="20"
+       x="2"
+       y="2"
+       rx="5"
+       ry="5"
+       variants={frameVariants}
+      />
+      <m.path
+       d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+       variants={lensVariants}
+      />
+      <m.line x1="17.5" x2="17.51" y1="6.5" y2="6.5" variants={dotVariants} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

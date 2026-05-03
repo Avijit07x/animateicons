@@ -63,8 +63,8 @@ const ErrorPage: React.FC<Props> = ({ error, reset }) => {
 						</h1>
 					</div>
 					<p className="text-textSecondary max-w-xs text-sm leading-relaxed">
-						An unexpected error occurred while loading this page. Try again,
-						and if it keeps happening let us know on GitHub.
+						An unexpected error occurred while loading this page. Try again, and
+						if it keeps happening let us know on GitHub.
 					</p>
 					{error.digest ? (
 						<p className="text-textMuted font-mono text-[11px]">

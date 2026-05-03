@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -113,47 +119,49 @@ const WalletIcon = forwardRef<WalletIconHandle, WalletIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-wallet-icon lucide-wallet"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"
-      strokeDasharray="80"
-      strokeDashoffset="80"
-      variants={bodyVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.g variants={flapVariants} initial="normal" animate={controls}>
-      <motion.path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
-     </motion.g>
-     <motion.line
-      x1="14"
-      y1="12"
-      x2="18"
-      y2="12"
-      variants={swipeVariants}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-wallet-icon lucide-wallet"
+     >
+      <m.path
+       d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"
+       strokeDasharray="80"
+       strokeDashoffset="80"
+       variants={bodyVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.g variants={flapVariants} initial="normal" animate={controls}>
+       <m.path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+      </m.g>
+      <m.line
+       x1="14"
+       y1="12"
+       x2="18"
+       y2="12"
+       variants={swipeVariants}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

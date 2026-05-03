@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -110,44 +116,46 @@ const ReplyAllIcon = forwardRef<ReplyAllIconHandle, ReplyAllIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="m12 17-5-5 5-5"
-      variants={arrowVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="m7 17-5-5 5-5"
-      variants={arrowSecondaryVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M22 18v-2a4 4 0 0 0-4-4H7"
-      variants={curveVariants}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+     >
+      <m.path
+       d="m12 17-5-5 5-5"
+       variants={arrowVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="m7 17-5-5 5-5"
+       variants={arrowSecondaryVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M22 18v-2a4 4 0 0 0-4-4H7"
+       variants={curveVariants}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

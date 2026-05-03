@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -141,65 +147,67 @@ const GeorgianLariIcon = forwardRef<
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={svgVariants}
-     className="lucide lucide-georgian-lari-icon lucide-georgian-lari"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <g opacity={0.35}>
-      <path d="M11.5 21a7.5 7.5 0 1 1 7.35-9" />
-      <path d="M13 12V3" />
-      <path d="M4 21h16" />
-      <path d="M9 12V3" />
-     </g>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+      className="lucide lucide-georgian-lari-icon lucide-georgian-lari"
+     >
+      <g opacity={0.35}>
+       <path d="M11.5 21a7.5 7.5 0 1 1 7.35-9" />
+       <path d="M13 12V3" />
+       <path d="M4 21h16" />
+       <path d="M9 12V3" />
+      </g>
 
-     <motion.path
-      d="M11.5 21a7.5 7.5 0 1 1 7.35-9"
-      pathLength={1}
-      variants={arcStroke}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M9 12V3"
-      pathLength={1}
-      variants={leftVert}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M13 12V3"
-      pathLength={1}
-      variants={rightVert}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.path
-      d="M4 21h16"
-      pathLength={1}
-      variants={baseStroke}
-      initial="normal"
-      animate={controls}
-     />
-    </motion.svg>
-   </motion.div>
+      <m.path
+       d="M11.5 21a7.5 7.5 0 1 1 7.35-9"
+       pathLength={1}
+       variants={arcStroke}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M9 12V3"
+       pathLength={1}
+       variants={leftVert}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M13 12V3"
+       pathLength={1}
+       variants={rightVert}
+       initial="normal"
+       animate={controls}
+      />
+      <m.path
+       d="M4 21h16"
+       pathLength={1}
+       variants={baseStroke}
+       initial="normal"
+       animate={controls}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

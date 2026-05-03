@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -105,33 +111,35 @@ const BellPlusIcon = forwardRef<BellPlusIconHandle, BellPlusIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("relative inline-flex", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     animate={controls}
-     initial="normal"
-     variants={bellVariants}
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("relative inline-flex", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path d="M10.268 21a2 2 0 0 0 3.464 0" variants={clapperVariants} />
-     <motion.path d="M15 8h6" variants={plusVariants} />
-     <motion.path d="M18 5v6" variants={plusVariants} />
-     <path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332" />
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={bellVariants}
+     >
+      <m.path d="M10.268 21a2 2 0 0 0 3.464 0" variants={clapperVariants} />
+      <m.path d="M15 8h6" variants={plusVariants} />
+      <m.path d="M18 5v6" variants={plusVariants} />
+      <path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332" />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -126,51 +132,53 @@ const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-cloud-upload-icon lucide-cloud-upload"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.g variants={groupPulse} initial="normal" animate={controls}>
-      <motion.path
-       d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
-       strokeDasharray="100"
-       strokeDashoffset="100"
-       variants={cloudVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="M12 13v8"
-       strokeDasharray="30"
-       strokeDashoffset="30"
-       variants={shaftVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.path
-       d="m8 17 4-4 4 4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-cloud-upload-icon lucide-cloud-upload"
+     >
+      <m.g variants={groupPulse} initial="normal" animate={controls}>
+       <m.path
+        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
+        strokeDasharray="100"
+        strokeDashoffset="100"
+        variants={cloudVariants}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="M12 13v8"
+        strokeDasharray="30"
+        strokeDashoffset="30"
+        variants={shaftVariants}
+        initial="normal"
+        animate={controls}
+       />
+       <m.path
+        d="m8 17 4-4 4 4"
+        variants={headVariants}
+        initial="normal"
+        animate={controls}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

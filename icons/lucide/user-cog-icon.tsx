@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -104,54 +110,56 @@ const UserCogIcon = forwardRef<UserCogIconHandle, UserCogIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-user-cog-icon lucide-user-cog"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <motion.path
-      d="M10 15H6a4 4 0 0 0-4 4v2"
-      strokeDasharray="40"
-      strokeDashoffset="40"
-      variants={bodyVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.circle
-      cx="9"
-      cy="7"
-      r="4"
-      variants={headVariants}
-      initial="normal"
-      animate={controls}
-     />
-     <motion.g variants={cogCircleVariants} initial="normal" animate={controls}>
-      <motion.circle cx="18" cy="15" r="3" />
-      <motion.path d="m14.305 16.53.923-.382" />
-      <motion.path d="m15.228 13.852-.923-.383" />
-      <motion.path d="m16.852 12.228-.383-.923" />
-      <motion.path d="m16.852 17.772-.383.924" />
-      <motion.path d="m19.148 12.228.383-.923" />
-      <motion.path d="m19.53 18.696-.382-.924" />
-      <motion.path d="m20.772 13.852.924-.383" />
-      <motion.path d="m20.772 16.148.924.383" />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-user-cog-icon lucide-user-cog"
+     >
+      <m.path
+       d="M10 15H6a4 4 0 0 0-4 4v2"
+       strokeDasharray="40"
+       strokeDashoffset="40"
+       variants={bodyVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.circle
+       cx="9"
+       cy="7"
+       r="4"
+       variants={headVariants}
+       initial="normal"
+       animate={controls}
+      />
+      <m.g variants={cogCircleVariants} initial="normal" animate={controls}>
+       <m.circle cx="18" cy="15" r="3" />
+       <m.path d="m14.305 16.53.923-.382" />
+       <m.path d="m15.228 13.852-.923-.383" />
+       <m.path d="m16.852 12.228-.383-.923" />
+       <m.path d="m16.852 17.772-.383.924" />
+       <m.path d="m19.148 12.228.383-.923" />
+       <m.path d="m19.53 18.696-.382-.924" />
+       <m.path d="m20.772 13.852.924-.383" />
+       <m.path d="m20.772 16.148.924.383" />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );

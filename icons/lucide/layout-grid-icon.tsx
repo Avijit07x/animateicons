@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import type { Variants } from "motion/react";
-import { motion, useAnimation, useReducedMotion } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
 import {
  forwardRef,
  useCallback,
@@ -116,94 +122,96 @@ const LayoutGridIcon = forwardRef<LayoutGridIconHandle, LayoutGridIconProps>(
   };
 
   return (
-   <motion.div
-    className={cn("inline-flex items-center justify-center", className)}
-    onMouseEnter={handleEnter}
-    onMouseLeave={handleLeave}
-    {...props}
-    style={{ color, ...props.style }}
-   >
-    <motion.svg
-     xmlns="http://www.w3.org/2000/svg"
-     width={size}
-     height={size}
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     strokeWidth="2"
-     strokeLinecap="round"
-     strokeLinejoin="round"
-     className="lucide lucide-layout-grid-icon lucide-layout-grid"
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
     >
-     <defs>
-      <linearGradient id="grid-sweep" x1="0" y1="0" x2="1" y2="1">
-       <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-       <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
-       <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-      </linearGradient>
-     </defs>
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-layout-grid-icon lucide-layout-grid"
+     >
+      <defs>
+       <linearGradient id="grid-sweep" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+       </linearGradient>
+      </defs>
 
-     <motion.g variants={gridVariants} initial="normal" animate={controls}>
-      <motion.rect
-       width="7"
-       height="7"
-       x="3"
-       y="3"
-       rx="1"
-       variants={tileVariants}
-       custom={0}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.rect
-       width="7"
-       height="7"
-       x="14"
-       y="3"
-       rx="1"
-       variants={tileVariants}
-       custom={1}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.rect
-       width="7"
-       height="7"
-       x="14"
-       y="14"
-       rx="1"
-       variants={tileVariants}
-       custom={2}
-       initial="normal"
-       animate={controls}
-      />
-      <motion.rect
-       width="7"
-       height="7"
-       x="3"
-       y="14"
-       rx="1"
-       variants={tileVariants}
-       custom={3}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={gridVariants} initial="normal" animate={controls}>
+       <m.rect
+        width="7"
+        height="7"
+        x="3"
+        y="3"
+        rx="1"
+        variants={tileVariants}
+        custom={0}
+        initial="normal"
+        animate={controls}
+       />
+       <m.rect
+        width="7"
+        height="7"
+        x="14"
+        y="3"
+        rx="1"
+        variants={tileVariants}
+        custom={1}
+        initial="normal"
+        animate={controls}
+       />
+       <m.rect
+        width="7"
+        height="7"
+        x="14"
+        y="14"
+        rx="1"
+        variants={tileVariants}
+        custom={2}
+        initial="normal"
+        animate={controls}
+       />
+       <m.rect
+        width="7"
+        height="7"
+        x="3"
+        y="14"
+        rx="1"
+        variants={tileVariants}
+        custom={3}
+        initial="normal"
+        animate={controls}
+       />
 
-      <motion.rect
-       x="2"
-       y="2"
-       width="20"
-       height="20"
-       rx="3"
-       fill="url(#grid-sweep)"
-       variants={sweepVariants}
-       initial="normal"
-       animate={controls}
-       style={{ pointerEvents: "none" }}
-      />
-     </motion.g>
-    </motion.svg>
-   </motion.div>
+       <m.rect
+        x="2"
+        y="2"
+        width="20"
+        height="20"
+        rx="3"
+        fill="url(#grid-sweep)"
+        variants={sweepVariants}
+        initial="normal"
+        animate={controls}
+        style={{ pointerEvents: "none" }}
+       />
+      </m.g>
+     </m.svg>
+    </m.div>
+   </LazyMotion>
   );
  },
 );
