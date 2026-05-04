@@ -1,6 +1,6 @@
 /**
  * Tests for useIconConfig — local state hook for the AnimateIcons
- * playground sheet (size / duration / color / trigger).
+ * playground sheet (size / duration / color).
  */
 
 import { describe, expect, it } from "vitest";
@@ -13,7 +13,6 @@ describe("useIconConfig", () => {
 		expect(result.current.config.size).toBe(64);
 		expect(result.current.config.duration).toBe(1);
 		expect(result.current.config.color).toBe("#ffffff");
-		expect(result.current.config.trigger).toBe("hover");
 	});
 
 	it("update mutates the chosen field only", () => {
@@ -33,11 +32,5 @@ describe("useIconConfig", () => {
 
 		act(() => result.current.reset());
 		expect(result.current.config.size).toBe(32);
-	});
-
-	it("supports trigger mode changes", () => {
-		const { result } = renderHook(() => useIconConfig());
-		act(() => result.current.update("trigger", "loop"));
-		expect(result.current.config.trigger).toBe("loop");
 	});
 });

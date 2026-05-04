@@ -3,23 +3,20 @@
 /**
  * PlaygroundControls
  *
- * SRP: render the playground's size / duration / color / trigger
- * inputs for the AnimateIcons playground sheet and bubble updates back
- * through props. Stateless. Sliders are native <input type="range">
- * styled with Tailwind arbitrary variants so the AnimateIcons site
- * doesn't pull in a new component dependency just for two sliders.
+ * SRP: render the playground's size / duration / color inputs and bubble
+ * updates back through props. Stateless. Sliders are native
+ * <input type="range"> styled with Tailwind arbitrary variants so the
+ * AnimateIcons site doesn't pull in a new component dependency just for
+ * two sliders.
  */
 
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
-import type { IconConfig, TriggerMode } from "./useIconConfig";
+import type { IconConfig } from "./useIconConfig";
 
 type Props = {
 	config: IconConfig;
 	update: <K extends keyof IconConfig>(key: K, value: IconConfig[K]) => void;
 };
-
-const TRIGGERS: TriggerMode[] = ["hover", "click", "loop"];
 
 /** Tailwind class chain for the AnimateIcons-styled range slider — keep here, not duplicated. */
 const sliderClass = cn(
@@ -124,54 +121,6 @@ const PlaygroundControls: React.FC<Props> = ({ config, update }) => {
 					<span className="text-textPrimary font-mono text-xs uppercase">
 						{config.color}
 					</span>
-				</div>
-			</div>
-
-			<div className="space-y-2">
-				<span className="text-textSecondary text-xs font-medium tracking-wide uppercase">
-					Trigger
-				</span>
-				<div
-					role="radiogroup"
-					aria-label="Trigger mode"
-					className={cn(
-						"flex gap-1 rounded-full p-1",
-						"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
-						"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",
-						"backdrop-blur",
-					)}
-				>
-					{TRIGGERS.map((t) => {
-						const active = config.trigger === t;
-						return (
-							<button
-								key={t}
-								type="button"
-								role="radio"
-								aria-checked={active}
-								onClick={() => update("trigger", t)}
-								className={cn(
-									"relative z-10 flex-1 rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors",
-									active
-										? "text-primary"
-										: "text-textSecondary hover:text-textPrimary",
-								)}
-							>
-								{active && (
-									<motion.span
-										layoutId="playground-trigger-pill"
-										className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
-										transition={{
-											type: "spring",
-											stiffness: 380,
-											damping: 32,
-										}}
-									/>
-								)}
-								{t}
-							</button>
-						);
-					})}
 				</div>
 			</div>
 		</div>

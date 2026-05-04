@@ -4,31 +4,28 @@
  * useIconConfig
  *
  * SRP: holds local state for the AnimateIcons playground sheet
- * (size / color / duration / trigger). Lives next to the playground
- * because no other component on the AnimateIcons site needs it.
+ * (size / color / duration). Lives next to the playground because no
+ * other component on the AnimateIcons site needs it.
  *
- * Note: stroke is intentionally omitted because every AnimateIcons
- * source file hardcodes `strokeWidth="2"` in its SVG paths. Exposing
- * a stroke slider here without first threading a `strokeWidth` prop
- * through all 281 icons would be misleading — slider would do nothing.
+ * Note: trigger mode (hover/click/loop) was removed — hover is the only
+ * mode users actually want from a gallery preview, and the toggle was
+ * adding clutter without earning its keep. `stroke` is intentionally
+ * omitted because every AnimateIcons source file hardcodes
+ * `strokeWidth="2"` in its SVG paths.
  */
 
 import { useCallback, useState } from "react";
-
-export type TriggerMode = "hover" | "click" | "loop";
 
 export type IconConfig = {
 	size: number;
 	color: string;
 	duration: number;
-	trigger: TriggerMode;
 };
 
 const DEFAULT: IconConfig = {
 	size: 64,
 	color: "#ffffff",
 	duration: 1,
-	trigger: "hover",
 };
 
 export const useIconConfig = (initial: Partial<IconConfig> = {}) => {

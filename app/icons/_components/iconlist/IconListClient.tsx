@@ -3,6 +3,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import dynamic from "next/dynamic";
 import SearchBar from "../navbar/SearchBar";
+import PlaygroundSheet from "../playground/PlaygroundSheet";
 import IconListSkeleton from "./IconListSkeleton";
 
 const IconList = dynamic(() => import("./IconList"), {
@@ -17,6 +18,7 @@ const IconListClient = () => {
 		<>
 			{isMobile ? <SearchBar /> : null}
 			<IconList />
+			<PlaygroundSheet />
 		</>
 	);
 };

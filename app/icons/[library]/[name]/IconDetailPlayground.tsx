@@ -59,31 +59,12 @@ const IconDetailPlayground: React.FC<Props> = ({
 		[componentName, config],
 	);
 
-	// Loop trigger: poll the icon's startAnimation on a duration-aware
-	// interval. Same pattern the playground sheet uses.
-	useEffect(() => {
-		if (config.trigger !== "loop") {
-			iconRef.current?.stopAnimation();
-			return;
-		}
-		iconRef.current?.startAnimation();
-		const id = window.setInterval(
-			() => iconRef.current?.startAnimation(),
-			Math.max(800, config.duration * 1000 + 400),
-		);
-		return () => window.clearInterval(id);
-	}, [config.trigger, config.duration]);
-
 	// Auto-play once on mount so visitors landing from search instantly
 	// see the icon move without having to hover.
 	useEffect(() => {
 		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
 		return () => window.clearTimeout(t);
 	}, []);
-
-	const handlePreviewClick = () => {
-		if (config.trigger === "click") iconRef.current?.startAnimation();
-	};
 
 	const handleCopy = async () => {
 		try {
@@ -103,13 +84,8 @@ const IconDetailPlayground: React.FC<Props> = ({
 				<div
 					role="img"
 					aria-label={`${componentName} preview at ${config.size}px`}
-					onClick={handlePreviewClick}
-					onMouseEnter={(e) =>
-						config.trigger === "hover" && handleHover(e, iconRef)
-					}
-					onMouseLeave={(e) =>
-						config.trigger === "hover" && handleHover(e, iconRef)
-					}
+					onMouseEnter={(e) => handleHover(e, iconRef)}
+					onMouseLeave={(e) => handleHover(e, iconRef)}
 					className={cn(
 						"relative flex h-72 cursor-pointer items-center justify-center overflow-hidden rounded-2xl",
 						"border-border/60 border bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
