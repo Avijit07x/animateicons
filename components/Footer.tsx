@@ -25,6 +25,13 @@ const Footer: React.FC = () => {
 						</Link>
 
 						<Link
+							href="/sponsors"
+							className="text-textSecondary hover:text-textPrimary"
+						>
+							Supporters
+						</Link>
+
+						<Link
 							href="https://github.com/Avijit07x/animateicons"
 							target="_blank"
 							className="text-textSecondary hover:text-textPrimary"

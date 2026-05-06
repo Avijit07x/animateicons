@@ -19,7 +19,7 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { getCategories } from "@/utils/getCategories";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
@@ -34,6 +34,7 @@ const AppSidebar: React.FC = () => {
 	const { library } = useIconLibrary();
 	const { category, setCategory } = useCategory();
 	const router = useRouter();
+	const pathname = usePathname();
 	const icons = library === "huge" ? HUGE_ICON_LIST : LUCIDE_ICON_LIST;
 
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
@@ -42,6 +43,17 @@ const AppSidebar: React.FC = () => {
 	const isLibraryActive = (name?: string) => {
 		if (!name) return false;
 		return name === library;
+	};
+
+	/** Match a Navigation item's href against the current pathname.
+	 *  Exact match for "/" so it doesn't light up everywhere; prefix
+	 *  match for nested routes like /sponsors → /sponsors/* . External
+	 *  hrefs (http/https) never highlight. */
+	const isHrefActive = (href?: string): boolean => {
+		if (!href || !pathname) return false;
+		if (/^https?:\/\//.test(href)) return false;
+		if (href === "/") return pathname === "/";
+		return pathname === href || pathname.startsWith(`${href}/`);
 	};
 
 	const handleCategory = (cat: string) => {
@@ -84,12 +96,23 @@ const AppSidebar: React.FC = () => {
 								{group.items.map((item) => {
 									const Icon = item.icon;
 									const customIcon = libraryIconMap[item.label];
+									const highlight = item.highlight === true;
 
 									const content = (
 										<>
-											{customIcon
-												? customIcon
-												: Icon && <Icon className="size-4" />}
+											{customIcon ? (
+												customIcon
+											) : (
+												Icon && (
+													<Icon
+														className={
+															highlight
+																? "size-4 fill-pink-500/20 text-pink-500"
+																: "size-4"
+														}
+													/>
+												)
+											)}
 
 											<span className="flex items-center gap-2">
 												{item.label}
@@ -110,7 +133,9 @@ const AppSidebar: React.FC = () => {
 												isActive={
 													group.label === "Categories"
 														? category === item.label
-														: isLibraryActive(item.name)
+														: group.label === "Navigation"
+															? isHrefActive(item.href)
+															: isLibraryActive(item.name)
 												}
 												className="gap-2"
 												onClick={() => {

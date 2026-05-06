@@ -18,8 +18,7 @@ const NavbarActions = () => {
 
 	const sponsorLink = (
 		<Link
-			href="https://github.com/sponsors/Avijit07x"
-			target="_blank"
+			href="/sponsors"
 			onMouseEnter={(e) => handleHover(e, heartRef)}
 			onMouseLeave={(e) => handleHover(e, heartRef)}
 			className="hover:bg-surface text-textPrimary flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"
@@ -52,7 +51,7 @@ const NavbarActions = () => {
 			) : (
 				<Tooltip>
 					<TooltipTrigger asChild>{sponsorLink}</TooltipTrigger>
-					<TooltipContent>Sponsor this project</TooltipContent>
+					<TooltipContent>See supporters</TooltipContent>
 				</Tooltip>
 			)}
 

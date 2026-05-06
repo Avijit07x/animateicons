@@ -18,9 +18,19 @@
 import { GitHub } from "@/components/icons/Github";
 import { Kbd } from "@/components/ui/kbd";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, Coffee, CreditCard, Heart, Wallet, X } from "lucide-react";
+import {
+	ArrowLeft,
+	ArrowRight,
+	Coffee,
+	CreditCard,
+	Heart,
+	Wallet,
+	X,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const SHOW_DELAY_MS = 1200; // wait a bit before opening so it doesn't fight the page mount
@@ -36,16 +46,23 @@ type SponsorOption = {
 
 type View = "main" | "upi";
 
+// Don't pitch donation on pages that already exist *because* of donations.
+const SUPPRESSED_PATHS = ["/sponsors"];
+
 const SponsorPopup: React.FC = () => {
+	const pathname = usePathname();
+	const suppressed = SUPPRESSED_PATHS.some((p) => pathname?.startsWith(p));
+
 	const [open, setOpen] = useState(false);
 	const [view, setView] = useState<View>("main");
 	const [copied, setCopied] = useState(false);
 	const copyTimer = useRef<number | null>(null);
 
 	useEffect(() => {
+		if (suppressed) return;
 		const id = window.setTimeout(() => setOpen(true), SHOW_DELAY_MS);
 		return () => window.clearTimeout(id);
-	}, []);
+	}, [suppressed]);
 
 	const dismiss = () => {
 		setOpen(false);
@@ -134,7 +151,7 @@ const SponsorPopup: React.FC = () => {
 						transition={{ type: "spring", stiffness: 380, damping: 32 }}
 						onClick={(e) => e.stopPropagation()}
 						className={cn(
-							"relative w-full max-w-md overflow-hidden rounded-2xl",
+							"relative w-full max-w-md max-h-[90dvh] overflow-y-auto overflow-x-hidden rounded-2xl",
 							"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
 							"shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_30px_80px_-30px_rgba(0,0,0,0.85)]",
 						)}
@@ -165,8 +182,7 @@ const SponsorPopup: React.FC = () => {
 							<div className="relative space-y-5 px-6 py-7 sm:px-8 sm:py-8">
 								<div className="space-y-3">
 									<div className="border-primary/30 bg-primary/10 text-primary inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-wide uppercase">
-										<Heart className="size-3.5" />
-										A note from the maker
+										<Heart className="size-3.5" />A note from the maker
 									</div>
 									<h2
 										id="sponsor-title"
@@ -243,17 +259,27 @@ const SponsorPopup: React.FC = () => {
 									})}
 								</div>
 
-								<div className="border-border/40 flex items-center justify-between gap-3 border-t pt-4">
-									<p className="text-textMuted text-[11px]">
-										Press <Kbd>Esc</Kbd> to dismiss
-									</p>
-									<button
-										type="button"
+								<div className="border-border/40 space-y-2.5 border-t pt-4">
+									<Link
+										href="/sponsors"
 										onClick={dismiss}
-										className="text-textSecondary hover:text-textPrimary text-xs font-medium transition-colors"
+										className="text-primary group inline-flex items-center gap-1.5 text-sm font-medium decoration-primary/30 underline-offset-4 transition-all hover:decoration-primary/70 hover:underline"
 									>
-										Maybe later
-									</button>
+										See everyone supporting AnimateIcons
+										<ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+									</Link>
+									<div className="flex items-center justify-between gap-3">
+										<p className="text-textMuted text-[11px]">
+											Press <Kbd>Esc</Kbd> to dismiss
+										</p>
+										<button
+											type="button"
+											onClick={dismiss}
+											className="text-textSecondary hover:text-textPrimary text-xs font-medium transition-colors"
+										>
+											Maybe later
+										</button>
+									</div>
 								</div>
 							</div>
 						) : (

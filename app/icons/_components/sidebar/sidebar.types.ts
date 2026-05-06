@@ -6,6 +6,9 @@ export type SidebarItem = {
 	target?: string;
 	isActive?: boolean;
 	isBeta?: boolean;
+	/** Visual emphasis for important CTAs (e.g. Supporters). Renders the
+	 *  icon + label tinted, with a subtle border/glow. */
+	highlight?: boolean;
 };
 
 export type SidebarGroupConfig = {

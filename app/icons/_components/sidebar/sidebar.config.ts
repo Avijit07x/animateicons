@@ -1,4 +1,4 @@
-import { Home, Package, Send } from "lucide-react";
+import { Heart, Home, Package, Send } from "lucide-react";
 import { SidebarGroupConfig } from "./sidebar.types";
 
 export const sidebarConfig: SidebarGroupConfig[] = [
@@ -7,6 +7,12 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 		items: [
 			{ label: "Home", href: "/", icon: Home },
 			{ label: "Installation", href: "/icons/docs", icon: Package },
+			{
+				label: "Supporters",
+				href: "/sponsors",
+				icon: Heart,
+				highlight: true,
+			},
 			{
 				label: "Submit",
 				href: "https://github.com/Avijit07x/animateicons?tab=contributing-ov-file#getting-started",
