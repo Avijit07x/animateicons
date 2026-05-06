@@ -163,7 +163,11 @@ type Props = {
 	className?: string;
 };
 
-const HighlightedCode: React.FC<Props> = ({ code, lang = "tsx", className }) => {
+const HighlightedCode: React.FC<Props> = ({
+	code,
+	lang = "tsx",
+	className,
+}) => {
 	const tokens = lang === "bash" ? tokenizeBash(code) : tokenizeTsx(code);
 	return (
 		<pre
