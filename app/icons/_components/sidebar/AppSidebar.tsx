@@ -100,19 +100,17 @@ const AppSidebar: React.FC = () => {
 
 									const content = (
 										<>
-											{customIcon ? (
-												customIcon
-											) : (
-												Icon && (
-													<Icon
-														className={
-															highlight
-																? "size-4 fill-pink-500/20 text-pink-500"
-																: "size-4"
-														}
-													/>
-												)
-											)}
+											{customIcon
+												? customIcon
+												: Icon && (
+														<Icon
+															className={
+																highlight
+																	? "size-4 fill-pink-500/20 text-pink-500"
+																	: "size-4"
+															}
+														/>
+													)}
 
 											<span className="flex items-center gap-2">
 												{item.label}

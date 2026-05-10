@@ -41,7 +41,11 @@ describe("compareSupporters", () => {
 	});
 
 	it("sorts undated supporters alphabetically by name", () => {
-		const charlie = make({ id: "github:charlie", source: "github", name: "Charlie" });
+		const charlie = make({
+			id: "github:charlie",
+			source: "github",
+			name: "Charlie",
+		});
 		const alice = make({ id: "github:alice", source: "github", name: "Alice" });
 		const bob = make({ id: "github:bob", source: "github", name: "Bob" });
 		const result = [charlie, alice, bob].sort(compareSupporters);

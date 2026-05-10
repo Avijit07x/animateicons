@@ -1,5 +1,6 @@
 import NavbarActions from "@/components/NavbarActions";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { fetchStars } from "@/lib/github/stars";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,9 +8,8 @@ import DistributionToggle from "./DistributionToggle";
 import PackageManagerToggle from "./PackageManagerToggle";
 import SearchBar from "./SearchBar";
 
-type Props = {};
-
-const Navbar: React.FC<Props> = () => {
+const Navbar: React.FC = async () => {
+	const stars = await fetchStars();
 	return (
 		<div className="border-border/50 bg-bgDark sticky top-0 z-50 h-15 w-full border-b px-4 py-3 lg:px-6">
 			<div className="mx-auto flex max-w-384 items-center justify-between">
@@ -35,7 +35,7 @@ const Navbar: React.FC<Props> = () => {
 				</div>
 
 				<div className="flex items-center gap-2 text-sm">
-					<NavbarActions />
+					<NavbarActions stars={stars} />
 				</div>
 			</div>
 		</div>

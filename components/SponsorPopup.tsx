@@ -151,7 +151,7 @@ const SponsorPopup: React.FC = () => {
 						transition={{ type: "spring", stiffness: 380, damping: 32 }}
 						onClick={(e) => e.stopPropagation()}
 						className={cn(
-							"relative w-full max-w-md max-h-[90dvh] overflow-y-auto overflow-x-hidden rounded-2xl",
+							"relative max-h-[90dvh] w-full max-w-md overflow-x-hidden overflow-y-auto rounded-2xl",
 							"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
 							"shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_30px_80px_-30px_rgba(0,0,0,0.85)]",
 						)}
@@ -263,7 +263,7 @@ const SponsorPopup: React.FC = () => {
 									<Link
 										href="/sponsors"
 										onClick={dismiss}
-										className="text-primary group inline-flex items-center gap-1.5 text-sm font-medium decoration-primary/30 underline-offset-4 transition-all hover:decoration-primary/70 hover:underline"
+										className="text-primary group decoration-primary/30 hover:decoration-primary/70 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 transition-all hover:underline"
 									>
 										See everyone supporting AnimateIcons
 										<ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

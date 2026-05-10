@@ -363,6 +363,13 @@ export default async function OGImage({
 		</div>,
 		{
 			...size,
+			headers: {
+				// OG content per icon never changes (icon name + glyph + brand are
+				// static). Cache aggressively at the CDN so subsequent crawler/user
+				// hits don't re-invoke the function — drops edge requests by ~10%.
+				"Cache-Control":
+					"public, max-age=31536000, s-maxage=31536000, immutable",
+			},
 		},
 	);
 }

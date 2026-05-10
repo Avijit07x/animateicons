@@ -91,8 +91,8 @@ const SponsorsPage = () => {
 					</div>
 
 					<p className="text-textMuted mt-8 text-center text-xs">
-						Data refreshes hourly. Anonymous and privacy-hidden tips
-						aren&apos;t shown.
+						Data refreshes hourly. Anonymous and privacy-hidden tips aren&apos;t
+						shown.
 					</p>
 				</section>
 			</main>

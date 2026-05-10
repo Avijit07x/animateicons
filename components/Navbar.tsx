@@ -1,10 +1,12 @@
+import { fetchStars } from "@/lib/github/stars";
 import Image from "next/image";
 import Link from "next/link";
 import CommandSearchTrigger from "./command-search/CommandSearchTrigger";
 import NavbarActions from "./NavbarActions";
 import { Separator } from "./ui/separator";
 
-const Navbar = () => {
+const Navbar = async () => {
+	const stars = await fetchStars();
 	return (
 		<header className="sticky top-0 z-50">
 			<nav className="bg-bgDark backdrop-blur-3xl">
@@ -37,7 +39,7 @@ const Navbar = () => {
 								orientation="vertical"
 								className="hidden h-4! w-1 md:flex"
 							/>
-							<NavbarActions />
+							<NavbarActions stars={stars} />
 						</div>
 					</div>
 				</div>

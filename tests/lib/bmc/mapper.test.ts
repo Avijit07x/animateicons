@@ -53,9 +53,15 @@ describe("mapBmcSupporter", () => {
 	});
 
 	it("returns null message when note is empty or whitespace", () => {
-		expect(mapBmcSupporter({ ...baseRaw, support_note: null }).message).toBeNull();
-		expect(mapBmcSupporter({ ...baseRaw, support_note: "" }).message).toBeNull();
-		expect(mapBmcSupporter({ ...baseRaw, support_note: "   " }).message).toBeNull();
+		expect(
+			mapBmcSupporter({ ...baseRaw, support_note: null }).message,
+		).toBeNull();
+		expect(
+			mapBmcSupporter({ ...baseRaw, support_note: "" }).message,
+		).toBeNull();
+		expect(
+			mapBmcSupporter({ ...baseRaw, support_note: "   " }).message,
+		).toBeNull();
 	});
 
 	it("coerces amount to null when price is non-numeric", () => {

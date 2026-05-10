@@ -1,7 +1,6 @@
 "use client";
 
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useGithubStars } from "@/hooks/useGithubStars";
 import Link from "next/link";
 import { useRef } from "react";
 import { HeartIcon, HeartIconHandle } from "../icons/huge/heart-icon";
@@ -11,9 +10,14 @@ import { NumberTicker } from "./magicui/number-ticker";
 import { Separator } from "./ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
-const NavbarActions = () => {
+type Props = {
+	/** Star count fetched server-side. `null` means fetch failed or no
+	 *  data yet — the count badge simply won't render. */
+	stars: number | null;
+};
+
+const NavbarActions: React.FC<Props> = ({ stars }) => {
 	const heartRef = useRef<HeartIconHandle>(null);
-	const { stars } = useGithubStars();
 	const isMobile = useIsMobile();
 
 	const sponsorLink = (

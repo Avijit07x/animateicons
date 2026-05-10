@@ -123,7 +123,7 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 							onKeyDown={onKeyDown}
 							className={cn(
 								"inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-								"focus-visible:ring-primary/40 focus-visible:outline-none focus-visible:ring-2",
+								"focus-visible:ring-primary/40 focus-visible:ring-2 focus-visible:outline-none",
 								active
 									? "border-primary/40 bg-primary/15 text-primary"
 									: "border-border/60 hover:border-primary/40 text-textSecondary hover:text-textPrimary",
