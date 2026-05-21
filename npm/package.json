@@ -65,7 +65,7 @@
 		"normalize-handles": "node scripts/normalize-handle-names.mjs",
 		"check:naming": "node scripts/check-icon-naming.mjs",
 		"build": "pnpm run gen && tsup",
-		"postbuild": "npx tsx scripts/analyze-bundle.ts",
+		"postbuild": "npx tsx scripts/analyze-bundle.ts --barrels-only",
 		"dev": "pnpm run gen && tsup --watch",
 		"typecheck": "tsc --noEmit",
 		"test:codegen": "node --test __tests__/generate-exports.test.mjs",

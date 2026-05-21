@@ -156,7 +156,7 @@ async function discoverIcons(
   for (const entry of entries) {
     if (!entry.endsWith("-icon.tsx")) continue;
     const src = await readFile(path.join(dir, entry), "utf8");
-    const match = src.match(/(?:const|function)\s+([A-Z][A-Za-z0-9]*Icon)\s*[=(:<]/m);
+    const match = src.match(/(?:const|function)\s+([A-Z][A-Za-z0-9]*Icon)\s*[=(:<(]/m);
     if (match?.[1]) {
       results.push({ name: match[1], library });
     }
@@ -222,6 +222,10 @@ async function main() {
   const args = process.argv.slice(2);
   const isCI = args.includes("--ci");
   const prComment = args.includes("--pr-comment");
+  // Skip per-icon esbuild measurement (slow ~30–60s). Used in postbuild so
+  // every local build doesn't pay the full analysis cost. Run `pnpm analyze`
+  // for the complete per-icon report.
+  const barrelsOnly = args.includes("--barrels-only");
 
   console.log("📦  @animateicons/react — bundle analysis\n");
 
@@ -252,7 +256,12 @@ async function main() {
   const icons: Record<string, IconEntry> = {};
   let overBudgetIcons = 0;
 
+  if (barrelsOnly) {
+    console.log("  Skipping per-icon analysis (--barrels-only). Run `pnpm analyze` for full report.\n");
+  }
+
   for (const library of ["lucide", "huge"] as const) {
+    if (barrelsOnly) break;
     const barrelPath = path.join(DIST, `${library}.js`);
     const iconList = await discoverIcons(library);
 
