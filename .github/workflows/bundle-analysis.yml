@@ -1,0 +1,113 @@
+name: Bundle Analysis
+
+on:
+  pull_request:
+    branches: [main, dev]
+    # Only run when the npm package or icons change — skip for docs-only PRs.
+    paths:
+      - "npm/**"
+      - "icons/**"
+      - ".github/workflows/bundle-analysis.yml"
+
+# One analysis run per PR branch — cancel any in-progress run when a new
+# commit is pushed so we never post a stale comment.
+concurrency:
+  group: bundle-analysis-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Measure bundle sizes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # Required for actions/github-script to post PR comments.
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # -----------------------------------------------------------------------
+      # Build the npm package so dist/ exists for analysis.
+      # -----------------------------------------------------------------------
+      - name: Build npm package
+        run: pnpm --filter @animateicons/react build
+
+      # -----------------------------------------------------------------------
+      # Run the analysis script in --pr-comment mode so it writes the markdown
+      # table to GITHUB_OUTPUT for the comment step below.
+      # -----------------------------------------------------------------------
+      - name: Analyze bundle sizes
+        id: analyze
+        run: |
+          pnpm --filter @animateicons/react exec \
+            npx tsx scripts/analyze-bundle.ts --pr-comment
+        # Don't fail the workflow here — budget failures are reported as a
+        # comment. The hard gate is the existing `size` step in build-check.yml.
+
+      # -----------------------------------------------------------------------
+      # Post or update a PR comment with the size table.
+      # We use a magic marker so subsequent pushes replace rather than append.
+      # -----------------------------------------------------------------------
+      - name: Post size report as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const MARKER = '<!-- animateicons-bundle-analysis -->';
+            const body = `${MARKER}\n${process.env.PR_COMMENT_BODY}`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c =>
+              c.user?.type === 'Bot' && c.body?.startsWith(MARKER)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+        env:
+          PR_COMMENT_BODY: ${{ steps.analyze.outputs.pr_comment_body }}
+
+      # -----------------------------------------------------------------------
+      # Upload size-history.json as an artifact so per-PR history is preserved
+      # even if the file isn't committed back (common for open-source repos
+      # where PR branches can't write to main).
+      # -----------------------------------------------------------------------
+      - name: Upload size history artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: size-history-${{ github.sha }}
+          path: npm/scripts/size-history.json
+          if-no-files-found: ignore
+          retention-days: 90

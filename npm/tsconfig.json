@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"target": "ES2020",
 		"lib": ["dom", "dom.iterable", "esnext"],
+		"types": ["node"],
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"jsx": "react-jsx",
@@ -11,7 +12,6 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"baseUrl": ".",
 		"paths": {
 			"@/lib/utils": ["./src/lib/cn.ts"],
 			"@/types/icon": ["./src/lib/icon-handle.ts"]
