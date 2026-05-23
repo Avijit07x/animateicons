@@ -19,6 +19,7 @@ const Footer: React.FC = () => {
 					<div className="flex flex-wrap gap-6 text-sm">
 						<Link
 							href="/icons/lucide"
+							prefetch={false}
 							className="text-textSecondary hover:text-textPrimary"
 						>
 							Icons
@@ -26,6 +27,7 @@ const Footer: React.FC = () => {
 
 						<Link
 							href="/sponsors"
+							prefetch={false}
 							className="text-textSecondary hover:text-textPrimary"
 						>
 							Supporters

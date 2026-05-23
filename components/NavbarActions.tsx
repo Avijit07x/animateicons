@@ -23,6 +23,7 @@ const NavbarActions: React.FC<Props> = ({ stars }) => {
 	const sponsorLink = (
 		<Link
 			href="/sponsors"
+			prefetch={false}
 			onMouseEnter={(e) => handleHover(e, heartRef)}
 			onMouseLeave={(e) => handleHover(e, heartRef)}
 			className="hover:bg-surface text-textPrimary flex items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium"

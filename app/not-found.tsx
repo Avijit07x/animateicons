@@ -68,6 +68,7 @@ export default function NotFound() {
 					</Link>
 					<Link
 						href="/icons/lucide"
+						prefetch={false}
 						className="border-border/60 hover:border-primary/40 text-textPrimary inline-flex items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
 					>
 						Browse icons

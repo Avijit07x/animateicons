@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
-import SponsorPopup from "@/components/SponsorPopup";
+// import SponsorPopup from "@/components/SponsorPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -132,7 +132,7 @@ export default async function RootLayout({
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
-				<SponsorPopup />
+				{/* <SponsorPopup /> */}
 				<Analytics />
 			</body>
 		</html>

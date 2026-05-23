@@ -30,6 +30,7 @@ const Navbar = async () => {
 						<div className="flex items-center gap-2 text-sm">
 							<Link
 								href="/icons/lucide"
+								prefetch={false}
 								className="hover:text-primaryHover hover:bg-surface text-textPrimary hidden items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium md:flex"
 							>
 								Icons

@@ -262,6 +262,7 @@ const SponsorPopup: React.FC = () => {
 								<div className="border-border/40 space-y-2.5 border-t pt-4">
 									<Link
 										href="/sponsors"
+										prefetch={false}
 										onClick={dismiss}
 										className="text-primary group decoration-primary/30 hover:decoration-primary/70 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 transition-all hover:underline"
 									>
