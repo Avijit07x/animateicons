@@ -21,7 +21,7 @@
 
 ## Installation
 
-Pick one of the two paths below. Both ship the same icons and the same API — the only difference is whether you depend on the package or own the source.
+Pick whichever path fits your setup. They all ship the same icons and the same API — the difference is whether you depend on the package or copy the source into your project.
 
 ### npm package
 
@@ -68,6 +68,32 @@ export function Notifications() {
 	return <BellRingIcon size={24} color="#f45b48" />;
 }
 ```
+
+### animateicons CLI
+
+Same result as the shadcn CLI, but a short first-party command instead of a registry URL.
+
+```bash
+# add one or more (bare name or lu-/hu- prefixed id)
+npx animateicons add bell-ring activity user
+
+# discover from the terminal
+npx animateicons search notification
+npx animateicons list --library huge
+```
+
+Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import `cn` from `@/lib/utils`; pass `--with-utils` if your project isn't shadcn-based. See [@animateicons/cli](./cli/README.md).
+
+### AI agents (MCP)
+
+Let AI coding tools search the catalog and add icons for you via the [Model Context Protocol](https://modelcontextprotocol.io). Exposes `search_icons`, `get_icon`, `add_icon`, and `list_libraries`.
+
+```bash
+# Claude Code
+claude mcp add animateicons -- npx -y @animateicons/mcp
+```
+
+See [@animateicons/mcp](./mcp/README.md) for Cursor and other clients.
 
 ---
 
@@ -148,13 +174,16 @@ animateicons/
 │   ├── lucide/          248 Lucide-style icons
 │   └── huge/             33 Huge-style icons
 ├── npm/                 @animateicons/react published package
+├── core/                shared catalog/search/write logic (bundled into cli + mcp)
+├── cli/                 @animateicons/cli installer
+├── mcp/                 @animateicons/mcp server for AI agents
 ├── app/
 │   ├── icons/[library]/ gallery routes
 │   └── icons/docs/      install guide (MDX)
 ├── components/          shared UI (Hero, Section, etc.)
 ├── hooks/               useIconFilter, useIconAnimation
 ├── tests/               Vitest + React Testing Library
-└── scripts/             registry codegen, codemods
+└── scripts/             registry + catalog codegen, codemods
 ```
 
 ---

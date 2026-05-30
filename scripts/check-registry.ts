@@ -9,9 +9,17 @@ type Registry = {
 	items: RegistryItem[];
 };
 
+type Catalog = {
+	icons: { registryName: string }[];
+};
+
 const ROOT = process.cwd();
 
 function readRegistry(path: string): Registry {
+	return JSON.parse(readFileSync(path, "utf-8"));
+}
+
+function readCatalog(path: string): Catalog {
 	return JSON.parse(readFileSync(path, "utf-8"));
 }
 
@@ -55,6 +63,28 @@ function main() {
 		console.log(
 			"   registry.json and public/r/registry.json are not identical.\n",
 		);
+	}
+
+	// Catalog parity: every registry item must have exactly one catalog entry
+	// and vice versa, so the CLI/MCP never resolve a name the registry lacks.
+	const catalogPath = join(ROOT, "public", "r", "catalog.json");
+	const catalog = readCatalog(catalogPath);
+	const catalogNames = catalog.icons.map((i) => i.registryName);
+
+	const rootSet = new Set(rootNames);
+	const catalogSet = new Set(catalogNames);
+
+	const missingFromCatalog = rootNames.filter((n) => !catalogSet.has(n));
+	const extraInCatalog = catalogNames.filter((n) => !rootSet.has(n));
+
+	if (missingFromCatalog.length > 0 || extraInCatalog.length > 0) {
+		hasError = true;
+		console.log("❌ catalog.json is out of sync with registry.json.");
+		missingFromCatalog.forEach((n) =>
+			console.log(`   • missing from catalog: ${n}`),
+		);
+		extraInCatalog.forEach((n) => console.log(`   • not in registry: ${n}`));
+		console.log("   Run `pnpm gen:icons` to regenerate.\n");
 	}
 
 	if (!hasError) {

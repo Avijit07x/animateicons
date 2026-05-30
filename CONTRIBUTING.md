@@ -178,6 +178,8 @@ Run the following command to automatically build the index map so the applicatio
 pnpm run gen:icons
 ```
 
+This regenerates the `index.ts` barrels, the shadcn registry (`registry.json`, `public/r/*.json`), **and** `public/r/catalog.json` — the searchable index consumed by the `@animateicons/cli` installer and the `@animateicons/mcp` server. So once your icon is registered, it's automatically available through every distribution channel; no extra steps needed.
+
 ---
 
 ### 5. Test Your Icon

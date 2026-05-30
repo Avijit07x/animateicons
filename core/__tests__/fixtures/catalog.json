@@ -1,0 +1,48 @@
+{
+	"version": 1,
+	"registryBase": "fixture",
+	"total": 4,
+	"libraries": { "lucide": 3, "huge": 1 },
+	"icons": [
+		{
+			"name": "bell-ring",
+			"library": "lucide",
+			"prefix": "lu",
+			"registryName": "lu-bell-ring",
+			"addedAt": "2025-12-03",
+			"category": ["Notification"],
+			"keywords": ["notification", "alert", "alarm", "reminder", "ringing"],
+			"url": "fixture/lu-bell-ring.json"
+		},
+		{
+			"name": "bell",
+			"library": "lucide",
+			"prefix": "lu",
+			"registryName": "lu-bell",
+			"addedAt": "2025-01-01",
+			"category": ["Notification"],
+			"keywords": ["notification", "alarm"],
+			"url": "fixture/lu-bell.json"
+		},
+		{
+			"name": "activity",
+			"library": "lucide",
+			"prefix": "lu",
+			"registryName": "lu-activity",
+			"addedAt": "2025-01-01",
+			"category": ["Medical"],
+			"keywords": ["pulse", "health"],
+			"url": "fixture/lu-activity.json"
+		},
+		{
+			"name": "activity",
+			"library": "huge",
+			"prefix": "hu",
+			"registryName": "hu-activity",
+			"addedAt": "2026-02-16",
+			"category": ["Medical"],
+			"keywords": ["pulse", "motion"],
+			"url": "fixture/hu-activity.json"
+		}
+	]
+}

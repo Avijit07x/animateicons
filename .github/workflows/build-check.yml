@@ -54,3 +54,6 @@ jobs:
 
       - name: Enforce npm bundle size budget
         run: pnpm --filter @animateicons/react size
+
+      - name: Verify core + CLI + MCP packages
+        run: pnpm run verify:packages

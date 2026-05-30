@@ -1,0 +1,5213 @@
+{
+  "$schema": "https://animateicons.in/r/catalog.schema.json",
+  "version": 1,
+  "registryBase": "https://animateicons.in/r",
+  "total": 281,
+  "libraries": {
+    "lucide": 248,
+    "huge": 33
+  },
+  "icons": [
+    {
+      "name": "activity",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-activity",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Medical"
+      ],
+      "keywords": [
+        "pulse",
+        "motion",
+        "health",
+        "fitness",
+        "monitor"
+      ],
+      "url": "https://animateicons.in/r/hu-activity.json"
+    },
+    {
+      "name": "bookmark",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bookmark",
+      "addedAt": "2026-02-16",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "save",
+        "favorite",
+        "tag",
+        "mark",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-bookmark.json"
+    },
+    {
+      "name": "bookmark-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bookmark-check",
+      "addedAt": "2026-02-16",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "saved",
+        "favorite",
+        "done",
+        "added",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-bookmark-check.json"
+    },
+    {
+      "name": "bookmark-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bookmark-minus",
+      "addedAt": "2026-02-16",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "saved",
+        "favorite",
+        "done",
+        "added",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-bookmark-minus.json"
+    },
+    {
+      "name": "bookmark-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bookmark-remove",
+      "addedAt": "2026-02-16",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "unsave",
+        "remove",
+        "delete",
+        "unmark",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/hu-bookmark-remove.json"
+    },
+    {
+      "name": "check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-check",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "check",
+        "tick",
+        "done",
+        "confirm",
+        "success",
+        "ok"
+      ],
+      "url": "https://animateicons.in/r/hu-check.json"
+    },
+    {
+      "name": "check-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-check-check",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Notification",
+        "Communication"
+      ],
+      "keywords": [
+        "check",
+        "double",
+        "done",
+        "all",
+        "success",
+        "confirm"
+      ],
+      "url": "https://animateicons.in/r/hu-check-check.json"
+    },
+    {
+      "name": "chevron-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chevron-right",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Arrows",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "next",
+        "carat",
+        "right",
+        "forward",
+        "continue"
+      ],
+      "url": "https://animateicons.in/r/hu-chevron-right.json"
+    },
+    {
+      "name": "compass-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-compass-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "direction",
+        "navigation",
+        "explore",
+        "travel",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/hu-compass-0-1.json"
+    },
+    {
+      "name": "compass-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-compass-0-2",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "direction",
+        "navigation",
+        "explore",
+        "travel",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/hu-compass-0-2.json"
+    },
+    {
+      "name": "copy",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-copy",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "duplicate",
+        "clone"
+      ],
+      "url": "https://animateicons.in/r/hu-copy.json"
+    },
+    {
+      "name": "dashboard-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-dashboard-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "dashboard",
+        "layout",
+        "grid",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/hu-dashboard-0-1.json"
+    },
+    {
+      "name": "dashboard-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-dashboard-0-2",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "dashboard",
+        "layout",
+        "grid",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/hu-dashboard-0-2.json"
+    },
+    {
+      "name": "dashboard-0-3",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-dashboard-0-3",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "dashboard",
+        "layout",
+        "grid",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/hu-dashboard-0-3.json"
+    },
+    {
+      "name": "discord",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-discord",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "discord",
+        "chat",
+        "community",
+        "gaming",
+        "social"
+      ],
+      "url": "https://animateicons.in/r/hu-discord.json"
+    },
+    {
+      "name": "download",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-download",
+      "addedAt": "2026-02-16",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "export",
+        "file",
+        "save",
+        "fetch",
+        "get"
+      ],
+      "url": "https://animateicons.in/r/hu-download.json"
+    },
+    {
+      "name": "eye",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-eye",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Design"
+      ],
+      "keywords": [
+        "eye",
+        "show",
+        "visible",
+        "view",
+        "watch",
+        "preview",
+        "open"
+      ],
+      "url": "https://animateicons.in/r/hu-eye.json"
+    },
+    {
+      "name": "facebook",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-facebook",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "network",
+        "friends",
+        "meta",
+        "community"
+      ],
+      "url": "https://animateicons.in/r/hu-facebook.json"
+    },
+    {
+      "name": "figma",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-figma",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "design",
+        "ui",
+        "tool",
+        "vector",
+        "prototype"
+      ],
+      "url": "https://animateicons.in/r/hu-figma.json"
+    },
+    {
+      "name": "github",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-github",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "git",
+        "repo",
+        "version control",
+        "social"
+      ],
+      "url": "https://animateicons.in/r/hu-github.json"
+    },
+    {
+      "name": "heart",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "like",
+        "love",
+        "emotion",
+        "favorite",
+        "react"
+      ],
+      "url": "https://animateicons.in/r/hu-heart.json"
+    },
+    {
+      "name": "loading-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-loading-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "loading",
+        "loader",
+        "wait",
+        "busy",
+        "progress",
+        "spinner"
+      ],
+      "url": "https://animateicons.in/r/hu-loading-0-1.json"
+    },
+    {
+      "name": "loading-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-loading-0-2",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "loading",
+        "loader",
+        "wait",
+        "busy",
+        "progress",
+        "spinner"
+      ],
+      "url": "https://animateicons.in/r/hu-loading-0-2.json"
+    },
+    {
+      "name": "menu-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-menu-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "menu",
+        "navigation",
+        "options",
+        "sidebar",
+        "list"
+      ],
+      "url": "https://animateicons.in/r/hu-menu-0-1.json"
+    },
+    {
+      "name": "menu-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-menu-0-2",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Layout",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "menu",
+        "navigation",
+        "options",
+        "sidebar",
+        "list"
+      ],
+      "url": "https://animateicons.in/r/hu-menu-0-2.json"
+    },
+    {
+      "name": "mouse-pointer-click-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mouse-pointer-click-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Cursors"
+      ],
+      "keywords": [
+        "click",
+        "select"
+      ],
+      "url": "https://animateicons.in/r/hu-mouse-pointer-click-0-1.json"
+    },
+    {
+      "name": "new-twitter",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-new-twitter",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "tweet",
+        "post",
+        "x",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-new-twitter.json"
+    },
+    {
+      "name": "notification",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-notification",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "alarm",
+        "alert",
+        "reminder",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/hu-notification.json"
+    },
+    {
+      "name": "notification-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-notification-off",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "alarm",
+        "alert",
+        "reminder",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/hu-notification-off.json"
+    },
+    {
+      "name": "search",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-search",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "find",
+        "magnifier",
+        "search",
+        "explore",
+        "query"
+      ],
+      "url": "https://animateicons.in/r/hu-search.json"
+    },
+    {
+      "name": "settings-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-settings-0-1",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Accounts & access",
+        "Tools"
+      ],
+      "keywords": [
+        "settings",
+        "configuration",
+        "options",
+        "preferences",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/hu-settings-0-1.json"
+    },
+    {
+      "name": "settings-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-settings-0-2",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Accounts & access",
+        "Tools"
+      ],
+      "keywords": [
+        "settings",
+        "configuration",
+        "options",
+        "preferences",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/hu-settings-0-2.json"
+    },
+    {
+      "name": "twitter",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-twitter",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "tweet",
+        "post",
+        "x",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-twitter.json"
+    },
+    {
+      "name": "a-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-a-arrow-down",
+      "addedAt": "2025-12-28",
+      "category": [
+        "Arrows",
+        "Text formatting"
+      ],
+      "keywords": [
+        "letter",
+        "font size",
+        "text",
+        "formatting",
+        "smaller"
+      ],
+      "url": "https://animateicons.in/r/lu-a-arrow-down.json"
+    },
+    {
+      "name": "a-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-a-arrow-up",
+      "addedAt": "2025-10-13",
+      "category": [
+        "Arrows",
+        "Text formatting"
+      ],
+      "keywords": [
+        "letter",
+        "font size",
+        "text",
+        "formatting",
+        "bigger"
+      ],
+      "url": "https://animateicons.in/r/lu-a-arrow-up.json"
+    },
+    {
+      "name": "accessibility",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-accessibility",
+      "addedAt": "2025-12-20",
+      "category": [
+        "Accessibility"
+      ],
+      "keywords": [
+        "accessibility",
+        "a11y",
+        "inclusive",
+        "handicap"
+      ],
+      "url": "https://animateicons.in/r/lu-accessibility.json"
+    },
+    {
+      "name": "activity",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-activity",
+      "addedAt": "2025-12-05",
+      "category": [
+        "Medical"
+      ],
+      "keywords": [
+        "pulse",
+        "motion",
+        "health",
+        "fitness",
+        "monitor"
+      ],
+      "url": "https://animateicons.in/r/lu-activity.json"
+    },
+    {
+      "name": "angry",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-angry",
+      "addedAt": "2026-01-17",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "rage",
+        "furious",
+        "frustration",
+        "error state",
+        "warning"
+      ],
+      "url": "https://animateicons.in/r/lu-angry.json"
+    },
+    {
+      "name": "annoyed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-annoyed",
+      "addedAt": "2026-01-17",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "irritated",
+        "unimpressed",
+        "tired",
+        "minor error",
+        "subtle feedback"
+      ],
+      "url": "https://animateicons.in/r/lu-annoyed.json"
+    },
+    {
+      "name": "arrow-down-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-up",
+      "addedAt": "2025-11-28",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "filter",
+        "swap",
+        "order",
+        "switch",
+        "move"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-up.json"
+    },
+    {
+      "name": "arrow-up-0-1",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-0-1",
+      "addedAt": "2025-10-30",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "ascending",
+        "numerical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-0-1.json"
+    },
+    {
+      "name": "arrow-up-1-0",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-1-0",
+      "addedAt": "2025-11-14",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "numerical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-1-0.json"
+    },
+    {
+      "name": "arrow-up-a-z",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-a-z",
+      "addedAt": "2025-09-15",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "ascending",
+        "alphabetical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-a-z.json"
+    },
+    {
+      "name": "arrow-up-z-a",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-z-a",
+      "addedAt": "2026-01-19",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "alphabetical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-z-a.json"
+    },
+    {
+      "name": "atom",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-atom",
+      "addedAt": "2025-11-04",
+      "category": [
+        "Science"
+      ],
+      "keywords": [
+        "nuclear",
+        "physics",
+        "energy",
+        "science",
+        "chemistry"
+      ],
+      "url": "https://animateicons.in/r/lu-atom.json"
+    },
+    {
+      "name": "audio-lines",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-audio-lines",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "sound",
+        "music",
+        "waveform",
+        "volume",
+        "equalizer",
+        "voice"
+      ],
+      "url": "https://animateicons.in/r/lu-audio-lines.json"
+    },
+    {
+      "name": "badge-cent",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-badge-cent",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "discount",
+        "offer",
+        "sale",
+        "badge",
+        "price",
+        "deal"
+      ],
+      "url": "https://animateicons.in/r/lu-badge-cent.json"
+    },
+    {
+      "name": "badge-dollar",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-badge-dollar",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "discount",
+        "offer",
+        "sale",
+        "badge",
+        "price",
+        "deal"
+      ],
+      "url": "https://animateicons.in/r/lu-badge-dollar.json"
+    },
+    {
+      "name": "baggage-claim",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-baggage-claim",
+      "addedAt": "2026-01-23",
+      "category": [
+        "Travel"
+      ],
+      "keywords": [
+        "baggage",
+        "luggage",
+        "airport",
+        "travel",
+        "suitcase",
+        "claim"
+      ],
+      "url": "https://animateicons.in/r/lu-baggage-claim.json"
+    },
+    {
+      "name": "battery",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-battery",
+      "addedAt": "2025-07-27",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "power",
+        "charge",
+        "energy",
+        "status",
+        "level"
+      ],
+      "url": "https://animateicons.in/r/lu-battery.json"
+    },
+    {
+      "name": "battery-full",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-battery-full",
+      "addedAt": "2025-12-01",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "power",
+        "charge",
+        "energy",
+        "full",
+        "status"
+      ],
+      "url": "https://animateicons.in/r/lu-battery-full.json"
+    },
+    {
+      "name": "bell",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bell",
+      "addedAt": "2025-10-09",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "alarm",
+        "alert",
+        "reminder",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/lu-bell.json"
+    },
+    {
+      "name": "bell-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bell-minus",
+      "addedAt": "2025-11-13",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "unsubscribe",
+        "silent",
+        "mute",
+        "remove",
+        "quiet"
+      ],
+      "url": "https://animateicons.in/r/lu-bell-minus.json"
+    },
+    {
+      "name": "bell-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bell-plus",
+      "addedAt": "2025-07-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "subscribe",
+        "notify",
+        "add",
+        "follow",
+        "alert"
+      ],
+      "url": "https://animateicons.in/r/lu-bell-plus.json"
+    },
+    {
+      "name": "bell-ring",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bell-ring",
+      "addedAt": "2025-12-03",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "active",
+        "alarm",
+        "alert",
+        "reminder",
+        "ringing"
+      ],
+      "url": "https://animateicons.in/r/lu-bell-ring.json"
+    },
+    {
+      "name": "biceps-flexed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-biceps-flexed",
+      "addedAt": "2025-09-09",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "arm",
+        "muscle",
+        "strong",
+        "workout",
+        "fitness",
+        "gym"
+      ],
+      "url": "https://animateicons.in/r/lu-biceps-flexed.json"
+    },
+    {
+      "name": "bike",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bike",
+      "addedAt": "2026-03-04",
+      "category": [
+        "Transportation"
+      ],
+      "keywords": [
+        "bike",
+        "bicycle",
+        "cycle",
+        "cycling"
+      ],
+      "url": "https://animateicons.in/r/lu-bike.json"
+    },
+    {
+      "name": "bitcoin",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bitcoin",
+      "addedAt": "2025-08-19",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "bitcoin",
+        "crypto"
+      ],
+      "url": "https://animateicons.in/r/lu-bitcoin.json"
+    },
+    {
+      "name": "blend",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-blend",
+      "addedAt": "2025-07-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "mode",
+        "overlay",
+        "multiply",
+        "screen",
+        "opacity",
+        "color"
+      ],
+      "url": "https://animateicons.in/r/lu-blend.json"
+    },
+    {
+      "name": "blocks",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-blocks",
+      "addedAt": "2025-09-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "blocks",
+        "components",
+        "plugin",
+        "extension",
+        "build",
+        "stack"
+      ],
+      "url": "https://animateicons.in/r/lu-blocks.json"
+    },
+    {
+      "name": "bolt",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bolt",
+      "addedAt": "2025-12-31",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "nut",
+        "screw",
+        "settings",
+        "hardware",
+        "fix"
+      ],
+      "url": "https://animateicons.in/r/lu-bolt.json"
+    },
+    {
+      "name": "book-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-book-open",
+      "addedAt": "2025-12-31",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "book",
+        "read",
+        "open",
+        "library",
+        "pages",
+        "reading"
+      ],
+      "url": "https://animateicons.in/r/lu-book-open.json"
+    },
+    {
+      "name": "book-open-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-book-open-check",
+      "addedAt": "2025-11-15",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "book",
+        "read",
+        "check",
+        "library",
+        "pages",
+        "done"
+      ],
+      "url": "https://animateicons.in/r/lu-book-open-check.json"
+    },
+    {
+      "name": "book-open-text",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-book-open-text",
+      "addedAt": "2025-09-25",
+      "category": [
+        "Text formatting",
+        "Tools"
+      ],
+      "keywords": [
+        "book",
+        "read",
+        "text",
+        "library",
+        "guide",
+        "manual"
+      ],
+      "url": "https://animateicons.in/r/lu-book-open-text.json"
+    },
+    {
+      "name": "bookmark",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark",
+      "addedAt": "2025-12-17",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "save",
+        "favorite",
+        "tag",
+        "mark",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark.json"
+    },
+    {
+      "name": "bookmark-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark-check",
+      "addedAt": "2025-10-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "saved",
+        "favorite",
+        "done",
+        "added",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark-check.json"
+    },
+    {
+      "name": "bookmark-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark-minus",
+      "addedAt": "2025-08-28",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "unsave",
+        "remove",
+        "delete",
+        "unmark",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark-minus.json"
+    },
+    {
+      "name": "bookmark-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark-plus",
+      "addedAt": "2025-09-15",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "save",
+        "add",
+        "favorite",
+        "mark",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark-plus.json"
+    },
+    {
+      "name": "bookmark-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark-x",
+      "addedAt": "2025-09-09",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "unsave",
+        "remove",
+        "delete",
+        "unmark",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark-x.json"
+    },
+    {
+      "name": "box",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-box",
+      "addedAt": "2026-02-26",
+      "category": [
+        "Logistics",
+        "E-commerce",
+        "Storage"
+      ],
+      "keywords": [
+        "box",
+        "package",
+        "parcel",
+        "delivery",
+        "shipping"
+      ],
+      "url": "https://animateicons.in/r/lu-box.json"
+    },
+    {
+      "name": "boxes",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-boxes",
+      "addedAt": "2026-02-26",
+      "category": [
+        "Logistics",
+        "E-commerce",
+        "Warehouse"
+      ],
+      "keywords": [
+        "box",
+        "packages",
+        "inventory",
+        "storage",
+        "warehouse",
+        "shipment",
+        "delivery"
+      ],
+      "url": "https://animateicons.in/r/lu-boxes.json"
+    },
+    {
+      "name": "brain",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-brain",
+      "addedAt": "2025-12-13",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "mind",
+        "thinking",
+        "learning",
+        "memory",
+        "idea",
+        "smart"
+      ],
+      "url": "https://animateicons.in/r/lu-brain.json"
+    },
+    {
+      "name": "bring-to-front",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bring-to-front",
+      "addedAt": "2025-12-12",
+      "category": [
+        "Design",
+        "Layout"
+      ],
+      "keywords": [
+        "bring",
+        "front",
+        "layer",
+        "order",
+        "stack",
+        "move"
+      ],
+      "url": "https://animateicons.in/r/lu-bring-to-front.json"
+    },
+    {
+      "name": "chart-area",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-area",
+      "addedAt": "2025-08-01",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "area",
+        "analytics",
+        "statistics",
+        "data"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-area.json"
+    },
+    {
+      "name": "chart-bar",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-bar",
+      "addedAt": "2025-12-31",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "bar",
+        "analytics",
+        "statistics",
+        "data"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-bar.json"
+    },
+    {
+      "name": "chart-column",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-column",
+      "addedAt": "2026-01-16",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "column",
+        "analytics",
+        "statistics",
+        "data"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-column.json"
+    },
+    {
+      "name": "chart-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-line",
+      "addedAt": "2025-11-10",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "line",
+        "analytics",
+        "statistics",
+        "trend"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-line.json"
+    },
+    {
+      "name": "chart-network",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-network",
+      "addedAt": "2025-08-27",
+      "category": [
+        "Charts",
+        "Connectivity"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "network",
+        "analytics",
+        "statistics",
+        "nodes"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-network.json"
+    },
+    {
+      "name": "chart-no-axes-combined",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-no-axes-combined",
+      "addedAt": "2025-10-09",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "statistics",
+        "analytics",
+        "diagram",
+        "graph",
+        "trending up"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-no-axes-combined.json"
+    },
+    {
+      "name": "chart-pie",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-pie",
+      "addedAt": "2025-10-19",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "graph",
+        "pie",
+        "analytics",
+        "statistics",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-pie.json"
+    },
+    {
+      "name": "chart-scatter",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chart-scatter",
+      "addedAt": "2026-01-23",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "chart",
+        "scatter",
+        "analytics",
+        "data",
+        "graph",
+        "stats",
+        "plot"
+      ],
+      "url": "https://animateicons.in/r/lu-chart-scatter.json"
+    },
+    {
+      "name": "check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-check",
+      "addedAt": "2025-09-18",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "check",
+        "tick",
+        "done",
+        "confirm",
+        "success",
+        "ok"
+      ],
+      "url": "https://animateicons.in/r/lu-check.json"
+    },
+    {
+      "name": "check-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-check-check",
+      "addedAt": "2025-09-30",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "check",
+        "double",
+        "done",
+        "all",
+        "success",
+        "confirm"
+      ],
+      "url": "https://animateicons.in/r/lu-check-check.json"
+    },
+    {
+      "name": "chevron-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-down",
+      "addedAt": "2025-10-02",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "down",
+        "bottom",
+        "expand",
+        "south",
+        "below"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-down.json"
+    },
+    {
+      "name": "chevron-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-left",
+      "addedAt": "2025-11-08",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "back",
+        "carat",
+        "left",
+        "previous",
+        "return"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-left.json"
+    },
+    {
+      "name": "chevron-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-right",
+      "addedAt": "2025-09-08",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "next",
+        "carat",
+        "right",
+        "forward",
+        "continue"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-right.json"
+    },
+    {
+      "name": "chevron-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-up",
+      "addedAt": "2025-11-02",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "direction",
+        "collapse",
+        "dropdown",
+        "less",
+        "caret"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-up.json"
+    },
+    {
+      "name": "chevrons-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-down",
+      "addedAt": "2025-11-23",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "down",
+        "rewind",
+        "slow",
+        "speed",
+        "back"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-down.json"
+    },
+    {
+      "name": "chevrons-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-left",
+      "addedAt": "2025-08-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "left",
+        "double",
+        "fast",
+        "rewind",
+        "back"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-left.json"
+    },
+    {
+      "name": "chevrons-left-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-left-right",
+      "addedAt": "2025-08-04",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "expand",
+        "width",
+        "resize",
+        "horizontal",
+        "stretch"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-left-right.json"
+    },
+    {
+      "name": "chevrons-left-right-ellipsis",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-left-right-ellipsis",
+      "addedAt": "2025-12-16",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "network",
+        "connection",
+        "router",
+        "data",
+        "sync",
+        "internet"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-left-right-ellipsis.json"
+    },
+    {
+      "name": "chevrons-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-right",
+      "addedAt": "2025-10-12",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "right",
+        "double",
+        "fast",
+        "forward",
+        "next"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-right.json"
+    },
+    {
+      "name": "chevrons-right-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-right-left",
+      "addedAt": "2025-10-10",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "collapse",
+        "width",
+        "resize",
+        "horizontal",
+        "compress"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-right-left.json"
+    },
+    {
+      "name": "chevrons-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-up",
+      "addedAt": "2025-11-23",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "up",
+        "ahead",
+        "fast",
+        "speed",
+        "boost"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-up.json"
+    },
+    {
+      "name": "chrome",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chrome",
+      "addedAt": "2025-10-08",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "browser",
+        "web",
+        "internet",
+        "google",
+        "surf"
+      ],
+      "url": "https://animateicons.in/r/lu-chrome.json"
+    },
+    {
+      "name": "circle-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-check",
+      "addedAt": "2025-11-05",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "done",
+        "success",
+        "complete",
+        "task",
+        "status"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-check.json"
+    },
+    {
+      "name": "circle-check-big",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-check-big",
+      "addedAt": "2026-01-09",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "done",
+        "success",
+        "complete",
+        "task",
+        "status"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-check-big.json"
+    },
+    {
+      "name": "circle-chevron-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-chevron-down",
+      "addedAt": "2025-09-21",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "expand",
+        "dropdown",
+        "more",
+        "menu",
+        "bottom"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-chevron-down.json"
+    },
+    {
+      "name": "circle-chevron-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-chevron-left",
+      "addedAt": "2025-08-08",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "back",
+        "previous",
+        "return",
+        "west",
+        "history"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-chevron-left.json"
+    },
+    {
+      "name": "circle-chevron-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-chevron-right",
+      "addedAt": "2025-12-16",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "next",
+        "forward",
+        "more",
+        "east",
+        "continue"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-chevron-right.json"
+    },
+    {
+      "name": "circle-chevron-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-chevron-up",
+      "addedAt": "2025-10-27",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "collapse",
+        "less",
+        "top",
+        "north",
+        "up"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-chevron-up.json"
+    },
+    {
+      "name": "circle-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-plus",
+      "addedAt": "2025-11-08",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "plus",
+        "add",
+        "new",
+        "create",
+        "positive",
+        "more"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-plus.json"
+    },
+    {
+      "name": "clipboard",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clipboard",
+      "addedAt": "2025-10-12",
+      "category": [
+        "File icons",
+        "Tools"
+      ],
+      "keywords": [
+        "copy",
+        "paste",
+        "board",
+        "task"
+      ],
+      "url": "https://animateicons.in/r/lu-clipboard.json"
+    },
+    {
+      "name": "cloud-upload",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cloud-upload",
+      "addedAt": "2025-11-03",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "import",
+        "file",
+        "cloud",
+        "server",
+        "publish"
+      ],
+      "url": "https://animateicons.in/r/lu-cloud-upload.json"
+    },
+    {
+      "name": "code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-code",
+      "addedAt": "2025-09-27",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "source",
+        "programming",
+        "html",
+        "xml",
+        "code",
+        "dev"
+      ],
+      "url": "https://animateicons.in/r/lu-code.json"
+    },
+    {
+      "name": "code-xml",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-code-xml",
+      "addedAt": "2025-07-31",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "source",
+        "programming",
+        "html",
+        "xml",
+        "syntax"
+      ],
+      "url": "https://animateicons.in/r/lu-code-xml.json"
+    },
+    {
+      "name": "coffee",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-coffee",
+      "addedAt": "2026-01-17",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "drink",
+        "cup",
+        "mug",
+        "tea",
+        "cafe",
+        "hot"
+      ],
+      "url": "https://animateicons.in/r/lu-coffee.json"
+    },
+    {
+      "name": "compass",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-compass",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "direction",
+        "navigation",
+        "explore",
+        "travel",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/lu-compass.json"
+    },
+    {
+      "name": "contact",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-contact",
+      "addedAt": "2025-11-30",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "contact",
+        "user",
+        "person",
+        "address",
+        "phone"
+      ],
+      "url": "https://animateicons.in/r/lu-contact.json"
+    },
+    {
+      "name": "contact-round",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-contact-round",
+      "addedAt": "2025-11-30",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "contact",
+        "round",
+        "user",
+        "person",
+        "profile"
+      ],
+      "url": "https://animateicons.in/r/lu-contact-round.json"
+    },
+    {
+      "name": "copy",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-copy",
+      "addedAt": "2025-08-20",
+      "category": [
+        "File icons",
+        "Tools"
+      ],
+      "keywords": [
+        "duplicate",
+        "clone"
+      ],
+      "url": "https://animateicons.in/r/lu-copy.json"
+    },
+    {
+      "name": "corner-down-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-down-left",
+      "addedAt": "2025-09-30",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "return",
+        "back",
+        "corner",
+        "left"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-down-left.json"
+    },
+    {
+      "name": "corner-down-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-down-right",
+      "addedAt": "2025-10-20",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "next",
+        "forward",
+        "corner",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-down-right.json"
+    },
+    {
+      "name": "corner-left-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-left-down",
+      "addedAt": "2025-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "return",
+        "back",
+        "corner",
+        "down"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-left-down.json"
+    },
+    {
+      "name": "corner-left-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-left-up",
+      "addedAt": "2026-01-04",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "return",
+        "back",
+        "corner",
+        "up"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-left-up.json"
+    },
+    {
+      "name": "corner-right-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-right-down",
+      "addedAt": "2025-11-03",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "next",
+        "forward",
+        "corner",
+        "down"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-right-down.json"
+    },
+    {
+      "name": "corner-right-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-right-up",
+      "addedAt": "2025-10-10",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "next",
+        "forward",
+        "corner",
+        "up"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-right-up.json"
+    },
+    {
+      "name": "corner-up-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-up-left",
+      "addedAt": "2025-08-13",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "return",
+        "back",
+        "corner",
+        "left"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-up-left.json"
+    },
+    {
+      "name": "corner-up-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-corner-up-right",
+      "addedAt": "2025-09-25",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "next",
+        "forward",
+        "corner",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-corner-up-right.json"
+    },
+    {
+      "name": "credit-card",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card",
+      "addedAt": "2025-11-29",
+      "category": [
+        "Finance",
+        "Tools"
+      ],
+      "keywords": [
+        "payment",
+        "card",
+        "debit",
+        "credit",
+        "money",
+        "finance"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card.json"
+    },
+    {
+      "name": "dashboard",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-dashboard",
+      "addedAt": "2025-10-10",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "dashboard",
+        "layout",
+        "grid",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/lu-dashboard.json"
+    },
+    {
+      "name": "diff",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-diff",
+      "addedAt": "2025-11-22",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "diff",
+        "patch",
+        "compare",
+        "difference",
+        "math",
+        "calculator"
+      ],
+      "url": "https://animateicons.in/r/lu-diff.json"
+    },
+    {
+      "name": "dollar-sign",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-dollar-sign",
+      "addedAt": "2025-10-14",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "dollar",
+        "usd"
+      ],
+      "url": "https://animateicons.in/r/lu-dollar-sign.json"
+    },
+    {
+      "name": "download",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-download",
+      "addedAt": "2025-09-25",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "export",
+        "file",
+        "save",
+        "fetch",
+        "get"
+      ],
+      "url": "https://animateicons.in/r/lu-download.json"
+    },
+    {
+      "name": "ellipsis",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ellipsis",
+      "addedAt": "2025-11-02",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "options",
+        "more",
+        "loading",
+        "waiting",
+        "dots",
+        "loader"
+      ],
+      "url": "https://animateicons.in/r/lu-ellipsis.json"
+    },
+    {
+      "name": "ellipsis-vertical",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ellipsis-vertical",
+      "addedAt": "2026-01-07",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "options",
+        "more",
+        "menu",
+        "kebab",
+        "actions"
+      ],
+      "url": "https://animateicons.in/r/lu-ellipsis-vertical.json"
+    },
+    {
+      "name": "euro",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-euro",
+      "addedAt": "2025-08-03",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "euro",
+        "eur"
+      ],
+      "url": "https://animateicons.in/r/lu-euro.json"
+    },
+    {
+      "name": "external-link",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-external-link",
+      "addedAt": "2025-12-08",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "external",
+        "link",
+        "share",
+        "open",
+        "out"
+      ],
+      "url": "https://animateicons.in/r/lu-external-link.json"
+    },
+    {
+      "name": "eye",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-eye",
+      "addedAt": "2025-11-12",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "eye",
+        "show",
+        "visible",
+        "view",
+        "watch",
+        "preview",
+        "open"
+      ],
+      "url": "https://animateicons.in/r/lu-eye.json"
+    },
+    {
+      "name": "eye-closed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-eye-closed",
+      "addedAt": "2025-11-12",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "eye",
+        "closed",
+        "hide",
+        "invisible",
+        "conceal",
+        "private"
+      ],
+      "url": "https://animateicons.in/r/lu-eye-closed.json"
+    },
+    {
+      "name": "eye-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-eye-off",
+      "addedAt": "2025-11-12",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "eye",
+        "off",
+        "hide",
+        "invisible",
+        "disable",
+        "private"
+      ],
+      "url": "https://animateicons.in/r/lu-eye-off.json"
+    },
+    {
+      "name": "facebook",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-facebook",
+      "addedAt": "2026-01-13",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "network",
+        "friends",
+        "meta",
+        "community"
+      ],
+      "url": "https://animateicons.in/r/lu-facebook.json"
+    },
+    {
+      "name": "figma",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-figma",
+      "addedAt": "2026-01-02",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "design",
+        "ui",
+        "tool",
+        "vector",
+        "prototype"
+      ],
+      "url": "https://animateicons.in/r/lu-figma.json"
+    },
+    {
+      "name": "flame",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-flame",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "fire",
+        "flame",
+        "hot",
+        "burn",
+        "heat",
+        "glow"
+      ],
+      "url": "https://animateicons.in/r/lu-flame.json"
+    },
+    {
+      "name": "folder",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-folder",
+      "addedAt": "2025-09-02",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "file",
+        "document",
+        "directory",
+        "archive"
+      ],
+      "url": "https://animateicons.in/r/lu-folder.json"
+    },
+    {
+      "name": "folder-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-folder-open",
+      "addedAt": "2025-07-31",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "file",
+        "document",
+        "directory",
+        "archive",
+        "open"
+      ],
+      "url": "https://animateicons.in/r/lu-folder-open.json"
+    },
+    {
+      "name": "framer",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-framer",
+      "addedAt": "2025-09-03",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "design",
+        "prototyping",
+        "tool",
+        "animation",
+        "react"
+      ],
+      "url": "https://animateicons.in/r/lu-framer.json"
+    },
+    {
+      "name": "gamepad",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-gamepad",
+      "addedAt": "2026-01-24",
+      "category": [
+        "Gaming",
+        "Multimedia"
+      ],
+      "keywords": [
+        "game",
+        "controller",
+        "console",
+        "play",
+        "gaming"
+      ],
+      "url": "https://animateicons.in/r/lu-gamepad.json"
+    },
+    {
+      "name": "georgian-lari",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-georgian-lari",
+      "addedAt": "2025-09-30",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "lari",
+        "georgia"
+      ],
+      "url": "https://animateicons.in/r/lu-georgian-lari.json"
+    },
+    {
+      "name": "git-branch",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-branch",
+      "addedAt": "2026-03-14",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "branch",
+        "version control",
+        "vcs",
+        "fork"
+      ],
+      "url": "https://animateicons.in/r/lu-git-branch.json"
+    },
+    {
+      "name": "git-branch-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-branch-minus",
+      "addedAt": "2026-03-14",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "branch",
+        "minus",
+        "remove",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-branch-minus.json"
+    },
+    {
+      "name": "git-branch-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-branch-plus",
+      "addedAt": "2026-03-14",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "branch",
+        "plus",
+        "add",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-branch-plus.json"
+    },
+    {
+      "name": "git-commit-horizontal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-commit-horizontal",
+      "addedAt": "2026-03-14",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "commit",
+        "horizontal",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-commit-horizontal.json"
+    },
+    {
+      "name": "git-commit-vertical",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-commit-vertical",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "commit",
+        "vertical",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-commit-vertical.json"
+    },
+    {
+      "name": "git-compare",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-compare",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "compare",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-compare.json"
+    },
+    {
+      "name": "git-compare-arrows",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-compare-arrows",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "compare",
+        "arrows",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-compare-arrows.json"
+    },
+    {
+      "name": "git-fork",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-fork",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "fork",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-fork.json"
+    },
+    {
+      "name": "git-merge",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-merge",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "merge",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-merge.json"
+    },
+    {
+      "name": "git-merge-conflict",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-merge-conflict",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "merge",
+        "conflict",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-merge-conflict.json"
+    },
+    {
+      "name": "github",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-github",
+      "addedAt": "2025-08-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "git",
+        "repo",
+        "version control",
+        "social"
+      ],
+      "url": "https://animateicons.in/r/lu-github.json"
+    },
+    {
+      "name": "gitlab",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-gitlab",
+      "addedAt": "2026-03-19",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "gitlab",
+        "code",
+        "hosting",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-gitlab.json"
+    },
+    {
+      "name": "globe",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-globe",
+      "addedAt": "2025-12-06",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "world",
+        "earth",
+        "global",
+        "internet",
+        "planet",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/lu-globe.json"
+    },
+    {
+      "name": "globe-lock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-globe-lock",
+      "addedAt": "2026-01-04",
+      "category": [
+        "Connectivity",
+        "Security"
+      ],
+      "keywords": [
+        "vpn",
+        "private",
+        "security",
+        "network",
+        "encryption"
+      ],
+      "url": "https://animateicons.in/r/lu-globe-lock.json"
+    },
+    {
+      "name": "hand-coins",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-hand-coins",
+      "addedAt": "2026-01-04",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "savings",
+        "banking",
+        "money",
+        "finance",
+        "payment",
+        "cash"
+      ],
+      "url": "https://animateicons.in/r/lu-hand-coins.json"
+    },
+    {
+      "name": "headphones",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-headphones",
+      "addedAt": "2026-01-16",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "audio",
+        "listen",
+        "sound",
+        "device"
+      ],
+      "url": "https://animateicons.in/r/lu-headphones.json"
+    },
+    {
+      "name": "headphones-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-headphones-off",
+      "addedAt": "2026-01-02",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "mute",
+        "silent",
+        "no audio",
+        "disabled",
+        "quiet"
+      ],
+      "url": "https://animateicons.in/r/lu-headphones-off.json"
+    },
+    {
+      "name": "headset",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-headset",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Communication",
+        "Multimedia"
+      ],
+      "keywords": [
+        "support",
+        "call",
+        "agent",
+        "operator",
+        "audio",
+        "headset"
+      ],
+      "url": "https://animateicons.in/r/lu-headset.json"
+    },
+    {
+      "name": "heart",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart",
+      "addedAt": "2025-12-30",
+      "category": [
+        "Emoji",
+        "Medical"
+      ],
+      "keywords": [
+        "like",
+        "love",
+        "emotion",
+        "favorite",
+        "react"
+      ],
+      "url": "https://animateicons.in/r/lu-heart.json"
+    },
+    {
+      "name": "house",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house",
+      "addedAt": "2025-07-31",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "home",
+        "main",
+        "dashboard",
+        "start",
+        "root"
+      ],
+      "url": "https://animateicons.in/r/lu-house.json"
+    },
+    {
+      "name": "indian-rupee",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-indian-rupee",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "rupee",
+        "india"
+      ],
+      "url": "https://animateicons.in/r/lu-indian-rupee.json"
+    },
+    {
+      "name": "info",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-info",
+      "addedAt": "2025-12-21",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "help",
+        "details",
+        "about",
+        "tooltip",
+        "support"
+      ],
+      "url": "https://animateicons.in/r/lu-info.json"
+    },
+    {
+      "name": "instagram",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-instagram",
+      "addedAt": "2025-09-28",
+      "category": [
+        "Brands",
+        "Multimedia",
+        "Photography"
+      ],
+      "keywords": [
+        "social",
+        "photo",
+        "video",
+        "media",
+        "camera"
+      ],
+      "url": "https://animateicons.in/r/lu-instagram.json"
+    },
+    {
+      "name": "key",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-key",
+      "addedAt": "2025-08-29",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "password",
+        "security",
+        "access",
+        "login",
+        "auth",
+        "key"
+      ],
+      "url": "https://animateicons.in/r/lu-key.json"
+    },
+    {
+      "name": "key-round",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-key-round",
+      "addedAt": "2025-12-29",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "password",
+        "security",
+        "access",
+        "login",
+        "auth",
+        "key"
+      ],
+      "url": "https://animateicons.in/r/lu-key-round.json"
+    },
+    {
+      "name": "key-square",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-key-square",
+      "addedAt": "2025-10-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "password",
+        "security",
+        "access",
+        "login",
+        "auth",
+        "key"
+      ],
+      "url": "https://animateicons.in/r/lu-key-square.json"
+    },
+    {
+      "name": "layers",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layers",
+      "addedAt": "2026-03-04",
+      "category": [
+        "Layout",
+        "Architecture"
+      ],
+      "keywords": [
+        "layers",
+        "stack",
+        "stacked",
+        "levels",
+        "architecture"
+      ],
+      "url": "https://animateicons.in/r/lu-layers.json"
+    },
+    {
+      "name": "layout-grid",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-grid",
+      "addedAt": "2025-08-27",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "grid",
+        "masonry",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-grid.json"
+    },
+    {
+      "name": "layout-list",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-list",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "list",
+        "organize",
+        "items",
+        "rows"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-list.json"
+    },
+    {
+      "name": "link",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-link",
+      "addedAt": "2025-12-07",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "url",
+        "hyperlink",
+        "connection",
+        "link",
+        "website"
+      ],
+      "url": "https://animateicons.in/r/lu-link.json"
+    },
+    {
+      "name": "linkedin",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-linkedin",
+      "addedAt": "2025-09-30",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "professional",
+        "network",
+        "jobs",
+        "business"
+      ],
+      "url": "https://animateicons.in/r/lu-linkedin.json"
+    },
+    {
+      "name": "list-chevrons-up-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-chevrons-up-down",
+      "addedAt": "2025-11-23",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "list",
+        "options",
+        "expand",
+        "collapse",
+        "accordion",
+        "menu"
+      ],
+      "url": "https://animateicons.in/r/lu-list-chevrons-up-down.json"
+    },
+    {
+      "name": "loader",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-loader",
+      "addedAt": "2025-09-26",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "loading",
+        "wait",
+        "busy",
+        "progress",
+        "spinner"
+      ],
+      "url": "https://animateicons.in/r/lu-loader.json"
+    },
+    {
+      "name": "loader-circle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-loader-circle",
+      "addedAt": "2025-08-18",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "loading",
+        "progress",
+        "spinner",
+        "circle",
+        "busy",
+        "loader"
+      ],
+      "url": "https://animateicons.in/r/lu-loader-circle.json"
+    },
+    {
+      "name": "lock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-lock",
+      "addedAt": "2025-07-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "security",
+        "password",
+        "secure",
+        "private",
+        "access"
+      ],
+      "url": "https://animateicons.in/r/lu-lock.json"
+    },
+    {
+      "name": "login",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-login",
+      "addedAt": "2025-11-26",
+      "category": [
+        "Accounts & access"
+      ],
+      "keywords": [
+        "login",
+        "signin",
+        "enter",
+        "access",
+        "auth",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/lu-login.json"
+    },
+    {
+      "name": "logout",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-logout",
+      "addedAt": "2025-11-26",
+      "category": [
+        "Accounts & access"
+      ],
+      "keywords": [
+        "logout",
+        "signout",
+        "exit",
+        "leave",
+        "close",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/lu-logout.json"
+    },
+    {
+      "name": "mail",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mail",
+      "addedAt": "2026-01-08",
+      "category": [
+        "Communication",
+        "Mail"
+      ],
+      "keywords": [
+        "email",
+        "message",
+        "inbox",
+        "send",
+        "letter"
+      ],
+      "url": "https://animateicons.in/r/lu-mail.json"
+    },
+    {
+      "name": "mails",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mails",
+      "addedAt": "2025-08-27",
+      "category": [
+        "Mail"
+      ],
+      "keywords": [
+        "email",
+        "messages",
+        "inbox",
+        "conversation",
+        "letters"
+      ],
+      "url": "https://animateicons.in/r/lu-mails.json"
+    },
+    {
+      "name": "map-pin",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin",
+      "addedAt": "2026-01-19",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "place",
+        "marker",
+        "gps",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin.json"
+    },
+    {
+      "name": "map-pin-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-check",
+      "addedAt": "2025-11-06",
+      "category": [
+        "Navigation, Maps, and POIs",
+        "Tools"
+      ],
+      "keywords": [
+        "location",
+        "marker",
+        "done",
+        "complete",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-check.json"
+    },
+    {
+      "name": "map-pin-check-inside",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-check-inside",
+      "addedAt": "2025-10-18",
+      "category": [
+        "Navigation, Maps, and POIs",
+        "Tools"
+      ],
+      "keywords": [
+        "location",
+        "marker",
+        "done",
+        "complete",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-check-inside.json"
+    },
+    {
+      "name": "map-pinned",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pinned",
+      "addedAt": "2025-10-11",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "place",
+        "marker",
+        "gps",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pinned.json"
+    },
+    {
+      "name": "mars",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mars",
+      "addedAt": "2026-04-04",
+      "category": [
+        "Science",
+        "People"
+      ],
+      "keywords": [
+        "mars",
+        "male",
+        "symbol",
+        "planet",
+        "astronomy"
+      ],
+      "url": "https://animateicons.in/r/lu-mars.json"
+    },
+    {
+      "name": "menu",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-menu",
+      "addedAt": "2025-12-13",
+      "category": [
+        "Layout",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "menu",
+        "navigation",
+        "options",
+        "sidebar",
+        "list"
+      ],
+      "url": "https://animateicons.in/r/lu-menu.json"
+    },
+    {
+      "name": "message-circle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle",
+      "addedAt": "2025-08-23",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "chat",
+        "comment",
+        "discussion",
+        "reply",
+        "feedback"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle.json"
+    },
+    {
+      "name": "mic",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mic",
+      "addedAt": "2025-09-05",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "record",
+        "voice",
+        "sound",
+        "audio",
+        "speak"
+      ],
+      "url": "https://animateicons.in/r/lu-mic.json"
+    },
+    {
+      "name": "mic-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mic-off",
+      "addedAt": "2025-09-16",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "mute",
+        "silent",
+        "disable",
+        "quiet",
+        "no sound"
+      ],
+      "url": "https://animateicons.in/r/lu-mic-off.json"
+    },
+    {
+      "name": "minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-minus",
+      "addedAt": "2025-12-28",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "subtract",
+        "remove",
+        "decrease",
+        "reduce",
+        "negative"
+      ],
+      "url": "https://animateicons.in/r/lu-minus.json"
+    },
+    {
+      "name": "moon",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-moon",
+      "addedAt": "2025-12-08",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "dark",
+        "night",
+        "weather",
+        "moon",
+        "dark mode"
+      ],
+      "url": "https://animateicons.in/r/lu-moon.json"
+    },
+    {
+      "name": "mouse-pointer-click",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mouse-pointer-click",
+      "addedAt": "2026-01-18",
+      "category": [
+        "Cursors"
+      ],
+      "keywords": [
+        "click",
+        "select"
+      ],
+      "url": "https://animateicons.in/r/lu-mouse-pointer-click.json"
+    },
+    {
+      "name": "move-diagonal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-diagonal",
+      "addedAt": "2026-03-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "arrows",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-move-diagonal.json"
+    },
+    {
+      "name": "move-diagonal-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-diagonal-2",
+      "addedAt": "2026-03-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "arrows",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-move-diagonal-2.json"
+    },
+    {
+      "name": "move-horizontal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-horizontal",
+      "addedAt": "2026-03-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "horizontal",
+        "arrows",
+        "left",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-move-horizontal.json"
+    },
+    {
+      "name": "move-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-left",
+      "addedAt": "2025-08-05",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "left",
+        "back",
+        "move",
+        "west",
+        "previous"
+      ],
+      "url": "https://animateicons.in/r/lu-move-left.json"
+    },
+    {
+      "name": "move-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-right",
+      "addedAt": "2025-11-30",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "right",
+        "next",
+        "move",
+        "east",
+        "forward"
+      ],
+      "url": "https://animateicons.in/r/lu-move-right.json"
+    },
+    {
+      "name": "move-vertical",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-vertical",
+      "addedAt": "2026-03-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "vertical",
+        "up",
+        "down",
+        "arrows"
+      ],
+      "url": "https://animateicons.in/r/lu-move-vertical.json"
+    },
+    {
+      "name": "package-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-package-open",
+      "addedAt": "2026-02-26",
+      "category": [
+        "Logistics",
+        "E-commerce",
+        "Fulfillment"
+      ],
+      "keywords": [
+        "package",
+        "unbox",
+        "delivery",
+        "received",
+        "fulfillment"
+      ],
+      "url": "https://animateicons.in/r/lu-package-open.json"
+    },
+    {
+      "name": "paperclip",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-paperclip",
+      "addedAt": "2025-10-12",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "attachment",
+        "file",
+        "document",
+        "clip",
+        "paper"
+      ],
+      "url": "https://animateicons.in/r/lu-paperclip.json"
+    },
+    {
+      "name": "pause",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pause",
+      "addedAt": "2025-12-21",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "pause",
+        "stop",
+        "music",
+        "video",
+        "hold",
+        "break"
+      ],
+      "url": "https://animateicons.in/r/lu-pause.json"
+    },
+    {
+      "name": "philippine-peso",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-philippine-peso",
+      "addedAt": "2025-11-10",
+      "category": [
+        "Finance",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "peso",
+        "php"
+      ],
+      "url": "https://animateicons.in/r/lu-philippine-peso.json"
+    },
+    {
+      "name": "phone",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-phone",
+      "addedAt": "2025-10-05",
+      "category": [
+        "Devices",
+        "Communication"
+      ],
+      "keywords": [
+        "call",
+        "mobile",
+        "contact",
+        "support",
+        "device"
+      ],
+      "url": "https://animateicons.in/r/lu-phone.json"
+    },
+    {
+      "name": "phone-call",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-phone-call",
+      "addedAt": "2026-01-22",
+      "category": [
+        "Devices",
+        "Communication"
+      ],
+      "keywords": [
+        "call",
+        "phone",
+        "dial",
+        "contact",
+        "connect"
+      ],
+      "url": "https://animateicons.in/r/lu-phone-call.json"
+    },
+    {
+      "name": "phone-forwarded",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-phone-forwarded",
+      "addedAt": "2026-01-22",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "forward",
+        "redirect",
+        "transfer",
+        "call",
+        "route"
+      ],
+      "url": "https://animateicons.in/r/lu-phone-forwarded.json"
+    },
+    {
+      "name": "phone-incoming",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-phone-incoming",
+      "addedAt": "2026-01-22",
+      "category": [
+        "Devices",
+        "Communication"
+      ],
+      "keywords": [
+        "incoming",
+        "receive",
+        "answer",
+        "call",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/lu-phone-incoming.json"
+    },
+    {
+      "name": "phone-missed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-phone-missed",
+      "addedAt": "2026-01-22",
+      "category": [
+        "Devices",
+        "Notification"
+      ],
+      "keywords": [
+        "missed",
+        "declined",
+        "unanswered",
+        "call",
+        "alert"
+      ],
+      "url": "https://animateicons.in/r/lu-phone-missed.json"
+    },
+    {
+      "name": "play",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-play",
+      "addedAt": "2025-12-21",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "play",
+        "start",
+        "music",
+        "video",
+        "resume",
+        "media"
+      ],
+      "url": "https://animateicons.in/r/lu-play.json"
+    },
+    {
+      "name": "plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-plus",
+      "addedAt": "2025-09-01",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "plus",
+        "add",
+        "new",
+        "create",
+        "positive"
+      ],
+      "url": "https://animateicons.in/r/lu-plus.json"
+    },
+    {
+      "name": "pound-sterling",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pound-sterling",
+      "addedAt": "2025-10-17",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "pound",
+        "gbp"
+      ],
+      "url": "https://animateicons.in/r/lu-pound-sterling.json"
+    },
+    {
+      "name": "qr-code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-qr-code",
+      "addedAt": "2025-12-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "qr",
+        "code",
+        "scan",
+        "barcode",
+        "reader"
+      ],
+      "url": "https://animateicons.in/r/lu-qr-code.json"
+    },
+    {
+      "name": "reply",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-reply",
+      "addedAt": "2026-01-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "reply",
+        "respond",
+        "back",
+        "return",
+        "answer"
+      ],
+      "url": "https://animateicons.in/r/lu-reply.json"
+    },
+    {
+      "name": "reply-all",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-reply-all",
+      "addedAt": "2026-01-24",
+      "category": [
+        "Communication",
+        "People"
+      ],
+      "keywords": [
+        "reply all",
+        "respond all",
+        "group reply",
+        "broadcast",
+        "answer"
+      ],
+      "url": "https://animateicons.in/r/lu-reply-all.json"
+    },
+    {
+      "name": "rocket",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rocket",
+      "addedAt": "2026-01-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "launch",
+        "startup",
+        "boost",
+        "deploy",
+        "speed"
+      ],
+      "url": "https://animateicons.in/r/lu-rocket.json"
+    },
+    {
+      "name": "russian-ruble",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-russian-ruble",
+      "addedAt": "2025-09-10",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "ruble",
+        "russia"
+      ],
+      "url": "https://animateicons.in/r/lu-russian-ruble.json"
+    },
+    {
+      "name": "saudi-riyal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-saudi-riyal",
+      "addedAt": "2025-08-05",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "riyal",
+        "saudi"
+      ],
+      "url": "https://animateicons.in/r/lu-saudi-riyal.json"
+    },
+    {
+      "name": "scan",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-scan",
+      "addedAt": "2025-12-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "scan",
+        "read",
+        "detect",
+        "barcode",
+        "qr"
+      ],
+      "url": "https://animateicons.in/r/lu-scan.json"
+    },
+    {
+      "name": "scan-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-scan-line",
+      "addedAt": "2025-12-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "scan",
+        "line",
+        "barcode",
+        "read",
+        "detect"
+      ],
+      "url": "https://animateicons.in/r/lu-scan-line.json"
+    },
+    {
+      "name": "scan-qr-code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-scan-qr-code",
+      "addedAt": "2025-12-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "scan",
+        "qr",
+        "code",
+        "barcode",
+        "read"
+      ],
+      "url": "https://animateicons.in/r/lu-scan-qr-code.json"
+    },
+    {
+      "name": "search",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-search",
+      "addedAt": "2025-12-08",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "find",
+        "magnifier",
+        "search",
+        "explore",
+        "query"
+      ],
+      "url": "https://animateicons.in/r/lu-search.json"
+    },
+    {
+      "name": "send",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-send",
+      "addedAt": "2025-10-23",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "email",
+        "submit",
+        "fly"
+      ],
+      "url": "https://animateicons.in/r/lu-send.json"
+    },
+    {
+      "name": "settings",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-settings",
+      "addedAt": "2025-08-02",
+      "category": [
+        "Accounts & access",
+        "Tools"
+      ],
+      "keywords": [
+        "settings",
+        "configuration",
+        "options",
+        "preferences",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-settings.json"
+    },
+    {
+      "name": "share",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-share",
+      "addedAt": "2026-01-05",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "forward",
+        "distribute",
+        "social",
+        "send",
+        "link"
+      ],
+      "url": "https://animateicons.in/r/lu-share.json"
+    },
+    {
+      "name": "shield-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-check",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "cybersecurity",
+        "secure",
+        "safety",
+        "protected",
+        "guardian"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-check.json"
+    },
+    {
+      "name": "shield-user",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-user",
+      "addedAt": "2025-11-27",
+      "category": [
+        "People",
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "user",
+        "secure",
+        "protection",
+        "safe",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-user.json"
+    },
+    {
+      "name": "shield-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-x",
+      "addedAt": "2025-10-07",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "unshielded",
+        "insecure",
+        "unsafe",
+        "vulnerable",
+        "open"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-x.json"
+    },
+    {
+      "name": "shopping-bag",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shopping-bag",
+      "addedAt": "2025-08-30",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "buy",
+        "purchase",
+        "store",
+        "mall",
+        "retail"
+      ],
+      "url": "https://animateicons.in/r/lu-shopping-bag.json"
+    },
+    {
+      "name": "shopping-cart",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shopping-cart",
+      "addedAt": "2025-10-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "buy",
+        "purchase",
+        "store",
+        "checkout",
+        "ecommerce"
+      ],
+      "url": "https://animateicons.in/r/lu-shopping-cart.json"
+    },
+    {
+      "name": "signal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-signal",
+      "addedAt": "2025-08-28",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "connection",
+        "network",
+        "signal",
+        "data",
+        "internet"
+      ],
+      "url": "https://animateicons.in/r/lu-signal.json"
+    },
+    {
+      "name": "sliders-horizontal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-sliders-horizontal",
+      "addedAt": "2026-01-22",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "filter",
+        "settings",
+        "adjust",
+        "controls",
+        "tune"
+      ],
+      "url": "https://animateicons.in/r/lu-sliders-horizontal.json"
+    },
+    {
+      "name": "snow-flake",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-snow-flake",
+      "addedAt": "2025-07-22",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "cold",
+        "weather",
+        "snow",
+        "winter",
+        "ice",
+        "freeze"
+      ],
+      "url": "https://animateicons.in/r/lu-snow-flake.json"
+    },
+    {
+      "name": "sparkles",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-sparkles",
+      "addedAt": "2025-09-15",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "sparkle",
+        "shine",
+        "glow",
+        "star",
+        "magic",
+        "glitter"
+      ],
+      "url": "https://animateicons.in/r/lu-sparkles.json"
+    },
+    {
+      "name": "spray-can",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-spray-can",
+      "addedAt": "2025-09-18",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "paint",
+        "color",
+        "graffiti",
+        "art",
+        "spray"
+      ],
+      "url": "https://animateicons.in/r/lu-spray-can.json"
+    },
+    {
+      "name": "square-arrow-out-up-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-out-up-right",
+      "addedAt": "2025-11-19",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "link",
+        "share",
+        "open",
+        "out"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-out-up-right.json"
+    },
+    {
+      "name": "star",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star",
+      "addedAt": "2025-12-22",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "favorite",
+        "rating",
+        "review",
+        "like",
+        "achievement",
+        "bookmark"
+      ],
+      "url": "https://animateicons.in/r/lu-star.json"
+    },
+    {
+      "name": "sun",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-sun",
+      "addedAt": "2025-12-08",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "brightness",
+        "light",
+        "day",
+        "weather",
+        "sunny"
+      ],
+      "url": "https://animateicons.in/r/lu-sun.json"
+    },
+    {
+      "name": "swiss-franc",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-swiss-franc",
+      "addedAt": "2025-10-10",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "franc",
+        "swiss"
+      ],
+      "url": "https://animateicons.in/r/lu-swiss-franc.json"
+    },
+    {
+      "name": "swords",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-swords",
+      "addedAt": "2025-09-08",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "battle",
+        "game",
+        "war",
+        "weapon",
+        "fight",
+        "combat"
+      ],
+      "url": "https://animateicons.in/r/lu-swords.json"
+    },
+    {
+      "name": "telescope",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-telescope",
+      "addedAt": "2025-08-09",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "telescope",
+        "space",
+        "astronomy",
+        "view",
+        "explore",
+        "vision"
+      ],
+      "url": "https://animateicons.in/r/lu-telescope.json"
+    },
+    {
+      "name": "terminal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-terminal",
+      "addedAt": "2025-11-06",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "command",
+        "shell",
+        "console",
+        "cli"
+      ],
+      "url": "https://animateicons.in/r/lu-terminal.json"
+    },
+    {
+      "name": "thumbs-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-thumbs-down",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "dislike",
+        "disapprove",
+        "bad",
+        "downvote",
+        "negative"
+      ],
+      "url": "https://animateicons.in/r/lu-thumbs-down.json"
+    },
+    {
+      "name": "thumbs-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-thumbs-up",
+      "addedAt": "2025-11-20",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "like",
+        "approve",
+        "agree",
+        "good",
+        "upvote",
+        "positive"
+      ],
+      "url": "https://animateicons.in/r/lu-thumbs-up.json"
+    },
+    {
+      "name": "trash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-trash",
+      "addedAt": "2025-08-09",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "delete",
+        "remove",
+        "bin",
+        "garbage",
+        "rubbish"
+      ],
+      "url": "https://animateicons.in/r/lu-trash.json"
+    },
+    {
+      "name": "trash-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-trash-2",
+      "addedAt": "2025-08-09",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "delete",
+        "remove",
+        "bin",
+        "garbage",
+        "rubbish"
+      ],
+      "url": "https://animateicons.in/r/lu-trash-2.json"
+    },
+    {
+      "name": "trending-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-trending-down",
+      "addedAt": "2026-01-01",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "decrease",
+        "decline",
+        "fall",
+        "drop",
+        "downward",
+        "trend"
+      ],
+      "url": "https://animateicons.in/r/lu-trending-down.json"
+    },
+    {
+      "name": "trending-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-trending-up",
+      "addedAt": "2026-01-01",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "increase",
+        "rise",
+        "upward",
+        "trend",
+        "graph"
+      ],
+      "url": "https://animateicons.in/r/lu-trending-up.json"
+    },
+    {
+      "name": "trending-up-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-trending-up-down",
+      "addedAt": "2026-01-23",
+      "category": [
+        "Charts"
+      ],
+      "keywords": [
+        "growth",
+        "chart",
+        "up",
+        "down",
+        "stats",
+        "market"
+      ],
+      "url": "https://animateicons.in/r/lu-trending-up-down.json"
+    },
+    {
+      "name": "triangle-alert",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-triangle-alert",
+      "addedAt": "2026-02-16",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "warning",
+        "alert",
+        "error",
+        "danger",
+        "caution",
+        "issue",
+        "problem"
+      ],
+      "url": "https://animateicons.in/r/lu-triangle-alert.json"
+    },
+    {
+      "name": "turkish-lira",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-turkish-lira",
+      "addedAt": "2025-09-30",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "lira",
+        "turkey"
+      ],
+      "url": "https://animateicons.in/r/lu-turkish-lira.json"
+    },
+    {
+      "name": "twitter",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-twitter",
+      "addedAt": "2026-01-08",
+      "category": [
+        "Brands",
+        "Connectivity"
+      ],
+      "keywords": [
+        "social",
+        "tweet",
+        "post",
+        "x",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/lu-twitter.json"
+    },
+    {
+      "name": "unlink",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-unlink",
+      "addedAt": "2025-12-04",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "break",
+        "disconnect",
+        "remove",
+        "separate",
+        "unlink"
+      ],
+      "url": "https://animateicons.in/r/lu-unlink.json"
+    },
+    {
+      "name": "upload",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-upload",
+      "addedAt": "2026-01-02",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "import",
+        "file",
+        "cloud",
+        "server",
+        "publish"
+      ],
+      "url": "https://animateicons.in/r/lu-upload.json"
+    },
+    {
+      "name": "user",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user",
+      "addedAt": "2025-12-24",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "user",
+        "person",
+        "profile",
+        "account",
+        "avatar",
+        "member"
+      ],
+      "url": "https://animateicons.in/r/lu-user.json"
+    },
+    {
+      "name": "user-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-check",
+      "addedAt": "2026-01-06",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "user",
+        "check",
+        "verify",
+        "approve",
+        "done",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/lu-user-check.json"
+    },
+    {
+      "name": "user-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-cog",
+      "addedAt": "2025-07-29",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "settings",
+        "account",
+        "options",
+        "admin",
+        "preferences",
+        "config"
+      ],
+      "url": "https://animateicons.in/r/lu-user-cog.json"
+    },
+    {
+      "name": "user-lock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-lock",
+      "addedAt": "2025-10-15",
+      "category": [
+        "Accounts & access",
+        "People",
+        "Security"
+      ],
+      "keywords": [
+        "lock",
+        "security",
+        "account",
+        "private",
+        "protected",
+        "access"
+      ],
+      "url": "https://animateicons.in/r/lu-user-lock.json"
+    },
+    {
+      "name": "user-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-minus",
+      "addedAt": "2025-10-25",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "remove",
+        "delete",
+        "account",
+        "block",
+        "ban",
+        "unfriend"
+      ],
+      "url": "https://animateicons.in/r/lu-user-minus.json"
+    },
+    {
+      "name": "user-pen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-pen",
+      "addedAt": "2025-10-27",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "edit",
+        "update",
+        "profile",
+        "modify",
+        "account",
+        "change"
+      ],
+      "url": "https://animateicons.in/r/lu-user-pen.json"
+    },
+    {
+      "name": "user-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-plus",
+      "addedAt": "2025-07-30",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "new",
+        "add",
+        "create",
+        "invite",
+        "subscribe",
+        "join"
+      ],
+      "url": "https://animateicons.in/r/lu-user-plus.json"
+    },
+    {
+      "name": "user-round",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round",
+      "addedAt": "2026-01-04",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "user",
+        "round",
+        "person",
+        "profile",
+        "account",
+        "avatar"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round.json"
+    },
+    {
+      "name": "user-round-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-check",
+      "addedAt": "2025-08-25",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "user",
+        "round",
+        "check",
+        "verify",
+        "approve",
+        "done"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-check.json"
+    },
+    {
+      "name": "user-round-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-cog",
+      "addedAt": "2025-12-21",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "settings",
+        "account",
+        "options",
+        "admin",
+        "preferences",
+        "config"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-cog.json"
+    },
+    {
+      "name": "user-round-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-minus",
+      "addedAt": "2025-07-28",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "remove",
+        "delete",
+        "account",
+        "block",
+        "ban",
+        "unfriend"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-minus.json"
+    },
+    {
+      "name": "user-round-pen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-pen",
+      "addedAt": "2025-08-24",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "edit",
+        "update",
+        "profile",
+        "modify",
+        "account",
+        "change"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-pen.json"
+    },
+    {
+      "name": "user-round-search",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-search",
+      "addedAt": "2025-11-28",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "search",
+        "user",
+        "find",
+        "magnifier",
+        "lookup",
+        "explore"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-search.json"
+    },
+    {
+      "name": "user-round-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-x",
+      "addedAt": "2025-08-23",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "delete",
+        "remove",
+        "ban",
+        "block",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-x.json"
+    },
+    {
+      "name": "user-search",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-search",
+      "addedAt": "2025-10-03",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "search",
+        "user",
+        "find",
+        "magnifier",
+        "lookup",
+        "explore"
+      ],
+      "url": "https://animateicons.in/r/lu-user-search.json"
+    },
+    {
+      "name": "user-star",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-star",
+      "addedAt": "2025-08-25",
+      "category": [
+        "People",
+        "Social"
+      ],
+      "keywords": [
+        "user",
+        "favorite",
+        "star",
+        "rating",
+        "review",
+        "admin"
+      ],
+      "url": "https://animateicons.in/r/lu-user-star.json"
+    },
+    {
+      "name": "user-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-x",
+      "addedAt": "2025-08-02",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "delete",
+        "remove",
+        "ban",
+        "block",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/lu-user-x.json"
+    },
+    {
+      "name": "users",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-users",
+      "addedAt": "2025-11-13",
+      "category": [
+        "People",
+        "Social"
+      ],
+      "keywords": [
+        "users",
+        "group",
+        "team",
+        "people",
+        "community",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/lu-users.json"
+    },
+    {
+      "name": "users-round",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-users-round",
+      "addedAt": "2025-09-20",
+      "category": [
+        "People",
+        "Social"
+      ],
+      "keywords": [
+        "users",
+        "group",
+        "team",
+        "people",
+        "community",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/lu-users-round.json"
+    },
+    {
+      "name": "venus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-venus",
+      "addedAt": "2026-04-04",
+      "category": [
+        "Science",
+        "People"
+      ],
+      "keywords": [
+        "venus",
+        "female",
+        "symbol",
+        "planet",
+        "astronomy"
+      ],
+      "url": "https://animateicons.in/r/lu-venus.json"
+    },
+    {
+      "name": "wallet",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wallet",
+      "addedAt": "2025-10-26",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "money",
+        "finance",
+        "payment",
+        "card",
+        "transaction"
+      ],
+      "url": "https://animateicons.in/r/lu-wallet.json"
+    },
+    {
+      "name": "wallet-minimal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wallet-minimal",
+      "addedAt": "2025-12-13",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "money",
+        "finance",
+        "payment",
+        "card",
+        "transaction"
+      ],
+      "url": "https://animateicons.in/r/lu-wallet-minimal.json"
+    },
+    {
+      "name": "webhook",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-webhook",
+      "addedAt": "2026-01-03",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "webhook",
+        "api",
+        "integration",
+        "connection",
+        "notification"
+      ],
+      "url": "https://animateicons.in/r/lu-webhook.json"
+    },
+    {
+      "name": "wifi",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi",
+      "addedAt": "2025-10-25",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wireless",
+        "network",
+        "internet",
+        "signal",
+        "wifi"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi.json"
+    },
+    {
+      "name": "wifi-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-cog",
+      "addedAt": "2025-10-25",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "settings",
+        "network",
+        "wifi",
+        "config",
+        "setup"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-cog.json"
+    },
+    {
+      "name": "wifi-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-off",
+      "addedAt": "2025-10-25",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wireless",
+        "network",
+        "internet",
+        "signal",
+        "offline"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-off.json"
+    },
+    {
+      "name": "wifi-pen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-pen",
+      "addedAt": "2025-10-25",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "edit",
+        "wifi",
+        "pen",
+        "change",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-pen.json"
+    },
+    {
+      "name": "wifi-sync",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-sync",
+      "addedAt": "2025-10-25",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "sync",
+        "network",
+        "wifi",
+        "refresh",
+        "reload"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-sync.json"
+    },
+    {
+      "name": "x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-x",
+      "addedAt": "2025-08-07",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "cancel",
+        "close",
+        "delete",
+        "remove",
+        "exit",
+        "stop"
+      ],
+      "url": "https://animateicons.in/r/lu-x.json"
+    },
+    {
+      "name": "yen-yuan",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-yen-yuan",
+      "addedAt": "2026-01-13",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "yen",
+        "yuan"
+      ],
+      "url": "https://animateicons.in/r/lu-yen-yuan.json"
+    },
+    {
+      "name": "zap",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-zap",
+      "addedAt": "2025-08-23",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "flash",
+        "lightning",
+        "electric",
+        "power",
+        "energy",
+        "zap"
+      ],
+      "url": "https://animateicons.in/r/lu-zap.json"
+    }
+  ]
+}

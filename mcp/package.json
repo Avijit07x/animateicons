@@ -1,0 +1,56 @@
+{
+	"name": "@animateicons/mcp",
+	"version": "0.1.0",
+	"description": "Model Context Protocol server for AnimateIcons — let AI coding agents search and add animated React icons.",
+	"license": "MIT",
+	"author": "Avijit Dey",
+	"homepage": "https://animateicons.in",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Avijit07x/animateicons.git",
+		"directory": "mcp"
+	},
+	"bugs": {
+		"url": "https://github.com/Avijit07x/animateicons/issues"
+	},
+	"keywords": [
+		"animateicons",
+		"animated icons",
+		"mcp",
+		"model context protocol",
+		"react icons",
+		"ai"
+	],
+	"type": "module",
+	"bin": {
+		"animateicons-mcp": "./dist/index.js"
+	},
+	"files": [
+		"dist/**/*.js",
+		"README.md"
+	],
+	"engines": {
+		"node": ">=18.17.0"
+	},
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"verify": "pnpm run typecheck && pnpm run build && pnpm run test"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.0.0",
+		"fuse.js": "^7.3.0",
+		"zod": "^3.23.0"
+	},
+	"devDependencies": {
+		"@types/node": "^25.9.1",
+		"tsup": "^8.3.0",
+		"typescript": "^5.9.3",
+		"vitest": "^3.2.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

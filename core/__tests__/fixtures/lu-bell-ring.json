@@ -1,0 +1,13 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "bell-ring",
+	"type": "registry:ui",
+	"dependencies": ["motion"],
+	"files": [
+		{
+			"path": "bell-ring-icon.tsx",
+			"content": "\"use client\";\nimport { cn } from \"@/lib/utils\";\nexport const BellRingIcon = () => cn(\"x\", null);\n",
+			"type": "registry:ui"
+		}
+	]
+}

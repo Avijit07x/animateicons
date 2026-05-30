@@ -1,0 +1,54 @@
+{
+	"name": "@animateicons/cli",
+	"version": "0.1.0",
+	"description": "Add animated AnimateIcons to your project from the command line: `npx animateicons add bell-ring`.",
+	"license": "MIT",
+	"author": "Avijit Dey",
+	"homepage": "https://animateicons.in",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Avijit07x/animateicons.git",
+		"directory": "cli"
+	},
+	"bugs": {
+		"url": "https://github.com/Avijit07x/animateicons/issues"
+	},
+	"keywords": [
+		"animateicons",
+		"animated icons",
+		"cli",
+		"shadcn",
+		"react icons",
+		"motion"
+	],
+	"type": "module",
+	"bin": {
+		"animateicons": "./dist/cli.js"
+	},
+	"files": [
+		"dist/**/*.js",
+		"README.md"
+	],
+	"engines": {
+		"node": ">=18.17.0"
+	},
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"verify": "pnpm run typecheck && pnpm run build && pnpm run test"
+	},
+	"devDependencies": {
+		"@types/node": "^25.9.1",
+		"cac": "^6.7.14",
+		"fuse.js": "^7.3.0",
+		"picocolors": "^1.1.1",
+		"tsup": "^8.3.0",
+		"typescript": "^5.9.3",
+		"vitest": "^3.2.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
