@@ -23,7 +23,7 @@
 	],
 	"type": "module",
 	"bin": {
-		"animateicons": "./dist/cli.js"
+		"animateicons": "dist/cli.js"
 	},
 	"files": [
 		"dist/**/*.js",

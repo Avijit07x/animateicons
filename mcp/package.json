@@ -23,7 +23,7 @@
 	],
 	"type": "module",
 	"bin": {
-		"animateicons-mcp": "./dist/index.js"
+		"animateicons-mcp": "dist/index.js"
 	},
 	"files": [
 		"dist/**/*.js",

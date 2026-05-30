@@ -24,6 +24,9 @@ node_modules
 .DS_Store
 *.pem
 
+# local Claude Code state (never commit)
+.claude/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
