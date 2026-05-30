@@ -3,7 +3,7 @@
 /**
  * DistributionToggle
  *
- * Sibling of PackageManagerToggle — lets the gallery user pick whether
+ * Sibling of PackageManagerToggle - lets the gallery user pick whether
  * "Copy" buttons across IconTiles should produce a shadcn install
  * command (default) or an `@animateicons/react` import line. Reads /
  * writes via DistributionContext, persisted in localStorage.

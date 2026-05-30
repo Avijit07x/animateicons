@@ -60,7 +60,7 @@ export async function getIconCode(
 	const safeName = sanitize(iconName);
 	if (!safeName) return null;
 
-	// Whitelist guard — only icons in ICON_LIST can ever be read.
+	// Whitelist guard - only icons in ICON_LIST can ever be read.
 	if (!VALID_ICON_NAMES.has(safeName)) {
 		console.warn("[getIconCode] unknown icon name", { iconName, safeName });
 		return null;

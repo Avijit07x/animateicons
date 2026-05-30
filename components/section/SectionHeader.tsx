@@ -4,8 +4,8 @@
  * SRP: standardized title + subtitle pair for AnimateIcons landing-page
  * sections. Centered headline block matching the homepage typography.
  *
- * The two existing sections (FeatureSection — "Built for motion-first
- * icons", IconLibrariesSection — "Icon libraries, animated") used near-
+ * The two existing sections (FeatureSection - "Built for motion-first
+ * icons", IconLibrariesSection - "Icon libraries, animated") used near-
  * identical headers with one difference in bottom margin; the `spacing`
  * prop preserves that variant without forking the component.
  */

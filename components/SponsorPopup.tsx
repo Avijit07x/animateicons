@@ -11,8 +11,8 @@
  * navigations don't re-trigger it because the component stays mounted.
  *
  * Two views:
- *   - "main"  — pitch + 4 sponsor options
- *   - "upi"   — back-button + QR code (works on desktop, not just mobile)
+ *   - "main"  - pitch + 4 sponsor options
+ *   - "upi"   - back-button + QR code (works on desktop, not just mobile)
  */
 
 import { GitHub } from "@/components/icons/Github";

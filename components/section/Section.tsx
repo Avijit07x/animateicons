@@ -7,7 +7,7 @@
  *
  * FeatureSection and IconLibrariesSection both rendered the same
  * `<section className="border-divider/50 relative border-t py-18 lg:py-24">`
- * shell — extracting it here means new sections inherit the AnimateIcons
+ * shell - extracting it here means new sections inherit the AnimateIcons
  * homepage rhythm by default and don't drift out of sync.
  */
 

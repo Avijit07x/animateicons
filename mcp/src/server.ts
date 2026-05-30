@@ -39,7 +39,7 @@ export function createServer(ctx: ToolContext = {}): McpServer {
 
 	server.tool(
 		"get_icon",
-		"Get an icon's React component source plus a ready-to-paste import snippet. Read-only — use this to write the file yourself.",
+		"Get an icon's React component source plus a ready-to-paste import snippet. Read-only - use this to write the file yourself.",
 		{
 			name: z
 				.string()

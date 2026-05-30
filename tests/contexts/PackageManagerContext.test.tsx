@@ -1,5 +1,5 @@
 /**
- * Tests for PackageManagerContext — drives the AnimateIcons gallery's
+ * Tests for PackageManagerContext - drives the AnimateIcons gallery's
  * "Copy CLI command" output (npm / pnpm / bun) and persists the
  * preference across reloads.
  */

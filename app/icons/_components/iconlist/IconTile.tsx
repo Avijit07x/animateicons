@@ -3,12 +3,12 @@
 /**
  * IconTile
  *
- * SRP: render one AnimateIcons tile in the gallery grid — the animated
+ * SRP: render one AnimateIcons tile in the gallery grid - the animated
  * icon, its name, and the action row. Clicking the icon area opens the
  * playground sheet via PlaygroundContext, so users explore without
  * leaving the gallery. Per-icon detail pages still exist at
  * `/icons/<library>/<name>` for SEO / direct shares / OG images, but
- * the gallery itself doesn't link to them — they're crawler-only.
+ * the gallery itself doesn't link to them - they're crawler-only.
  */
 
 import type { IconFilteredItem } from "@/hooks/useIconFilter";

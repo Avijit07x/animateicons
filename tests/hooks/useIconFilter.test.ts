@@ -1,5 +1,5 @@
 /**
- * Tests for useIconSearchFilter — the filter+rank hook powering the
+ * Tests for useIconSearchFilter - the filter+rank hook powering the
  * AnimateIcons gallery search (and URL-driven `?q=` query).
  */
 

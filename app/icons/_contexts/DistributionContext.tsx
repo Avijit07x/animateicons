@@ -4,7 +4,7 @@
  * DistributionContext
  *
  * SRP: single source of truth for which distribution method the
- * AnimateIcons gallery user prefers — `shadcn` (CLI copy) or `npm`
+ * AnimateIcons gallery user prefers - `shadcn` (CLI copy) or `npm`
  * (`@animateicons/react` import). Drives the "Copy" button text and
  * payload on every IconTile so a user who prefers npm sees and copies
  * `import { BellRingIcon } from "@animateicons/react/lucide"`, and a

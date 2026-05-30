@@ -18,7 +18,7 @@ type Props = {
 	update: <K extends keyof IconConfig>(key: K, value: IconConfig[K]) => void;
 };
 
-/** Tailwind class chain for the AnimateIcons-styled range slider — keep here, not duplicated. */
+/** Tailwind class chain for the AnimateIcons-styled range slider - keep here, not duplicated. */
 const sliderClass = cn(
 	"h-1.5 w-full cursor-pointer appearance-none rounded-full",
 	"bg-surfaceElevated/80 ring-border/60 ring-1 ring-inset",

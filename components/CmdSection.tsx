@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CmdSection — install command surface in Hero.
+ * CmdSection - install command surface in Hero.
  *
  * Two distribution methods supported:
  *   - shadcn CLI: copies an icon's source into the consumer's project
@@ -10,7 +10,7 @@
  * The user picks the method via the toggle row above the CodeBlock;
  * the tabs[] swap to match. Default: npm.
  *
- * Pill styling matches IconLibrariesSection — glass surface, primary
+ * Pill styling matches IconLibrariesSection - glass surface, primary
  * text on the active option, soft inner ring instead of a solid fill.
  */
 

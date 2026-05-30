@@ -80,7 +80,7 @@ export default function Bell() {
 | `color`      | `string`  | `currentColor` |
 | `duration`   | `number`  | `1`            |
 | `isAnimated` | `boolean` | `true`         |
-| `className`  | `string`  | —              |
+| `className`  | `string`  | -              |
 
 ## License
 

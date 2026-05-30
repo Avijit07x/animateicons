@@ -8,7 +8,7 @@
  *   2. Desktop users who don't know about Cmd+K get taught the shortcut
  *      via the trailing kbd hint.
  *
- * Clicks open the same palette that Cmd+K opens — single source of
+ * Clicks open the same palette that Cmd+K opens - single source of
  * truth for search state lives in CommandSearchProvider.
  */
 

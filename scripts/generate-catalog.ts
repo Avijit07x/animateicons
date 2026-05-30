@@ -2,8 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 /**
- * Generates `public/r/catalog.json` — a single, searchable index of every
- * published icon, used by `@animateicons/cli` and `@animateicons/mcp`.
+ * Generates `public/r/catalog.json` - a single, searchable index of every
+ * published icon, used by the `animateicons` CLI and `@animateicons/mcp`.
  *
  * Why a separate artifact: the shadcn registry (`registry.json` /
  * `public/r/*.json`) only carries names + file targets, with no keywords or
@@ -13,7 +13,7 @@ import path from "node:path";
  *
  * Source of truth for *what is published* is `registry.json` (every item has
  * a corresponding `public/r/<name>.json`); metadata is looked up from the
- * data files. An item with no metadata entry is a build error — it means the
+ * data files. An item with no metadata entry is a build error - it means the
  * registry and data files have drifted.
  *
  * The output is intentionally deterministic (no timestamps) so `gen:icons`
@@ -113,7 +113,7 @@ function main() {
 	}
 
 	if (missing.length > 0) {
-		console.error("❌ Catalog generation failed — registry/data drift:");
+		console.error("❌ Catalog generation failed - registry/data drift:");
 		missing.forEach((m) => console.error(`   • ${m}`));
 		console.error("\nRun `pnpm gen:icons` after syncing data files.\n");
 		process.exit(1);

@@ -1,12 +1,12 @@
 "use client";
 
 /**
- * AnnouncementBanner — site-wide announcement bar.
+ * AnnouncementBanner - site-wide announcement bar.
  *
  * Renders at the top of every page render. Dismissal is in-memory only:
  * if the user closes the banner, it stays closed for that page view, but
  * the next visit (refresh, navigation, new tab, tomorrow) shows it again.
- * No localStorage, no sessionStorage — every fresh mount re-shows the bar.
+ * No localStorage, no sessionStorage - every fresh mount re-shows the bar.
  *
  * If we want returning visitors to stop seeing it eventually, switch to
  * a server-issued flag (e.g. cookie or feature gate) rather than a
@@ -21,7 +21,7 @@ import { useState } from "react";
 const AnnouncementBanner: React.FC = () => {
 	// Default to true so the banner appears immediately on every fresh mount
 	// (page load, route change, tab open). Closing it just sets this to false
-	// for the lifetime of the current page — no persistence.
+	// for the lifetime of the current page - no persistence.
 	const [visible, setVisible] = useState(true);
 
 	const dismiss = () => setVisible(false);

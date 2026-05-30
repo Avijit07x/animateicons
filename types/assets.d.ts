@@ -4,7 +4,7 @@
  *
  * Why this exists separate from `next-env.d.ts`:
  *   `next-env.d.ts` references `next/image-types/global` AND imports
- *   `./.next/types/routes.d.ts` — that second file only exists after
+ *   `./.next/types/routes.d.ts` - that second file only exists after
  *   `next build` or `next dev` has run at least once. In a fresh CI
  *   environment running `pnpm typecheck` BEFORE `pnpm build`, that
  *   import errors out and TypeScript falls back to "no asset types",

@@ -6,15 +6,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Tooltip — glass treatment matching the rest of the AnimateIcons site.
+ * Tooltip - glass treatment matching the rest of the AnimateIcons site.
  *
  * - Gradient surface (from-surface → to-surfaceElevated) with a soft
  *   border + backdrop blur, instead of plain white-on-dark.
  * - Top-edge shimmer for the premium glass-card look used elsewhere.
  * - Arrow inherits the surface color so it reads as a continuation of
  *   the panel, not a separate floating shape.
- * - Default delay 200ms — feels intentional, not jumpy. Default
- *   sideOffset 6 — floats clear of the trigger.
+ * - Default delay 200ms - feels intentional, not jumpy. Default
+ *   sideOffset 6 - floats clear of the trigger.
  */
 function TooltipProvider({
 	delayDuration = 200,
@@ -71,7 +71,7 @@ function TooltipContent({
 				)}
 				{...props}
 			>
-				{/* Top-edge shimmer — same line every glass surface uses. */}
+				{/* Top-edge shimmer - same line every glass surface uses. */}
 				<span
 					aria-hidden="true"
 					className="pointer-events-none absolute inset-x-3 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * IconLibraryPoster — editorial-style showcase block for one icon library.
+ * IconLibraryPoster - editorial-style showcase block for one icon library.
  * Replaces the previous card / marquee layouts.
  *
  * Composition:
@@ -25,7 +25,7 @@ const IconCard: React.FC<IconLibraryCardData> = ({
 	count,
 	href,
 }) => {
-	// Library name without the trailing " Icons" — feels less repetitive
+	// Library name without the trailing " Icons" - feels less repetitive
 	// once it's used as oversized display type.
 	const displayName = title.replace(/\s*Icons$/i, "");
 	const previewIcons = icons.slice(0, 10);

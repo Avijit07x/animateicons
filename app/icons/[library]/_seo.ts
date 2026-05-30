@@ -45,7 +45,7 @@ const CONTENT: Record<LibraryKey, LibraryContent> = {
 	huge: {
 		displayName: "Huge",
 		tagline:
-			"Animated Huge icons for React — bold, expressive SVG micro-interactions.",
+			"Animated Huge icons for React - bold, expressive SVG micro-interactions.",
 		description:
 			"Animated Huge icons for React. Bold, expressive SVG icons with hover and imperative animation triggers, fully customizable size, color, and timing.",
 		keywords: [
@@ -119,7 +119,7 @@ export const buildLibraryJsonLd = (library: LibraryKey, iconCount: number) => {
 			},
 			{
 				"@type": "SoftwareSourceCode",
-				name: `AnimateIcons — ${c.displayName}`,
+				name: `AnimateIcons - ${c.displayName}`,
 				description: c.description,
 				codeRepository: "https://github.com/Avijit07x/animateicons",
 				programmingLanguage: "TypeScript",

@@ -67,7 +67,7 @@ export async function fetchCatalog(
 				return JSON.parse(fs.readFileSync(cf, "utf8")) as Catalog;
 			}
 		} catch {
-			// no usable cache — fall through to fetch
+			// no usable cache - fall through to fetch
 		}
 	}
 

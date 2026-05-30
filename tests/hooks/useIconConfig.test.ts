@@ -1,5 +1,5 @@
 /**
- * Tests for useIconConfig — local state hook for the AnimateIcons
+ * Tests for useIconConfig - local state hook for the AnimateIcons
  * playground sheet (size / duration / color).
  */
 

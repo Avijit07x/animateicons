@@ -9,7 +9,7 @@
  * three package managers on the server and pass them in as a map.
  *
  * Visual: same premium glass pill toggle vocabulary used by Hero
- * CmdSection and the gallery navbar — gradient outer pill, motion
+ * CmdSection and the gallery navbar - gradient outer pill, motion
  * layoutId active state with ring-primary/30, text-primary active label.
  */
 
@@ -27,7 +27,7 @@ const OPTIONS: PackageManager[] = ["npm", "pnpm", "bun"];
 type Props = {
 	/** Pre-rendered shiki HTML keyed by package manager. */
 	highlightedByPm: Record<PackageManager, string>;
-	/** Raw command strings keyed by package manager — used for clipboard copy. */
+	/** Raw command strings keyed by package manager - used for clipboard copy. */
 	commandsByPm: Record<PackageManager, string>;
 };
 
@@ -44,7 +44,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 			setCopied(true);
 			window.setTimeout(() => setCopied(false), 1500);
 		} catch {
-			// Clipboard can be blocked in some browsers / iframes — silent fail
+			// Clipboard can be blocked in some browsers / iframes - silent fail
 			// is fine here; the visual snippet is still selectable as a fallback.
 		}
 	};

@@ -6,7 +6,7 @@
  * for BMC), name, optional support note, and a small source badge.
  * Wraps in <a> when the supporter has a public profile URL.
  *
- * The initial circle is always rendered — `SupporterAvatarImage`
+ * The initial circle is always rendered - `SupporterAvatarImage`
  * stacks on top and hides itself if the request errors, so a deleted
  * or suspended GitHub account degrades to a clean letter avatar
  * rather than a broken-image icon.

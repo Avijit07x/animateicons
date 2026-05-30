@@ -14,7 +14,7 @@
  *      replace across the file (covers `export interface ...`, the
  *      `forwardRef<...>` generic, and any other reference).
  *
- * Idempotent — re-running it on already-normalized files is a no-op.
+ * Idempotent - re-running it on already-normalized files is a no-op.
  *
  * Run with:  pnpm tsx scripts/normalize-handle-names.ts
  */

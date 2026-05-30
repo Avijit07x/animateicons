@@ -8,11 +8,11 @@
  * navigation:
  *
  *   - Type to filter (debounced via useMemo, no extra state machine)
- *   - ↑ / ↓ — move selection
- *   - Enter — open the selected icon's detail page
- *   - Esc — close the palette
+ *   - ↑ / ↓ - move selection
+ *   - Enter - open the selected icon's detail page
+ *   - Esc - close the palette
  *
- * Results are capped at MAX_RESULTS for performance — 281 icons is
+ * Results are capped at MAX_RESULTS for performance - 281 icons is
  * fine to filter, but rendering 281 motion components with hover
  * handlers is not. Limit is generous enough that any real query
  * narrows long before hitting it.

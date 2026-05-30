@@ -9,7 +9,7 @@ name: Publish @animateicons/react
 #      came from this repo + this commit (npm public registry feature).
 #
 # Required secrets:
-#   NPM_TOKEN — npm automation token with publish permission for
+#   NPM_TOKEN - npm automation token with publish permission for
 #               @animateicons. Create at https://www.npmjs.com/settings/<user>/tokens
 #               (type: "Automation" so 2FA is bypassed for CI).
 #

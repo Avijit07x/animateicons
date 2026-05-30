@@ -19,7 +19,7 @@ import SupporterWallSkeleton from "@/components/sponsors/SupporterWallSkeleton";
 export const metadata: Metadata = {
 	title: "Supporters",
 	description:
-		"The people keeping AnimateIcons online. Hosting bills, free icons, no ads — funded entirely by tips and GitHub Sponsors.",
+		"The people keeping AnimateIcons online. Hosting bills, free icons, no ads - funded entirely by tips and GitHub Sponsors.",
 	alternates: { canonical: "/sponsors" },
 	openGraph: {
 		title: "Supporters | AnimateIcons",

@@ -3,7 +3,7 @@
 /**
  * HighlightedCode
  *
- * Tiny client-side TSX/bash highlighter — just enough to color the
+ * Tiny client-side TSX/bash highlighter - just enough to color the
  * playground sheet's install and import snippets without dragging
  * shiki into the client bundle.
  *
@@ -62,7 +62,7 @@ const TSX_KEYWORDS = new Set([
 	"interface",
 ]);
 
-/** Tokenize a TSX-ish string. Order of patterns matters — we test the
+/** Tokenize a TSX-ish string. Order of patterns matters - we test the
  *  most specific patterns first so e.g. an import keyword inside a
  *  string isn't mis-tokenized. */
 const tokenizeTsx = (src: string): Token[] => {
@@ -112,7 +112,7 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// Identifier — could be a keyword or plain text
+		// Identifier - could be a keyword or plain text
 		const m6 = rest.match(/^[A-Za-z_$][A-Za-z0-9_$]*/);
 		if (m6) {
 			const word = m6[0];
@@ -124,14 +124,14 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// Single character — punctuation or whitespace
+		// Single character - punctuation or whitespace
 		out.push({ type: "punct", value: src[i] });
 		i++;
 	}
 	return out;
 };
 
-/** Bash highlighter — simpler. Highlights the command name (npm/pnpm/
+/** Bash highlighter - simpler. Highlights the command name (npm/pnpm/
  *  yarn/bun) as a keyword, package args as strings, flags faintly. */
 const tokenizeBash = (src: string): Token[] => {
 	const tokens: Token[] = [];

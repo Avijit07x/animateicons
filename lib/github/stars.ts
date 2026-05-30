@@ -1,5 +1,5 @@
 /**
- * GitHub stars — server-only fetcher.
+ * GitHub stars - server-only fetcher.
  *
  * Replaces the old `/api/stars` route + client-side SWR hook so the
  * count is rendered on the server with the page itself, not fetched
@@ -21,7 +21,7 @@ type RepoResponse = {
 
 export const fetchStars = async (): Promise<number | null> => {
 	try {
-		// Use the sponsors token if present — bumps the rate limit from
+		// Use the sponsors token if present - bumps the rate limit from
 		// 60 req/hr (anon) to 5,000 (authenticated). No extra scope needed
 		// for public repo stat reads.
 		const token = process.env.GITHUB_SPONSORS_TOKEN;

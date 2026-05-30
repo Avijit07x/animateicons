@@ -25,7 +25,7 @@ interface CodeBlockProps {
 	 * shadcn install line where the rotating suffix sells the catalog.
 	 *
 	 * Leave false (default) for any tab whose code is already complete
-	 * (npm/pnpm/bun add commands, raw imports, etc.) — otherwise the
+	 * (npm/pnpm/bun add commands, raw imports, etc.) - otherwise the
 	 * suffix gets glued onto the end and produces nonsense like
 	 * `npm i @animateicons/reacthu-heart.json`.
 	 */

@@ -34,6 +34,9 @@ export const cliAddCode = `npx animateicons add eye
 
 npx animateicons add eye bell-ring user`;
 
+export const cliGlobalCode = `npm i -g animateicons
+animateicons add eye`;
+
 export const cliBrowseCode = `npx animateicons search notification
 npx animateicons list --library huge
 npx animateicons info eye`;
@@ -44,25 +47,14 @@ export default function Example() {
 	return <EyeIcon size={24} color="#f45b48" />
 }`;
 
-export const mcpClaudeCode = `claude mcp add animateicons -- npx -y @animateicons/mcp`;
-
-export const mcpJsonCode = `{
-	"mcpServers": {
-		"animateicons": {
-			"command": "npx",
-			"args": ["-y", "@animateicons/mcp"]
-		}
-	}
-}`;
-
-export const stylingCode = `// Color — sets currentColor inline
+export const stylingCode = `// Color - sets currentColor inline
 <EyeIcon color="#f45b48" />
 
-// Tailwind utility — works because icons stroke="currentColor"
+// Tailwind utility - works because icons stroke="currentColor"
 
 <EyeIcon className="text-primary" />
 
-// Speed — duration is a multiplier (lower = faster)
+// Speed - duration is a multiplier (lower = faster)
 
 <EyeIcon duration={0.6} />
 
@@ -119,7 +111,7 @@ stopAnimation: () => void
 			/>
 		</div>
 
-Pick whichever path fits your setup. They all ship the same icons and the same API — the difference is whether you depend on the package or copy the source into your project.
+Pick whichever path fits your setup. They all ship the same icons and the same API - the difference is whether you depend on the package or copy the source into your project.
 
 <div className="mt-10 space-y-14">
 
@@ -131,7 +123,7 @@ Recommended for most apps. One install, all 281 icons available.
 
 #### 1. Install the package
 
-Use any package manager — npm, pnpm, yarn, or bun. `motion` is bundled.
+Use any package manager - npm, pnpm, yarn, or bun. `motion` is bundled.
 
 <CodeBlock code={npmInstallCode} lang="bash" title="Terminal" />
 
@@ -141,7 +133,7 @@ Lucide and Huge are exposed as scoped subpaths because some icon names overlap (
 
 <CodeBlock code={npmUsageCode} title="Example.tsx" />
 
-That's it — the icon animates on hover by default.
+That's it - the icon animates on hover by default.
 
 </section>
 
@@ -173,13 +165,17 @@ The icon lands at `components/ui/<name>.tsx`.
 
 ## animateicons CLI
 
-The fastest way to copy icons into your project — same result as the shadcn CLI, but a short, first-party command instead of a registry URL.
+The fastest way to copy icons into your project - same result as the shadcn CLI, but a first-party command instead of a registry URL.
 
 #### 1. Add an icon
 
 <CodeBlock code={cliAddCode} lang="bash" title="Terminal" />
 
-Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import `cn` from `@/lib/utils` — if your project isn't shadcn-based, pass `--with-utils` to scaffold a minimal helper. The CLI also prints the `motion` install command for your package manager.
+Prefer a short command? Install the CLI globally and an `animateicons` binary is added to your PATH:
+
+<CodeBlock code={cliGlobalCode} lang="bash" title="Terminal" />
+
+Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import `cn` from `@/lib/utils` - if your project isn't shadcn-based, pass `--with-utils` to scaffold a minimal helper. The CLI also prints the `motion` install command for your package manager.
 
 #### 2. Browse without leaving the terminal
 
@@ -191,21 +187,11 @@ Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import
 
 </section>
 
-<section id="install-mcp" className="scroll-mt-20 space-y-6">
+<section id="install-mcp" className="scroll-mt-20 space-y-4">
 
 ## AI agents (MCP)
 
-Let AI coding tools search the catalog and drop in icons for you. `@animateicons/mcp` is a <Link href="https://modelcontextprotocol.io" target="_blank" className="underline underline-offset-4">Model Context Protocol</Link> server exposing `search_icons`, `get_icon`, `add_icon`, and `list_libraries`.
-
-#### Claude Code
-
-<CodeBlock code={mcpClaudeCode} lang="bash" title="Terminal" />
-
-#### Cursor and other clients
-
-Add to your MCP config (e.g. `.cursor/mcp.json` or `.mcp.json`):
-
-<CodeBlock code={mcpJsonCode} lang="json" title=".mcp.json" />
+Using an AI coding agent? AnimateIcons ships an MCP server so agents like Claude Code and Cursor can search the catalog and add icons for you - see the dedicated <Link href="/icons/docs/mcp" className="underline underline-offset-4">MCP guide</Link>.
 
 </section>
 
@@ -223,7 +209,7 @@ Every icon strokes `currentColor`, so it inherits the surrounding text color. Yo
 
 ## Imperative API
 
-Need to trigger an animation from a parent — on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
+Need to trigger an animation from a parent - on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
 
 <CodeBlock code={apiCode} title="Demo.tsx" />
 
@@ -235,7 +221,7 @@ Need to trigger an animation from a parent — on click, on focus, or programmat
 
 <CodeBlock code={propsCode} lang="ts" title="Types" />
 
-Animations respect the OS-level **Reduce Motion** preference — no extra setup required.
+Animations respect the OS-level **Reduce Motion** preference - no extra setup required.
 
 </section>
 

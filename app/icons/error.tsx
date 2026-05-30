@@ -9,7 +9,7 @@
  * instead of crashing the whole AnimateIcons shell.
  *
  * Visual: same on-brand glass-card treatment as the root error and
- * 404 pages — gradient surface, top-edge shimmer, primary-gradient CTA
+ * 404 pages - gradient surface, top-edge shimmer, primary-gradient CTA
  * for the recovery action.
  */
 

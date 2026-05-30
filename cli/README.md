@@ -1,6 +1,6 @@
-# @animateicons/cli
+# animateicons
 
-Add [AnimateIcons](https://animateicons.in) — animated SVG icons for React — to your
+Add [AnimateIcons](https://animateicons.in) - animated SVG icons for React - to your
 project from the command line, without pasting registry URLs.
 
 ```bash
@@ -12,6 +12,13 @@ npx animateicons add bell-ring activity user
 npx animateicons search notification
 npx animateicons list --library huge
 npx animateicons info bell-ring
+```
+
+Prefer a short command without `npx`? Install it globally:
+
+```bash
+npm i -g animateicons
+animateicons add bell-ring
 ```
 
 ## `add`
@@ -30,7 +37,7 @@ CLI asks you to pick the prefixed id.
 
 Copied icons import `cn` from `@/lib/utils` (the shadcn convention). If a
 `components.json` is present its `aliases.utils` is honored automatically; otherwise pass
-`--with-utils` to scaffold one. The icons also require [`motion`](https://motion.dev) —
+`--with-utils` to scaffold one. The icons also require [`motion`](https://motion.dev) -
 the CLI prints the right install command for your package manager.
 
 ## Global options

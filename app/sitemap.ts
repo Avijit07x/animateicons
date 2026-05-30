@@ -6,7 +6,7 @@ const baseUrl = "https://animateicons.in";
 
 // Sitemap rebuilds at most once per day. Without this, every crawler
 // hit invokes the function and counts as an edge request. Daily is
-// fine — new icons surface within 24h, well under sitemap convention.
+// fine - new icons surface within 24h, well under sitemap convention.
 export const revalidate = 86400;
 
 /**

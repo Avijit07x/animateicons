@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * IconLibrariesSection — premium tabbed showcase.
+ * IconLibrariesSection - premium tabbed showcase.
  *
  * Visual treatment:
  *   - Radial spotlight behind the grid suggests depth without a literal frame.
@@ -53,7 +53,7 @@ const IconLibrariesSection: React.FC = () => {
 
 	return (
 		<Section className="relative overflow-hidden">
-			{/* Premium backdrop: faint grid pattern only — no colored wash */}
+			{/* Premium backdrop: faint grid pattern only - no colored wash */}
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute inset-0 -z-10"
@@ -74,7 +74,7 @@ const IconLibrariesSection: React.FC = () => {
 
 			<SectionHeader
 				title="Two libraries, one motion system"
-				subtitle="Pick the visual style that fits — both ship the same animations and props."
+				subtitle="Pick the visual style that fits - both ship the same animations and props."
 				spacing="tight"
 			/>
 
@@ -132,7 +132,7 @@ const IconLibrariesSection: React.FC = () => {
 				{active.description}
 			</p>
 
-			{/* Icon grid — glass tiles, no outer frame */}
+			{/* Icon grid - glass tiles, no outer frame */}
 			<div className="mx-auto max-w-3xl">
 				<AnimatePresence mode="wait">
 					<motion.div

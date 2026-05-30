@@ -1,5 +1,5 @@
 /**
- * Buy Me a Coffee — server-only fetcher.
+ * Buy Me a Coffee - server-only fetcher.
  *
  * Hits `/api/v1/supporters` with the personal access token from
  * `BMC_ACCESS_TOKEN` and walks BMC's Laravel-style pagination so we
@@ -46,7 +46,7 @@ const fetchPage = async (
  * Returns the full supporter list across all pages, filtering out
  * anonymous/hidden tips. Falls back to whatever pages did succeed
  * (or `[]`) if BMC has a bad day. Errors are logged for Vercel,
- * never thrown — the page must still render.
+ * never thrown - the page must still render.
  */
 export const fetchSupporters = async (): Promise<Supporter[]> => {
 	const token = process.env.BMC_ACCESS_TOKEN;

@@ -4,7 +4,7 @@
  *
  * Why: motion/react's types only resolve in the consumer's project if motion
  * is installed there. We bundle motion into dist, so consumers don't install
- * it — which makes HTMLMotionProps resolve to `never` in their IDE, killing
+ * it - which makes HTMLMotionProps resolve to `never` in their IDE, killing
  * className / style / standard event prop autocomplete.
  *
  * React.HTMLAttributes is always resolvable, gives consumers every prop they

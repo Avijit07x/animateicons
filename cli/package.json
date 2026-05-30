@@ -1,5 +1,5 @@
 {
-	"name": "@animateicons/cli",
+	"name": "animateicons",
 	"version": "0.1.0",
 	"description": "Add animated AnimateIcons to your project from the command line: `npx animateicons add bell-ring`.",
 	"license": "MIT",

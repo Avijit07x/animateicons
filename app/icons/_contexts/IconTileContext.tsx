@@ -5,11 +5,11 @@
  *
  * Holds the three tile-action UI states (code-copied, CLI-copied,
  * loading) for the AnimateIcons gallery grid. Architecture choices are
- * all aimed at perf — the Lucide AnimateIcons page renders 248+ tiles
+ * all aimed at perf - the Lucide AnimateIcons page renders 248+ tiles
  * simultaneously and a naive context implementation re-rendered every
  * tile on every copy click:
  *
- *  - useReducer, not three useStates — one render per logical update,
+ *  - useReducer, not three useStates - one render per logical update,
  *    not three (e.g. loading → fetched → copied is one transition).
  *  - State and dispatch live in separate contexts. AnimateIcons tiles
  *    that only dispatch don't re-render when state changes.
@@ -82,7 +82,7 @@ export const IconTileProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
 	const [state, dispatch] = useReducer(reducer, INITIAL);
 
-	// Stable function references — never re-created, so consumers that
+	// Stable function references - never re-created, so consumers that
 	// only need dispatch never see the value object change identity.
 	const setCopiedCodeId = useCallback(
 		(id: string | null) => dispatch({ type: "SET_COPIED_CODE", id }),
@@ -129,7 +129,7 @@ export const useIconTileDispatch = (): Dispatchers => {
 	return ctx;
 };
 
-/** Selector hooks — narrow the read to a single boolean per consumer. */
+/** Selector hooks - narrow the read to a single boolean per consumer. */
 export const useIsCopiedCode = (tileId: string): boolean =>
 	useTileState().copiedCodeId === tileId;
 
@@ -141,7 +141,7 @@ export const useIsLoading = (tileId: string): boolean =>
 
 /**
  * Backwards-compatible aggregate hook. Prefer the selector hooks above
- * — this one re-renders on any field change.
+ * - this one re-renders on any field change.
  */
 export const useIconTileState = () => {
 	const state = useTileState();

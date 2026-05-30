@@ -1,5 +1,5 @@
 /**
- * Vitest setup for the AnimateIcons test suite — runs once before
+ * Vitest setup for the AnimateIcons test suite - runs once before
  * tests load.
  *
  *  - Adds @testing-library/jest-dom matchers (toBeInTheDocument, etc.)

@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
 
 /**
- * Vitest config for the AnimateIcons test suite — kept independent of
+ * Vitest config for the AnimateIcons test suite - kept independent of
  * the Next build pipeline so `pnpm test` doesn't go through Turbopack.
  * `jsdom` env is needed because most tests render real AnimateIcons
  * React components.

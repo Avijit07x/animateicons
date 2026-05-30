@@ -7,11 +7,11 @@
  * schema) so search engines can attach AnimateIcons icons to their
  * source repository, license, and runtime requirements.
  *
- * The payload is hardened against `</script>` injection — defensive
+ * The payload is hardened against `</script>` injection - defensive
  * even though every payload here is build-time constant, so a future
  * field that pulls from user content stays safe.
  *
- * Server component — emitted as static markup, zero runtime cost.
+ * Server component - emitted as static markup, zero runtime cost.
  */
 
 type Props = {

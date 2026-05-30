@@ -8,7 +8,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { runAdd } from "../src/commands/add";
 import { runInfo, runList, runSearch } from "../src/commands/query";
 
-// Run against the repo's real generated registry — no network needed.
+// Run against the repo's real generated registry - no network needed.
 const PUBLIC_R = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
 	"../../public/r",

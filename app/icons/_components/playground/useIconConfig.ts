@@ -7,7 +7,7 @@
  * (size / color / duration). Lives next to the playground because no
  * other component on the AnimateIcons site needs it.
  *
- * Note: trigger mode (hover/click/loop) was removed — hover is the only
+ * Note: trigger mode (hover/click/loop) was removed - hover is the only
  * mode users actually want from a gallery preview, and the toggle was
  * adding clutter without earning its keep. `stroke` is intentionally
  * omitted because every AnimateIcons source file hardcodes

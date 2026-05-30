@@ -37,7 +37,7 @@ export const buildIconMetadata = ({
 	const libDisplay = library === "lucide" ? "Lucide" : "Huge";
 	const url = `${BASE_URL}/icons/${library}/${name}`;
 
-	const title = `${componentName} — Animated ${libDisplay} icon for React`;
+	const title = `${componentName} - Animated ${libDisplay} icon for React`;
 	const description = `${display} animated icon for React. Drop-in component with hover and imperative animation triggers, configurable size, color, and duration. Available via @animateicons/react and the shadcn CLI.`;
 
 	return {

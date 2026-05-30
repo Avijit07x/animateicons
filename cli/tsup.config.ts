@@ -6,7 +6,7 @@ import { defineConfig } from "tsup";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * @animateicons/cli build.
+ * animateicons (CLI) build.
  *
  * Ships as a single, dependency-free executable: the shared `core` package
  * (aliased to its TypeScript source) and the small runtime deps are bundled

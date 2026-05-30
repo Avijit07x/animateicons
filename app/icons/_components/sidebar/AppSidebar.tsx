@@ -56,6 +56,16 @@ const AppSidebar: React.FC = () => {
 		return pathname === href || pathname.startsWith(`${href}/`);
 	};
 
+	/** Only the most specific (longest) matching Navigation href highlights,
+	 *  so /icons/docs/mcp lights up "MCP" - not also "Installation"
+	 *  (/icons/docs), which is a prefix of it. */
+	const activeNavHref = (
+		sidebarConfig.find((g) => g.label === "Navigation")?.items ?? []
+	)
+		.map((i) => i.href)
+		.filter((h): h is string => isHrefActive(h))
+		.sort((a, b) => b.length - a.length)[0];
+
 	const handleCategory = (cat: string) => {
 		if (library) {
 			setCategory(cat);
@@ -132,7 +142,7 @@ const AppSidebar: React.FC = () => {
 													group.label === "Categories"
 														? category === item.label
 														: group.label === "Navigation"
-															? isHrefActive(item.href)
+															? !!item.href && item.href === activeNavHref
 															: isLibraryActive(item.name)
 												}
 												className="gap-2"

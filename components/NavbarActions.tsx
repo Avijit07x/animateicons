@@ -12,7 +12,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 type Props = {
 	/** Star count fetched server-side. `null` means fetch failed or no
-	 *  data yet — the count badge simply won't render. */
+	 *  data yet - the count badge simply won't render. */
 	stars: number | null;
 };
 

@@ -1,5 +1,5 @@
 /**
- * Tests for handleHover — the helper every AnimateIcons consumer uses
+ * Tests for handleHover - the helper every AnimateIcons consumer uses
  * to drive a child icon's animation from a wrapping element's hover.
  */
 

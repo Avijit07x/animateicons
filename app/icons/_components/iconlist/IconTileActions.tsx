@@ -12,7 +12,7 @@
  * Why this exists as its own component:
  *  - IconTile renders 248 instances on /icons/lucide. With React.memo
  *    on IconTile, parent re-renders don't propagate.
- *  - But useContext does propagate — any IconTile that calls
+ *  - But useContext does propagate - any IconTile that calls
  *    useContext re-renders on context changes, busting the memo
  *    benefit and forcing all 248 AnimateIcons SVGs to re-render every
  *    time someone clicks "Copy code".
@@ -62,7 +62,7 @@ type Props = {
 
 /**
  * In-memory cache of fetched AnimateIcons source strings shared across
- * every action row in the gallery — first "Copy code" click hits the
+ * every action row in the gallery - first "Copy code" click hits the
  * server action, subsequent clicks (any tile, any tab on this page)
  * hit the Map.
  */

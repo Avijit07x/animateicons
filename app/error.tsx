@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Root error boundary — on-brand glass card matching the rest of the
+ * Root error boundary - on-brand glass card matching the rest of the
  * site. Logs the error to the console (and any wired-up reporter) on
  * mount so silent UX failures still leave a trail. Shows a debug
  * panel only in development so production users never see stack

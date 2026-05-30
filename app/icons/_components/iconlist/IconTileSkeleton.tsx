@@ -16,13 +16,13 @@
 const IconTileSkeleton: React.FC = () => {
 	return (
 		<div className="bg-surfaceElevated/65 border-border relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm shadow-lg">
-			{/* Icon button area — matches IconTile's size-12 rounded-xl click target. */}
+			{/* Icon button area - matches IconTile's size-12 rounded-xl click target. */}
 			<div className="bg-surface flex size-12 animate-pulse items-center justify-center rounded-xl"></div>
 
 			{/* Icon name line. */}
 			<div className="bg-surface mt-1 h-4 w-24 animate-pulse rounded" />
 
-			{/* Action row — three size-6 buttons gap-6, mt-2. */}
+			{/* Action row - three size-6 buttons gap-6, mt-2. */}
 			<div className="mt-2 flex items-center justify-center gap-6">
 				<div className="bg-surface size-6 animate-pulse rounded-md" />
 				<div className="bg-surface size-6 animate-pulse rounded-md" />

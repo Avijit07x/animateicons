@@ -33,7 +33,7 @@ const exists = async (p) => {
 	}
 };
 
-test("dist/ exists — package was built", async () => {
+test("dist/ exists - package was built", async () => {
 	assert.ok(
 		await exists(DIST),
 		"dist/ missing. Run `pnpm build` before this test.",
@@ -55,7 +55,7 @@ test("all declared export targets are emitted", async () => {
 	for (const file of expected) {
 		assert.ok(
 			await exists(path.join(DIST, file)),
-			`dist/${file} missing — broken exports map`,
+			`dist/${file} missing - broken exports map`,
 		);
 	}
 });
@@ -90,7 +90,7 @@ test('"use client" banner is preserved in ESM build', async () => {
 	assert.match(
 		source,
 		/^\s*["']use client["']/,
-		"missing 'use client' banner — RSC consumers will break",
+		"missing 'use client' banner - RSC consumers will break",
 	);
 });
 
@@ -99,7 +99,7 @@ test('"use client" banner is preserved in CJS build', async () => {
 	assert.match(
 		source,
 		/^\s*["']use client["']/,
-		"missing 'use client' banner in CJS — RSC consumers will break",
+		"missing 'use client' banner in CJS - RSC consumers will break",
 	);
 });
 

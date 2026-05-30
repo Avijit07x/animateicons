@@ -2,7 +2,7 @@
 # Root: the Next.js gallery + icon source files.
 # `npm/`: the @animateicons/react publishable package.
 # `core/`: shared catalog/search/write primitives (bundled into cli + mcp).
-# `cli/`: the @animateicons/cli installer (`npx animateicons add`).
+# `cli/`: the `animateicons` CLI (`npx animateicons add`).
 # `mcp/`: the @animateicons/mcp server for AI coding agents.
 packages:
   - "npm"

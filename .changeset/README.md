@@ -1,10 +1,10 @@
 # Changesets
 
-This folder is managed by [Changesets](https://github.com/changesets/changesets) — the release pipeline for `@animateicons/react`. Each user-visible change to the npm package gets a changeset entry; on release, Changesets aggregates them into the published `CHANGELOG.md`, picks the right semver bump, and updates the package version.
+This folder is managed by [Changesets](https://github.com/changesets/changesets) - the release pipeline for `@animateicons/react`. Each user-visible change to the npm package gets a changeset entry; on release, Changesets aggregates them into the published `CHANGELOG.md`, picks the right semver bump, and updates the package version.
 
 ## When you make a change
 
-If your PR changes anything that consumers of `@animateicons/react` would notice — a new icon, a fixed bug, a new prop, a tweaked default, a docs note that ships in the README — add a changeset:
+If your PR changes anything that consumers of `@animateicons/react` would notice - a new icon, a fixed bug, a new prop, a tweaked default, a docs note that ships in the README - add a changeset:
 
 ```bash
 pnpm changeset
@@ -20,7 +20,7 @@ The command writes a small markdown file into this `.changeset/` folder. Commit 
 
 ## What you don't need a changeset for
 
-- Site-only changes (anything outside `npm/`) — the site (`animateicons`) is in the `ignore` list.
+- Site-only changes (anything outside `npm/`) - the site (`animateicons`) is in the `ignore` list.
 - Internal refactors that don't change the published API.
 - README typos in this repo's root README. (README changes inside `npm/` should get a changeset because the README ships to npm.)
 
@@ -35,7 +35,7 @@ git commit -am "chore: release"
 git push --follow-tags    # CI publishes via npm-publish.yml
 ```
 
-If there are no pending changesets, `changeset:version` is a no-op — no accidental empty releases.
+If there are no pending changesets, `changeset:version` is a no-op - no accidental empty releases.
 
 ## Reference
 

@@ -45,7 +45,7 @@ const countBarrelExports = async (file) => {
 	return matches ? matches.length : 0;
 };
 
-/** Count `// SKIP ...` markers — generate-exports emits these when the
+/** Count `// SKIP ...` markers - generate-exports emits these when the
  *  regex couldn't pick up a component name. Should always be zero. */
 const countSkippedIcons = async (file) => {
 	const source = await fs.readFile(file, "utf8");
@@ -53,11 +53,11 @@ const countSkippedIcons = async (file) => {
 	return matches ? matches.length : 0;
 };
 
-test("barrels exist — run `pnpm gen` if this fails", async () => {
+test("barrels exist - run `pnpm gen` if this fails", async () => {
 	for (const lib of Object.keys(ICONS_DIRS)) {
 		const barrel = path.join(SRC, `${lib}.ts`);
 		const exists = await fs.stat(barrel).catch(() => null);
-		assert.ok(exists, `src/${lib}.ts missing — run \`pnpm gen\` first`);
+		assert.ok(exists, `src/${lib}.ts missing - run \`pnpm gen\` first`);
 	}
 });
 
@@ -68,7 +68,7 @@ test("every icon source file produces a barrel export (lucide)", async () => {
 		exportCount,
 		inputCount,
 		`lucide: ${inputCount} *-icon.tsx files, but only ${exportCount} exports in src/lucide.ts. ` +
-			`generate-exports likely silently dropped one — check NAMING_REPORT.md and the file list.`,
+			`generate-exports likely silently dropped one - check NAMING_REPORT.md and the file list.`,
 	);
 });
 

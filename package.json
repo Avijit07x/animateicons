@@ -1,5 +1,5 @@
 {
-	"name": "animateicons",
+	"name": "animateicons-monorepo",
 	"version": "0.1.0",
 	"private": true,
 	"packageManager": "pnpm@10.0.0",
@@ -20,8 +20,8 @@
 		"typecheck": "tsc --noEmit",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"build:packages": "pnpm --filter @animateicons/core build && pnpm --filter @animateicons/cli build && pnpm --filter @animateicons/mcp build",
-		"verify:packages": "pnpm --filter @animateicons/core verify && pnpm --filter @animateicons/cli verify && pnpm --filter @animateicons/mcp verify",
+		"build:packages": "pnpm --filter @animateicons/core build && pnpm --filter animateicons build && pnpm --filter @animateicons/mcp build",
+		"verify:packages": "pnpm --filter @animateicons/core verify && pnpm --filter animateicons verify && pnpm --filter @animateicons/mcp verify",
 		"verify": "pnpm run check:all && pnpm run typecheck && pnpm run test && pnpm --filter @animateicons/react verify && pnpm run verify:packages",
 		"ship": "pnpm run verify && pnpm run build",
 		"changeset": "changeset",

@@ -10,9 +10,9 @@
  * the tree no matter how deeply nested the consumer is.
  *
  * Shortcuts:
- *   - Cmd+K / Ctrl+K — toggle the palette
- *   - "/" (when no input is focused) — open the palette
- *   - Esc — handled by the modal itself
+ *   - Cmd+K / Ctrl+K - toggle the palette
+ *   - "/" (when no input is focused) - open the palette
+ *   - Esc - handled by the modal itself
  */
 
 import {
@@ -53,13 +53,13 @@ export const CommandSearchProvider: React.FC<{
 
 	useEffect(() => {
 		const onKey = (e: KeyboardEvent) => {
-			// Cmd+K / Ctrl+K — toggle from anywhere
+			// Cmd+K / Ctrl+K - toggle from anywhere
 			if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
 				e.preventDefault();
 				setIsOpen((prev) => !prev);
 				return;
 			}
-			// "/" — open only when not typing into another input
+			// "/" - open only when not typing into another input
 			if (e.key === "/" && !isEditableTarget(e.target) && !isOpen) {
 				e.preventDefault();
 				setIsOpen(true);

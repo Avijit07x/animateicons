@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * NpmHighlightCard — single feature tile inside NpmSection.
+ * NpmHighlightCard - single feature tile inside NpmSection.
  *
  * Why a separate client component: NpmSection is a server component
  * (it awaits shiki for code highlighting). Hover-to-animate requires
@@ -9,7 +9,7 @@
  * extracted here.
  *
  * Hovering anywhere on the card triggers the icon's startAnimation()
- * via handleHover — same pattern as FeatureCard. The AnimateIcons
+ * via handleHover - same pattern as FeatureCard. The AnimateIcons
  * component animates even when the cursor isn't directly on it.
  */
 

@@ -2,9 +2,9 @@
  * Icon naming consistency test.
  *
  * Every icon file under `icons/<library>/` must use the canonical names:
- *   const XxxIcon       — forwardRef component
- *   XxxIconHandle       — imperative handle interface
- *   XxxIconProps        — props interface
+ *   const XxxIcon       - forwardRef component
+ *   XxxIconHandle       - imperative handle interface
+ *   XxxIconProps        - props interface
  *
  * If a contributor adds a new icon with `BlendHandle` instead of
  * `BlendIconHandle` (or any other deviation), this test fails in CI

@@ -3,7 +3,7 @@
  *
  * Generates a static page for every icon in both libraries (Lucide +
  * Huge). Each page is the canonical, shareable URL for one animated
- * icon — what Cmd+K search results, Google rich results, and social
+ * icon - what Cmd+K search results, Google rich results, and social
  * shares all link to.
  *
  * Server component. Pre-renders shiki-highlighted code at build time
@@ -37,7 +37,7 @@ const getList = (lib: LibraryKey) =>
 
 const getLibraryPrefix = (lib: LibraryKey) => (lib === "lucide" ? "lu" : "hu");
 
-/** Convert "bell-ring" → "BellRingIcon" — same convention every icon
+/** Convert "bell-ring" → "BellRingIcon" - same convention every icon
  *  source file follows when it names its forwardRef export. */
 const componentNameFromSlug = (slug: string): string =>
 	slug
@@ -203,7 +203,7 @@ const Page = async ({ params }: Props) => {
 
 			<section className="mt-10 space-y-3">
 				<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
-					Install — shadcn CLI
+					Install - shadcn CLI
 				</h2>
 				<div className={GLASS_CARD}>
 					<span
@@ -223,7 +223,7 @@ const Page = async ({ params }: Props) => {
 
 			<section className="mt-8 space-y-3">
 				<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
-					Install — npm package
+					Install - npm package
 				</h2>
 				<div className={GLASS_CARD}>
 					<span

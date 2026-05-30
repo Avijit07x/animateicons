@@ -1,43 +1,16 @@
 import type { MetadataRoute } from "next";
 
 /**
- * robots.txt — explicitly block aggressive AI crawlers to protect the
- * Vercel edge-request budget. These bots scrape every per-icon page +
- * its dynamic OG image, multiplying our 286 sitemap URLs into tens of
- * thousands of edge hits per month. They feed proprietary AI products
- * without driving any traffic back, so blocking is a clean trade.
+ * robots.txt - allow everyone, including AI crawlers and assistants.
  *
- * Real search engines (Google, Bing, DuckDuckGo, etc.) and link
- * previewers stay allowed via the trailing wildcard rule.
+ * AnimateIcons now ships an MCP server and is meant to be discoverable by
+ * AI coding tools (ChatGPT, Claude, Perplexity, etc.), so we no longer
+ * block their user-agents. Search engines and link previewers were always
+ * allowed; this simply opens the door to AI agents as well.
  */
 export default function robots(): MetadataRoute.Robots {
 	return {
-		rules: [
-			// OpenAI
-			{ userAgent: "GPTBot", disallow: "/" },
-			{ userAgent: "ChatGPT-User", disallow: "/" },
-			{ userAgent: "OAI-SearchBot", disallow: "/" },
-			// Anthropic
-			{ userAgent: "ClaudeBot", disallow: "/" },
-			{ userAgent: "Claude-Web", disallow: "/" },
-			{ userAgent: "anthropic-ai", disallow: "/" },
-			// Perplexity
-			{ userAgent: "PerplexityBot", disallow: "/" },
-			{ userAgent: "Perplexity-User", disallow: "/" },
-			// Other AI / scrapers
-			{ userAgent: "Bytespider", disallow: "/" },
-			{ userAgent: "CCBot", disallow: "/" },
-			{ userAgent: "Google-Extended", disallow: "/" },
-			{ userAgent: "Applebot-Extended", disallow: "/" },
-			{ userAgent: "FacebookBot", disallow: "/" },
-			{ userAgent: "Meta-ExternalAgent", disallow: "/" },
-			{ userAgent: "Meta-ExternalFetcher", disallow: "/" },
-			{ userAgent: "Diffbot", disallow: "/" },
-			{ userAgent: "Omgilibot", disallow: "/" },
-			{ userAgent: "ImagesiftBot", disallow: "/" },
-			// Real search engines + everything else
-			{ userAgent: "*", allow: "/" },
-		],
+		rules: [{ userAgent: "*", allow: "/" }],
 		sitemap: "https://animateicons.in/sitemap.xml",
 	};
 }

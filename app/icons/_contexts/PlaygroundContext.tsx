@@ -6,7 +6,7 @@
  * Holds the "which icon is currently open in the playground sheet"
  * state. IconTile dispatches `openPlayground(item)` on click; the
  * sheet listens via `usePlayground()` and renders accordingly. Lives
- * inside the /icons gallery layout — no other route mounts the sheet.
+ * inside the /icons gallery layout - no other route mounts the sheet.
  */
 
 import {

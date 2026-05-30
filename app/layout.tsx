@@ -19,7 +19,7 @@ const baseUrl = "https://animateicons.in";
  * three slightly-different strings (the previous setup did exactly that).
  */
 const SITE_DESCRIPTION =
-	"Free, open-source animated SVG icons for React. Drop-in components built on motion/react with hover and imperative triggers, configurable size, color, and duration — installable via the shadcn CLI.";
+	"Free, open-source animated SVG icons for React. Drop-in components built on motion/react with hover and imperative triggers, configurable size, color, and duration - installable via the shadcn CLI.";
 
 const SITE_TITLE = "AnimateIcons | Free Animated React Icon Library";
 

@@ -5,7 +5,7 @@
  * oldest. GitHub sponsors with no createdAt fall to the end, sorted
  * alphabetically by name so the order is stable across renders.
  *
- * Pure function, no module side effects — safe to import from tests.
+ * Pure function, no module side effects - safe to import from tests.
  */
 
 import type { Supporter } from "./types";

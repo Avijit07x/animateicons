@@ -1,5 +1,5 @@
 /**
- * Tests for the JsonLd component — emits the AnimateIcons site's
+ * Tests for the JsonLd component - emits the AnimateIcons site's
  * structured-data <script> blocks (Organization + WebSite +
  * SearchAction + per-library SoftwareSourceCode).
  */

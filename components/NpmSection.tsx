@@ -1,5 +1,5 @@
 /**
- * NpmSection — landing-page section dedicated to the @animateicons/react
+ * NpmSection - landing-page section dedicated to the @animateicons/react
  * npm package. Sits between Hero and the icon-libraries gallery to give
  * the npm path equal billing with the shadcn CLI route.
  *
@@ -64,7 +64,7 @@ export function Notifications() {
  * so our card's surface color shows through. */
 const SHIKI_RESET = "[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!";
 
-/** Glass card surface — shared by highlight tiles and code blocks so the
+/** Glass card surface - shared by highlight tiles and code blocks so the
  * NpmSection reads as one cohesive treatment. */
 const GLASS_CARD = cn(
 	"relative overflow-hidden rounded-2xl",

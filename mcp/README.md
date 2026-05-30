@@ -39,7 +39,7 @@ Add to your MCP config (e.g. `.cursor/mcp.json` or `.mcp.json`):
 
 ### Environment
 
-- `ANIMATEICONS_REGISTRY` — override the registry base URL or point at a local directory
+- `ANIMATEICONS_REGISTRY` - override the registry base URL or point at a local directory
   (advanced / testing). Defaults to `https://animateicons.in/r`.
 
 MIT © Avijit Dey

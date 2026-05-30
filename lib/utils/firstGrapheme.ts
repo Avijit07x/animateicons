@@ -1,9 +1,9 @@
 /**
- * firstGrapheme — return the first user-perceived character of a
+ * firstGrapheme - return the first user-perceived character of a
  * string, uppercased.
  *
  * `"abc".charAt(0)` is fine for ASCII but breaks on:
- *   - Emoji ("🐈 helio" → "\uD83D" — half a surrogate pair, renders as ?)
+ *   - Emoji ("🐈 helio" → "\uD83D" - half a surrogate pair, renders as ?)
  *   - Combining marks ("é" composed as e + ́ → "e", losing accent)
  *   - Astral-plane CJK characters
  *

@@ -39,7 +39,7 @@ const CommandSearchItem: React.FC<Props> = ({
 		ref?: React.Ref<IconHandle>;
 	}>;
 
-	// Keyboard-selected rows should animate their icon too — feels much
+	// Keyboard-selected rows should animate their icon too - feels much
 	// more alive than a static highlight.
 	useEffect(() => {
 		if (isSelected) {

@@ -1,5 +1,5 @@
 /**
- * GitHub Sponsors — raw GraphQL response shapes.
+ * GitHub Sponsors - raw GraphQL response shapes.
  *
  * The `sponsors` connection on a User node returns a union of User and
  * Organization. We collapse both via inline fragments at query time

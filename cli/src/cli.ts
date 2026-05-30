@@ -80,7 +80,7 @@ cli
 						console.log(
 							pc.yellow(`• skipped ${a.registryName} `) +
 								pc.dim(
-									`(${path.relative(cwd, a.file)} exists — use --overwrite)`,
+									`(${path.relative(cwd, a.file)} exists - use --overwrite)`,
 								),
 						);
 					} else {
@@ -107,7 +107,7 @@ cli
 
 			const wroteSomething = outcome.added.some((a) => !a.skipped);
 
-			// `cn` dependency notice (we only warn — never mutate an unknown setup).
+			// `cn` dependency notice (we only warn - never mutate an unknown setup).
 			if (wroteSomething && !hasUtils) {
 				if ((options as { withUtils?: boolean }).withUtils) {
 					const utilsPath = path.join(cwd, "lib", "utils.ts");
@@ -165,7 +165,7 @@ cli
 			}
 			for (const icon of results) {
 				console.log(
-					`${pc.cyan(icon.registryName.padEnd(28))} ${pc.dim(icon.category.join(", ") || "—")}`,
+					`${pc.cyan(icon.registryName.padEnd(28))} ${pc.dim(icon.category.join(", ") || "-")}`,
 				);
 			}
 			console.log(
@@ -216,8 +216,8 @@ cli
 		console.log(pc.bold(icon.registryName));
 		console.log(`  library   ${icon.library}`);
 		console.log(`  name      ${icon.name}`);
-		console.log(`  category  ${icon.category.join(", ") || "—"}`);
-		console.log(`  keywords  ${icon.keywords.join(", ") || "—"}`);
+		console.log(`  category  ${icon.category.join(", ") || "-"}`);
+		console.log(`  keywords  ${icon.keywords.join(", ") || "-"}`);
 		if (icon.addedAt) console.log(`  added     ${icon.addedAt}`);
 		console.log(`  registry  ${icon.url}`);
 		console.log(pc.dim(`\nAdd it with: animateicons add ${icon.name}`));

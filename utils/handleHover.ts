@@ -6,7 +6,7 @@ import type { IconHandle } from "@/types/icon";
  * site keeps its specific *IconHandle (e.g. `BellRingIconHandle`)
  * without a cast.
  *
- * Used throughout the AnimateIcons gallery — wherever a button, card,
+ * Used throughout the AnimateIcons gallery - wherever a button, card,
  * or link houses an animated icon and needs to play it on hover.
  */
 const handleHover = <T extends IconHandle>(

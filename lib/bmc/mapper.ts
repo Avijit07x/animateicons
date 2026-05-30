@@ -14,7 +14,7 @@ export const mapBmcSupporter = (raw: BmcSupporterRaw): Supporter => {
 	const coffees = Number(raw.support_coffees);
 
 	// Both fields can come back as strings or numbers depending on BMC's
-	// API mood — coerce defensively. Falsy/NaN result becomes null so
+	// API mood - coerce defensively. Falsy/NaN result becomes null so
 	// downstream consumers don't display "$NaN".
 	const amountRaw = coffees * coffeePrice;
 	const amount = Number.isFinite(amountRaw) && amountRaw > 0 ? amountRaw : null;

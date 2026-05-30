@@ -9,7 +9,7 @@
  * mismatched names like "Dashboard" → "LayoutDashboard" + ships ~250KB
  * to the function), we read the project's own icon source file from
  * disk and extract its `d="…"` path data with a regex. That guarantees
- * every icon — including custom ones not in lucide-react — renders
+ * every icon - including custom ones not in lucide-react - renders
  * with its actual shape.
  *
  * Strategy for the brand: read public/logo.svg as base64 so the OG
@@ -24,7 +24,7 @@ import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import { ImageResponse } from "next/og";
 
-// Node runtime — `fs` access for icon source + logo, plus larger size
+// Node runtime - `fs` access for icon source + logo, plus larger size
 // budget than edge (50MB on Vercel Hobby).
 export const runtime = "nodejs";
 export const alt = "AnimateIcons";
@@ -49,7 +49,7 @@ const SUBTLE = "#7c7c7c";
 
 /** Every SVG shape primitive an AnimateIcons source might use. Some
  *  icons are pure `<path>`, others mix `<circle>`, `<rect>`, `<line>`,
- *  `<ellipse>`, `<polyline>`, `<polygon>` — all need to be picked up. */
+ *  `<ellipse>`, `<polyline>`, `<polygon>` - all need to be picked up. */
 const SHAPE_TAGS = [
 	"path",
 	"circle",
@@ -126,7 +126,7 @@ const readIconShapes = async (
 				if (!VALID_ATTRS.has(key)) continue;
 				attrs[key] = dq ?? sq ?? expr ?? "";
 			}
-			// Skip shapes with no useful geometry — e.g., `<motion.path variants={...} />`
+			// Skip shapes with no useful geometry - e.g., `<motion.path variants={...} />`
 			// without a `d` attribute, or `<circle>` with no cx/cy.
 			if (Object.keys(attrs).length === 0) continue;
 			shapes.push({ tag, attrs });
@@ -296,7 +296,7 @@ export default async function OGImage({
 					</p>
 				</div>
 
-				{/* Glyph card — uses the project's actual icon shapes from disk */}
+				{/* Glyph card - uses the project's actual icon shapes from disk */}
 				{iconShapes.length > 0 && (
 					<div
 						style={{
@@ -366,7 +366,7 @@ export default async function OGImage({
 			headers: {
 				// OG content per icon never changes (icon name + glyph + brand are
 				// static). Cache aggressively at the CDN so subsequent crawler/user
-				// hits don't re-invoke the function — drops edge requests by ~10%.
+				// hits don't re-invoke the function - drops edge requests by ~10%.
 				"Cache-Control":
 					"public, max-age=31536000, s-maxage=31536000, immutable",
 			},

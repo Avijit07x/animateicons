@@ -5,7 +5,7 @@
  *
  * SRP: owns the AnimateIcons gallery search query state, exposes a
  * debounced version to consumers, and keeps the browser URL `?q=` in
- * sync — so:
+ * sync - so:
  *   - users land on /icons/lucide?q=bell with the AnimateIcons search
  *     field pre-filled and results filtered
  *   - the URL updates while typing (debounced, history-safe via replace)
@@ -55,7 +55,7 @@ export const IconSearchProvider: React.FC<{
 	const searchParams = useSearchParams();
 
 	// Hydrate from `?q=` on first render. Lazy init so we don't read
-	// searchParams on every render — and so SSR/CSR start matches.
+	// searchParams on every render - and so SSR/CSR start matches.
 	const [query, setQuery] = useState(
 		() => searchParams?.get(QUERY_PARAM) ?? "",
 	);
@@ -88,7 +88,7 @@ export const IconSearchProvider: React.FC<{
 		if (urlQuery !== debouncedQuery && urlQuery !== query) {
 			setQuery(urlQuery);
 		}
-		// Depend on the serialized URL, not `query` — `query` would re-trigger
+		// Depend on the serialized URL, not `query` - `query` would re-trigger
 		// on every keystroke and cause a flicker.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchParamsKey]);

@@ -1,5 +1,5 @@
 /**
- * GitHub Sponsors — server-only fetcher.
+ * GitHub Sponsors - server-only fetcher.
  *
  * Hits the GraphQL endpoint with `GITHUB_SPONSORS_TOKEN` (a fine-grained
  * PAT with `read:user` scope is enough for public sponsors data) and

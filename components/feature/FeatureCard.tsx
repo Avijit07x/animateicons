@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FeatureCard — premium glass-style card matching the NpmSection treatment.
+ * FeatureCard - premium glass-style card matching the NpmSection treatment.
  *
  * Composition:
  *   - Subtle bordered surface with a top-down white gradient (glass)

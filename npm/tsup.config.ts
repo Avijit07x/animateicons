@@ -5,7 +5,7 @@ import { defineConfig } from "tsup";
 /**
  * @animateicons/react build config.
  *
- * - Entries: a top-level `index` (types only — see below) plus `lucide`
+ * - Entries: a top-level `index` (types only - see below) plus `lucide`
  *   and `huge` deep imports. Per-icon tree-shaking comes for free with
  *   ESM + sideEffects: false.
  * - "use client" banner: every output chunk needs the directive so Next
@@ -29,7 +29,7 @@ export default defineConfig({
 	format: ["esm", "cjs"],
 	dts: true,
 	// Sourcemaps add ~3.6 MB unpacked install size for the consumer.
-	// Skip them — debugging into the package is rare for icon code.
+	// Skip them - debugging into the package is rare for icon code.
 	sourcemap: false,
 	clean: true,
 	treeshake: true,

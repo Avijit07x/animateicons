@@ -1,7 +1,7 @@
 {
 	"name": "@animateicons/mcp",
 	"version": "0.1.0",
-	"description": "Model Context Protocol server for AnimateIcons — let AI coding agents search and add animated React icons.",
+	"description": "Model Context Protocol server for AnimateIcons - let AI coding agents search and add animated React icons.",
 	"license": "MIT",
 	"author": "Avijit Dey",
 	"homepage": "https://animateicons.in",

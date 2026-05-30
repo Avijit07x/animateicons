@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 /**
- * 404 page — on-brand glass card with the same surface vocabulary as
+ * 404 page - on-brand glass card with the same surface vocabulary as
  * the rest of the site (gradient surface, border-border/60, top-edge
  * shimmer, primary radial glow). The compass icon hints "we'll help
  * you find your way" without saying it.

@@ -1,4 +1,4 @@
-import { Heart, Home, Package, Send } from "lucide-react";
+import { Bot, Heart, Home, Package, Send } from "lucide-react";
 import { SidebarGroupConfig } from "./sidebar.types";
 
 export const sidebarConfig: SidebarGroupConfig[] = [
@@ -7,6 +7,7 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 		items: [
 			{ label: "Home", href: "/", icon: Home },
 			{ label: "Installation", href: "/icons/docs", icon: Package },
+			{ label: "MCP", href: "/icons/docs/mcp", icon: Bot },
 			{
 				label: "Supporters",
 				href: "/sponsors",

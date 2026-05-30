@@ -16,7 +16,7 @@ export interface ResolveResult {
 
 /**
  * Resolve a user-supplied identifier to a single catalog icon. Accepts either
- * the prefixed `registryName` ("lu-bell-ring") — always unique — or the bare
+ * the prefixed `registryName` ("lu-bell-ring") - always unique - or the bare
  * base name ("bell-ring"). A bare name that maps to multiple libraries is
  * reported as ambiguous rather than silently picking one.
  */

@@ -5,7 +5,7 @@
  *
  * SRP: render one of the three tooltip-wrapped, hover-animated 24×24
  * action buttons that sit under every AnimateIcons tile (Copy CLI
- * command / Copy JSX code / Open in v0.dev) — either as a real button
+ * command / Copy JSX code / Open in v0.dev) - either as a real button
  * (in-page action) or an anchor (external link).
  *
  * Replaces three near-identical inline blocks in the original

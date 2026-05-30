@@ -12,7 +12,7 @@
  *
  * Reuses `useIconConfig` + `PlaygroundControls` so the playground
  * primitives stay shared across surfaces. Hover is the only trigger
- * mode — click and loop modes were removed because they weren't
+ * mode - click and loop modes were removed because they weren't
  * earning their place in the UI.
  */
 
@@ -50,7 +50,7 @@ const formatLabel = (name: string): string =>
 
 const INSTALL_CMD = "npm i @animateicons/react";
 
-/** Small reusable copy button — animated CopyIcon → CheckIcon swap. */
+/** Small reusable copy button - animated CopyIcon → CheckIcon swap. */
 const CopyAction: React.FC<{ value: string; label: string }> = ({
 	value,
 	label,
@@ -62,7 +62,7 @@ const CopyAction: React.FC<{ value: string; label: string }> = ({
 		try {
 			await navigator.clipboard.writeText(value);
 		} catch {
-			// Silently fail — clipboard can be blocked in iframes.
+			// Silently fail - clipboard can be blocked in iframes.
 		}
 		setCopied(true);
 		window.setTimeout(() => setCopied(false), 1400);

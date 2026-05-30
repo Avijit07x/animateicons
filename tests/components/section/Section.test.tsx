@@ -1,5 +1,5 @@
 /**
- * Tests for Section + SectionHeader — the shared shell powering
+ * Tests for Section + SectionHeader - the shared shell powering
  * AnimateIcons landing-page sections (Features, IconLibraries, etc.).
  */
 

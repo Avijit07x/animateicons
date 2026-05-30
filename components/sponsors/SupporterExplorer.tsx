@@ -6,7 +6,7 @@
  * Client component for the /sponsors page. Owns the source filter
  * (All / Buy me a coffee / GitHub Sponsors) and renders the matching
  * grid of supporters. Data is fetched once on the server and passed
- * in as props — this component just slices it.
+ * in as props - this component just slices it.
  *
  * Implements the WAI-ARIA Tabs pattern:
  *   - Roving tabindex (active tab = 0, others = -1)
@@ -170,7 +170,7 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 const EMPTY_COPY: Record<Filter, { title: string; body: string }> = {
 	all: {
 		title: "No supporters yet",
-		body: "Be the first — your name shows up here as soon as the page revalidates.",
+		body: "Be the first - your name shows up here as soon as the page revalidates.",
 	},
 	bmc: {
 		title: "No Buy me a coffee supporters yet",

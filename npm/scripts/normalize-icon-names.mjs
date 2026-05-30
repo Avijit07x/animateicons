@@ -2,9 +2,9 @@
  * Normalize interface names in icon source files.
  *
  * Each icon file should follow this naming pattern:
- *   const XxxIcon       — the forwardRef component
- *   XxxIconHandle       — the imperative handle interface
- *   XxxIconProps        — the props interface
+ *   const XxxIcon       - the forwardRef component
+ *   XxxIconHandle       - the imperative handle interface
+ *   XxxIconProps        - the props interface
  *
  * Some icons drift from this:
  *   - `BlendHandle` instead of `BlendIconHandle`
