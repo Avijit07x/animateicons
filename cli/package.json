@@ -1,6 +1,6 @@
 {
 	"name": "animateicons",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Add animated AnimateIcons to your project from the command line: `npx animateicons add bell-ring`.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -30,7 +30,7 @@
 		"README.md"
 	],
 	"engines": {
-		"node": ">=18.17.0"
+		"node": ">=20"
 	},
 	"scripts": {
 		"build": "tsup",
@@ -41,8 +41,10 @@
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.1",
+		"@types/react": "^19.2.15",
 		"cac": "^6.7.14",
 		"fuse.js": "^7.3.0",
+		"ink-testing-library": "^4.0.0",
 		"picocolors": "^1.1.1",
 		"tsup": "^8.3.0",
 		"typescript": "^5.9.3",
@@ -50,5 +52,9 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"dependencies": {
+		"ink": "^6.8.0",
+		"react": "^19.2.6"
 	}
 }

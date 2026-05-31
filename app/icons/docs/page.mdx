@@ -41,6 +41,8 @@ export const cliBrowseCode = `npx animateicons search notification
 npx animateicons list --library huge
 npx animateicons info eye`;
 
+export const cliBrowseTuiCode = `npx animateicons browse`;
+
 export const cliUsageCode = `import { EyeIcon } from "@/components/icons/eye"
 
 export default function Example() {
@@ -180,6 +182,10 @@ Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import
 #### 2. Browse without leaving the terminal
 
 <CodeBlock code={cliBrowseCode} lang="bash" title="Terminal" />
+
+Or open the interactive dashboard to search, multi-select, and add icons live in your terminal:
+
+<CodeBlock code={cliBrowseTuiCode} lang="bash" title="Terminal" />
 
 #### 3. Import and use
 

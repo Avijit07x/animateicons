@@ -223,6 +223,72 @@ cli
 		console.log(pc.dim(`\nAdd it with: animateicons add ${icon.name}`));
 	});
 
+cli
+	.command("browse", "Interactively browse and add icons (TUI dashboard)")
+	.option("-d, --dir <dir>", "Target directory", {
+		default: "components/icons",
+	})
+	.action(async (options: GlobalOptions & { dir: string }) => {
+		if (!process.stdin.isTTY || !process.stdout.isTTY) {
+			console.error(
+				pc.red("browse requires an interactive terminal (TTY). ") +
+					pc.dim("Use add/search/list in pipes or CI."),
+			);
+			process.exit(1);
+		}
+
+		const cwd = getCwd(options);
+		const { utilsImport, hasUtils } = resolveUtilsImport(cwd);
+
+		// Lazy: Ink + React are evaluated only here, never for add/search/list.
+		const { runBrowse } = await import("./commands/browse.js");
+		const { added } = await runBrowse({
+			cwd,
+			dir: options.dir,
+			registryBase: options.registry,
+			utilsImport,
+		});
+
+		if (added.length === 0) {
+			console.log(pc.dim("No icons added."));
+			return;
+		}
+
+		for (const a of added) {
+			if (a.failed) {
+				console.log(pc.red(`✗ failed ${a.registryName}`));
+			} else if (a.skipped) {
+				console.log(
+					pc.yellow(`• skipped ${a.registryName} `) +
+						pc.dim(`(${path.relative(cwd, a.file)} exists)`),
+				);
+			} else {
+				console.log(
+					pc.green("✓ added ") +
+						a.registryName +
+						pc.dim(` → ${path.relative(cwd, a.file)}`),
+				);
+			}
+		}
+
+		const wroteSomething = added.some((a) => !a.skipped && !a.failed);
+
+		if (wroteSomething && !hasUtils) {
+			console.log(
+				pc.dim(
+					`\nIcons import \`cn\` from "${utilsImport}". If that doesn't exist, run \`animateicons add --with-utils\` or add a shadcn-style cn helper.`,
+				),
+			);
+		}
+		if (wroteSomething && !hasMotionDependency(cwd)) {
+			const pm = detectPackageManager(cwd);
+			console.log(
+				pc.dim(`\nThese icons require motion. Install it with:\n  `) +
+					installCommand(pm, "motion"),
+			);
+		}
+	});
+
 cli.help();
 cli.version(VERSION);
 

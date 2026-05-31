@@ -21,6 +21,30 @@ npm i -g animateicons
 animateicons add bell-ring
 ```
 
+## `browse` (interactive TUI)
+
+Launch a terminal dashboard to search, multi-select, and add icons without leaving your shell:
+
+```bash
+npx animateicons browse
+```
+
+```
+╭─ AnimateIcons ─────────────────────────────── 24/281 icons · 2 selected ─╮
+│ › bell▋                       all  lucide  huge                          │
+│ ──────────────────────────────────────────────────────────────────────── │
+│ ◼ lu-bell           ◻ lu-bell-dot        ◻ lu-bell-minus                 │
+│ ◻ lu-bell-off       ◼ lu-bell-ring       ◻ lu-bell-plus                  │
+│ ──────────────────────────────────────────────────────────────────────── │
+│ bell-ring · lucide · Notification                                        │
+│ notification, alert, alarm, reminder                                     │
+│ → animateicons add bell-ring                                             │
+│ type to filter · ↑↓←→ move · space select · enter add · tab library  2/8 │
+╰──────────────────────────────────────────────────────────────────────────╯
+```
+
+It's a live, fzf-style picker - just **type** to filter (no mode to toggle). Keys: `↑↓←→` move · `space` select · `Enter` add (selected, else highlighted) · `Tab` cycle library · `Esc` / `Ctrl-C` quit. Requires an interactive terminal.
+
 ## `add`
 
 ```

@@ -5,6 +5,8 @@
 		"moduleResolution": "Bundler",
 		"lib": ["ES2022"],
 		"types": ["node"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"strict": true,
 		"noEmit": true,
 		"esModuleInterop": true,
