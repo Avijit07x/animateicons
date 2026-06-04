@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
+import { AppBootLoader } from "@/components/loader/AppBootLoader";
 // import SponsorPopup from "@/components/SponsorPopup";
 import "./globals.css";
 
@@ -133,6 +134,7 @@ export default async function RootLayout({
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
 				{/* <SponsorPopup /> */}
+				<AppBootLoader />
 				<Analytics />
 			</body>
 		</html>

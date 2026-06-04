@@ -38,13 +38,7 @@ const itemVariants: Variants = {
 };
 
 // Navigation-themed icons: the page itself becomes a tiny demo of the product.
-const CLUSTER = [
-	MapPinIcon,
-	SearchIcon,
-	CompassIcon,
-	MapPinnedIcon,
-	EyeIcon,
-];
+const CLUSTER = [MapPinIcon, SearchIcon, CompassIcon, MapPinnedIcon, EyeIcon];
 
 /**
  * 404 page. Instead of a generic centered card, this mirrors the homepage Hero:

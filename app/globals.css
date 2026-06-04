@@ -269,3 +269,56 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+/* App loader (boot splash + route loading.tsx). */
+@keyframes loaderSweep {
+	0% {
+		transform: translateX(-120%);
+	}
+	100% {
+		transform: translateX(360%);
+	}
+}
+
+/* Logo: gentle float + a soft brand-colored glow, so it feels alive rather
+   than a generic pulse. */
+@keyframes loaderFloat {
+	0%,
+	100% {
+		transform: translateY(0) scale(1) rotate(0deg);
+	}
+	50% {
+		transform: translateY(-6px) scale(1.06) rotate(-3deg);
+	}
+}
+
+@keyframes loaderGlow {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 0 rgba(244, 91, 72, 0));
+	}
+	50% {
+		filter: drop-shadow(0 4px 16px rgba(244, 91, 72, 0.55));
+	}
+}
+
+.loader-bar {
+	animation: loaderSweep 1.9s ease-in-out infinite;
+}
+
+.loader-logo {
+	animation:
+		loaderFloat 2.6s ease-in-out infinite,
+		loaderGlow 2.6s ease-in-out infinite;
+	will-change: transform, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.loader-bar {
+		width: 100%;
+		animation: none;
+	}
+	.loader-logo {
+		animation: none;
+	}
+}
