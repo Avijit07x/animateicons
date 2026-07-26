@@ -12,10 +12,10 @@
  *   - Enter - open the selected icon's detail page
  *   - Esc - close the palette
  *
- * Results are capped at MAX_RESULTS for performance - 281 icons is
- * fine to filter, but rendering 281 motion components with hover
- * handlers is not. Limit is generous enough that any real query
- * narrows long before hitting it.
+ * Results are capped at MAX_RESULTS for performance - the full icon
+ * set is fine to filter, but rendering that many motion components
+ * with hover handlers is not. Limit is generous enough that any real
+ * query narrows long before hitting it.
  */
 
 import { Kbd } from "@/components/ui/kbd";

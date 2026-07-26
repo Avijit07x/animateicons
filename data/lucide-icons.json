@@ -1578,5 +1578,275 @@
 		"addedAt": "2026-04-04",
 		"category": ["Science", "People"],
 		"keywords": ["venus", "female", "symbol", "planet", "astronomy"]
+	},
+	{
+		"name": "cat",
+		"addedAt": "2026-07-26",
+		"category": ["Animals"],
+		"keywords": ["cat", "kitten", "pet", "feline", "animal"]
+	},
+	{
+		"name": "dog",
+		"addedAt": "2026-07-26",
+		"category": ["Animals"],
+		"keywords": ["dog", "puppy", "pet", "canine", "animal"]
+	},
+	{
+		"name": "fish",
+		"addedAt": "2026-07-26",
+		"category": ["Animals"],
+		"keywords": ["fish", "pet", "aquarium", "sea", "animal"]
+	},
+	{
+		"name": "rabbit",
+		"addedAt": "2026-07-26",
+		"category": ["Animals"],
+		"keywords": ["rabbit", "bunny", "pet", "hare", "animal"]
+	},
+	{
+		"name": "calendar",
+		"addedAt": "2026-07-26",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "date", "schedule", "event", "month"]
+	},
+	{
+		"name": "clock",
+		"addedAt": "2026-07-26",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "hour", "watch", "schedule"]
+	},
+	{
+		"name": "camera",
+		"addedAt": "2026-07-26",
+		"category": ["Photography"],
+		"keywords": ["camera", "photo", "picture", "shutter", "capture"]
+	},
+	{
+		"name": "image",
+		"addedAt": "2026-07-26",
+		"category": ["Photography", "Multimedia"],
+		"keywords": ["image", "photo", "picture", "gallery", "media"]
+	},
+	{
+		"name": "file-text",
+		"addedAt": "2026-07-26",
+		"category": ["File icons"],
+		"keywords": ["file", "document", "text", "page", "doc"]
+	},
+	{
+		"name": "smartphone",
+		"addedAt": "2026-07-26",
+		"category": ["Devices"],
+		"keywords": ["smartphone", "phone", "mobile", "device", "cell"]
+	},
+	{
+		"name": "pencil",
+		"addedAt": "2026-07-26",
+		"category": ["Design", "Tools"],
+		"keywords": ["pencil", "edit", "write", "draw", "compose"]
+	},
+	{
+		"name": "refresh-cw",
+		"addedAt": "2026-07-26",
+		"category": ["Arrows"],
+		"keywords": ["refresh", "reload", "sync", "update", "rotate"]
+	},
+	{
+		"name": "filter",
+		"addedAt": "2026-07-26",
+		"category": ["Tools"],
+		"keywords": ["filter", "funnel", "sort", "refine", "search"]
+	},
+	{
+		"name": "save",
+		"addedAt": "2026-07-26",
+		"category": ["File icons", "Tools"],
+		"keywords": ["save", "store", "disk", "floppy", "keep"]
+	},
+	{
+		"name": "printer",
+		"addedAt": "2026-07-26",
+		"category": ["Devices"],
+		"keywords": ["printer", "print", "paper", "office", "document"]
+	},
+	{
+		"name": "calculator",
+		"addedAt": "2026-07-26",
+		"category": ["Mathematics", "Devices"],
+		"keywords": ["calculator", "math", "compute", "numbers", "finance"]
+	},
+	{
+		"name": "volume-2",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "sound", "audio", "speaker", "loud"]
+	},
+	{
+		"name": "music",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["music", "song", "note", "audio", "play"]
+	},
+	{
+		"name": "video",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["video", "camcorder", "record", "film", "movie"]
+	},
+	{
+		"name": "laptop",
+		"addedAt": "2026-07-26",
+		"category": ["Devices"],
+		"keywords": ["laptop", "computer", "notebook", "device", "work"]
+	},
+	{
+		"name": "tv",
+		"addedAt": "2026-07-26",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["tv", "television", "screen", "display", "watch"]
+	},
+	{
+		"name": "car",
+		"addedAt": "2026-07-26",
+		"category": ["Transportation"],
+		"keywords": ["car", "vehicle", "drive", "auto", "travel"]
+	},
+	{
+		"name": "lightbulb",
+		"addedAt": "2026-07-26",
+		"category": ["Home"],
+		"keywords": ["lightbulb", "light", "idea", "bulb", "lamp"]
+	},
+	{
+		"name": "gift",
+		"addedAt": "2026-07-26",
+		"category": ["Shopping"],
+		"keywords": ["gift", "present", "birthday", "reward", "surprise"]
+	},
+	{
+		"name": "umbrella",
+		"addedAt": "2026-07-26",
+		"category": ["Weather"],
+		"keywords": ["umbrella", "rain", "weather", "protection", "shelter"]
+	},
+	{
+		"name": "utensils",
+		"addedAt": "2026-07-26",
+		"category": ["Home"],
+		"keywords": ["utensils", "food", "fork", "knife", "restaurant"]
+	},
+	{
+		"name": "volume",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "sound", "audio", "speaker", "mute"]
+	},
+	{
+		"name": "volume-1",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "sound", "low", "quiet", "audio"]
+	},
+	{
+		"name": "volume-x",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "mute", "silent", "off", "sound"]
+	},
+	{
+		"name": "volume-off",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "off", "mute", "silent", "sound"]
+	},
+	{
+		"name": "skip-back",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["skip", "back", "previous", "rewind", "track"]
+	},
+	{
+		"name": "skip-forward",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["skip", "forward", "next", "track", "player"]
+	},
+	{
+		"name": "rewind",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["rewind", "back", "reverse", "player", "seek"]
+	},
+	{
+		"name": "fast-forward",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["fast", "forward", "seek", "player", "speed"]
+	},
+	{
+		"name": "shuffle",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["shuffle", "random", "mix", "playlist", "order"]
+	},
+	{
+		"name": "repeat",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["repeat", "loop", "replay", "cycle", "playlist"]
+	},
+	{
+		"name": "speaker",
+		"addedAt": "2026-07-26",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["speaker", "audio", "sound", "stereo", "bass"]
+	},
+	{
+		"name": "radio",
+		"addedAt": "2026-07-26",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["radio", "broadcast", "signal", "fm", "station"]
+	},
+	{
+		"name": "podcast",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["podcast", "broadcast", "mic", "audio", "show"]
+	},
+	{
+		"name": "megaphone",
+		"addedAt": "2026-07-26",
+		"category": ["Communication"],
+		"keywords": ["megaphone", "announce", "loud", "shout", "broadcast"]
+	},
+	{
+		"name": "audio-waveform",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["audio", "waveform", "sound", "wave", "signal"]
+	},
+	{
+		"name": "guitar",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["guitar", "music", "instrument", "strings", "band"]
+	},
+	{
+		"name": "piano",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["piano", "music", "instrument", "keys", "keyboard"]
+	},
+	{
+		"name": "drum",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["drum", "music", "instrument", "percussion", "beat"]
+	},
+	{
+		"name": "disc-3",
+		"addedAt": "2026-07-26",
+		"category": ["Multimedia"],
+		"keywords": ["disc", "vinyl", "record", "album", "dj"]
 	}
 ]

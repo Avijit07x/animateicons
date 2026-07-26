@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 281,
+  "total": 326,
   "libraries": {
-    "lucide": 248,
+    "lucide": 293,
     "huge": 33
   },
   "icons": [
@@ -856,6 +856,24 @@
       "url": "https://animateicons.in/r/lu-audio-lines.json"
     },
     {
+      "name": "audio-waveform",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-audio-waveform",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "audio",
+        "waveform",
+        "sound",
+        "wave",
+        "signal"
+      ],
+      "url": "https://animateicons.in/r/lu-audio-waveform.json"
+    },
+    {
       "name": "badge-cent",
       "library": "lucide",
       "prefix": "lu",
@@ -1360,6 +1378,97 @@
         "move"
       ],
       "url": "https://animateicons.in/r/lu-bring-to-front.json"
+    },
+    {
+      "name": "calculator",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calculator",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Mathematics",
+        "Devices"
+      ],
+      "keywords": [
+        "calculator",
+        "math",
+        "compute",
+        "numbers",
+        "finance"
+      ],
+      "url": "https://animateicons.in/r/lu-calculator.json"
+    },
+    {
+      "name": "calendar",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "date",
+        "schedule",
+        "event",
+        "month"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar.json"
+    },
+    {
+      "name": "camera",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-camera",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Photography"
+      ],
+      "keywords": [
+        "camera",
+        "photo",
+        "picture",
+        "shutter",
+        "capture"
+      ],
+      "url": "https://animateicons.in/r/lu-camera.json"
+    },
+    {
+      "name": "car",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-car",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Transportation"
+      ],
+      "keywords": [
+        "car",
+        "vehicle",
+        "drive",
+        "auto",
+        "travel"
+      ],
+      "url": "https://animateicons.in/r/lu-car.json"
+    },
+    {
+      "name": "cat",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cat",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Animals"
+      ],
+      "keywords": [
+        "cat",
+        "kitten",
+        "pet",
+        "feline",
+        "animal"
+      ],
+      "url": "https://animateicons.in/r/lu-cat.json"
     },
     {
       "name": "chart-area",
@@ -1918,6 +2027,24 @@
       "url": "https://animateicons.in/r/lu-clipboard.json"
     },
     {
+      "name": "clock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clock",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "hour",
+        "watch",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-clock.json"
+    },
+    {
       "name": "cloud-upload",
       "library": "lucide",
       "prefix": "lu",
@@ -2264,6 +2391,42 @@
       "url": "https://animateicons.in/r/lu-diff.json"
     },
     {
+      "name": "disc-3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-disc-3",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "disc",
+        "vinyl",
+        "record",
+        "album",
+        "dj"
+      ],
+      "url": "https://animateicons.in/r/lu-disc-3.json"
+    },
+    {
+      "name": "dog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-dog",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Animals"
+      ],
+      "keywords": [
+        "dog",
+        "puppy",
+        "pet",
+        "canine",
+        "animal"
+      ],
+      "url": "https://animateicons.in/r/lu-dog.json"
+    },
+    {
       "name": "dollar-sign",
       "library": "lucide",
       "prefix": "lu",
@@ -2299,6 +2462,24 @@
         "get"
       ],
       "url": "https://animateicons.in/r/lu-download.json"
+    },
+    {
+      "name": "drum",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-drum",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "drum",
+        "music",
+        "instrument",
+        "percussion",
+        "beat"
+      ],
+      "url": "https://animateicons.in/r/lu-drum.json"
     },
     {
       "name": "ellipsis",
@@ -2452,6 +2633,24 @@
       "url": "https://animateicons.in/r/lu-facebook.json"
     },
     {
+      "name": "fast-forward",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-fast-forward",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "fast",
+        "forward",
+        "seek",
+        "player",
+        "speed"
+      ],
+      "url": "https://animateicons.in/r/lu-fast-forward.json"
+    },
+    {
       "name": "figma",
       "library": "lucide",
       "prefix": "lu",
@@ -2468,6 +2667,60 @@
         "prototype"
       ],
       "url": "https://animateicons.in/r/lu-figma.json"
+    },
+    {
+      "name": "file-text",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-file-text",
+      "addedAt": "2026-07-26",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "document",
+        "text",
+        "page",
+        "doc"
+      ],
+      "url": "https://animateicons.in/r/lu-file-text.json"
+    },
+    {
+      "name": "filter",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-filter",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "filter",
+        "funnel",
+        "sort",
+        "refine",
+        "search"
+      ],
+      "url": "https://animateicons.in/r/lu-filter.json"
+    },
+    {
+      "name": "fish",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-fish",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Animals"
+      ],
+      "keywords": [
+        "fish",
+        "pet",
+        "aquarium",
+        "sea",
+        "animal"
+      ],
+      "url": "https://animateicons.in/r/lu-fish.json"
     },
     {
       "name": "flame",
@@ -2580,6 +2833,24 @@
         "georgia"
       ],
       "url": "https://animateicons.in/r/lu-georgian-lari.json"
+    },
+    {
+      "name": "gift",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-gift",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "gift",
+        "present",
+        "birthday",
+        "reward",
+        "surprise"
+      ],
+      "url": "https://animateicons.in/r/lu-gift.json"
     },
     {
       "name": "git-branch",
@@ -2826,6 +3097,24 @@
       "url": "https://animateicons.in/r/lu-globe-lock.json"
     },
     {
+      "name": "guitar",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-guitar",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "guitar",
+        "music",
+        "instrument",
+        "strings",
+        "band"
+      ],
+      "url": "https://animateicons.in/r/lu-guitar.json"
+    },
+    {
       "name": "hand-coins",
       "library": "lucide",
       "prefix": "lu",
@@ -2936,6 +3225,25 @@
         "root"
       ],
       "url": "https://animateicons.in/r/lu-house.json"
+    },
+    {
+      "name": "image",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-image",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "image",
+        "photo",
+        "picture",
+        "gallery",
+        "media"
+      ],
+      "url": "https://animateicons.in/r/lu-image.json"
     },
     {
       "name": "indian-rupee",
@@ -3052,6 +3360,24 @@
       "url": "https://animateicons.in/r/lu-key-square.json"
     },
     {
+      "name": "laptop",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-laptop",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "laptop",
+        "computer",
+        "notebook",
+        "device",
+        "work"
+      ],
+      "url": "https://animateicons.in/r/lu-laptop.json"
+    },
+    {
       "name": "layers",
       "library": "lucide",
       "prefix": "lu",
@@ -3105,6 +3431,24 @@
         "rows"
       ],
       "url": "https://animateicons.in/r/lu-layout-list.json"
+    },
+    {
+      "name": "lightbulb",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-lightbulb",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "lightbulb",
+        "light",
+        "idea",
+        "bulb",
+        "lamp"
+      ],
+      "url": "https://animateicons.in/r/lu-lightbulb.json"
     },
     {
       "name": "link",
@@ -3388,6 +3732,24 @@
       "url": "https://animateicons.in/r/lu-mars.json"
     },
     {
+      "name": "megaphone",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-megaphone",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "megaphone",
+        "announce",
+        "loud",
+        "shout",
+        "broadcast"
+      ],
+      "url": "https://animateicons.in/r/lu-megaphone.json"
+    },
+    {
       "name": "menu",
       "library": "lucide",
       "prefix": "lu",
@@ -3619,6 +3981,24 @@
       "url": "https://animateicons.in/r/lu-move-vertical.json"
     },
     {
+      "name": "music",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-music",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "song",
+        "note",
+        "audio",
+        "play"
+      ],
+      "url": "https://animateicons.in/r/lu-music.json"
+    },
+    {
       "name": "package-open",
       "library": "lucide",
       "prefix": "lu",
@@ -3674,6 +4054,25 @@
         "break"
       ],
       "url": "https://animateicons.in/r/lu-pause.json"
+    },
+    {
+      "name": "pencil",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pencil",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Design",
+        "Tools"
+      ],
+      "keywords": [
+        "pencil",
+        "edit",
+        "write",
+        "draw",
+        "compose"
+      ],
+      "url": "https://animateicons.in/r/lu-pencil.json"
     },
     {
       "name": "philippine-peso",
@@ -3790,6 +4189,24 @@
       "url": "https://animateicons.in/r/lu-phone-missed.json"
     },
     {
+      "name": "piano",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-piano",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "piano",
+        "music",
+        "instrument",
+        "keys",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/lu-piano.json"
+    },
+    {
       "name": "play",
       "library": "lucide",
       "prefix": "lu",
@@ -3828,6 +4245,24 @@
       "url": "https://animateicons.in/r/lu-plus.json"
     },
     {
+      "name": "podcast",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-podcast",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "podcast",
+        "broadcast",
+        "mic",
+        "audio",
+        "show"
+      ],
+      "url": "https://animateicons.in/r/lu-podcast.json"
+    },
+    {
       "name": "pound-sterling",
       "library": "lucide",
       "prefix": "lu",
@@ -3847,6 +4282,24 @@
       "url": "https://animateicons.in/r/lu-pound-sterling.json"
     },
     {
+      "name": "printer",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-printer",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "printer",
+        "print",
+        "paper",
+        "office",
+        "document"
+      ],
+      "url": "https://animateicons.in/r/lu-printer.json"
+    },
+    {
       "name": "qr-code",
       "library": "lucide",
       "prefix": "lu",
@@ -3863,6 +4316,79 @@
         "reader"
       ],
       "url": "https://animateicons.in/r/lu-qr-code.json"
+    },
+    {
+      "name": "rabbit",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rabbit",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Animals"
+      ],
+      "keywords": [
+        "rabbit",
+        "bunny",
+        "pet",
+        "hare",
+        "animal"
+      ],
+      "url": "https://animateicons.in/r/lu-rabbit.json"
+    },
+    {
+      "name": "radio",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-radio",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "radio",
+        "broadcast",
+        "signal",
+        "fm",
+        "station"
+      ],
+      "url": "https://animateicons.in/r/lu-radio.json"
+    },
+    {
+      "name": "refresh-cw",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-refresh-cw",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "refresh",
+        "reload",
+        "sync",
+        "update",
+        "rotate"
+      ],
+      "url": "https://animateicons.in/r/lu-refresh-cw.json"
+    },
+    {
+      "name": "repeat",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-repeat",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "repeat",
+        "loop",
+        "replay",
+        "cycle",
+        "playlist"
+      ],
+      "url": "https://animateicons.in/r/lu-repeat.json"
     },
     {
       "name": "reply",
@@ -3900,6 +4426,24 @@
         "answer"
       ],
       "url": "https://animateicons.in/r/lu-reply-all.json"
+    },
+    {
+      "name": "rewind",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rewind",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "rewind",
+        "back",
+        "reverse",
+        "player",
+        "seek"
+      ],
+      "url": "https://animateicons.in/r/lu-rewind.json"
     },
     {
       "name": "rocket",
@@ -3956,6 +4500,25 @@
         "saudi"
       ],
       "url": "https://animateicons.in/r/lu-saudi-riyal.json"
+    },
+    {
+      "name": "save",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-save",
+      "addedAt": "2026-07-26",
+      "category": [
+        "File icons",
+        "Tools"
+      ],
+      "keywords": [
+        "save",
+        "store",
+        "disk",
+        "floppy",
+        "keep"
+      ],
+      "url": "https://animateicons.in/r/lu-save.json"
     },
     {
       "name": "scan",
@@ -4177,6 +4740,24 @@
       "url": "https://animateicons.in/r/lu-shopping-cart.json"
     },
     {
+      "name": "shuffle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shuffle",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "shuffle",
+        "random",
+        "mix",
+        "playlist",
+        "order"
+      ],
+      "url": "https://animateicons.in/r/lu-shuffle.json"
+    },
+    {
       "name": "signal",
       "library": "lucide",
       "prefix": "lu",
@@ -4196,6 +4777,42 @@
       "url": "https://animateicons.in/r/lu-signal.json"
     },
     {
+      "name": "skip-back",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-skip-back",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "skip",
+        "back",
+        "previous",
+        "rewind",
+        "track"
+      ],
+      "url": "https://animateicons.in/r/lu-skip-back.json"
+    },
+    {
+      "name": "skip-forward",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-skip-forward",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "skip",
+        "forward",
+        "next",
+        "track",
+        "player"
+      ],
+      "url": "https://animateicons.in/r/lu-skip-forward.json"
+    },
+    {
       "name": "sliders-horizontal",
       "library": "lucide",
       "prefix": "lu",
@@ -4212,6 +4829,24 @@
         "tune"
       ],
       "url": "https://animateicons.in/r/lu-sliders-horizontal.json"
+    },
+    {
+      "name": "smartphone",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-smartphone",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "smartphone",
+        "phone",
+        "mobile",
+        "device",
+        "cell"
+      ],
+      "url": "https://animateicons.in/r/lu-smartphone.json"
     },
     {
       "name": "snow-flake",
@@ -4251,6 +4886,25 @@
         "glitter"
       ],
       "url": "https://animateicons.in/r/lu-sparkles.json"
+    },
+    {
+      "name": "speaker",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-speaker",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "speaker",
+        "audio",
+        "sound",
+        "stereo",
+        "bass"
+      ],
+      "url": "https://animateicons.in/r/lu-speaker.json"
     },
     {
       "name": "spray-can",
@@ -4570,6 +5224,25 @@
       "url": "https://animateicons.in/r/lu-turkish-lira.json"
     },
     {
+      "name": "tv",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-tv",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "tv",
+        "television",
+        "screen",
+        "display",
+        "watch"
+      ],
+      "url": "https://animateicons.in/r/lu-tv.json"
+    },
+    {
       "name": "twitter",
       "library": "lucide",
       "prefix": "lu",
@@ -4587,6 +5260,24 @@
         "network"
       ],
       "url": "https://animateicons.in/r/lu-twitter.json"
+    },
+    {
+      "name": "umbrella",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-umbrella",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "umbrella",
+        "rain",
+        "weather",
+        "protection",
+        "shelter"
+      ],
+      "url": "https://animateicons.in/r/lu-umbrella.json"
     },
     {
       "name": "unlink",
@@ -4989,6 +5680,24 @@
       "url": "https://animateicons.in/r/lu-users-round.json"
     },
     {
+      "name": "utensils",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-utensils",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "utensils",
+        "food",
+        "fork",
+        "knife",
+        "restaurant"
+      ],
+      "url": "https://animateicons.in/r/lu-utensils.json"
+    },
+    {
       "name": "venus",
       "library": "lucide",
       "prefix": "lu",
@@ -5006,6 +5715,114 @@
         "astronomy"
       ],
       "url": "https://animateicons.in/r/lu-venus.json"
+    },
+    {
+      "name": "video",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-video",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "video",
+        "camcorder",
+        "record",
+        "film",
+        "movie"
+      ],
+      "url": "https://animateicons.in/r/lu-video.json"
+    },
+    {
+      "name": "volume",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-volume",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "sound",
+        "audio",
+        "speaker",
+        "mute"
+      ],
+      "url": "https://animateicons.in/r/lu-volume.json"
+    },
+    {
+      "name": "volume-1",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-volume-1",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "sound",
+        "low",
+        "quiet",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/lu-volume-1.json"
+    },
+    {
+      "name": "volume-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-volume-2",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "sound",
+        "audio",
+        "speaker",
+        "loud"
+      ],
+      "url": "https://animateicons.in/r/lu-volume-2.json"
+    },
+    {
+      "name": "volume-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-volume-off",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "off",
+        "mute",
+        "silent",
+        "sound"
+      ],
+      "url": "https://animateicons.in/r/lu-volume-off.json"
+    },
+    {
+      "name": "volume-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-volume-x",
+      "addedAt": "2026-07-26",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "mute",
+        "silent",
+        "off",
+        "sound"
+      ],
+      "url": "https://animateicons.in/r/lu-volume-x.json"
     },
     {
       "name": "wallet",

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "volume-1",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "volume-1-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\n\nexport interface Volume1IconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface Volume1IconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst Volume1Icon = forwardRef<Volume1IconHandle, Volume1IconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const waveControls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  const start = useCallback(() => {\n   if (reduced) return;\n   waveControls.start(\"play\");\n  }, [waveControls, reduced]);\n\n  const stop = useCallback(() => {\n   waveControls.start(\"rest\");\n  }, [waveControls]);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: start,\n    stopAnimation: stop,\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) start();\n    else onMouseEnter?.(e as any);\n   },\n   [isAnimated, reduced, start, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) stop();\n    else onMouseLeave?.(e);\n   },\n   [stop, onMouseLeave],\n  );\n\n  const waveVariants = (i: number): Variants => ({\n   rest: { opacity: 1, scale: 1 },\n   play: {\n    opacity: [0.25, 1, 0.25],\n    scale: [0.85, 1.1, 0.85],\n    transition: {\n     duration: 1 * duration,\n     ease: \"easeInOut\",\n     repeat: Infinity,\n     delay: i * 0.12 * duration,\n    },\n   },\n  });\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n     >\n      <path d=\"M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z\" />\n      <m.path\n       d=\"M16 9a5 5 0 0 1 0 6\"\n       animate={waveControls}\n       initial=\"rest\"\n       variants={waveVariants(0)}\n       style={{ transformBox: \"fill-box\", originX: \"0%\", originY: \"50%\" }}\n      />\n     </svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nVolume1Icon.displayName = \"Volume1Icon\";\nexport { Volume1Icon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

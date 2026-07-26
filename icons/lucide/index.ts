@@ -246,6 +246,53 @@ import { PackageOpenIcon } from "./package-open-icon";
 import { BikeIcon } from "./bike-icon";
 import { MarsIcon } from "./mars-icon";
 import { VenusIcon } from "./venus-icon";
+import { CatIcon } from "./cat-icon";
+import { DogIcon } from "./dog-icon";
+import { FishIcon } from "./fish-icon";
+import { RabbitIcon } from "./rabbit-icon";
+
+import { CalendarIcon } from "./calendar-icon";
+import { ClockIcon } from "./clock-icon";
+import { CameraIcon } from "./camera-icon";
+import { ImageIcon } from "./image-icon";
+import { FileTextIcon } from "./file-text-icon";
+import { SmartphoneIcon } from "./smartphone-icon";
+import { PencilIcon } from "./pencil-icon";
+import { RefreshCwIcon } from "./refresh-cw-icon";
+import { FilterIcon } from "./filter-icon";
+import { SaveIcon } from "./save-icon";
+import { PrinterIcon } from "./printer-icon";
+import { CalculatorIcon } from "./calculator-icon";
+import { Volume2Icon } from "./volume-2-icon";
+import { MusicIcon } from "./music-icon";
+import { VideoIcon } from "./video-icon";
+import { LaptopIcon } from "./laptop-icon";
+import { TvIcon } from "./tv-icon";
+import { CarIcon } from "./car-icon";
+import { LightbulbIcon } from "./lightbulb-icon";
+import { GiftIcon } from "./gift-icon";
+import { UmbrellaIcon } from "./umbrella-icon";
+import { UtensilsIcon } from "./utensils-icon";
+
+import { VolumeIcon } from "./volume-icon";
+import { Volume1Icon } from "./volume-1-icon";
+import { VolumeXIcon } from "./volume-x-icon";
+import { VolumeOffIcon } from "./volume-off-icon";
+import { SkipBackIcon } from "./skip-back-icon";
+import { SkipForwardIcon } from "./skip-forward-icon";
+import { RewindIcon } from "./rewind-icon";
+import { FastForwardIcon } from "./fast-forward-icon";
+import { ShuffleIcon } from "./shuffle-icon";
+import { RepeatIcon } from "./repeat-icon";
+import { SpeakerIcon } from "./speaker-icon";
+import { RadioIcon } from "./radio-icon";
+import { PodcastIcon } from "./podcast-icon";
+import { MegaphoneIcon } from "./megaphone-icon";
+import { AudioWaveformIcon } from "./audio-waveform-icon";
+import { GuitarIcon } from "./guitar-icon";
+import { PianoIcon } from "./piano-icon";
+import { DrumIcon } from "./drum-icon";
+import { Disc3Icon } from "./disc-3-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
@@ -2019,6 +2066,321 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-04-04",
   category: ["Science", "People"],
   keywords: ["venus", "female", "symbol", "planet", "astronomy"],
+ },
+ {
+  name: "cat",
+  icon: CatIcon,
+  addedAt: "2026-07-25",
+  category: ["Animals"],
+  keywords: ["cat", "kitten", "pet", "feline", "animal"],
+ },
+ {
+  name: "dog",
+  icon: DogIcon,
+  addedAt: "2026-07-25",
+  category: ["Animals"],
+  keywords: ["dog", "puppy", "pet", "canine", "animal"],
+ },
+ {
+  name: "fish",
+  icon: FishIcon,
+  addedAt: "2026-07-25",
+  category: ["Animals"],
+  keywords: ["fish", "pet", "aquarium", "sea", "animal"],
+ },
+ {
+  name: "rabbit",
+  icon: RabbitIcon,
+  addedAt: "2026-07-25",
+  category: ["Animals"],
+  keywords: ["rabbit", "bunny", "pet", "hare", "animal"],
+ },
+ {
+  name: "calendar",
+  icon: CalendarIcon,
+  addedAt: "2026-07-25",
+  category: ["Time & Date"],
+  keywords: ["calendar", "date", "schedule", "event", "month"],
+ },
+ {
+  name: "clock",
+  icon: ClockIcon,
+  addedAt: "2026-07-25",
+  category: ["Time & Date"],
+  keywords: ["clock", "time", "hour", "watch", "schedule"],
+ },
+ {
+  name: "camera",
+  icon: CameraIcon,
+  addedAt: "2026-07-25",
+  category: ["Photography"],
+  keywords: ["camera", "photo", "picture", "shutter", "capture"],
+ },
+ {
+  name: "image",
+  icon: ImageIcon,
+  addedAt: "2026-07-25",
+  category: ["Photography", "Multimedia"],
+  keywords: ["image", "photo", "picture", "gallery", "media"],
+ },
+ {
+  name: "file-text",
+  icon: FileTextIcon,
+  addedAt: "2026-07-25",
+  category: ["File icons"],
+  keywords: ["file", "document", "text", "page", "doc"],
+ },
+ {
+  name: "smartphone",
+  icon: SmartphoneIcon,
+  addedAt: "2026-07-25",
+  category: ["Devices"],
+  keywords: ["smartphone", "phone", "mobile", "device", "cell"],
+ },
+ {
+  name: "pencil",
+  icon: PencilIcon,
+  addedAt: "2026-07-25",
+  category: ["Design", "Tools"],
+  keywords: ["pencil", "edit", "write", "draw", "compose"],
+ },
+ {
+  name: "refresh-cw",
+  icon: RefreshCwIcon,
+  addedAt: "2026-07-25",
+  category: ["Arrows"],
+  keywords: ["refresh", "reload", "sync", "update", "rotate"],
+ },
+ {
+  name: "filter",
+  icon: FilterIcon,
+  addedAt: "2026-07-25",
+  category: ["Tools"],
+  keywords: ["filter", "funnel", "sort", "refine", "search"],
+ },
+ {
+  name: "save",
+  icon: SaveIcon,
+  addedAt: "2026-07-25",
+  category: ["File icons", "Tools"],
+  keywords: ["save", "store", "disk", "floppy", "keep"],
+ },
+ {
+  name: "printer",
+  icon: PrinterIcon,
+  addedAt: "2026-07-25",
+  category: ["Devices"],
+  keywords: ["printer", "print", "paper", "office", "document"],
+ },
+ {
+  name: "calculator",
+  icon: CalculatorIcon,
+  addedAt: "2026-07-25",
+  category: ["Mathematics", "Devices"],
+  keywords: ["calculator", "math", "compute", "numbers", "finance"],
+ },
+ {
+  name: "volume-2",
+  icon: Volume2Icon,
+  addedAt: "2026-07-25",
+  category: ["Multimedia"],
+  keywords: ["volume", "sound", "audio", "speaker", "loud"],
+ },
+ {
+  name: "music",
+  icon: MusicIcon,
+  addedAt: "2026-07-25",
+  category: ["Multimedia"],
+  keywords: ["music", "song", "note", "audio", "play"],
+ },
+ {
+  name: "video",
+  icon: VideoIcon,
+  addedAt: "2026-07-25",
+  category: ["Multimedia"],
+  keywords: ["video", "camcorder", "record", "film", "movie"],
+ },
+ {
+  name: "laptop",
+  icon: LaptopIcon,
+  addedAt: "2026-07-25",
+  category: ["Devices"],
+  keywords: ["laptop", "computer", "notebook", "device", "work"],
+ },
+ {
+  name: "tv",
+  icon: TvIcon,
+  addedAt: "2026-07-25",
+  category: ["Devices", "Multimedia"],
+  keywords: ["tv", "television", "screen", "display", "watch"],
+ },
+ {
+  name: "car",
+  icon: CarIcon,
+  addedAt: "2026-07-25",
+  category: ["Transportation"],
+  keywords: ["car", "vehicle", "drive", "auto", "travel"],
+ },
+ {
+  name: "lightbulb",
+  icon: LightbulbIcon,
+  addedAt: "2026-07-25",
+  category: ["Home"],
+  keywords: ["lightbulb", "light", "idea", "bulb", "lamp"],
+ },
+ {
+  name: "gift",
+  icon: GiftIcon,
+  addedAt: "2026-07-25",
+  category: ["Shopping"],
+  keywords: ["gift", "present", "birthday", "reward", "surprise"],
+ },
+ {
+  name: "umbrella",
+  icon: UmbrellaIcon,
+  addedAt: "2026-07-25",
+  category: ["Weather"],
+  keywords: ["umbrella", "rain", "weather", "protection", "shelter"],
+ },
+ {
+  name: "utensils",
+  icon: UtensilsIcon,
+  addedAt: "2026-07-25",
+  category: ["Home"],
+  keywords: ["utensils", "food", "fork", "knife", "restaurant"],
+ },
+ {
+  name: "volume",
+  icon: VolumeIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["volume", "sound", "audio", "speaker", "mute"],
+ },
+ {
+  name: "volume-1",
+  icon: Volume1Icon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["volume", "sound", "low", "quiet", "audio"],
+ },
+ {
+  name: "volume-x",
+  icon: VolumeXIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["volume", "mute", "silent", "off", "sound"],
+ },
+ {
+  name: "volume-off",
+  icon: VolumeOffIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["volume", "off", "mute", "silent", "sound"],
+ },
+ {
+  name: "skip-back",
+  icon: SkipBackIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["skip", "back", "previous", "rewind", "track"],
+ },
+ {
+  name: "skip-forward",
+  icon: SkipForwardIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["skip", "forward", "next", "track", "player"],
+ },
+ {
+  name: "rewind",
+  icon: RewindIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["rewind", "back", "reverse", "player", "seek"],
+ },
+ {
+  name: "fast-forward",
+  icon: FastForwardIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["fast", "forward", "seek", "player", "speed"],
+ },
+ {
+  name: "shuffle",
+  icon: ShuffleIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["shuffle", "random", "mix", "playlist", "order"],
+ },
+ {
+  name: "repeat",
+  icon: RepeatIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["repeat", "loop", "replay", "cycle", "playlist"],
+ },
+ {
+  name: "speaker",
+  icon: SpeakerIcon,
+  addedAt: "2026-07-26",
+  category: ["Devices", "Multimedia"],
+  keywords: ["speaker", "audio", "sound", "stereo", "bass"],
+ },
+ {
+  name: "radio",
+  icon: RadioIcon,
+  addedAt: "2026-07-26",
+  category: ["Devices", "Multimedia"],
+  keywords: ["radio", "broadcast", "signal", "fm", "station"],
+ },
+ {
+  name: "podcast",
+  icon: PodcastIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["podcast", "broadcast", "mic", "audio", "show"],
+ },
+ {
+  name: "megaphone",
+  icon: MegaphoneIcon,
+  addedAt: "2026-07-26",
+  category: ["Communication"],
+  keywords: ["megaphone", "announce", "loud", "shout", "broadcast"],
+ },
+ {
+  name: "audio-waveform",
+  icon: AudioWaveformIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["audio", "waveform", "sound", "wave", "signal"],
+ },
+ {
+  name: "guitar",
+  icon: GuitarIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["guitar", "music", "instrument", "strings", "band"],
+ },
+ {
+  name: "piano",
+  icon: PianoIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["piano", "music", "instrument", "keys", "keyboard"],
+ },
+ {
+  name: "drum",
+  icon: DrumIcon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["drum", "music", "instrument", "percussion", "beat"],
+ },
+ {
+  name: "disc-3",
+  icon: Disc3Icon,
+  addedAt: "2026-07-26",
+  category: ["Multimedia"],
+  keywords: ["disc", "vinyl", "record", "album", "dj"],
  },
 ];
 

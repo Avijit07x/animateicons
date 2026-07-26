@@ -15,6 +15,7 @@
 
 import { ArrowRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -49,7 +50,7 @@ const AnnouncementBanner: React.FC = () => {
 							<span className="truncate">
 								<span className="font-medium">@animateicons/react</span>{" "}
 								<span className="text-textSecondary">
-									is live on npm. All 281 icons in one install.
+									is live on npm. All {ICON_COUNTS.total} icons in one install.
 								</span>
 							</span>
 						</div>

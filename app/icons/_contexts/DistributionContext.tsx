@@ -13,7 +13,7 @@
  * Mirrors the shape of PackageManagerContext so the wiring is familiar:
  *   - hydrate from localStorage on mount
  *   - persist changes back
- *   - one provider, one writer, all 281 tiles share the same value
+ *   - one provider, one writer, every tile shares the same value
  */
 
 import {

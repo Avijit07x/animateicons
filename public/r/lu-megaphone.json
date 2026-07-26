@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "megaphone",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "megaphone-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\n\nexport interface MegaphoneIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface MegaphoneIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst MegaphoneIcon = forwardRef<MegaphoneIconHandle, MegaphoneIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const hornControls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  const start = useCallback(() => {\n   if (reduced) return;\n   hornControls.start(\"shout\");\n  }, [hornControls, reduced]);\n\n  const stop = useCallback(() => {\n   hornControls.start(\"rest\");\n  }, [hornControls]);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: start,\n    stopAnimation: stop,\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) start();\n    else onMouseEnter?.(e as any);\n   },\n   [isAnimated, reduced, start, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) stop();\n    else onMouseLeave?.(e);\n   },\n   [stop, onMouseLeave],\n  );\n\n  const hornVariants: Variants = {\n   rest: { rotate: 0, scale: 1 },\n   shout: {\n    rotate: [0, -6, 4, -2, 0],\n    scale: [1, 1.06, 1.01, 1.03, 1],\n    transition: {\n     duration: 1 * duration,\n     ease: \"easeInOut\",\n     times: [0, 0.22, 0.46, 0.72, 1],\n    },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     animate={hornControls}\n     initial=\"rest\"\n     variants={hornVariants}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n     >\n      <path d=\"M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z\" />\n      <path d=\"M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14\" />\n      <path d=\"M8 6v8\" />\n     </svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nMegaphoneIcon.displayName = \"MegaphoneIcon\";\nexport { MegaphoneIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

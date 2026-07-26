@@ -740,6 +740,22 @@
       ]
     },
     {
+      "name": "lu-audio-waveform",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/audio-waveform-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/audio-waveform.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-badge-cent",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -1168,6 +1184,86 @@
           "path": "icons/lucide/bring-to-front-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/bring-to-front.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-calculator",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calculator-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-calendar",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-camera",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/camera-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/camera.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-car",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/car-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/car.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-cat",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/cat-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/cat.tsx"
         }
       ]
     },
@@ -1652,6 +1748,22 @@
       ]
     },
     {
+      "name": "lu-clock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clock.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-cloud-upload",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -1956,6 +2068,38 @@
       ]
     },
     {
+      "name": "lu-disc-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/disc-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/disc-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-dog",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/dog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dog.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-dollar-sign",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -1984,6 +2128,22 @@
           "path": "icons/lucide/download-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/download.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-drum",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/drum-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/drum.tsx"
         }
       ]
     },
@@ -2116,6 +2276,22 @@
       ]
     },
     {
+      "name": "lu-fast-forward",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/fast-forward-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/fast-forward.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-figma",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2128,6 +2304,54 @@
           "path": "icons/lucide/figma-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/figma.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-file-text",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/file-text-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-filter",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/filter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-fish",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/fish-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/fish.tsx"
         }
       ]
     },
@@ -2224,6 +2448,22 @@
           "path": "icons/lucide/georgian-lari-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/georgian-lari.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-gift",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/gift-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/gift.tsx"
         }
       ]
     },
@@ -2452,6 +2692,22 @@
       ]
     },
     {
+      "name": "lu-guitar",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/guitar-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/guitar.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-hand-coins",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2544,6 +2800,22 @@
           "path": "icons/lucide/house-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/house.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-image",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/image-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/image.tsx"
         }
       ]
     },
@@ -2644,6 +2916,22 @@
       ]
     },
     {
+      "name": "lu-laptop",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/laptop-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/laptop.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-layers",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2688,6 +2976,22 @@
           "path": "icons/lucide/layout-list-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/layout-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-lightbulb",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/lightbulb-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lightbulb.tsx"
         }
       ]
     },
@@ -2932,6 +3236,22 @@
       ]
     },
     {
+      "name": "lu-megaphone",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/megaphone-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/megaphone.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-menu",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3140,6 +3460,22 @@
       ]
     },
     {
+      "name": "lu-music",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/music-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-package-open",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3184,6 +3520,22 @@
           "path": "icons/lucide/pause-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/pause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-pencil",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/pencil-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pencil.tsx"
         }
       ]
     },
@@ -3284,6 +3636,22 @@
       ]
     },
     {
+      "name": "lu-piano",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/piano-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/piano.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-play",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3316,6 +3684,22 @@
       ]
     },
     {
+      "name": "lu-podcast",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/podcast-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/podcast.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-pound-sterling",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3332,6 +3716,22 @@
       ]
     },
     {
+      "name": "lu-printer",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/printer-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/printer.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-qr-code",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3344,6 +3744,70 @@
           "path": "icons/lucide/qr-code-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/qr-code.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-rabbit",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/rabbit-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/rabbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-radio",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/radio-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/radio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-refresh-cw",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/refresh-cw-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/refresh-cw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-repeat",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/repeat-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/repeat.tsx"
         }
       ]
     },
@@ -3376,6 +3840,22 @@
           "path": "icons/lucide/reply-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/reply.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-rewind",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/rewind-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/rewind.tsx"
         }
       ]
     },
@@ -3424,6 +3904,22 @@
           "path": "icons/lucide/saudi-riyal-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/saudi-riyal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-save",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/save-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/save.tsx"
         }
       ]
     },
@@ -3620,6 +4116,22 @@
       ]
     },
     {
+      "name": "lu-shuffle",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shuffle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shuffle.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-signal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3636,6 +4148,38 @@
       ]
     },
     {
+      "name": "lu-skip-back",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/skip-back-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/skip-back.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-skip-forward",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/skip-forward-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/skip-forward.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-sliders-horizontal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3648,6 +4192,22 @@
           "path": "icons/lucide/sliders-horizontal-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/sliders-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-smartphone",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/smartphone-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/smartphone.tsx"
         }
       ]
     },
@@ -3680,6 +4240,22 @@
           "path": "icons/lucide/sparkles-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-speaker",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/speaker-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/speaker.tsx"
         }
       ]
     },
@@ -3956,6 +4532,22 @@
       ]
     },
     {
+      "name": "lu-tv",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/tv-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/tv.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-twitter",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3968,6 +4560,22 @@
           "path": "icons/lucide/twitter-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/twitter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-umbrella",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/umbrella-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/umbrella.tsx"
         }
       ]
     },
@@ -4308,6 +4916,22 @@
       ]
     },
     {
+      "name": "lu-utensils",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/utensils-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/utensils.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-venus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -4320,6 +4944,102 @@
           "path": "icons/lucide/venus-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/venus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-video",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/video-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-volume-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/volume-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-volume-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/volume-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-volume",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/volume-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-volume-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/volume-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-volume-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/volume-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-x.tsx"
         }
       ]
     },

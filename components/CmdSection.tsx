@@ -16,6 +16,7 @@
 
 import { motion } from "motion/react";
 import React, { useState } from "react";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "./ui/code-block";
 
@@ -58,7 +59,11 @@ const NPM_TABS = [
 ];
 
 const METHOD_OPTIONS: { value: Method; label: string; hint: string }[] = [
-	{ value: "npm", label: "npm package", hint: "Install all 281 at once" },
+	{
+		value: "npm",
+		label: "npm package",
+		hint: `Install all ${ICON_COUNTS.total} at once`,
+	},
 	{ value: "shadcn", label: "shadcn CLI", hint: "Per-icon, owns the source" },
 ];
 

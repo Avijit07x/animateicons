@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "umbrella",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "umbrella-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\n\nexport interface UmbrellaIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface UmbrellaIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst UmbrellaIcon = forwardRef<UmbrellaIconHandle, UmbrellaIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const canopyControls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  const start = useCallback(() => {\n   if (reduced) return;\n   canopyControls.start(\"open\");\n  }, [canopyControls, reduced]);\n\n  const stop = useCallback(() => {\n   canopyControls.start(\"rest\");\n  }, [canopyControls]);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: start,\n    stopAnimation: stop,\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) start();\n    else onMouseEnter?.(e as any);\n   },\n   [isAnimated, reduced, start, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) stop();\n    else onMouseLeave?.(e);\n   },\n   [stop, onMouseLeave],\n  );\n\n  const canopyVariants: Variants = {\n   rest: { scaleX: 1, scaleY: 1 },\n   open: {\n    scaleX: [0.4, 1.08, 1],\n    scaleY: [0.5, 1.06, 1],\n    transition: {\n     duration: 0.8 * duration,\n     ease: [0.34, 1.4, 0.64, 1],\n     times: [0, 0.65, 1],\n    },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n     >\n      <path d=\"M12 13v7a2 2 0 0 0 4 0\" />\n      <path d=\"M12 2v2\" />\n      <m.path\n       d=\"M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z\"\n       animate={canopyControls}\n       initial=\"rest\"\n       variants={canopyVariants}\n       style={{ transformBox: \"fill-box\", transformOrigin: \"bottom center\" }}\n      />\n     </svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nUmbrellaIcon.displayName = \"UmbrellaIcon\";\nexport { UmbrellaIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

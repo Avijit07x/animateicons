@@ -22,13 +22,14 @@ import Link from "next/link";
 import { codeToHtml } from "shiki";
 import NpmHighlightCard from "./NpmHighlightCard";
 import NpmInstallTabs from "./NpmInstallTabs";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import Section from "./section/Section";
 import SectionHeader from "./section/SectionHeader";
 
 const HIGHLIGHTS = [
 	{
 		Icon: BoxIcon,
-		title: "All 281 icons in one install",
+		title: `All ${ICON_COUNTS.total} icons in one install`,
 		body: "Lucide and Huge libraries on scoped subpaths. No copy-paste, no per-icon registry calls.",
 	},
 	{
