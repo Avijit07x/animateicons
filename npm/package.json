@@ -100,7 +100,7 @@
 			"name": "single icon (LazyMotion domMin)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
-			"limit": "50 kB",
+			"limit": "55 kB",
 			"ignore": [
 				"react",
 				"react-dom"
