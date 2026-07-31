@@ -46,7 +46,7 @@ export function Callout({
 			)}
 		>
 			<Icon className={cn("mt-0.5 size-4.5 shrink-0", s.icon_)} />
-			<div className="text-textSecondary leading-7 [&>:first-child]:mt-0 [&>:last-child]:mb-0 [&>p]:my-0">
+			<div className="text-textSecondary leading-7 [&>:first-child]:mt-0 [&>:last-child]:mb-0 [&_p]:my-0!">
 				{children}
 			</div>
 		</div>
