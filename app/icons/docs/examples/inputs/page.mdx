@@ -22,18 +22,19 @@ import { SearchIcon, type SearchIconHandle } from "@animateicons/react/lucide"
 export function SearchField() {
 	const ref = useRef<SearchIconHandle>(null)
 
-	return (
-		<InputGroup>
-			<InputGroupAddon>
-				<SearchIcon ref={ref} size={16} />
-			</InputGroupAddon>
-			<InputGroupInput
-				placeholder="Search icons..."
-				onFocus={() => ref.current?.startAnimation()}
-				onBlur={() => ref.current?.stopAnimation()}
-			/>
-		</InputGroup>
-	)
+    return (
+    	<InputGroup>
+    		<InputGroupAddon>
+    			<SearchIcon ref={ref} size={16} />
+    		</InputGroupAddon>
+    		<InputGroupInput
+    			placeholder="Search icons..."
+    			onFocus={() => ref.current?.startAnimation()}
+    			onBlur={() => ref.current?.stopAnimation()}
+    		/>
+    	</InputGroup>
+    )
+
 }`;
 
 # Inputs

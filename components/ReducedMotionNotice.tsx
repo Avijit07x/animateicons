@@ -2,27 +2,32 @@
 
 import { XIcon } from "@/icons/lucide/x-icon";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { Button } from "./ui/button";
 
 const STORAGE_KEY = "reduced-motion-dismissed";
 
 const ReducedMotionWarning: React.FC = () => {
 	const reduced = useReducedMotion();
-	const [visible, setVisible] = useState(false);
+	const [dismissed, setDismissed] = useState(false);
 
-	useEffect(() => {
-		if (!reduced) return;
+	// Read the persisted dismissal SSR-safely (server assumes dismissed so
+	// the notice never flashes during hydration) without a setState-in-effect.
+	const persistedDismissed = useSyncExternalStore(
+		() => () => {},
+		() => localStorage.getItem(STORAGE_KEY) === "true",
+		() => true,
+	);
 
-		const dismissed = localStorage.getItem(STORAGE_KEY);
-		if (!dismissed) {
-			setVisible(true);
-		}
-	}, [reduced]);
+	const visible = !!reduced && !dismissed && !persistedDismissed;
 
 	const handleDismiss = () => {
-		localStorage.setItem(STORAGE_KEY, "true");
-		setVisible(false);
+		try {
+			localStorage.setItem(STORAGE_KEY, "true");
+		} catch {
+			// ignore write failures
+		}
+		setDismissed(true);
 	};
 
 	return (

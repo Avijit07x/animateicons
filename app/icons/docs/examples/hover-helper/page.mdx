@@ -14,11 +14,11 @@ export const handleHoverCode = `import type { IconHandle } from "@animateicons/r
 
 // One helper for every icon, thanks to the shared IconHandle type.
 export function handleHover(
-	e: React.MouseEvent,
-	ref: React.RefObject<IconHandle | null>,
+e: React.MouseEvent,
+ref: React.RefObject<IconHandle | null>,
 ) {
-	if (e.type === "mouseenter") ref.current?.startAnimation()
-	if (e.type === "mouseleave") ref.current?.stopAnimation()
+if (e.type === "mouseenter") ref.current?.startAnimation()
+if (e.type === "mouseleave") ref.current?.stopAnimation()
 }`;
 
 export const handleHoverUsageCode = `import { useRef } from "react"
@@ -30,16 +30,17 @@ import { handleHover } from "@/lib/handle-hover"
 export function NotificationBell() {
 	const ref = useRef<IconHandle>(null)
 
-	return (
-		<Button
-			variant="ghost"
-			size="icon"
-			onMouseEnter={(e) => handleHover(e, ref)}
-			onMouseLeave={(e) => handleHover(e, ref)}
-		>
-			<BellIcon ref={ref} size={18} />
-		</Button>
-	)
+    return (
+    	<Button
+    		variant="ghost"
+    		size="icon"
+    		onMouseEnter={(e) => handleHover(e, ref)}
+    		onMouseLeave={(e) => handleHover(e, ref)}
+    	>
+    		<BellIcon ref={ref} size={18} />
+    	</Button>
+    )
+
 }`;
 
 # Hover helper
@@ -53,9 +54,15 @@ One small helper removes the repetition. It reads `e.type` to tell enter from le
 The helper is typed once against `IconHandle`, the shared handle type every icon implements, so the exact same function works for a bell, a search field, or any other icon without a per-icon type.
 
 <Callout type="tip">
-`IconHandle` is exported from `@animateicons/react`, so you never need a per-icon `*IconHandle`. And since icons animate on hover by default, a plain grid of icons needs no refs at all, just map over them.
+	`IconHandle` is exported from `@animateicons/react`, so you never need a
+	per-icon `*IconHandle`. And since icons animate on hover by default, a plain
+	grid of icons needs no refs at all, just map over them.
 </Callout>
 
 Then call it from the hover handlers of any element wrapping an icon:
 
-<CodeBlock code={handleHoverUsageCode} lang="tsx" title="NotificationBell.tsx" />
+<CodeBlock
+	code={handleHoverUsageCode}
+	lang="tsx"
+	title="NotificationBell.tsx"
+/>

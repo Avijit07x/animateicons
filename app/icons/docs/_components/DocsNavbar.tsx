@@ -36,16 +36,13 @@ const DocsNavbar = async () => {
 						>
 							Icons
 						</Link>
-						<Link
-							href="/icons/docs"
-							className="text-textPrimary font-medium"
-						>
+						<Link href="/icons/docs" className="text-textPrimary font-medium">
 							Docs
 						</Link>
 					</nav>
 				</div>
 
-					<div className="flex items-center gap-2 sm:gap-3">
+				<div className="flex items-center gap-2 sm:gap-3">
 					<NavbarActions stars={stars} />
 				</div>
 			</div>

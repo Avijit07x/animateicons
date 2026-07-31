@@ -81,17 +81,17 @@ export const IconSearchProvider: React.FC<{
 	// URL → state: handles back/forward and external links. Only writes
 	// when the URL drifts from the debounced value (i.e. someone else
 	// changed it), preventing a feedback loop with the effect above.
+	// Keyed on the serialized URL so typing (which only moves `query`)
+	// never re-triggers it; adjusted during render instead of in an effect.
 	const searchParamsKey = searchParams?.toString() ?? "";
-	useEffect(() => {
-		if (!searchParams) return;
-		const urlQuery = searchParams.get(QUERY_PARAM) ?? "";
+	const [prevKey, setPrevKey] = useState(searchParamsKey);
+	if (searchParamsKey !== prevKey) {
+		setPrevKey(searchParamsKey);
+		const urlQuery = searchParams?.get(QUERY_PARAM) ?? "";
 		if (urlQuery !== debouncedQuery && urlQuery !== query) {
 			setQuery(urlQuery);
 		}
-		// Depend on the serialized URL, not `query` - `query` would re-trigger
-		// on every keystroke and cause a flicker.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [searchParamsKey]);
+	}
 
 	const inputValue = useMemo(() => ({ query, setQuery }), [query]);
 	const resultValue = useMemo(() => ({ debouncedQuery }), [debouncedQuery]);

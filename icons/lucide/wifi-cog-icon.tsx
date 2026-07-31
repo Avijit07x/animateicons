@@ -147,7 +147,11 @@ const WifiCogIcon = forwardRef<WifiCogIconHandle, WifiCogIconProps>(
    animate: {
     pathLength: [0, 1],
     opacity: [0, 1],
-    transition: { duration: 0.4 * duration, delay: 0.36 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.4 * duration,
+     delay: 0.36 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -156,7 +160,11 @@ const WifiCogIcon = forwardRef<WifiCogIconHandle, WifiCogIconProps>(
    animate: {
     pathLength: [0, 1],
     opacity: [0, 1],
-    transition: { duration: 0.35 * duration, delay: 0.24 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.35 * duration,
+     delay: 0.24 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -165,7 +173,11 @@ const WifiCogIcon = forwardRef<WifiCogIconHandle, WifiCogIconProps>(
    animate: {
     pathLength: [0, 1],
     opacity: [0, 1],
-    transition: { duration: 0.3 * duration, delay: 0.12 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.3 * duration,
+     delay: 0.12 * duration,
+     ease: "easeOut",
+    },
    },
   };
 

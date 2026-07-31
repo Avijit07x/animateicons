@@ -20,7 +20,7 @@ const DocsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 			<DocsNavbar />
 
 			<div className="mx-auto flex w-full max-w-360 items-start gap-6 px-4 sm:px-6 lg:gap-10 lg:px-8">
-				<aside className="top-15 sticky hidden h-[calc(100dvh-3.75rem)] w-56 shrink-0 overflow-y-auto py-10 lg:block">
+				<aside className="sticky top-15 hidden h-[calc(100dvh-3.75rem)] w-56 shrink-0 overflow-y-auto py-10 lg:block">
 					<DocsSidebar />
 				</aside>
 
@@ -42,7 +42,7 @@ const DocsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					</div>
 				</main>
 
-				<aside className="top-15 sticky hidden h-[calc(100dvh-3.75rem)] w-56 shrink-0 overflow-y-auto py-10 xl:block">
+				<aside className="sticky top-15 hidden h-[calc(100dvh-3.75rem)] w-56 shrink-0 overflow-y-auto py-10 xl:block">
 					<DocsRail />
 				</aside>
 			</div>

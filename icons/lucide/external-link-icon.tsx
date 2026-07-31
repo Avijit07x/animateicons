@@ -86,7 +86,7 @@ const ExternalLinkIcon = forwardRef<
      arrowControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [boxControls, arrowControls],
+   [boxControls, arrowControls, reduced, onMouseEnter, isAnimated],
   );
 
   const handleLeave = useCallback(
@@ -96,7 +96,7 @@ const ExternalLinkIcon = forwardRef<
      arrowControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [boxControls, arrowControls],
+   [boxControls, arrowControls, onMouseLeave],
   );
 
   const boxVariants: Variants = {

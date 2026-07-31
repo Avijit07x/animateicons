@@ -39,14 +39,9 @@ export function Callout({
 	const s = styles[type];
 	const Icon = s.icon;
 	return (
-		<div
-			className={cn(
-				"my-6 flex gap-3 rounded-lg border p-4 text-sm",
-				s.box,
-			)}
-		>
+		<div className={cn("my-6 flex gap-3 rounded-lg border p-4 text-sm", s.box)}>
 			<Icon className={cn("mt-0.5 size-4.5 shrink-0", s.icon_)} />
-			<div className="text-textSecondary leading-7 [&>:first-child]:mt-0 [&>:last-child]:mb-0 [&_p]:my-0!">
+			<div className="text-textSecondary leading-7 [&_p]:my-0! [&>:first-child]:mt-0 [&>:last-child]:mb-0">
 				{children}
 			</div>
 		</div>

@@ -1,6 +1,9 @@
 import CodeBlock from "@/app/icons/_components/docs/CodeBlock";
 import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
-import { BannerDemo, CardDemo } from "@/app/icons/docs/_components/ExampleDemos";
+import {
+	BannerDemo,
+	CardDemo,
+} from "@/app/icons/docs/_components/ExampleDemos";
 
 export const metadata = {
 	title: "Cards & feedback",
@@ -18,24 +21,25 @@ import { SparklesIcon, type SparklesIconHandle } from "@animateicons/react/lucid
 export function FeatureCard() {
 	const ref = useRef<SparklesIconHandle>(null)
 
-	return (
-		<div
-			onMouseEnter={() => ref.current?.startAnimation()}
-			onMouseLeave={() => ref.current?.stopAnimation()}
-			className="rounded-xl border p-5"
-		>
-			<div className="bg-primary/10 text-primary mb-3 flex size-10 items-center justify-center rounded-lg">
-				<SparklesIcon ref={ref} size={20} />
-			</div>
-			<p className="font-semibold">Smart suggestions</p>
-			<p className="text-muted-foreground mt-1 text-sm">
-				Get AI-powered icon recommendations as you type.
-			</p>
-			<Button size="sm" variant="outline" className="mt-4">
-				Learn more
-			</Button>
-		</div>
-	)
+    return (
+    	<div
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    		className="rounded-xl border p-5"
+    	>
+    		<div className="bg-primary/10 text-primary mb-3 flex size-10 items-center justify-center rounded-lg">
+    			<SparklesIcon ref={ref} size={20} />
+    		</div>
+    		<p className="font-semibold">Smart suggestions</p>
+    		<p className="text-muted-foreground mt-1 text-sm">
+    			Get AI-powered icon recommendations as you type.
+    		</p>
+    		<Button size="sm" variant="outline" className="mt-4">
+    			Learn more
+    		</Button>
+    	</div>
+    )
+
 }`;
 
 export const bannerCode = `import { useRef } from "react"
@@ -47,16 +51,17 @@ import {
 export function SavedBanner() {
 	const ref = useRef<CircleCheckIconHandle>(null)
 
-	return (
-		<div
-			onMouseEnter={() => ref.current?.startAnimation()}
-			onMouseLeave={() => ref.current?.stopAnimation()}
-			className="flex items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3"
-		>
-			<CircleCheckIcon ref={ref} size={18} className="text-emerald-400" />
-			<p className="text-sm">Your changes have been saved.</p>
-		</div>
-	)
+    return (
+    	<div
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    		className="flex items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3"
+    	>
+    		<CircleCheckIcon ref={ref} size={18} className="text-emerald-400" />
+    		<p className="text-sm">Your changes have been saved.</p>
+    	</div>
+    )
+
 }`;
 
 # Cards & feedback

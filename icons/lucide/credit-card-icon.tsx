@@ -88,7 +88,7 @@ const CreditCardIcon = forwardRef<CreditCardIconHandle, CreditCardIconProps>(
      swipeControls.start("animate");
     } else onMouseEnter?.(e as any);
    },
-   [controls, stripeControls, swipeControls, reduced, isAnimated, onMouseLeave],
+   [controls, stripeControls, swipeControls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
@@ -99,7 +99,7 @@ const CreditCardIcon = forwardRef<CreditCardIconHandle, CreditCardIconProps>(
      swipeControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [controls, stripeControls, swipeControls],
+   [controls, stripeControls, swipeControls, onMouseLeave],
   );
 
   const cardTilt: Variants = {

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Runs lint before every push. CI re-checks this, so it can't be skipped
+# for real; bypass locally in an emergency with `git push --no-verify`.
+echo "› pre-push: running pnpm lint"
+pnpm lint || {
+	echo "✗ lint failed — push aborted. Fix issues or bypass with --no-verify."
+	exit 1
+}

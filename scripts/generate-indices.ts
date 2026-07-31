@@ -24,14 +24,14 @@ function generateIndex(libraryName: string, jsonFile: string) {
 	let out = "";
 
 	for (const icon of icons) {
-		let componentName = `${toPascalCase(icon.name)}Icon`;
+		const componentName = `${toPascalCase(icon.name)}Icon`;
 		out += `import { ${componentName} } from "./${icon.name}-icon";\n`;
 	}
 
 	out += `\nconst ICON_LIST: IconListItem[] = [\n`;
 
 	for (const icon of icons) {
-		let componentName = `${toPascalCase(icon.name)}Icon`;
+		const componentName = `${toPascalCase(icon.name)}Icon`;
 
 		out += `  {\n`;
 		out += `    name: "${icon.name}",\n`;
