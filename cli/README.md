@@ -30,7 +30,7 @@ npx animateicons browse
 ```
 
 ```
-╭─ AnimateIcons ─────────────────────────────── 24/281 icons · 2 selected ─╮
+╭─ AnimateIcons ─────────────────────────────── 24/326 icons · 2 selected ─╮
 │ › bell▋                       all  lucide  huge                          │
 │ ──────────────────────────────────────────────────────────────────────── │
 │ ◼ lu-bell           ◻ lu-bell-dot        ◻ lu-bell-minus                 │

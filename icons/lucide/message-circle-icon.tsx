@@ -85,20 +85,31 @@ const MessageCircleIcon = forwardRef<
   );
 
   const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: { rotate: 0 },
    animate: {
-    scale: [1, 1.05, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut", repeat: 0 },
+    rotate: [0, -3, 2, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const popVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [0.5, 1.12, 0.96, 1],
+    transition: {
+     duration: 0.55 * duration,
+     times: [0, 0.55, 0.78, 1],
+     ease: "easeOut",
+    },
    },
   };
 
   const pathVariants: Variants = {
    normal: { pathLength: 1, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
+    pathLength: [0.25, 1],
+    opacity: [0, 1],
+    transition: { duration: 0.5 * duration, ease: "easeOut" },
    },
   };
 
@@ -125,12 +136,17 @@ const MessageCircleIcon = forwardRef<
       initial="normal"
       variants={svgVariants}
      >
-      <m.path
-       d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 
-	               3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 
+      <m.g
+       variants={popVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "19px" }}
+      >
+       <m.path
+        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065
+	               3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2
 	               0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-       variants={pathVariants}
-      />
+        variants={pathVariants}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

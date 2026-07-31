@@ -107,30 +107,40 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
   );
 
   const binVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+   normal: { scaleY: 1, y: 0 },
    animate: {
-    scale: [1, 1.05, 0.97, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1.5, 0],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    y: [0, 0, 1, 0],
+    scaleY: [1, 1, 0.94, 1],
+    transition: {
+     duration: 0.9 * duration,
+     times: [0, 0.55, 0.75, 1],
+     ease: "easeOut",
+    },
    },
   };
 
   const lidVariants: Variants = {
-   normal: { rotate: 0, y: 0, transformOrigin: "12px 4px" },
+   normal: { rotate: 0 },
    animate: {
-    rotate: [-15, 5, 0],
-    y: [-2, 0],
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.1 },
+    rotate: [0, -24, -24, 0],
+    transition: {
+     duration: 0.9 * duration,
+     times: [0, 0.2, 0.55, 1],
+     ease: "easeInOut",
+    },
    },
   };
 
   const barVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1, transformOrigin: "center bottom" },
+   normal: { y: 0, opacity: 1 },
    animate: {
-    scaleY: [1, 1.2, 1],
-    opacity: [1, 0.9, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut", delay: 0.2 },
+    y: [0, 5, 5, 0],
+    opacity: [1, 0, 0, 1],
+    transition: {
+     duration: 0.9 * duration,
+     times: [0, 0.35, 0.6, 1],
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -171,14 +181,17 @@ const Trash2Icon = forwardRef<Trash2IconHandle, Trash2IconProps>(
        animate={binControls}
        initial="normal"
        variants={binVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
       />
-      <m.path d="M3 6h18" stroke="currentColor" />
-      <m.path
-       d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+      <m.g
        animate={lidControls}
        initial="normal"
        variants={lidVariants}
-      />
+       style={{ transformBox: "view-box", originX: "3px", originY: "6px" }}
+      >
+       <m.path d="M3 6h18" />
+       <m.path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

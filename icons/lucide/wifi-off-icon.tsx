@@ -139,11 +139,14 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
   );
 
   const groupVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.04, 0.98, 1],
-    rotate: [0, -1.5, 1.5, 0],
-    transition: { duration: 0.9 * duration, ease: [0.22, 0.9, 0.32, 1] },
+    scale: [1, 1.05, 0.99, 1],
+    transition: {
+     duration: 0.7 * duration,
+     times: [0, 0.5, 0.8, 1],
+     ease: "easeOut",
+    },
    },
   };
 
@@ -151,8 +154,8 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.9 * duration, ease: "easeOut", delay: 0.05 },
+    opacity: [0, 1],
+    transition: { duration: 0.4 * duration, delay: 0.36 * duration, ease: "easeOut" },
    },
   };
 
@@ -160,8 +163,8 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.12 },
+    opacity: [0, 1],
+    transition: { duration: 0.35 * duration, delay: 0.24 * duration, ease: "easeOut" },
    },
   };
 
@@ -169,17 +172,21 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.18 },
+    opacity: [0, 1],
+    transition: { duration: 0.3 * duration, delay: 0.12 * duration, ease: "easeOut" },
    },
   };
 
   const dotVariants: Variants = {
    normal: { scale: 1, opacity: 1 },
    animate: {
-    scale: [0.6, 1.15, 1],
+    scale: [0.4, 1.25, 1],
     opacity: [0, 1, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut", delay: 0.22 },
+    transition: {
+     duration: 0.35 * duration,
+     times: [0, 0.6, 1],
+     ease: "easeOut",
+    },
    },
   };
 
@@ -224,6 +231,7 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
        initial="normal"
        animate={dotControls}
        variants={dotVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
       <m.path
        d="M8.5 16.429a5 5 0 0 1 7 0"

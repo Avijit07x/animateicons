@@ -1,0 +1,80 @@
+import CodeBlock from "@/app/icons/_components/docs/CodeBlock";
+import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
+import { ButtonDemo, TooltipDemo } from "@/app/icons/docs/_components/ExampleDemos";
+
+export const metadata = {
+	title: "Buttons & tooltips",
+	description:
+		"Drive AnimateIcons from a shadcn/ui Button or Tooltip trigger, so the whole control plays the icon on hover.",
+	alternates: {
+		canonical: "/icons/docs/examples/buttons",
+	},
+};
+
+export const buttonCode = `import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { DownloadIcon, type DownloadIconHandle } from "@animateicons/react/lucide"
+
+export function DownloadButton() {
+	const ref = useRef<DownloadIconHandle>(null)
+
+	return (
+		<Button
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
+		>
+			<DownloadIcon ref={ref} size={16} />
+			Download
+		</Button>
+	)
+}`;
+
+export const tooltipCode = `import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Trash2Icon, type Trash2IconHandle } from "@animateicons/react/lucide"
+
+export function DeleteButton() {
+	const ref = useRef<Trash2IconHandle>(null)
+
+	return (
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<Button
+					variant="outline"
+					size="icon"
+					aria-label="Delete"
+					onMouseEnter={() => ref.current?.startAnimation()}
+					onMouseLeave={() => ref.current?.stopAnimation()}
+				>
+					<Trash2Icon ref={ref} size={16} />
+				</Button>
+			</TooltipTrigger>
+			<TooltipContent>Delete</TooltipContent>
+		</Tooltip>
+	)
+}`;
+
+# Buttons & tooltips
+
+Attach a ref to the icon and drive it from the control's hover, so the whole button or tooltip trigger is what plays the animation. This is the same imperative ref API covered in <a href="/icons/docs/usage">Usage</a>.
+
+## Button
+
+The button owns the hover, the icon just follows.
+
+<ExamplePreview code={buttonCode}>
+	<ButtonDemo />
+</ExamplePreview>
+
+## Tooltip
+
+An icon-only button with a tooltip. Hovering plays the icon and reveals the label at once.
+
+<ExamplePreview code={tooltipCode}>
+	<TooltipDemo />
+</ExamplePreview>

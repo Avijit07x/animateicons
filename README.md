@@ -2,7 +2,7 @@
 
 # AnimateIcons
 
-**281 animated SVG icons for React.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion/react`.
+**326 animated SVG icons for React.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion/react`.
 
 [Browse icons](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [Docs](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/Avijit07x)
 

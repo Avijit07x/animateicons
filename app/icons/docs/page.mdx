@@ -1,7 +1,9 @@
 import Link from "next/link";
-import BackButton from "../_components/docs/BackButton";
 import CodeBlock from "../_components/docs/CodeBlock";
-import OpenInAI from "../_components/docs/OpenInAI";
+import CommandBlock from "../_components/docs/CommandBlock";
+import { Callout } from "./_components/Callout";
+import InstallMethods from "./_components/InstallMethods";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 
 export const metadata = {
 	title: "Install AnimateIcons",
@@ -12,122 +14,31 @@ export const metadata = {
 	},
 };
 
-export const npmInstallCode = `pnpm add @animateicons/react`;
-
 export const npmUsageCode = `import { EyeIcon } from "@animateicons/react/lucide"
 
 export default function Example() {
 	return <EyeIcon size={24} color="#f45b48" />
 }`;
 
-export const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
+# Installation
 
-export const usageCode = `import { EyeIcon } from "@/components/ui/eye"
+Pick whichever path fits your setup. They all ship the same icons and the same API. The difference is whether you depend on the package or copy the source into your project.
 
-export default function Example() {
-	return <EyeIcon size={24} color="#f45b48" />
-}`;
+<InstallMethods />
 
-export const cliAddCode = `npx animateicons add eye
-
-# add several at once, or use the lu-/hu- prefixed id
-
-npx animateicons add eye bell-ring user`;
-
-export const cliGlobalCode = `npm i -g animateicons
-animateicons add eye`;
-
-export const cliBrowseCode = `npx animateicons search notification
-npx animateicons list --library huge
-npx animateicons info eye`;
-
-export const cliBrowseTuiCode = `npx animateicons browse`;
-
-export const cliUsageCode = `import { EyeIcon } from "@/components/icons/eye"
-
-export default function Example() {
-	return <EyeIcon size={24} color="#f45b48" />
-}`;
-
-export const stylingCode = `// Color - sets currentColor inline
-<EyeIcon color="#f45b48" />
-
-// Tailwind utility - works because icons stroke="currentColor"
-
-<EyeIcon className="text-primary" />
-
-// Speed - duration is a multiplier (lower = faster)
-
-<EyeIcon duration={0.6} />
-
-// Disable hover animation
-
-<EyeIcon isAnimated={false} />
-`;
-
-export const apiCode = `"use client"
-
-import { useRef } from "react"
-import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye"
-
-export default function Demo() {
-	const ref = useRef<EyeIconHandle>(null)
-
-    return (
-    	<button
-    		onMouseEnter={() => ref.current?.startAnimation()}
-    		onMouseLeave={() => ref.current?.stopAnimation()}
-    	>
-    		<EyeIcon ref={ref} size={28} />
-    	</button>
-    )
-
-}`;
-
-export const propsCode = `interface IconProps {
-	size?: number
-	color?: string
-	className?: string
-	duration?: number
-	isAnimated?: boolean
-	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
-	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
-	style?: React.CSSProperties
-}
-
-interface IconHandle {
-startAnimation: () => void
-stopAnimation: () => void
-}`;
-
-<div className="min-w-0 flex-1">
-	<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
-		<div className="mb-10 flex w-full flex-wrap items-center justify-between gap-5">
-			<div className="flex items-center gap-3">
-				<BackButton />
-				<h1 className="text-2xl font-semibold">Installation</h1>
-			</div>
-			<OpenInAI
-				pageUrl="https://animateicons.in/icons/docs"
-				title="AnimateIcons Documentation"
-			/>
-		</div>
-
-Pick whichever path fits your setup. They all ship the same icons and the same API - the difference is whether you depend on the package or copy the source into your project.
-
-<div className="mt-10 space-y-14">
+<div className="space-y-14">
 
 <section id="install-npm" className="scroll-mt-20 space-y-6">
 
 ## npm package
 
-Recommended for most apps. One install, all 281 icons available.
+<span className="border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mr-2 inline-block rounded-full border px-2.5 py-0.5 align-middle text-xs font-semibold">Recommended</span> Best for most apps. One install, all {ICON_COUNTS.total} icons available.
 
 #### 1. Install the package
 
-Use any package manager - npm, pnpm, yarn, or bun. `motion` is bundled.
+Use any package manager. `motion` is bundled.
 
-<CodeBlock code={npmInstallCode} lang="bash" title="Terminal" />
+<CommandBlock pkg="@animateicons/react" />
 
 #### 2. Import an icon
 
@@ -135,102 +46,20 @@ Lucide and Huge are exposed as scoped subpaths because some icon names overlap (
 
 <CodeBlock code={npmUsageCode} title="Example.tsx" />
 
-That's it - the icon animates on hover by default.
+<Callout type="tip">
+Icons animate on hover out of the box, no extra wiring. Pass `size`, `color`, or any prop to customize.
+</Callout>
 
 </section>
 
-<section id="install-shadcn" className="scroll-mt-20 space-y-6">
+<section id="other-methods" className="scroll-mt-20 space-y-4">
 
-## shadcn CLI
+## Prefer to copy the source?
 
-Use this if you want each icon copied into your codebase as a single file you can edit.
+If you'd rather own the icon files instead of depending on the package, use the <Link href="/icons/docs/shadcn">shadcn CLI</Link> or the first-party <Link href="/icons/docs/cli">animateicons CLI</Link>. Using an AI coding agent? The <Link href="/icons/docs/mcp">MCP server</Link> lets it add icons for you.
 
-#### 1. Set up shadcn
-
-If your project doesn't have shadcn yet, follow the <Link href="https://ui.shadcn.com/docs/installation" target="_blank" className="underline underline-offset-4">shadcn installation guide</Link> first.
-
-#### 2. Add an icon
-
-Browse the <Link href="/icons/lucide" className="underline underline-offset-4">Lucide</Link> or <Link href="/icons/huge" className="underline underline-offset-4">Huge</Link> gallery, click any tile to copy its install command, or replace `lu-eye` below with the icon you want.
-
-<CodeBlock code={installCode} lang="bash" title="Terminal" />
-
-The icon lands at `components/ui/<name>.tsx`.
-
-#### 3. Import and use
-
-<CodeBlock code={usageCode} title="Example.tsx" />
+Once icons are in your project, head to <Link href="/icons/docs/usage">Usage</Link> for styling, the imperative API, and full types.
 
 </section>
 
-<section id="install-cli" className="scroll-mt-20 space-y-6">
-
-## animateicons CLI
-
-The fastest way to copy icons into your project - same result as the shadcn CLI, but a first-party command instead of a registry URL.
-
-#### 1. Add an icon
-
-<CodeBlock code={cliAddCode} lang="bash" title="Terminal" />
-
-Prefer a short command? Install the CLI globally and an `animateicons` binary is added to your PATH:
-
-<CodeBlock code={cliGlobalCode} lang="bash" title="Terminal" />
-
-Icons land at `components/icons/<name>.tsx` (override with `--dir`). They import `cn` from `@/lib/utils` - if your project isn't shadcn-based, pass `--with-utils` to scaffold a minimal helper. The CLI also prints the `motion` install command for your package manager.
-
-#### 2. Browse without leaving the terminal
-
-<CodeBlock code={cliBrowseCode} lang="bash" title="Terminal" />
-
-Or open the interactive dashboard to search, multi-select, and add icons live in your terminal:
-
-<CodeBlock code={cliBrowseTuiCode} lang="bash" title="Terminal" />
-
-#### 3. Import and use
-
-<CodeBlock code={cliUsageCode} title="Example.tsx" />
-
-</section>
-
-<section id="install-mcp" className="scroll-mt-20 space-y-4">
-
-## AI agents (MCP)
-
-Using an AI coding agent? AnimateIcons ships an MCP server so agents like Claude Code and Cursor can search the catalog and add icons for you - see the dedicated <Link href="/icons/docs/mcp" className="underline underline-offset-4">MCP guide</Link>.
-
-</section>
-
-<section id="styling" className="scroll-mt-20 space-y-4">
-
-## Styling
-
-Every icon strokes `currentColor`, so it inherits the surrounding text color. You can also pass `color`, `className`, or use the `duration` and `isAnimated` props to control playback.
-
-<CodeBlock code={stylingCode} title="Styling.tsx" />
-
-</section>
-
-<section id="api" className="scroll-mt-20 space-y-4">
-
-## Imperative API
-
-Need to trigger an animation from a parent - on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
-
-<CodeBlock code={apiCode} title="Demo.tsx" />
-
-</section>
-
-<section id="props" className="scroll-mt-20 space-y-4">
-
-## Props & types
-
-<CodeBlock code={propsCode} lang="ts" title="Types" />
-
-Animations respect the OS-level **Reduce Motion** preference - no extra setup required.
-
-</section>
-
-</div>
-	</div>
 </div>

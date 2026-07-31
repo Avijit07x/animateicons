@@ -112,20 +112,24 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
   const containerVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.04, 1],
-    transition: { duration: 0.36 * duration, ease: "easeOut" },
+    scale: [0.85, 1.06, 0.98, 1],
+    transition: {
+     duration: 0.5 * duration,
+     times: [0, 0.55, 0.8, 1],
+     ease: "easeOut",
+    },
    },
   };
 
   const flapVariants: Variants = {
-   normal: { rotateX: 0, translateY: 0, transformOrigin: "12px 6px" },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    rotateX: [-0, -12, 2, 0],
-    translateY: [0, -1.6, 0.6, 0],
+    strokeDashoffset: [24, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.35 * duration,
+     delay: 0.22 * duration,
      ease: "easeOut",
-     times: [0, 0.5, 0.85, 1],
     },
    },
   };
@@ -163,10 +167,10 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
      >
       <m.path
        d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+       strokeDasharray="24"
        initial="normal"
        animate={flapControls}
        variants={flapVariants}
-       style={{ transformStyle: "preserve-3d" }}
       />
       <m.rect
        x="2"

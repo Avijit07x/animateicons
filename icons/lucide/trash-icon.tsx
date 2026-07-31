@@ -81,42 +81,28 @@ const TrashIcon = forwardRef<TrashIconHandle, TrashIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const binVariants: Variants = {
+   normal: { scaleY: 1, y: 0 },
    animate: {
-    scale: [1, 1.03, 1],
-
-    transition: { duration: 0.5 * duration, ease: "easeOut" },
-   },
-  };
-
-  const lidBounce: Variants = {
-   normal: { y: 0, rotate: 0, transformOrigin: "12px 6px" },
-   animate: {
-    rotate: [0, -10, 6, -3, 0],
-    y: [0, -2, 0.5, 0],
+    y: [0, 0, 1, 0],
+    scaleY: [1, 1, 0.94, 1],
     transition: {
      duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.05,
+     times: [0, 0.55, 0.75, 1],
+     ease: "easeOut",
     },
    },
   };
 
-  const barSnap: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const lidVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scaleX: [0.85, 1.08, 1],
-    opacity: [0.9, 1, 1],
-    transition: { duration: 0.45 * duration, ease: "easeOut", delay: 0.1 },
-   },
-  };
-
-  const binSettle: Variants = {
-   normal: { y: 0, scaleY: 1, transformOrigin: "50% 100%" },
-   animate: {
-    scaleY: [1, 0.97, 1],
-    transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.2 },
+    rotate: [0, -24, -24, 0],
+    transition: {
+     duration: 0.9 * duration,
+     times: [0, 0.2, 0.55, 1],
+     ease: "easeInOut",
+    },
    },
   };
 
@@ -139,28 +125,23 @@ const TrashIcon = forwardRef<TrashIconHandle, TrashIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      animate={controls}
-      initial="normal"
-      variants={iconVariants}
      >
       <m.path
        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
-       variants={binSettle}
+       variants={binVariants}
        initial="normal"
        animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
       />
-      <m.path
-       d="M3 6h18"
-       variants={barSnap}
-       initial="normal"
+      <m.g
        animate={controls}
-      />
-      <m.path
-       d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-       variants={lidBounce}
        initial="normal"
-       animate={controls}
-      />
+       variants={lidVariants}
+       style={{ transformBox: "view-box", originX: "3px", originY: "6px" }}
+      >
+       <m.path d="M3 6h18" />
+       <m.path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

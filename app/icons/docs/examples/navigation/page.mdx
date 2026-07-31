@@ -1,0 +1,119 @@
+import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
+import { MenuDemo, NavbarDemo } from "@/app/icons/docs/_components/ExampleDemos";
+
+export const metadata = {
+	title: "Menus & navigation",
+	description:
+		"Give each nav action or menu item its own ref so AnimateIcons play independently on hover.",
+	alternates: {
+		canonical: "/icons/docs/examples/navigation",
+	},
+};
+
+export const navbarCode = `import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { BellIcon, SettingsIcon, UserIcon } from "@animateicons/react/lucide"
+import type { IconHandle } from "@animateicons/react"
+
+export function Navbar() {
+	// One shared type for every icon, no per-icon *IconHandle needed.
+	const bell = useRef<IconHandle>(null)
+	const settings = useRef<IconHandle>(null)
+	const user = useRef<IconHandle>(null)
+
+	return (
+		<nav className="flex items-center justify-between rounded-xl border px-4 py-2">
+			<span className="text-sm font-semibold">Dashboard</span>
+			<div className="flex items-center gap-0.5">
+				<Button
+					variant="ghost"
+					size="icon"
+					onMouseEnter={() => bell.current?.startAnimation()}
+					onMouseLeave={() => bell.current?.stopAnimation()}
+				>
+					<BellIcon ref={bell} size={18} />
+				</Button>
+				<Button
+					variant="ghost"
+					size="icon"
+					onMouseEnter={() => settings.current?.startAnimation()}
+					onMouseLeave={() => settings.current?.stopAnimation()}
+				>
+					<SettingsIcon ref={settings} size={18} />
+				</Button>
+				<Button
+					variant="ghost"
+					size="icon"
+					onMouseEnter={() => user.current?.startAnimation()}
+					onMouseLeave={() => user.current?.stopAnimation()}
+				>
+					<UserIcon ref={user} size={18} />
+				</Button>
+			</div>
+		</nav>
+	)
+}`;
+
+export const menuCode = `import { useRef } from "react"
+import { UserIcon, SettingsIcon, LogOutIcon } from "@animateicons/react/lucide"
+import type { IconHandle } from "@animateicons/react"
+
+export function AccountMenu() {
+	const profile = useRef<IconHandle>(null)
+	const settings = useRef<IconHandle>(null)
+	const logout = useRef<IconHandle>(null)
+
+	const item =
+		"flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm"
+
+	return (
+		<div className="w-56 rounded-xl border p-1.5">
+			<button
+				className={item}
+				onMouseEnter={() => profile.current?.startAnimation()}
+				onMouseLeave={() => profile.current?.stopAnimation()}
+			>
+				<UserIcon ref={profile} size={16} />
+				Profile
+			</button>
+			<button
+				className={item}
+				onMouseEnter={() => settings.current?.startAnimation()}
+				onMouseLeave={() => settings.current?.stopAnimation()}
+			>
+				<SettingsIcon ref={settings} size={16} />
+				Settings
+			</button>
+			<button
+				className={item}
+				onMouseEnter={() => logout.current?.startAnimation()}
+				onMouseLeave={() => logout.current?.stopAnimation()}
+			>
+				<LogOutIcon ref={logout} size={16} />
+				Log out
+			</button>
+		</div>
+	)
+}`;
+
+# Menus & navigation
+
+Give each action its own ref so items animate independently on hover.
+
+## Navbar
+
+Three nav actions, one ref each, animating on their own hover.
+
+<ExamplePreview code={navbarCode}>
+	<NavbarDemo />
+</ExamplePreview>
+
+## Menu
+
+The same per-item pattern in a vertical menu.
+
+<ExamplePreview code={menuCode}>
+	<MenuDemo />
+</ExamplePreview>
+
+Repeating those two hover handlers on every item adds up. The <a href="/icons/docs/examples/hover-helper">Hover helper</a> shows how to fold them into one reusable function.

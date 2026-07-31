@@ -84,16 +84,29 @@ const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
    [controls, onMouseLeave],
   );
   const bagVariants: Variants = {
-   normal: { scaleY: 1, scaleX: 1, rotate: 0, y: 0 },
+   normal: { scaleX: 1, scaleY: 1, y: 0 },
    animate: {
-    scaleY: [1, 0.85, 1.1, 1],
-    scaleX: [1, 1.1, 0.9, 1],
-    rotate: [0, -4, 4, -2, 0],
-    y: [0, -3, 0, -1, 0],
+    y: [-6, 0, 0, 0, 0],
+    scaleY: [1, 1, 0.86, 1.05, 1],
+    scaleX: [1, 1, 1.12, 0.97, 1],
     transition: {
-     duration: 1.5 * duration,
-     repeat: 0,
-     ease: "easeInOut",
+     duration: 0.7 * duration,
+     times: [0, 0.4, 0.55, 0.78, 1],
+     ease: "easeOut",
+    },
+   },
+  };
+
+  const handleVariants: Variants = {
+   normal: { scale: 1, opacity: 1 },
+   animate: {
+    scale: [0.4, 1.2, 1],
+    opacity: [0, 1, 1],
+    transition: {
+     duration: 0.35 * duration,
+     delay: 0.42 * duration,
+     times: [0, 0.6, 1],
+     ease: "easeOut",
     },
    },
   };
@@ -119,11 +132,19 @@ const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={bagVariants}
      >
-      <path d="M16 10a4 4 0 0 1-8 0" />
-      <path d="M3.103 6.034h17.794" />
-      <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      <m.g
+       variants={bagVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <m.path
+        d="M16 10a4 4 0 0 1-8 0"
+        variants={handleVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       />
+       <path d="M3.103 6.034h17.794" />
+       <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

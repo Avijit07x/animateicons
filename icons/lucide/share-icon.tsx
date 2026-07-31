@@ -87,28 +87,32 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
     opacity: 1,
    },
    animate: {
-    scale: [1, 1.15, 1],
-    opacity: [0.7, 1],
+    scale: [0.6, 1.25, 1],
+    opacity: [0, 1, 1],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.4 * duration,
+     times: [0, 0.6, 1],
      ease: [0.22, 1, 0.36, 1],
      delay,
     },
    },
   });
 
-  const lineVariants: Variants = {
+  const lineVariants = (delay: number): Variants => ({
    normal: {
+    strokeDashoffset: 0,
     opacity: 1,
    },
    animate: {
-    opacity: [0.4, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
+     duration: 0.35 * duration,
+     ease: "easeOut",
+     delay,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -132,23 +136,43 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="18" cy="5" r="3" variants={nodeVariants(0)} />
-      <m.circle cx="6" cy="12" r="3" variants={nodeVariants(0.12)} />
-      <m.circle cx="18" cy="19" r="3" variants={nodeVariants(0.24)} />
+      <m.circle
+       cx="18"
+       cy="5"
+       r="3"
+       variants={nodeVariants(0.42)}
+       style={{ transformBox: "view-box", originX: "18px", originY: "5px" }}
+      />
+      <m.circle
+       cx="6"
+       cy="12"
+       r="3"
+       variants={nodeVariants(0)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
+      />
+      <m.circle
+       cx="18"
+       cy="19"
+       r="3"
+       variants={nodeVariants(0.48)}
+       style={{ transformBox: "view-box", originX: "18px", originY: "19px" }}
+      />
 
       <m.line
        x1="8.59"
        y1="13.51"
        x2="15.42"
        y2="17.49"
-       variants={lineVariants}
+       strokeDasharray="9"
+       variants={lineVariants(0.18)}
       />
       <m.line
-       x1="15.41"
-       y1="6.51"
-       x2="8.59"
-       y2="10.49"
-       variants={lineVariants}
+       x1="8.59"
+       y1="10.49"
+       x2="15.41"
+       y2="6.51"
+       strokeDasharray="9"
+       variants={lineVariants(0.18)}
       />
      </m.svg>
     </m.div>
