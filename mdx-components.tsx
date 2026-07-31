@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 /**
@@ -78,16 +79,30 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		p: ({ children }) => (
 			<p className="text-textSecondary my-4 text-sm leading-7">{children}</p>
 		),
-		a: ({ href, children }) => (
-			<a
-				href={href}
-				className="text-primary font-medium underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-current"
-				target={href?.startsWith("http") ? "_blank" : undefined}
-				rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-			>
-				{children}
-			</a>
-		),
+		a: ({ href, children }) => {
+			const cls =
+				"text-primary font-medium underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-current";
+			// Internal routes use next/link for client-side nav; external opens
+			// in a new tab. Authored as markdown links in MDX so they stay inline
+			// (a JSX <Link> in prose gets block-split by the prod MDX build).
+			if (href?.startsWith("http")) {
+				return (
+					<a
+						href={href}
+						className={cls}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{children}
+					</a>
+				);
+			}
+			return (
+				<Link href={href ?? "#"} className={cls}>
+					{children}
+				</Link>
+			);
+		},
 		strong: ({ children }) => (
 			<strong className="text-textPrimary font-semibold">{children}</strong>
 		),
