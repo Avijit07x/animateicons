@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface BadgeDollarIconHandle {
+export interface BadgeDollarSignIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface BadgeDollarIconProps extends Omit<
+interface BadgeDollarSignIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,7 +37,10 @@ interface BadgeDollarIconProps extends Omit<
  color?: string;
 }
 
-const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
+const BadgeDollarSignIcon = forwardRef<
+ BadgeDollarSignIconHandle,
+ BadgeDollarSignIconProps
+>(
  (
   {
    onMouseEnter,
@@ -196,5 +199,5 @@ const BadgeDollarIcon = forwardRef<BadgeDollarIconHandle, BadgeDollarIconProps>(
  },
 );
 
-BadgeDollarIcon.displayName = "BadgeDollarIcon";
-export { BadgeDollarIcon };
+BadgeDollarSignIcon.displayName = "BadgeDollarSignIcon";
+export { BadgeDollarSignIcon };

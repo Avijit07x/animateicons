@@ -772,7 +772,7 @@
       ]
     },
     {
-      "name": "lu-badge-dollar",
+      "name": "lu-badge-dollar-sign",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": [
@@ -781,9 +781,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/lucide/badge-dollar-icon.tsx",
+          "path": "icons/lucide/badge-dollar-sign-icon.tsx",
           "type": "registry:ui",
-          "target": "components/icons/badge-dollar.tsx"
+          "target": "components/icons/badge-dollar-sign.tsx"
         }
       ]
     },
@@ -2036,22 +2036,6 @@
       ]
     },
     {
-      "name": "lu-dashboard",
-      "type": "registry:ui",
-      "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
-      "devDependencies": [],
-      "files": [
-        {
-          "path": "icons/lucide/dashboard-icon.tsx",
-          "type": "registry:ui",
-          "target": "components/icons/dashboard.tsx"
-        }
-      ]
-    },
-    {
       "name": "lu-diff",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2724,6 +2708,22 @@
       ]
     },
     {
+      "name": "lu-headphone-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/headphone-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headphone-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-headphones",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2736,22 +2736,6 @@
           "path": "icons/lucide/headphones-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/headphones.tsx"
-        }
-      ]
-    },
-    {
-      "name": "lu-headphones-off",
-      "type": "registry:ui",
-      "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
-      "devDependencies": [],
-      "files": [
-        {
-          "path": "icons/lucide/headphones-off-icon.tsx",
-          "type": "registry:ui",
-          "target": "components/icons/headphones-off.tsx"
         }
       ]
     },
@@ -2868,6 +2852,22 @@
       ]
     },
     {
+      "name": "lu-japanese-yen",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/japanese-yen-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/japanese-yen.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-key",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2944,6 +2944,22 @@
           "path": "icons/lucide/layers-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-layout-dashboard",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/layout-dashboard-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-dashboard.tsx"
         }
       ]
     },
@@ -3092,7 +3108,7 @@
       ]
     },
     {
-      "name": "lu-login",
+      "name": "lu-log-in",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": [
@@ -3101,14 +3117,14 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/lucide/login-icon.tsx",
+          "path": "icons/lucide/log-in-icon.tsx",
           "type": "registry:ui",
-          "target": "components/icons/login.tsx"
+          "target": "components/icons/log-in.tsx"
         }
       ]
     },
     {
-      "name": "lu-logout",
+      "name": "lu-log-out",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": [
@@ -3117,9 +3133,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/lucide/logout-icon.tsx",
+          "path": "icons/lucide/log-out-icon.tsx",
           "type": "registry:ui",
-          "target": "components/icons/logout.tsx"
+          "target": "components/icons/log-out.tsx"
         }
       ]
     },
@@ -4212,7 +4228,7 @@
       ]
     },
     {
-      "name": "lu-snow-flake",
+      "name": "lu-snowflake",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": [
@@ -4221,9 +4237,9 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/lucide/snow-flake-icon.tsx",
+          "path": "icons/lucide/snowflake-icon.tsx",
           "type": "registry:ui",
-          "target": "components/icons/snow-flake.tsx"
+          "target": "components/icons/snowflake.tsx"
         }
       ]
     },
@@ -5184,22 +5200,6 @@
           "path": "icons/lucide/x-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/x.tsx"
-        }
-      ]
-    },
-    {
-      "name": "lu-yen-yuan",
-      "type": "registry:ui",
-      "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
-      "devDependencies": [],
-      "files": [
-        {
-          "path": "icons/lucide/yen-yuan-icon.tsx",
-          "type": "registry:ui",
-          "target": "components/icons/yen-yuan.tsx"
         }
       ]
     },

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { Variants } from "motion/react";
+
 import {
  LazyMotion,
  domMin,
@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface LogoutIconHandle {
+export interface SnowflakeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface LogoutIconProps extends Omit<
+interface SnowflakeIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,13 +37,13 @@ interface LogoutIconProps extends Omit<
  color?: string;
 }
 
-const LogoutIcon = forwardRef<LogoutIconHandle, LogoutIconProps>(
+const SnowflakeIcon = forwardRef<SnowflakeIconHandle, SnowflakeIconProps>(
  (
   {
    onMouseEnter,
    onMouseLeave,
    className,
-   size = 28,
+   size = 24,
    duration = 1,
    isAnimated = true,
    color,
@@ -74,46 +74,26 @@ const LogoutIcon = forwardRef<LogoutIconHandle, LogoutIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e as any);
+   (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) {
+     controls.start("normal");
+    } else {
+     onMouseLeave?.(e as any);
+    }
    },
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, 3, -2, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-    },
+  const pathVariants = {
+   normal: {
+    pathLength: 1,
+    opacity: 1,
+    transition: { duration: 0.3 * duration },
    },
-  };
-
-  const arrowVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
    animate: {
-    x: [8, -2, 0],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const doorVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     delay: 0.1,
-    },
+    pathLength: [1, 0.3, 1],
+    opacity: [1, 0.7, 1],
+    transition: { duration: 0.8 * duration },
    },
   };
 
@@ -136,17 +116,33 @@ const LogoutIcon = forwardRef<LogoutIconHandle, LogoutIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      variants={{
+       normal: {
+        rotate: 0,
+        scale: 1,
+        transition: { duration: 0.3 * duration },
+       },
+       animate: {
+        rotate: [0, 10, -10, 0],
+        scale: [1, 1.05, 1],
+        transition: { duration: 1 * duration },
+       },
+      }}
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path d="m16 17 5-5-5-5" variants={arrowVariants} />
-      <m.path d="M21 12H9" variants={arrowVariants} />
-
-      <m.path
-       d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
-       variants={doorVariants}
-      />
+      <m.path d="m10 20-1.25-2.5L6 18" variants={pathVariants} />
+      <m.path d="M10 4 8.75 6.5 6 6" variants={pathVariants} />
+      <m.path d="m14 20 1.25-2.5L18 18" variants={pathVariants} />
+      <m.path d="m14 4 1.25 2.5L18 6" variants={pathVariants} />
+      <m.path d="m17 21-3-6h-4" variants={pathVariants} />
+      <m.path d="m17 3-3 6 1.5 3" variants={pathVariants} />
+      <m.path d="M2 12h6.5L10 9" variants={pathVariants} />
+      <m.path d="m20 10-1.5 2 1.5 2" variants={pathVariants} />
+      <m.path d="M22 12h-6.5L14 15" variants={pathVariants} />
+      <m.path d="m4 10 1.5 2L4 14" variants={pathVariants} />
+      <m.path d="m7 21 3-6-1.5-3" variants={pathVariants} />
+      <m.path d="m7 3 3 6h4" variants={pathVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>
@@ -154,5 +150,5 @@ const LogoutIcon = forwardRef<LogoutIconHandle, LogoutIconProps>(
  },
 );
 
-LogoutIcon.displayName = "LogoutIcon";
-export { LogoutIcon };
+SnowflakeIcon.displayName = "SnowflakeIcon";
+export { SnowflakeIcon };

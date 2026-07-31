@@ -893,10 +893,10 @@
       "url": "https://animateicons.in/r/lu-badge-cent.json"
     },
     {
-      "name": "badge-dollar",
+      "name": "badge-dollar-sign",
       "library": "lucide",
       "prefix": "lu",
-      "registryName": "lu-badge-dollar",
+      "registryName": "lu-badge-dollar-sign",
       "addedAt": "2025-10-07",
       "category": [
         "Finance"
@@ -909,7 +909,7 @@
         "price",
         "deal"
       ],
-      "url": "https://animateicons.in/r/lu-badge-dollar.json"
+      "url": "https://animateicons.in/r/lu-badge-dollar-sign.json"
     },
     {
       "name": "baggage-claim",
@@ -2353,24 +2353,6 @@
       "url": "https://animateicons.in/r/lu-credit-card.json"
     },
     {
-      "name": "dashboard",
-      "library": "lucide",
-      "prefix": "lu",
-      "registryName": "lu-dashboard",
-      "addedAt": "2025-10-10",
-      "category": [
-        "Layout"
-      ],
-      "keywords": [
-        "dashboard",
-        "layout",
-        "grid",
-        "panel",
-        "widgets"
-      ],
-      "url": "https://animateicons.in/r/lu-dashboard.json"
-    },
-    {
       "name": "diff",
       "library": "lucide",
       "prefix": "lu",
@@ -3134,6 +3116,24 @@
       "url": "https://animateicons.in/r/lu-hand-coins.json"
     },
     {
+      "name": "headphone-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-headphone-off",
+      "addedAt": "2026-01-02",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "mute",
+        "silent",
+        "no audio",
+        "disabled",
+        "quiet"
+      ],
+      "url": "https://animateicons.in/r/lu-headphone-off.json"
+    },
+    {
       "name": "headphones",
       "library": "lucide",
       "prefix": "lu",
@@ -3150,24 +3150,6 @@
         "device"
       ],
       "url": "https://animateicons.in/r/lu-headphones.json"
-    },
-    {
-      "name": "headphones-off",
-      "library": "lucide",
-      "prefix": "lu",
-      "registryName": "lu-headphones-off",
-      "addedAt": "2026-01-02",
-      "category": [
-        "Multimedia"
-      ],
-      "keywords": [
-        "mute",
-        "silent",
-        "no audio",
-        "disabled",
-        "quiet"
-      ],
-      "url": "https://animateicons.in/r/lu-headphones-off.json"
     },
     {
       "name": "headset",
@@ -3303,6 +3285,25 @@
       "url": "https://animateicons.in/r/lu-instagram.json"
     },
     {
+      "name": "japanese-yen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-japanese-yen",
+      "addedAt": "2026-01-13",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "currency",
+        "money",
+        "finance",
+        "payment",
+        "yen",
+        "yuan"
+      ],
+      "url": "https://animateicons.in/r/lu-japanese-yen.json"
+    },
+    {
       "name": "key",
       "library": "lucide",
       "prefix": "lu",
@@ -3395,6 +3396,24 @@
         "architecture"
       ],
       "url": "https://animateicons.in/r/lu-layers.json"
+    },
+    {
+      "name": "layout-dashboard",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-dashboard",
+      "addedAt": "2025-10-10",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "dashboard",
+        "layout",
+        "grid",
+        "panel",
+        "widgets"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-dashboard.json"
     },
     {
       "name": "layout-grid",
@@ -3562,10 +3581,10 @@
       "url": "https://animateicons.in/r/lu-lock.json"
     },
     {
-      "name": "login",
+      "name": "log-in",
       "library": "lucide",
       "prefix": "lu",
-      "registryName": "lu-login",
+      "registryName": "lu-log-in",
       "addedAt": "2025-11-26",
       "category": [
         "Accounts & access"
@@ -3578,13 +3597,13 @@
         "auth",
         "account"
       ],
-      "url": "https://animateicons.in/r/lu-login.json"
+      "url": "https://animateicons.in/r/lu-log-in.json"
     },
     {
-      "name": "logout",
+      "name": "log-out",
       "library": "lucide",
       "prefix": "lu",
-      "registryName": "lu-logout",
+      "registryName": "lu-log-out",
       "addedAt": "2025-11-26",
       "category": [
         "Accounts & access"
@@ -3597,7 +3616,7 @@
         "close",
         "account"
       ],
-      "url": "https://animateicons.in/r/lu-logout.json"
+      "url": "https://animateicons.in/r/lu-log-out.json"
     },
     {
       "name": "mail",
@@ -4849,10 +4868,10 @@
       "url": "https://animateicons.in/r/lu-smartphone.json"
     },
     {
-      "name": "snow-flake",
+      "name": "snowflake",
       "library": "lucide",
       "prefix": "lu",
-      "registryName": "lu-snow-flake",
+      "registryName": "lu-snowflake",
       "addedAt": "2025-07-22",
       "category": [
         "Weather"
@@ -4865,7 +4884,7 @@
         "ice",
         "freeze"
       ],
-      "url": "https://animateicons.in/r/lu-snow-flake.json"
+      "url": "https://animateicons.in/r/lu-snowflake.json"
     },
     {
       "name": "sparkles",
@@ -5987,25 +6006,6 @@
         "stop"
       ],
       "url": "https://animateicons.in/r/lu-x.json"
-    },
-    {
-      "name": "yen-yuan",
-      "library": "lucide",
-      "prefix": "lu",
-      "registryName": "lu-yen-yuan",
-      "addedAt": "2026-01-13",
-      "category": [
-        "Finance"
-      ],
-      "keywords": [
-        "currency",
-        "money",
-        "finance",
-        "payment",
-        "yen",
-        "yuan"
-      ],
-      "url": "https://animateicons.in/r/lu-yen-yuan.json"
     },
     {
       "name": "zap",

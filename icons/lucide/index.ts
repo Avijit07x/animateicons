@@ -1,5 +1,5 @@
 import { MenuIcon } from "./menu-icon";
-import { DashboardIcon } from "./dashboard-icon";
+import { LayoutDashboardIcon } from "./layout-dashboard-icon";
 import { LayersIcon } from "./layers-icon";
 import { LayoutGridIcon } from "./layout-grid-icon";
 import { BlocksIcon } from "./blocks-icon";
@@ -53,6 +53,7 @@ import { GitBranchPlusIcon } from "./git-branch-plus-icon";
 import { GitForkIcon } from "./git-fork-icon";
 import { GitMergeIcon } from "./git-merge-icon";
 import { GitMergeConflictIcon } from "./git-merge-conflict-icon";
+import { JapaneseYenIcon } from "./japanese-yen-icon";
 import { GitlabIcon } from "./gitlab-icon";
 import { GitCompareIcon } from "./git-compare-icon";
 import { GitCompareArrowsIcon } from "./git-compare-arrows-icon";
@@ -122,7 +123,7 @@ import { MicIcon } from "./mic-icon";
 import { MicOffIcon } from "./mic-off-icon";
 import { HeadphonesIcon } from "./headphones-icon";
 import { HeadsetIcon } from "./headset-icon";
-import { HeadphonesOffIcon } from "./headphones-off-icon";
+import { HeadphoneOffIcon } from "./headphone-off-icon";
 import { AudioLinesIcon } from "./audio-lines-icon";
 import { BellIcon } from "./bell-icon";
 import { BellRingIcon } from "./bell-ring-icon";
@@ -149,7 +150,7 @@ import { HeartIcon } from "./heart-icon";
 import { ThumbsUpIcon } from "./thumbs-up-icon";
 import { ThumbsDownIcon } from "./thumbs-down-icon";
 import { ActivityIcon } from "./activity-icon";
-import { SnowFlakeIcon } from "./snow-flake-icon";
+import { SnowflakeIcon } from "./snowflake-icon";
 import { AtomIcon } from "./atom-icon";
 import { BicepsFlexedIcon } from "./biceps-flexed-icon";
 import { BoltIcon } from "./bolt-icon";
@@ -187,12 +188,11 @@ import { SignalIcon } from "./signal-icon";
 import { ShieldCheckIcon } from "./shield-check-icon";
 import { ShieldXIcon } from "./shield-x-icon";
 import { BadgeCentIcon } from "./badge-cent-icon";
-import { BadgeDollarIcon } from "./badge-dollar-icon";
+import { BadgeDollarSignIcon } from "./badge-dollar-sign-icon";
 import { IndianRupeeIcon } from "./indian-rupee-icon";
 import { DollarSignIcon } from "./dollar-sign-icon";
 import { EuroIcon } from "./euro-icon";
 import { PoundSterlingIcon } from "./pound-sterling-icon";
-import { YenYuanIcon } from "./yen-yuan-icon";
 import { GeorgianLariIcon } from "./georgian-lari-icon";
 import { BitcoinIcon } from "./bitcoin-icon";
 import { PhilippinePesoIcon } from "./philippine-peso-icon";
@@ -229,8 +229,8 @@ import { FolderOpenIcon } from "./folder-open-icon";
 import { PaperclipIcon } from "./paperclip-icon";
 import { TelescopeIcon } from "./telescope-icon";
 import { FlameIcon } from "./flame-icon";
-import { LoginIcon } from "./login-icon";
-import { LogoutIcon } from "./logout-icon";
+import { LogInIcon } from "./log-in-icon";
+import { LogOutIcon } from "./log-out-icon";
 import { SunIcon } from "./sun-icon";
 import { MoonIcon } from "./moon-icon";
 import { WebhookIcon } from "./webhook-icon";
@@ -303,8 +303,8 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["menu", "navigation", "options", "sidebar", "list"],
  },
  {
-  name: "dashboard",
-  icon: DashboardIcon,
+  name: "layout-dashboard",
+  icon: LayoutDashboardIcon,
   addedAt: "2025-10-10",
   category: ["Layout"],
   keywords: ["dashboard", "layout", "grid", "panel", "widgets"],
@@ -693,6 +693,13 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-03-19",
   category: ["Coding & development"],
   keywords: ["git", "merge", "conflict", "version control"],
+ },
+ {
+  name: "japanese-yen",
+  icon: JapaneseYenIcon,
+  addedAt: "2026-01-13",
+  category: ["Finance"],
+  keywords: ["currency", "money", "finance", "payment", "yen", "yuan"],
  },
  {
   name: "gitlab",
@@ -1178,8 +1185,8 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["support", "call", "agent", "operator", "audio", "headset"],
  },
  {
-  name: "headphones-off",
-  icon: HeadphonesOffIcon,
+  name: "headphone-off",
+  icon: HeadphoneOffIcon,
   addedAt: "2026-01-02",
   category: ["Multimedia"],
   keywords: ["mute", "silent", "no audio", "disabled", "quiet"],
@@ -1375,8 +1382,8 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["pulse", "motion", "health", "fitness", "monitor"],
  },
  {
-  name: "snow-flake",
-  icon: SnowFlakeIcon,
+  name: "snowflake",
+  icon: SnowflakeIcon,
   addedAt: "2025-07-22",
   category: ["Weather"],
   keywords: ["cold", "weather", "snow", "winter", "ice", "freeze"],
@@ -1641,8 +1648,8 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["discount", "offer", "sale", "badge", "price", "deal"],
  },
  {
-  name: "badge-dollar",
-  icon: BadgeDollarIcon,
+  name: "badge-dollar-sign",
+  icon: BadgeDollarSignIcon,
   addedAt: "2025-10-07",
   category: ["Finance"],
   keywords: ["discount", "offer", "sale", "badge", "price", "deal"],
@@ -1674,13 +1681,6 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2025-10-17",
   category: ["Finance"],
   keywords: ["currency", "money", "finance", "payment", "pound", "gbp"],
- },
- {
-  name: "yen-yuan",
-  icon: YenYuanIcon,
-  addedAt: "2026-01-13",
-  category: ["Finance"],
-  keywords: ["currency", "money", "finance", "payment", "yen", "yuan"],
  },
  {
   name: "georgian-lari",
@@ -1935,15 +1935,15 @@ const ICON_LIST: IconListItem[] = [
   keywords: ["fire", "flame", "hot", "burn", "heat", "glow"],
  },
  {
-  name: "login",
-  icon: LoginIcon,
+  name: "log-in",
+  icon: LogInIcon,
   addedAt: "2025-11-26",
   category: ["Accounts & access"],
   keywords: ["login", "signin", "enter", "access", "auth", "account"],
  },
  {
-  name: "logout",
-  icon: LogoutIcon,
+  name: "log-out",
+  icon: LogOutIcon,
   addedAt: "2025-11-26",
   category: ["Accounts & access"],
   keywords: ["logout", "signout", "exit", "leave", "close", "account"],

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-
+import type { Variants } from "motion/react";
 import {
  LazyMotion,
  domMin,
@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface SnowFlakeIconHandle {
+export interface LayoutDashboardIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface SnowFlakeIconProps extends Omit<
+interface LayoutDashboardIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,14 +37,17 @@ interface SnowFlakeIconProps extends Omit<
  color?: string;
 }
 
-const SnowFlakeIcon = forwardRef<SnowFlakeIconHandle, SnowFlakeIconProps>(
+const LayoutDashboardIcon = forwardRef<
+ LayoutDashboardIconHandle,
+ LayoutDashboardIconProps
+>(
  (
   {
    onMouseEnter,
    onMouseLeave,
    className,
    size = 24,
-   duration = 1,
+   duration = 0.6,
    isAnimated = true,
    color,
    ...props
@@ -74,27 +77,36 @@ const SnowFlakeIcon = forwardRef<SnowFlakeIconHandle, SnowFlakeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const pathVariants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.3 * duration },
-   },
+  const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+  const iconVariants: Variants = {
+   normal: { scale: 1, rotate: 0 },
    animate: {
-    pathLength: [1, 0.3, 1],
-    opacity: [1, 0.7, 1],
-    transition: { duration: 0.8 * duration },
+    scale: [1, 1.06, 0.98, 1],
+    rotate: [0, -1.5, 1.5, 0],
+    transition: { duration: 1.1 * duration, ease: "easeInOut" },
    },
+  };
+
+  const tileVariants: Variants = {
+   normal: { opacity: 1, scale: 1, y: 0 },
+   animate: (i: number) => ({
+    opacity: [0.6, 1],
+    scale: [0.95, 1.04, 1],
+    y: [3, -2, 0],
+    transition: {
+     duration: 0.9 * duration,
+     ease: "easeInOut",
+     delay: i * 0.08,
+    },
+   }),
   };
 
   return (
@@ -116,33 +128,54 @@ const SnowFlakeIcon = forwardRef<SnowFlakeIconHandle, SnowFlakeIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={{
-       normal: {
-        rotate: 0,
-        scale: 1,
-        transition: { duration: 0.3 * duration },
-       },
-       animate: {
-        rotate: [0, 10, -10, 0],
-        scale: [1, 1.05, 1],
-        transition: { duration: 1 * duration },
-       },
-      }}
       animate={controls}
       initial="normal"
+      variants={iconVariants}
      >
-      <m.path d="m10 20-1.25-2.5L6 18" variants={pathVariants} />
-      <m.path d="M10 4 8.75 6.5 6 6" variants={pathVariants} />
-      <m.path d="m14 20 1.25-2.5L18 18" variants={pathVariants} />
-      <m.path d="m14 4 1.25 2.5L18 6" variants={pathVariants} />
-      <m.path d="m17 21-3-6h-4" variants={pathVariants} />
-      <m.path d="m17 3-3 6 1.5 3" variants={pathVariants} />
-      <m.path d="M2 12h6.5L10 9" variants={pathVariants} />
-      <m.path d="m20 10-1.5 2 1.5 2" variants={pathVariants} />
-      <m.path d="M22 12h-6.5L14 15" variants={pathVariants} />
-      <m.path d="m4 10 1.5 2L4 14" variants={pathVariants} />
-      <m.path d="m7 21 3-6-1.5-3" variants={pathVariants} />
-      <m.path d="m7 3 3 6h4" variants={pathVariants} />
+      <m.rect
+       width="7"
+       height="9"
+       x="3"
+       y="3"
+       rx="1"
+       variants={tileVariants}
+       custom={0}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="5"
+       x="14"
+       y="3"
+       rx="1"
+       variants={tileVariants}
+       custom={1}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="9"
+       x="14"
+       y="12"
+       rx="1"
+       variants={tileVariants}
+       custom={2}
+       initial="normal"
+       animate={controls}
+      />
+      <m.rect
+       width="7"
+       height="5"
+       x="3"
+       y="16"
+       rx="1"
+       variants={tileVariants}
+       custom={3}
+       initial="normal"
+       animate={controls}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>
@@ -150,5 +183,5 @@ const SnowFlakeIcon = forwardRef<SnowFlakeIconHandle, SnowFlakeIconProps>(
  },
 );
 
-SnowFlakeIcon.displayName = "SnowFlakeIcon";
-export { SnowFlakeIcon };
+LayoutDashboardIcon.displayName = "LayoutDashboardIcon";
+export { LayoutDashboardIcon };

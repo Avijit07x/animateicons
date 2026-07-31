@@ -6,7 +6,7 @@
 		"keywords": ["menu", "navigation", "options", "sidebar", "list"]
 	},
 	{
-		"name": "dashboard",
+		"name": "layout-dashboard",
 		"addedAt": "2025-10-10",
 		"category": ["Layout"],
 		"keywords": ["dashboard", "layout", "grid", "panel", "widgets"]
@@ -356,6 +356,12 @@
 		"addedAt": "2026-03-19",
 		"category": ["Coding & development"],
 		"keywords": ["git", "merge", "conflict", "version control"]
+	},
+	{
+		"name": "japanese-yen",
+		"addedAt": "2026-01-13",
+		"category": ["Finance"],
+		"keywords": ["currency", "money", "finance", "payment", "yen", "yuan"]
 	},
 	{
 		"name": "gitlab",
@@ -778,7 +784,7 @@
 		"keywords": ["support", "call", "agent", "operator", "audio", "headset"]
 	},
 	{
-		"name": "headphones-off",
+		"name": "headphone-off",
 		"addedAt": "2026-01-02",
 		"category": ["Multimedia"],
 		"keywords": ["mute", "silent", "no audio", "disabled", "quiet"]
@@ -955,7 +961,7 @@
 		"keywords": ["pulse", "motion", "health", "fitness", "monitor"]
 	},
 	{
-		"name": "snow-flake",
+		"name": "snowflake",
 		"addedAt": "2025-07-22",
 		"category": ["Weather"],
 		"keywords": ["cold", "weather", "snow", "winter", "ice", "freeze"]
@@ -1183,7 +1189,7 @@
 		"keywords": ["discount", "offer", "sale", "badge", "price", "deal"]
 	},
 	{
-		"name": "badge-dollar",
+		"name": "badge-dollar-sign",
 		"addedAt": "2025-10-07",
 		"category": ["Finance"],
 		"keywords": ["discount", "offer", "sale", "badge", "price", "deal"]
@@ -1211,12 +1217,6 @@
 		"addedAt": "2025-10-17",
 		"category": ["Finance"],
 		"keywords": ["currency", "money", "finance", "payment", "pound", "gbp"]
-	},
-	{
-		"name": "yen-yuan",
-		"addedAt": "2026-01-13",
-		"category": ["Finance"],
-		"keywords": ["currency", "money", "finance", "payment", "yen", "yuan"]
 	},
 	{
 		"name": "georgian-lari",
@@ -1464,13 +1464,13 @@
 		"keywords": ["fire", "flame", "hot", "burn", "heat", "glow"]
 	},
 	{
-		"name": "login",
+		"name": "log-in",
 		"addedAt": "2025-11-26",
 		"category": ["Accounts & access"],
 		"keywords": ["login", "signin", "enter", "access", "auth", "account"]
 	},
 	{
-		"name": "logout",
+		"name": "log-out",
 		"addedAt": "2025-11-26",
 		"category": ["Accounts & access"],
 		"keywords": ["logout", "signout", "exit", "leave", "close", "account"]

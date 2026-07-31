@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface YenYuanIconHandle {
+export interface LogInIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface YenYuanIconProps extends Omit<
+interface LogInIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,13 +37,13 @@ interface YenYuanIconProps extends Omit<
  color?: string;
 }
 
-const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
+const LogInIcon = forwardRef<LogInIconHandle, LogInIconProps>(
  (
   {
    onMouseEnter,
    onMouseLeave,
    className,
-   size = 24,
+   size = 28,
    duration = 1,
    isAnimated = true,
    color,
@@ -81,51 +81,38 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const iconVariants: Variants = {
+   normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const vStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scale: [1, 1.1, 0.95, 1],
+    rotate: [0, -3, 2, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",
-     delay: 0.06,
     },
    },
   };
 
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { x: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
+    x: [-8, 2, 0],
+    opacity: [0, 1, 1],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.22,
+     ease: "easeOut",
     },
    },
   };
 
-  const baseStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const doorVariants: Variants = {
+   normal: { pathLength: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.8, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: 0.34,
+     delay: 0.1,
     },
    },
   };
@@ -151,35 +138,14 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-japanese-yen-icon lucide-japanese-yen"
+      variants={iconVariants}
      >
-      <g opacity={0.35}>
-       <path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3" />
-       <path d="M6 15h12" />
-       <path d="M6 11h12" />
-      </g>
+      <m.path d="m10 17 5-5-5-5" variants={arrowVariants} />
+      <m.path d="M15 12H3" variants={arrowVariants} />
 
       <m.path
-       d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3"
-       pathLength={1}
-       variants={vStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 11h12"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 15h12"
-       pathLength={1}
-       variants={baseStroke}
-       initial="normal"
-       animate={controls}
+       d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+       variants={doorVariants}
       />
      </m.svg>
     </m.div>
@@ -188,5 +154,5 @@ const YenYuanIcon = forwardRef<YenYuanIconHandle, YenYuanIconProps>(
  },
 );
 
-YenYuanIcon.displayName = "YenYuanIcon";
-export { YenYuanIcon };
+LogInIcon.displayName = "LogInIcon";
+export { LogInIcon };
