@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
+import { ClarityAnalytics } from "@/components/ClarityAnalytics";
 import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
@@ -136,6 +137,7 @@ export default async function RootLayout({
 				{/* <SponsorPopup /> */}
 				<AppBootLoader />
 				<Analytics />
+				<ClarityAnalytics />
 			</body>
 		</html>
 	);
