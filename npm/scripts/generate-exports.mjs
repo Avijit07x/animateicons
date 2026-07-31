@@ -48,6 +48,18 @@ const isCanonical = (icon) => {
 	return icon.handleName === `${icon.componentName}Handle`;
 };
 
+// Icons renamed to match lucide's canonical names. Their previous export
+// names are re-exported as aliases so existing consumers don't break.
+const DEPRECATED_ALIASES = {
+	LogInIcon: "LoginIcon",
+	LogOutIcon: "LogoutIcon",
+	SnowflakeIcon: "SnowFlakeIcon",
+	BadgeDollarSignIcon: "BadgeDollarIcon",
+	LayoutDashboardIcon: "DashboardIcon",
+	HeadphoneOffIcon: "HeadphonesOffIcon",
+	JapaneseYenIcon: "YenYuanIcon",
+};
+
 const buildBarrel = (library, icons) => {
 	const lines = [];
 	for (const icon of icons) {
@@ -57,6 +69,23 @@ const buildBarrel = (library, icons) => {
 		}
 		const importPath = `../../icons/${library}/${icon.stem}-icon`;
 		lines.push(`export { ${icon.componentName} } from "${importPath}";`);
+		const bare = icon.componentName.replace(/Icon$/, "");
+		if (bare && bare !== icon.componentName) {
+			lines.push(
+				`export { ${icon.componentName} as ${bare} } from "${importPath}";`,
+			);
+		}
+		const legacy = DEPRECATED_ALIASES[icon.componentName];
+		if (legacy) {
+			lines.push(
+				`export { ${icon.componentName} as ${legacy} } from "${importPath}";`,
+			);
+			if (icon.handleName) {
+				lines.push(
+					`export type { ${icon.handleName} as ${legacy}Handle } from "${importPath}";`,
+				);
+			}
+		}
 		if (icon.handleName) {
 			lines.push(`export type { ${icon.handleName} } from "${importPath}";`);
 		}

@@ -118,8 +118,10 @@ const ChevronRightIcon = dynamic(() =>
 const CopyIcon = dynamic(() =>
 	import("@/icons/lucide/copy-icon").then((m) => m.CopyIcon),
 );
-const DashboardIcon = dynamic(() =>
-	import("@/icons/lucide/dashboard-icon").then((m) => m.DashboardIcon),
+const LayoutDashboardIcon = dynamic(() =>
+	import("@/icons/lucide/layout-dashboard-icon").then(
+		(m) => m.LayoutDashboardIcon,
+	),
 );
 const DownloadIcon = dynamic(() =>
 	import("@/icons/lucide/download-icon").then((m) => m.DownloadIcon),
@@ -203,7 +205,7 @@ export type AnimatedIconComponent = React.ComponentType<AnimatedIconProps>;
 
 export const LucideIcons: AnimatedIconComponent[] = [
 	MenuIcon,
-	DashboardIcon,
+	LayoutDashboardIcon,
 	LayoutGridIcon,
 	HouseIcon,
 	SearchIcon,

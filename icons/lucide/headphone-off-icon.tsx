@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface HeadphonesOffIconHandle {
+export interface HeadphoneOffIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface HeadphonesOffIconProps extends Omit<
+interface HeadphoneOffIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,9 +37,9 @@ interface HeadphonesOffIconProps extends Omit<
  color?: string;
 }
 
-const HeadphonesOffIcon = forwardRef<
- HeadphonesOffIconHandle,
- HeadphonesOffIconProps
+const HeadphoneOffIcon = forwardRef<
+ HeadphoneOffIconHandle,
+ HeadphoneOffIconProps
 >(
  (
   {
@@ -151,5 +151,5 @@ const HeadphonesOffIcon = forwardRef<
  },
 );
 
-HeadphonesOffIcon.displayName = "HeadphonesOffIcon";
-export { HeadphonesOffIcon };
+HeadphoneOffIcon.displayName = "HeadphoneOffIcon";
+export { HeadphoneOffIcon };

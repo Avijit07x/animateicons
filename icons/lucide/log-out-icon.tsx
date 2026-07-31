@@ -16,12 +16,12 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-export interface DashboardIconHandle {
+export interface LogOutIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
 }
 
-interface DashboardIconProps extends Omit<
+interface LogOutIconProps extends Omit<
  HTMLAttributes<HTMLDivElement>,
  | "color"
  | "onDrag"
@@ -37,14 +37,14 @@ interface DashboardIconProps extends Omit<
  color?: string;
 }
 
-const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
+const LogOutIcon = forwardRef<LogOutIconHandle, LogOutIconProps>(
  (
   {
    onMouseEnter,
    onMouseLeave,
    className,
-   size = 24,
-   duration = 0.6,
+   size = 28,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -81,29 +81,40 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
    [controls, onMouseLeave],
   );
 
-  const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
   const iconVariants: Variants = {
    normal: { scale: 1, rotate: 0 },
    animate: {
-    scale: [1, 1.06, 0.98, 1],
-    rotate: [0, -1.5, 1.5, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const tileVariants: Variants = {
-   normal: { opacity: 1, scale: 1, y: 0 },
-   animate: (i: number) => ({
-    opacity: [0.6, 1],
-    scale: [0.95, 1.04, 1],
-    y: [3, -2, 0],
+    scale: [1, 1.1, 0.95, 1],
+    rotate: [0, 3, -2, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",
-     delay: i * 0.08,
     },
-   }),
+   },
+  };
+
+  const arrowVariants: Variants = {
+   normal: { x: 0, opacity: 1 },
+   animate: {
+    x: [8, -2, 0],
+    opacity: [0, 1, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeOut",
+    },
+   },
+  };
+
+  const doorVariants: Variants = {
+   normal: { pathLength: 1 },
+   animate: {
+    pathLength: [0, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.1,
+    },
+   },
   };
 
   return (
@@ -129,49 +140,12 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
       initial="normal"
       variants={iconVariants}
      >
-      <m.rect
-       width="7"
-       height="9"
-       x="3"
-       y="3"
-       rx="1"
-       variants={tileVariants}
-       custom={0}
-       initial="normal"
-       animate={controls}
-      />
-      <m.rect
-       width="7"
-       height="5"
-       x="14"
-       y="3"
-       rx="1"
-       variants={tileVariants}
-       custom={1}
-       initial="normal"
-       animate={controls}
-      />
-      <m.rect
-       width="7"
-       height="9"
-       x="14"
-       y="12"
-       rx="1"
-       variants={tileVariants}
-       custom={2}
-       initial="normal"
-       animate={controls}
-      />
-      <m.rect
-       width="7"
-       height="5"
-       x="3"
-       y="16"
-       rx="1"
-       variants={tileVariants}
-       custom={3}
-       initial="normal"
-       animate={controls}
+      <m.path d="m16 17 5-5-5-5" variants={arrowVariants} />
+      <m.path d="M21 12H9" variants={arrowVariants} />
+
+      <m.path
+       d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
+       variants={doorVariants}
       />
      </m.svg>
     </m.div>
@@ -180,5 +154,5 @@ const DashboardIcon = forwardRef<DashboardIconHandle, DashboardIconProps>(
  },
 );
 
-DashboardIcon.displayName = "DashboardIcon";
-export { DashboardIcon };
+LogOutIcon.displayName = "LogOutIcon";
+export { LogOutIcon };
