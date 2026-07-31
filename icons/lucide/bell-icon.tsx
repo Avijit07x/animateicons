@@ -84,8 +84,6 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
    [controls, onMouseLeave],
   );
 
-  // Premium ring: a small wind-up (anticipation), then a decaying swing that
-  // pivots from the top of the bell like a real hanging bell.
   const bellVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
@@ -98,7 +96,6 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
    },
   };
 
-  // The clapper lags the bell a touch (follow-through) for a livelier feel.
   const clapperVariants: Variants = {
    normal: { x: 0 },
    animate: {

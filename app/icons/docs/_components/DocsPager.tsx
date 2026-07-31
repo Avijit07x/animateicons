@@ -26,12 +26,16 @@ const PagerCard: React.FC<{
 }> = ({ page, dir, fallback }) => (
 	<Link
 		href={page.href}
-		className={cn(cardClass, dir === "prev" ? "items-start" : "items-end text-right")}
+		className={cn(
+			cardClass,
+			dir === "prev" ? "items-start" : "items-end text-right",
+		)}
 	>
 		<span className="text-textMuted flex items-center gap-1 text-xs">
 			{dir === "prev" ? (
 				<>
-					<ChevronLeft className="size-3.5" /> {fallback ? "Explore" : "Previous"}
+					<ChevronLeft className="size-3.5" />{" "}
+					{fallback ? "Explore" : "Previous"}
 				</>
 			) : (
 				<>

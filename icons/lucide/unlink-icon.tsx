@@ -106,7 +106,7 @@ const UnlinkIcon = forwardRef<UnlinkIconHandle, UnlinkIconProps>(
      sparksControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [leftChainControls, rightChainControls, sparksControls],
+   [leftChainControls, rightChainControls, sparksControls, onMouseLeave],
   );
 
   const leftVariants: Variants = {

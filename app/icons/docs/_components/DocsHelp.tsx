@@ -11,7 +11,8 @@ const DocsHelp = () => (
 		<div>
 			<p className="text-textPrimary text-sm font-semibold">Need a hand?</p>
 			<p className="text-textMuted mt-1 text-sm">
-				Open an issue on GitHub or reach out on Twitter, we're happy to help.
+				Open an issue on GitHub or reach out on Twitter, we&apos;re happy to
+				help.
 			</p>
 		</div>
 		<div className="flex shrink-0 gap-2">

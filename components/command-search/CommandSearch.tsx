@@ -108,18 +108,29 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 		return merged;
 	}, [query]);
 
-	// Reset selection when the result list changes so the highlight
-	// always points at the top match instead of an out-of-bounds index.
-	useEffect(() => {
+	// Reset selection when the query changes (highlight the top match), and
+	// clear the query when the palette opens. Both are resets driven by a
+	// value change, so we adjust during render - React's recommended
+	// alternative to a setState-in-effect.
+	const [prevQuery, setPrevQuery] = useState(query);
+	if (query !== prevQuery) {
+		setPrevQuery(query);
 		setSelected(0);
-	}, [query]);
+	}
 
-	// Reset state and refocus when the palette opens.
+	const [prevOpen, setPrevOpen] = useState(isOpen);
+	if (isOpen !== prevOpen) {
+		setPrevOpen(isOpen);
+		if (isOpen) {
+			setQuery("");
+			setSelected(0);
+		}
+	}
+
+	// Focus the input when the palette opens - a real side effect, so it
+	// stays in an effect. rAF so the input exists in the DOM first.
 	useEffect(() => {
 		if (!isOpen) return;
-		setQuery("");
-		setSelected(0);
-		// Microtask so the input exists in the DOM before we focus it.
 		const id = requestAnimationFrame(() => inputRef.current?.focus());
 		return () => cancelAnimationFrame(id);
 	}, [isOpen]);
@@ -233,7 +244,9 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 							{results.length === 0 ? (
 								<div className="text-textSecondary px-3 py-8 text-center text-sm">
 									No icons match{" "}
-									<span className="text-textPrimary font-mono">"{query}"</span>
+									<span className="text-textPrimary font-mono">
+										&quot;{query}&quot;
+									</span>
 								</div>
 							) : (
 								results.map((icon, i) => (

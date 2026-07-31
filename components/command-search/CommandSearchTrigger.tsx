@@ -14,21 +14,21 @@
 
 import { Kbd } from "@/components/ui/kbd";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useCommandSearch } from "./CommandSearchProvider";
+
+// navigator.platform never changes, so there's nothing to subscribe to.
+const noopSubscribe = () => () => {};
 
 const CommandSearchTrigger: React.FC = () => {
 	const { open } = useCommandSearch();
-	const [isMac, setIsMac] = useState(true);
-
-	useEffect(() => {
-		// Hint with the right modifier per OS. Default mac so SSR doesn't
-		// hydrate-mismatch on the most common visitor.
-		setIsMac(
-			typeof navigator !== "undefined" &&
-				/Mac|iPhone|iPad|iPod/.test(navigator.platform),
-		);
-	}, []);
+	// Hint with the right modifier per OS. SSR default is mac so we don't
+	// hydrate-mismatch on the most common visitor.
+	const isMac = useSyncExternalStore(
+		noopSubscribe,
+		() => /Mac|iPhone|iPad|iPod/.test(navigator.platform),
+		() => true,
+	);
 
 	return (
 		<button

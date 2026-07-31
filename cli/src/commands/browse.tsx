@@ -99,14 +99,14 @@ export function BrowseApp({
 		results.length === 0 ? 0 : Math.min(cursor, results.length - 1);
 	const current = results[cursorIdx] ?? null;
 
-	useEffect(() => {
-		const cursorRow = Math.floor(cursorIdx / cols);
-		setScrollRow((prev) => {
-			if (cursorRow < prev) return cursorRow;
-			if (cursorRow >= prev + gridRows) return cursorRow - gridRows + 1;
-			return prev;
-		});
-	}, [cursorIdx, cols, gridRows]);
+	// Keep the cursor's row inside the visible window. Derived from the
+	// cursor position, so we adjust during render instead of in an effect.
+	const cursorRow = Math.floor(cursorIdx / cols);
+	if (cursorRow < scrollRow) {
+		setScrollRow(cursorRow);
+	} else if (cursorRow >= scrollRow + gridRows) {
+		setScrollRow(cursorRow - gridRows + 1);
+	}
 
 	const moveBy = (delta: number) =>
 		setCursor(() => {

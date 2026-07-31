@@ -107,7 +107,7 @@ export const useIconSearchFilter = ({
 				),
 			}))
 			.sort((a, b) => Number(b.isNew) - Number(a.isNew));
-	}, [query, fuse, categoryIcons]);
+	}, [query, fuse, categoryIcons, category]);
 
 	return filteredItems;
 };

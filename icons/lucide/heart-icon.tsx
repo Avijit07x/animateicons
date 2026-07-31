@@ -86,7 +86,6 @@ const HeartIcon = forwardRef<HeartIconHandle, HeartIconProps>(
 
   const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-  // Snappy outline draw, right side following the left.
   const drawVariantLeft: Variants = {
    normal: { pathLength: 1, opacity: 1 },
    animate: {
@@ -109,8 +108,6 @@ const HeartIcon = forwardRef<HeartIconHandle, HeartIconProps>(
    },
   };
 
-  // Premium beat: a real lub-dub (two beats) with overshoot, not a single
-  // flat pulse.
   const svgVariant: Variants = {
    normal: { scale: 1 },
    animate: {

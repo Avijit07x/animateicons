@@ -87,7 +87,6 @@ const SponsorPopup: React.FC = () => {
 			document.body.style.overflow = prevOverflow;
 			window.removeEventListener("keydown", onKey);
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [open, view]);
 
 	const copyUpi = async () => {

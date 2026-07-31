@@ -81,8 +81,6 @@ const CheckIcon = forwardRef<CheckIconHandle, CheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  // Premium check: the tick draws in fast (expo ease) while the mark pops
-  // with a slight overshoot, then settles - a confident "done" gesture.
   const tickVariants: Variants = {
    normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },
    animate: {

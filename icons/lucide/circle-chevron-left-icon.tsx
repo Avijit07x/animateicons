@@ -93,7 +93,14 @@ const CircleChevronLeftIcon = forwardRef<
      onMouseEnter?.(e as any);
     }
    },
-   [circleControls, tickControls, reduced, onMouseEnter, isAnimated],
+   [
+    circleControls,
+    tickControls,
+    arrowControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(
@@ -106,7 +113,7 @@ const CircleChevronLeftIcon = forwardRef<
      onMouseLeave?.(e as any);
     }
    },
-   [circleControls, tickControls, onMouseLeave],
+   [circleControls, tickControls, arrowControls, onMouseLeave],
   );
 
   const circleVariants: Variants = {

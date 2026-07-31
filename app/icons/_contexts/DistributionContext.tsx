@@ -16,14 +16,8 @@
  *   - one provider, one writer, every tile shares the same value
  */
 
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+import { useStoredPreference } from "@/hooks/useStoredPreference";
+import { createContext, useContext, useMemo } from "react";
 
 export type Distribution = "shadcn" | "npm";
 
@@ -45,25 +39,11 @@ const DistributionContext = createContext<DistributionContextValue | undefined>(
 export const DistributionProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
-	const [distribution, setState] = useState<Distribution>("shadcn");
-
-	useEffect(() => {
-		try {
-			const saved = localStorage.getItem(STORAGE_KEY);
-			if (isValid(saved)) setState(saved);
-		} catch {
-			// localStorage may be unavailable; ignore.
-		}
-	}, []);
-
-	const setDistribution = useCallback((d: Distribution) => {
-		setState(d);
-		try {
-			localStorage.setItem(STORAGE_KEY, d);
-		} catch {
-			// ignore
-		}
-	}, []);
+	const [distribution, setDistribution] = useStoredPreference<Distribution>(
+		STORAGE_KEY,
+		"shadcn",
+		isValid,
+	);
 
 	const value = useMemo(
 		() => ({ distribution, setDistribution }),

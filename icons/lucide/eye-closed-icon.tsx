@@ -92,7 +92,7 @@ const EyeClosedIcon = forwardRef<EyeClosedIconHandle, EyeClosedIconProps>(
    return () => {
     if (idleTimer.current) clearTimeout(idleTimer.current);
    };
-  }, [squeezeControls, reduced]);
+  }, [squeezeControls, reduced, isAnimated]);
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
@@ -103,7 +103,14 @@ const EyeClosedIcon = forwardRef<EyeClosedIconHandle, EyeClosedIconProps>(
      squeezeControls.start("hover");
     } else onMouseEnter?.(e as any);
    },
-   [arcControls, lashesControls, squeezeControls, reduced],
+   [
+    arcControls,
+    lashesControls,
+    squeezeControls,
+    reduced,
+    onMouseEnter,
+    isAnimated,
+   ],
   );
 
   const handleLeave = useCallback(() => {

@@ -93,7 +93,7 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
      rightPartControls.start("normal");
     } else onMouseLeave?.(e as any);
    },
-   [leftPartControls, rightPartControls],
+   [leftPartControls, rightPartControls, onMouseLeave],
   );
 
   const linkVariantsLeft: Variants = {

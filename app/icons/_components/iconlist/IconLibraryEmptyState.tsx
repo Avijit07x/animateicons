@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -21,19 +22,19 @@ const IconLibraryEmptyState: React.FC<Props> = () => {
 					</p>
 
 					<div className="mt-2 flex gap-3">
-						<a
+						<Link
 							href="/icons/lucide"
 							className="rounded-md bg-(--cta-bg) px-4 py-2 text-sm font-medium text-(--cta-text) transition hover:opacity-90"
 						>
 							Browse Lucide Icons
-						</a>
+						</Link>
 
-						<a
+						<Link
 							href="/icons/huge"
 							className="border-border bg-surface text-textPrimary hover:bg-surfaceElevated rounded-md border px-4 py-2 text-sm font-medium transition"
 						>
 							Browse Huge Icons
-						</a>
+						</Link>
 					</div>
 				</div>
 			</main>

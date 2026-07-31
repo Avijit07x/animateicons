@@ -18,14 +18,8 @@
  * tiles consume the same context value.
  */
 
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+import { useStoredPreference } from "@/hooks/useStoredPreference";
+import { createContext, useContext, useMemo } from "react";
 
 export type PackageManager = "npm" | "pnpm" | "bun";
 
@@ -47,25 +41,8 @@ const PackageManagerContext = createContext<
 export const PackageManagerProvider: React.FC<{
 	children: React.ReactNode;
 }> = ({ children }) => {
-	const [packageManager, setState] = useState<PackageManager>("npm");
-
-	useEffect(() => {
-		try {
-			const saved = localStorage.getItem(STORAGE_KEY);
-			if (isValid(saved)) setState(saved);
-		} catch {
-			// localStorage may be unavailable (SSR-mismatch, privacy mode); ignore.
-		}
-	}, []);
-
-	const setPackageManager = useCallback((pm: PackageManager) => {
-		setState(pm);
-		try {
-			localStorage.setItem(STORAGE_KEY, pm);
-		} catch {
-			// ignore write failures
-		}
-	}, []);
+	const [packageManager, setPackageManager] =
+		useStoredPreference<PackageManager>(STORAGE_KEY, "npm", isValid);
 
 	const value = useMemo(
 		() => ({ packageManager, setPackageManager }),

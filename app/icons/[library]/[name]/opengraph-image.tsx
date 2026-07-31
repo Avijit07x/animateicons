@@ -206,7 +206,6 @@ export default async function OGImage({
 				}}
 			>
 				{logoDataUrl ? (
-					// eslint-disable-next-line @next/next/no-img-element
 					<img
 						src={logoDataUrl}
 						width={44}

@@ -1,5 +1,8 @@
 import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
-import { MenuDemo, NavbarDemo } from "@/app/icons/docs/_components/ExampleDemos";
+import {
+	MenuDemo,
+	NavbarDemo,
+} from "@/app/icons/docs/_components/ExampleDemos";
 
 export const metadata = {
 	title: "Menus & navigation",
@@ -21,37 +24,38 @@ export function Navbar() {
 	const settings = useRef<IconHandle>(null)
 	const user = useRef<IconHandle>(null)
 
-	return (
-		<nav className="flex items-center justify-between rounded-xl border px-4 py-2">
-			<span className="text-sm font-semibold">Dashboard</span>
-			<div className="flex items-center gap-0.5">
-				<Button
-					variant="ghost"
-					size="icon"
-					onMouseEnter={() => bell.current?.startAnimation()}
-					onMouseLeave={() => bell.current?.stopAnimation()}
-				>
-					<BellIcon ref={bell} size={18} />
-				</Button>
-				<Button
-					variant="ghost"
-					size="icon"
-					onMouseEnter={() => settings.current?.startAnimation()}
-					onMouseLeave={() => settings.current?.stopAnimation()}
-				>
-					<SettingsIcon ref={settings} size={18} />
-				</Button>
-				<Button
-					variant="ghost"
-					size="icon"
-					onMouseEnter={() => user.current?.startAnimation()}
-					onMouseLeave={() => user.current?.stopAnimation()}
-				>
-					<UserIcon ref={user} size={18} />
-				</Button>
-			</div>
-		</nav>
-	)
+    return (
+    	<nav className="flex items-center justify-between rounded-xl border px-4 py-2">
+    		<span className="text-sm font-semibold">Dashboard</span>
+    		<div className="flex items-center gap-0.5">
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => bell.current?.startAnimation()}
+    				onMouseLeave={() => bell.current?.stopAnimation()}
+    			>
+    				<BellIcon ref={bell} size={18} />
+    			</Button>
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => settings.current?.startAnimation()}
+    				onMouseLeave={() => settings.current?.stopAnimation()}
+    			>
+    				<SettingsIcon ref={settings} size={18} />
+    			</Button>
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => user.current?.startAnimation()}
+    				onMouseLeave={() => user.current?.stopAnimation()}
+    			>
+    				<UserIcon ref={user} size={18} />
+    			</Button>
+    		</div>
+    	</nav>
+    )
+
 }`;
 
 export const menuCode = `import { useRef } from "react"
@@ -63,37 +67,38 @@ export function AccountMenu() {
 	const settings = useRef<IconHandle>(null)
 	const logout = useRef<IconHandle>(null)
 
-	const item =
-		"flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm"
+    const item =
+    	"flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm"
 
-	return (
-		<div className="w-56 rounded-xl border p-1.5">
-			<button
-				className={item}
-				onMouseEnter={() => profile.current?.startAnimation()}
-				onMouseLeave={() => profile.current?.stopAnimation()}
-			>
-				<UserIcon ref={profile} size={16} />
-				Profile
-			</button>
-			<button
-				className={item}
-				onMouseEnter={() => settings.current?.startAnimation()}
-				onMouseLeave={() => settings.current?.stopAnimation()}
-			>
-				<SettingsIcon ref={settings} size={16} />
-				Settings
-			</button>
-			<button
-				className={item}
-				onMouseEnter={() => logout.current?.startAnimation()}
-				onMouseLeave={() => logout.current?.stopAnimation()}
-			>
-				<LogOutIcon ref={logout} size={16} />
-				Log out
-			</button>
-		</div>
-	)
+    return (
+    	<div className="w-56 rounded-xl border p-1.5">
+    		<button
+    			className={item}
+    			onMouseEnter={() => profile.current?.startAnimation()}
+    			onMouseLeave={() => profile.current?.stopAnimation()}
+    		>
+    			<UserIcon ref={profile} size={16} />
+    			Profile
+    		</button>
+    		<button
+    			className={item}
+    			onMouseEnter={() => settings.current?.startAnimation()}
+    			onMouseLeave={() => settings.current?.stopAnimation()}
+    		>
+    			<SettingsIcon ref={settings} size={16} />
+    			Settings
+    		</button>
+    		<button
+    			className={item}
+    			onMouseEnter={() => logout.current?.startAnimation()}
+    			onMouseLeave={() => logout.current?.stopAnimation()}
+    		>
+    			<LogOutIcon ref={logout} size={16} />
+    			Log out
+    		</button>
+    	</div>
+    )
+
 }`;
 
 # Menus & navigation

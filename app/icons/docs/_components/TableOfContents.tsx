@@ -45,6 +45,10 @@ const TableOfContents: React.FC = () => {
 			seen.add(id);
 		}
 
+		// Building the TOC requires scanning the post-render DOM for sibling
+		// MDX headings (and de-duping their ids) - there's no render-time
+		// source for that, so this setState genuinely belongs in an effect.
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setHeadings(
 			nodes.map((el) => ({
 				id: el.id,

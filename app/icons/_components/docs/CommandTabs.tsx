@@ -19,7 +19,7 @@ const CommandTabs: React.FC<{ title: string; items: CommandItem[] }> = ({
 	const current = items.find((i) => i.manager === active) ?? items[0];
 
 	return (
-		<div className="group/code bg-surface relative my-6 overflow-hidden rounded-xl shadow-lg shadow-black/20 ring-1 ring-white/10">
+		<div className="group/code bg-surface relative my-6 overflow-hidden rounded-xl shadow-lg ring-1 shadow-black/20 ring-white/10">
 			<div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.03] px-2">
 				<div className="flex items-center">
 					<span className="text-textMuted mr-1 px-2 font-mono text-xs">

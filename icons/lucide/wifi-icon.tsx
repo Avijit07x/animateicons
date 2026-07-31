@@ -160,7 +160,11 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
    animate: {
     strokeDashoffset: [9, 0],
     opacity: [0, 1],
-    transition: { duration: 0.3 * duration, delay: 0.12 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.3 * duration,
+     delay: 0.12 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -169,7 +173,11 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
    animate: {
     strokeDashoffset: [17, 0],
     opacity: [0, 1],
-    transition: { duration: 0.35 * duration, delay: 0.24 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.35 * duration,
+     delay: 0.24 * duration,
+     ease: "easeOut",
+    },
    },
   };
 
@@ -178,7 +186,11 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
    animate: {
     strokeDashoffset: [23, 0],
     opacity: [0, 1],
-    transition: { duration: 0.4 * duration, delay: 0.36 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.4 * duration,
+     delay: 0.36 * duration,
+     ease: "easeOut",
+    },
    },
   };
 

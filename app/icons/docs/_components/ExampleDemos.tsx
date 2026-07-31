@@ -158,9 +158,7 @@ export function BannerDemo() {
 				size={18}
 				className="shrink-0 text-emerald-400"
 			/>
-			<p className="text-textPrimary text-sm">
-				Your changes have been saved.
-			</p>
+			<p className="text-textPrimary text-sm">Your changes have been saved.</p>
 		</div>
 	);
 }

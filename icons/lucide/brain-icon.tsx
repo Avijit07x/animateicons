@@ -126,7 +126,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      transition: { duration: 0.7 * duration, ease: "easeInOut" },
     },
    }),
-   [],
+   [duration],
   );
 
   const spinePulse: Variants = useMemo(
@@ -142,7 +142,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      },
     },
    }),
-   [],
+   [duration],
   );
 
   const lobeBreatheA: Variants = useMemo(
@@ -159,7 +159,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      },
     },
    }),
-   [],
+   [duration],
   );
 
   const lobeBreatheB: Variants = useMemo(
@@ -176,7 +176,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      },
     },
    }),
-   [],
+   [duration],
   );
 
   const synapseSparkL: Variants = useMemo(
@@ -192,7 +192,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      },
     },
    }),
-   [],
+   [duration],
   );
 
   const synapseSparkR: Variants = useMemo(
@@ -208,7 +208,7 @@ const BrainIcon = forwardRef<BrainIconHandle, BrainIconProps>(
      },
     },
    }),
-   [],
+   [duration],
   );
 
   return (
