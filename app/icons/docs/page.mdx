@@ -1,6 +1,6 @@
-import Link from "next/link";
 import CodeBlock from "../_components/docs/CodeBlock";
 import CommandBlock from "../_components/docs/CommandBlock";
+import Badge from "./_components/Badge";
 import { Callout } from "./_components/Callout";
 import InstallMethods from "./_components/InstallMethods";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
@@ -32,7 +32,7 @@ Pick whichever path fits your setup. They all ship the same icons and the same A
 
 ## npm package
 
-<span className="border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mr-2 inline-block rounded-full border px-2.5 py-0.5 align-middle text-xs font-semibold">Recommended</span> Best for most apps. One install, all {ICON_COUNTS.total} icons available.
+<Badge>Recommended</Badge> Best for most apps. One install, all {ICON_COUNTS.total} icons available.
 
 #### 1. Install the package
 
@@ -56,9 +56,9 @@ Icons animate on hover out of the box, no extra wiring. Pass `size`, `color`, or
 
 ## Prefer to copy the source?
 
-If you'd rather own the icon files instead of depending on the package, use the <Link href="/icons/docs/shadcn">shadcn CLI</Link> or the first-party <Link href="/icons/docs/cli">animateicons CLI</Link>. Using an AI coding agent? The <Link href="/icons/docs/mcp">MCP server</Link> lets it add icons for you.
+If you'd rather own the icon files instead of depending on the package, use the [shadcn CLI](/icons/docs/shadcn) or the first-party [animateicons CLI](/icons/docs/cli). Using an AI coding agent? The [MCP server](/icons/docs/mcp) lets it add icons for you.
 
-Once icons are in your project, head to <Link href="/icons/docs/usage">Usage</Link> for styling, the imperative API, and full types.
+Once icons are in your project, head to [Usage](/icons/docs/usage) for styling, the imperative API, and full types.
 
 </section>
 

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CodeBlock from "../../_components/docs/CodeBlock";
 import { Callout } from "../_components/Callout";
 
@@ -30,7 +29,7 @@ export const mcpUsageCode = `// Then just ask your agent in plain language:
 
 # MCP server
 
-`@animateicons/mcp` is a <Link href="https://modelcontextprotocol.io" target="_blank">Model Context Protocol</Link> server. Connect it to an AI coding agent (Claude Code, Cursor, and others), and the agent can search the AnimateIcons catalog and drop animated icons straight into your project, no copy-pasting.
+`@animateicons/mcp` is a [Model Context Protocol](https://modelcontextprotocol.io) server. Connect it to an AI coding agent (Claude Code, Cursor, and others), and the agent can search the AnimateIcons catalog and drop animated icons straight into your project, no copy-pasting.
 
 <div className="space-y-14">
 
@@ -80,10 +79,10 @@ Add the server to your MCP config (e.g. `.cursor/mcp.json` or `.mcp.json`):
 ## Requirements
 
 <Callout type="note">
-Icons written by `add_icon` import `cn` from `@/lib/utils` (the shadcn convention) and require the <Link href="https://motion.dev" target="_blank">motion</Link> package at runtime.
+Icons written by `add_icon` import `cn` from `@/lib/utils` (the shadcn convention) and require the [motion](https://motion.dev) package at runtime.
 </Callout>
 
-Prefer the terminal? The <Link href="/icons/docs/cli">CLI</Link> does the same thing with `npx animateicons add`.
+Prefer the terminal? The [CLI](/icons/docs/cli) does the same thing with `npx animateicons add`.
 
 </section>
 
