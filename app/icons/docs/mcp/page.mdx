@@ -1,7 +1,6 @@
 import Link from "next/link";
-import BackButton from "../../_components/docs/BackButton";
 import CodeBlock from "../../_components/docs/CodeBlock";
-import OpenInAI from "../../_components/docs/OpenInAI";
+import { Callout } from "../_components/Callout";
 
 export const metadata = {
 	title: "AnimateIcons MCP Server",
@@ -29,22 +28,11 @@ export const mcpUsageCode = `// Then just ask your agent in plain language:
 // → it calls search_icons, picks bell-ring, then add_icon
 //   and writes components/icons/bell-ring.tsx for you.`;
 
-<div className="min-w-0 flex-1">
-	<div className="text-textPrimary mx-auto w-full max-w-5xl px-6 py-12">
-		<div className="mb-10 flex w-full flex-wrap items-center justify-between gap-5">
-			<div className="flex items-center gap-3">
-				<BackButton />
-				<h1 className="text-2xl font-semibold">MCP server</h1>
-			</div>
-			<OpenInAI
-				pageUrl="https://animateicons.in/icons/docs/mcp"
-				title="AnimateIcons MCP Server"
-			/>
-		</div>
+# MCP server
 
-`@animateicons/mcp` is a <Link href="https://modelcontextprotocol.io" target="_blank" className="underline underline-offset-4">Model Context Protocol</Link> server. Connect it to an AI coding agent - Claude Code, Cursor, and others - and the agent can search the AnimateIcons catalog and drop animated icons straight into your project, no copy-pasting.
+`@animateicons/mcp` is a <Link href="https://modelcontextprotocol.io" target="_blank">Model Context Protocol</Link> server. Connect it to an AI coding agent (Claude Code, Cursor, and others), and the agent can search the AnimateIcons catalog and drop animated icons straight into your project, no copy-pasting.
 
-<div className="mt-10 space-y-14">
+<div className="space-y-14">
 
 <section id="tools" className="scroll-mt-20 space-y-4">
 
@@ -52,10 +40,10 @@ export const mcpUsageCode = `// Then just ask your agent in plain language:
 
 Once connected, your agent gets four tools:
 
-- `search_icons` - fuzzy-search the catalog by name, keyword, or category.
-- `get_icon` - return an icon's component source plus a ready-to-paste import (read-only).
-- `add_icon` - write an icon's component file into your project (default `components/icons/`).
-- `list_libraries` - list the libraries and how many icons each has.
+- `search_icons`: fuzzy-search the catalog by name, keyword, or category.
+- `get_icon`: return an icon's component source plus a ready-to-paste import (read-only).
+- `add_icon`: write an icon's component file into your project (default `components/icons/`).
+- `list_libraries`: list the libraries and how many icons each has.
 
 </section>
 
@@ -67,7 +55,11 @@ Register the server in one command:
 
 <CodeBlock code={mcpClaudeCode} lang="bash" title="Terminal" />
 
-Then just ask - the agent picks the right tool:
+<Callout type="tip">
+Restart Claude Code (or reload your editor window) after adding the server so it registers the new tools.
+</Callout>
+
+Then just ask, and the agent picks the right tool:
 
 <CodeBlock code={mcpUsageCode} lang="tsx" title="In your editor" />
 
@@ -87,12 +79,12 @@ Add the server to your MCP config (e.g. `.cursor/mcp.json` or `.mcp.json`):
 
 ## Requirements
 
-Icons written by `add_icon` import `cn` from `@/lib/utils` (the shadcn convention) and require the <Link href="https://motion.dev" target="_blank" className="underline underline-offset-4">motion</Link> package at runtime.
+<Callout type="note">
+Icons written by `add_icon` import `cn` from `@/lib/utils` (the shadcn convention) and require the <Link href="https://motion.dev" target="_blank">motion</Link> package at runtime.
+</Callout>
 
-Prefer the terminal? The <Link href="/icons/docs" className="underline underline-offset-4">CLI</Link> does the same thing with `npx animateicons add`.
+Prefer the terminal? The <Link href="/icons/docs/cli">CLI</Link> does the same thing with `npx animateicons add`.
 
 </section>
 
-</div>
-	</div>
 </div>

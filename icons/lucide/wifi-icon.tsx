@@ -131,47 +131,54 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
   );
 
   const groupVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 0.98, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 0.9 * duration, ease: [0.22, 0.9, 0.32, 1] },
-   },
-  };
-
-  const arcLargeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.9 * duration, ease: "easeOut", delay: 0.06 },
-   },
-  };
-
-  const arcMidVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.12 },
-   },
-  };
-
-  const arcSmallVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.18 },
+    scale: [1, 1.05, 0.99, 1],
+    transition: {
+     duration: 0.7 * duration,
+     times: [0, 0.5, 0.8, 1],
+     ease: "easeOut",
+    },
    },
   };
 
   const dotVariants: Variants = {
    normal: { scale: 1, opacity: 1 },
    animate: {
-    scale: [0.6, 1.2, 1],
+    scale: [0.4, 1.25, 1],
     opacity: [0, 1, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut", delay: 0.22 },
+    transition: {
+     duration: 0.35 * duration,
+     times: [0, 0.6, 1],
+     ease: "easeOut",
+    },
+   },
+  };
+
+  const arcSmallVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
+    transition: { duration: 0.3 * duration, delay: 0.12 * duration, ease: "easeOut" },
+   },
+  };
+
+  const arcMidVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [17, 0],
+    opacity: [0, 1],
+    transition: { duration: 0.35 * duration, delay: 0.24 * duration, ease: "easeOut" },
+   },
+  };
+
+  const arcLargeVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [23, 0],
+    opacity: [0, 1],
+    transition: { duration: 0.4 * duration, delay: 0.36 * duration, ease: "easeOut" },
    },
   };
 
@@ -203,21 +210,25 @@ const WifiIcon = forwardRef<WifiIconHandle, WifiIconProps>(
        initial="normal"
        animate={dotControls}
        variants={dotVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
       <m.path
        d="M2 8.82a15 15 0 0 1 20 0"
+       strokeDasharray="23"
        initial="normal"
        animate={arcLargeControls}
        variants={arcLargeVariants}
       />
       <m.path
        d="M5 12.859a10 10 0 0 1 14 0"
+       strokeDasharray="17"
        initial="normal"
        animate={arcMidControls}
        variants={arcMidVariants}
       />
       <m.path
        d="M8.5 16.429a5 5 0 0 1 7 0"
+       strokeDasharray="9"
        initial="normal"
        animate={arcSmallControls}
        variants={arcSmallVariants}

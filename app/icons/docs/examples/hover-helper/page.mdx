@@ -1,0 +1,61 @@
+import CodeBlock from "@/app/icons/_components/docs/CodeBlock";
+import { Callout } from "@/app/icons/docs/_components/Callout";
+
+export const metadata = {
+	title: "Hover helper",
+	description:
+		"Drive every AnimateIcon from one small generic helper, since they all share the exported IconHandle type.",
+	alternates: {
+		canonical: "/icons/docs/examples/hover-helper",
+	},
+};
+
+export const handleHoverCode = `import type { IconHandle } from "@animateicons/react"
+
+// One helper for every icon, thanks to the shared IconHandle type.
+export function handleHover(
+	e: React.MouseEvent,
+	ref: React.RefObject<IconHandle | null>,
+) {
+	if (e.type === "mouseenter") ref.current?.startAnimation()
+	if (e.type === "mouseleave") ref.current?.stopAnimation()
+}`;
+
+export const handleHoverUsageCode = `import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { BellIcon } from "@animateicons/react/lucide"
+import type { IconHandle } from "@animateicons/react"
+import { handleHover } from "@/lib/handle-hover"
+
+export function NotificationBell() {
+	const ref = useRef<IconHandle>(null)
+
+	return (
+		<Button
+			variant="ghost"
+			size="icon"
+			onMouseEnter={(e) => handleHover(e, ref)}
+			onMouseLeave={(e) => handleHover(e, ref)}
+		>
+			<BellIcon ref={ref} size={18} />
+		</Button>
+	)
+}`;
+
+# Hover helper
+
+Every icon exposes an imperative handle with two methods, `startAnimation()` and `stopAnimation()`. To play an icon from the element that wraps it (a button, a menu row, a card) you hold a ref to the icon and call those methods from the wrapper's `onMouseEnter` and `onMouseLeave`. Written inline, that is the same two-line pair copied onto every icon on the page.
+
+One small helper removes the repetition. It reads `e.type` to tell enter from leave, so a single function covers both events instead of two separate arrow functions per icon.
+
+<CodeBlock code={handleHoverCode} lang="tsx" title="lib/handle-hover.ts" />
+
+The helper is typed once against `IconHandle`, the shared handle type every icon implements, so the exact same function works for a bell, a search field, or any other icon without a per-icon type.
+
+<Callout type="tip">
+`IconHandle` is exported from `@animateicons/react`, so you never need a per-icon `*IconHandle`. And since icons animate on hover by default, a plain grid of icons needs no refs at all, just map over them.
+</Callout>
+
+Then call it from the hover handlers of any element wrapping an icon:
+
+<CodeBlock code={handleHoverUsageCode} lang="tsx" title="NotificationBell.tsx" />

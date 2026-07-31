@@ -131,11 +131,14 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
   );
 
   const groupVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    rotate: [0, -1.5, 1.5, 0],
-    transition: { duration: 0.9 * duration, ease: [0.22, 0.9, 0.32, 1] },
+    scale: [1, 1.05, 0.99, 1],
+    transition: {
+     duration: 0.7 * duration,
+     times: [0, 0.5, 0.8, 1],
+     ease: "easeOut",
+    },
    },
   };
 
@@ -143,8 +146,8 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.9 * duration, ease: "easeOut", delay: 0.05 },
+    opacity: [0, 1],
+    transition: { duration: 0.4 * duration, delay: 0.36 * duration, ease: "easeOut" },
    },
   };
 
@@ -152,8 +155,8 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.12 },
+    opacity: [0, 1],
+    transition: { duration: 0.35 * duration, delay: 0.24 * duration, ease: "easeOut" },
    },
   };
 
@@ -161,8 +164,8 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
    normal: { pathLength: 1, opacity: 1 },
    animate: {
     pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.18 },
+    opacity: [0, 1],
+    transition: { duration: 0.3 * duration, delay: 0.12 * duration, ease: "easeOut" },
    },
   };
 

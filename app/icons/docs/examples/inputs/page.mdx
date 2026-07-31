@@ -1,0 +1,49 @@
+import CodeBlock from "@/app/icons/_components/docs/CodeBlock";
+import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
+import { InputDemo } from "@/app/icons/docs/_components/ExampleDemos";
+
+export const metadata = {
+	title: "Inputs",
+	description:
+		"A leading AnimateIcon inside a shadcn/ui InputGroup that plays when the field gains focus.",
+	alternates: {
+		canonical: "/icons/docs/examples/inputs",
+	},
+};
+
+export const inputCode = `import { useRef } from "react"
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group"
+import { SearchIcon, type SearchIconHandle } from "@animateicons/react/lucide"
+
+export function SearchField() {
+	const ref = useRef<SearchIconHandle>(null)
+
+	return (
+		<InputGroup>
+			<InputGroupAddon>
+				<SearchIcon ref={ref} size={16} />
+			</InputGroupAddon>
+			<InputGroupInput
+				placeholder="Search icons..."
+				onFocus={() => ref.current?.startAnimation()}
+				onBlur={() => ref.current?.stopAnimation()}
+			/>
+		</InputGroup>
+	)
+}`;
+
+# Inputs
+
+Put an icon in the field's addon and play it on focus, so the icon reacts as the user starts typing. Here the trigger is `onFocus` / `onBlur` rather than hover.
+
+## Search input
+
+A leading icon in an `InputGroup` that plays when the field gains focus.
+
+<ExamplePreview code={inputCode}>
+	<InputDemo />
+</ExamplePreview>

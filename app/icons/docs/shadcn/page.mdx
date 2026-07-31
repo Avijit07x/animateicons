@@ -1,0 +1,39 @@
+import Link from "next/link";
+import CodeBlock from "../../_components/docs/CodeBlock";
+
+export const metadata = {
+	title: "shadcn CLI",
+	description:
+		"Add AnimateIcons to your project with the shadcn CLI. Each icon is copied into your codebase as a single editable file from the AnimateIcons registry.",
+	alternates: {
+		canonical: "/icons/docs/shadcn",
+	},
+};
+
+export const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
+
+export const usageCode = `import { EyeIcon } from "@/components/ui/eye"
+
+export default function Example() {
+	return <EyeIcon size={24} color="#f45b48" />
+}`;
+
+# shadcn CLI
+
+Use this if you want each icon copied into your codebase as a single file you can edit.
+
+#### 1. Set up shadcn
+
+If your project doesn't have shadcn yet, follow the <Link href="https://ui.shadcn.com/docs/installation" target="_blank">shadcn installation guide</Link> first.
+
+#### 2. Add an icon
+
+Browse the <Link href="/icons/lucide">Lucide</Link> or <Link href="/icons/huge">Huge</Link> gallery, click any tile to copy its install command, or replace `lu-eye` below with the icon you want.
+
+<CodeBlock code={installCode} lang="bash" title="Terminal" />
+
+The icon lands at `components/ui/<name>.tsx`.
+
+#### 3. Import and use
+
+<CodeBlock code={usageCode} title="Example.tsx" />

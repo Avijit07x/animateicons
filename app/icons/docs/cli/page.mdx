@@ -1,0 +1,62 @@
+import CodeBlock from "../../_components/docs/CodeBlock";
+import { Callout } from "../_components/Callout";
+
+export const metadata = {
+	title: "animateicons CLI",
+	description:
+		"Copy AnimateIcons into your project with the first-party animateicons CLI. Add, search, and browse icons without leaving the terminal.",
+	alternates: {
+		canonical: "/icons/docs/cli",
+	},
+};
+
+export const cliAddCode = `npx animateicons add eye
+
+# add several at once, or use the lu-/hu- prefixed id
+
+npx animateicons add eye bell-ring user`;
+
+export const cliGlobalCode = `npm i -g animateicons
+animateicons add eye`;
+
+export const cliBrowseCode = `npx animateicons search notification
+npx animateicons list --library huge
+npx animateicons info eye`;
+
+export const cliBrowseTuiCode = `npx animateicons browse`;
+
+export const cliUsageCode = `import { EyeIcon } from "@/components/icons/eye"
+
+export default function Example() {
+	return <EyeIcon size={24} color="#f45b48" />
+}`;
+
+# animateicons CLI
+
+The fastest way to copy icons into your project. Same result as the shadcn CLI, but a first-party command instead of a registry URL.
+
+#### 1. Add an icon
+
+<CodeBlock code={cliAddCode} lang="bash" title="Terminal" />
+
+Prefer a short command? Install the CLI globally and an `animateicons` binary is added to your PATH:
+
+<CodeBlock code={cliGlobalCode} lang="bash" title="Terminal" />
+
+Icons land at `components/icons/<name>.tsx` (override with `--dir`). The CLI also prints the `motion` install command for your package manager.
+
+<Callout type="note">
+Copied icons import `cn` from `@/lib/utils`. If your project isn't shadcn-based, pass `--with-utils` and the CLI scaffolds a minimal helper for you.
+</Callout>
+
+#### 2. Browse without leaving the terminal
+
+<CodeBlock code={cliBrowseCode} lang="bash" title="Terminal" />
+
+Or open the interactive dashboard to search, multi-select, and add icons live in your terminal:
+
+<CodeBlock code={cliBrowseTuiCode} lang="bash" title="Terminal" />
+
+#### 3. Import and use
+
+<CodeBlock code={cliUsageCode} title="Example.tsx" />

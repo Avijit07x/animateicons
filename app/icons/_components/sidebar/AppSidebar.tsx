@@ -40,6 +40,10 @@ const AppSidebar: React.FC = () => {
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
 	const totalCount = icons.length;
 
+	// ponytail: docs render their own shell (app/icons/docs/layout.tsx), so the
+	// gallery's category sidebar steps aside on /icons/docs routes.
+	if (pathname?.startsWith("/icons/docs")) return null;
+
 	const isLibraryActive = (name?: string) => {
 		if (!name) return false;
 		return name === library;

@@ -105,9 +105,10 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
     scale: 1,
    },
    animate: {
-    scale: [1, 1.08, 0.97, 1],
+    scale: [1, 1.08, 0.96, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.5 * duration,
+     times: [0, 0.5, 0.75, 1],
      ease: "easeOut",
     },
    },
@@ -117,13 +118,15 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
    normal: {
     pathLength: 1,
     opacity: 1,
+    rotate: -90,
    },
    animate: {
-    pathLength: [0.85, 1],
-    opacity: [0.8, 1],
+    pathLength: [0, 1],
+    opacity: [0.2, 1],
+    rotate: -90,
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
     },
    },
   };
@@ -132,13 +135,16 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
    normal: {
     pathLength: 1,
     opacity: 1,
+    scale: 1,
    },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
+    pathLength: [0, 1, 1],
+    opacity: [0, 1, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
-     duration: 0.28 * duration,
-     delay: 0.1 * duration,
+     duration: 0.4 * duration,
+     delay: 0.32 * duration,
+     times: [0, 0.7, 1],
      ease: "easeOut",
     },
    },
@@ -174,12 +180,14 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
        variants={circleVariants}
        initial="normal"
        animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.path
        d="m9 12 2 2 4-4"
        variants={tickVariants}
        initial="normal"
        animate={tickControls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

@@ -1,0 +1,110 @@
+import CodeBlock from "../../_components/docs/CodeBlock";
+import { Callout } from "../_components/Callout";
+
+export const metadata = {
+	title: "Using AnimateIcons",
+	description:
+		"Style AnimateIcons with color, className, and duration, trigger animations imperatively with a ref, and see the full prop and handle types.",
+	alternates: {
+		canonical: "/icons/docs/usage",
+	},
+};
+
+export const stylingCode = `// Color - sets currentColor inline
+<EyeIcon color="#f45b48" />
+
+// Tailwind utility - works because icons stroke="currentColor"
+
+<EyeIcon className="text-primary" />
+
+// Speed - duration is a multiplier (lower = faster)
+
+<EyeIcon duration={0.6} />
+
+// Disable hover animation
+
+<EyeIcon isAnimated={false} />
+`;
+
+export const apiCode = `"use client"
+
+import { useRef } from "react"
+import { EyeIcon, type EyeIconHandle } from "@/components/ui/eye"
+
+export default function Demo() {
+	const ref = useRef<EyeIconHandle>(null)
+
+    return (
+    	<button
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    	>
+    		<EyeIcon ref={ref} size={28} />
+    	</button>
+    )
+
+}`;
+
+export const propsCode = `interface IconProps {
+	size?: number
+	color?: string
+	className?: string
+	duration?: number
+	isAnimated?: boolean
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
+	style?: React.CSSProperties
+}
+
+interface IconHandle {
+startAnimation: () => void
+stopAnimation: () => void
+}`;
+
+# Usage
+
+Every icon shares the same small API: a few style props and an optional ref handle. The examples below use `EyeIcon`, but they apply to every icon in both libraries.
+
+<div className="space-y-14">
+
+<section id="styling" className="scroll-mt-20 space-y-4">
+
+## Styling
+
+Every icon strokes `currentColor`, so it inherits the surrounding text color. You can also pass `color`, `className`, or use the `duration` and `isAnimated` props to control playback.
+
+<CodeBlock code={stylingCode} title="Styling.tsx" />
+
+<Callout type="tip">
+Because icons stroke `currentColor`, they inherit color from any parent, so a Tailwind `text-*` class or a CSS `color` is all you need to theme them.
+</Callout>
+
+</section>
+
+<section id="api" className="scroll-mt-20 space-y-4">
+
+## Imperative API
+
+Need to trigger an animation from a parent, on click, on focus, or programmatically? Pass a ref. Each icon exports its own `*Handle` type.
+
+<CodeBlock code={apiCode} title="Demo.tsx" />
+
+<Callout type="note">
+The ref handle only works in Client Components. Add `"use client"` to the file that calls `startAnimation()`.
+</Callout>
+
+</section>
+
+<section id="props" className="scroll-mt-20 space-y-4">
+
+## Props & types
+
+<CodeBlock code={propsCode} lang="ts" title="Types" />
+
+<Callout type="note">
+Animations respect the OS-level **Reduce Motion** preference, so no extra setup is required.
+</Callout>
+
+</section>
+
+</div>

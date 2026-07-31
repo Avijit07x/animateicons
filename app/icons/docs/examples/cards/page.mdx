@@ -1,0 +1,80 @@
+import CodeBlock from "@/app/icons/_components/docs/CodeBlock";
+import ExamplePreview from "@/app/icons/docs/_components/ExamplePreview";
+import { BannerDemo, CardDemo } from "@/app/icons/docs/_components/ExampleDemos";
+
+export const metadata = {
+	title: "Cards & feedback",
+	description:
+		"Wrap an AnimateIcon in a card or status banner and play it on hover to draw attention.",
+	alternates: {
+		canonical: "/icons/docs/examples/cards",
+	},
+};
+
+export const cardCode = `import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { SparklesIcon, type SparklesIconHandle } from "@animateicons/react/lucide"
+
+export function FeatureCard() {
+	const ref = useRef<SparklesIconHandle>(null)
+
+	return (
+		<div
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
+			className="rounded-xl border p-5"
+		>
+			<div className="bg-primary/10 text-primary mb-3 flex size-10 items-center justify-center rounded-lg">
+				<SparklesIcon ref={ref} size={20} />
+			</div>
+			<p className="font-semibold">Smart suggestions</p>
+			<p className="text-muted-foreground mt-1 text-sm">
+				Get AI-powered icon recommendations as you type.
+			</p>
+			<Button size="sm" variant="outline" className="mt-4">
+				Learn more
+			</Button>
+		</div>
+	)
+}`;
+
+export const bannerCode = `import { useRef } from "react"
+import {
+	CircleCheckIcon,
+	type CircleCheckIconHandle,
+} from "@animateicons/react/lucide"
+
+export function SavedBanner() {
+	const ref = useRef<CircleCheckIconHandle>(null)
+
+	return (
+		<div
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
+			className="flex items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3"
+		>
+			<CircleCheckIcon ref={ref} size={18} className="text-emerald-400" />
+			<p className="text-sm">Your changes have been saved.</p>
+		</div>
+	)
+}`;
+
+# Cards & feedback
+
+Play the icon on the container's hover so the whole surface is the trigger. Good for feature tiles and status messages where the icon carries the meaning.
+
+## Feature card
+
+Put the icon in a rounded tile and play it on card hover to draw attention.
+
+<ExamplePreview code={cardCode}>
+	<CardDemo />
+</ExamplePreview>
+
+## Status banner
+
+A success banner whose check plays on hover, reinforcing the confirmation.
+
+<ExamplePreview code={bannerCode}>
+	<BannerDemo />
+</ExamplePreview>

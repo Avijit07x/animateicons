@@ -1,14 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
 	code: string;
+	className?: string;
 };
 
-const CopyButton: React.FC<Props> = ({ code }) => {
+const CopyButton: React.FC<Props> = ({ code, className }) => {
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = async () => {
@@ -18,14 +19,21 @@ const CopyButton: React.FC<Props> = ({ code }) => {
 	};
 
 	return (
-		<Button
-			size="icon"
-			variant="link"
-			className="text-textPrimary! absolute top-2 right-2 size-5"
+		<button
+			type="button"
 			onClick={handleCopy}
+			aria-label="Copy code"
+			className={cn(
+				"text-textMuted hover:text-textPrimary flex size-7 items-center justify-center rounded-md transition-colors hover:bg-white/10",
+				className,
+			)}
 		>
-			{copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-		</Button>
+			{copied ? (
+				<Check className="size-3.5 text-emerald-400" />
+			) : (
+				<Copy className="size-3.5" />
+			)}
+		</button>
 	);
 };
 

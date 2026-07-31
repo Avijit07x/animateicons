@@ -81,24 +81,27 @@ const HouseIcon = forwardRef<HouseIconHandle, HouseIconProps>(
    [controls, onMouseLeave],
   );
 
-  const baseVariants: Variants = {
-   normal: { opacity: 1 },
+  const houseVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    opacity: 0.65,
+    scale: [0.7, 1.06, 0.98, 1],
     transition: {
-     duration: 0.2 * duration,
+     duration: 0.55 * duration,
+     times: [0, 0.55, 0.8, 1],
      ease: "easeOut",
     },
    },
   };
 
   const doorVariants: Variants = {
-   normal: { opacity: 1 },
+   normal: { scaleY: 1, opacity: 1 },
    animate: {
-    opacity: [1, 0.4, 1],
+    scaleY: [0, 1],
+    opacity: [0, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeInOut",
+     duration: 0.3 * duration,
+     delay: 0.35 * duration,
+     ease: "easeOut",
     },
    },
   };
@@ -125,15 +128,18 @@ const HouseIcon = forwardRef<HouseIconHandle, HouseIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10" />
-      <m.path
-       d="M21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9"
-       variants={baseVariants}
-      />
-      <m.path
-       d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
-       variants={doorVariants}
-      />
+      <m.g
+       variants={houseVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      >
+       <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10" />
+       <path d="M21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9" />
+       <m.path
+        d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+        variants={doorVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

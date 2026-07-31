@@ -1,6 +1,6 @@
 # @animateicons/react
 
-Animated SVG icons for React. Built on motion/react.
+326 animated SVG icons for React. Built on motion/react.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/react?color=f45b48)](https://www.npmjs.com/package/@animateicons/react)
 [![bundle](https://img.shields.io/bundlephobia/minzip/@animateicons/react)](https://bundlephobia.com/package/@animateicons/react)
