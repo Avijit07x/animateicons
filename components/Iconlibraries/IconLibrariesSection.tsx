@@ -18,7 +18,7 @@ import SectionHeader from "@/components/section/SectionHeader";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, startTransition, useState } from "react";
 import { iconLibraries } from "./data";
 
 const gridVariants: Variants = {
@@ -43,6 +43,17 @@ const iconVariants: Variants = {
 		transition: { duration: 0.25, ease: "easeOut" },
 	},
 };
+
+const GridSkeleton = () => (
+	<div className="grid grid-cols-6 gap-2.5 sm:grid-cols-8 sm:gap-3 lg:grid-cols-10">
+		{Array.from({ length: 30 }).map((_, i) => (
+			<div
+				key={i}
+				className="border-border/60 aspect-square animate-pulse rounded-2xl border bg-white/[0.02]"
+			/>
+		))}
+	</div>
+);
 
 const IconLibrariesSection: React.FC = () => {
 	const [activeId, setActiveId] = useState(iconLibraries[0]?.id ?? "lucide");
@@ -93,7 +104,9 @@ const IconLibrariesSection: React.FC = () => {
 								role="tab"
 								type="button"
 								aria-selected={isActive}
-								onClick={() => setActiveId(lib.id ?? "lucide")}
+								onClick={() =>
+									startTransition(() => setActiveId(lib.id ?? "lucide"))
+								}
 								className={cn(
 									"relative inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors",
 									isActive
@@ -134,38 +147,43 @@ const IconLibrariesSection: React.FC = () => {
 
 			{/* Icon grid - glass tiles, no outer frame */}
 			<div className="mx-auto max-w-3xl">
-				<AnimatePresence mode="wait">
-					<motion.div
-						key={active.id}
-						variants={gridVariants}
-						initial="hidden"
-						animate="show"
-						exit="exit"
-						className="grid grid-cols-6 gap-2.5 sm:grid-cols-8 sm:gap-3 lg:grid-cols-10"
-					>
-						{active.icons.slice(0, 30).map((Icon, index) => (
-							<motion.div
-								key={`${active.id}-${index}`}
-								variants={iconVariants}
-								className={cn(
-									"group/tile relative flex aspect-square items-center justify-center rounded-2xl",
-									"border-border/60 hover:border-primary/40 border",
-									"bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
-									"text-textSecondary hover:text-primary",
-									"transition-all duration-200",
-									"hover:shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-primary)_40%,transparent)]",
-								)}
-							>
-								{/* Subtle inner top highlight, like a glass edge */}
-								<span
-									aria-hidden="true"
-									className="pointer-events-none absolute inset-x-2 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-								/>
-								<Icon size={22} />
-							</motion.div>
-						))}
-					</motion.div>
-				</AnimatePresence>
+				<Suspense fallback={<GridSkeleton />}>
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={active.id}
+							variants={gridVariants}
+							initial="hidden"
+							animate="show"
+							exit="exit"
+							className="grid grid-cols-6 gap-2.5 sm:grid-cols-8 sm:gap-3 lg:grid-cols-10"
+						>
+							{active.icons.slice(0, 30).map((Icon, index) => (
+								<motion.div
+									key={`${active.id}-${index}`}
+									variants={iconVariants}
+									className={cn(
+										"group/tile relative flex aspect-square items-center justify-center rounded-2xl",
+										"border-border/60 hover:border-primary/40 border",
+										"bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
+										"text-textSecondary hover:text-primary",
+										"transition-all duration-200",
+										"hover:shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-primary)_40%,transparent)]",
+									)}
+								>
+									{/* Subtle inner top highlight, like a glass edge */}
+									<span
+										aria-hidden="true"
+										className="pointer-events-none absolute inset-x-2 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+									/>
+									<Icon
+										size={22}
+										className="absolute inset-0 flex items-center justify-center"
+									/>
+								</motion.div>
+							))}
+						</motion.div>
+					</AnimatePresence>
+				</Suspense>
 			</div>
 
 			{/* CTA */}
