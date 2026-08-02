@@ -56,8 +56,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 
 	const tileId = `${library}-${item.name}`;
 	// getIcon returns a module-cached React.lazy component (stable per name),
-	// so this dynamic reference is safe despite the static-components heuristic.
-	// eslint-disable-next-line react-hooks/static-components
+	// so this dynamic reference is safe.
 	const IconComponent = getIcon(item.name) as React.ComponentType<{
 		size?: number;
 		ref?: React.Ref<IconHandle>;
