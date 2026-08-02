@@ -2,7 +2,7 @@
 
 # AnimateIcons
 
-**326 animated SVG icons for React.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion/react`.
+**542 animated SVG icons for React.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion/react`.
 
 [Browse icons](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [Docs](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/Avijit07x)
 
@@ -48,7 +48,7 @@ Icons animate on hover by default, and `motion` is bundled. Don't want a depende
 ```
 animateicons/
 ├── icons/
-│   ├── lucide/          248 Lucide-style icons
+│   ├── lucide/          509 Lucide-style icons
 │   └── huge/             33 Huge-style icons
 ├── npm/                 @animateicons/react published package
 ├── core/                shared catalog/search/write logic (bundled into cli + mcp)
