@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/input-group";
 import { Kbd } from "@/components/ui/kbd";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge";
-import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide";
+import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge/meta";
+import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide/meta";
 import { SearchIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useIconSearch } from "../../_contexts/IconSearchContext";

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bold",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "bold-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\nexport interface BoldIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface BoldIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst BoldIcon = forwardRef<BoldIconHandle, BoldIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, isAnimated, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) {\n     controls.start(\"normal\");\n    } else {\n     onMouseLeave?.(e as any);\n    }\n   },\n   [controls, onMouseLeave],\n  );\n\n  const boldVariants: Variants = {\n   normal: { pathLength: 1, opacity: 1, strokeWidth: 2 },\n   animate: {\n    pathLength: [0, 1],\n    opacity: [0, 1],\n    strokeWidth: [2, 2, 3, 2],\n    transition: {\n     pathLength: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },\n     opacity: { duration: 0.2 * duration },\n     strokeWidth: {\n      duration: 0.55 * duration,\n      delay: 0.45 * duration,\n      times: [0, 0.3, 0.6, 1],\n      ease: \"easeInOut\",\n     },\n    },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <m.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      animate={controls}\n      initial=\"normal\"\n     >\n      <m.path\n       d=\"M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8\"\n       variants={boldVariants}\n      />\n     </m.svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nBoldIcon.displayName = \"BoldIcon\";\nexport { BoldIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

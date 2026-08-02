@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -81,7 +81,7 @@
 		{
 			"name": "lucide (full barrel + LazyMotion domMin)",
 			"path": "dist/lucide.js",
-			"limit": "55 kB",
+			"limit": "75 kB",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -100,7 +100,7 @@
 			"name": "single icon (LazyMotion domMin)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
-			"limit": "55 kB",
+			"limit": "75 kB",
 			"ignore": [
 				"react",
 				"react-dom"

@@ -250,7 +250,6 @@ import { CatIcon } from "./cat-icon";
 import { DogIcon } from "./dog-icon";
 import { FishIcon } from "./fish-icon";
 import { RabbitIcon } from "./rabbit-icon";
-
 import { CalendarIcon } from "./calendar-icon";
 import { ClockIcon } from "./clock-icon";
 import { CameraIcon } from "./camera-icon";
@@ -273,7 +272,6 @@ import { LightbulbIcon } from "./lightbulb-icon";
 import { GiftIcon } from "./gift-icon";
 import { UmbrellaIcon } from "./umbrella-icon";
 import { UtensilsIcon } from "./utensils-icon";
-
 import { VolumeIcon } from "./volume-icon";
 import { Volume1Icon } from "./volume-1-icon";
 import { VolumeXIcon } from "./volume-x-icon";
@@ -293,6 +291,222 @@ import { GuitarIcon } from "./guitar-icon";
 import { PianoIcon } from "./piano-icon";
 import { DrumIcon } from "./drum-icon";
 import { Disc3Icon } from "./disc-3-icon";
+import { AlarmClockIcon } from "./alarm-clock-icon";
+import { AlarmClockCheckIcon } from "./alarm-clock-check-icon";
+import { AlarmClockPlusIcon } from "./alarm-clock-plus-icon";
+import { AlarmClockMinusIcon } from "./alarm-clock-minus-icon";
+import { AlarmClockOffIcon } from "./alarm-clock-off-icon";
+import { BellDotIcon } from "./bell-dot-icon";
+import { BellOffIcon } from "./bell-off-icon";
+import { BellElectricIcon } from "./bell-electric-icon";
+import { CloudIcon } from "./cloud-icon";
+import { CloudRainIcon } from "./cloud-rain-icon";
+import { CloudDrizzleIcon } from "./cloud-drizzle-icon";
+import { CloudSnowIcon } from "./cloud-snow-icon";
+import { CloudLightningIcon } from "./cloud-lightning-icon";
+import { CloudFogIcon } from "./cloud-fog-icon";
+import { WindIcon } from "./wind-icon";
+import { TornadoIcon } from "./tornado-icon";
+import { ChartBarBigIcon } from "./chart-bar-big-icon";
+import { ChartBarIncreasingIcon } from "./chart-bar-increasing-icon";
+import { ChartBarDecreasingIcon } from "./chart-bar-decreasing-icon";
+import { ChartColumnBigIcon } from "./chart-column-big-icon";
+import { ChartColumnIncreasingIcon } from "./chart-column-increasing-icon";
+import { ChartColumnDecreasingIcon } from "./chart-column-decreasing-icon";
+import { ChartCandlestickIcon } from "./chart-candlestick-icon";
+import { ChartGanttIcon } from "./chart-gantt-icon";
+import { ChartSplineIcon } from "./chart-spline-icon";
+import { ChartNoAxesColumnIcon } from "./chart-no-axes-column-icon";
+import { FolderPlusIcon } from "./folder-plus-icon";
+import { FolderMinusIcon } from "./folder-minus-icon";
+import { FolderCheckIcon } from "./folder-check-icon";
+import { FolderXIcon } from "./folder-x-icon";
+import { FolderLockIcon } from "./folder-lock-icon";
+import { FolderHeartIcon } from "./folder-heart-icon";
+import { FolderKeyIcon } from "./folder-key-icon";
+import { FolderSearchIcon } from "./folder-search-icon";
+import { FolderDotIcon } from "./folder-dot-icon";
+import { FolderClosedIcon } from "./folder-closed-icon";
+import { ArrowUpIcon } from "./arrow-up-icon";
+import { ArrowDownIcon } from "./arrow-down-icon";
+import { ArrowLeftIcon } from "./arrow-left-icon";
+import { ArrowRightIcon } from "./arrow-right-icon";
+import { ArrowUpRightIcon } from "./arrow-up-right-icon";
+import { ArrowUpLeftIcon } from "./arrow-up-left-icon";
+import { ArrowDownRightIcon } from "./arrow-down-right-icon";
+import { ArrowDownLeftIcon } from "./arrow-down-left-icon";
+import { ArrowLeftRightIcon } from "./arrow-left-right-icon";
+import { ArrowUpDownIcon } from "./arrow-up-down-icon";
+import { CirclePlayIcon } from "./circle-play-icon";
+import { CirclePauseIcon } from "./circle-pause-icon";
+import { CircleStopIcon } from "./circle-stop-icon";
+import { SquarePlayIcon } from "./square-play-icon";
+import { SquarePauseIcon } from "./square-pause-icon";
+import { StepForwardIcon } from "./step-forward-icon";
+import { StepBackIcon } from "./step-back-icon";
+import { Repeat1Icon } from "./repeat-1-icon";
+import { Repeat2Icon } from "./repeat-2-icon";
+import { Disc2Icon } from "./disc-2-icon";
+import { MailOpenIcon } from "./mail-open-icon";
+import { MailPlusIcon } from "./mail-plus-icon";
+import { MailCheckIcon } from "./mail-check-icon";
+import { MailXIcon } from "./mail-x-icon";
+import { MailMinusIcon } from "./mail-minus-icon";
+import { MailWarningIcon } from "./mail-warning-icon";
+import { MailSearchIcon } from "./mail-search-icon";
+import { MailboxIcon } from "./mailbox-icon";
+import { SendHorizontalIcon } from "./send-horizontal-icon";
+import { InboxIcon } from "./inbox-icon";
+import { MessageSquareIcon } from "./message-square-icon";
+import { MessageSquarePlusIcon } from "./message-square-plus-icon";
+import { MessageSquareXIcon } from "./message-square-x-icon";
+import { MessageSquareHeartIcon } from "./message-square-heart-icon";
+import { MessageSquareDotIcon } from "./message-square-dot-icon";
+import { MessageSquareTextIcon } from "./message-square-text-icon";
+import { MessageCirclePlusIcon } from "./message-circle-plus-icon";
+import { MessageCircleHeartIcon } from "./message-circle-heart-icon";
+import { MessageCircleXIcon } from "./message-circle-x-icon";
+import { MessageCircleMoreIcon } from "./message-circle-more-icon";
+import { FileIcon } from "./file-icon";
+import { FileCheckIcon } from "./file-check-icon";
+import { FileXIcon } from "./file-x-icon";
+import { FilePlusIcon } from "./file-plus-icon";
+import { FileMinusIcon } from "./file-minus-icon";
+import { FileLockIcon } from "./file-lock-icon";
+import { FileHeartIcon } from "./file-heart-icon";
+import { FileSearchIcon } from "./file-search-icon";
+import { FileCodeIcon } from "./file-code-icon";
+import { FileMusicIcon } from "./file-music-icon";
+import { FileImageIcon } from "./file-image-icon";
+import { FileClockIcon } from "./file-clock-icon";
+import { FileKeyIcon } from "./file-key-icon";
+import { FilePenIcon } from "./file-pen-icon";
+import { FilesIcon } from "./files-icon";
+import { FileScanIcon } from "./file-scan-icon";
+import { FileArchiveIcon } from "./file-archive-icon";
+import { FileTerminalIcon } from "./file-terminal-icon";
+import { FileSpreadsheetIcon } from "./file-spreadsheet-icon";
+import { FileTypeIcon } from "./file-type-icon";
+import { AlignLeftIcon } from "./align-left-icon";
+import { AlignCenterIcon } from "./align-center-icon";
+import { AlignRightIcon } from "./align-right-icon";
+import { AlignJustifyIcon } from "./align-justify-icon";
+import { IndentIncreaseIcon } from "./indent-increase-icon";
+import { IndentDecreaseIcon } from "./indent-decrease-icon";
+import { WrapTextIcon } from "./wrap-text-icon";
+import { ListIcon } from "./list-icon";
+import { ListOrderedIcon } from "./list-ordered-icon";
+import { ListChecksIcon } from "./list-checks-icon";
+import { BoldIcon } from "./bold-icon";
+import { ItalicIcon } from "./italic-icon";
+import { UnderlineIcon } from "./underline-icon";
+import { StrikethroughIcon } from "./strikethrough-icon";
+import { HeadingIcon } from "./heading-icon";
+import { Heading1Icon } from "./heading-1-icon";
+import { Heading2Icon } from "./heading-2-icon";
+import { TypeIcon } from "./type-icon";
+import { PilcrowIcon } from "./pilcrow-icon";
+import { QuoteIcon } from "./quote-icon";
+import { CalendarDaysIcon } from "./calendar-days-icon";
+import { CalendarCheckIcon } from "./calendar-check-icon";
+import { CalendarXIcon } from "./calendar-x-icon";
+import { CalendarPlusIcon } from "./calendar-plus-icon";
+import { CalendarMinusIcon } from "./calendar-minus-icon";
+import { CalendarClockIcon } from "./calendar-clock-icon";
+import { CalendarHeartIcon } from "./calendar-heart-icon";
+import { CalendarRangeIcon } from "./calendar-range-icon";
+import { CalendarFoldIcon } from "./calendar-fold-icon";
+import { CalendarSearchIcon } from "./calendar-search-icon";
+import { ClockPlusIcon } from "./clock-plus-icon";
+import { ClockAlertIcon } from "./clock-alert-icon";
+import { ClockArrowUpIcon } from "./clock-arrow-up-icon";
+import { ClockArrowDownIcon } from "./clock-arrow-down-icon";
+import { TimerIcon } from "./timer-icon";
+import { TimerResetIcon } from "./timer-reset-icon";
+import { TimerOffIcon } from "./timer-off-icon";
+import { HourglassIcon } from "./hourglass-icon";
+import { WatchIcon } from "./watch-icon";
+import { HistoryIcon } from "./history-icon";
+import { ShoppingBasketIcon } from "./shopping-basket-icon";
+import { StoreIcon } from "./store-icon";
+import { PackageIcon } from "./package-icon";
+import { PackageCheckIcon } from "./package-check-icon";
+import { PackagePlusIcon } from "./package-plus-icon";
+import { PackageXIcon } from "./package-x-icon";
+import { PackageSearchIcon } from "./package-search-icon";
+import { ReceiptIcon } from "./receipt-icon";
+import { ReceiptTextIcon } from "./receipt-text-icon";
+import { TagIcon } from "./tag-icon";
+import { TagsIcon } from "./tags-icon";
+import { TicketIcon } from "./ticket-icon";
+import { TicketPercentIcon } from "./ticket-percent-icon";
+import { WalletCardsIcon } from "./wallet-cards-icon";
+import { BanknoteIcon } from "./banknote-icon";
+import { CoinsIcon } from "./coins-icon";
+import { BadgePercentIcon } from "./badge-percent-icon";
+import { TruckIcon } from "./truck-icon";
+import { PiggyBankIcon } from "./piggy-bank-icon";
+import { BarcodeIcon } from "./barcode-icon";
+import { MapIcon } from "./map-icon";
+import { NavigationIcon } from "./navigation-icon";
+import { Navigation2Icon } from "./navigation-2-icon";
+import { MilestoneIcon } from "./milestone-icon";
+import { SignpostIcon } from "./signpost-icon";
+import { SignpostBigIcon } from "./signpost-big-icon";
+import { RouteIcon } from "./route-icon";
+import { RouteOffIcon } from "./route-off-icon";
+import { WaypointsIcon } from "./waypoints-icon";
+import { LocateIcon } from "./locate-icon";
+import { LocateFixedIcon } from "./locate-fixed-icon";
+import { LocateOffIcon } from "./locate-off-icon";
+import { TentIcon } from "./tent-icon";
+import { FlagIcon } from "./flag-icon";
+import { FlagOffIcon } from "./flag-off-icon";
+import { FlagTriangleRightIcon } from "./flag-triangle-right-icon";
+import { PinIcon } from "./pin-icon";
+import { PinOffIcon } from "./pin-off-icon";
+import { FootprintsIcon } from "./footprints-icon";
+import { MountainIcon } from "./mountain-icon";
+import { TabletIcon } from "./tablet-icon";
+import { LaptopMinimalIcon } from "./laptop-minimal-icon";
+import { MonitorIcon } from "./monitor-icon";
+import { MonitorSmartphoneIcon } from "./monitor-smartphone-icon";
+import { TvMinimalIcon } from "./tv-minimal-icon";
+import { MouseIcon } from "./mouse-icon";
+import { KeyboardIcon } from "./keyboard-icon";
+import { ServerIcon } from "./server-icon";
+import { HardDriveIcon } from "./hard-drive-icon";
+import { CpuIcon } from "./cpu-icon";
+import { MemoryStickIcon } from "./memory-stick-icon";
+import { WebcamIcon } from "./webcam-icon";
+import { BatteryChargingIcon } from "./battery-charging-icon";
+import { BatteryLowIcon } from "./battery-low-icon";
+import { PlugIcon } from "./plug-icon";
+import { Plug2Icon } from "./plug-2-icon";
+import { PlugZapIcon } from "./plug-zap-icon";
+import { UsbIcon } from "./usb-icon";
+import { RouterIcon } from "./router-icon";
+import { HardDriveDownloadIcon } from "./hard-drive-download-icon";
+import { SunDimIcon } from "./sun-dim-icon";
+import { SunMediumIcon } from "./sun-medium-icon";
+import { SunriseIcon } from "./sunrise-icon";
+import { SunsetIcon } from "./sunset-icon";
+import { MoonStarIcon } from "./moon-star-icon";
+import { CloudSunIcon } from "./cloud-sun-icon";
+import { CloudMoonIcon } from "./cloud-moon-icon";
+import { CloudyIcon } from "./cloudy-icon";
+import { CloudHailIcon } from "./cloud-hail-icon";
+import { CloudRainWindIcon } from "./cloud-rain-wind-icon";
+import { CloudSunRainIcon } from "./cloud-sun-rain-icon";
+import { CloudMoonRainIcon } from "./cloud-moon-rain-icon";
+import { CloudOffIcon } from "./cloud-off-icon";
+import { DropletIcon } from "./droplet-icon";
+import { DropletsIcon } from "./droplets-icon";
+import { RainbowIcon } from "./rainbow-icon";
+import { ThermometerIcon } from "./thermometer-icon";
+import { HazeIcon } from "./haze-icon";
+import { SunSnowIcon } from "./sun-snow-icon";
+import { ThermometerSunIcon } from "./thermometer-sun-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
@@ -2070,182 +2284,182 @@ const ICON_LIST: IconListItem[] = [
  {
   name: "cat",
   icon: CatIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Animals"],
   keywords: ["cat", "kitten", "pet", "feline", "animal"],
  },
  {
   name: "dog",
   icon: DogIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Animals"],
   keywords: ["dog", "puppy", "pet", "canine", "animal"],
  },
  {
   name: "fish",
   icon: FishIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Animals"],
   keywords: ["fish", "pet", "aquarium", "sea", "animal"],
  },
  {
   name: "rabbit",
   icon: RabbitIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Animals"],
   keywords: ["rabbit", "bunny", "pet", "hare", "animal"],
  },
  {
   name: "calendar",
   icon: CalendarIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Time & Date"],
   keywords: ["calendar", "date", "schedule", "event", "month"],
  },
  {
   name: "clock",
   icon: ClockIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Time & Date"],
   keywords: ["clock", "time", "hour", "watch", "schedule"],
  },
  {
   name: "camera",
   icon: CameraIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Photography"],
   keywords: ["camera", "photo", "picture", "shutter", "capture"],
  },
  {
   name: "image",
   icon: ImageIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Photography", "Multimedia"],
   keywords: ["image", "photo", "picture", "gallery", "media"],
  },
  {
   name: "file-text",
   icon: FileTextIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["File icons"],
   keywords: ["file", "document", "text", "page", "doc"],
  },
  {
   name: "smartphone",
   icon: SmartphoneIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Devices"],
   keywords: ["smartphone", "phone", "mobile", "device", "cell"],
  },
  {
   name: "pencil",
   icon: PencilIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Design", "Tools"],
   keywords: ["pencil", "edit", "write", "draw", "compose"],
  },
  {
   name: "refresh-cw",
   icon: RefreshCwIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Arrows"],
   keywords: ["refresh", "reload", "sync", "update", "rotate"],
  },
  {
   name: "filter",
   icon: FilterIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Tools"],
   keywords: ["filter", "funnel", "sort", "refine", "search"],
  },
  {
   name: "save",
   icon: SaveIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["File icons", "Tools"],
   keywords: ["save", "store", "disk", "floppy", "keep"],
  },
  {
   name: "printer",
   icon: PrinterIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Devices"],
   keywords: ["printer", "print", "paper", "office", "document"],
  },
  {
   name: "calculator",
   icon: CalculatorIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Mathematics", "Devices"],
   keywords: ["calculator", "math", "compute", "numbers", "finance"],
  },
  {
   name: "volume-2",
   icon: Volume2Icon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Multimedia"],
   keywords: ["volume", "sound", "audio", "speaker", "loud"],
  },
  {
   name: "music",
   icon: MusicIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Multimedia"],
   keywords: ["music", "song", "note", "audio", "play"],
  },
  {
   name: "video",
   icon: VideoIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Multimedia"],
   keywords: ["video", "camcorder", "record", "film", "movie"],
  },
  {
   name: "laptop",
   icon: LaptopIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Devices"],
   keywords: ["laptop", "computer", "notebook", "device", "work"],
  },
  {
   name: "tv",
   icon: TvIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Devices", "Multimedia"],
   keywords: ["tv", "television", "screen", "display", "watch"],
  },
  {
   name: "car",
   icon: CarIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Transportation"],
   keywords: ["car", "vehicle", "drive", "auto", "travel"],
  },
  {
   name: "lightbulb",
   icon: LightbulbIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Home"],
   keywords: ["lightbulb", "light", "idea", "bulb", "lamp"],
  },
  {
   name: "gift",
   icon: GiftIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Shopping"],
   keywords: ["gift", "present", "birthday", "reward", "surprise"],
  },
  {
   name: "umbrella",
   icon: UmbrellaIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Weather"],
   keywords: ["umbrella", "rain", "weather", "protection", "shelter"],
  },
  {
   name: "utensils",
   icon: UtensilsIcon,
-  addedAt: "2026-07-25",
+  addedAt: "2026-07-26",
   category: ["Home"],
   keywords: ["utensils", "food", "fork", "knife", "restaurant"],
  },
@@ -2381,6 +2595,1553 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-07-26",
   category: ["Multimedia"],
   keywords: ["disc", "vinyl", "record", "album", "dj"],
+ },
+ {
+  name: "alarm-clock",
+  icon: AlarmClockIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["alarm", "clock", "time", "wake", "reminder", "notification"],
+ },
+ {
+  name: "alarm-clock-check",
+  icon: AlarmClockCheckIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["alarm", "clock", "check", "done", "confirm", "reminder"],
+ },
+ {
+  name: "alarm-clock-plus",
+  icon: AlarmClockPlusIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["alarm", "clock", "plus", "add", "reminder", "new"],
+ },
+ {
+  name: "alarm-clock-minus",
+  icon: AlarmClockMinusIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["alarm", "clock", "minus", "remove", "reminder", "delete"],
+ },
+ {
+  name: "alarm-clock-off",
+  icon: AlarmClockOffIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["alarm", "clock", "off", "disable", "mute", "silence"],
+ },
+ {
+  name: "bell-dot",
+  icon: BellDotIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["bell", "dot", "notification", "unread", "alert", "badge"],
+ },
+ {
+  name: "bell-off",
+  icon: BellOffIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["bell", "off", "mute", "silence", "notification", "dnd"],
+ },
+ {
+  name: "bell-electric",
+  icon: BellElectricIcon,
+  addedAt: "2026-08-01",
+  category: ["Notification"],
+  keywords: ["bell", "electric", "doorbell", "ring", "alarm", "notification"],
+ },
+ {
+  name: "cloud",
+  icon: CloudIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "weather", "sky", "overcast", "forecast"],
+ },
+ {
+  name: "cloud-rain",
+  icon: CloudRainIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "rain", "weather", "forecast", "rainy", "precipitation"],
+ },
+ {
+  name: "cloud-drizzle",
+  icon: CloudDrizzleIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "drizzle", "rain", "weather", "light rain", "forecast"],
+ },
+ {
+  name: "cloud-snow",
+  icon: CloudSnowIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "snow", "weather", "winter", "forecast", "snowy"],
+ },
+ {
+  name: "cloud-lightning",
+  icon: CloudLightningIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "lightning", "storm", "thunder", "weather", "forecast"],
+ },
+ {
+  name: "cloud-fog",
+  icon: CloudFogIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["cloud", "fog", "mist", "weather", "haze", "forecast"],
+ },
+ {
+  name: "wind",
+  icon: WindIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["wind", "weather", "breeze", "air", "gust", "forecast"],
+ },
+ {
+  name: "tornado",
+  icon: TornadoIcon,
+  addedAt: "2026-08-01",
+  category: ["Weather"],
+  keywords: ["tornado", "storm", "weather", "cyclone", "twister", "forecast"],
+ },
+ {
+  name: "chart-bar-big",
+  icon: ChartBarBigIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "bar", "graph", "statistics", "analytics", "data"],
+ },
+ {
+  name: "chart-bar-increasing",
+  icon: ChartBarIncreasingIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "bar", "increasing", "growth", "graph", "analytics"],
+ },
+ {
+  name: "chart-bar-decreasing",
+  icon: ChartBarDecreasingIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "bar", "decreasing", "decline", "graph", "analytics"],
+ },
+ {
+  name: "chart-column-big",
+  icon: ChartColumnBigIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "column", "bar", "graph", "statistics", "data"],
+ },
+ {
+  name: "chart-column-increasing",
+  icon: ChartColumnIncreasingIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "column", "increasing", "growth", "graph", "analytics"],
+ },
+ {
+  name: "chart-column-decreasing",
+  icon: ChartColumnDecreasingIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "column", "decreasing", "decline", "graph", "analytics"],
+ },
+ {
+  name: "chart-candlestick",
+  icon: ChartCandlestickIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "candlestick", "stock", "finance", "trading", "market"],
+ },
+ {
+  name: "chart-gantt",
+  icon: ChartGanttIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "gantt", "timeline", "project", "schedule", "tasks"],
+ },
+ {
+  name: "chart-spline",
+  icon: ChartSplineIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "spline", "line", "curve", "graph", "analytics"],
+ },
+ {
+  name: "chart-no-axes-column",
+  icon: ChartNoAxesColumnIcon,
+  addedAt: "2026-08-01",
+  category: ["Charts"],
+  keywords: ["chart", "column", "bar", "graph", "statistics", "data"],
+ },
+ {
+  name: "folder-plus",
+  icon: FolderPlusIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "plus", "add", "new", "create", "directory"],
+ },
+ {
+  name: "folder-minus",
+  icon: FolderMinusIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "minus", "remove", "delete", "directory"],
+ },
+ {
+  name: "folder-check",
+  icon: FolderCheckIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "check", "done", "verified", "directory"],
+ },
+ {
+  name: "folder-x",
+  icon: FolderXIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "x", "delete", "remove", "close", "directory"],
+ },
+ {
+  name: "folder-lock",
+  icon: FolderLockIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "lock", "secure", "private", "directory", "protected"],
+ },
+ {
+  name: "folder-heart",
+  icon: FolderHeartIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "heart", "favorite", "like", "directory"],
+ },
+ {
+  name: "folder-key",
+  icon: FolderKeyIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "key", "access", "secure", "directory", "password"],
+ },
+ {
+  name: "folder-search",
+  icon: FolderSearchIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "search", "find", "directory", "explore"],
+ },
+ {
+  name: "folder-dot",
+  icon: FolderDotIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "dot", "notification", "directory", "unread"],
+ },
+ {
+  name: "folder-closed",
+  icon: FolderClosedIcon,
+  addedAt: "2026-08-01",
+  category: ["File icons"],
+  keywords: ["folder", "closed", "directory", "files"],
+ },
+ {
+  name: "arrow-up",
+  icon: ArrowUpIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "up", "direction", "navigation", "increase"],
+ },
+ {
+  name: "arrow-down",
+  icon: ArrowDownIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "down", "direction", "navigation", "decrease"],
+ },
+ {
+  name: "arrow-left",
+  icon: ArrowLeftIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "left", "direction", "navigation", "back"],
+ },
+ {
+  name: "arrow-right",
+  icon: ArrowRightIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "right", "direction", "navigation", "next", "forward"],
+ },
+ {
+  name: "arrow-up-right",
+  icon: ArrowUpRightIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "up right", "diagonal", "direction", "external"],
+ },
+ {
+  name: "arrow-up-left",
+  icon: ArrowUpLeftIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "up left", "diagonal", "direction"],
+ },
+ {
+  name: "arrow-down-right",
+  icon: ArrowDownRightIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "down right", "diagonal", "direction"],
+ },
+ {
+  name: "arrow-down-left",
+  icon: ArrowDownLeftIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "down left", "diagonal", "direction"],
+ },
+ {
+  name: "arrow-left-right",
+  icon: ArrowLeftRightIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "left right", "horizontal", "swap", "bidirectional"],
+ },
+ {
+  name: "arrow-up-down",
+  icon: ArrowUpDownIcon,
+  addedAt: "2026-08-01",
+  category: ["Arrows"],
+  keywords: ["arrow", "up down", "vertical", "sort", "bidirectional"],
+ },
+ {
+  name: "circle-play",
+  icon: CirclePlayIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["play", "circle", "media", "video", "start", "button"],
+ },
+ {
+  name: "circle-pause",
+  icon: CirclePauseIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["pause", "circle", "media", "stop", "button"],
+ },
+ {
+  name: "circle-stop",
+  icon: CircleStopIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["stop", "circle", "media", "square", "button"],
+ },
+ {
+  name: "square-play",
+  icon: SquarePlayIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["play", "square", "media", "video", "start", "button"],
+ },
+ {
+  name: "square-pause",
+  icon: SquarePauseIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["pause", "square", "media", "stop", "button"],
+ },
+ {
+  name: "step-forward",
+  icon: StepForwardIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["step", "forward", "next", "media", "skip"],
+ },
+ {
+  name: "step-back",
+  icon: StepBackIcon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["step", "back", "previous", "media", "skip"],
+ },
+ {
+  name: "repeat-1",
+  icon: Repeat1Icon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["repeat", "one", "loop", "media", "cycle"],
+ },
+ {
+  name: "repeat-2",
+  icon: Repeat2Icon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["repeat", "loop", "media", "cycle", "reload"],
+ },
+ {
+  name: "disc-2",
+  icon: Disc2Icon,
+  addedAt: "2026-08-01",
+  category: ["Multimedia"],
+  keywords: ["disc", "album", "music", "record", "cd", "media"],
+ },
+ {
+  name: "mail-open",
+  icon: MailOpenIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "open", "email", "message", "read", "envelope"],
+ },
+ {
+  name: "mail-plus",
+  icon: MailPlusIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "plus", "add", "email", "new", "compose"],
+ },
+ {
+  name: "mail-check",
+  icon: MailCheckIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "check", "email", "sent", "verified", "done"],
+ },
+ {
+  name: "mail-x",
+  icon: MailXIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "x", "email", "delete", "remove", "reject"],
+ },
+ {
+  name: "mail-minus",
+  icon: MailMinusIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "minus", "email", "remove", "delete"],
+ },
+ {
+  name: "mail-warning",
+  icon: MailWarningIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "warning", "email", "alert", "spam", "important"],
+ },
+ {
+  name: "mail-search",
+  icon: MailSearchIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mail", "search", "email", "find", "filter"],
+ },
+ {
+  name: "mailbox",
+  icon: MailboxIcon,
+  addedAt: "2026-08-01",
+  category: ["Mail", "Communication"],
+  keywords: ["mailbox", "mail", "post", "letter", "inbox", "flag"],
+ },
+ {
+  name: "send-horizontal",
+  icon: SendHorizontalIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["send", "horizontal", "message", "submit", "plane", "share"],
+ },
+ {
+  name: "inbox",
+  icon: InboxIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["inbox", "mail", "messages", "receive", "tray"],
+ },
+ {
+  name: "message-square",
+  icon: MessageSquareIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "chat", "comment", "bubble", "talk"],
+ },
+ {
+  name: "message-square-plus",
+  icon: MessageSquarePlusIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "plus", "new", "chat", "add", "compose"],
+ },
+ {
+  name: "message-square-x",
+  icon: MessageSquareXIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "x", "chat", "delete", "close", "remove"],
+ },
+ {
+  name: "message-square-heart",
+  icon: MessageSquareHeartIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "heart", "chat", "like", "love", "favorite"],
+ },
+ {
+  name: "message-square-dot",
+  icon: MessageSquareDotIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "dot", "chat", "notification", "unread"],
+ },
+ {
+  name: "message-square-text",
+  icon: MessageSquareTextIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "text", "chat", "comment", "lines"],
+ },
+ {
+  name: "message-circle-plus",
+  icon: MessageCirclePlusIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "plus", "chat", "new", "add", "compose"],
+ },
+ {
+  name: "message-circle-heart",
+  icon: MessageCircleHeartIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "heart", "chat", "like", "love"],
+ },
+ {
+  name: "message-circle-x",
+  icon: MessageCircleXIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "x", "chat", "delete", "close"],
+ },
+ {
+  name: "message-circle-more",
+  icon: MessageCircleMoreIcon,
+  addedAt: "2026-08-01",
+  category: ["Communication"],
+  keywords: ["message", "more", "chat", "typing", "dots"],
+ },
+ {
+  name: "file",
+  icon: FileIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "document", "page", "blank"],
+ },
+ {
+  name: "file-check",
+  icon: FileCheckIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "check", "done", "verified", "approved"],
+ },
+ {
+  name: "file-x",
+  icon: FileXIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "x", "remove", "delete", "reject", "cancel"],
+ },
+ {
+  name: "file-plus",
+  icon: FilePlusIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "plus", "add", "new", "create"],
+ },
+ {
+  name: "file-minus",
+  icon: FileMinusIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "minus", "remove", "subtract"],
+ },
+ {
+  name: "file-lock",
+  icon: FileLockIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "lock", "secure", "private", "protected"],
+ },
+ {
+  name: "file-heart",
+  icon: FileHeartIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "heart", "favorite", "like", "love"],
+ },
+ {
+  name: "file-search",
+  icon: FileSearchIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "search", "find", "magnifier", "lookup"],
+ },
+ {
+  name: "file-code",
+  icon: FileCodeIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "code", "source", "script", "dev"],
+ },
+ {
+  name: "file-music",
+  icon: FileMusicIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "music", "audio", "song", "note", "mp3"],
+ },
+ {
+  name: "file-image",
+  icon: FileImageIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "image", "picture", "photo", "media"],
+ },
+ {
+  name: "file-clock",
+  icon: FileClockIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "clock", "time", "recent", "pending", "history"],
+ },
+ {
+  name: "file-key",
+  icon: FileKeyIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "key", "access", "credential", "secure"],
+ },
+ {
+  name: "file-pen",
+  icon: FilePenIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "pen", "edit", "write", "rename", "draft"],
+ },
+ {
+  name: "files",
+  icon: FilesIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["files", "copy", "documents", "stack", "multiple"],
+ },
+ {
+  name: "file-scan",
+  icon: FileScanIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "scan", "ocr", "frame", "detect"],
+ },
+ {
+  name: "file-archive",
+  icon: FileArchiveIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "archive", "zip", "compress", "backup"],
+ },
+ {
+  name: "file-terminal",
+  icon: FileTerminalIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "terminal", "console", "shell", "command", "script"],
+ },
+ {
+  name: "file-spreadsheet",
+  icon: FileSpreadsheetIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "spreadsheet", "sheet", "excel", "table", "csv"],
+ },
+ {
+  name: "file-type",
+  icon: FileTypeIcon,
+  addedAt: "2026-08-02",
+  category: ["File icons"],
+  keywords: ["file", "type", "font", "text", "typography", "format"],
+ },
+ {
+  name: "align-left",
+  icon: AlignLeftIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["align", "left", "text", "paragraph", "format"],
+ },
+ {
+  name: "align-center",
+  icon: AlignCenterIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["align", "center", "text", "paragraph", "format"],
+ },
+ {
+  name: "align-right",
+  icon: AlignRightIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["align", "right", "text", "paragraph", "format"],
+ },
+ {
+  name: "align-justify",
+  icon: AlignJustifyIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["align", "justify", "text", "paragraph", "format"],
+ },
+ {
+  name: "indent-increase",
+  icon: IndentIncreaseIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["indent", "increase", "tab", "text", "format"],
+ },
+ {
+  name: "indent-decrease",
+  icon: IndentDecreaseIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["indent", "decrease", "outdent", "text", "format"],
+ },
+ {
+  name: "wrap-text",
+  icon: WrapTextIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["wrap", "text", "reflow", "word wrap", "format"],
+ },
+ {
+  name: "list",
+  icon: ListIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["list", "bullets", "items", "unordered", "ul"],
+ },
+ {
+  name: "list-ordered",
+  icon: ListOrderedIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["list", "ordered", "numbered", "ol", "steps"],
+ },
+ {
+  name: "list-checks",
+  icon: ListChecksIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["list", "checks", "checklist", "tasks", "todo"],
+ },
+ {
+  name: "bold",
+  icon: BoldIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["bold", "strong", "text", "format", "weight"],
+ },
+ {
+  name: "italic",
+  icon: ItalicIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["italic", "emphasis", "text", "format", "slant"],
+ },
+ {
+  name: "underline",
+  icon: UnderlineIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["underline", "text", "format", "emphasis"],
+ },
+ {
+  name: "strikethrough",
+  icon: StrikethroughIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["strikethrough", "strike", "text", "format", "cross out"],
+ },
+ {
+  name: "heading",
+  icon: HeadingIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["heading", "header", "title", "text", "h"],
+ },
+ {
+  name: "heading-1",
+  icon: Heading1Icon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["heading", "h1", "title", "text", "header"],
+ },
+ {
+  name: "heading-2",
+  icon: Heading2Icon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["heading", "h2", "subtitle", "text", "header"],
+ },
+ {
+  name: "type",
+  icon: TypeIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["type", "text", "font", "typography", "format"],
+ },
+ {
+  name: "pilcrow",
+  icon: PilcrowIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["pilcrow", "paragraph", "text", "format", "mark"],
+ },
+ {
+  name: "quote",
+  icon: QuoteIcon,
+  addedAt: "2026-08-02",
+  category: ["Text formatting"],
+  keywords: ["quote", "blockquote", "quotation", "text", "cite"],
+ },
+ {
+  name: "calendar-days",
+  icon: CalendarDaysIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "days", "month", "schedule", "date", "dates"],
+ },
+ {
+  name: "calendar-check",
+  icon: CalendarCheckIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "check", "done", "confirmed", "booked", "date"],
+ },
+ {
+  name: "calendar-x",
+  icon: CalendarXIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "x", "cancel", "unavailable", "remove", "date"],
+ },
+ {
+  name: "calendar-plus",
+  icon: CalendarPlusIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "plus", "add", "new event", "schedule", "date"],
+ },
+ {
+  name: "calendar-minus",
+  icon: CalendarMinusIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "minus", "remove", "cancel event", "date"],
+ },
+ {
+  name: "calendar-clock",
+  icon: CalendarClockIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "clock", "time", "schedule", "deadline", "date"],
+ },
+ {
+  name: "calendar-heart",
+  icon: CalendarHeartIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "heart", "favorite", "date", "event", "save the date"],
+ },
+ {
+  name: "calendar-range",
+  icon: CalendarRangeIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "range", "period", "span", "date range", "booking"],
+ },
+ {
+  name: "calendar-fold",
+  icon: CalendarFoldIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "fold", "event", "date", "corner"],
+ },
+ {
+  name: "calendar-search",
+  icon: CalendarSearchIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["calendar", "search", "find", "lookup", "date", "event"],
+ },
+ {
+  name: "clock-plus",
+  icon: ClockPlusIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["clock", "plus", "add time", "alarm", "schedule", "time"],
+ },
+ {
+  name: "clock-alert",
+  icon: ClockAlertIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["clock", "alert", "warning", "overdue", "time", "reminder"],
+ },
+ {
+  name: "clock-arrow-up",
+  icon: ClockArrowUpIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["clock", "arrow", "up", "recent", "upload time", "time"],
+ },
+ {
+  name: "clock-arrow-down",
+  icon: ClockArrowDownIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["clock", "arrow", "down", "later", "download time", "time"],
+ },
+ {
+  name: "timer",
+  icon: TimerIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["timer", "stopwatch", "countdown", "time", "clock"],
+ },
+ {
+  name: "timer-reset",
+  icon: TimerResetIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["timer", "reset", "restart", "countdown", "stopwatch"],
+ },
+ {
+  name: "timer-off",
+  icon: TimerOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["timer", "off", "stop", "disabled", "countdown"],
+ },
+ {
+  name: "hourglass",
+  icon: HourglassIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["hourglass", "time", "loading", "wait", "sandglass", "timer"],
+ },
+ {
+  name: "watch",
+  icon: WatchIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["watch", "wristwatch", "time", "clock", "smartwatch"],
+ },
+ {
+  name: "history",
+  icon: HistoryIcon,
+  addedAt: "2026-08-02",
+  category: ["Time & Date"],
+  keywords: ["history", "recent", "undo", "rewind", "time", "revert", "log"],
+ },
+ {
+  name: "shopping-basket",
+  icon: ShoppingBasketIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["basket", "cart", "shop", "buy", "ecommerce", "groceries"],
+ },
+ {
+  name: "store",
+  icon: StoreIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["store", "shop", "market", "retail", "storefront", "business"],
+ },
+ {
+  name: "package",
+  icon: PackageIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["package", "box", "parcel", "delivery", "shipping", "product"],
+ },
+ {
+  name: "package-check",
+  icon: PackageCheckIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["package", "delivered", "check", "confirmed", "shipped", "done"],
+ },
+ {
+  name: "package-plus",
+  icon: PackagePlusIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["package", "add", "new", "plus", "create", "shipment"],
+ },
+ {
+  name: "package-x",
+  icon: PackageXIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["package", "remove", "cancel", "delete", "return", "x"],
+ },
+ {
+  name: "package-search",
+  icon: PackageSearchIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["package", "search", "track", "find", "lookup", "parcel"],
+ },
+ {
+  name: "receipt",
+  icon: ReceiptIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: [
+   "receipt",
+   "bill",
+   "invoice",
+   "payment",
+   "purchase",
+   "transaction",
+  ],
+ },
+ {
+  name: "receipt-text",
+  icon: ReceiptTextIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["receipt", "invoice", "bill", "itemized", "purchase", "order"],
+ },
+ {
+  name: "tag",
+  icon: TagIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["tag", "label", "price", "sale", "discount", "product"],
+ },
+ {
+  name: "tags",
+  icon: TagsIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["tags", "labels", "price", "sale", "categories", "discount"],
+ },
+ {
+  name: "ticket",
+  icon: TicketIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["ticket", "event", "admission", "pass", "coupon", "entry"],
+ },
+ {
+  name: "ticket-percent",
+  icon: TicketPercentIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["ticket", "coupon", "discount", "percent", "sale", "voucher"],
+ },
+ {
+  name: "wallet-cards",
+  icon: WalletCardsIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["wallet", "cards", "payment", "money", "cash", "finance"],
+ },
+ {
+  name: "banknote",
+  icon: BanknoteIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["banknote", "money", "cash", "bill", "currency", "payment"],
+ },
+ {
+  name: "coins",
+  icon: CoinsIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["coins", "money", "cash", "currency", "change", "finance"],
+ },
+ {
+  name: "badge-percent",
+  icon: BadgePercentIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["badge", "percent", "discount", "sale", "offer", "promo"],
+ },
+ {
+  name: "truck",
+  icon: TruckIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: [
+   "truck",
+   "delivery",
+   "shipping",
+   "transport",
+   "logistics",
+   "freight",
+  ],
+ },
+ {
+  name: "piggy-bank",
+  icon: PiggyBankIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["piggy", "bank", "savings", "money", "finance", "save"],
+ },
+ {
+  name: "barcode",
+  icon: BarcodeIcon,
+  addedAt: "2026-08-02",
+  category: ["Shopping"],
+  keywords: ["barcode", "scan", "product", "code", "inventory", "price"],
+ },
+ {
+  name: "map",
+  icon: MapIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["map", "location", "navigate", "atlas", "geography", "directions"],
+ },
+ {
+  name: "navigation",
+  icon: NavigationIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["navigation", "cursor", "direction", "gps", "compass", "arrow"],
+ },
+ {
+  name: "navigation-2",
+  icon: Navigation2Icon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["navigation", "cursor", "direction", "gps", "pointer", "arrow"],
+ },
+ {
+  name: "milestone",
+  icon: MilestoneIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["milestone", "marker", "signpost", "progress", "location", "goal"],
+ },
+ {
+  name: "signpost",
+  icon: SignpostIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["signpost", "sign", "direction", "wayfinding", "road", "guide"],
+ },
+ {
+  name: "signpost-big",
+  icon: SignpostBigIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: [
+   "signpost",
+   "sign",
+   "direction",
+   "crossroad",
+   "wayfinding",
+   "guide",
+  ],
+ },
+ {
+  name: "route",
+  icon: RouteIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["route", "path", "directions", "navigation", "journey", "trip"],
+ },
+ {
+  name: "route-off",
+  icon: RouteOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["route", "path", "disabled", "offline", "navigation", "no-route"],
+ },
+ {
+  name: "waypoints",
+  icon: WaypointsIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["waypoints", "nodes", "route", "path", "connections", "stops"],
+ },
+ {
+  name: "locate",
+  icon: LocateIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["locate", "gps", "crosshair", "target", "position", "find"],
+ },
+ {
+  name: "locate-fixed",
+  icon: LocateFixedIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["locate", "gps", "fixed", "target", "position", "pinpoint"],
+ },
+ {
+  name: "locate-off",
+  icon: LocateOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["locate", "gps", "off", "disabled", "no-signal", "offline"],
+ },
+ {
+  name: "tent",
+  icon: TentIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["tent", "camp", "camping", "outdoor", "shelter", "travel"],
+ },
+ {
+  name: "flag",
+  icon: FlagIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["flag", "marker", "milestone", "country", "banner", "report"],
+ },
+ {
+  name: "flag-off",
+  icon: FlagOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["flag", "unflag", "remove", "disabled", "off", "report"],
+ },
+ {
+  name: "flag-triangle-right",
+  icon: FlagTriangleRightIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["flag", "pennant", "marker", "milestone", "banner", "golf"],
+ },
+ {
+  name: "pin",
+  icon: PinIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["pin", "location", "marker", "place", "map", "tack"],
+ },
+ {
+  name: "pin-off",
+  icon: PinOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["pin", "unpin", "remove", "disabled", "off", "location"],
+ },
+ {
+  name: "footprints",
+  icon: FootprintsIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["footprints", "steps", "trail", "walk", "path", "tracks"],
+ },
+ {
+  name: "mountain",
+  icon: MountainIcon,
+  addedAt: "2026-08-02",
+  category: ["Navigation, Maps, and POIs"],
+  keywords: ["mountain", "peak", "hiking", "terrain", "summit", "outdoor"],
+ },
+ {
+  name: "tablet",
+  icon: TabletIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["tablet", "ipad", "device", "screen", "touchscreen", "mobile"],
+ },
+ {
+  name: "laptop-minimal",
+  icon: LaptopMinimalIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["laptop", "notebook", "computer", "device", "macbook", "screen"],
+ },
+ {
+  name: "monitor",
+  icon: MonitorIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["monitor", "screen", "display", "computer", "desktop", "device"],
+ },
+ {
+  name: "monitor-smartphone",
+  icon: MonitorSmartphoneIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: [
+   "monitor",
+   "smartphone",
+   "responsive",
+   "devices",
+   "sync",
+   "screens",
+  ],
+ },
+ {
+  name: "tv-minimal",
+  icon: TvMinimalIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["tv", "television", "screen", "display", "monitor", "device"],
+ },
+ {
+  name: "mouse",
+  icon: MouseIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["mouse", "cursor", "click", "pointer", "device", "scroll"],
+ },
+ {
+  name: "keyboard",
+  icon: KeyboardIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["keyboard", "typing", "keys", "input", "device", "type"],
+ },
+ {
+  name: "server",
+  icon: ServerIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["server", "rack", "database", "hosting", "datacenter", "hardware"],
+ },
+ {
+  name: "hard-drive",
+  icon: HardDriveIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["hard-drive", "storage", "disk", "hdd", "memory", "hardware"],
+ },
+ {
+  name: "cpu",
+  icon: CpuIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["cpu", "processor", "chip", "hardware", "compute", "microchip"],
+ },
+ {
+  name: "memory-stick",
+  icon: MemoryStickIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["memory", "ram", "stick", "module", "hardware", "storage"],
+ },
+ {
+  name: "webcam",
+  icon: WebcamIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["webcam", "camera", "video", "lens", "stream", "device"],
+ },
+ {
+  name: "battery-charging",
+  icon: BatteryChargingIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["battery", "charging", "power", "energy", "charge", "device"],
+ },
+ {
+  name: "battery-low",
+  icon: BatteryLowIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["battery", "low", "power", "empty", "energy", "warning"],
+ },
+ {
+  name: "plug",
+  icon: PlugIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["plug", "power", "electric", "socket", "charge", "connect"],
+ },
+ {
+  name: "plug-2",
+  icon: Plug2Icon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["plug", "power", "electric", "socket", "charge", "connect"],
+ },
+ {
+  name: "plug-zap",
+  icon: PlugZapIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["plug", "zap", "power", "charge", "electric", "energy"],
+ },
+ {
+  name: "usb",
+  icon: UsbIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["usb", "connector", "cable", "port", "data", "device"],
+ },
+ {
+  name: "router",
+  icon: RouterIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["router", "wifi", "network", "internet", "modem", "signal"],
+ },
+ {
+  name: "hard-drive-download",
+  icon: HardDriveDownloadIcon,
+  addedAt: "2026-08-02",
+  category: ["Devices"],
+  keywords: ["download", "storage", "drive", "save", "disk", "import"],
+ },
+ {
+  name: "sun-dim",
+  icon: SunDimIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["sun", "dim", "weather", "sunny", "daylight", "bright"],
+ },
+ {
+  name: "sun-medium",
+  icon: SunMediumIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["sun", "weather", "sunny", "daylight", "clear", "bright"],
+ },
+ {
+  name: "sunrise",
+  icon: SunriseIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["sunrise", "dawn", "morning", "sun", "weather", "horizon"],
+ },
+ {
+  name: "sunset",
+  icon: SunsetIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["sunset", "dusk", "evening", "sun", "weather", "horizon"],
+ },
+ {
+  name: "moon-star",
+  icon: MoonStarIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["moon", "star", "night", "weather", "clear", "sky"],
+ },
+ {
+  name: "cloud-sun",
+  icon: CloudSunIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["cloud", "sun", "partly", "weather", "cloudy", "day"],
+ },
+ {
+  name: "cloud-moon",
+  icon: CloudMoonIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["cloud", "moon", "night", "weather", "cloudy", "overcast"],
+ },
+ {
+  name: "cloudy",
+  icon: CloudyIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["cloudy", "clouds", "overcast", "weather", "sky", "gray"],
+ },
+ {
+  name: "cloud-hail",
+  icon: CloudHailIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["hail", "cloud", "weather", "storm", "ice", "precipitation"],
+ },
+ {
+  name: "cloud-rain-wind",
+  icon: CloudRainWindIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["rain", "wind", "cloud", "weather", "storm", "shower"],
+ },
+ {
+  name: "cloud-sun-rain",
+  icon: CloudSunRainIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["rain", "sun", "cloud", "weather", "shower", "day"],
+ },
+ {
+  name: "cloud-moon-rain",
+  icon: CloudMoonRainIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["rain", "moon", "cloud", "weather", "night", "shower"],
+ },
+ {
+  name: "cloud-off",
+  icon: CloudOffIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["cloud", "off", "offline", "weather", "disabled", "no-cloud"],
+ },
+ {
+  name: "droplet",
+  icon: DropletIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["droplet", "water", "drop", "liquid", "rain", "moisture"],
+ },
+ {
+  name: "droplets",
+  icon: DropletsIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["droplets", "water", "drops", "liquid", "humidity", "moisture"],
+ },
+ {
+  name: "rainbow",
+  icon: RainbowIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["rainbow", "weather", "colors", "arc", "sky", "spectrum"],
+ },
+ {
+  name: "thermometer",
+  icon: ThermometerIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: [
+   "thermometer",
+   "temperature",
+   "weather",
+   "heat",
+   "degrees",
+   "climate",
+  ],
+ },
+ {
+  name: "haze",
+  icon: HazeIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["haze", "fog", "mist", "weather", "smog", "hazy"],
+ },
+ {
+  name: "sun-snow",
+  icon: SunSnowIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["sun", "snow", "weather", "temperature", "hot", "cold"],
+ },
+ {
+  name: "thermometer-sun",
+  icon: ThermometerSunIcon,
+  addedAt: "2026-08-02",
+  category: ["Weather"],
+  keywords: ["thermometer", "sun", "temperature", "heat", "weather", "hot"],
  },
 ];
 

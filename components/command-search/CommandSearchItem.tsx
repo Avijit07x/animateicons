@@ -11,7 +11,7 @@
 import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 
 export type CommandSearchIcon = {
 	name: string;
@@ -76,7 +76,9 @@ const CommandSearchItem: React.FC<Props> = ({
 					"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
 				)}
 			>
-				<Icon ref={iconRef} size={16} />
+				<Suspense fallback={null}>
+					<Icon ref={iconRef} size={16} />
+				</Suspense>
 			</span>
 
 			<span className="flex-1 truncate font-mono text-sm">{item.name}</span>

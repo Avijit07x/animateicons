@@ -77,27 +77,29 @@ const ScanLineIcon = forwardRef<ScanLineIconHandle, ScanLineIconProps>(
    if (!isControlled.current) controls.start("normal");
   }, [controls]);
 
-  const frame: Variants = {
-   normal: { opacity: 1 },
-   animate: {
-    opacity: [1, 0.65, 1],
+  const cornerVariants: Variants = {
+   normal: { scale: 1, opacity: 1 },
+   animate: (i: number) => ({
+    scale: [0, 1.12, 1],
+    opacity: [0, 1, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     repeat: Infinity,
+     duration: 0.4 * duration,
+     delay: (0.05 + i * 0.07) * duration,
+     times: [0, 0.6, 1],
+     ease: [0.34, 1.4, 0.64, 1],
     },
-   },
+   }),
   };
 
   const scanLine: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [-6, 6, -6],
-    opacity: [0.4, 1, 0.4],
+    y: [0, -6, 6, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 1.1 * duration,
+     delay: 0.4 * duration,
+     times: [0, 0.3, 0.7, 1],
      ease: "easeInOut",
-     repeat: Infinity,
     },
    },
   };
@@ -124,11 +126,30 @@ const ScanLineIcon = forwardRef<ScanLineIconHandle, ScanLineIconProps>(
       initial="normal"
       animate={controls}
      >
-      <m.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={frame} />
-      <m.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={frame} />
-      <m.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={frame} />
-      <m.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={frame} />
-
+      <m.path
+       d="M3 7V5a2 2 0 0 1 2-2h2"
+       custom={0}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M17 3h2a2 2 0 0 1 2 2v2"
+       custom={1}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M21 17v2a2 2 0 0 1-2 2h-2"
+       custom={2}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M7 21H5a2 2 0 0 1-2-2v-2"
+       custom={3}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.path d="M7 12h10" variants={scanLine} />
      </m.svg>
     </m.div>

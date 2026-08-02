@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "arrow-up",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "arrow-up-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\nexport interface ArrowUpIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface ArrowUpIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst ArrowUpIcon = forwardRef<ArrowUpIconHandle, ArrowUpIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, isAnimated, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) {\n     controls.start(\"normal\");\n    } else {\n     onMouseLeave?.(e as any);\n    }\n   },\n   [controls, onMouseLeave],\n  );\n\n  const nudgeVariants: Variants = {\n   normal: { y: 0 },\n   animate: {\n    y: [0, 2, -4, 0],\n    transition: {\n     duration: 0.6 * duration,\n     times: [0, 0.2, 0.6, 1],\n     ease: \"easeInOut\",\n    },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <m.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      animate={controls}\n      initial=\"normal\"\n      variants={nudgeVariants}\n     >\n      <path d=\"m5 12 7-7 7 7\" />\n      <path d=\"M12 19V5\" />\n     </m.svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nArrowUpIcon.displayName = \"ArrowUpIcon\";\nexport { ArrowUpIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

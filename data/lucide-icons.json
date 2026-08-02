@@ -1848,5 +1848,1455 @@
 		"addedAt": "2026-07-26",
 		"category": ["Multimedia"],
 		"keywords": ["disc", "vinyl", "record", "album", "dj"]
+	},
+	{
+		"name": "alarm-clock",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["alarm", "clock", "time", "wake", "reminder", "notification"]
+	},
+	{
+		"name": "alarm-clock-check",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["alarm", "clock", "check", "done", "confirm", "reminder"]
+	},
+	{
+		"name": "alarm-clock-plus",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["alarm", "clock", "plus", "add", "reminder", "new"]
+	},
+	{
+		"name": "alarm-clock-minus",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["alarm", "clock", "minus", "remove", "reminder", "delete"]
+	},
+	{
+		"name": "alarm-clock-off",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["alarm", "clock", "off", "disable", "mute", "silence"]
+	},
+	{
+		"name": "bell-dot",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["bell", "dot", "notification", "unread", "alert", "badge"]
+	},
+	{
+		"name": "bell-off",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": ["bell", "off", "mute", "silence", "notification", "dnd"]
+	},
+	{
+		"name": "bell-electric",
+		"addedAt": "2026-08-01",
+		"category": ["Notification"],
+		"keywords": [
+			"bell",
+			"electric",
+			"doorbell",
+			"ring",
+			"alarm",
+			"notification"
+		]
+	},
+	{
+		"name": "cloud",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": ["cloud", "weather", "sky", "overcast", "forecast"]
+	},
+	{
+		"name": "cloud-rain",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": [
+			"cloud",
+			"rain",
+			"weather",
+			"forecast",
+			"rainy",
+			"precipitation"
+		]
+	},
+	{
+		"name": "cloud-drizzle",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": [
+			"cloud",
+			"drizzle",
+			"rain",
+			"weather",
+			"light rain",
+			"forecast"
+		]
+	},
+	{
+		"name": "cloud-snow",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": ["cloud", "snow", "weather", "winter", "forecast", "snowy"]
+	},
+	{
+		"name": "cloud-lightning",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": [
+			"cloud",
+			"lightning",
+			"storm",
+			"thunder",
+			"weather",
+			"forecast"
+		]
+	},
+	{
+		"name": "cloud-fog",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": ["cloud", "fog", "mist", "weather", "haze", "forecast"]
+	},
+	{
+		"name": "wind",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": ["wind", "weather", "breeze", "air", "gust", "forecast"]
+	},
+	{
+		"name": "tornado",
+		"addedAt": "2026-08-01",
+		"category": ["Weather"],
+		"keywords": [
+			"tornado",
+			"storm",
+			"weather",
+			"cyclone",
+			"twister",
+			"forecast"
+		]
+	},
+	{
+		"name": "chart-bar-big",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "bar", "graph", "statistics", "analytics", "data"]
+	},
+	{
+		"name": "chart-bar-increasing",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "bar", "increasing", "growth", "graph", "analytics"]
+	},
+	{
+		"name": "chart-bar-decreasing",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "bar", "decreasing", "decline", "graph", "analytics"]
+	},
+	{
+		"name": "chart-column-big",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "column", "bar", "graph", "statistics", "data"]
+	},
+	{
+		"name": "chart-column-increasing",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": [
+			"chart",
+			"column",
+			"increasing",
+			"growth",
+			"graph",
+			"analytics"
+		]
+	},
+	{
+		"name": "chart-column-decreasing",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": [
+			"chart",
+			"column",
+			"decreasing",
+			"decline",
+			"graph",
+			"analytics"
+		]
+	},
+	{
+		"name": "chart-candlestick",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": [
+			"chart",
+			"candlestick",
+			"stock",
+			"finance",
+			"trading",
+			"market"
+		]
+	},
+	{
+		"name": "chart-gantt",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "gantt", "timeline", "project", "schedule", "tasks"]
+	},
+	{
+		"name": "chart-spline",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "spline", "line", "curve", "graph", "analytics"]
+	},
+	{
+		"name": "chart-no-axes-column",
+		"addedAt": "2026-08-01",
+		"category": ["Charts"],
+		"keywords": ["chart", "column", "bar", "graph", "statistics", "data"]
+	},
+	{
+		"name": "folder-plus",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "plus", "add", "new", "create", "directory"]
+	},
+	{
+		"name": "folder-minus",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "minus", "remove", "delete", "directory"]
+	},
+	{
+		"name": "folder-check",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "check", "done", "verified", "directory"]
+	},
+	{
+		"name": "folder-x",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "x", "delete", "remove", "close", "directory"]
+	},
+	{
+		"name": "folder-lock",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": [
+			"folder",
+			"lock",
+			"secure",
+			"private",
+			"directory",
+			"protected"
+		]
+	},
+	{
+		"name": "folder-heart",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "heart", "favorite", "like", "directory"]
+	},
+	{
+		"name": "folder-key",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "key", "access", "secure", "directory", "password"]
+	},
+	{
+		"name": "folder-search",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "search", "find", "directory", "explore"]
+	},
+	{
+		"name": "folder-dot",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "dot", "notification", "directory", "unread"]
+	},
+	{
+		"name": "folder-closed",
+		"addedAt": "2026-08-01",
+		"category": ["File icons"],
+		"keywords": ["folder", "closed", "directory", "files"]
+	},
+	{
+		"name": "arrow-up",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up", "direction", "navigation", "increase"]
+	},
+	{
+		"name": "arrow-down",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "down", "direction", "navigation", "decrease"]
+	},
+	{
+		"name": "arrow-left",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "left", "direction", "navigation", "back"]
+	},
+	{
+		"name": "arrow-right",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "right", "direction", "navigation", "next", "forward"]
+	},
+	{
+		"name": "arrow-up-right",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up right", "diagonal", "direction", "external"]
+	},
+	{
+		"name": "arrow-up-left",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up left", "diagonal", "direction"]
+	},
+	{
+		"name": "arrow-down-right",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "down right", "diagonal", "direction"]
+	},
+	{
+		"name": "arrow-down-left",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "down left", "diagonal", "direction"]
+	},
+	{
+		"name": "arrow-left-right",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "left right", "horizontal", "swap", "bidirectional"]
+	},
+	{
+		"name": "arrow-up-down",
+		"addedAt": "2026-08-01",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up down", "vertical", "sort", "bidirectional"]
+	},
+	{
+		"name": "circle-play",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["play", "circle", "media", "video", "start", "button"]
+	},
+	{
+		"name": "circle-pause",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["pause", "circle", "media", "stop", "button"]
+	},
+	{
+		"name": "circle-stop",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["stop", "circle", "media", "square", "button"]
+	},
+	{
+		"name": "square-play",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["play", "square", "media", "video", "start", "button"]
+	},
+	{
+		"name": "square-pause",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["pause", "square", "media", "stop", "button"]
+	},
+	{
+		"name": "step-forward",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["step", "forward", "next", "media", "skip"]
+	},
+	{
+		"name": "step-back",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["step", "back", "previous", "media", "skip"]
+	},
+	{
+		"name": "repeat-1",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["repeat", "one", "loop", "media", "cycle"]
+	},
+	{
+		"name": "repeat-2",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["repeat", "loop", "media", "cycle", "reload"]
+	},
+	{
+		"name": "disc-2",
+		"addedAt": "2026-08-01",
+		"category": ["Multimedia"],
+		"keywords": ["disc", "album", "music", "record", "cd", "media"]
+	},
+	{
+		"name": "mail-open",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "open", "email", "message", "read", "envelope"]
+	},
+	{
+		"name": "mail-plus",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "plus", "add", "email", "new", "compose"]
+	},
+	{
+		"name": "mail-check",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "check", "email", "sent", "verified", "done"]
+	},
+	{
+		"name": "mail-x",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "x", "email", "delete", "remove", "reject"]
+	},
+	{
+		"name": "mail-minus",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "minus", "email", "remove", "delete"]
+	},
+	{
+		"name": "mail-warning",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "warning", "email", "alert", "spam", "important"]
+	},
+	{
+		"name": "mail-search",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mail", "search", "email", "find", "filter"]
+	},
+	{
+		"name": "mailbox",
+		"addedAt": "2026-08-01",
+		"category": ["Mail", "Communication"],
+		"keywords": ["mailbox", "mail", "post", "letter", "inbox", "flag"]
+	},
+	{
+		"name": "send-horizontal",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["send", "horizontal", "message", "submit", "plane", "share"]
+	},
+	{
+		"name": "inbox",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["inbox", "mail", "messages", "receive", "tray"]
+	},
+	{
+		"name": "message-square",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "comment", "bubble", "talk"]
+	},
+	{
+		"name": "message-square-plus",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "plus", "new", "chat", "add", "compose"]
+	},
+	{
+		"name": "message-square-x",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "x", "chat", "delete", "close", "remove"]
+	},
+	{
+		"name": "message-square-heart",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "heart", "chat", "like", "love", "favorite"]
+	},
+	{
+		"name": "message-square-dot",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "dot", "chat", "notification", "unread"]
+	},
+	{
+		"name": "message-square-text",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "text", "chat", "comment", "lines"]
+	},
+	{
+		"name": "message-circle-plus",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "plus", "chat", "new", "add", "compose"]
+	},
+	{
+		"name": "message-circle-heart",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "heart", "chat", "like", "love"]
+	},
+	{
+		"name": "message-circle-x",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "x", "chat", "delete", "close"]
+	},
+	{
+		"name": "message-circle-more",
+		"addedAt": "2026-08-01",
+		"category": ["Communication"],
+		"keywords": ["message", "more", "chat", "typing", "dots"]
+	},
+	{
+		"name": "file",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "document", "page", "blank"]
+	},
+	{
+		"name": "file-check",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "check", "done", "verified", "approved"]
+	},
+	{
+		"name": "file-x",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "x", "remove", "delete", "reject", "cancel"]
+	},
+	{
+		"name": "file-plus",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "plus", "add", "new", "create"]
+	},
+	{
+		"name": "file-minus",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "minus", "remove", "subtract"]
+	},
+	{
+		"name": "file-lock",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "lock", "secure", "private", "protected"]
+	},
+	{
+		"name": "file-heart",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "heart", "favorite", "like", "love"]
+	},
+	{
+		"name": "file-search",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "search", "find", "magnifier", "lookup"]
+	},
+	{
+		"name": "file-code",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "code", "source", "script", "dev"]
+	},
+	{
+		"name": "file-music",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "music", "audio", "song", "note", "mp3"]
+	},
+	{
+		"name": "file-image",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "image", "picture", "photo", "media"]
+	},
+	{
+		"name": "file-clock",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "clock", "time", "recent", "pending", "history"]
+	},
+	{
+		"name": "file-key",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "key", "access", "credential", "secure"]
+	},
+	{
+		"name": "file-pen",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "pen", "edit", "write", "rename", "draft"]
+	},
+	{
+		"name": "files",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["files", "copy", "documents", "stack", "multiple"]
+	},
+	{
+		"name": "file-scan",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "scan", "ocr", "frame", "detect"]
+	},
+	{
+		"name": "file-archive",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "archive", "zip", "compress", "backup"]
+	},
+	{
+		"name": "file-terminal",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "terminal", "console", "shell", "command", "script"]
+	},
+	{
+		"name": "file-spreadsheet",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "spreadsheet", "sheet", "excel", "table", "csv"]
+	},
+	{
+		"name": "file-type",
+		"addedAt": "2026-08-02",
+		"category": ["File icons"],
+		"keywords": ["file", "type", "font", "text", "typography", "format"]
+	},
+	{
+		"name": "align-left",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["align", "left", "text", "paragraph", "format"]
+	},
+	{
+		"name": "align-center",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["align", "center", "text", "paragraph", "format"]
+	},
+	{
+		"name": "align-right",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["align", "right", "text", "paragraph", "format"]
+	},
+	{
+		"name": "align-justify",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["align", "justify", "text", "paragraph", "format"]
+	},
+	{
+		"name": "indent-increase",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["indent", "increase", "tab", "text", "format"]
+	},
+	{
+		"name": "indent-decrease",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["indent", "decrease", "outdent", "text", "format"]
+	},
+	{
+		"name": "wrap-text",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["wrap", "text", "reflow", "word wrap", "format"]
+	},
+	{
+		"name": "list",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["list", "bullets", "items", "unordered", "ul"]
+	},
+	{
+		"name": "list-ordered",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["list", "ordered", "numbered", "ol", "steps"]
+	},
+	{
+		"name": "list-checks",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["list", "checks", "checklist", "tasks", "todo"]
+	},
+	{
+		"name": "bold",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["bold", "strong", "text", "format", "weight"]
+	},
+	{
+		"name": "italic",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["italic", "emphasis", "text", "format", "slant"]
+	},
+	{
+		"name": "underline",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["underline", "text", "format", "emphasis"]
+	},
+	{
+		"name": "strikethrough",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["strikethrough", "strike", "text", "format", "cross out"]
+	},
+	{
+		"name": "heading",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "header", "title", "text", "h"]
+	},
+	{
+		"name": "heading-1",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h1", "title", "text", "header"]
+	},
+	{
+		"name": "heading-2",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h2", "subtitle", "text", "header"]
+	},
+	{
+		"name": "type",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["type", "text", "font", "typography", "format"]
+	},
+	{
+		"name": "pilcrow",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["pilcrow", "paragraph", "text", "format", "mark"]
+	},
+	{
+		"name": "quote",
+		"addedAt": "2026-08-02",
+		"category": ["Text formatting"],
+		"keywords": ["quote", "blockquote", "quotation", "text", "cite"]
+	},
+	{
+		"name": "calendar-days",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "days", "month", "schedule", "date", "dates"]
+	},
+	{
+		"name": "calendar-check",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "check", "done", "confirmed", "booked", "date"]
+	},
+	{
+		"name": "calendar-x",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "x", "cancel", "unavailable", "remove", "date"]
+	},
+	{
+		"name": "calendar-plus",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "plus", "add", "new event", "schedule", "date"]
+	},
+	{
+		"name": "calendar-minus",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "minus", "remove", "cancel event", "date"]
+	},
+	{
+		"name": "calendar-clock",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "clock", "time", "schedule", "deadline", "date"]
+	},
+	{
+		"name": "calendar-heart",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"heart",
+			"favorite",
+			"date",
+			"event",
+			"save the date"
+		]
+	},
+	{
+		"name": "calendar-range",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "range", "period", "span", "date range", "booking"]
+	},
+	{
+		"name": "calendar-fold",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "fold", "event", "date", "corner"]
+	},
+	{
+		"name": "calendar-search",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "search", "find", "lookup", "date", "event"]
+	},
+	{
+		"name": "clock-plus",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "plus", "add time", "alarm", "schedule", "time"]
+	},
+	{
+		"name": "clock-alert",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "alert", "warning", "overdue", "time", "reminder"]
+	},
+	{
+		"name": "clock-arrow-up",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "arrow", "up", "recent", "upload time", "time"]
+	},
+	{
+		"name": "clock-arrow-down",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "arrow", "down", "later", "download time", "time"]
+	},
+	{
+		"name": "timer",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["timer", "stopwatch", "countdown", "time", "clock"]
+	},
+	{
+		"name": "timer-reset",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["timer", "reset", "restart", "countdown", "stopwatch"]
+	},
+	{
+		"name": "timer-off",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["timer", "off", "stop", "disabled", "countdown"]
+	},
+	{
+		"name": "hourglass",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["hourglass", "time", "loading", "wait", "sandglass", "timer"]
+	},
+	{
+		"name": "watch",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["watch", "wristwatch", "time", "clock", "smartwatch"]
+	},
+	{
+		"name": "history",
+		"addedAt": "2026-08-02",
+		"category": ["Time & Date"],
+		"keywords": ["history", "recent", "undo", "rewind", "time", "revert", "log"]
+	},
+	{
+		"name": "shopping-basket",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["basket", "cart", "shop", "buy", "ecommerce", "groceries"]
+	},
+	{
+		"name": "store",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["store", "shop", "market", "retail", "storefront", "business"]
+	},
+	{
+		"name": "package",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["package", "box", "parcel", "delivery", "shipping", "product"]
+	},
+	{
+		"name": "package-check",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": [
+			"package",
+			"delivered",
+			"check",
+			"confirmed",
+			"shipped",
+			"done"
+		]
+	},
+	{
+		"name": "package-plus",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["package", "add", "new", "plus", "create", "shipment"]
+	},
+	{
+		"name": "package-x",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["package", "remove", "cancel", "delete", "return", "x"]
+	},
+	{
+		"name": "package-search",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["package", "search", "track", "find", "lookup", "parcel"]
+	},
+	{
+		"name": "receipt",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": [
+			"receipt",
+			"bill",
+			"invoice",
+			"payment",
+			"purchase",
+			"transaction"
+		]
+	},
+	{
+		"name": "receipt-text",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["receipt", "invoice", "bill", "itemized", "purchase", "order"]
+	},
+	{
+		"name": "tag",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["tag", "label", "price", "sale", "discount", "product"]
+	},
+	{
+		"name": "tags",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["tags", "labels", "price", "sale", "categories", "discount"]
+	},
+	{
+		"name": "ticket",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "event", "admission", "pass", "coupon", "entry"]
+	},
+	{
+		"name": "ticket-percent",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "coupon", "discount", "percent", "sale", "voucher"]
+	},
+	{
+		"name": "wallet-cards",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["wallet", "cards", "payment", "money", "cash", "finance"]
+	},
+	{
+		"name": "banknote",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["banknote", "money", "cash", "bill", "currency", "payment"]
+	},
+	{
+		"name": "coins",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["coins", "money", "cash", "currency", "change", "finance"]
+	},
+	{
+		"name": "badge-percent",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["badge", "percent", "discount", "sale", "offer", "promo"]
+	},
+	{
+		"name": "truck",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": [
+			"truck",
+			"delivery",
+			"shipping",
+			"transport",
+			"logistics",
+			"freight"
+		]
+	},
+	{
+		"name": "piggy-bank",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["piggy", "bank", "savings", "money", "finance", "save"]
+	},
+	{
+		"name": "barcode",
+		"addedAt": "2026-08-02",
+		"category": ["Shopping"],
+		"keywords": ["barcode", "scan", "product", "code", "inventory", "price"]
+	},
+	{
+		"name": "map",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": [
+			"map",
+			"location",
+			"navigate",
+			"atlas",
+			"geography",
+			"directions"
+		]
+	},
+	{
+		"name": "navigation",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["navigation", "cursor", "direction", "gps", "compass", "arrow"]
+	},
+	{
+		"name": "navigation-2",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["navigation", "cursor", "direction", "gps", "pointer", "arrow"]
+	},
+	{
+		"name": "milestone",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": [
+			"milestone",
+			"marker",
+			"signpost",
+			"progress",
+			"location",
+			"goal"
+		]
+	},
+	{
+		"name": "signpost",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["signpost", "sign", "direction", "wayfinding", "road", "guide"]
+	},
+	{
+		"name": "signpost-big",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": [
+			"signpost",
+			"sign",
+			"direction",
+			"crossroad",
+			"wayfinding",
+			"guide"
+		]
+	},
+	{
+		"name": "route",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["route", "path", "directions", "navigation", "journey", "trip"]
+	},
+	{
+		"name": "route-off",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": [
+			"route",
+			"path",
+			"disabled",
+			"offline",
+			"navigation",
+			"no-route"
+		]
+	},
+	{
+		"name": "waypoints",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["waypoints", "nodes", "route", "path", "connections", "stops"]
+	},
+	{
+		"name": "locate",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["locate", "gps", "crosshair", "target", "position", "find"]
+	},
+	{
+		"name": "locate-fixed",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["locate", "gps", "fixed", "target", "position", "pinpoint"]
+	},
+	{
+		"name": "locate-off",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["locate", "gps", "off", "disabled", "no-signal", "offline"]
+	},
+	{
+		"name": "tent",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["tent", "camp", "camping", "outdoor", "shelter", "travel"]
+	},
+	{
+		"name": "flag",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["flag", "marker", "milestone", "country", "banner", "report"]
+	},
+	{
+		"name": "flag-off",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["flag", "unflag", "remove", "disabled", "off", "report"]
+	},
+	{
+		"name": "flag-triangle-right",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["flag", "pennant", "marker", "milestone", "banner", "golf"]
+	},
+	{
+		"name": "pin",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["pin", "location", "marker", "place", "map", "tack"]
+	},
+	{
+		"name": "pin-off",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["pin", "unpin", "remove", "disabled", "off", "location"]
+	},
+	{
+		"name": "footprints",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["footprints", "steps", "trail", "walk", "path", "tracks"]
+	},
+	{
+		"name": "mountain",
+		"addedAt": "2026-08-02",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["mountain", "peak", "hiking", "terrain", "summit", "outdoor"]
+	},
+	{
+		"name": "tablet",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["tablet", "ipad", "device", "screen", "touchscreen", "mobile"]
+	},
+	{
+		"name": "laptop-minimal",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": [
+			"laptop",
+			"notebook",
+			"computer",
+			"device",
+			"macbook",
+			"screen"
+		]
+	},
+	{
+		"name": "monitor",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"display",
+			"computer",
+			"desktop",
+			"device"
+		]
+	},
+	{
+		"name": "monitor-smartphone",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"smartphone",
+			"responsive",
+			"devices",
+			"sync",
+			"screens"
+		]
+	},
+	{
+		"name": "tv-minimal",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["tv", "television", "screen", "display", "monitor", "device"]
+	},
+	{
+		"name": "mouse",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["mouse", "cursor", "click", "pointer", "device", "scroll"]
+	},
+	{
+		"name": "keyboard",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["keyboard", "typing", "keys", "input", "device", "type"]
+	},
+	{
+		"name": "server",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": [
+			"server",
+			"rack",
+			"database",
+			"hosting",
+			"datacenter",
+			"hardware"
+		]
+	},
+	{
+		"name": "hard-drive",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["hard-drive", "storage", "disk", "hdd", "memory", "hardware"]
+	},
+	{
+		"name": "cpu",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["cpu", "processor", "chip", "hardware", "compute", "microchip"]
+	},
+	{
+		"name": "memory-stick",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["memory", "ram", "stick", "module", "hardware", "storage"]
+	},
+	{
+		"name": "webcam",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["webcam", "camera", "video", "lens", "stream", "device"]
+	},
+	{
+		"name": "battery-charging",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["battery", "charging", "power", "energy", "charge", "device"]
+	},
+	{
+		"name": "battery-low",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["battery", "low", "power", "empty", "energy", "warning"]
+	},
+	{
+		"name": "plug",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["plug", "power", "electric", "socket", "charge", "connect"]
+	},
+	{
+		"name": "plug-2",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["plug", "power", "electric", "socket", "charge", "connect"]
+	},
+	{
+		"name": "plug-zap",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["plug", "zap", "power", "charge", "electric", "energy"]
+	},
+	{
+		"name": "usb",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["usb", "connector", "cable", "port", "data", "device"]
+	},
+	{
+		"name": "router",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["router", "wifi", "network", "internet", "modem", "signal"]
+	},
+	{
+		"name": "hard-drive-download",
+		"addedAt": "2026-08-02",
+		"category": ["Devices"],
+		"keywords": ["download", "storage", "drive", "save", "disk", "import"]
+	},
+	{
+		"name": "sun-dim",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["sun", "dim", "weather", "sunny", "daylight", "bright"]
+	},
+	{
+		"name": "sun-medium",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["sun", "weather", "sunny", "daylight", "clear", "bright"]
+	},
+	{
+		"name": "sunrise",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["sunrise", "dawn", "morning", "sun", "weather", "horizon"]
+	},
+	{
+		"name": "sunset",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["sunset", "dusk", "evening", "sun", "weather", "horizon"]
+	},
+	{
+		"name": "moon-star",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["moon", "star", "night", "weather", "clear", "sky"]
+	},
+	{
+		"name": "cloud-sun",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["cloud", "sun", "partly", "weather", "cloudy", "day"]
+	},
+	{
+		"name": "cloud-moon",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["cloud", "moon", "night", "weather", "cloudy", "overcast"]
+	},
+	{
+		"name": "cloudy",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["cloudy", "clouds", "overcast", "weather", "sky", "gray"]
+	},
+	{
+		"name": "cloud-hail",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["hail", "cloud", "weather", "storm", "ice", "precipitation"]
+	},
+	{
+		"name": "cloud-rain-wind",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["rain", "wind", "cloud", "weather", "storm", "shower"]
+	},
+	{
+		"name": "cloud-sun-rain",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["rain", "sun", "cloud", "weather", "shower", "day"]
+	},
+	{
+		"name": "cloud-moon-rain",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["rain", "moon", "cloud", "weather", "night", "shower"]
+	},
+	{
+		"name": "cloud-off",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["cloud", "off", "offline", "weather", "disabled", "no-cloud"]
+	},
+	{
+		"name": "droplet",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["droplet", "water", "drop", "liquid", "rain", "moisture"]
+	},
+	{
+		"name": "droplets",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["droplets", "water", "drops", "liquid", "humidity", "moisture"]
+	},
+	{
+		"name": "rainbow",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["rainbow", "weather", "colors", "arc", "sky", "spectrum"]
+	},
+	{
+		"name": "thermometer",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": [
+			"thermometer",
+			"temperature",
+			"weather",
+			"heat",
+			"degrees",
+			"climate"
+		]
+	},
+	{
+		"name": "haze",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["haze", "fog", "mist", "weather", "smog", "hazy"]
+	},
+	{
+		"name": "sun-snow",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["sun", "snow", "weather", "temperature", "hot", "cold"]
+	},
+	{
+		"name": "thermometer-sun",
+		"addedAt": "2026-08-02",
+		"category": ["Weather"],
+		"keywords": ["thermometer", "sun", "temperature", "heat", "weather", "hot"]
 	}
 ]
