@@ -13,6 +13,12 @@ const config = [
 			"coverage/**",
 			"**/*.generated.ts",
 			"public/**",
+			// Local, gitignored agent tooling - never committed, so not ours to lint.
+			".claude/**",
+			".claude-flow/**",
+			".agents/**",
+			".swarm/**",
+			".hive-mind/**",
 		],
 	},
 	...next,

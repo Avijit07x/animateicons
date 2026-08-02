@@ -43,7 +43,7 @@ const NavbarActions: React.FC<Props> = ({ stars }) => {
 			{stars !== null && (
 				<NumberTicker
 					value={stars}
-					className="text-textPrimary min-w-7 text-xs!"
+					className="text-textPrimary min-w-9 text-xs!"
 				/>
 			)}
 		</Link>

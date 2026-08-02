@@ -14,16 +14,16 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
-import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { ICON_META as HUGE_ICON_META } from "@/icons/huge/meta";
+import { ICON_META as LUCIDE_ICON_META } from "@/icons/lucide/meta";
 import { getCategories } from "@/utils/getCategories";
+import { isIconNew } from "@/utils/isIconNew";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
-import SidebarRequest from "./SidebarRequest";
 
 const libraryIconMap: Record<string, React.ReactNode> = {
 	"Lucide Icons": <LucideIcon className="size-4" />,
@@ -35,10 +35,21 @@ const AppSidebar: React.FC = () => {
 	const { category, setCategory } = useCategory();
 	const router = useRouter();
 	const pathname = usePathname();
-	const icons = library === "huge" ? HUGE_ICON_LIST : LUCIDE_ICON_LIST;
+	const icons = library === "huge" ? HUGE_ICON_META : LUCIDE_ICON_META;
 
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
 	const totalCount = icons.length;
+
+	// New-icon count per library, keyed by the library `name` used in the
+	// sidebar config, so the chip sits beside its library regardless of which
+	// one is active.
+	const newCountByLibrary = React.useMemo<Record<string, number>>(
+		() => ({
+			lucide: LUCIDE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+			huge: HUGE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+		}),
+		[],
+	);
 
 	// ponytail: docs render their own shell (app/icons/docs/layout.tsx), so the
 	// gallery's category sidebar steps aside on /icons/docs routes.
@@ -95,18 +106,22 @@ const AppSidebar: React.FC = () => {
 				</Link>
 			</SidebarHeader>
 
-			<SidebarContent className="bg-bgDark gap-2">
+			<SidebarContent className="bg-bgDark gap-3 overscroll-contain">
 				{sidebarConfig.map((group) => (
 					<SidebarGroup
 						key={group.label}
-						className={group.scrollable ? "flex-1 overflow-y-auto" : ""}
+						className={
+							group.scrollable
+								? "flex-1 overflow-y-auto overscroll-contain"
+								: ""
+						}
 					>
-						<SidebarGroupLabel className="text-textSecondary text-xs">
+						<SidebarGroupLabel className="text-textMuted text-[10px] font-semibold tracking-[0.14em] uppercase">
 							{group.label}
 						</SidebarGroupLabel>
 
 						<SidebarGroupContent>
-							<SidebarMenu className="gap-[0.563rem]">
+							<SidebarMenu className="gap-1">
 								{group.items.map((item) => {
 									const Icon = item.icon;
 									const customIcon = libraryIconMap[item.label];
@@ -128,9 +143,9 @@ const AppSidebar: React.FC = () => {
 
 											<span className="flex items-center gap-2">
 												{item.label}
-												{item.isBeta && (
-													<span className="border-primary/40 text-primary rounded border px-1.5 py-0.5 text-[10px] leading-none font-semibold">
-														BETA
+												{item.name && newCountByLibrary[item.name] > 0 && (
+													<span className="bg-primary/12 text-primary border-primary/25 rounded-sm border px-1.5 py-px text-[9px] font-semibold tracking-wide uppercase">
+														{newCountByLibrary[item.name]} New
 													</span>
 												)}
 											</span>
@@ -178,12 +193,12 @@ const AppSidebar: React.FC = () => {
 					</SidebarGroup>
 				))}
 
-				<SidebarGroup className="min-h-50 flex-1 overflow-y-auto">
-					<SidebarGroupLabel className="text-textSecondary text-xs">
+				<SidebarGroup className="flex min-h-0 flex-1 flex-col">
+					<SidebarGroupLabel className="text-textMuted shrink-0 text-[10px] font-semibold tracking-[0.14em] uppercase">
 						Categories
 					</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu className="gap-[0.563rem]">
+					<SidebarGroupContent className="min-h-0 flex-1 scrollbar-gutter-stable overflow-y-scroll overscroll-contain">
+						<SidebarMenu className="gap-1">
 							<SidebarMenuItem key="all">
 								<SidebarMenuButton
 									variant="dark"
@@ -192,7 +207,7 @@ const AppSidebar: React.FC = () => {
 									onClick={() => handleCategory("all")}
 								>
 									<span className="flex items-center gap-2">All</span>
-									<span className="text-textSecondary text-xs">
+									<span className="text-textSecondary rounded-md bg-white/6 px-1.5 py-0.5 text-[11px] font-medium tabular-nums">
 										{totalCount}
 									</span>
 								</SidebarMenuButton>
@@ -207,7 +222,7 @@ const AppSidebar: React.FC = () => {
 										onClick={() => handleCategory(cat.name)}
 									>
 										<span className="flex items-center gap-2">{cat.name}</span>
-										<span className="text-textSecondary text-xs">
+										<span className="text-textSecondary rounded-md bg-white/6 px-1.5 py-0.5 text-[11px] font-medium tabular-nums">
 											{cat.count}
 										</span>
 									</SidebarMenuButton>
@@ -216,8 +231,6 @@ const AppSidebar: React.FC = () => {
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</SidebarGroup>
-
-				<SidebarRequest />
 			</SidebarContent>
 		</Sidebar>
 	);

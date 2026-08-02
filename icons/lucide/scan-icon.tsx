@@ -81,18 +81,19 @@ const ScanIcon = forwardRef<ScanIconHandle, ScanIconProps>(
    [controls, onMouseLeave],
   );
 
-  const corner = (delay: number): Variants => ({
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.4, 1],
+  const cornerVariants: Variants = {
+   normal: { scale: 1, opacity: 1 },
+   animate: (i: number) => ({
+    scale: [0, 1.12, 1],
+    opacity: [0, 1, 1],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay,
+     duration: 0.4 * duration,
+     delay: (0.05 + i * 0.07) * duration,
+     times: [0, 0.6, 1],
+     ease: [0.34, 1.4, 0.64, 1],
     },
-   },
-  });
+   }),
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -116,10 +117,30 @@ const ScanIcon = forwardRef<ScanIconHandle, ScanIconProps>(
       initial="normal"
       animate={controls}
      >
-      <m.path d="M3 7V5a2 2 0 0 1 2-2h2" variants={corner(0)} />
-      <m.path d="M17 3h2a2 2 0 0 1 2 2v2" variants={corner(0.1)} />
-      <m.path d="M21 17v2a2 2 0 0 1-2 2h-2" variants={corner(0.2)} />
-      <m.path d="M7 21H5a2 2 0 0 1-2-2v-2" variants={corner(0.3)} />
+      <m.path
+       d="M3 7V5a2 2 0 0 1 2-2h2"
+       custom={0}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M17 3h2a2 2 0 0 1 2 2v2"
+       custom={1}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M21 17v2a2 2 0 0 1-2 2h-2"
+       custom={2}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M7 21H5a2 2 0 0 1-2-2v-2"
+       custom={3}
+       variants={cornerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

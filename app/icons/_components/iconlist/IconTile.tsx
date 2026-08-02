@@ -24,19 +24,44 @@ import IconTileActions from "./IconTileActions";
 
 type Props = {
 	item: IconFilteredItem;
+	getIcon: (name: string) => React.ElementType;
 };
 
-const IconTile: React.FC<Props> = ({ item }) => {
+const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 	const { library, prefix } = useIconLibrary();
 	const { openPlayground } = usePlayground();
 	const iconRef = React.useRef<IconHandle>(null);
+	const tileRef = React.useRef<HTMLDivElement>(null);
+	const [inView, setInView] = React.useState(false);
+
+	React.useEffect(() => {
+		const el = tileRef.current;
+		if (!el || inView) return;
+		const io = new IntersectionObserver(
+			(entries) => {
+				if (entries[0]?.isIntersecting) {
+					setInView(true);
+					io.disconnect();
+				}
+			},
+			{ rootMargin: "800px 0px" },
+		);
+		io.observe(el);
+		return () => io.disconnect();
+	}, [inView]);
 
 	if (!library || !prefix) {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
 	const tileId = `${library}-${item.name}`;
-	const IconComponent = item.icon;
+	// getIcon returns a module-cached React.lazy component (stable per name),
+	// so this dynamic reference is safe despite the static-components heuristic.
+	// eslint-disable-next-line react-hooks/static-components
+	const IconComponent = getIcon(item.name) as React.ComponentType<{
+		size?: number;
+		ref?: React.Ref<IconHandle>;
+	}>;
 
 	const handleOpen = () =>
 		openPlayground({
@@ -48,7 +73,10 @@ const IconTile: React.FC<Props> = ({ item }) => {
 		});
 
 	return (
-		<div className="bg-surfaceElevated/65 border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102">
+		<div
+			ref={tileRef}
+			className="bg-surfaceElevated/65 border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102"
+		>
 			{item.isNew && (
 				<span className="bg-primary/12 text-primary border-primary/25 absolute top-0 right-0 rounded-bl-md border-b border-l px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase">
 					New
@@ -70,7 +98,11 @@ const IconTile: React.FC<Props> = ({ item }) => {
 				onMouseLeave={(e) => handleHover(e, iconRef)}
 				className="hover:bg-surface inline-flex size-12 cursor-pointer items-center justify-center rounded-xl p-3"
 			>
-				<IconComponent ref={iconRef} size={23} />
+				{inView ? (
+					<React.Suspense fallback={null}>
+						<IconComponent ref={iconRef} size={23} />
+					</React.Suspense>
+				) : null}
 			</div>
 			<p className="line-clamp-1 text-gray-300">{item.name}</p>
 

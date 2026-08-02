@@ -19,8 +19,14 @@
  */
 
 import { Kbd } from "@/components/ui/kbd";
-import { ICON_LIST as HUGE_LIST } from "@/icons/huge";
-import { ICON_LIST as LUCIDE_LIST } from "@/icons/lucide";
+import {
+	getIcon as getHugeIcon,
+	ICON_META as HUGE_META,
+} from "@/icons/huge/meta";
+import {
+	getIcon as getLucideIcon,
+	ICON_META as LUCIDE_META,
+} from "@/icons/lucide/meta";
 import { cn } from "@/lib/utils";
 import Fuse from "fuse.js";
 import { AnimatePresence, motion } from "motion/react";
@@ -39,16 +45,16 @@ type Props = {
  *  Both libraries combined; library tag preserved for the badge column
  *  and the navigation target. */
 const ALL_ICONS: CommandSearchIcon[] = [
-	...LUCIDE_LIST.map((i) => ({
+	...LUCIDE_META.map((i) => ({
 		name: i.name,
 		library: "lucide" as const,
-		component: i.icon,
+		component: getLucideIcon(i.name),
 		keywords: i.keywords,
 	})),
-	...HUGE_LIST.map((i) => ({
+	...HUGE_META.map((i) => ({
 		name: i.name,
 		library: "huge" as const,
-		component: i.icon,
+		component: getHugeIcon(i.name),
 		keywords: i.keywords,
 	})),
 ];

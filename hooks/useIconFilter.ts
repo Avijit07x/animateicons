@@ -10,17 +10,17 @@
  * the gallery can decorate them.
  */
 
-import { differenceInDays } from "date-fns";
+import { isIconNew } from "@/utils/isIconNew";
 import Fuse from "fuse.js";
 import { useMemo } from "react";
 
 type Params = {
-	icons: IconListItem[];
+	icons: IconMeta[];
 	category: string;
 	query: string;
 };
 
-export type IconFilteredItem = IconListItem & { isNew: boolean };
+export type IconFilteredItem = IconMeta & { isNew: boolean };
 
 export const useIconSearchFilter = ({
 	icons,
@@ -56,9 +56,9 @@ export const useIconSearchFilter = ({
 		let items = categoryIcons;
 
 		if (q.length >= 2) {
-			const exact: IconListItem[] = [];
-			const startsWith: IconListItem[] = [];
-			const contains: IconListItem[] = [];
+			const exact: IconMeta[] = [];
+			const startsWith: IconMeta[] = [];
+			const contains: IconMeta[] = [];
 
 			for (const icon of categoryIcons) {
 				const name = icon.name.toLowerCase();
@@ -72,7 +72,7 @@ export const useIconSearchFilter = ({
 			}
 
 			const customMatches = [...exact, ...startsWith, ...contains];
-			let fuseMatches: IconListItem[] = [];
+			let fuseMatches: IconMeta[] = [];
 
 			if (fuse) {
 				const isAll = category === "all";
@@ -86,7 +86,7 @@ export const useIconSearchFilter = ({
 					.map((r) => r.item);
 			}
 
-			const uniqueItems = new Map<string, IconListItem>();
+			const uniqueItems = new Map<string, IconMeta>();
 
 			for (const icon of [...customMatches, ...fuseMatches]) {
 				if (!uniqueItems.has(icon.name)) {
@@ -97,14 +97,10 @@ export const useIconSearchFilter = ({
 			items = Array.from(uniqueItems.values());
 		}
 
-		const now = new Date();
-
 		return items
 			.map((item) => ({
 				...item,
-				isNew: !!(
-					item.addedAt && differenceInDays(now, new Date(item.addedAt)) <= 3
-				),
+				isNew: isIconNew(item.addedAt),
 			}))
 			.sort((a, b) => Number(b.isNew) - Number(a.isNew));
 	}, [query, fuse, categoryIcons, category]);

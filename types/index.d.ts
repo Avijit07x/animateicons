@@ -9,6 +9,17 @@ type IconListItem = {
 	keywords: string[];
 };
 
+// Metadata-only shape (no live component reference) - lets the sidebar,
+// search, command palette and gallery grid import icon data WITHOUT pulling
+// every animated component into the client bundle. The component is loaded
+// on demand via `getIcon(name)` from the per-library `meta` module.
+type IconMeta = {
+	name: string;
+	category?: string[];
+	addedAt: string;
+	keywords: string[];
+};
+
 type IconLibraryCardData = {
 	id?: string;
 	title: string;

@@ -54,3 +54,11 @@ next-env.d.ts
 *.tgz
 
 .playwright-mcp
+
+# Ruflo / claude-flow — generated files & runtime data (env already ignored above)
+.agents/
+.claude-flow/
+.swarm/
+.hive-mind/
+ruvector.db
+CLAUDE.md

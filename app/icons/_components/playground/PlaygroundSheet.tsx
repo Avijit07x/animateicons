@@ -29,7 +29,7 @@ import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "../../_contexts/PlaygroundContext";
 import HighlightedCode from "./HighlightedCode";
 import PlaygroundControls from "./PlaygroundControls";
@@ -188,12 +188,14 @@ const PlaygroundSheet: React.FC = () => {
 						<span className="text-textMuted absolute top-3 left-4 font-mono text-[10px] tracking-wider uppercase">
 							{icon.library} · {config.size}px
 						</span>
-						<IconComponent
-							ref={iconRef}
-							size={config.size}
-							duration={config.duration}
-							color={config.color}
-						/>
+						<Suspense fallback={null}>
+							<IconComponent
+								ref={iconRef}
+								size={config.size}
+								duration={config.duration}
+								color={config.color}
+							/>
+						</Suspense>
 					</div>
 
 					{/* Controls */}
