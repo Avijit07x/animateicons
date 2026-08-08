@@ -55,6 +55,9 @@ next-env.d.ts
 
 .playwright-mcp
 
+# local-only planning docs (never commit)
+/docs/
+
 # Ruflo / claude-flow — generated files & runtime data (env already ignored above)
 .agents/
 .claude-flow/

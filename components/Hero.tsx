@@ -1,120 +1,147 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { CheckIcon, type CheckIconHandle } from "@/icons/lucide/check-icon";
+import { CopyIcon, type CopyIconHandle } from "@/icons/lucide/copy-icon";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, Variants } from "motion/react";
 import Link from "next/link";
-import React from "react";
-import CmdSection from "./CmdSection";
-import { GitHub } from "./icons/Github";
+import React, { useEffect, useRef, useState } from "react";
+import HeroSpecimen from "./hero/HeroSpecimen";
 
-const containerVariants: Variants = {
+const container: Variants = {
 	hidden: { opacity: 0 },
 	show: {
 		opacity: 1,
-		transition: {
-			staggerChildren: 0.12,
-			delayChildren: 0.1,
-		},
+		transition: { staggerChildren: 0.08, delayChildren: 0.05 },
 	},
 };
 
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 20 },
+const item: Variants = {
+	hidden: { opacity: 0, y: 18 },
 	show: {
 		opacity: 1,
 		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: "easeOut",
-		},
+		transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
 	},
 };
 
+const INSTALL = "npm i @animateicons/react";
+
 const HeroSection: React.FC = () => {
+	const [copied, setCopied] = useState(false);
+	const copyRef = useRef<CopyIconHandle | null>(null);
+	const checkRef = useRef<CheckIconHandle | null>(null);
+
+	useEffect(() => {
+		if (!copied) return;
+		const id = requestAnimationFrame(() => checkRef.current?.startAnimation());
+		return () => cancelAnimationFrame(id);
+	}, [copied]);
+
+	const copy = () => {
+		navigator.clipboard?.writeText(INSTALL).then(() => {
+			setCopied(true);
+			setTimeout(() => setCopied(false), 1600);
+		});
+	};
+
 	return (
-		<div className="relative flex min-h-[calc(100dvh-4rem)] items-center justify-center overflow-hidden">
-			<div className="bg-grid pointer-events-none absolute inset-0 z-0" />
+		<section className="relative min-h-[calc(100dvh-4rem)] overflow-hidden">
+			<div
+				aria-hidden="true"
+				className="bg-plus-grid pointer-events-none absolute inset-0"
+			/>
 
 			<motion.div
-				variants={containerVariants}
+				variants={container}
 				initial="hidden"
 				animate="show"
-				className="relative z-10 mx-auto flex min-h-[calc(100dvh-14rem)] w-full max-w-3xl flex-col items-center justify-center gap-8 px-4 text-center"
+				className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-7xl flex-col px-6"
 			>
-				<Link
-					href={"https://github.com/Avijit07x/animateicons"}
-					target="_blank"
-					aria-label="View AnimateIcons GitHub repository"
-					rel="noopener noreferrer"
-				>
-					<motion.div
-						variants={itemVariants}
-						className="border-border bg-surface text-textPrimary hover:bg-surfaceHover -mb-2 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs"
-					>
-						<GitHub className="size-4.5" />
-						<span className="font-medium">Open Source</span>
-						<span className="border-border text-textSecondary rounded-full border px-2 py-0.5 text-[10px]">
-							MIT
-						</span>
-					</motion.div>
-				</Link>
-
-				<motion.h1
-					variants={itemVariants}
-					className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-				>
-					<span className="text-primary">Make Every Icon Move</span>
-					<br />
-					<span className="text-textPrimary font-medium">
-						with AnimateIcons
-					</span>
-				</motion.h1>
-
-				<motion.div
-					variants={itemVariants}
-					className="max-w-xl space-y-2 text-sm leading-relaxed text-zinc-300"
-				>
-					<p>
-						Free and open-source animated SVG icons for React with smooth
-						micro-interactions and lightweight performance, built with{" "}
-						<Link
-							href={"https://motion.dev/"}
-							className="underline"
-							target="_blank"
+				<div className="grid flex-1 items-center gap-y-12 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-10">
+					<div className="flex flex-col items-start gap-7">
+						<motion.p
+							variants={item}
+							className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase"
 						>
-							Motion
-						</Link>
-					</p>
-				</motion.div>
+							<span className="text-primary">01</span> / Animated icon library
+							for React
+						</motion.p>
 
-				<motion.div
-					variants={itemVariants}
-					className="flex w-full items-center justify-center"
-				>
-					<CmdSection />
-				</motion.div>
+						<motion.h1
+							variants={item}
+							className="text-[clamp(2.75rem,8vw,6.25rem)] leading-[0.9] font-semibold tracking-tight"
+						>
+							<span className="text-textPrimary">Make every</span>
+							<br />
+							<span className="text-textPrimary">icon </span>
+							<span className="text-primary">move.</span>
+						</motion.h1>
 
-				<motion.div variants={itemVariants}>
-					<Link
-						href="/icons/lucide"
-						prefetch={false}
-						aria-label="Browse Lucide animated icons"
-						className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-6 py-2.5 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98]"
-					>
-						{/* Subtle top-edge highlight, like a glass bevel */}
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-6 top-px h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
-						/>
-						<span>Browse icons</span>
-						<ArrowRight
-							className="size-4.5 transition-transform duration-300 group-hover:translate-x-0.5"
-							aria-hidden="true"
-						/>
-					</Link>
-				</motion.div>
+						<motion.p
+							variants={item}
+							className="text-textSecondary max-w-md text-sm leading-relaxed sm:text-base"
+						>
+							{ICON_COUNTS.total} open-source SVG icons that animate at the path
+							level, driven by hover, focus, or your own code. One motion
+							system, two libraries.
+						</motion.p>
+
+						<motion.button
+							type="button"
+							onClick={copy}
+							onMouseEnter={() => copyRef.current?.startAnimation()}
+							onMouseLeave={() => copyRef.current?.stopAnimation()}
+							variants={item}
+							aria-label="Copy install command"
+							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full max-w-sm cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-all duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2"
+						>
+							<code className="text-textPrimary font-mono text-sm">
+								<span className="text-textMuted select-none">$ </span>
+								{INSTALL}
+							</code>
+							<span className="text-textMuted group-hover:text-primary flex items-center transition-colors">
+								{copied ? (
+									<CheckIcon
+										ref={checkRef}
+										size={16}
+										color="var(--color-success)"
+									/>
+								) : (
+									<CopyIcon ref={copyRef} size={16} />
+								)}
+							</span>
+						</motion.button>
+
+						<motion.div
+							variants={item}
+							className="flex flex-wrap items-center gap-3 pt-1"
+						>
+							<Link
+								href="/icons/lucide"
+								prefetch={false}
+								className="group bg-primary hover:bg-primaryHover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
+							>
+								Browse {ICON_COUNTS.total} icons
+								<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+							</Link>
+							<Link
+								href="/icons/docs"
+								className="group border-border text-textPrimary hover:border-primary/50 hover:bg-surface inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
+							>
+								Documentation
+								<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+							</Link>
+						</motion.div>
+					</div>
+
+					<motion.div variants={item} className="w-full">
+						<HeroSpecimen />
+					</motion.div>
+				</div>
 			</motion.div>
-		</div>
+		</section>
 	);
 };
 

@@ -25,9 +25,9 @@ import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
 import { sidebarConfig } from "./sidebar.config";
 
-const libraryIconMap: Record<string, React.ReactNode> = {
-	"Lucide Icons": <LucideIcon className="size-4" />,
-	"Huge Icons": <HugeIcon className="size-4" />,
+const libraryIconMap: Record<string, React.FC<{ className?: string }>> = {
+	"Lucide Icons": LucideIcon,
+	"Huge Icons": HugeIcon,
 };
 
 const AppSidebar: React.FC = () => {
@@ -116,7 +116,7 @@ const AppSidebar: React.FC = () => {
 								: ""
 						}
 					>
-						<SidebarGroupLabel className="text-textMuted text-[10px] font-semibold tracking-[0.14em] uppercase">
+						<SidebarGroupLabel className="text-textMuted font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
 							{group.label}
 						</SidebarGroupLabel>
 
@@ -124,22 +124,26 @@ const AppSidebar: React.FC = () => {
 							<SidebarMenu className="gap-1">
 								{group.items.map((item) => {
 									const Icon = item.icon;
-									const customIcon = libraryIconMap[item.label];
+									const LibraryIcon = libraryIconMap[item.label];
 									const highlight = item.highlight === true;
 
 									const content = (
 										<>
-											{customIcon
-												? customIcon
-												: Icon && (
-														<Icon
-															className={
-																highlight
-																	? "size-4 fill-pink-500/20 text-pink-500"
-																	: "size-4"
-															}
-														/>
-													)}
+											{LibraryIcon ? (
+												<LibraryIcon
+													className={`size-4 ${isLibraryActive(item.name) ? "text-primary" : ""}`}
+												/>
+											) : (
+												Icon && (
+													<Icon
+														className={
+															highlight
+																? "size-4 fill-pink-500/20 text-pink-500"
+																: "size-4"
+														}
+													/>
+												)
+											)}
 
 											<span className="flex items-center gap-2">
 												{item.label}
@@ -194,7 +198,7 @@ const AppSidebar: React.FC = () => {
 				))}
 
 				<SidebarGroup className="flex min-h-0 flex-1 flex-col">
-					<SidebarGroupLabel className="text-textMuted shrink-0 text-[10px] font-semibold tracking-[0.14em] uppercase">
+					<SidebarGroupLabel className="text-textMuted shrink-0 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
 						Categories
 					</SidebarGroupLabel>
 					<SidebarGroupContent className="min-h-0 flex-1 scrollbar-gutter-stable overflow-y-scroll overscroll-contain">

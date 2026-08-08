@@ -12,6 +12,7 @@
 		"gen:icons": "pnpm run gen:icons-json && pnpm run gen:registry && pnpm run gen:catalog",
 		"check:icons": "tsx scripts/check-duplicate-icons.ts",
 		"check:registry": "tsx scripts/check-registry.ts",
+		"check:readme": "tsx scripts/check-readme-counts.ts",
 		"check:all": "pnpm run format && pnpm run check:icons && pnpm run check:registry",
 		"prebuild": "pnpm run gen:icons && pnpm run check:all",
 		"dev": "pnpm run gen:icons && pnpm run check:all && next dev --turbopack",

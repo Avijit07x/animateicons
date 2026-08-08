@@ -229,9 +229,7 @@ Push your branch:
 git push origin feat/icon-name
 ```
 
-Then open a Pull Request to the **dev** branch.
-
-Maintainers will merge `dev → main` during release.
+Then open a Pull Request to the **main** branch.
 
 ---
 
@@ -244,7 +242,7 @@ Before submitting your PR:
 - [ ] Icon added to the correct library (lucide or huge)
 - [ ] Icon added to the correct JSON manifest and `pnpm run gen:icons` was run
 - [ ] Tested locally using `pnpm dev`
-- [ ] PR targets the **dev** branch
+- [ ] PR targets the **main** branch
 
 ---
 
