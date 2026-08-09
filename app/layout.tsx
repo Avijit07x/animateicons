@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 // import SponsorPopup from "@/components/SponsorPopup";
 import "./globals.css";
 
@@ -20,10 +21,9 @@ const baseUrl = "https://animateicons.in";
  * canonical `description`, OG, and Twitter cards so we don't drift into
  * three slightly-different strings (the previous setup did exactly that).
  */
-const SITE_DESCRIPTION =
-	"Free, open-source animated SVG icons for React. Drop-in components built on motion/react with hover and imperative triggers, configurable size, color, and duration - installable via the shadcn CLI.";
+const SITE_DESCRIPTION = `${ICON_COUNTS.total}+ free, open-source animated SVG icons for React, built on Lucide and Motion. Add them with the shadcn CLI or npm, and make them move on hover, focus, or with your code.`;
 
-const SITE_TITLE = "AnimateIcons | Free Animated React Icon Library";
+const SITE_TITLE = `AnimateIcons | ${ICON_COUNTS.total}+ Free Animated React Icons`;
 
 export const viewport: Viewport = {
 	colorScheme: "dark",
@@ -49,6 +49,10 @@ export const metadata: Metadata = {
 	description: SITE_DESCRIPTION,
 	keywords: [
 		"AnimateIcons",
+		`${ICON_COUNTS.total}+ animated icons`,
+		"lucide animated icons",
+		"huge animated icons",
+		"animated icon library",
 		"animated svg icons",
 		"animated react icons",
 		"react icon library",
