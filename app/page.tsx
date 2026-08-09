@@ -1,23 +1,23 @@
-import AnnouncementBanner from "../components/AnnouncementBanner";
-import FeatureSection from "../components/feature/FeatureSection";
 import Footer from "../components/Footer";
 import HeroSection from "../components/Hero";
-import IconLibrariesSection from "../components/Iconlibraries/IconLibrariesSection";
+import InstallSection from "../components/home/InstallSection";
+import KineticWall from "../components/home/KineticWall";
+import LibrariesEditorial from "../components/home/LibrariesEditorial";
+import Playground from "../components/home/Playground";
 import Navbar from "../components/Navbar";
-import NpmSection from "../components/NpmSection";
 import Sponsors from "../components/Sponsors";
 
 const page = () => {
 	return (
 		<>
-			<AnnouncementBanner />
 			<Navbar />
 			<main>
-				<div className="relative min-h-dvh overflow-hidden">
+				<div className="relative overflow-hidden">
 					<HeroSection />
-					<NpmSection />
-					<IconLibrariesSection />
-					<FeatureSection />
+					<KineticWall />
+					<Playground />
+					<LibrariesEditorial />
+					<InstallSection />
 					<Sponsors />
 				</div>
 			</main>

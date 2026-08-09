@@ -125,7 +125,7 @@ const Page = async ({ params }: Props) => {
 	const libDisplay = library === "lucide" ? "Lucide" : "Huge";
 
 	const shadcnCmd = `pnpm dlx shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
-	const npmCmd = `pnpm add @animateicons/react`;
+	const npmCmd = `npm install @animateicons/react`;
 	const usageCode = `import { ${componentName} } from "@animateicons/react/${library}";\n\nexport default function Demo() {\n\treturn <${componentName} size={24} color="#f45b48" />;\n}`;
 
 	const [shadcnHtml, npmHtml, usageHtml] = await Promise.all([
@@ -144,13 +144,13 @@ const Page = async ({ params }: Props) => {
 
 	const SHIKI_RESET = "[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!";
 	const GLASS_CARD = cn(
-		"relative overflow-hidden rounded-2xl",
-		"border-border/60 border",
-		"bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
+		"relative overflow-hidden rounded-xl",
+		"border-border border",
+		"bg-surface/50",
 	);
 
 	return (
-		<div className="mx-auto w-full max-w-3xl px-4 py-10 lg:py-16">
+		<div className="mx-auto w-full max-w-5xl px-4 py-10 lg:py-16">
 			<JsonLd data={jsonLd} />
 
 			<div className="mb-6 flex items-center gap-3">
@@ -174,25 +174,37 @@ const Page = async ({ params }: Props) => {
 				</nav>
 			</div>
 
-			<header className="mb-8 flex flex-wrap items-end justify-between gap-3">
-				<div>
-					<h1 className="text-textPrimary text-3xl font-semibold sm:text-4xl">
-						{componentName}
-					</h1>
-					<p className="text-textSecondary mt-1.5 text-sm">
-						{titleCase(name)} · {libDisplay} library
-					</p>
-				</div>
-				<div className="text-textMuted flex items-center gap-2 text-[11px] tracking-wide uppercase">
-					{item.category?.slice(0, 2).map((c) => (
-						<span
-							key={c}
-							className="border-border/60 rounded-full border px-2 py-1"
-						>
-							{c}
-						</span>
-					))}
-				</div>
+			<header className="mb-8">
+				<p className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase">
+					<span className="text-primary">{libDisplay}</span> / Animated icon
+				</p>
+				<h1 className="text-textPrimary mt-3 text-3xl font-semibold sm:text-4xl">
+					{componentName}
+				</h1>
+				<p className="text-textSecondary mt-1.5 text-sm">
+					{titleCase(name)} · {libDisplay} library
+				</p>
+
+				{!!(item.category?.length || item.keywords?.length) && (
+					<div className="mt-4 flex flex-wrap items-center gap-2">
+						{item.category?.slice(0, 3).map((c) => (
+							<span
+								key={c}
+								className="border-border/60 text-textMuted rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wide uppercase"
+							>
+								{c}
+							</span>
+						))}
+						{item.keywords?.slice(0, 6).map((k) => (
+							<span
+								key={k}
+								className="text-textSecondary rounded-full bg-white/4 px-2.5 py-1 text-[11px]"
+							>
+								{k}
+							</span>
+						))}
+					</div>
+				)}
 			</header>
 
 			<IconDetailPlayground
@@ -201,48 +213,50 @@ const Page = async ({ params }: Props) => {
 				library={library}
 			/>
 
-			<section className="mt-10 space-y-3">
-				<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
-					Install - shadcn CLI
-				</h2>
-				<div className={GLASS_CARD}>
-					<span
-						aria-hidden="true"
-						className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-					/>
-					<div className="border-border/40 text-textSecondary flex items-center justify-between border-b px-4 py-2 text-[11px] tracking-wide uppercase">
-						<span>Terminal</span>
-						<CopyButton value={shadcnCmd} label="Copy install command" />
+			<div className="mt-10 grid gap-6 lg:grid-cols-2">
+				<section className="space-y-3">
+					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
+						Install - shadcn CLI
+					</h2>
+					<div className={GLASS_CARD}>
+						<span
+							aria-hidden="true"
+							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+						/>
+						<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
+							<span>Terminal</span>
+							<CopyButton value={shadcnCmd} label="Copy install command" />
+						</div>
+						<div
+							className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
+							dangerouslySetInnerHTML={{ __html: shadcnHtml }}
+						/>
 					</div>
-					<div
-						className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
-						dangerouslySetInnerHTML={{ __html: shadcnHtml }}
-					/>
-				</div>
-			</section>
+				</section>
+
+				<section className="space-y-3">
+					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
+						Install - npm package
+					</h2>
+					<div className={GLASS_CARD}>
+						<span
+							aria-hidden="true"
+							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+						/>
+						<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
+							<span>Terminal</span>
+							<CopyButton value={npmCmd} label="Copy install command" />
+						</div>
+						<div
+							className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
+							dangerouslySetInnerHTML={{ __html: npmHtml }}
+						/>
+					</div>
+				</section>
+			</div>
 
 			<section className="mt-8 space-y-3">
-				<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
-					Install - npm package
-				</h2>
-				<div className={GLASS_CARD}>
-					<span
-						aria-hidden="true"
-						className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-					/>
-					<div className="border-border/40 text-textSecondary flex items-center justify-between border-b px-4 py-2 text-[11px] tracking-wide uppercase">
-						<span>Terminal</span>
-						<CopyButton value={npmCmd} label="Copy install command" />
-					</div>
-					<div
-						className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
-						dangerouslySetInnerHTML={{ __html: npmHtml }}
-					/>
-				</div>
-			</section>
-
-			<section className="mt-8 space-y-3">
-				<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
+				<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
 					Usage
 				</h2>
 				<div className={GLASS_CARD}>
@@ -250,7 +264,7 @@ const Page = async ({ params }: Props) => {
 						aria-hidden="true"
 						className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
 					/>
-					<div className="border-border/40 text-textSecondary flex items-center justify-between border-b px-4 py-2 text-[11px] tracking-wide uppercase">
+					<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
 						<span>Demo.tsx</span>
 						<CopyButton value={usageCode} label="Copy usage code" />
 					</div>
@@ -263,7 +277,7 @@ const Page = async ({ params }: Props) => {
 
 			{related.length > 0 && (
 				<section className="mt-12 space-y-4">
-					<h2 className="text-textSecondary text-[11px] tracking-wide uppercase">
+					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
 						Related icons
 					</h2>
 					<ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">

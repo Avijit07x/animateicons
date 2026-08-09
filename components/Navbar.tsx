@@ -8,9 +8,9 @@ import { Separator } from "./ui/separator";
 const Navbar = async () => {
 	const stars = await fetchStars();
 	return (
-		<header className="sticky top-0 z-50">
-			<nav className="bg-bgDark backdrop-blur-3xl">
-				<div className="mx-auto max-w-7xl px-3 pt-1 md:px-6 lg:px-8">
+		<header className="border-border/60 bg-bgDark/70 sticky top-0 z-50 border-b backdrop-blur-xl">
+			<nav>
+				<div className="mx-auto max-w-7xl px-6 pt-1">
 					<div className="flex h-14 items-center justify-between">
 						<div className="flex items-center">
 							<Link href="/" className="flex items-center gap-2">

@@ -74,10 +74,10 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 	return (
 		<div
 			ref={tileRef}
-			className="bg-surfaceElevated/65 border-border hover:bg-surfaceHover relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border p-4 text-sm text-white shadow-lg transition-all hover:scale-102"
+			className="group border-border/70 bg-surface/40 text-textPrimary hover:border-primary/40 hover:bg-surface relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border p-4 text-sm transition-all hover:-translate-y-0.5"
 		>
 			{item.isNew && (
-				<span className="bg-primary/12 text-primary border-primary/25 absolute top-0 right-0 rounded-bl-md border-b border-l px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase">
+				<span className="bg-primary/10 text-primary border-primary/30 absolute top-0 right-0 rounded-bl-lg border-b border-l px-2 py-0.5 font-mono text-[9px] tracking-widest uppercase">
 					New
 				</span>
 			)}
@@ -95,7 +95,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 				}}
 				onMouseEnter={(e) => handleHover(e, iconRef)}
 				onMouseLeave={(e) => handleHover(e, iconRef)}
-				className="hover:bg-surface inline-flex size-12 cursor-pointer items-center justify-center rounded-xl p-3"
+				className="group-hover:text-primary hover:bg-surfaceElevated inline-flex size-12 cursor-pointer items-center justify-center rounded-xl p-3 transition-colors"
 			>
 				{inView ? (
 					<React.Suspense fallback={null}>
@@ -103,7 +103,9 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 					</React.Suspense>
 				) : null}
 			</div>
-			<p className="line-clamp-1 text-gray-300">{item.name}</p>
+			<p className="text-textSecondary line-clamp-1 font-mono text-xs">
+				{item.name}
+			</p>
 
 			<IconTileActions
 				tileId={tileId}

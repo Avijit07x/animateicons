@@ -1,4 +1,5 @@
-import { CircleDot, Twitter } from "lucide-react";
+import { TwitterIcon } from "@/icons/lucide/twitter-icon";
+import { CircleDot } from "lucide-react";
 import Link from "next/link";
 import { NEW_ISSUE_URL, TWITTER_URL } from "../_lib/links";
 
@@ -28,7 +29,7 @@ const DocsHelp = () => (
 				target="_blank"
 				className="border-border/60 bg-bgDark text-textPrimary hover:border-primary/50 flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
 			>
-				<Twitter className="size-3.5" /> Twitter
+				<TwitterIcon size={14} /> Twitter
 			</Link>
 		</div>
 	</div>

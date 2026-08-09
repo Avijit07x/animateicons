@@ -7,7 +7,9 @@
  */
 
 import { GitHub } from "@/components/icons/Github";
-import { CircleDot, Linkedin, SquarePen, Star, Twitter } from "lucide-react";
+import { LinkedinIcon } from "@/icons/lucide/linkedin-icon";
+import { TwitterIcon } from "@/icons/lucide/twitter-icon";
+import { CircleDot, SquarePen, Star } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -66,7 +68,7 @@ const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 						aria-label="Twitter"
 						className="text-textMuted hover:text-textPrimary flex size-8 items-center justify-center rounded-md transition-colors hover:bg-white/5"
 					>
-						<Twitter className="size-4" />
+						<TwitterIcon size={16} />
 					</Link>
 					<Link
 						href={LINKEDIN_URL}
@@ -74,7 +76,7 @@ const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 						aria-label="LinkedIn"
 						className="text-textMuted hover:text-textPrimary flex size-8 items-center justify-center rounded-md transition-colors hover:bg-white/5"
 					>
-						<Linkedin className="size-4" />
+						<LinkedinIcon size={16} />
 					</Link>
 				</div>
 			</div>
