@@ -19,11 +19,16 @@
  *   URL → state fires only when the URL drifts from the debounced
  *         value (i.e. only on real navigation, not on our own
  *         router.replace)
+ *
+ * Every path into `query` - hydration, setQuery, and inbound URL drift -
+ * is clamped to MAX_SEARCH_LENGTH so a pasted wall of text can't reach
+ * the URL and stall the page (#45).
  */
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, {
 	createContext,
+	useCallback,
 	useContext,
 	useEffect,
 	useMemo,
@@ -47,6 +52,8 @@ const IconSearchInputContext =
 const IconSearchResultContext =
 	createContext<IconSearchResultContextValue | null>(null);
 
+export const MAX_SEARCH_LENGTH = 100;
+
 export const IconSearchProvider: React.FC<{
 	children: React.ReactNode;
 }> = ({ children }) => {
@@ -57,7 +64,7 @@ export const IconSearchProvider: React.FC<{
 	// Hydrate from `?q=` on first render. Lazy init so we don't read
 	// searchParams on every render - and so SSR/CSR start matches.
 	const [query, setQuery] = useState(
-		() => searchParams?.get(QUERY_PARAM) ?? "",
+		() => searchParams?.get(QUERY_PARAM)?.slice(0, MAX_SEARCH_LENGTH) ?? "",
 	);
 	const [debouncedQuery] = useDebounce(query, 300);
 
@@ -65,11 +72,12 @@ export const IconSearchProvider: React.FC<{
 	useEffect(() => {
 		if (!searchParams) return;
 		const current = searchParams.get(QUERY_PARAM) ?? "";
-		if (debouncedQuery === current) return;
+		const safeQuery = debouncedQuery.slice(0, MAX_SEARCH_LENGTH);
+		if (safeQuery === current) return;
 
 		const params = new URLSearchParams(searchParams.toString());
-		if (debouncedQuery) {
-			params.set(QUERY_PARAM, debouncedQuery);
+		if (safeQuery) {
+			params.set(QUERY_PARAM, safeQuery);
 		} else {
 			params.delete(QUERY_PARAM);
 		}
@@ -87,13 +95,26 @@ export const IconSearchProvider: React.FC<{
 	const [prevKey, setPrevKey] = useState(searchParamsKey);
 	if (searchParamsKey !== prevKey) {
 		setPrevKey(searchParamsKey);
-		const urlQuery = searchParams?.get(QUERY_PARAM) ?? "";
+		const rawUrlQuery = searchParams?.get(QUERY_PARAM) ?? "";
+		const urlQuery = rawUrlQuery.slice(0, MAX_SEARCH_LENGTH);
 		if (urlQuery !== debouncedQuery && urlQuery !== query) {
 			setQuery(urlQuery);
 		}
 	}
 
-	const inputValue = useMemo(() => ({ query, setQuery }), [query]);
+	const handleSetQuery = useCallback<
+		React.Dispatch<React.SetStateAction<string>>
+	>((action) => {
+		setQuery((prev) => {
+			const next = typeof action === "function" ? action(prev) : action;
+			return next.slice(0, MAX_SEARCH_LENGTH);
+		});
+	}, []);
+
+	const inputValue = useMemo(
+		() => ({ query, setQuery: handleSetQuery }),
+		[query, handleSetQuery],
+	);
 	const resultValue = useMemo(() => ({ debouncedQuery }), [debouncedQuery]);
 
 	return (

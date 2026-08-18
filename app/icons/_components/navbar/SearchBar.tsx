@@ -11,7 +11,10 @@ import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge/meta";
 import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide/meta";
 import { SearchIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { useIconSearch } from "../../_contexts/IconSearchContext";
+import {
+	MAX_SEARCH_LENGTH,
+	useIconSearch,
+} from "../../_contexts/IconSearchContext";
 
 const isMac =
 	typeof navigator !== "undefined" &&
@@ -58,6 +61,7 @@ const SearchBar: React.FC<Props> = () => {
 				<InputGroupInput
 					ref={inputRef}
 					value={query}
+					maxLength={MAX_SEARCH_LENGTH}
 					placeholder={`Search ${ICON_COUNT} icons...`}
 					onChange={(e) => setQuery(e.target.value)}
 					onFocus={() => setFocused(true)}
