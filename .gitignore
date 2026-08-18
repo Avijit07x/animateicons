@@ -65,3 +65,5 @@ next-env.d.ts
 .hive-mind/
 ruvector.db
 CLAUDE.md
+CLAUDE.local.md
+.mcp.json
