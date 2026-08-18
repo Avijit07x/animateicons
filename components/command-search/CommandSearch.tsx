@@ -16,8 +16,13 @@
  * set is fine to filter, but rendering that many motion components
  * with hover handlers is not. Limit is generous enough that any real
  * query narrows long before hitting it.
+ *
+ * Input is capped at MAX_SEARCH_LENGTH, and queries longer than
+ * MAX_MATCHABLE_LENGTH skip the Fuse search entirely - it can't match,
+ * and its cost scales with pattern length (#45).
  */
 
+import { MAX_SEARCH_LENGTH } from "@/app/icons/_contexts/IconSearchContext";
 import { Kbd } from "@/components/ui/kbd";
 import {
 	getIcon as getHugeIcon,
@@ -72,17 +77,27 @@ const FUSE = new Fuse(ALL_ICONS, {
 	includeScore: true,
 });
 
+const MAX_MATCHABLE_LENGTH = [...LUCIDE_META, ...HUGE_META].reduce(
+	(max, icon) => {
+		const longestKeyword = (icon.keywords ?? []).reduce(
+			(longest, keyword) => Math.max(longest, keyword.length),
+			0,
+		);
+		return Math.max(max, icon.name.length, longestKeyword);
+	},
+	0,
+);
+
 const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 	const [query, setQuery] = useState("");
 	const [selected, setSelected] = useState(0);
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	const router = useRouter();
 
-	// Filter + rank. Empty query → first MAX_RESULTS icons (alphabetical
-	// from the source). Otherwise: prefix matches first, then fuse.
 	const results = useMemo<CommandSearchIcon[]>(() => {
 		const q = query.trim().toLowerCase();
 		if (q.length < 2) return ALL_ICONS.slice(0, MAX_RESULTS);
+		if (q.length > MAX_MATCHABLE_LENGTH) return [];
 
 		const exact: CommandSearchIcon[] = [];
 		const startsWith: CommandSearchIcon[] = [];
@@ -232,8 +247,11 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 							<input
 								ref={inputRef}
 								type="text"
+								maxLength={MAX_SEARCH_LENGTH}
 								value={query}
-								onChange={(e) => setQuery(e.target.value)}
+								onChange={(e) =>
+									setQuery(e.target.value.slice(0, MAX_SEARCH_LENGTH))
+								}
 								placeholder="Search icons by name or keyword…"
 								className="text-textPrimary placeholder:text-textMuted flex-1 bg-transparent text-sm outline-none"
 								autoComplete="off"

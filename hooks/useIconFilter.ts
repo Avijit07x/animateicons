@@ -8,6 +8,10 @@
  * "bell-ring" before "doorbell") with a Fuse.js fuzzy fallback for
  * typos. Also flags icons added in the last three days as `isNew` so
  * the gallery can decorate them.
+ *
+ * Queries longer than the longest matchable name or keyword bail out
+ * before reaching Fuse, whose cost scales with pattern length - that
+ * search is what froze the page on a large paste (#45).
  */
 
 import { isIconNew } from "@/utils/isIconNew";
@@ -34,6 +38,17 @@ export const useIconSearchFilter = ({
 		return icons.filter((icon) => icon.category?.includes(category));
 	}, [icons, category]);
 
+	const maxMatchableLength = useMemo(() => {
+		let max = 0;
+		for (const icon of icons) {
+			max = Math.max(max, icon.name.length);
+			for (const keyword of icon.keywords ?? []) {
+				max = Math.max(max, keyword.length);
+			}
+		}
+		return max;
+	}, [icons]);
+
 	const fuse = useMemo(() => {
 		if (!icons.length) return null;
 
@@ -53,6 +68,8 @@ export const useIconSearchFilter = ({
 		if (!categoryIcons.length) return [];
 
 		const q = query.trim().toLowerCase();
+		if (q.length > maxMatchableLength) return [];
+
 		let items = categoryIcons;
 
 		if (q.length >= 2) {
@@ -103,7 +120,7 @@ export const useIconSearchFilter = ({
 				isNew: isIconNew(item.addedAt),
 			}))
 			.sort((a, b) => Number(b.isNew) - Number(a.isNew));
-	}, [query, fuse, categoryIcons, category]);
+	}, [query, fuse, categoryIcons, category, maxMatchableLength]);
 
 	return filteredItems;
 };

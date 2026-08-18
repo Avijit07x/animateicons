@@ -64,6 +64,24 @@ describe("useIconSearchFilter", () => {
 		expect(result.current).toHaveLength(3);
 	});
 
+	it("short-circuits queries longer than any matchable name or keyword", () => {
+		const { result } = renderHook(() =>
+			useIconSearchFilter({
+				icons: ICONS,
+				category: "all",
+				query: "a".repeat(50),
+			}),
+		);
+		expect(result.current).toHaveLength(0);
+	});
+
+	it("still matches a query as long as the longest keyword", () => {
+		const { result } = renderHook(() =>
+			useIconSearchFilter({ icons: ICONS, category: "all", query: "profile" }),
+		);
+		expect(result.current.map((i) => i.name)).toContain("user");
+	});
+
 	it("returns empty array when no icon matches", () => {
 		const { result } = renderHook(() =>
 			useIconSearchFilter({
