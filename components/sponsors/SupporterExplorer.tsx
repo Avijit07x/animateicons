@@ -122,7 +122,7 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 							onClick={() => setFilter(id)}
 							onKeyDown={onKeyDown}
 							className={cn(
-								"inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+								"inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors",
 								"focus-visible:ring-primary/40 focus-visible:ring-2 focus-visible:outline-none",
 								active
 									? "border-primary/40 bg-primary/15 text-primary"
@@ -133,7 +133,7 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 							<span>{label}</span>
 							<span
 								className={cn(
-									"inline-flex min-w-5 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-semibold tabular-nums",
+									"inline-flex min-w-5 items-center justify-center rounded-sm px-1.5 py-0.5 text-[10px] font-semibold tabular-nums",
 									active
 										? "bg-primary/20 text-primary"
 										: "text-textMuted bg-white/5",

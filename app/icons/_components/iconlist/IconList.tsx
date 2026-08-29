@@ -62,7 +62,7 @@ const IconList: React.FC = () => {
 			<AnimatePresence>
 				{filteredItems.length > 0 ? (
 					<>
-						<div className="576:grid-cols-2 900:grid-cols-3 mt-3 grid w-full grid-cols-1 gap-4 pb-10 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+						<div className="576:grid-cols-2 900:grid-cols-3 border-border/60 mb-10 grid w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
 							{filteredItems.map((item) => (
 								<IconTile
 									key={item.name}

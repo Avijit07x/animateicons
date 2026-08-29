@@ -75,7 +75,7 @@ const SponsorsPage = () => {
 									href="https://www.buymeacoffee.com/avijit07x"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group bg-primary hover:bg-primaryHover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
+									className="group btn btn-primary"
 								>
 									Buy me a coffee
 									<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -84,7 +84,7 @@ const SponsorsPage = () => {
 									href="https://github.com/sponsors/Avijit07x"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group border-border text-textPrimary hover:border-primary/50 hover:bg-surface inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
+									className="group btn btn-secondary"
 								>
 									GitHub Sponsors
 									<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
 						<Link
 							href="/icons/lucide"
 							prefetch={false}
-							className="group bg-primary hover:bg-primaryHover inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
+							className="group btn btn-primary"
 						>
 							Browse {ICON_COUNTS.total} icons
 							<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
 							href="https://www.npmjs.com/package/@animateicons/react"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="border-border text-textSecondary hover:text-textPrimary inline-flex items-center justify-center rounded-full border px-4 py-2 font-mono text-xs transition-colors"
+							className="btn border-border text-textSecondary hover:text-textPrimary border px-4 py-2 font-mono text-xs"
 						>
 							npm i @animateicons/react
 						</Link>

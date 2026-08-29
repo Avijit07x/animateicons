@@ -16,7 +16,11 @@ const IconListClient = () => {
 
 	return (
 		<>
-			{isMobile ? <SearchBar /> : null}
+			{isMobile ? (
+				<div className="border-border/50 bg-bgDark sticky top-15 z-40 h-13 border-b px-4">
+					<SearchBar />
+				</div>
+			) : null}
 			<IconList />
 			<PlaygroundSheet />
 		</>

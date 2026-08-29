@@ -6,10 +6,11 @@
 	"scripts": {
 		"hooks:install": "git config core.hooksPath .githooks",
 		"format": "prettier --write .",
+		"gen:indices": "tsx scripts/generate-indices.ts",
 		"gen:icons-json": "tsx scripts/generate-icons-json.ts",
 		"gen:registry": "tsx scripts/generate-registry.ts",
 		"gen:catalog": "tsx scripts/generate-catalog.ts",
-		"gen:icons": "pnpm run gen:icons-json && pnpm run gen:registry && pnpm run gen:catalog",
+		"gen:icons": "pnpm run gen:indices && pnpm run gen:icons-json && pnpm run gen:registry && pnpm run gen:catalog",
 		"check:icons": "tsx scripts/check-duplicate-icons.ts",
 		"check:registry": "tsx scripts/check-registry.ts",
 		"check:readme": "tsx scripts/check-readme-counts.ts",

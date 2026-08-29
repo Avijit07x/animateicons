@@ -121,7 +121,10 @@ const IconTileActions: React.FC<Props> = ({
 	const isNpm = distribution === "npm";
 
 	return (
-		<div className="mt-2 flex items-center justify-center gap-6">
+		<div
+			onClick={(e) => e.stopPropagation()}
+			className="mt-2 flex items-center justify-center gap-6"
+		>
 			<IconAction
 				tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}
 				ariaLabel={

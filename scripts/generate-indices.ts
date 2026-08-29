@@ -37,6 +37,7 @@ function generateIndex(libraryName: string, jsonFile: string) {
 		out += `    name: "${icon.name}",\n`;
 		out += `    icon: ${componentName},\n`;
 		if (icon.addedAt) out += `    addedAt: "${icon.addedAt}",\n`;
+		if (icon.updatedAt) out += `    updatedAt: "${icon.updatedAt}",\n`;
 
 		if (icon.category && icon.category.length > 0) {
 			out += `    category: ${JSON.stringify(icon.category)},\n`;
@@ -84,6 +85,7 @@ function generateMeta(libraryName: string, jsonFile: string) {
 		out += `  {\n`;
 		out += `    name: "${icon.name}",\n`;
 		if (icon.addedAt) out += `    addedAt: "${icon.addedAt}",\n`;
+		if (icon.updatedAt) out += `    updatedAt: "${icon.updatedAt}",\n`;
 		if (icon.category && icon.category.length > 0) {
 			out += `    category: ${JSON.stringify(icon.category)},\n`;
 		}

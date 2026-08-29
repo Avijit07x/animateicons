@@ -36,7 +36,7 @@ const CommandSearchTrigger: React.FC = () => {
 			onClick={open}
 			aria-label="Search icons"
 			className={cn(
-				"group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors",
+				"group inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
 				"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
 				"text-textSecondary hover:text-textPrimary hover:border-primary/40",
 				"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]",

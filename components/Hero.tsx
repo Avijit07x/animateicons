@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
 							onMouseLeave={() => copyRef.current?.stopAnimation()}
 							variants={item}
 							aria-label="Copy install command"
-							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full max-w-sm cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-all duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2"
+							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full max-w-sm cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-[color,background-color,border-color,box-shadow] duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2 active:scale-[0.99]"
 						>
 							<code className="text-textPrimary font-mono text-sm">
 								<span className="text-textMuted select-none">$ </span>
@@ -121,15 +121,12 @@ const HeroSection: React.FC = () => {
 							<Link
 								href="/icons/lucide"
 								prefetch={false}
-								className="group bg-primary hover:bg-primaryHover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
+								className="group btn btn-primary"
 							>
 								Browse {ICON_COUNTS.total} icons
 								<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
 							</Link>
-							<Link
-								href="/icons/docs"
-								className="group border-border text-textPrimary hover:border-primary/50 hover:bg-surface inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
-							>
+							<Link href="/icons/docs" className="group btn btn-secondary">
 								Documentation
 								<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
 							</Link>

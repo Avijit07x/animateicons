@@ -24,7 +24,13 @@ type Params = {
 	query: string;
 };
 
-export type IconFilteredItem = IconMeta & { isNew: boolean };
+export type IconFilteredItem = IconMeta & {
+	isNew: boolean;
+	isUpdated: boolean;
+};
+
+const rank = (icon: { isNew: boolean; isUpdated: boolean }) =>
+	icon.isNew ? 2 : icon.isUpdated ? 1 : 0;
 
 export const useIconSearchFilter = ({
 	icons,
@@ -115,11 +121,15 @@ export const useIconSearchFilter = ({
 		}
 
 		return items
-			.map((item) => ({
-				...item,
-				isNew: isIconNew(item.addedAt),
-			}))
-			.sort((a, b) => Number(b.isNew) - Number(a.isNew));
+			.map((item) => {
+				const isNew = isIconNew(item.addedAt);
+				return {
+					...item,
+					isNew,
+					isUpdated: !isNew && isIconNew(item.updatedAt),
+				};
+			})
+			.sort((a, b) => rank(b) - rank(a));
 	}, [query, fuse, categoryIcons, category, maxMatchableLength]);
 
 	return filteredItems;

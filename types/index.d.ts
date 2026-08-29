@@ -6,6 +6,7 @@ type IconListItem = {
 	icon: React.ElementType;
 	category?: string[];
 	addedAt: string;
+	updatedAt?: string;
 	keywords: string[];
 };
 
@@ -17,6 +18,7 @@ type IconMeta = {
 	name: string;
 	category?: string[];
 	addedAt: string;
+	updatedAt?: string;
 	keywords: string[];
 };
 

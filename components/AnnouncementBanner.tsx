@@ -43,7 +43,7 @@ const AnnouncementBanner: React.FC = () => {
 						<div className="text-textPrimary flex min-w-0 items-center gap-2">
 							<span
 								aria-hidden="true"
-								className="bg-primary hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide text-(--cta-text) uppercase sm:inline-flex"
+								className="bg-primary hidden shrink-0 rounded-sm px-2 py-0.5 text-[10px] font-semibold tracking-wide text-(--cta-text) uppercase sm:inline-flex"
 							>
 								New
 							</span>
@@ -60,7 +60,7 @@ const AnnouncementBanner: React.FC = () => {
 								href="https://www.npmjs.com/package/@animateicons/react"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-primary hover:text-primary/80 inline-flex items-center gap-1 rounded-full px-2 py-1 font-medium transition-colors"
+								className="text-primary hover:text-primary/80 inline-flex items-center gap-1 rounded-sm px-2 py-1 font-medium transition-colors"
 							>
 								View on npm
 								<ArrowRight className="size-3.5" aria-hidden="true" />
@@ -69,7 +69,7 @@ const AnnouncementBanner: React.FC = () => {
 								type="button"
 								onClick={dismiss}
 								aria-label="Dismiss announcement"
-								className="text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded-full p-1 transition-colors"
+								className="text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded-sm p-1 transition-colors"
 							>
 								<X className="size-3.5" aria-hidden="true" />
 							</button>

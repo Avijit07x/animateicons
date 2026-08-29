@@ -140,7 +140,7 @@ const NpmSection = async () => {
 							href="https://www.npmjs.com/package/@animateicons/react"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b px-4 py-2 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98] sm:px-5"
+							className="group from-primary to-primary/85 ring-primary-foreground/15 relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-b px-4 py-2 text-sm font-semibold text-(--cta-text) shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-8px_color-mix(in_oklab,var(--color-primary)_55%,transparent)] ring-1 transition-all duration-200 ring-inset hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-8px_color-mix(in_oklab,var(--color-primary)_70%,transparent)] hover:brightness-110 active:scale-[0.98] sm:px-5"
 						>
 							{/* Subtle top-edge highlight, like a glass bevel */}
 							<span
@@ -155,7 +155,7 @@ const NpmSection = async () => {
 						</Link>
 						<Link
 							href="/icons/docs#install-npm"
-							className="text-textPrimary hover:text-primary inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition-colors sm:px-4"
+							className="text-textPrimary hover:text-primary inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors sm:px-4"
 						>
 							Read the docs
 						</Link>

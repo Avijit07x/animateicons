@@ -46,7 +46,7 @@ export function ButtonDemo() {
 export function InputDemo() {
 	const ref = useRef<IconHandle>(null);
 	return (
-		<InputGroup className="border-border bg-bgDark w-full max-w-xs rounded-full">
+		<InputGroup className="border-border bg-bgDark w-full max-w-xs rounded-md">
 			<InputGroupAddon>
 				<SearchIcon ref={ref} size={16} className="text-textMuted" />
 			</InputGroupAddon>

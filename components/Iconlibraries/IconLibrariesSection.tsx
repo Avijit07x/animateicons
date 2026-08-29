@@ -94,7 +94,7 @@ const IconLibrariesSection: React.FC = () => {
 				<div
 					role="tablist"
 					aria-label="Icon library"
-					className="border-border/80 from-surface to-surfaceElevated inline-flex items-center rounded-full border bg-gradient-to-b p-1 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)] backdrop-blur"
+					className="border-border/80 from-surface to-surfaceElevated inline-flex items-center rounded-lg border bg-gradient-to-b p-1 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)] backdrop-blur"
 				>
 					{iconLibraries.map((lib) => {
 						const isActive = lib.id === activeId;
@@ -108,7 +108,7 @@ const IconLibrariesSection: React.FC = () => {
 									startTransition(() => setActiveId(lib.id ?? "lucide"))
 								}
 								className={cn(
-									"relative inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors",
+									"relative inline-flex items-center gap-2 rounded-sm px-5 py-2 text-sm font-medium transition-colors",
 									isActive
 										? "text-primary"
 										: "text-textSecondary hover:text-textPrimary",
@@ -117,7 +117,7 @@ const IconLibrariesSection: React.FC = () => {
 								{isActive && (
 									<motion.span
 										layoutId="library-tab-pill"
-										className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
+										className="absolute inset-0 -z-10 rounded-sm bg-white/10"
 										transition={{
 											type: "spring",
 											stiffness: 380,
@@ -191,7 +191,7 @@ const IconLibrariesSection: React.FC = () => {
 				<Link
 					href={active.href}
 					className={cn(
-						"group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold",
+						"group inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold",
 						"border-border/60 hover:border-primary/40 border",
 						"from-surface to-surfaceElevated bg-gradient-to-b",
 						"text-textPrimary hover:text-primary",

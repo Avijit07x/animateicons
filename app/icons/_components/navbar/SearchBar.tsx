@@ -56,8 +56,8 @@ const SearchBar: React.FC<Props> = () => {
 	const showEsc = focused || query.length > 0;
 
 	return (
-		<div className="flex w-full md:w-70">
-			<InputGroup className="border-border bg-surfaceElevated rounded-full">
+		<div className="flex h-full w-full items-center">
+			<InputGroup className="h-full rounded-none border-0 bg-transparent shadow-none dark:bg-transparent">
 				<InputGroupInput
 					ref={inputRef}
 					value={query}

@@ -36,14 +36,17 @@
 	--color-popover: var(--popover);
 	--color-card-foreground: var(--card-foreground);
 	--color-card: var(--card);
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
+	--radius-xs: 2px;
+	--radius-sm: 3px;
+	--radius-md: 4px;
+	--radius-lg: 5px;
+	--radius-xl: 6px;
+	--radius-2xl: 8px;
+	--radius-3xl: 10px;
 }
 
 :root {
-	--radius: 0.625rem;
+	--radius: 6px;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
@@ -291,6 +294,38 @@
 	}
 }
 @layer components {
+	/* Shared call-to-action button. Was duplicated across 8 files; one
+	   place now owns the shape, the press feedback and the focus ring. */
+	.btn {
+		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium;
+		transition:
+			background-color 150ms ease-out,
+			border-color 150ms ease-out,
+			color 150ms ease-out,
+			transform 150ms ease-out;
+	}
+	.btn:active {
+		transform: scale(0.98);
+	}
+	.btn:focus-visible {
+		outline: none;
+		box-shadow:
+			0 0 0 2px var(--color-bgDark),
+			0 0 0 4px color-mix(in oklab, var(--color-primary) 55%, transparent);
+	}
+	.btn-primary {
+		@apply bg-primary hover:bg-primaryHover px-5 py-2.5 font-semibold;
+		color: var(--cta-text);
+	}
+	.btn-secondary {
+		@apply border-border text-textPrimary hover:border-primary/50 hover:bg-surface border px-5 py-2.5;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.btn:active {
+			transform: none;
+		}
+	}
+
 	.sidebar-item {
 		@apply text-textPrimary hover:text-textPrimary focus-visible:text-textPrimary active:text-textPrimary data-[active=true]:text-textPrimary hover:bg-surfaceHover data-[active=true]:bg-surfaceElevated focus-visible:bg-surfaceHover active:bg-surfaceHover bg-transparent;
 	}

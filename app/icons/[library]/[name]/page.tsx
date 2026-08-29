@@ -190,7 +190,7 @@ const Page = async ({ params }: Props) => {
 						{item.category?.slice(0, 3).map((c) => (
 							<span
 								key={c}
-								className="border-border/60 text-textMuted rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wide uppercase"
+								className="border-border/60 text-textMuted rounded-sm border px-2.5 py-1 font-mono text-[10px] tracking-wide uppercase"
 							>
 								{c}
 							</span>
@@ -198,7 +198,7 @@ const Page = async ({ params }: Props) => {
 						{item.keywords?.slice(0, 6).map((k) => (
 							<span
 								key={k}
-								className="text-textSecondary rounded-full bg-white/4 px-2.5 py-1 text-[11px]"
+								className="text-textSecondary rounded-sm bg-white/4 px-2.5 py-1 text-[11px]"
 							>
 								{k}
 							</span>

@@ -11,7 +11,7 @@ const SupporterWallSkeleton: React.FC = () => (
 			{Array.from({ length: 3 }).map((_, i) => (
 				<span
 					key={i}
-					className="border-border/60 bg-textMuted/5 h-9 w-32 animate-pulse rounded-full border"
+					className="border-border/60 bg-textMuted/5 h-9 w-32 animate-pulse rounded-md border"
 				/>
 			))}
 		</div>

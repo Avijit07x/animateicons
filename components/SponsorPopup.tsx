@@ -172,7 +172,7 @@ const SponsorPopup: React.FC = () => {
 							type="button"
 							onClick={dismiss}
 							aria-label="Close"
-							className="text-textSecondary hover:text-textPrimary absolute top-3 right-3 z-10 inline-flex size-8 items-center justify-center rounded-full transition-colors hover:bg-white/[0.06]"
+							className="text-textSecondary hover:text-textPrimary absolute top-3 right-3 z-10 inline-flex size-8 items-center justify-center rounded-md transition-colors hover:bg-white/[0.06]"
 						>
 							<X className="size-4" />
 						</button>
@@ -180,7 +180,7 @@ const SponsorPopup: React.FC = () => {
 						{view === "main" ? (
 							<div className="relative space-y-5 px-6 py-7 sm:px-8 sm:py-8">
 								<div className="space-y-3">
-									<div className="border-primary/30 bg-primary/10 text-primary inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-wide uppercase">
+									<div className="border-primary/30 bg-primary/10 text-primary inline-flex items-center gap-2 rounded-sm border px-3 py-1 text-[11px] font-semibold tracking-wide uppercase">
 										<Heart className="size-3.5" />A note from the maker
 									</div>
 									<h2

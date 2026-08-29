@@ -85,7 +85,7 @@ const CommandSearchItem: React.FC<Props> = ({
 
 			<span
 				className={cn(
-					"text-textMuted rounded-full px-2 py-0.5 text-[10px] tracking-wide uppercase",
+					"text-textMuted rounded-sm px-2 py-0.5 text-[10px] tracking-wide uppercase",
 					"border-border/60 border",
 				)}
 			>

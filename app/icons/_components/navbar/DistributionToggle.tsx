@@ -8,8 +8,8 @@
  * command (default) or an `@animateicons/react` import line. Reads /
  * writes via DistributionContext, persisted in localStorage.
  *
- * Same visual treatment as PackageManagerToggle (pill segmented
- * control with a sliding background) so the pair feels like one unit.
+ * Renders as bare segments - the gallery navbar wraps this and
+ * PackageManagerToggle in one labelled "copy as" shell.
  */
 
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ import {
 
 const OPTIONS: { value: Distribution; label: string }[] = [
 	{ value: "shadcn", label: "shadcn" },
-	{ value: "npm", label: "npm" },
+	{ value: "npm", label: "import" },
 ];
 
 const DistributionToggle: React.FC = () => {
@@ -31,12 +31,7 @@ const DistributionToggle: React.FC = () => {
 		<div
 			role="radiogroup"
 			aria-label="Distribution method"
-			className={cn(
-				"hidden h-9 items-center justify-center rounded-full p-1 text-sm lg:flex",
-				"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
-				"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",
-				"backdrop-blur",
-			)}
+			className="flex items-center gap-0.5 text-sm"
 		>
 			{OPTIONS.map(({ value, label }) => {
 				const active = value === distribution;
@@ -48,16 +43,14 @@ const DistributionToggle: React.FC = () => {
 						aria-checked={active}
 						onClick={() => setDistribution(value)}
 						className={cn(
-							"relative z-10 flex items-center justify-center rounded-full px-3 py-1 font-medium transition-colors select-none",
-							active
-								? "text-primary"
-								: "text-textSecondary hover:text-textPrimary",
+							"relative z-10 flex items-center justify-center rounded-sm px-2.5 py-1 font-medium transition-colors select-none",
+							active ? "text-primary" : "text-textMuted hover:text-textPrimary",
 						)}
 					>
 						{active && (
 							<motion.span
 								layoutId="distribution-pill"
-								className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
+								className="absolute inset-0 -z-10 rounded-sm bg-white/10"
 								transition={{
 									type: "spring",
 									stiffness: 380,

@@ -20,16 +20,10 @@ const IconLibraryEmptyState: React.FC = () => {
 					</p>
 
 					<div className="mt-3 flex flex-wrap justify-center gap-3">
-						<Link
-							href="/icons/lucide"
-							className="bg-primary hover:bg-primaryHover inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
-						>
+						<Link href="/icons/lucide" className="btn btn-primary">
 							Browse Lucide
 						</Link>
-						<Link
-							href="/icons/huge"
-							className="border-border text-textPrimary hover:border-primary/50 hover:bg-surface inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
-						>
+						<Link href="/icons/huge" className="btn btn-secondary">
 							Browse Huge
 						</Link>
 					</div>

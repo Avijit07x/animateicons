@@ -48,7 +48,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 
 			<AnnouncementBanner />
 			<Navbar />
-			<main className="min-h-[calc(100dvh-3.75rem)] px-4 py-3 lg:px-6">
+			<main className="min-h-[calc(100dvh-3.75rem)] pb-3">
 				<div className="mx-auto h-full w-full max-w-384">
 					<h1 className="sr-only">{displayName} Animated Icons for React</h1>
 

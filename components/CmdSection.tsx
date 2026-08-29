@@ -77,7 +77,7 @@ const CmdSection: React.FC = () => {
 				role="tablist"
 				aria-label="Install method"
 				className={cn(
-					"inline-flex self-center rounded-full p-1 text-xs",
+					"inline-flex self-center rounded-lg p-1 text-xs",
 					"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
 					"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-12px_rgba(0,0,0,0.6)]",
 					"backdrop-blur",
@@ -93,7 +93,7 @@ const CmdSection: React.FC = () => {
 							aria-selected={active}
 							onClick={() => setMethod(opt.value)}
 							className={cn(
-								"relative inline-flex items-center rounded-full px-4 py-1.5 font-medium transition-colors",
+								"relative inline-flex items-center rounded-sm px-4 py-1.5 font-medium transition-colors",
 								active
 									? "text-primary"
 									: "text-textSecondary hover:text-textPrimary",
@@ -103,7 +103,7 @@ const CmdSection: React.FC = () => {
 							{active && (
 								<motion.span
 									layoutId="cmd-method-pill"
-									className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
+									className="absolute inset-0 -z-10 rounded-sm bg-white/10"
 									transition={{
 										type: "spring",
 										stiffness: 380,

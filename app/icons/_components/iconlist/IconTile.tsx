@@ -4,7 +4,7 @@
  * IconTile
  *
  * SRP: render one AnimateIcons tile in the gallery grid - the animated
- * icon, its name, and the action row. Clicking the icon area opens the
+ * icon, its name, and the action row. Clicking the cell opens the
  * playground sheet via PlaygroundContext, so users explore without
  * leaving the gallery. Per-icon detail pages still exist at
  * `/icons/<library>/<name>` for SEO / direct shares / OG images, but
@@ -13,8 +13,10 @@
 
 import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
+import { ArrowUpRight } from "lucide-react";
 import React from "react";
 import {
 	iconNameToComponent,
@@ -74,29 +76,37 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 	return (
 		<div
 			ref={tileRef}
-			className="group border-border/70 bg-surface/40 text-textPrimary hover:border-primary/40 hover:bg-surface relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border p-4 text-sm transition-all hover:-translate-y-0.5"
+			onClick={handleOpen}
+			onMouseEnter={(e) => handleHover(e, iconRef)}
+			onMouseLeave={(e) => handleHover(e, iconRef)}
+			className="group border-border/60 text-textPrimary hover:bg-surface/60 relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden border-r border-b p-4 text-sm transition-colors"
 		>
-			{item.isNew && (
-				<span className="bg-primary/10 text-primary border-primary/30 absolute top-0 right-0 rounded-bl-lg border-b border-l px-2 py-0.5 font-mono text-[9px] tracking-widest uppercase">
-					New
+			{(item.isNew || item.isUpdated) && (
+				<span
+					className={cn(
+						"pointer-events-none absolute top-3 -left-9 w-28 -rotate-45 border-y py-0.5 text-center font-mono text-[9px] tracking-widest uppercase",
+						item.isNew
+							? "border-primary/30 bg-primary/10 text-primary"
+							: "border-info/30 bg-info/10 text-info",
+					)}
+				>
+					{item.isNew ? "New" : "Update"}
 				</span>
 			)}
 
-			<div
-				role="button"
-				tabIndex={0}
+			<button
+				type="button"
 				aria-label={`Open ${item.name} in playground`}
-				onClick={handleOpen}
-				onKeyDown={(e) => {
-					if (e.key === "Enter" || e.key === " ") {
-						e.preventDefault();
-						handleOpen();
-					}
+				onClick={(e) => {
+					e.stopPropagation();
+					handleOpen();
 				}}
-				onMouseEnter={(e) => handleHover(e, iconRef)}
-				onMouseLeave={(e) => handleHover(e, iconRef)}
-				className="group-hover:text-primary hover:bg-surfaceElevated inline-flex size-12 cursor-pointer items-center justify-center rounded-xl p-3 transition-colors"
+				className="border-border/70 text-textMuted hover:border-primary/50 hover:text-primary focus-visible:border-primary/50 focus-visible:text-primary absolute top-0 right-0 inline-flex size-7 items-center justify-center border-b border-l opacity-0 transition-[opacity,color,border-color] group-focus-within:opacity-100 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none"
 			>
+				<ArrowUpRight className="size-3.5" />
+			</button>
+
+			<div className="group-hover:text-primary inline-flex size-12 items-center justify-center rounded-md p-3 transition-colors">
 				{inView ? (
 					<React.Suspense fallback={null}>
 						<IconComponent ref={iconRef} size={23} />

@@ -85,15 +85,12 @@ const ErrorPage: React.FC<Props> = ({ error, reset }) => {
 					<button
 						type="button"
 						onClick={reset}
-						className="group bg-primary hover:bg-primaryHover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-(--cta-text) transition-colors"
+						className="group btn btn-primary"
 					>
 						Try again
 						<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
 					</button>
-					<Link
-						href="/"
-						className="group border-border text-textPrimary hover:border-primary/50 hover:bg-surface inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
-					>
+					<Link href="/" className="group btn btn-secondary">
 						Go home
 					</Link>
 				</div>

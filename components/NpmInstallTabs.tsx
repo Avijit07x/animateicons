@@ -69,7 +69,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 					role="tablist"
 					aria-label="Package manager"
 					className={cn(
-						"inline-flex rounded-full p-0.5 text-[11px] normal-case",
+						"inline-flex rounded-md p-0.5 text-[11px] normal-case",
 						"border-border/80 from-surface to-surfaceElevated border bg-gradient-to-b",
 						"shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_6px_18px_-12px_rgba(0,0,0,0.6)]",
 						"backdrop-blur",
@@ -85,7 +85,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 								aria-selected={active}
 								onClick={() => setPm(opt)}
 								className={cn(
-									"relative inline-flex items-center rounded-full px-2.5 py-0.5 font-medium transition-colors",
+									"relative inline-flex items-center rounded-sm px-2.5 py-0.5 font-medium transition-colors",
 									active
 										? "text-primary"
 										: "text-textSecondary hover:text-textPrimary",
@@ -94,7 +94,7 @@ const NpmInstallTabs: React.FC<Props> = ({ highlightedByPm, commandsByPm }) => {
 								{active && (
 									<motion.span
 										layoutId="npm-install-pm-pill"
-										className="ring-primary/30 absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent ring-1 ring-inset"
+										className="absolute inset-0 -z-10 rounded-sm bg-white/10"
 										transition={{
 											type: "spring",
 											stiffness: 380,
