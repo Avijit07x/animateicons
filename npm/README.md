@@ -46,6 +46,28 @@ export default function Demo() {
 
 The icon animates on hover by default.
 
+## Bundle size
+
+Each icon is published as its own module, so bundlers drop the ones you
+don't import. Importing from the barrel is enough for Vite, Rollup, esbuild
+and webpack.
+
+**Next.js App Router is the exception.** The `lucide` / `huge` barrels carry
+the `"use client"` directive, which makes them a client boundary Next cannot
+tree-shake through - a barrel import pulls in the whole set. Import the icon
+directly instead:
+
+```tsx
+import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon";
+import { HeartIcon } from "@animateicons/react/huge/heart-icon";
+```
+
+The subpath is the icon's file name: `BellRingIcon` -> `bell-ring-icon`.
+Measured in a Next 16 production build, for one icon: 918 kB -> 71 kB of
+client JS (91 kB -> 24 kB gzipped).
+
+Deep subpaths are ESM-only. `require()` consumers should use the barrel.
+
 ## Imperative API
 
 Trigger animation from a parent via ref:

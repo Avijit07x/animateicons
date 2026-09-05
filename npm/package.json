@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.4.3",
+	"version": "0.5.0",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -41,17 +41,25 @@
 			"import": "./dist/lucide.js",
 			"require": "./dist/lucide.cjs"
 		},
+		"./lucide/*": {
+			"types": "./dist/icons/lucide/*.d.ts",
+			"import": "./dist/icons/lucide/*.js"
+		},
 		"./huge": {
 			"types": "./dist/huge.d.ts",
 			"module-sync": "./dist/huge.js",
 			"import": "./dist/huge.js",
 			"require": "./dist/huge.cjs"
 		},
+		"./huge/*": {
+			"types": "./dist/icons/huge/*.d.ts",
+			"import": "./dist/icons/huge/*.js"
+		},
 		"./package.json": "./package.json"
 	},
 	"sideEffects": false,
 	"files": [
-		"dist/**/*.{js,cjs,d.ts,d.cts}",
+		"dist",
 		"CHANGELOG.md",
 		"README.md",
 		"LICENSE"
@@ -64,7 +72,7 @@
 		"normalize": "node scripts/normalize-icon-names.mjs",
 		"normalize-handles": "node scripts/normalize-handle-names.mjs",
 		"check:naming": "node scripts/check-icon-naming.mjs",
-		"build": "pnpm run gen && tsup",
+		"build": "pnpm run gen && tsup && node scripts/inject-use-client.mjs && node scripts/generate-icon-dts.mjs",
 		"dev": "pnpm run gen && tsup --watch",
 		"typecheck": "tsc --noEmit",
 		"test:codegen": "node --test __tests__/generate-exports.test.mjs",
@@ -79,28 +87,38 @@
 	},
 	"size-limit": [
 		{
-			"name": "lucide (full barrel + LazyMotion domMin)",
-			"path": "dist/lucide.js",
-			"limit": "75 kB",
-			"ignore": [
-				"react",
-				"react-dom"
-			]
-		},
-		{
-			"name": "huge (full barrel + LazyMotion domMin)",
-			"path": "dist/huge.js",
-			"limit": "40 kB",
-			"ignore": [
-				"react",
-				"react-dom"
-			]
-		},
-		{
-			"name": "single icon (LazyMotion domMin)",
+			"name": "single icon (tree-shaken)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
-			"limit": "75 kB",
+			"limit": "25 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		},
+		{
+			"name": "5 icons (tree-shaken)",
+			"path": "dist/lucide.js",
+			"import": "{ BellRingIcon, HeartIcon, CopyIcon, BellIcon, ActivityIcon }",
+			"limit": "26 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		},
+		{
+			"name": "lucide (full barrel)",
+			"path": "dist/lucide.js",
+			"limit": "90 kB",
+			"ignore": [
+				"react",
+				"react-dom"
+			]
+		},
+		{
+			"name": "huge (full barrel)",
+			"path": "dist/huge.js",
+			"limit": "35 kB",
 			"ignore": [
 				"react",
 				"react-dom"

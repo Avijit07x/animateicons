@@ -135,3 +135,48 @@ test("subpath .d.ts files re-export their handle types", async () => {
 		"lucide.d.ts missing BellRingIconHandle type export",
 	);
 });
+
+test("ESM ships one module per icon - the barrel only re-exports", async () => {
+	const barrel = await fs.readFile(path.join(DIST, "lucide.js"), "utf8");
+	assert.ok(
+		barrel.length < 120_000,
+		`lucide.js is ${barrel.length}B - it should be re-exports only, not a bundle. Tree-shaking is broken.`,
+	);
+	assert.ok(
+		await exists(path.join(DIST, "icons", "lucide", "bell-ring-icon.js")),
+		"dist/icons/lucide/bell-ring-icon.js missing - per-icon modules not emitted",
+	);
+	const perIcon = await fs.readdir(path.join(DIST, "icons", "lucide"));
+	assert.ok(
+		perIcon.length >= 248,
+		`expected ≥248 per-icon modules, got ${perIcon.length}`,
+	);
+});
+
+test("deep per-icon subpaths resolve and carry types", async () => {
+	const pkg = JSON.parse(
+		await fs.readFile(path.join(PKG_ROOT, "package.json"), "utf8"),
+	);
+	assert.ok(
+		pkg.exports["./lucide/*"] && pkg.exports["./huge/*"],
+		"missing per-icon subpath exports - Next consumers cannot tree-shake",
+	);
+	const mod = await import(
+		path.join(DIST, "icons", "lucide", "bell-ring-icon.js")
+	);
+	assert.ok(mod.BellRingIcon, "deep subpath does not export BellRingIcon");
+	const dts = await fs.readFile(
+		path.join(DIST, "icons", "lucide", "bell-ring-icon.d.ts"),
+		"utf8",
+	);
+	assert.match(
+		dts,
+		/BellRingIcon\b/,
+		"deep subpath .d.ts missing the component",
+	);
+	assert.match(
+		dts,
+		/BellRingIconHandle/,
+		"deep subpath .d.ts missing the handle type",
+	);
+});
