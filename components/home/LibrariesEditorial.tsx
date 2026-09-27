@@ -23,8 +23,10 @@ import { useEffect, useRef } from "react";
 import SpecimenFrame from "./SpecimenFrame";
 
 /**
- * LibrariesEditorial - the two icon libraries as editorial rows with live
- * preview strips that replay on scroll-in, instead of a tabbed card widget.
+ * LibrariesEditorial - the two icon libraries side by side, each a specimen
+ * plate in the same hairline language as the wall: a label strip, a lattice
+ * row of live icons, the pitch and a browse link, and a footer strip. The
+ * row rests in grey and a wave tints each icon as it replays on scroll-in.
  */
 
 type PIcon = React.ComponentType<{
@@ -52,9 +54,14 @@ const HUGE = [
 	GithubIcon,
 ] as unknown as PIcon[];
 
+const WAVE_STEP_MS = 90;
+const TINT_MS = 450;
+const WAVE_EVERY_MS = 4200;
+
 const PreviewStrip: React.FC<{ icons: PIcon[] }> = ({ icons }) => {
 	const reduced = useReducedMotion();
 	const wrapRef = useRef<HTMLDivElement | null>(null);
+	const cellRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const refs = useRef<(IconHandle | null)[]>([]);
 
 	useEffect(() => {
@@ -65,15 +72,22 @@ const PreviewStrip: React.FC<{ icons: PIcon[] }> = ({ icons }) => {
 		let loop: ReturnType<typeof setInterval> | undefined;
 		const wave = () => {
 			timers.forEach(clearTimeout);
-			timers = icons.map((_, i) =>
-				setTimeout(() => refs.current[i]?.startAnimation(), i * 90),
-			);
+			timers = icons.flatMap((_, i) => [
+				setTimeout(() => {
+					cellRefs.current[i]?.setAttribute("data-active", "");
+					refs.current[i]?.startAnimation();
+				}, i * WAVE_STEP_MS),
+				setTimeout(
+					() => cellRefs.current[i]?.removeAttribute("data-active"),
+					i * WAVE_STEP_MS + TINT_MS,
+				),
+			]);
 		};
 		const io = new IntersectionObserver(
 			([entry]) => {
 				if (entry?.isIntersecting) {
 					wave();
-					loop = setInterval(wave, 4200);
+					loop = setInterval(wave, WAVE_EVERY_MS);
 				} else if (loop) {
 					clearInterval(loop);
 					loop = undefined;
@@ -90,19 +104,22 @@ const PreviewStrip: React.FC<{ icons: PIcon[] }> = ({ icons }) => {
 	}, [reduced, icons]);
 
 	return (
-		<div ref={wrapRef} className="flex flex-wrap gap-3">
+		<div ref={wrapRef} className="bg-border/50 grid grid-cols-7 gap-px">
 			{icons.map((Icon, i) => (
 				<div
 					key={i}
+					ref={(el) => {
+						cellRefs.current[i] = el;
+					}}
 					onMouseEnter={() => refs.current[i]?.startAnimation()}
 					onMouseLeave={() => refs.current[i]?.stopAnimation()}
-					className="border-border/70 bg-surface/40 text-textPrimary hover:border-primary/50 hover:text-primary flex size-14 cursor-pointer items-center justify-center rounded-xl border transition-all duration-200 hover:-translate-y-0.5"
+					className="bg-bgDark text-textSecondary hover:text-primary data-active:text-primary flex aspect-square items-center justify-center transition-colors duration-500"
 				>
 					<Icon
 						ref={(el: IconHandle | null) => {
 							refs.current[i] = el;
 						}}
-						size={28}
+						size={26}
 					/>
 				</div>
 			))}
@@ -141,27 +158,33 @@ const LibrariesEditorial: React.FC = () => {
 
 				<div className="mt-14 grid gap-6 lg:grid-cols-2">
 					{LIBS.map((lib) => (
-						<SpecimenFrame
-							key={lib.id}
-							label={lib.title}
-							index={`${lib.count} icons`}
-							footLeft={lib.id}
-							footRight="one motion system"
-							crosshair
-						>
-							<div className="px-7 pt-12 pb-14">
-								<PreviewStrip icons={lib.icons} />
-								<p className="text-textSecondary mt-7 max-w-sm text-sm leading-relaxed">
+						<SpecimenFrame key={lib.id}>
+							<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-3 font-mono text-[10px] tracking-widest">
+								<span className="uppercase">{lib.title}</span>
+								<span className="tabular-nums">{lib.count} icons</span>
+							</div>
+
+							<PreviewStrip icons={lib.icons} />
+
+							<div className="border-border/60 border-t px-4 py-6">
+								<p className="text-textSecondary max-w-sm text-sm leading-relaxed">
 									{lib.body}
 								</p>
 								<Link
 									href={`/icons/${lib.id}`}
 									prefetch={false}
-									className="group text-primary hover:text-primaryHover mt-5 inline-flex items-center gap-1.5 text-sm font-semibold"
+									className="group text-primary hover:text-primaryHover mt-4 inline-flex items-center gap-1.5 text-sm font-semibold"
 								>
 									Browse {lib.title}
 									<ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
 								</Link>
+							</div>
+
+							<div className="border-border/60 flex items-center justify-between border-t px-4 py-3 font-mono text-[10px] tracking-widest">
+								<span className="text-primary">{lib.id}</span>
+								<span className="text-textMuted uppercase">
+									one motion system
+								</span>
 							</div>
 						</SpecimenFrame>
 					))}

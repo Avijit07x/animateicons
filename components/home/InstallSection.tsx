@@ -1,50 +1,136 @@
 "use client";
 
-import { useIconInView } from "@/hooks/useIconInView";
-import { AlarmClockIcon } from "@/icons/lucide/alarm-clock-icon";
+import { BlocksIcon } from "@/icons/lucide/blocks-icon";
+import { BotIcon } from "@/icons/lucide/bot-icon";
+import { PackageIcon } from "@/icons/lucide/package-icon";
+import { TerminalIcon } from "@/icons/lucide/terminal-icon";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
-import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { cn } from "@/lib/utils";
+import type { IconHandle } from "@/types/icon";
+import { ArrowRight, ArrowUpRight, Check, Copy } from "lucide-react";
+import { useReducedMotion } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SpecimenFrame from "./SpecimenFrame";
 
 /**
- * InstallSection - the closing "system" section: the live animated specimen
- * (the icon dissected) on the left as proof of the motion, and the one-line
- * install with a usage snippet and spec checklist on the right. Merges the
- * old Anatomy + Install into one moment: what makes it move, and how to get it.
+ * InstallSection - the closing section: every way to get the icons, side by
+ * side in the page's hairline lattice. Package, shadcn, the CLI and the MCP
+ * server each get a tile with a one-line pitch, the exact command to copy,
+ * and a link to its docs. A facts strip closes the plate.
  */
 
-const METHODS = [
-	{ id: "npm", cmd: "npm i @animateicons/react" },
-	{ id: "pnpm", cmd: "pnpm add @animateicons/react" },
-	{ id: "bun", cmd: "bun add @animateicons/react" },
+type TileIcon = React.ComponentType<{
+	size?: number;
+	ref?: React.Ref<IconHandle>;
+}>;
+
+type Manager = "npm" | "pnpm" | "bun";
+
+const MANAGERS: Record<Manager, string> = {
+	npm: "npm i @animateicons/react",
+	pnpm: "pnpm add @animateicons/react",
+	bun: "bun add @animateicons/react",
+};
+
+const NPM_URL = "https://www.npmjs.com/package/@animateicons/react";
+
+type Channel = {
+	id: string;
+	title: string;
+	tag: string;
+	blurb: string;
+	command?: string;
+	docs: string;
+	Icon: TileIcon;
+};
+
+const CHANNELS = [
+	{
+		id: "package",
+		title: "Package",
+		tag: "Recommended",
+		blurb: "One install, every icon. Tree-shakeable and fully typed.",
+		docs: "/icons/docs#install-npm",
+		Icon: PackageIcon,
+	},
 	{
 		id: "shadcn",
-		cmd: "npx shadcn@latest add https://animateicons.in/r/bell-ring",
+		title: "shadcn",
+		tag: "Own the source",
+		blurb: "Copy a component into your repo and edit it like your own.",
+		command:
+			"npx shadcn@latest add https://animateicons.in/r/lu-bell-ring.json",
+		docs: "/icons/docs/shadcn",
+		Icon: BlocksIcon,
 	},
-] as const;
+	{
+		id: "cli",
+		title: "CLI",
+		tag: "Browse & add",
+		blurb: "Search the set in your terminal and drop in the source.",
+		command: "npx animateicons browse",
+		docs: "/icons/docs/cli",
+		Icon: TerminalIcon,
+	},
+	{
+		id: "mcp",
+		title: "MCP",
+		tag: "For AI agents",
+		blurb: "Let Claude Code, Cursor and other agents add icons for you.",
+		command: "claude mcp add animateicons -- npx -y @animateicons/mcp",
+		docs: "/icons/docs/mcp",
+		Icon: BotIcon,
+	},
+] as unknown as Channel[];
 
-const POINTS = [
-	"Animated at the path level, never a flat transform",
-	"Tree-shakeable, sideEffects false",
-	"RSC-ready with typed, imperative handles",
-	"Reduced-motion aware out of the box",
-];
+const FACTS = ["2 libraries", "motion bundled", "MIT licensed"];
+
+const WAVE_STEP_MS = 120;
+const TINT_MS = 600;
 
 const InstallSection: React.FC = () => {
-	const [method, setMethod] = useState<(typeof METHODS)[number]["id"]>("npm");
-	const [copied, setCopied] = useState(false);
-	const active = METHODS.find((m) => m.id === method) ?? METHODS[0];
-	const { wrapRef, iconRef } = useIconInView<HTMLDivElement>({
-		loop: true,
-		loopMs: 2200,
-	});
+	const reduced = useReducedMotion();
+	const [manager, setManager] = useState<Manager>("npm");
+	const [copied, setCopied] = useState<string | null>(null);
+	const gridRef = useRef<HTMLDivElement | null>(null);
+	const iconWrapRefs = useRef<(HTMLSpanElement | null)[]>([]);
+	const iconRefs = useRef<(IconHandle | null)[]>([]);
 
-	const copy = () => {
-		navigator.clipboard?.writeText(active.cmd).then(() => {
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1600);
+	// One pass across the tile icons when the section first scrolls in.
+	useEffect(() => {
+		if (reduced) return;
+		const el = gridRef.current;
+		if (!el) return;
+		let timers: ReturnType<typeof setTimeout>[] = [];
+		const io = new IntersectionObserver(
+			([entry]) => {
+				if (!entry?.isIntersecting) return;
+				io.disconnect();
+				timers = CHANNELS.flatMap((_, i) => [
+					setTimeout(() => {
+						iconWrapRefs.current[i]?.setAttribute("data-active", "");
+						iconRefs.current[i]?.startAnimation();
+					}, i * WAVE_STEP_MS),
+					setTimeout(
+						() => iconWrapRefs.current[i]?.removeAttribute("data-active"),
+						i * WAVE_STEP_MS + TINT_MS,
+					),
+				]);
+			},
+			{ threshold: 0.3 },
+		);
+		io.observe(el);
+		return () => {
+			io.disconnect();
+			timers.forEach(clearTimeout);
+		};
+	}, [reduced]);
+
+	const copy = (id: string, command: string) => {
+		navigator.clipboard?.writeText(command).then(() => {
+			setCopied(id);
+			setTimeout(() => setCopied((cur) => (cur === id ? null : cur)), 1600);
 		});
 	};
 
@@ -55,141 +141,144 @@ const InstallSection: React.FC = () => {
 					<span className="text-primary">05</span> / Install
 				</p>
 				<h2 className="text-textPrimary mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-					One import. The whole system<span className="text-primary">.</span>
+					Install it your way<span className="text-primary">.</span>
 				</h2>
 				<p className="text-textSecondary mt-4 max-w-xl text-base leading-relaxed">
-					Every icon animates at the path level and ships in one tree-shakeable
-					package. See what makes it move, then grab it in a line.
+					Same icons, same API. Take the package, own the source, or let your AI
+					agent add them for you.
 				</p>
 
-				<div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-14">
-					{/* Left: the animated specimen + links */}
-					<div className="flex h-full min-w-0 flex-col justify-between gap-8">
-						<SpecimenFrame
-							label="Specimen"
-							index="alarm-clock"
-							footLeft="path-animated"
-							footRight="motion/react"
-							crosshair
-							className="w-full grow"
-							innerClassName="relative h-full"
-						>
-							<div
-								ref={wrapRef}
-								className="text-primary flex h-full min-h-72 w-full items-center justify-center"
-							>
-								<AlarmClockIcon ref={iconRef} size={176} />
-							</div>
-						</SpecimenFrame>
-
-						<div className="flex items-center gap-6">
-							<Link
-								href="https://www.npmjs.com/package/@animateicons/react"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="group text-textPrimary inline-flex items-center gap-1 text-sm font-semibold"
-							>
-								View on npm
-								<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-							</Link>
-							<Link
-								href="/icons/docs"
-								className="text-textSecondary hover:text-textPrimary text-sm font-medium transition-colors"
-							>
-								Read the docs
-							</Link>
-						</div>
+				<SpecimenFrame className="mt-12">
+					<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-3 font-mono text-[10px] tracking-widest">
+						<span className="uppercase">Channels</span>
+						<span>{CHANNELS.length} ways to install</span>
 					</div>
 
-					{/* Right: install terminal + spec checklist */}
-					<div className="flex h-full min-w-0 flex-col gap-8">
-						<div className="border-border bg-surface/60 overflow-hidden rounded-xl border">
-							<div className="border-border/60 flex items-center justify-between border-b px-4 py-2.5">
-								<div className="flex gap-1.5">
-									{METHODS.map((m) => (
-										<button
-											key={m.id}
-											type="button"
-											onClick={() => setMethod(m.id)}
-											className={
-												m.id === method
-													? "text-primary bg-surfaceElevated rounded-md px-2.5 py-1 font-mono text-xs"
-													: "text-textMuted hover:text-textSecondary rounded-md px-2.5 py-1 font-mono text-xs transition-colors"
-											}
-										>
-											{m.id}
-										</button>
-									))}
-								</div>
-								<button
-									type="button"
-									onClick={copy}
-									aria-label="Copy install command"
-									className="text-textMuted hover:text-primary transition-colors"
+					<div
+						ref={gridRef}
+						className="bg-border/50 grid gap-px sm:grid-cols-2 lg:grid-cols-4"
+					>
+						{CHANNELS.map((c, i) => {
+							const command = c.command ?? MANAGERS[manager];
+							const isCopied = copied === c.id;
+
+							return (
+								<div
+									key={c.id}
+									onMouseEnter={() => iconRefs.current[i]?.startAnimation()}
+									onMouseLeave={() => iconRefs.current[i]?.stopAnimation()}
+									className="group bg-bgDark flex min-w-0 flex-col gap-4 p-5"
 								>
-									{copied ? (
-										<Check className="text-success size-4" />
-									) : (
-										<Copy className="size-4" />
-									)}
-								</button>
-							</div>
+									<div className="flex items-start justify-between gap-3">
+										<div className="flex items-center gap-3">
+											<span
+												ref={(el) => {
+													iconWrapRefs.current[i] = el;
+												}}
+												className="text-textSecondary group-hover:text-primary data-active:text-primary flex size-9 shrink-0 items-center justify-center transition-colors duration-500"
+											>
+												<c.Icon
+													ref={(el: IconHandle | null) => {
+														iconRefs.current[i] = el;
+													}}
+													size={22}
+												/>
+											</span>
+											<div>
+												<p className="text-textPrimary text-sm font-semibold">
+													{c.title}
+												</p>
+												<p className="text-textMuted font-mono text-[9px] tracking-widest uppercase">
+													{c.tag}
+												</p>
+											</div>
+										</div>
 
-							<div className="px-5 py-5">
-								<code className="text-textPrimary block font-mono text-sm break-all">
-									<span className="text-textMuted select-none">$ </span>
-									{active.cmd}
-								</code>
-							</div>
+										{!c.command && (
+											<div
+												role="radiogroup"
+												aria-label="Package manager"
+												className="flex items-center gap-2 pt-1 font-mono text-[10px]"
+											>
+												{(Object.keys(MANAGERS) as Manager[]).map((m) => (
+													<button
+														key={m}
+														type="button"
+														role="radio"
+														aria-checked={manager === m}
+														onClick={() => setManager(m)}
+														className={cn(
+															"transition-colors",
+															manager === m
+																? "text-primary"
+																: "text-textMuted hover:text-textPrimary",
+														)}
+													>
+														{m}
+													</button>
+												))}
+											</div>
+										)}
+									</div>
 
-							<div className="border-border/60 border-t px-5 py-5">
-								<pre className="font-mono text-[11px] leading-relaxed break-words whitespace-pre-wrap sm:text-xs">
-									<code className="text-textSecondary">
-										<span className="text-primary">import</span> {"{ "}
-										<span className="text-textPrimary">BellRingIcon</span>
-										{" }"} <span className="text-primary">from</span>{" "}
-										<span className="text-success">
-											&quot;@animateicons/react/lucide&quot;
-										</span>
-										{"\n\n"}
-										<span className="text-primary">export</span>{" "}
-										<span className="text-primary">function</span>{" "}
-										<span className="text-textPrimary">Bell</span>() {"{"}
-										{"\n  "}
-										<span className="text-primary">return</span> {"<"}
-										<span className="text-textPrimary">BellRingIcon</span>{" "}
-										<span className="text-textSecondary">size</span>={"{28}"}{" "}
-										{"/>"}
-										{"\n"}
-										{"}"}
-									</code>
-								</pre>
-							</div>
-						</div>
+									<p className="text-textSecondary min-h-12 text-sm leading-relaxed">
+										{c.blurb}
+									</p>
 
-						<div className="mt-auto">
-							<p className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-								What you get
-							</p>
-							<ul className="divide-border/60 mt-5 divide-y">
-								{POINTS.map((p) => (
-									<li
-										key={p}
-										className="group text-textSecondary flex items-center gap-3 py-3 text-sm first:pt-0"
-									>
-										<Check className="text-primary/70 group-hover:text-primary size-4 shrink-0 transition-colors" />
-										{p}
-									</li>
-								))}
-							</ul>
-						</div>
+									<div className="border-border/60 bg-surface/40 flex items-center gap-2 border px-3 py-2.5">
+										<code className="text-textPrimary min-w-0 flex-1 [scrollbar-width:none] overflow-x-auto font-mono text-xs leading-relaxed whitespace-nowrap [&::-webkit-scrollbar]:hidden">
+											<span className="text-textMuted select-none">$ </span>
+											{command}
+										</code>
+										<button
+											type="button"
+											onClick={() => copy(c.id, command)}
+											aria-label={`Copy ${c.title} command`}
+											className="text-textMuted hover:text-primary shrink-0 transition-colors"
+										>
+											{isCopied ? (
+												<Check className="text-success size-3.5" />
+											) : (
+												<Copy className="size-3.5" />
+											)}
+										</button>
+									</div>
+
+									<div className="mt-auto flex items-center gap-5 font-mono text-[10px] tracking-widest uppercase">
+										<Link
+											href={c.docs}
+											prefetch={false}
+											className="text-textMuted hover:text-primary group/link inline-flex items-center gap-1 transition-colors"
+										>
+											Docs
+											<ArrowRight className="size-3 transition-transform group-hover/link:translate-x-0.5" />
+										</Link>
+										{!c.command && (
+											<Link
+												href={NPM_URL}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-textMuted hover:text-primary group/link inline-flex items-center gap-1 transition-colors"
+											>
+												npm
+												<ArrowUpRight className="size-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+											</Link>
+										)}
+									</div>
+								</div>
+							);
+						})}
 					</div>
-				</div>
 
-				<p className="text-textMuted mt-10 font-mono text-[10px] tracking-widest uppercase">
-					{ICON_COUNTS.total} icons · {ICON_COUNTS.lucide} lucide ·{" "}
-					{ICON_COUNTS.huge} huge
-				</p>
+					<div className="border-border/60 text-textMuted flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t px-4 py-3 font-mono text-[10px] tracking-widest uppercase">
+						<span>
+							<span className="text-primary">{ICON_COUNTS.total}</span> icons
+						</span>
+						{FACTS.map((f) => (
+							<span key={f}>{f}</span>
+						))}
+					</div>
+				</SpecimenFrame>
 			</div>
 		</section>
 	);

@@ -12,6 +12,7 @@ import { SearchIcon } from "@/icons/lucide/search-icon";
 import { SettingsIcon } from "@/icons/lucide/settings-icon";
 import { StarIcon } from "@/icons/lucide/star-icon";
 import { UserIcon } from "@/icons/lucide/user-icon";
+import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import { Check, Copy, Play, RotateCcw } from "lucide-react";
 import { useReducedMotion } from "motion/react";
@@ -21,8 +22,8 @@ import SpecimenFrame from "./SpecimenFrame";
 /**
  * Playground - pick an icon, tune color / size / duration, watch it loop,
  * and copy working JSX. Uses the real icon props (size, color, duration)
- * so the copied snippet matches what renders. Left column is the output
- * (preview + code); right column is the inputs.
+ * so the copied snippet matches what renders. Left column is the preview,
+ * right column is the controls.
  */
 
 type PIcon = React.ComponentType<{
@@ -65,6 +66,35 @@ const SWATCHES = [
 ];
 const SIZE_PRESETS = [48, 96, 128, 160];
 const DEFAULTS = { color: "#f45b48", size: 112, duration: 1 };
+
+const PREVIEW_BUTTON =
+	"border-border bg-surface text-textPrimary hover:border-primary/50 hover:text-primary pointer-events-auto inline-flex items-center gap-2 rounded-sm border px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors";
+
+const Row: React.FC<{
+	label: string;
+	hint?: string;
+	value?: React.ReactNode;
+	children: React.ReactNode;
+}> = ({ label, hint, value, children }) => (
+	<div className="border-border/60 border-t px-4 py-4 sm:px-5">
+		<div className="flex items-center justify-between gap-4">
+			<span className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
+				{label}
+				{hint && (
+					<span className="text-textDisabled ml-2 tracking-normal normal-case">
+						{hint}
+					</span>
+				)}
+			</span>
+			{value !== undefined && (
+				<span className="text-textSecondary font-mono text-xs tabular-nums">
+					{value}
+				</span>
+			)}
+		</div>
+		<div className="mt-3">{children}</div>
+	</div>
+);
 
 const Playground: React.FC = () => {
 	const reduced = useReducedMotion();
@@ -125,76 +155,67 @@ const Playground: React.FC = () => {
 				</h2>
 
 				<div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
-					{/* Output: the live preview */}
-					<div className="flex h-full min-w-0 flex-col gap-4">
-						<SpecimenFrame
-							label="Preview"
-							index={cur.name}
-							footLeft={`${size}px`}
-							footRight={`${duration.toFixed(1)}s`}
-							crosshair
-							className="w-full grow"
-							innerClassName="relative h-full"
+					{/* Preview */}
+					<SpecimenFrame
+						label="Preview"
+						index={cur.name}
+						footLeft={`${size}px`}
+						footRight={`${duration.toFixed(1)}s`}
+						className="h-full min-w-0"
+						innerClassName="relative h-full"
+					>
+						<div
+							className="flex h-full min-h-80 w-full items-center justify-center lg:min-h-96"
+							style={{ color }}
 						>
+							<cur.Icon
+								ref={iconRef}
+								size={size}
+								color={color}
+								duration={duration}
+							/>
+						</div>
+
+						<div className="pointer-events-none absolute inset-x-0 bottom-3.5 flex justify-center gap-2">
+							<button type="button" onClick={replay} className={PREVIEW_BUTTON}>
+								<Play className="size-3" />
+								Replay
+							</button>
 							<button
 								type="button"
-								onClick={replay}
-								aria-label="Replay animation"
-								className="flex h-full min-h-[420px] w-full cursor-pointer items-center justify-center"
-								style={{ color }}
+								onClick={copy}
+								aria-label="Copy code"
+								className={PREVIEW_BUTTON}
 							>
-								<cur.Icon
-									ref={iconRef}
-									size={size}
-									color={color}
-									duration={duration}
-								/>
+								{copied ? (
+									<Check className="text-success size-3" />
+								) : (
+									<Copy className="size-3" />
+								)}
+								{copied ? "Copied" : "Copy"}
 							</button>
+						</div>
+					</SpecimenFrame>
 
-							<div className="pointer-events-none absolute inset-x-0 bottom-3 flex items-center justify-center gap-1.5">
-								<button
-									type="button"
-									onClick={replay}
-									aria-label="Replay animation"
-									title="Replay"
-									className="border-border bg-surface/70 text-textSecondary hover:border-primary/40 hover:text-primary pointer-events-auto flex size-8 items-center justify-center rounded-md border backdrop-blur transition-colors"
-								>
-									<Play className="size-3.5" />
-								</button>
-								<button
-									type="button"
-									onClick={reset}
-									disabled={isDefault}
-									aria-label="Reset to defaults"
-									title="Reset"
-									className="border-border bg-surface/70 text-textSecondary hover:border-primary/40 hover:text-primary pointer-events-auto flex size-8 items-center justify-center rounded-md border backdrop-blur transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40"
-								>
-									<RotateCcw className="size-3.5" />
-								</button>
-								<button
-									type="button"
-									onClick={copy}
-									aria-label="Copy code"
-									title="Copy code"
-									className="border-border bg-surface/70 text-textSecondary hover:border-primary/40 hover:text-primary pointer-events-auto flex size-8 items-center justify-center rounded-md border backdrop-blur transition-colors"
-								>
-									{copied ? (
-										<Check className="text-success size-3.5" />
-									) : (
-										<Copy className="size-3.5" />
-									)}
-								</button>
-							</div>
-						</SpecimenFrame>
-					</div>
+					{/* Controls */}
+					<div className="border-border/60 flex min-w-0 flex-col border">
+						<div className="flex items-center justify-between px-4 py-3 sm:px-5">
+							<span className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
+								Controls
+							</span>
+							<button
+								type="button"
+								onClick={reset}
+								disabled={isDefault}
+								className="text-textMuted hover:text-primary inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors disabled:pointer-events-none disabled:opacity-40"
+							>
+								<RotateCcw className="size-3" />
+								Reset
+							</button>
+						</div>
 
-					{/* Inputs */}
-					<div className="flex min-w-0 flex-col gap-8">
-						<div>
-							<label className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
-								Icon
-							</label>
-							<div className="mt-3 grid grid-cols-6 gap-2">
+						<Row label="Icon" value={cur.name}>
+							<div className="bg-border/50 border-border/50 grid grid-cols-6 gap-px border">
 								{ICONS.map((ic, i) => (
 									<button
 										key={ic.name}
@@ -204,48 +225,43 @@ const Playground: React.FC = () => {
 										onMouseLeave={() => pickerRefs.current[i]?.stopAnimation()}
 										aria-label={ic.name}
 										aria-pressed={i === sel}
-										className={`flex aspect-square items-center justify-center rounded-xl border transition-all duration-200 ${
+										className={cn(
+											"flex aspect-square items-center justify-center transition-colors",
 											i === sel
-												? "border-primary bg-primary/10 text-primary shadow-[0_0_24px_-8px_var(--color-primaryGlow)]"
-												: "border-border/70 bg-surface/40 text-textSecondary hover:border-primary/40 hover:bg-surface hover:text-textPrimary hover:-translate-y-0.5"
-										}`}
+												? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_var(--color-primary)]"
+												: "bg-bgDark text-textSecondary hover:bg-surface hover:text-textPrimary",
+										)}
 									>
 										<ic.Icon
 											ref={(el: IconHandle | null) => {
 												pickerRefs.current[i] = el;
 											}}
-											size={28}
+											size={24}
 										/>
 									</button>
 								))}
 							</div>
-						</div>
+						</Row>
 
-						<div>
-							<div className="flex items-center justify-between">
-								<label className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
-									Color
-								</label>
-								<span className="text-textSecondary font-mono text-xs">
-									{color}
-								</span>
-							</div>
-							<div className="mt-3 flex items-center gap-2">
+						<Row label="Color" value={color}>
+							<div className="flex items-center gap-2.5">
 								{SWATCHES.map((s) => (
 									<button
 										key={s}
 										type="button"
 										onClick={() => setColor(s)}
 										aria-label={`Use ${s}`}
-										className={`size-8 rounded-full border transition-transform hover:scale-110 ${
+										aria-pressed={color.toLowerCase() === s.toLowerCase()}
+										className={cn(
+											"ring-offset-bgDark size-7 rounded-sm border transition-transform hover:scale-110",
 											color.toLowerCase() === s.toLowerCase()
-												? "border-textPrimary scale-110"
-												: "border-border"
-										}`}
+												? "border-transparent ring-2 ring-white/80 ring-offset-2"
+												: "border-border",
+										)}
 										style={{ backgroundColor: s }}
 									/>
 								))}
-								<label className="border-border text-textMuted hover:border-primary/40 relative flex size-8 cursor-pointer items-center justify-center overflow-hidden rounded-full border text-xs">
+								<label className="border-border text-textMuted hover:border-primary/40 hover:text-textPrimary relative flex size-7 cursor-pointer items-center justify-center overflow-hidden rounded-sm border text-xs transition-colors">
 									<input
 										type="color"
 										value={color}
@@ -256,33 +272,33 @@ const Playground: React.FC = () => {
 									<span aria-hidden="true">+</span>
 								</label>
 							</div>
-						</div>
+						</Row>
 
-						<div>
-							<div className="flex items-center justify-between">
-								<label className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
-									Size
-								</label>
-								<div className="flex items-center gap-1.5">
-									{SIZE_PRESETS.map((p) => (
+						<Row
+							label="Size"
+							value={
+								<span className="flex items-center gap-1.5">
+									{SIZE_PRESETS.map((s) => (
 										<button
-											key={p}
+											key={s}
 											type="button"
-											onClick={() => setSize(p)}
-											className={`rounded px-1.5 py-0.5 font-mono text-[10px] tabular-nums transition-colors ${
-												size === p
+											onClick={() => setSize(s)}
+											className={cn(
+												"rounded-sm px-1.5 py-0.5 text-[10px] transition-colors",
+												size === s
 													? "text-primary"
-													: "text-textMuted hover:text-textSecondary"
-											}`}
+													: "text-textMuted hover:text-textSecondary",
+											)}
 										>
-											{p}
+											{s}
 										</button>
 									))}
-									<span className="text-textSecondary ml-1 inline-block w-12 text-right font-mono text-xs tabular-nums">
+									<span className="ml-1 inline-block w-12 text-right">
 										{size}px
 									</span>
-								</div>
-							</div>
+								</span>
+							}
+						>
 							<input
 								type="range"
 								min={24}
@@ -291,23 +307,16 @@ const Playground: React.FC = () => {
 								value={size}
 								onChange={(e) => setSize(Number(e.target.value))}
 								aria-label="Icon size"
-								className="ai-slider mt-4"
+								className="ai-slider"
 								style={{ background: fill(sizePct) }}
 							/>
-						</div>
+						</Row>
 
-						<div>
-							<div className="flex items-center justify-between">
-								<label className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
-									Duration{" "}
-									<span className="text-textDisabled normal-case">
-										(lower = faster)
-									</span>
-								</label>
-								<span className="text-textSecondary font-mono text-xs tabular-nums">
-									{duration.toFixed(1)}s
-								</span>
-							</div>
+						<Row
+							label="Duration"
+							hint="lower = faster"
+							value={`${duration.toFixed(1)}s`}
+						>
 							<input
 								type="range"
 								min={0.4}
@@ -316,10 +325,10 @@ const Playground: React.FC = () => {
 								value={duration}
 								onChange={(e) => setDuration(Number(e.target.value))}
 								aria-label="Animation duration"
-								className="ai-slider mt-4"
+								className="ai-slider"
 								style={{ background: fill(durPct) }}
 							/>
-						</div>
+						</Row>
 					</div>
 				</div>
 			</div>
