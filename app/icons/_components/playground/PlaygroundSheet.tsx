@@ -13,9 +13,11 @@
  * Reuses `useIconConfig` + `PlaygroundControls` so the playground
  * primitives stay shared across surfaces. Hover is the only trigger
  * mode - click and loop modes were removed because they weren't
- * earning their place in the UI.
+ * earning their place in the UI. Styled as a specimen sheet, like the
+ * home page: a crop-marked preview plate and hairline panels.
  */
 
+import SpecimenFrame from "@/components/home/SpecimenFrame";
 import { CheckIcon } from "@/components/icons/CheckIcon";
 import {
 	Sheet,
@@ -25,7 +27,6 @@ import {
 	SheetTitle,
 } from "@/components/ui/sheet";
 import { CopyIcon, type CopyIconHandle } from "@/icons/lucide/copy-icon";
-import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 import { AnimatePresence, motion } from "motion/react";
@@ -75,7 +76,7 @@ const CopyAction: React.FC<{ value: string; label: string }> = ({
 			onMouseEnter={(e) => handleHover(e, ref)}
 			onMouseLeave={(e) => handleHover(e, ref)}
 			aria-label={copied ? "Copied" : label}
-			className="text-textSecondary hover:text-textPrimary inline-flex size-7 items-center justify-center rounded-md transition-colors hover:bg-white/[0.04]"
+			className="text-textMuted hover:text-primary inline-flex size-7 items-center justify-center transition-colors"
 		>
 			<AnimatePresence mode="wait" initial={false}>
 				{copied ? (
@@ -105,6 +106,21 @@ const CopyAction: React.FC<{ value: string; label: string }> = ({
 		</button>
 	);
 };
+
+/** Hairline panel with a mono label strip - the sheet's one card style. */
+const Panel: React.FC<{
+	label: string;
+	action?: React.ReactNode;
+	children: React.ReactNode;
+}> = ({ label, action, children }) => (
+	<div className="border-border/60 border">
+		<div className="border-border/60 text-textMuted flex min-h-11 items-center justify-between gap-3 border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
+			<span>{label}</span>
+			{action}
+		</div>
+		{children}
+	</div>
+);
 
 const PlaygroundSheet: React.FC = () => {
 	const { icon, open, closePlayground } = usePlayground();
@@ -146,7 +162,10 @@ const PlaygroundSheet: React.FC = () => {
 			}}
 		>
 			<SheetContent className="bg-bgDark border-border/60 w-full overflow-y-auto p-0 sm:max-w-md">
-				<SheetHeader className="border-border/40 border-b px-6 py-5">
+				<SheetHeader className="border-border/60 border-b px-6 py-5">
+					<p className="text-textMuted font-mono text-[10px] tracking-[0.25em] uppercase">
+						<span className="text-primary">{icon.library}</span> / Animated icon
+					</p>
 					<SheetTitle className="text-textPrimary text-xl font-semibold">
 						{formatLabel(icon.name)}
 					</SheetTitle>
@@ -155,98 +174,52 @@ const PlaygroundSheet: React.FC = () => {
 					</SheetDescription>
 				</SheetHeader>
 
-				<div className="space-y-5 px-6 py-5">
-					{/* Preview */}
-					<div
-						role="img"
-						aria-label={`${icon.componentName} preview at ${config.size}px`}
-						onMouseEnter={(e) => handleHover(e, iconRef)}
-						onMouseLeave={(e) => handleHover(e, iconRef)}
-						className={cn(
-							"relative flex h-56 cursor-pointer items-center justify-center overflow-hidden rounded-2xl",
-							"border-border/60 border bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
-							"shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)]",
-						)}
-						style={{
-							backgroundImage:
-								"radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
-							backgroundSize: "16px 16px",
-						}}
+				<div className="space-y-5 px-6 py-6">
+					<SpecimenFrame
+						label={icon.library}
+						index={`${config.size}px`}
+						footLeft={icon.name}
+						footRight="hover to play"
 					>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-0"
-							style={{
-								backgroundImage:
-									"radial-gradient(circle at center, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 55%)",
-							}}
-						/>
-						<span className="text-textMuted absolute top-3 left-4 font-mono text-[10px] tracking-wider uppercase">
-							{icon.library} · {config.size}px
-						</span>
-						<Suspense fallback={null}>
-							<IconComponent
-								ref={iconRef}
-								size={config.size}
-								duration={config.duration}
-								color={config.color}
-							/>
-						</Suspense>
-					</div>
+						<div
+							role="img"
+							aria-label={`${icon.componentName} preview at ${config.size}px`}
+							onMouseEnter={(e) => handleHover(e, iconRef)}
+							onMouseLeave={(e) => handleHover(e, iconRef)}
+							className="flex h-56 cursor-pointer items-center justify-center"
+						>
+							<Suspense fallback={null}>
+								<IconComponent
+									ref={iconRef}
+									size={config.size}
+									duration={config.duration}
+									color={config.color}
+								/>
+							</Suspense>
+						</div>
+					</SpecimenFrame>
 
-					{/* Controls */}
-					<div
-						className={cn(
-							"relative overflow-hidden rounded-2xl p-4",
-							"border-border/60 border bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
-						)}
-					>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<PlaygroundControls config={config} update={update} />
-					</div>
+					<Panel label="Controls">
+						<div className="p-4">
+							<PlaygroundControls config={config} update={update} />
+						</div>
+					</Panel>
 
-					{/* Install */}
-					<div
-						className={cn(
-							"relative overflow-hidden rounded-2xl",
-							"border-border/60 border bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
-						)}
-					>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<div className="border-border/40 text-textSecondary flex items-center justify-between gap-3 border-b px-4 py-2 text-[11px] tracking-wide uppercase">
-							<span>Install</span>
+					<Panel
+						label="Install"
+						action={
 							<CopyAction value={INSTALL_CMD} label="Copy install command" />
-						</div>
-						<HighlightedCode code={INSTALL_CMD} lang="bash" />
-					</div>
-
-					{/* Import + Usage */}
-					<div
-						className={cn(
-							"relative overflow-hidden rounded-2xl",
-							"border-border/60 border bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
-						)}
+						}
 					>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<div className="border-border/40 text-textSecondary flex items-center justify-between gap-3 border-b px-4 py-2 text-[11px] tracking-wide uppercase">
-							<span>Import & usage</span>
-							<CopyAction value={snippet} label="Copy snippet" />
-						</div>
+						<HighlightedCode code={INSTALL_CMD} lang="bash" />
+					</Panel>
+
+					<Panel
+						label="Import & usage"
+						action={<CopyAction value={snippet} label="Copy snippet" />}
+					>
 						<HighlightedCode code={snippet} lang="tsx" />
-					</div>
+					</Panel>
 				</div>
 			</SheetContent>
 		</Sheet>
