@@ -1,5 +1,12 @@
 # @animateicons/react
 
+## 0.6.0
+
+### Minor Changes
+
+- Added 140 animated Lucide icons, bringing the `lucide` subpath to 649 icons and the package to 682. Most are everyday UI icons: editing (`SquarePenIcon`, `UndoIcon`, `RedoIcon`, `ClipboardPasteIcon`, `CopyCheckIcon`), status and feedback (`CircleXIcon`, `CircleAlertIcon`, `OctagonAlertIcon`, `SearchXIcon`, `BadgeCheckIcon`), layout and controls (`PanelLeftIcon`, `ToggleRightIcon`, `GripVerticalIcon`, `ChevronsUpDownIcon`, `ZoomInIcon`, `ZoomOutIcon`), plus media, documents, design tools and more.
+- Every new icon follows the existing API and is importable three ways: from the barrel (`import { BotIcon } from "@animateicons/react/lucide"`), by its bare alias (`Bot`), or as a deep import (`@animateicons/react/lucide/bot-icon`).
+
 ## 0.5.0
 
 ### Minor Changes
