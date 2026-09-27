@@ -507,6 +507,146 @@ import { ThermometerIcon } from "./thermometer-icon";
 import { HazeIcon } from "./haze-icon";
 import { SunSnowIcon } from "./sun-snow-icon";
 import { ThermometerSunIcon } from "./thermometer-sun-icon";
+import { BotIcon } from "./bot-icon";
+import { BugIcon } from "./bug-icon";
+import { DatabaseIcon } from "./database-icon";
+import { PowerIcon } from "./power-icon";
+import { TargetIcon } from "./target-icon";
+import { HeartPulseIcon } from "./heart-pulse-icon";
+import { PlaneIcon } from "./plane-icon";
+import { TrophyIcon } from "./trophy-icon";
+import { CrownIcon } from "./crown-icon";
+import { PuzzleIcon } from "./puzzle-icon";
+import { GemIcon } from "./gem-icon";
+import { MagnetIcon } from "./magnet-icon";
+import { FlaskConicalIcon } from "./flask-conical-icon";
+import { HammerIcon } from "./hammer-icon";
+import { WrenchIcon } from "./wrench-icon";
+import { GraduationCapIcon } from "./graduation-cap-icon";
+import { GhostIcon } from "./ghost-icon";
+import { PartyPopperIcon } from "./party-popper-icon";
+import { LeafIcon } from "./leaf-icon";
+import { AnchorIcon } from "./anchor-icon";
+import { BadgeCheckIcon } from "./badge-check-icon";
+import { CircleAlertIcon } from "./circle-alert-icon";
+import { CircleXIcon } from "./circle-x-icon";
+import { BanIcon } from "./ban-icon";
+import { ShieldIcon } from "./shield-icon";
+import { RotateCwIcon } from "./rotate-cw-icon";
+import { InfinityIcon } from "./infinity-icon";
+import { BluetoothIcon } from "./bluetooth-icon";
+import { RadarIcon } from "./radar-icon";
+import { OrbitIcon } from "./orbit-icon";
+import { RecycleIcon } from "./recycle-icon";
+import { PaletteIcon } from "./palette-icon";
+import { WandSparklesIcon } from "./wand-sparkles-icon";
+import { ScissorsIcon } from "./scissors-icon";
+import { FeatherIcon } from "./feather-icon";
+import { MedalIcon } from "./medal-icon";
+import { Dice5Icon } from "./dice-5-icon";
+import { SproutIcon } from "./sprout-icon";
+import { PawPrintIcon } from "./paw-print-icon";
+import { HandshakeIcon } from "./handshake-icon";
+import { SquarePenIcon } from "./square-pen-icon";
+import { LockOpenIcon } from "./lock-open-icon";
+import { CircleQuestionMarkIcon } from "./circle-question-mark-icon";
+import { CircleMinusIcon } from "./circle-minus-icon";
+import { SquareCheckIcon } from "./square-check-icon";
+import { ChevronsUpDownIcon } from "./chevrons-up-down-icon";
+import { ZoomInIcon } from "./zoom-in-icon";
+import { ZoomOutIcon } from "./zoom-out-icon";
+import { PanelLeftIcon } from "./panel-left-icon";
+import { ToggleRightIcon } from "./toggle-right-icon";
+import { UndoIcon } from "./undo-icon";
+import { RedoIcon } from "./redo-icon";
+import { GripVerticalIcon } from "./grip-vertical-icon";
+import { MoveIcon } from "./move-icon";
+import { ArchiveIcon } from "./archive-icon";
+import { CloudDownloadIcon } from "./cloud-download-icon";
+import { LanguagesIcon } from "./languages-icon";
+import { CommandIcon } from "./command-icon";
+import { TableIcon } from "./table-icon";
+import { GaugeIcon } from "./gauge-icon";
+import { CopyCheckIcon } from "./copy-check-icon";
+import { ClipboardListIcon } from "./clipboard-list-icon";
+import { OctagonAlertIcon } from "./octagon-alert-icon";
+import { ShieldAlertIcon } from "./shield-alert-icon";
+import { PresentationIcon } from "./presentation-icon";
+import { KanbanIcon } from "./kanban-icon";
+import { ScreenShareIcon } from "./screen-share-icon";
+import { FingerprintPatternIcon } from "./fingerprint-pattern-icon";
+import { AtSignIcon } from "./at-sign-icon";
+import { HashIcon } from "./hash-icon";
+import { TextCursorIcon } from "./text-cursor-icon";
+import { StickyNoteIcon } from "./sticky-note-icon";
+import { LifeBuoyIcon } from "./life-buoy-icon";
+import { RssIcon } from "./rss-icon";
+import { HandIcon } from "./hand-icon";
+import { ImagePlusIcon } from "./image-plus-icon";
+import { FileDownIcon } from "./file-down-icon";
+import { ListPlusIcon } from "./list-plus-icon";
+import { CropIcon } from "./crop-icon";
+import { PipetteIcon } from "./pipette-icon";
+import { SunMoonIcon } from "./sun-moon-icon";
+import { EraserIcon } from "./eraser-icon";
+import { HighlighterIcon } from "./highlighter-icon";
+import { PaintbrushIcon } from "./paintbrush-icon";
+import { PenToolIcon } from "./pen-tool-icon";
+import { RulerIcon } from "./ruler-icon";
+import { ComponentIcon } from "./component-icon";
+import { WorkflowIcon } from "./workflow-icon";
+import { AppWindowIcon } from "./app-window-icon";
+import { SquareDashedIcon } from "./square-dashed-icon";
+import { VideoOffIcon } from "./video-off-icon";
+import { PhoneOffIcon } from "./phone-off-icon";
+import { NfcIcon } from "./nfc-icon";
+import { FileUpIcon } from "./file-up-icon";
+import { StarOffIcon } from "./star-off-icon";
+import { SirenIcon } from "./siren-icon";
+import { BriefcaseIcon } from "./briefcase-icon";
+import { Building2Icon } from "./building-2-icon";
+import { LandmarkIcon } from "./landmark-icon";
+import { CircleDotIcon } from "./circle-dot-icon";
+import { ClipboardPasteIcon } from "./clipboard-paste-icon";
+import { DeleteIcon } from "./delete-icon";
+import { PercentIcon } from "./percent-icon";
+import { CookieIcon } from "./cookie-icon";
+import { CaptionsIcon } from "./captions-icon";
+import { PictureInPictureIcon } from "./picture-in-picture-icon";
+import { CastIcon } from "./cast-icon";
+import { ClapperboardIcon } from "./clapperboard-icon";
+import { FolderTreeIcon } from "./folder-tree-icon";
+import { ListTreeIcon } from "./list-tree-icon";
+import { ListCollapseIcon } from "./list-collapse-icon";
+import { GalleryHorizontalIcon } from "./gallery-horizontal-icon";
+import { ImageOffIcon } from "./image-off-icon";
+import { NotebookPenIcon } from "./notebook-pen-icon";
+import { CircleDashedIcon } from "./circle-dashed-icon";
+import { SpellCheckIcon } from "./spell-check-icon";
+import { MessagesSquareIcon } from "./messages-square-icon";
+import { CopyPlusIcon } from "./copy-plus-icon";
+import { CircleUserRoundIcon } from "./circle-user-round-icon";
+import { TextSearchIcon } from "./text-search-icon";
+import { SearchXIcon } from "./search-x-icon";
+import { CameraOffIcon } from "./camera-off-icon";
+import { ClipboardCheckIcon } from "./clipboard-check-icon";
+import { ScrollTextIcon } from "./scroll-text-icon";
+import { SignatureIcon } from "./signature-icon";
+import { StampIcon } from "./stamp-icon";
+import { HandHeartIcon } from "./hand-heart-icon";
+import { TrafficConeIcon } from "./traffic-cone-icon";
+import { SigmaIcon } from "./sigma-icon";
+import { DatabaseBackupIcon } from "./database-backup-icon";
+import { ArrowBigUpIcon } from "./arrow-big-up-icon";
+import { MessageCircleQuestionMarkIcon } from "./message-circle-question-mark-icon";
+import { DoorOpenIcon } from "./door-open-icon";
+import { VaultIcon } from "./vault-icon";
+import { NetworkIcon } from "./network-icon";
+import { PaintBucketIcon } from "./paint-bucket-icon";
+import { ShapesIcon } from "./shapes-icon";
+import { StethoscopeIcon } from "./stethoscope-icon";
+import { PillIcon } from "./pill-icon";
+import { DumbbellIcon } from "./dumbbell-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
@@ -4142,6 +4282,1098 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-08-02",
   category: ["Weather"],
   keywords: ["thermometer", "sun", "temperature", "heat", "weather", "hot"],
+ },
+ {
+  name: "bot",
+  icon: BotIcon,
+  addedAt: "2026-09-27",
+  category: ["Coding & development", "Communication"],
+  keywords: ["bot", "robot", "ai", "assistant", "chatbot", "automation"],
+ },
+ {
+  name: "bug",
+  icon: BugIcon,
+  addedAt: "2026-09-27",
+  category: ["Coding & development", "Animals"],
+  keywords: ["bug", "debug", "issue", "error", "insect", "report"],
+ },
+ {
+  name: "database",
+  icon: DatabaseIcon,
+  addedAt: "2026-09-27",
+  category: ["Coding & development", "Storage"],
+  keywords: ["database", "storage", "data", "server", "sql", "db"],
+ },
+ {
+  name: "power",
+  icon: PowerIcon,
+  addedAt: "2026-09-27",
+  category: ["Connectivity", "Devices"],
+  keywords: ["power", "on", "off", "switch", "shutdown", "start"],
+ },
+ {
+  name: "target",
+  icon: TargetIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming"],
+  keywords: ["target", "goal", "aim", "bullseye", "focus", "objective"],
+ },
+ {
+  name: "heart-pulse",
+  icon: HeartPulseIcon,
+  addedAt: "2026-09-27",
+  category: ["Medical", "Social"],
+  keywords: ["heartbeat", "pulse", "health", "cardio", "vital", "medical"],
+ },
+ {
+  name: "plane",
+  icon: PlaneIcon,
+  addedAt: "2026-09-27",
+  category: ["Transportation", "Travel"],
+  keywords: ["plane", "airplane", "flight", "travel", "airport", "trip"],
+ },
+ {
+  name: "trophy",
+  icon: TrophyIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming", "Social"],
+  keywords: ["trophy", "award", "winner", "prize", "achievement", "cup"],
+ },
+ {
+  name: "crown",
+  icon: CrownIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming", "Social"],
+  keywords: ["crown", "king", "queen", "royal", "premium", "vip"],
+ },
+ {
+  name: "puzzle",
+  icon: PuzzleIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming", "Coding & development"],
+  keywords: ["puzzle", "piece", "plugin", "extension", "addon", "jigsaw"],
+ },
+ {
+  name: "gem",
+  icon: GemIcon,
+  addedAt: "2026-09-27",
+  category: ["Finance", "Shopping"],
+  keywords: ["gem", "diamond", "jewel", "premium", "crystal", "valuable"],
+ },
+ {
+  name: "magnet",
+  icon: MagnetIcon,
+  addedAt: "2026-09-27",
+  category: ["Science", "Tools"],
+  keywords: ["magnet", "magnetic", "attract", "pull", "physics", "horseshoe"],
+ },
+ {
+  name: "flask-conical",
+  icon: FlaskConicalIcon,
+  addedAt: "2026-09-27",
+  category: ["Science"],
+  keywords: ["flask", "lab", "chemistry", "experiment", "beta", "science"],
+ },
+ {
+  name: "hammer",
+  icon: HammerIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "Home"],
+  keywords: ["hammer", "build", "construction", "tool", "fix", "nail"],
+ },
+ {
+  name: "wrench",
+  icon: WrenchIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "Coding & development"],
+  keywords: ["wrench", "spanner", "repair", "settings", "tool", "maintenance"],
+ },
+ {
+  name: "graduation-cap",
+  icon: GraduationCapIcon,
+  addedAt: "2026-09-27",
+  category: ["People", "Social"],
+  keywords: ["graduation", "cap", "education", "school", "student", "degree"],
+ },
+ {
+  name: "ghost",
+  icon: GhostIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming", "Emoji"],
+  keywords: ["ghost", "spooky", "halloween", "boo", "spirit", "hidden"],
+ },
+ {
+  name: "party-popper",
+  icon: PartyPopperIcon,
+  addedAt: "2026-09-27",
+  category: ["Emoji", "Social"],
+  keywords: [
+   "party",
+   "celebration",
+   "confetti",
+   "popper",
+   "congrats",
+   "festive",
+  ],
+ },
+ {
+  name: "leaf",
+  icon: LeafIcon,
+  addedAt: "2026-09-27",
+  category: ["Nature"],
+  keywords: ["leaf", "nature", "plant", "eco", "green", "sustainability"],
+ },
+ {
+  name: "anchor",
+  icon: AnchorIcon,
+  addedAt: "2026-09-27",
+  category: ["Transportation", "Navigation, Maps, and POIs"],
+  keywords: ["anchor", "ship", "boat", "harbor", "marine", "dock"],
+ },
+ {
+  name: "badge-check",
+  icon: BadgeCheckIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification", "Social"],
+  keywords: ["verified", "badge", "check", "approved", "trusted", "certified"],
+ },
+ {
+  name: "circle-alert",
+  icon: CircleAlertIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification"],
+  keywords: ["alert", "warning", "error", "info", "exclamation", "caution"],
+ },
+ {
+  name: "circle-x",
+  icon: CircleXIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification"],
+  keywords: ["close", "cancel", "remove", "delete", "error", "x"],
+ },
+ {
+  name: "ban",
+  icon: BanIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification", "Security"],
+  keywords: ["ban", "block", "forbidden", "prohibited", "cancel", "disabled"],
+ },
+ {
+  name: "shield",
+  icon: ShieldIcon,
+  addedAt: "2026-09-27",
+  category: ["Security"],
+  keywords: ["shield", "security", "protection", "defense", "safe", "guard"],
+ },
+ {
+  name: "rotate-cw",
+  icon: RotateCwIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows", "Design"],
+  keywords: ["rotate", "clockwise", "refresh", "redo", "reload", "turn"],
+ },
+ {
+  name: "infinity",
+  icon: InfinityIcon,
+  addedAt: "2026-09-27",
+  category: ["Mathematics"],
+  keywords: ["infinity", "forever", "loop", "unlimited", "endless", "infinite"],
+ },
+ {
+  name: "bluetooth",
+  icon: BluetoothIcon,
+  addedAt: "2026-09-27",
+  category: ["Connectivity", "Devices"],
+  keywords: ["bluetooth", "wireless", "pair", "connect", "device", "signal"],
+ },
+ {
+  name: "radar",
+  icon: RadarIcon,
+  addedAt: "2026-09-27",
+  category: ["Navigation, Maps, and POIs", "Connectivity"],
+  keywords: ["radar", "scan", "detect", "sonar", "search", "signal"],
+ },
+ {
+  name: "orbit",
+  icon: OrbitIcon,
+  addedAt: "2026-09-27",
+  category: ["Science"],
+  keywords: ["orbit", "planet", "space", "solar", "galaxy", "satellite"],
+ },
+ {
+  name: "recycle",
+  icon: RecycleIcon,
+  addedAt: "2026-09-27",
+  category: ["Nature", "Arrows"],
+  keywords: ["recycle", "reuse", "eco", "green", "sustainability", "waste"],
+ },
+ {
+  name: "palette",
+  icon: PaletteIcon,
+  addedAt: "2026-09-27",
+  category: ["Design"],
+  keywords: ["palette", "colors", "paint", "art", "theme", "design"],
+ },
+ {
+  name: "wand-sparkles",
+  icon: WandSparklesIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["magic", "wand", "sparkles", "ai", "generate", "enhance"],
+ },
+ {
+  name: "scissors",
+  icon: ScissorsIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "Design"],
+  keywords: ["scissors", "cut", "snip", "trim", "crop", "clip"],
+ },
+ {
+  name: "feather",
+  icon: FeatherIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Nature"],
+  keywords: ["feather", "light", "write", "quill", "bird", "soft"],
+ },
+ {
+  name: "medal",
+  icon: MedalIcon,
+  addedAt: "2026-09-27",
+  category: ["Gaming", "Social"],
+  keywords: ["medal", "award", "winner", "first", "achievement", "prize"],
+ },
+ {
+  name: "dice-5",
+  icon: Dice5Icon,
+  addedAt: "2026-09-27",
+  category: ["Gaming"],
+  keywords: ["dice", "random", "chance", "game", "roll", "luck"],
+ },
+ {
+  name: "sprout",
+  icon: SproutIcon,
+  addedAt: "2026-09-27",
+  category: ["Nature"],
+  keywords: ["sprout", "grow", "plant", "seedling", "eco", "garden"],
+ },
+ {
+  name: "paw-print",
+  icon: PawPrintIcon,
+  addedAt: "2026-09-27",
+  category: ["Animals"],
+  keywords: ["paw", "pet", "dog", "cat", "animal", "footprint"],
+ },
+ {
+  name: "handshake",
+  icon: HandshakeIcon,
+  addedAt: "2026-09-27",
+  category: ["People", "Finance"],
+  keywords: [
+   "handshake",
+   "deal",
+   "agreement",
+   "partnership",
+   "greeting",
+   "trust",
+  ],
+ },
+ {
+  name: "square-pen",
+  icon: SquarePenIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["edit", "pen", "write", "compose", "modify", "update"],
+ },
+ {
+  name: "lock-open",
+  icon: LockOpenIcon,
+  addedAt: "2026-09-27",
+  category: ["Security"],
+  keywords: ["unlock", "open", "lock", "unsecure", "access", "padlock"],
+ },
+ {
+  name: "circle-question-mark",
+  icon: CircleQuestionMarkIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification", "Tools"],
+  keywords: ["help", "question", "support", "faq", "info", "unknown"],
+ },
+ {
+  name: "circle-minus",
+  icon: CircleMinusIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "Mathematics"],
+  keywords: ["minus", "remove", "subtract", "delete", "decrease", "less"],
+ },
+ {
+  name: "square-check",
+  icon: SquareCheckIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification"],
+  keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
+ },
+ {
+  name: "chevrons-up-down",
+  icon: ChevronsUpDownIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows"],
+  keywords: ["select", "dropdown", "sort", "expand", "collapse", "chevrons"],
+ },
+ {
+  name: "zoom-in",
+  icon: ZoomInIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools"],
+  keywords: ["zoom", "in", "magnify", "enlarge", "plus", "scale"],
+ },
+ {
+  name: "zoom-out",
+  icon: ZoomOutIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools"],
+  keywords: ["zoom", "out", "magnify", "shrink", "minus", "scale"],
+ },
+ {
+  name: "panel-left",
+  icon: PanelLeftIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout"],
+  keywords: ["sidebar", "panel", "left", "layout", "drawer", "collapse"],
+ },
+ {
+  name: "toggle-right",
+  icon: ToggleRightIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout", "Tools"],
+  keywords: ["toggle", "switch", "on", "enabled", "active", "settings"],
+ },
+ {
+  name: "undo",
+  icon: UndoIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows"],
+  keywords: ["undo", "back", "revert", "previous", "restore", "history"],
+ },
+ {
+  name: "redo",
+  icon: RedoIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows"],
+  keywords: ["redo", "forward", "repeat", "again", "restore", "next"],
+ },
+ {
+  name: "grip-vertical",
+  icon: GripVerticalIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout"],
+  keywords: ["grip", "drag", "handle", "reorder", "move", "dots"],
+ },
+ {
+  name: "move",
+  icon: MoveIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows"],
+  keywords: ["move", "drag", "arrows", "pan", "position", "reposition"],
+ },
+ {
+  name: "archive",
+  icon: ArchiveIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons"],
+  keywords: ["archive", "box", "storage", "store", "backup", "save"],
+ },
+ {
+  name: "cloud-download",
+  icon: CloudDownloadIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons"],
+  keywords: ["download", "cloud", "save", "sync", "backup", "fetch"],
+ },
+ {
+  name: "languages",
+  icon: LanguagesIcon,
+  addedAt: "2026-09-27",
+  category: ["Communication", "Text formatting"],
+  keywords: [
+   "language",
+   "translate",
+   "i18n",
+   "locale",
+   "multilingual",
+   "localization",
+  ],
+ },
+ {
+  name: "command",
+  icon: CommandIcon,
+  addedAt: "2026-09-27",
+  category: ["Devices", "Coding & development"],
+  keywords: ["command", "cmd", "keyboard", "shortcut", "mac", "hotkey"],
+ },
+ {
+  name: "table",
+  icon: TableIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout", "Text formatting"],
+  keywords: ["table", "grid", "spreadsheet", "data", "rows", "columns"],
+ },
+ {
+  name: "gauge",
+  icon: GaugeIcon,
+  addedAt: "2026-09-27",
+  category: ["Charts", "Devices"],
+  keywords: [
+   "gauge",
+   "speed",
+   "performance",
+   "meter",
+   "dashboard",
+   "speedometer",
+  ],
+ },
+ {
+  name: "copy-check",
+  icon: CopyCheckIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Tools"],
+  keywords: ["copied", "copy", "check", "clipboard", "duplicate", "done"],
+ },
+ {
+  name: "clipboard-list",
+  icon: ClipboardListIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Tools"],
+  keywords: ["clipboard", "list", "tasks", "checklist", "todo", "notes"],
+ },
+ {
+  name: "octagon-alert",
+  icon: OctagonAlertIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification"],
+  keywords: ["alert", "error", "stop", "warning", "danger", "octagon"],
+ },
+ {
+  name: "shield-alert",
+  icon: ShieldAlertIcon,
+  addedAt: "2026-09-27",
+  category: ["Security", "Notification"],
+  keywords: ["shield", "alert", "security", "warning", "threat", "breach"],
+ },
+ {
+  name: "presentation",
+  icon: PresentationIcon,
+  addedAt: "2026-09-27",
+  category: ["Devices", "Multimedia"],
+  keywords: [
+   "presentation",
+   "slides",
+   "screen",
+   "board",
+   "meeting",
+   "projector",
+  ],
+ },
+ {
+  name: "kanban",
+  icon: KanbanIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout", "Charts"],
+  keywords: ["kanban", "board", "tasks", "columns", "project", "workflow"],
+ },
+ {
+  name: "screen-share",
+  icon: ScreenShareIcon,
+  addedAt: "2026-09-27",
+  category: ["Devices", "Connectivity"],
+  keywords: ["screen", "share", "present", "cast", "display", "stream"],
+ },
+ {
+  name: "fingerprint-pattern",
+  icon: FingerprintPatternIcon,
+  addedAt: "2026-09-27",
+  category: ["Security", "Accounts & access"],
+  keywords: [
+   "fingerprint",
+   "biometric",
+   "touch id",
+   "identity",
+   "auth",
+   "scan",
+  ],
+ },
+ {
+  name: "at-sign",
+  icon: AtSignIcon,
+  addedAt: "2026-09-27",
+  category: ["Communication", "Text formatting"],
+  keywords: ["at", "mention", "email", "address", "username", "handle"],
+ },
+ {
+  name: "hash",
+  icon: HashIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "Social"],
+  keywords: ["hash", "hashtag", "channel", "tag", "number", "pound"],
+ },
+ {
+  name: "text-cursor",
+  icon: TextCursorIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting"],
+  keywords: ["cursor", "text", "caret", "type", "input", "i-beam"],
+ },
+ {
+  name: "sticky-note",
+  icon: StickyNoteIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Text formatting"],
+  keywords: ["note", "sticky", "memo", "reminder", "post-it", "notes"],
+ },
+ {
+  name: "life-buoy",
+  icon: LifeBuoyIcon,
+  addedAt: "2026-09-27",
+  category: ["Accessibility", "Tools"],
+  keywords: ["support", "help", "lifebuoy", "rescue", "safety", "assistance"],
+ },
+ {
+  name: "rss",
+  icon: RssIcon,
+  addedAt: "2026-09-27",
+  category: ["Social", "Connectivity"],
+  keywords: ["rss", "feed", "subscribe", "news", "blog", "podcast"],
+ },
+ {
+  name: "hand",
+  icon: HandIcon,
+  addedAt: "2026-09-27",
+  category: ["Cursors", "Accessibility"],
+  keywords: ["hand", "wave", "hello", "stop", "grab", "palm"],
+ },
+ {
+  name: "image-plus",
+  icon: ImagePlusIcon,
+  addedAt: "2026-09-27",
+  category: ["Photography", "Multimedia"],
+  keywords: ["image", "add", "photo", "upload", "picture", "new"],
+ },
+ {
+  name: "file-down",
+  icon: FileDownIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons"],
+  keywords: ["download", "file", "save", "export", "document", "get"],
+ },
+ {
+  name: "list-plus",
+  icon: ListPlusIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting"],
+  keywords: ["list", "add", "playlist", "append", "new", "item"],
+ },
+ {
+  name: "crop",
+  icon: CropIcon,
+  addedAt: "2026-09-27",
+  category: ["Photography", "Design"],
+  keywords: ["crop", "trim", "cut", "resize", "image", "frame"],
+ },
+ {
+  name: "pipette",
+  icon: PipetteIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["pipette", "eyedropper", "color", "picker", "sample", "dropper"],
+ },
+ {
+  name: "sun-moon",
+  icon: SunMoonIcon,
+  addedAt: "2026-09-27",
+  category: ["Weather", "Design"],
+  keywords: ["theme", "dark mode", "light mode", "appearance", "sun", "moon"],
+ },
+ {
+  name: "eraser",
+  icon: EraserIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["eraser", "erase", "remove", "clear", "delete", "rubber"],
+ },
+ {
+  name: "highlighter",
+  icon: HighlighterIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Text formatting"],
+  keywords: ["highlight", "marker", "emphasis", "annotate", "text", "pen"],
+ },
+ {
+  name: "paintbrush",
+  icon: PaintbrushIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["paint", "brush", "art", "design", "color", "draw"],
+ },
+ {
+  name: "pen-tool",
+  icon: PenToolIcon,
+  addedAt: "2026-09-27",
+  category: ["Design"],
+  keywords: ["pen", "vector", "bezier", "path", "design", "draw"],
+ },
+ {
+  name: "ruler",
+  icon: RulerIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["ruler", "measure", "scale", "length", "size", "dimensions"],
+ },
+ {
+  name: "component",
+  icon: ComponentIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Coding & development"],
+  keywords: ["component", "design system", "module", "figma", "ui", "blocks"],
+ },
+ {
+  name: "workflow",
+  icon: WorkflowIcon,
+  addedAt: "2026-09-27",
+  category: ["Coding & development", "Layout"],
+  keywords: ["workflow", "flow", "process", "automation", "pipeline", "steps"],
+ },
+ {
+  name: "app-window",
+  icon: AppWindowIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout", "Coding & development"],
+  keywords: ["window", "app", "application", "browser", "program", "desktop"],
+ },
+ {
+  name: "square-dashed",
+  icon: SquareDashedIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Shapes"],
+  keywords: ["selection", "marquee", "dashed", "square", "select", "area"],
+ },
+ {
+  name: "video-off",
+  icon: VideoOffIcon,
+  addedAt: "2026-09-27",
+  category: ["Multimedia"],
+  keywords: ["video", "off", "camera", "disabled", "mute", "call"],
+ },
+ {
+  name: "phone-off",
+  icon: PhoneOffIcon,
+  addedAt: "2026-09-27",
+  category: ["Devices", "Communication"],
+  keywords: ["phone", "hang up", "end call", "off", "disconnect", "decline"],
+ },
+ {
+  name: "nfc",
+  icon: NfcIcon,
+  addedAt: "2026-09-27",
+  category: ["Connectivity", "Finance"],
+  keywords: ["nfc", "contactless", "tap", "pay", "wireless", "signal"],
+ },
+ {
+  name: "file-up",
+  icon: FileUpIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons"],
+  keywords: ["upload", "file", "export", "send", "document", "share"],
+ },
+ {
+  name: "star-off",
+  icon: StarOffIcon,
+  addedAt: "2026-09-27",
+  category: ["Shapes", "Emoji"],
+  keywords: ["star", "off", "unfavorite", "remove", "unstar", "rating"],
+ },
+ {
+  name: "siren",
+  icon: SirenIcon,
+  addedAt: "2026-09-27",
+  category: ["Notification", "Security"],
+  keywords: ["siren", "alarm", "emergency", "alert", "police", "warning"],
+ },
+ {
+  name: "briefcase",
+  icon: BriefcaseIcon,
+  addedAt: "2026-09-27",
+  category: ["Finance", "Travel"],
+  keywords: ["briefcase", "work", "job", "business", "career", "portfolio"],
+ },
+ {
+  name: "building-2",
+  icon: Building2Icon,
+  addedAt: "2026-09-27",
+  category: ["Architecture", "Navigation, Maps, and POIs"],
+  keywords: [
+   "building",
+   "office",
+   "company",
+   "business",
+   "organization",
+   "city",
+  ],
+ },
+ {
+  name: "landmark",
+  icon: LandmarkIcon,
+  addedAt: "2026-09-27",
+  category: ["Finance", "Architecture"],
+  keywords: [
+   "bank",
+   "landmark",
+   "government",
+   "institution",
+   "museum",
+   "finance",
+  ],
+ },
+ {
+  name: "circle-dot",
+  icon: CircleDotIcon,
+  addedAt: "2026-09-27",
+  category: ["Shapes", "Layout"],
+  keywords: ["radio", "select", "option", "dot", "target", "record"],
+ },
+ {
+  name: "clipboard-paste",
+  icon: ClipboardPasteIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Tools"],
+  keywords: ["paste", "clipboard", "insert", "edit", "copy", "import"],
+ },
+ {
+  name: "delete",
+  icon: DeleteIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "Tools"],
+  keywords: ["backspace", "delete", "remove", "erase", "keyboard", "clear"],
+ },
+ {
+  name: "percent",
+  icon: PercentIcon,
+  addedAt: "2026-09-27",
+  category: ["Mathematics", "Shopping"],
+  keywords: ["percent", "discount", "sale", "percentage", "rate", "offer"],
+ },
+ {
+  name: "cookie",
+  icon: CookieIcon,
+  addedAt: "2026-09-27",
+  category: ["Security", "Accounts & access"],
+  keywords: ["cookie", "consent", "privacy", "tracking", "biscuit", "gdpr"],
+ },
+ {
+  name: "captions",
+  icon: CaptionsIcon,
+  addedAt: "2026-09-27",
+  category: ["Multimedia", "Accessibility"],
+  keywords: [
+   "captions",
+   "subtitles",
+   "cc",
+   "closed captions",
+   "transcript",
+   "accessibility",
+  ],
+ },
+ {
+  name: "picture-in-picture",
+  icon: PictureInPictureIcon,
+  addedAt: "2026-09-27",
+  category: ["Multimedia", "Layout"],
+  keywords: [
+   "pip",
+   "picture in picture",
+   "video",
+   "mini player",
+   "overlay",
+   "window",
+  ],
+ },
+ {
+  name: "cast",
+  icon: CastIcon,
+  addedAt: "2026-09-27",
+  category: ["Multimedia", "Connectivity"],
+  keywords: ["cast", "chromecast", "stream", "screen", "tv", "wireless"],
+ },
+ {
+  name: "clapperboard",
+  icon: ClapperboardIcon,
+  addedAt: "2026-09-27",
+  category: ["Multimedia"],
+  keywords: ["clapperboard", "film", "movie", "video", "scene", "action"],
+ },
+ {
+  name: "folder-tree",
+  icon: FolderTreeIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Coding & development"],
+  keywords: [
+   "folder",
+   "tree",
+   "directory",
+   "explorer",
+   "hierarchy",
+   "structure",
+  ],
+ },
+ {
+  name: "list-tree",
+  icon: ListTreeIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "Layout"],
+  keywords: ["tree", "list", "hierarchy", "nested", "outline", "structure"],
+ },
+ {
+  name: "list-collapse",
+  icon: ListCollapseIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "Layout"],
+  keywords: ["collapse", "accordion", "list", "fold", "expand", "toggle"],
+ },
+ {
+  name: "gallery-horizontal",
+  icon: GalleryHorizontalIcon,
+  addedAt: "2026-09-27",
+  category: ["Layout", "Photography"],
+  keywords: ["carousel", "gallery", "slider", "slides", "swipe", "images"],
+ },
+ {
+  name: "image-off",
+  icon: ImageOffIcon,
+  addedAt: "2026-09-27",
+  category: ["Photography", "Multimedia"],
+  keywords: ["image", "off", "broken", "missing", "no image", "placeholder"],
+ },
+ {
+  name: "notebook-pen",
+  icon: NotebookPenIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "File icons"],
+  keywords: ["notebook", "notes", "journal", "write", "diary", "edit"],
+ },
+ {
+  name: "circle-dashed",
+  icon: CircleDashedIcon,
+  addedAt: "2026-09-27",
+  category: ["Shapes", "Notification"],
+  keywords: ["circle", "dashed", "draft", "todo", "pending", "status"],
+ },
+ {
+  name: "spell-check",
+  icon: SpellCheckIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting"],
+  keywords: [
+   "spell check",
+   "spelling",
+   "grammar",
+   "proofread",
+   "correct",
+   "text",
+  ],
+ },
+ {
+  name: "messages-square",
+  icon: MessagesSquareIcon,
+  addedAt: "2026-09-27",
+  category: ["Communication"],
+  keywords: [
+   "messages",
+   "chat",
+   "conversation",
+   "comments",
+   "discussion",
+   "talk",
+  ],
+ },
+ {
+  name: "copy-plus",
+  icon: CopyPlusIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Tools"],
+  keywords: ["duplicate", "copy", "clone", "add", "new", "plus"],
+ },
+ {
+  name: "circle-user-round",
+  icon: CircleUserRoundIcon,
+  addedAt: "2026-09-27",
+  category: ["People", "Accounts & access"],
+  keywords: ["avatar", "profile", "user", "account", "person", "circle"],
+ },
+ {
+  name: "text-search",
+  icon: TextSearchIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "Tools"],
+  keywords: ["search", "find", "text", "lookup", "document", "query"],
+ },
+ {
+  name: "search-x",
+  icon: SearchXIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools"],
+  keywords: ["search", "clear", "no results", "not found", "cancel", "remove"],
+ },
+ {
+  name: "camera-off",
+  icon: CameraOffIcon,
+  addedAt: "2026-09-27",
+  category: ["Photography", "Multimedia"],
+  keywords: ["camera", "off", "disabled", "no photo", "permission", "mute"],
+ },
+ {
+  name: "clipboard-check",
+  icon: ClipboardCheckIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Tools"],
+  keywords: ["clipboard", "check", "done", "complete", "task", "approved"],
+ },
+ {
+  name: "scroll-text",
+  icon: ScrollTextIcon,
+  addedAt: "2026-09-27",
+  category: ["File icons", "Text formatting"],
+  keywords: ["scroll", "terms", "policy", "document", "contract", "script"],
+ },
+ {
+  name: "signature",
+  icon: SignatureIcon,
+  addedAt: "2026-09-27",
+  category: ["Text formatting", "File icons"],
+  keywords: ["signature", "sign", "e-sign", "autograph", "contract", "approve"],
+ },
+ {
+  name: "stamp",
+  icon: StampIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "File icons"],
+  keywords: ["stamp", "approve", "approved", "seal", "certify", "validate"],
+ },
+ {
+  name: "hand-heart",
+  icon: HandHeartIcon,
+  addedAt: "2026-09-27",
+  category: ["Social", "Finance"],
+  keywords: ["donate", "charity", "sponsor", "care", "support", "give"],
+ },
+ {
+  name: "traffic-cone",
+  icon: TrafficConeIcon,
+  addedAt: "2026-09-27",
+  category: ["Tools", "Transportation"],
+  keywords: [
+   "maintenance",
+   "construction",
+   "cone",
+   "under construction",
+   "warning",
+   "roadwork",
+  ],
+ },
+ {
+  name: "sigma",
+  icon: SigmaIcon,
+  addedAt: "2026-09-27",
+  category: ["Mathematics", "Text formatting"],
+  keywords: ["sigma", "sum", "total", "formula", "math", "summation"],
+ },
+ {
+  name: "database-backup",
+  icon: DatabaseBackupIcon,
+  addedAt: "2026-09-27",
+  category: ["Coding & development", "Storage"],
+  keywords: ["backup", "database", "restore", "sync", "recovery", "storage"],
+ },
+ {
+  name: "arrow-big-up",
+  icon: ArrowBigUpIcon,
+  addedAt: "2026-09-27",
+  category: ["Arrows", "Social"],
+  keywords: ["upvote", "vote", "up", "arrow", "like", "increase"],
+ },
+ {
+  name: "message-circle-question-mark",
+  icon: MessageCircleQuestionMarkIcon,
+  addedAt: "2026-09-27",
+  category: ["Communication"],
+  keywords: ["help", "question", "support", "faq", "chat", "ask"],
+ },
+ {
+  name: "door-open",
+  icon: DoorOpenIcon,
+  addedAt: "2026-09-27",
+  category: ["Home", "Accounts & access"],
+  keywords: ["door", "exit", "leave", "enter", "open", "logout"],
+ },
+ {
+  name: "vault",
+  icon: VaultIcon,
+  addedAt: "2026-09-27",
+  category: ["Security", "Finance"],
+  keywords: ["vault", "safe", "secure", "storage", "bank", "locker"],
+ },
+ {
+  name: "network",
+  icon: NetworkIcon,
+  addedAt: "2026-09-27",
+  category: ["Connectivity", "Coding & development"],
+  keywords: [
+   "network",
+   "topology",
+   "infrastructure",
+   "nodes",
+   "hierarchy",
+   "servers",
+  ],
+ },
+ {
+  name: "paint-bucket",
+  icon: PaintBucketIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Tools"],
+  keywords: ["fill", "paint", "bucket", "color", "pour", "design"],
+ },
+ {
+  name: "shapes",
+  icon: ShapesIcon,
+  addedAt: "2026-09-27",
+  category: ["Design", "Shapes"],
+  keywords: ["shapes", "triangle", "square", "circle", "geometry", "elements"],
+ },
+ {
+  name: "stethoscope",
+  icon: StethoscopeIcon,
+  addedAt: "2026-09-27",
+  category: ["Medical"],
+  keywords: [
+   "stethoscope",
+   "doctor",
+   "health",
+   "medical",
+   "checkup",
+   "diagnosis",
+  ],
+ },
+ {
+  name: "pill",
+  icon: PillIcon,
+  addedAt: "2026-09-27",
+  category: ["Medical"],
+  keywords: ["pill", "medicine", "capsule", "drug", "pharmacy", "health"],
+ },
+ {
+  name: "dumbbell",
+  icon: DumbbellIcon,
+  addedAt: "2026-09-27",
+  category: ["Medical"],
+  keywords: ["dumbbell", "fitness", "gym", "workout", "exercise", "strength"],
  },
 ];
 

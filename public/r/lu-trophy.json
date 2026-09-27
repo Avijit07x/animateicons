@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "trophy",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "trophy-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\nexport interface TrophyIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface TrophyIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst TrophyIcon = forwardRef<TrophyIconHandle, TrophyIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, isAnimated, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) controls.start(\"normal\");\n    else onMouseLeave?.(e as any);\n   },\n   [controls, onMouseLeave],\n  );\n\n  const trophyVariants: Variants = {\n   normal: { y: 0, rotate: 0 },\n   animate: {\n    y: [0, -2, 0, -1, 0],\n    rotate: [0, -8, 6, -3, 0],\n    transition: { duration: 0.8 * duration, ease: \"easeInOut\" },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <m.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      animate={controls}\n      initial=\"normal\"\n     >\n      <m.g\n       variants={trophyVariants}\n       style={{ transformBox: \"view-box\", originX: \"12px\", originY: \"22px\" }}\n      >\n       <path d=\"M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2\" />\n       <path d=\"M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2\" />\n       <path d=\"M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3\" />\n       <path d=\"M4 22h16\" />\n       <path d=\"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z\" />\n       <path d=\"M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3\" />\n      </m.g>\n     </m.svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nTrophyIcon.displayName = \"TrophyIcon\";\nexport { TrophyIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}
