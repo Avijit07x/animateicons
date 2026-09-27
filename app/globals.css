@@ -183,25 +183,6 @@
 	button {
 		@apply cursor-pointer text-inherit;
 	}
-	/* Kinetic wall marquee. Track holds the icon set twice; sliding -50%
-	   loops seamlessly. Paused for reduced-motion users. */
-	@keyframes ai-marquee {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(-50%);
-		}
-	}
-	.animate-marquee {
-		animation: ai-marquee linear infinite;
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.animate-marquee {
-			animation: none;
-		}
-	}
-
 	/* Engineered plus-mark grid backdrop (echoes the specimen crop-marks),
 	   radially masked so it fades to black at the edges. */
 	.bg-plus-grid {
@@ -216,81 +197,6 @@
 			#000 22%,
 			transparent 72%
 		);
-	}
-
-	.bg-grid {
-		pointer-events: none;
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		/* Single knob for the whole grid intensity. Scales all line
-		   colors proportionally so we don't have to tweak 8 rgba alpha
-		   values across the mobile + desktop rule sets. Lower = subtler. */
-		opacity: 0.55;
-
-		background-image:
-			repeating-linear-gradient(
-				0deg,
-				transparent,
-				transparent 14px,
-				rgba(75, 85, 99, 0.14) 14px,
-				rgba(75, 85, 99, 0.14) 15px
-			),
-			repeating-linear-gradient(
-				90deg,
-				transparent,
-				transparent 14px,
-				rgba(107, 114, 128, 0.12) 14px,
-				rgba(107, 114, 128, 0.12) 15px
-			),
-			repeating-linear-gradient(
-				60deg,
-				transparent,
-				transparent 20px,
-				rgba(55, 65, 81, 0.1) 20px,
-				rgba(55, 65, 81, 0.1) 21px
-			),
-			repeating-linear-gradient(
-				150deg,
-				transparent,
-				transparent 18px,
-				rgba(31, 41, 55, 0.08) 18px,
-				rgba(31, 41, 55, 0.08) 19px
-			);
-	}
-
-	@media (min-width: 768px) {
-		.bg-grid {
-			background-image:
-				repeating-linear-gradient(
-					0deg,
-					transparent,
-					transparent 20px,
-					rgba(75, 85, 99, 0.24) 20px,
-					rgba(75, 85, 99, 0.24) 21px
-				),
-				repeating-linear-gradient(
-					90deg,
-					transparent,
-					transparent 30px,
-					rgba(107, 114, 128, 0.22) 30px,
-					rgba(107, 114, 128, 0.22) 31px
-				),
-				repeating-linear-gradient(
-					60deg,
-					transparent,
-					transparent 40px,
-					rgba(55, 65, 81, 0.2) 40px,
-					rgba(55, 65, 81, 0.2) 41px
-				),
-				repeating-linear-gradient(
-					150deg,
-					transparent,
-					transparent 35px,
-					rgba(31, 41, 55, 0.18) 35px,
-					rgba(31, 41, 55, 0.18) 36px
-				);
-		}
 	}
 }
 @layer components {
@@ -324,10 +230,6 @@
 		.btn:active {
 			transform: none;
 		}
-	}
-
-	.sidebar-item {
-		@apply text-textPrimary hover:text-textPrimary focus-visible:text-textPrimary active:text-textPrimary data-[active=true]:text-textPrimary hover:bg-surfaceHover data-[active=true]:bg-surfaceElevated focus-visible:bg-surfaceHover active:bg-surfaceHover bg-transparent;
 	}
 }
 
