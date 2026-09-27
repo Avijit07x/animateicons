@@ -84,10 +84,8 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 			{(item.isNew || item.isUpdated) && (
 				<span
 					className={cn(
-						"pointer-events-none absolute top-3 -left-9 w-28 -rotate-45 border-y py-0.5 text-center font-mono text-[9px] tracking-widest uppercase",
-						item.isNew
-							? "border-primary/30 bg-primary/10 text-primary"
-							: "border-info/30 bg-info/10 text-info",
+						"pointer-events-none absolute top-3 left-3 font-mono text-[9px] tracking-widest uppercase opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100",
+						item.isNew ? "text-primary" : "text-info",
 					)}
 				>
 					{item.isNew ? "New" : "Update"}
