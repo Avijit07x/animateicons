@@ -84,51 +84,34 @@ const ChartNetworkIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.2 * duration },
-   },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scale: [1, 1.12, 0.97, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
+  });
 
-  const circleVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 0.7,
-    transition: { duration: 0.2 * duration },
-   },
+  const linkVariants = (length: number, delay: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    scale: [0, 1],
-    opacity: [0.7, 1, 0.7],
+    strokeDashoffset: [length, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
+     strokeDashoffset: {
+      duration: 0.3 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: delay * duration },
     },
    },
-  };
-
-  const chartVariants: Variants = {
-   normal: {
-    scale: 1,
-    transition: { duration: 0.2 * duration },
-   },
-   animate: {
-    scale: [1, 1.05, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -149,17 +132,49 @@ const ChartNetworkIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={chartVariants}
       animate={controls}
       initial="normal"
      >
-      <m.path d="m13.11 7.664 1.78 2.672" variants={pathVariants} />
-      <m.path d="m14.162 12.788-3.324 1.424" variants={pathVariants} />
-      <m.path d="m20 4-6.06 1.515" variants={pathVariants} />
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={pathVariants} />
-      <m.circle cx="12" cy="6" r="2" variants={circleVariants} />
-      <m.circle cx="16" cy="12" r="2" variants={circleVariants} />
-      <m.circle cx="9" cy="15" r="2" variants={circleVariants} />
+      <m.path
+       d="m13.11 7.664 1.78 2.672"
+       strokeDasharray="4"
+       strokeDashoffset="0"
+       variants={linkVariants(4, 0.1)}
+      />
+      <m.path
+       d="m14.162 12.788-3.324 1.424"
+       strokeDasharray="4"
+       strokeDashoffset="0"
+       variants={linkVariants(4, 0.22)}
+      />
+      <m.path
+       d="m20 4-6.06 1.515"
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={linkVariants(7, 0.02)}
+      />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+      <m.circle
+       cx="12"
+       cy="6"
+       r="2"
+       variants={nodeVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "6px" }}
+      />
+      <m.circle
+       cx="16"
+       cy="12"
+       r="2"
+       variants={nodeVariants(0.12)}
+       style={{ transformBox: "view-box", originX: "16px", originY: "12px" }}
+      />
+      <m.circle
+       cx="9"
+       cy="15"
+       r="2"
+       variants={nodeVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "9px", originY: "15px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -81,26 +81,27 @@ const CommandIcon = forwardRef<CommandIconHandle, CommandIconProps>(
    [controls, onMouseLeave],
   );
 
-  const keyVariants: Variants = {
+  const loopVariants = (delay: number): Variants => ({
    normal: { scale: 1 },
    animate: {
-    scale: [1, 0.85, 1.05, 1],
+    scale: [1, 1.2, 0.95, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
    },
-  };
+  });
 
-  const glyphVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const crossVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scale: [1, 0.88, 1.03, 1],
     transition: {
-     pathLength: { duration: 0.8 * duration, ease: "easeInOut" },
-     opacity: { duration: 0.15 * duration },
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -128,14 +129,34 @@ const CommandIcon = forwardRef<CommandIconHandle, CommandIconProps>(
       initial="normal"
      >
       <m.g
-       variants={keyVariants}
+       variants={crossVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <m.path
-        d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
-        variants={glyphVariants}
-       />
+       <path d="M15 6V18" />
+       <path d="M18 15H6" />
+       <path d="M9 18V6" />
+       <path d="M6 9H18" />
       </m.g>
+      <m.path
+       d="M9 6A3 3 0 1 0 6 9"
+       variants={loopVariants(0)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "6px" }}
+      />
+      <m.path
+       d="M18 9A3 3 0 1 0 15 6"
+       variants={loopVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "18px", originY: "6px" }}
+      />
+      <m.path
+       d="M15 18A3 3 0 1 0 18 15"
+       variants={loopVariants(0.16)}
+       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
+      />
+      <m.path
+       d="M6 15A3 3 0 1 0 9 18"
+       variants={loopVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "18px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

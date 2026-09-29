@@ -74,39 +74,26 @@ const LocateOffIcon = forwardRef<LocateOffIconHandle, LocateOffIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
+    strokeDashoffset: [31, 0],
+    transition: { duration: 0.6 * duration, ease: "easeOut" },
    },
   };
 
@@ -132,21 +119,20 @@ const LocateOffIcon = forwardRef<LocateOffIconHandle, LocateOffIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.g variants={bodyVariants}>
+       <path d="M12 19v3" />
+       <path d="M12 2v3" />
+       <path d="M18.89 13.24a7 7 0 0 0-8.13-8.13" />
+       <path d="M19 12h3" />
+       <path d="M2 12h3" />
+       <path d="M7.05 7.05a7 7 0 0 0 9.9 9.9" />
+      </m.g>
       <m.path
-       d="M7.05 7.05a7 7 0 0 0 9.9 9.9"
-       custom={0}
-       variants={bodyVariants}
+       d="m2 2 20 20"
+       strokeDasharray="30 200"
+       strokeDashoffset="0"
+       variants={slashVariants}
       />
-      <m.path
-       d="M18.89 13.24a7 7 0 0 0-8.13-8.13"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M12 2v3" custom={1} variants={bodyVariants} />
-      <m.path d="M12 19v3" custom={1} variants={bodyVariants} />
-      <m.path d="M2 12h3" custom={1} variants={bodyVariants} />
-      <m.path d="M19 12h3" custom={1} variants={bodyVariants} />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

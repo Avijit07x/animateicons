@@ -81,28 +81,20 @@ const LayersIcon = forwardRef<LayersIconHandle, LayersIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1 },
+  const topVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: 1.05,
-    transition: {
-     duration,
-     ease: "easeOut",
-    },
+    y: [0, 3, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
    },
   };
 
-  const layerVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
-   animate: (i: number) => ({
-    y: -(i + 1) * 4,
-    opacity: 1,
-    transition: {
-     duration,
-     ease: "easeOut",
-     delay: i * 0.07,
-    },
-   }),
+  const bottomVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -3, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -124,24 +116,17 @@ const LayersIcon = forwardRef<LayersIconHandle, LayersIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={iconVariants}
+      initial="normal"
      >
       <m.path
        d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
-       variants={layerVariants}
-       custom={0}
+       variants={topVariants}
       />
-      <m.path
-       d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
-       variants={layerVariants}
-       custom={1}
-      />
+      <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
       <m.path
        d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
-       variants={layerVariants}
-       custom={2}
+       variants={bottomVariants}
       />
      </m.svg>
     </m.div>

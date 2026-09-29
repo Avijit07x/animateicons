@@ -74,40 +74,19 @@ const MilestoneIcon = forwardRef<MilestoneIconHandle, MilestoneIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const armVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.42 * duration,
-     delay: (0.38 + i * 0.1) * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
+  const signVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -7, 6, -3, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -132,13 +111,12 @@ const MilestoneIcon = forwardRef<MilestoneIconHandle, MilestoneIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M12 13v8" custom={0} variants={bodyVariants} />
-      <m.path d="M12 3v3" custom={0} variants={bodyVariants} />
+      <path d="M12 13v8" />
+      <path d="M12 3v3" />
       <m.path
-       d="M4 6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h13a2 2 0 0 0 1.152-.365l3.424-2.317a1 1 0 0 0 0-1.635l-3.424-2.318A2 2 0 0 0 17 6z"
-       custom={0}
-       variants={armVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "9.5px" }}
+       d="M18.172 6a2 2 0 0 1 1.414.586l2.06 2.06a1.207 1.207 0 0 1 0 1.708l-2.06 2.06a2 2 0 0 1-1.414.586H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"
+       variants={signVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "9.5px" }}
       />
      </m.svg>
     </m.div>

@@ -91,20 +91,20 @@ const CloudDrizzleIcon = forwardRef<
    normal: { x: 0 },
    animate: {
     x: [0, 1, -1, 0],
-    transition: { duration: 1.4 * duration, ease: "easeInOut" },
+    transition: { duration: 1 * duration, ease: "easeInOut" },
    },
   };
 
   const dropVariants: Variants = {
    normal: { y: 0, opacity: 1 },
    animate: (i: number) => ({
-    y: [-2, 0],
-    opacity: [0, 1, 0.4, 1],
+    y: [0, -2, 0],
+    opacity: [1, 0.5, 1, 0.4, 1],
     transition: {
      delay: i * 0.1 * duration,
-     duration: 0.7 * duration,
+     duration: 0.5 * duration,
      ease: "easeOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.18, 0.467, 0.754, 1],
     },
    }),
   };

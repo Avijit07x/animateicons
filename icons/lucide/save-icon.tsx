@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface SaveIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,53 +51,56 @@ const SaveIcon = forwardRef<SaveIconHandle, SaveIconProps>(
   },
   ref,
  ) => {
-  const pressControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   pressControls.start("press");
-  }, [pressControls, reduced]);
-
-  const stop = useCallback(() => {
-   pressControls.start("rest");
-  }, [pressControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const pressVariants: Variants = {
-   rest: { y: 0, scale: 1 },
-   press: {
-    y: [0, 2.5, 0],
-    scale: [1, 0.92, 1],
+  const shutterVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 2, -0.4, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     times: [0, 0.4, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const labelVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1, -0.2, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -109,27 +111,29 @@ const SaveIcon = forwardRef<SaveIconHandle, SaveIconProps>(
      className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
-     animate={pressControls}
-     initial="rest"
-     variants={pressVariants}
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
-      <path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" />
-      <path d="M7 3v4a1 1 0 0 0 1 1h7" />
-     </svg>
+      <m.path
+       d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"
+       variants={labelVariants}
+      />
+      <m.path d="M7 3v4a1 1 0 0 0 1 1h7" variants={shutterVariants} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

@@ -74,48 +74,29 @@ const TimerIcon = forwardRef<TimerIconHandle, TimerIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dialVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.55 * duration,
-     delay: 0.1 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   },
-  };
-
   const buttonVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.3 * duration, ease: [0.16, 1, 0.3, 1] },
+    y: [0, 1.5, 0],
+    transition: { duration: 0.3 * duration, ease: "easeInOut" },
    },
   };
 
   const handVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    rotate: [-50, 15, 0],
-    opacity: [0, 1, 1],
+    rotate: [0, 360],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.65 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
    },
   };
@@ -142,15 +123,8 @@ const TimerIcon = forwardRef<TimerIconHandle, TimerIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="12" cy="14" r="8" variants={dialVariants} />
-      <m.line
-       x1="10"
-       y1="2"
-       x2="14"
-       y2="2"
-       variants={buttonVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "2px" }}
-      />
+      <circle cx="12" cy="14" r="8" />
+      <m.line x1="10" y1="2" x2="14" y2="2" variants={buttonVariants} />
       <m.line
        x1="12"
        y1="14"

@@ -84,41 +84,19 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
   const moonVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -18, 8, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
-    },
+    rotate: [0, 15, -8, 3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
-  const arcVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const rayVariants = (dx: number, dy: number): Variants => ({
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
-    },
+    x: [0, dx, 0],
+    y: [0, dy, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
    },
-  };
-
-  const rayVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.4, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     times: [0, 0.6, 1],
-     delay: (0.3 + i * 0.1) * duration,
-    },
-   }),
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -142,30 +120,15 @@ const SunMoonIcon = forwardRef<SunMoonIconHandle, SunMoonIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M12 2v2"
-       variants={rayVariants}
-       custom={0}
-       style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
-      />
+      <m.path d="M12 2v2" variants={rayVariants(0, -0.9)} />
       <m.path
        d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"
        variants={moonVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       style={{ transformBox: "view-box", originX: "9px", originY: "15px" }}
       />
-      <m.path d="M16 12a4 4 0 0 0-4-4" variants={arcVariants} />
-      <m.path
-       d="m19 5-1.256 1.256"
-       variants={rayVariants}
-       custom={1}
-       style={{ transformBox: "view-box", originX: "18.4px", originY: "5.6px" }}
-      />
-      <m.path
-       d="M20 12h2"
-       variants={rayVariants}
-       custom={2}
-       style={{ transformBox: "view-box", originX: "21px", originY: "12px" }}
-      />
+      <path d="M16 12a4 4 0 0 0-4-4" />
+      <m.path d="m19 5-1.256 1.256" variants={rayVariants(0.65, -0.65)} />
+      <m.path d="M20 12h2" variants={rayVariants(0.9, 0)} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -81,49 +81,28 @@ const BlendIcon = forwardRef<BlendIconHandle, BlendIconProps>(
    [controls, onMouseLeave],
   );
 
-  const groupVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const firstVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    rotate: [0, -1.5, 1.5, 0],
-    scale: [1, 1.02, 1],
+    x: [0, 1.8, -0.4, 0],
+    y: [0, 1.8, -0.4, 0],
     transition: {
      duration: 0.7 * duration,
-     ease: "easeInOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
-  const leftCircle: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },
+  const secondVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    strokeDashoffset: [48, 0],
-    opacity: [0.45, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const rightCircle: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },
-   animate: {
-    strokeDashoffset: [48, 0],
-    opacity: [0.45, 1],
+    x: [0, -1.8, 0.4, 0],
+    y: [0, -1.8, 0.4, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: 0.09,
-    },
-   },
-  };
-
-  const overlapPulse: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.06, 1],
-    opacity: [0.9, 1, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.25,
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -147,32 +126,11 @@ const BlendIcon = forwardRef<BlendIconHandle, BlendIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-blend-icon lucide-blend"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={groupVariants} initial="normal" animate={controls}>
-       <m.circle
-        cx="9"
-        cy="9"
-        r="7"
-        strokeDasharray="48"
-        strokeDashoffset="48"
-        variants={leftCircle}
-        initial="normal"
-        animate={controls}
-       />
-       <m.g variants={overlapPulse} initial="normal" animate={controls}>
-        <m.circle
-         cx="15"
-         cy="15"
-         r="7"
-         strokeDasharray="48"
-         strokeDashoffset="48"
-         variants={rightCircle}
-         initial="normal"
-         animate={controls}
-        />
-       </m.g>
-      </m.g>
+      <m.circle cx="9" cy="9" r="7" variants={firstVariants} />
+      <m.circle cx="15" cy="15" r="7" variants={secondVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

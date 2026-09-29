@@ -74,37 +74,38 @@ const CloudyIcon = forwardRef<CloudyIconHandle, CloudyIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const cloudVariants: Variants = {
-   normal: { x: 0, pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    x: [-6, 0],
-    pathLength: [0, 1],
+  const cloudVariants = (delay: number, length: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },
+   animate: {
+    strokeDashoffset: [length, 0],
     opacity: [0, 1],
+    x: [-3, 0],
     transition: {
+     strokeDashoffset: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
      x: {
-      duration: 0.6 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.34, 1.2, 0.64, 1],
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
      },
-     pathLength: {
-      duration: 0.5 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.2 * duration, delay: i * 0.1 * duration },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -130,13 +131,15 @@ const CloudyIcon = forwardRef<CloudyIconHandle, CloudyIconProps>(
      >
       <m.path
        d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-       custom={1}
-       variants={cloudVariants}
+       strokeDasharray="22"
+       strokeDashoffset="0"
+       variants={cloudVariants(0.15, 22)}
       />
       <m.path
        d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z"
-       custom={0}
-       variants={cloudVariants}
+       strokeDasharray="57"
+       strokeDashoffset="0"
+       variants={cloudVariants(0, 57)}
       />
      </m.svg>
     </m.div>

@@ -74,37 +74,33 @@ const PlugIcon = forwardRef<PlugIconHandle, PlugIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const pushVariants: Variants = {
+  const plugVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [-4, 0],
+    y: [0, 1.5, -0.5, 0],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.15 * duration,
-     ease: [0.34, 1.4, 0.55, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const cordVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.7, 1.1, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -131,15 +127,15 @@ const PlugIcon = forwardRef<PlugIconHandle, PlugIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g variants={pushVariants}>
-       <m.path
-        d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z"
-        custom={0}
-        variants={bodyVariants}
-       />
-       <m.path d="M9 8V2" custom={1} variants={bodyVariants} />
-       <m.path d="M15 8V2" custom={1} variants={bodyVariants} />
-       <m.path d="M12 22v-5" custom={2} variants={bodyVariants} />
+      <m.path
+       d="M12 22v-5"
+       variants={cordVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      />
+      <m.g variants={plugVariants}>
+       <path d="M15 8V2" />
+       <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" />
+       <path d="M9 8V2" />
       </m.g>
      </m.svg>
     </m.div>

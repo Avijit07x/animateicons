@@ -85,16 +85,15 @@ const PictureInPictureIcon = forwardRef<
   );
 
   const miniVariants: Variants = {
-   normal: { x: 0, y: 0, scale: 1, opacity: 1 },
+   normal: { x: 0, y: 0, scale: 1 },
    animate: {
-    x: [-4, 0.5, 0],
-    y: [-3, 0.4, 0],
-    scale: [0.6, 1.05, 1],
-    opacity: [0, 1, 1],
+    x: [0, -2.5, 0.5, 0],
+    y: [0, -3, 0.5, 0],
+    scale: [1, 0.88, 1.04, 1],
     transition: {
-     duration: 0.55 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
+     duration: 0.75 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -102,9 +101,13 @@ const PictureInPictureIcon = forwardRef<
   const arrowVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -1, 0],
-    y: [0, -1, 0],
-    transition: { duration: 0.45 * duration, ease: "easeInOut" },
+    x: [0, 2, 0],
+    y: [0, 2, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.25 * duration,
+    },
    },
   };
 

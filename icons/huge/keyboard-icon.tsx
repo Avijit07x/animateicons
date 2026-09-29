@@ -1,0 +1,132 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import type { Variants } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
+export interface KeyboardIconHandle {
+ startAnimation: () => void;
+ stopAnimation: () => void;
+}
+
+interface KeyboardIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
+ size?: number;
+ duration?: number;
+ isAnimated?: boolean;
+ color?: string;
+}
+
+const KeyboardIcon = forwardRef<KeyboardIconHandle, KeyboardIconProps>(
+ (
+  {
+   onMouseEnter,
+   onMouseLeave,
+   className,
+   size = 24,
+   duration = 1,
+   isAnimated = true,
+   color,
+   ...props
+  },
+  ref,
+ ) => {
+  const controls = useAnimation();
+  const reduced = useReducedMotion();
+  const isControlled = useRef(false);
+
+  useImperativeHandle(ref, () => {
+   isControlled.current = true;
+   return {
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
+   };
+  });
+
+  const handleEnter = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isAnimated || reduced) return;
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
+   },
+   [controls, reduced, isAnimated, onMouseEnter],
+  );
+
+  const handleLeave = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
+   },
+   [controls, onMouseLeave],
+  );
+
+  const keyVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.6, 0],
+    transition: {
+     duration: 0.3 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+    },
+   },
+  });
+
+  return (
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
+    >
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <path d="M14.5 7H9.5C6.21252 7 4.56878 7 3.46243 7.90796C3.25989 8.07418 3.07418 8.25989 2.90796 8.46243C2 9.56878 2 11.2125 2 14.5C2 17.7875 2 19.4312 2.90796 20.5376C3.07418 20.7401 3.25989 20.9258 3.46243 21.092C4.56878 22 6.21252 22 9.5 22H14.5C17.7875 22 19.4312 22 20.5376 21.092C20.7401 20.9258 20.9258 20.7401 21.092 20.5376C22 19.4312 22 17.7875 22 14.5C22 11.2125 22 9.56878 21.092 8.46243C20.9258 8.25989 20.7401 8.07418 20.5376 7.90796C19.4312 7 17.7875 7 14.5 7Z" />
+      <path d="M12 7V5C12 4.44772 12.4477 4 13 4C13.5523 4 14 3.55228 14 3V2" />
+      <m.path d="M7 12L8 12" variants={keyVariants(0)} />
+      <m.path d="M11.5 12L12.5 12" variants={keyVariants(0.1)} />
+      <m.path d="M16 12L17 12" variants={keyVariants(0.2)} />
+      <m.path d="M7 17L17 17" variants={keyVariants(0.3)} />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
+  );
+ },
+);
+
+KeyboardIcon.displayName = "KeyboardIcon";
+export { KeyboardIcon };

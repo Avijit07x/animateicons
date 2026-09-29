@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileXIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,37 +75,31 @@ const FileXIcon = forwardRef<FileXIconHandle, FileXIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const pageVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
+    y: [0, -1, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
-
-  const xVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.22 + i * 0.09) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
+  const crossVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -129,23 +124,15 @@ const FileXIcon = forwardRef<FileXIconHandle, FileXIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.path
-       d="m14.5 12.5-5 5"
-       custom={0}
-       variants={xVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
-      />
-      <m.path
-       d="m9.5 12.5 5 5"
-       custom={1}
-       variants={xVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
-      />
+      <m.g variants={pageVariants}>
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="m14.5 12.5-5 5M9.5 12.5l5 5"
+        variants={crossVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -88,14 +88,13 @@ const MessageSquareIcon = forwardRef<
   );
 
   const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.65 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };

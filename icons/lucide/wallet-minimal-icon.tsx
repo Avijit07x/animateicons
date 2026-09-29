@@ -84,59 +84,15 @@ const WalletMinimalIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const wrapperVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const claspVariants: Variants = {
+   normal: { x: 0, scale: 1 },
    animate: {
-    rotate: [-2, 0, -1, 0],
-    scale: [1, 1.02, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" as const },
-   },
-  };
-
-  const outlineVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [120, 0],
-    opacity: [0.4, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" as const },
-   },
-  };
-
-  const dotPopVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.7, 1.25, 1],
-    opacity: [0, 1],
+    x: [0, -2, 0.5, 0],
+    scale: [1, 1.6, 0.9, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.4,
-     ease: "easeOut" as const,
-    },
-   },
-  };
-
-  const latchSnapVariants: Variants = {
-   normal: { x: 0, opacity: 0 },
-   animate: {
-    x: [0, 3, 0],
-    opacity: [0, 1, 0],
-    transition: {
-     duration: 0.5 * duration,
-     delay: 0.5,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const shimmerVariants: Variants = {
-   normal: { x: -18, opacity: 0 },
-   animate: {
-    x: [-18, 22],
-    opacity: [0, 0.35, 0],
-    transition: {
-     duration: 0.8 * duration,
-     delay: 0.25,
-     ease: "easeInOut" as const,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -160,53 +116,15 @@ const WalletMinimalIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-wallet-minimal-icon lucide-wallet-minimal"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={wrapperVariants} initial="normal" animate={controls}>
-       <defs>
-        <linearGradient id="wm-shimmer" x1="0" x2="1" y1="0" y2="0">
-         <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-         <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
-         <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-        </linearGradient>
-       </defs>
-
-       <m.path
-        d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"
-        strokeDasharray="120"
-        strokeDashoffset="120"
-        variants={outlineVariants}
-        initial="normal"
-        animate={controls}
-       />
-
-       <m.path
-        d="M17 14h.01"
-        variants={dotPopVariants}
-        initial="normal"
-        animate={controls}
-       />
-
-       <m.path
-        d="M17 14h.01"
-        variants={latchSnapVariants}
-        initial="normal"
-        animate={controls}
-       />
-
-       <m.rect
-        x="2"
-        y="4"
-        width="20"
-        height="16"
-        rx="3"
-        fill="url(#wm-shimmer)"
-        variants={shimmerVariants}
-        initial="normal"
-        animate={controls}
-        style={{ pointerEvents: "none" }}
-       />
-      </m.g>
+      <m.path
+       d="M17 14h.01"
+       variants={claspVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "14px" }}
+      />
+      <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
      </m.svg>
     </m.div>
    </LazyMotion>

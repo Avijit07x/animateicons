@@ -81,36 +81,27 @@ const ReplyAllIcon = forwardRef<ReplyAllIconHandle, ReplyAllIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arrowVariants: Variants = {
+  const frontVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -3, 0],
+    x: [0, -1, 0.3, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const arrowSecondaryVariants: Variants = {
+  const restVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -1.5, 0],
+    x: [0, -1.4, 0.42, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.05 * duration,
-    },
-   },
-  };
-
-  const curveVariants: Variants = {
-   normal: { opacity: 1 },
-   animate: {
-    opacity: [1, 0.6, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.06 * duration,
     },
    },
   };
@@ -134,25 +125,14 @@ const ReplyAllIcon = forwardRef<ReplyAllIconHandle, ReplyAllIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="m12 17-5-5 5-5"
-       variants={arrowVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m7 17-5-5 5-5"
-       variants={arrowSecondaryVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M22 18v-2a4 4 0 0 0-4-4H7"
-       variants={curveVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.path d="m7 17-5-5 5-5" variants={frontVariants} />
+      <m.g variants={restVariants}>
+       <path d="m12 17-5-5 5-5" />
+       <path d="M22 18v-2a4 4 0 0 0-4-4H7" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

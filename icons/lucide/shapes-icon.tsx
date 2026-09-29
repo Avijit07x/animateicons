@@ -84,12 +84,12 @@ const ShapesIcon = forwardRef<ShapesIconHandle, ShapesIconProps>(
   const shapeVariants: Variants = {
    normal: { scale: 1 },
    animate: (i: number) => ({
-    scale: [1, 0, 1.15, 1],
+    scale: [1, 0.5, 1.12, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     times: [0, 0.2, 0.7, 1],
-     delay: i * 0.12 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
+     delay: i * 0.1 * duration,
     },
    }),
   };

@@ -47,7 +47,7 @@ const GitCommitVerticalIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.7,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -84,76 +84,39 @@ const GitCommitVerticalIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const overshootEase: [number, number, number, number] = [0.34, 1.56, 0.64, 1];
-  const smoothDecel: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-  const svgVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: 360,
-    transition: {
-     duration: duration,
-     ease: "linear",
-    },
-   },
-  };
-
-  const commitNodeVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.2, 1.24, 0.92, 1],
-    opacity: [0, 1],
-    transition: {
-     scale: {
-      duration: 0.52 * duration,
-      ease: overshootEase,
-      delay: 0,
-     },
-     opacity: {
-      duration: 0.22 * duration,
-      ease: "easeOut",
-      delay: 0,
-     },
-    },
-   },
-  };
-
   const topLineVariants: Variants = {
-   normal: { y1: 3, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    y1: [9, 3],
+    strokeDashoffset: [7, 0],
     opacity: [0, 1],
     transition: {
-     y1: {
-      duration: 0.42 * duration,
-      ease: smoothDecel,
-      delay: 0.42 * duration,
-     },
-     opacity: {
-      duration: 0.18 * duration,
-      ease: "easeOut",
-      delay: 0.42 * duration,
-     },
+     strokeDashoffset: { duration: 0.4 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
     },
    },
   };
 
   const bottomLineVariants: Variants = {
-   normal: { y2: 21, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    y2: [15, 21],
+    strokeDashoffset: [-7, 0],
     opacity: [0, 1],
     transition: {
-     y2: {
-      duration: 0.42 * duration,
-      ease: smoothDecel,
-      delay: 0.42 * duration,
-     },
-     opacity: {
-      duration: 0.18 * duration,
-      ease: "easeOut",
-      delay: 0.42 * duration,
-     },
+     strokeDashoffset: { duration: 0.4 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
+    },
+   },
+  };
+
+  const commitNodeVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.3, 0.92, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.3 * duration,
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -177,31 +140,27 @@ const GitCommitVerticalIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={svgVariants}
-      initial="normal"
       animate={controls}
+      initial="normal"
      >
       <m.path
        d="M12 3v6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
        variants={topLineVariants}
-       initial="normal"
-       animate={controls}
       />
-
       <m.circle
        cx="12"
        cy="12"
        r="3"
        variants={commitNodeVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-
       <m.path
        d="M12 15v6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
        variants={bottomLineVariants}
-       initial="normal"
-       animate={controls}
       />
      </m.svg>
     </m.div>

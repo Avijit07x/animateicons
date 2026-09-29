@@ -84,8 +84,8 @@ const MedalIcon = forwardRef<MedalIconHandle, MedalIconProps>(
   const swingVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 16, -12, 7, -3, 0],
-    transition: { duration: duration, ease: "easeInOut" },
+    rotate: [0, 20, -14, 7, 0],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 

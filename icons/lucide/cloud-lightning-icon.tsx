@@ -77,34 +77,43 @@ const CloudLightningIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cloudVariants: Variants = {
-   normal: { x: 0 },
+   normal: { scale: 1 },
    animate: {
-    x: [0, -1, 1, -0.5, 0],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scale: [1, 1.05, 0.98, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.25 * duration,
+    },
    },
   };
 
   const boltVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    opacity: [0, 1, 0.2, 1, 1],
-    scale: [0.9, 1.12, 1, 1.05, 1],
+    strokeDashoffset: [17, 0],
+    opacity: [0, 1, 0.3, 1],
     transition: {
-     duration: 0.8 * duration,
-     delay: 0.1 * duration,
-     times: [0, 0.2, 0.4, 0.6, 1],
-     ease: "easeInOut",
+     strokeDashoffset: {
+      duration: 0.3 * duration,
+      ease: "easeOut",
+      delay: 0.1 * duration,
+     },
+     opacity: {
+      duration: 0.7 * duration,
+      ease: "easeInOut",
+      times: [0, 0.43, 0.7, 1],
+      delay: 0.1 * duration,
+     },
     },
    },
   };
@@ -134,11 +143,13 @@ const CloudLightningIcon = forwardRef<
       <m.path
        d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"
        variants={cloudVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
       />
       <m.path
        d="m13 12-3 5h4l-3 5"
+       strokeDasharray="17"
+       strokeDashoffset="0"
        variants={boltVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
       />
      </m.svg>
     </m.div>

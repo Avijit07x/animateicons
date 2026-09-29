@@ -74,37 +74,37 @@ const CirclePauseIcon = forwardRef<CirclePauseIconHandle, CirclePauseIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const barVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleY: [0, 1],
-    opacity: [0, 1],
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.5, 1.1, 1],
     transition: {
-     delay: (0.28 + i * 0.08) * duration,
-     duration: 0.35 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -128,14 +128,19 @@ const CirclePauseIcon = forwardRef<CirclePauseIconHandle, CirclePauseIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="12" cy="12" r="10" variants={ringVariants} />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.line
        x1="10"
        x2="10"
        y1="15"
        y2="9"
-       custom={0}
-       variants={barVariants}
+       variants={barVariants(0)}
        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
       />
       <m.line
@@ -143,8 +148,7 @@ const CirclePauseIcon = forwardRef<CirclePauseIconHandle, CirclePauseIconProps>(
        x2="14"
        y1="15"
        y2="9"
-       custom={1}
-       variants={barVariants}
+       variants={barVariants(0.1)}
        style={{ transformBox: "view-box", originX: "14px", originY: "12px" }}
       />
      </m.svg>

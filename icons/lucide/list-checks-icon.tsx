@@ -74,51 +74,40 @@ const ListChecksIcon = forwardRef<ListChecksIconHandle, ListChecksIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const wipeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.55, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.06 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
-  const checkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
+  const checkVariants = (delay: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
-    scale: [0.6, 1.15, 1],
     transition: {
-     pathLength: {
-      duration: 0.35 * duration,
-      delay: (0.1 + i * 0.5) * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.15 * duration, delay: (0.1 + i * 0.5) * duration },
-     scale: {
+     strokeDashoffset: {
       duration: 0.4 * duration,
-      delay: (0.12 + i * 0.5) * duration,
-      times: [0, 0.6, 1],
-      ease: [0.34, 1.4, 0.64, 1],
+      ease: "easeOut",
+      delay: delay * duration,
      },
+     opacity: { duration: 0.25 * duration, delay: delay * duration },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -144,33 +133,30 @@ const ListChecksIcon = forwardRef<ListChecksIconHandle, ListChecksIconProps>(
      >
       <m.path
        d="M13 5h8"
-       custom={0}
-       variants={wipeVariants}
+       variants={rowVariants(0.05)}
        style={{ transformBox: "view-box", originX: "13px", originY: "5px" }}
       />
       <m.path
        d="M13 12h8"
-       custom={1}
-       variants={wipeVariants}
+       variants={rowVariants(0.17)}
        style={{ transformBox: "view-box", originX: "13px", originY: "12px" }}
       />
       <m.path
        d="M13 19h8"
-       custom={2}
-       variants={wipeVariants}
+       variants={rowVariants(0.29)}
        style={{ transformBox: "view-box", originX: "13px", originY: "19px" }}
       />
       <m.path
-       d="m3 7 2 2 4-4"
-       custom={0}
-       variants={checkVariants}
-       style={{ transformBox: "view-box", originX: "5px", originY: "7px" }}
+       d="m3 17 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={checkVariants(0.25)}
       />
       <m.path
-       d="m3 17 2 2 4-4"
-       custom={1}
-       variants={checkVariants}
-       style={{ transformBox: "view-box", originX: "5px", originY: "17px" }}
+       d="m3 7 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={checkVariants(0)}
       />
      </m.svg>
     </m.div>

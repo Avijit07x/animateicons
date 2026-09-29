@@ -85,7 +85,7 @@ const RotateCwIcon = forwardRef<RotateCwIconHandle, RotateCwIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 360],
-    scale: [1, 0.85, 1],
+    scale: [1, 0.9, 1],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };

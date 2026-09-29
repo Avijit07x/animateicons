@@ -74,29 +74,25 @@ const BoldIcon = forwardRef<BoldIconHandle, BoldIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const boldVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, strokeWidth: 2 },
+   normal: { strokeDashoffset: 0, opacity: 1, strokeWidth: 2 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [68, 0],
     opacity: [0, 1],
-    strokeWidth: [2, 2, 3, 2],
+    strokeWidth: [2, 3.4, 2],
     transition: {
-     pathLength: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-     opacity: { duration: 0.2 * duration },
+     strokeDashoffset: { duration: 0.5 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration, ease: "easeOut" },
      strokeWidth: {
-      duration: 0.55 * duration,
-      delay: 0.45 * duration,
-      times: [0, 0.3, 0.6, 1],
+      duration: 0.5 * duration,
+      delay: 0.4 * duration,
       ease: "easeInOut",
      },
     },
@@ -127,6 +123,8 @@ const BoldIcon = forwardRef<BoldIconHandle, BoldIconProps>(
      >
       <m.path
        d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
+       strokeDasharray="68"
+       strokeDashoffset="0"
        variants={boldVariants}
       />
      </m.svg>

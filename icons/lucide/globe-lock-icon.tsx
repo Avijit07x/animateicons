@@ -81,14 +81,26 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
    [controls, onMouseLeave],
   );
 
-  const lockVariants: Variants = {
-   normal: { rotate: 0, x: 0, opacity: 1 },
+  const shackleVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    rotate: [0, -8, 8, -5, 5, 0],
-    x: [0, -2, 2, -1, 1, 0],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
+    },
+   },
+  };
+
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1, 0.88, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
     },
    },
   };
@@ -102,7 +114,7 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -112,27 +124,22 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
       <path d="M2 12h8.5" />
-
-      <m.path
-       d="M20 6V4a2 2 0 1 0-4 0v2"
-       variants={lockVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.path d="M20 6V4a2 2 0 1 0-4 0v2" variants={shackleVariants} />
       <m.rect
        width="8"
        height="5"
        x="14"
        y="6"
        rx="1"
-       variants={lockVariants}
-       initial="normal"
-       animate={controls}
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "18px", originY: "11px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

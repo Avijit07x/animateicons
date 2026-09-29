@@ -58,7 +58,8 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => controls.start("animate"),
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
     stopAnimation: () => controls.start("normal"),
    };
   });
@@ -80,21 +81,27 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    scale: [0.6, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.2 },
+    scaleY: [1, 0.88, 1.04, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -117,24 +124,15 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-icon lucide-user"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="0"
        variants={bodyVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />
-      <m.circle
-       cx="12"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.circle cx="12" cy="7" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

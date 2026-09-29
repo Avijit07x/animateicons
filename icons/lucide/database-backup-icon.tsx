@@ -84,29 +84,26 @@ const DatabaseBackupIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const lidVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.55 * duration,
-     ease: "easeOut",
-     delay: 0 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const restoreVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, -35, 8, 0],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.45 * duration,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -133,19 +130,17 @@ const DatabaseBackupIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <m.ellipse cx="12" cy="5" rx="9" ry="3" variants={lidVariants} />
       <path d="M3 12a9 3 0 0 0 5 2.69" />
       <path d="M21 9.3V5" />
       <path d="M3 5v14a9 3 0 0 0 6.47 2.88" />
-      <m.path
-       d="M12 12v4h4"
-       variants={headVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
-      />
-      <m.path
-       d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16"
-       variants={arcVariants}
-      />
+      <m.g
+       variants={restoreVariants}
+       style={{ transformBox: "view-box", originX: "17.5px", originY: "17px" }}
+      >
+       <path d="M12 12v4h4" />
+       <path d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

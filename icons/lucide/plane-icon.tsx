@@ -84,13 +84,13 @@ const PlaneIcon = forwardRef<PlaneIconHandle, PlaneIconProps>(
   const planeVariants: Variants = {
    normal: { x: 0, y: 0, opacity: 1 },
    animate: {
-    x: [0, 14, -14, 0],
-    y: [0, -14, 14, 0],
+    x: [0, 12, -12, 0],
+    y: [0, -12, 12, 0],
     opacity: [1, 0, 0, 1],
     transition: {
      duration: 0.9 * duration,
-     ease: ["easeIn", "linear", "easeOut"],
-     times: [0, 0.45, 0.46, 1],
+     ease: ["easeIn", "easeInOut", "easeOut"],
+     times: [0, 0.4, 0.45, 1],
     },
    },
   };

@@ -75,10 +75,10 @@ const IconList: React.FC = () => {
 						{!debouncedQuery && (
 							<div className="py-4 text-center">
 								<p className="text-textPrimary text-sm font-medium">
-									More icons coming soon
+									The collection is continuously expanding
 								</p>
 								<p className="text-textMuted mt-1 text-xs">
-									New animated icons are added regularly.
+									New animated icons are added on a regular basis.
 								</p>
 							</div>
 						)}

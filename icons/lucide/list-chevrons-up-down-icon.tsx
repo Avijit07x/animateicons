@@ -47,7 +47,7 @@ const ListChevronsUpDownIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.9,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -77,58 +77,36 @@ const ListChevronsUpDownIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const lineVariant: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
    animate: {
-    x: [0, -2, 2, 0],
-    opacity: [1, 0.9, 0.9, 1],
+    scaleX: [1, 0.6, 1],
     transition: {
-     duration: 0.75 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     repeat: 0,
+     delay: delay * duration,
     },
    },
-  };
+  });
 
-  const topChevron: Variants = {
-   normal: { y: 0, opacity: 1, rotate: 0 },
+  const chevronVariants = (dy: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    y: [0, -4, -2, 0],
-    rotate: [0, -4, -2, 0],
-    opacity: [1, 0.9, 0.95, 1],
+    y: [0, dy, -dy * 0.25, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeOut",
-     repeat: 0,
-     delay: 0.04,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
-  };
-
-  const bottomChevron: Variants = {
-   normal: { y: 0, opacity: 1, rotate: 0 },
-   animate: {
-    y: [0, 4, 2, 0],
-    rotate: [0, 4, 2, 0],
-    opacity: [1, 0.9, 0.95, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeOut",
-     repeat: 0,
-     delay: 0.12,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -146,31 +124,29 @@ const ListChevronsUpDownIcon = forwardRef<
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 5h8" variants={lineVariant} stroke="currentColor" />
+      <m.path
+       d="M3 5h8"
+       variants={rowVariants(0)}
+       style={{ transformBox: "view-box", originX: "3px", originY: "5px" }}
+      />
       <m.path
        d="M3 12h8"
-       variants={lineVariant}
-       stroke="currentColor"
-       transition={{ delay: 0.06 }}
+       variants={rowVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "3px", originY: "12px" }}
       />
       <m.path
        d="M3 19h8"
-       variants={lineVariant}
-       stroke="currentColor"
-       transition={{ delay: 0.12 }}
+       variants={rowVariants(0.2)}
+       style={{ transformBox: "view-box", originX: "3px", originY: "19px" }}
       />
-      <m.path d="m15 8 3-3 3 3" variants={topChevron} stroke="currentColor" />
-      <m.path
-       d="m15 16 3 3 3-3"
-       variants={bottomChevron}
-       stroke="currentColor"
-      />
+      <m.path d="m15 8 3-3 3 3" variants={chevronVariants(-2)} />
+      <m.path d="m15 16 3 3 3-3" variants={chevronVariants(2)} />
      </m.svg>
     </m.div>
    </LazyMotion>

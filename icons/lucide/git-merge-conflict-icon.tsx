@@ -47,7 +47,7 @@ const GitMergeConflictIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.85,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -77,76 +77,32 @@ const GitMergeConflictIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const cross1: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.3,
-     ease,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
+  });
 
-  const cross2: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const crossVariants: Variants = {
+   normal: { rotate: 0, scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.3,
-     ease,
-     delay: duration * 0.1,
-    },
-   },
-  };
-
-  const vertical: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: duration * 0.4,
-     ease,
-     delay: duration * 0.25,
-    },
-   },
-  };
-
-  const mergePath: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: duration * 0.45,
-     ease,
-     delay: duration * 0.45,
-    },
-   },
-  };
-
-  const resultNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.6, 1.15, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease,
-     delay: duration * 0.75,
-    },
+    rotate: [0, -16, 14, -7, 0],
+    scale: [1, 1.2, 1, 1.1, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -159,7 +115,7 @@ const GitMergeConflictIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -169,45 +125,20 @@ const GitMergeConflictIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M9 3 3 9"
-       variants={cross1}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M9 9 3 3"
-       variants={cross2}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M6 12v9"
-       variants={vertical}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M12 6h4a2 2 0 0 1 2 2v7"
-       variants={mergePath}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={resultNode}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <path d="M12 6h4a2 2 0 0 1 2 2v7" />
+      <path d="M6 12v9" />
+      <m.g
+       variants={crossVariants}
+       style={{ transformBox: "view-box", originX: "6px", originY: "6px" }}
+      >
+       <path d="M9 3 3 9" />
+       <path d="M9 9 3 3" />
+      </m.g>
+      <m.circle cx="18" cy="18" r="3" variants={nodeVariants(0.15)} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -215,5 +146,4 @@ const GitMergeConflictIcon = forwardRef<
 );
 
 GitMergeConflictIcon.displayName = "GitMergeConflictIcon";
-
 export { GitMergeConflictIcon };

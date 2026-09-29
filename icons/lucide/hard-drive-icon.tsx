@@ -74,42 +74,24 @@ const HardDriveIcon = forwardRef<HardDriveIconHandle, HardDriveIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const ledVariants = (delay: number): Variants => ({
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.15, 1, 0.15, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,24 +115,10 @@ const HardDriveIcon = forwardRef<HardDriveIconHandle, HardDriveIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M21.946 12.013H2.054" custom={1} variants={bodyVariants} />
-      <m.path
-       d="M6 16h.01"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "6px", originY: "16px" }}
-      />
-      <m.path
-       d="M10 16h.01"
-       custom={1}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "10px", originY: "16px" }}
-      />
+      <m.path d="M10 16h.01" variants={ledVariants(0.12)} />
+      <path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+      <path d="M21.946 12.013H2.054" />
+      <m.path d="M6 16h.01" variants={ledVariants(0)} />
      </m.svg>
     </m.div>
    </LazyMotion>

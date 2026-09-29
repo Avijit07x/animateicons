@@ -81,53 +81,17 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
    [controls, onMouseLeave],
   );
 
-  const topVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
+  const barVariants = (scale: number, delay: number): Variants => ({
+   normal: { scaleX: 1 },
    animate: {
-    x: 3,
-    scaleX: 0.85,
+    scaleX: [1, scale, 1],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
-
-  const middleVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
-   animate: {
-    x: 5,
-    scaleX: 0.7,
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0.05 * duration,
-    },
-   },
-  };
-
-  const bottomVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
-   animate: {
-    x: 7,
-    scaleX: 0.55,
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0.1 * duration,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -153,20 +117,18 @@ const MenuIcon = forwardRef<MenuIconHandle, MenuIconProps>(
      >
       <m.path
        d="M4 6h16"
-       variants={topVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={barVariants(0.8, 0)}
+       style={{ transformBox: "view-box", originX: "20px", originY: "6px" }}
       />
-
       <m.path
        d="M4 12h16"
-       variants={middleVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={barVariants(0.6, 0.1)}
+       style={{ transformBox: "view-box", originX: "20px", originY: "12px" }}
       />
-
       <m.path
        d="M4 18h16"
-       variants={bottomVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={barVariants(0.4, 0.2)}
+       style={{ transformBox: "view-box", originX: "20px", originY: "18px" }}
       />
      </m.svg>
     </m.div>

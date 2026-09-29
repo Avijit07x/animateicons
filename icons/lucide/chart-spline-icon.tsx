@@ -100,7 +100,7 @@ const ChartSplineIcon = forwardRef<ChartSplineIconHandle, ChartSplineIconProps>(
     transition: {
      delay: 0.3 * duration,
      duration: 0.8 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeOut",
     },
    },
   };

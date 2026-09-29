@@ -81,52 +81,15 @@ const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadIconProps>(
    [controls, onMouseLeave],
   );
 
-  const cloudVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    strokeDashoffset: [100, 0],
-    opacity: [0.4, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const shaftVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [30, 0],
-    opacity: [0.5, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.05,
-    },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { y: 0, scale: 1, opacity: 1 },
-   animate: {
-    y: [2, -2, 0],
-    scale: [1, 1.06, 1],
-    opacity: [0.7, 1],
+    x: [0, 0, 0, 0],
+    y: [0, -2, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.1,
-    },
-   },
-  };
-
-  const groupPulse: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.02, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -150,32 +113,14 @@ const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-cloud-upload-icon lucide-cloud-upload"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={groupPulse} initial="normal" animate={controls}>
-       <m.path
-        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
-        strokeDasharray="100"
-        strokeDashoffset="100"
-        variants={cloudVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M12 13v8"
-        strokeDasharray="30"
-        strokeDashoffset="30"
-        variants={shaftVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m8 17 4-4 4 4"
-        variants={headVariants}
-        initial="normal"
-        animate={controls}
-       />
+      <m.g variants={arrowVariants}>
+       <path d="M12 13v8" />
+       <path d="m8 17 4-4 4 4" />
       </m.g>
+      <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
      </m.svg>
     </m.div>
    </LazyMotion>

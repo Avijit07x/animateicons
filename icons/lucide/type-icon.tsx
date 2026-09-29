@@ -74,27 +74,35 @@ const TypeIcon = forwardRef<TypeIconHandle, TypeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const leanVariants: Variants = {
+   normal: { skewX: 0 },
+   animate: {
+    skewX: [0, -8, 3, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+
+  const footVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 1.3, 0.95, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
   };
 
   return (
@@ -119,13 +127,18 @@ const TypeIcon = forwardRef<TypeIconHandle, TypeIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"
-       custom={0}
-       variants={drawVariants}
-      />
-      <m.path d="M12 4v16" custom={1} variants={drawVariants} />
-      <m.path d="M9 20h6" custom={2} variants={drawVariants} />
+      <m.g
+       variants={leanVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
+      >
+       <path d="M12 4v16" />
+       <path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" />
+       <m.path
+        d="M9 20h6"
+        variants={footVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

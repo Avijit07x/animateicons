@@ -77,36 +77,25 @@ const ChartColumnIncreasingIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const axisVariants: Variants = {
-   normal: { pathLength: 1 },
+  const barVariants = (i: number): Variants => ({
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.4 * duration, ease: "easeOut" },
-   },
-  };
-
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, 0.4, 1.06, 1],
     transition: {
-     delay: (0.3 + i * 0.13) * duration,
-     duration: 0.5 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.1 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -130,10 +119,22 @@ const ChartColumnIncreasingIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={axisVariants} />
-      <m.path d="M8 17v-3" custom={0} variants={barVariants} />
-      <m.path d="M13 17V9" custom={1} variants={barVariants} />
-      <m.path d="M18 17V5" custom={2} variants={barVariants} />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+      <m.path
+       d="M8 17v-3"
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
+      <m.path
+       d="M13 17V9"
+       variants={barVariants(1)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
+      <m.path
+       d="M18 17V5"
+       variants={barVariants(2)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

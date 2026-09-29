@@ -77,75 +77,31 @@ const CalendarSearchIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const ringVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const hangerVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, 1.6, -0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const headerVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const lensVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.42 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const handleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.7 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
+    x: [0, -1.5, -0.5, 0.4, 0],
+    y: [0, 0.3, -1.4, -0.5, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -171,25 +127,14 @@ const CalendarSearchIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 2v4" custom={0} variants={hangerVariants} />
-      <m.path d="M16 2v4" custom={1} variants={hangerVariants} />
-      <m.path
-       d="M21 11.75V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.25"
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M3 10h18"
-       variants={headerVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "10px" }}
-      />
-      <m.circle
-       cx="18"
-       cy="18"
-       r="3"
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
-      />
-      <m.path d="m22 22-1.875-1.875" variants={handleVariants} />
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <path d="M21 10.69V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.25" />
+      <path d="M3 9h18" />
+      <m.g variants={lensVariants}>
+       <path d="m22 21-1.875-1.875" />
+       <circle cx="18" cy="17" r="3" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

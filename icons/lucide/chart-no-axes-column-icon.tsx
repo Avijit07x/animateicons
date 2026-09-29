@@ -77,28 +77,25 @@ const ChartNoAxesColumnIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const barVariants = (i: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.4, 1.05, 1],
     transition: {
-     delay: i * 0.13 * duration,
-     duration: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.1 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -122,9 +119,21 @@ const ChartNoAxesColumnIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M5 21v-6" custom={0} variants={barVariants} />
-      <m.path d="M12 21V3" custom={1} variants={barVariants} />
-      <m.path d="M19 21V9" custom={2} variants={barVariants} />
+      <m.path
+       d="M5 21v-6"
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      />
+      <m.path
+       d="M12 21V3"
+       variants={barVariants(1)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      />
+      <m.path
+       d="M19 21V9"
+       variants={barVariants(2)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface ClockIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -56,71 +55,39 @@ const ClockIcon = forwardRef<ClockIconHandle, ClockIconProps>(
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
-  const start = useCallback(() => {
-   if (reduced) return;
-   controls.start("run");
-  }, [controls, reduced]);
-
-  const stop = useCallback(() => {
-   controls.stop();
-  }, [controls]);
-
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const minuteVariants: Variants = {
-   rest: { rotate: 0 },
-   run: {
+   normal: { rotate: 0, transition: { duration: 0 } },
+   animate: {
     rotate: [0, 360],
-    transition: {
-     duration: 2 * duration,
-     ease: "linear",
-     repeat: Infinity,
-     repeatType: "loop",
-    },
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
-
-  const hourVariants: Variants = {
-   rest: { rotate: 0 },
-   run: {
-    rotate: [0, 360],
-    transition: {
-     duration: 24 * duration,
-     ease: "linear",
-     repeat: Infinity,
-     repeatType: "loop",
-    },
-   },
-  };
-
-  const pivot = {
-   transformBox: "view-box",
-   originX: "12px",
-   originY: "12px",
-  } as const;
 
   return (
    <LazyMotion features={domMin} strict>
@@ -131,33 +98,27 @@ const ClockIcon = forwardRef<ClockIconHandle, ClockIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M12 12V6"
-       animate={controls}
-       initial="rest"
-       variants={minuteVariants}
-       style={pivot}
-      />
-      <m.path
-       d="M12 12l4 2"
-       animate={controls}
-       initial="rest"
-       variants={hourVariants}
-       style={pivot}
-      />
       <circle cx="12" cy="12" r="10" />
-     </svg>
+      <m.path
+       d="M12 6V12"
+       variants={minuteVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <path d="M12 12L16 14" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

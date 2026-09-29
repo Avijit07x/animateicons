@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sorting-up",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "sorting-up-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\nexport interface SortingUpIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface SortingUpIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst SortingUpIcon = forwardRef<SortingUpIconHandle, SortingUpIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, isAnimated, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) controls.start(\"normal\");\n    else onMouseLeave?.(e as any);\n   },\n   [controls, onMouseLeave],\n  );\n\n  const arrowVariants = (dy: number, delay: number): Variants => ({\n   normal: { y: 0 },\n   animate: {\n    y: [0, dy, 0],\n    transition: {\n     duration: 0.5 * duration,\n     ease: \"easeInOut\",\n     delay: delay * duration,\n    },\n   },\n  });\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <m.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      animate={controls}\n      initial=\"normal\"\n     >\n      <path d=\"M18 8.5L5.9999 8.4999\" />\n      <path d=\"M21 12.5L3 12.5\" />\n      <m.path\n       d=\"M12 8.5L12 2.5M12 2.5L14 4.5M12 2.5L10 4.5\"\n       variants={arrowVariants(-1.5, 0.1)}\n      />\n      <m.path\n       d=\"M16 21.5L16 15.5M16 15.5L18 17.5M16 15.5L14 17.5\"\n       variants={arrowVariants(-1.5, 0.2)}\n      />\n      <m.path\n       d=\"M8 21.5L8 15.5M8 15.5L10 17.5M8 15.5L6 17.5\"\n       variants={arrowVariants(-1.5, 0)}\n      />\n     </m.svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nSortingUpIcon.displayName = \"SortingUpIcon\";\nexport { SortingUpIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

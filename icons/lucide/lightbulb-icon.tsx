@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface LightbulbIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,53 +51,55 @@ const LightbulbIcon = forwardRef<LightbulbIconHandle, LightbulbIconProps>(
   },
   ref,
  ) => {
-  const glowControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   glowControls.start("on");
-  }, [glowControls, reduced]);
-
-  const stop = useCallback(() => {
-   glowControls.start("rest");
-  }, [glowControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const glowVariants: Variants = {
-   rest: { opacity: 1, scale: 1 },
-   on: {
-    opacity: [0.35, 1, 0.55, 1, 0.85, 1],
-    scale: [0.94, 1.08, 1, 1.04, 1, 1],
+  const bulbVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.08, 0.97, 1],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.18, 0.32, 0.5, 0.7, 1],
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const glowVariants: Variants = {
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.35, 1, 0.6, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
     },
    },
   };
@@ -112,27 +113,27 @@ const LightbulbIcon = forwardRef<LightbulbIconHandle, LightbulbIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
-       animate={glowControls}
-       initial="rest"
-       variants={glowVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
+       variants={bulbVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "9px" }}
       />
-      <path d="M9 18h6" />
+      <m.path d="M9 18h6" variants={glowVariants} />
       <path d="M10 22h4" />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

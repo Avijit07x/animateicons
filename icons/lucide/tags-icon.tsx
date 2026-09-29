@@ -74,41 +74,19 @@ const TagsIcon = forwardRef<TagsIconHandle, TagsIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
+  const swingVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -12, 9, -4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -133,25 +111,14 @@ const TagsIcon = forwardRef<TagsIconHandle, TagsIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.circle
-       cx="10.5"
-       cy="6.5"
-       r=".5"
-       fill="currentColor"
-       custom={0}
-       variants={popVariants}
+      <m.g
+       variants={swingVariants}
        style={{ transformBox: "view-box", originX: "10.5px", originY: "6.5px" }}
-      />
+      >
+       <path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z" />
+       <circle cx="10.5" cy="6.5" r=".5" fill="currentColor" />
+      </m.g>
+      <path d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193" />
      </m.svg>
     </m.div>
    </LazyMotion>

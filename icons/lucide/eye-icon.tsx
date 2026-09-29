@@ -51,74 +51,56 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
   },
   ref,
  ) => {
-  const eyeControls = useAnimation();
-  const pupilControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      eyeControls.start("open");
-      pupilControls.start("center");
-     } else {
-      eyeControls.start("blink");
-      pupilControls.start("scan");
-     }
-    },
-    stopAnimation: () => {
-     eyeControls.start("open");
-     pupilControls.start("center");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     eyeControls.start("blink");
-     pupilControls.start("scan");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [eyeControls, pupilControls, onMouseEnter, reduced, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     eyeControls.start("open");
-     pupilControls.start("center");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [eyeControls, pupilControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const eyeVariants: Variants = {
-   open: { scaleY: 1 },
-   blink: {
-    scaleY: [1, 0.1, 1],
+  const blinkVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1, 0.2, 1],
     transition: {
-     duration: 0.25 * duration,
-     repeatDelay: 2.4,
+     duration: 0.9 * duration,
      ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
     },
    },
   };
 
   const pupilVariants: Variants = {
-   center: { x: 0 },
-   scan: {
-    x: [-2, 2, -1, 1, 0],
+   normal: { x: 0 },
+   animate: {
+    x: [0, -2.5, 2.5, 0],
     transition: {
-     duration: 1.6 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
    },
   };
@@ -132,36 +114,27 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-       animate={eyeControls}
-       initial="open"
-       variants={eyeVariants}
-       style={{
-        transformBox: "fill-box",
-        transformOrigin: "center",
-       }}
-      />
-      <m.circle
-       cx="12"
-       cy="12"
-       r="3"
-       animate={pupilControls}
-       initial="center"
-       variants={pupilVariants}
-      />
-     </svg>
+      <m.g
+       variants={blinkVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+       <m.circle cx="12" cy="12" r="3" variants={pupilVariants} />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

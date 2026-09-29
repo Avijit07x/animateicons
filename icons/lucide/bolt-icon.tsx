@@ -81,29 +81,22 @@ const BoltIcon = forwardRef<BoltIconHandle, BoltIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const nutVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: [1, 1.08, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
+    rotate: [0, 30, 0],
+    transition: {
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
-  const pathVariants: Variants = {
-   normal: { pathLength: 1 },
+  const coreVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 1.3 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const circleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.3, 0.9, 1],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 1.1 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 0.85, 1],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,13 +121,19 @@ const BoltIcon = forwardRef<BoltIconHandle, BoltIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.path
        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-       variants={pathVariants}
+       variants={nutVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.circle cx="12" cy="12" r="4" variants={circleVariants} />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="4"
+       variants={coreVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

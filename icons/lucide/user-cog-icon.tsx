@@ -81,31 +81,23 @@ const UserCogIcon = forwardRef<UserCogIconHandle, UserCogIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const cogCircleVariants: Variants = {
-   normal: { rotate: 0, scale: 1, opacity: 1 },
+  const cogVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    rotate: 360,
-    scale: [0.8, 1.1, 1],
-    opacity: 1,
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    rotate: [0, 360],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,35 +120,25 @@ const UserCogIcon = forwardRef<UserCogIconHandle, UserCogIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-cog-icon lucide-user-cog"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M10 15H6a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="9"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.g variants={cogCircleVariants} initial="normal" animate={controls}>
-       <m.circle cx="18" cy="15" r="3" />
-       <m.path d="m14.305 16.53.923-.382" />
-       <m.path d="m15.228 13.852-.923-.383" />
-       <m.path d="m16.852 12.228-.383-.923" />
-       <m.path d="m16.852 17.772-.383.924" />
-       <m.path d="m19.148 12.228.383-.923" />
-       <m.path d="m19.53 18.696-.382-.924" />
-       <m.path d="m20.772 13.852.924-.383" />
-       <m.path d="m20.772 16.148.924.383" />
+      <path d="M10 15H6a4 4 0 0 0-4 4v2" />
+      <m.g
+       variants={cogVariants}
+       style={{ transformBox: "view-box", originX: "18px", originY: "15px" }}
+      >
+       <path d="m14.305 16.53.923-.382" />
+       <path d="m15.228 13.852-.923-.383" />
+       <path d="m16.852 12.228-.383-.923" />
+       <path d="m16.852 17.772-.383.924" />
+       <path d="m19.148 12.228.383-.923" />
+       <path d="m19.53 18.696-.382-.924" />
+       <path d="m20.772 13.852.924-.383" />
+       <path d="m20.772 16.148.924.383" />
+       <circle cx="18" cy="15" r="3" />
       </m.g>
+      <m.circle cx="9" cy="7" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

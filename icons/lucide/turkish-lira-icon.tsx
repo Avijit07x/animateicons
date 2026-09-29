@@ -81,51 +81,27 @@ const TurkishLiraIcon = forwardRef<TurkishLiraIconHandle, TurkishLiraIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const topVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const topSlash: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    y: [0, -1.5, 0.6, 0],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.06,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const midSlash: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const midVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    y: [0, -1.2, 0.6, 0],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.16,
-    },
-   },
-  };
-
-  const mainStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.26,
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.08 * duration,
     },
    },
   };
@@ -151,36 +127,10 @@ const TurkishLiraIcon = forwardRef<TurkishLiraIconHandle, TurkishLiraIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-turkish-lira-icon lucide-turkish-lira"
      >
-      <g opacity={0.35}>
-       <path d="M15 4 5 9" />
-       <path d="m15 8.5-10 5" />
-       <path d="M18 12a9 9 0 0 1-9 9V3" />
-      </g>
-
-      <m.path
-       d="M15 4 5 9"
-       pathLength={1}
-       variants={topSlash}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m15 8.5-10 5"
-       pathLength={1}
-       variants={midSlash}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M18 12a9 9 0 0 1-9 9V3"
-       pathLength={1}
-       variants={mainStroke}
-       initial="normal"
-       animate={controls}
-      />
+      <m.path d="M15 4 5 9" variants={topVariants} />
+      <m.path d="m15 8.5-10 5" variants={midVariants} />
+      <path d="M18 12a9 9 0 0 1-9 9V3" />
      </m.svg>
     </m.div>
    </LazyMotion>

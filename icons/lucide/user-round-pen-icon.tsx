@@ -84,36 +84,27 @@ const UserRoundPenIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [60, 0],
-    opacity: [0.3, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.7 * duration,
-     delay: 0.2,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.6, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
-   },
-  };
-
   const penVariants: Variants = {
-   normal: { rotate: 0, x: 0, y: 0, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    rotate: [-8, 8, -4, 0],
-    x: [6, -2, 2, 0],
-    y: [0, -2, 0, 0],
-    opacity: [0.6, 1, 1, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    rotate: [0, 10, -6, 3, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.05 * duration,
+    },
    },
   };
 
@@ -136,30 +127,20 @@ const UserRoundPenIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-pen-icon lucide-user-round-pen"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M2 21a8 8 0 0 1 10.821-7.487"
-       strokeDasharray="60"
-       strokeDashoffset="60"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M2 21a8 8 0 0 1 10.821-7.487" />
       <m.path
        d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
        variants={penVariants}
-       initial="normal"
-       animate={controls}
+       style={{
+        transformBox: "view-box",
+        originX: "13.5px",
+        originY: "21.5px",
+       }}
       />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

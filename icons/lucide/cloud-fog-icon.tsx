@@ -74,37 +74,44 @@ const CloudFogIcon = forwardRef<CloudFogIconHandle, CloudFogIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cloudVariants: Variants = {
-   normal: { x: 0 },
+   normal: { scale: 1 },
    animate: {
-    x: [0, 1, -1, 0],
-    transition: { duration: 1.4 * duration, ease: "easeInOut" },
+    scale: [1, 1.05, 0.98, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const fogVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: (i: number) => ({
-    x: [0, 3, -3, 0],
-    opacity: [0.4, 1, 0.7, 1],
+  const fogVariants = (delay: number, length: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [-length, 0],
+    opacity: [0, 1],
     transition: {
-     delay: i * 0.15 * duration,
-     duration: 1.4 * duration,
-     ease: "easeInOut",
-     times: [0, 0.33, 0.66, 1],
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -131,9 +138,20 @@ const CloudFogIcon = forwardRef<CloudFogIconHandle, CloudFogIconProps>(
       <m.path
        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
        variants={cloudVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
       />
-      <m.path d="M16 17H7" custom={0} variants={fogVariants} />
-      <m.path d="M17 21H9" custom={1} variants={fogVariants} />
+      <m.path
+       d="M16 17H7"
+       strokeDasharray="10"
+       strokeDashoffset="0"
+       variants={fogVariants(0.15, 10)}
+      />
+      <m.path
+       d="M17 21H9"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={fogVariants(0.3, 9)}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

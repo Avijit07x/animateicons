@@ -74,27 +74,36 @@ const TentIcon = forwardRef<TentIconHandle, TentIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const poleVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1.05, 0.98, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+
+  const doorVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -2.5, 0.6, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
+     times: [0, 0.4, 0.75, 1],
+    },
+   },
   };
 
   return (
@@ -119,10 +128,15 @@ const TentIcon = forwardRef<TentIconHandle, TentIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M2 21h20" custom={0} variants={bodyVariants} />
-      <m.path d="M3.5 21 14 3" custom={1} variants={bodyVariants} />
-      <m.path d="M20.5 21 10 3" custom={1} variants={bodyVariants} />
-      <m.path d="M15.5 21 12 15l-3.5 6" custom={2} variants={bodyVariants} />
+      <m.g
+       variants={poleVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      >
+       <path d="M3.5 21 14 3" />
+       <path d="M20.5 21 10 3" />
+      </m.g>
+      <m.path d="M15.5 21 12 15l-3.5 6" variants={doorVariants} />
+      <path d="M2 21h20" />
      </m.svg>
     </m.div>
    </LazyMotion>

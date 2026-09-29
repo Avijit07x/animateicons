@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-
+import type { Variants } from "motion/react";
 import {
  LazyMotion,
  domMin,
@@ -77,15 +77,20 @@ const LoaderCircleIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
+
+  const spinVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 360],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+   },
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -108,19 +113,12 @@ const LoaderCircleIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={{
-       normal: { rotate: 0 },
-       animate: {
-        rotate: 360,
-        transition: {
-         duration: 1 * duration,
-         ease: "linear",
-         repeat: Infinity,
-        },
-       },
-      }}
      >
-      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+      <m.path
+       d="M21 12a9 9 0 1 1-6.219-8.56"
+       variants={spinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

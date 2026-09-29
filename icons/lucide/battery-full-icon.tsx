@@ -81,41 +81,26 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const levelVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
    animate: {
-    rotate: [0, -2, 2, 0],
-    scale: [1, 1.05, 0.95, 1],
+    scaleY: [1, 0.35, 1],
     transition: {
-     duration: 1.5 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
+  });
 
-  const barVariants: Variants = {
-   normal: { opacity: 1, scaleY: 1 },
-   animate: (i: number) => ({
-    opacity: [0.4, 1, 0.8],
-    scaleY: [0.6, 1, 0.8],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-     delay: i * 0.25,
-    },
-   }),
-  };
-
-  const rectVariants: Variants = {
-   normal: { opacity: 1 },
+  const nubVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    opacity: [0.6, 1, 0.7, 1],
+    scaleY: [1, 1.6, 1],
     transition: {
-     duration: 1.2 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: 0.35 * duration,
     },
    },
   };
@@ -141,20 +126,28 @@ const BatteryFullIcon = forwardRef<BatteryFullIconHandle, BatteryFullIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.path d="M10 10v4" variants={barVariants} custom={0} />
-      <m.path d="M14 10v4" variants={barVariants} custom={1} />
-      <m.path d="M6 10v4" variants={barVariants} custom={2} />
-      <m.rect
-       x="2"
-       y="6"
-       width="16"
-       height="12"
-       rx="2"
-       variants={rectVariants}
+      <m.path
+       d="M6 10v4"
+       variants={levelVariants(0)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
       />
-      <m.path d="M22 14v-4" variants={rectVariants} />
+      <m.path
+       d="M10 10v4"
+       variants={levelVariants(0.12)}
+       style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
+      />
+      <m.path
+       d="M14 10v4"
+       variants={levelVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "14px", originY: "12px" }}
+      />
+      <m.path
+       d="M22 14v-4"
+       variants={nubVariants}
+       style={{ transformBox: "view-box", originX: "22px", originY: "12px" }}
+      />
+      <rect x="2" y="6" width="16" height="12" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

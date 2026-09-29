@@ -74,54 +74,37 @@ const MailXIcon = forwardRef<MailXIconHandle, MailXIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.04, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const flapVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, -0.8, -0.8, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
    },
   };
 
-  const xVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+  const popVariants = (turn: number, peak: number): Variants => ({
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, turn],
+    scale: [1, peak, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.22 + i * 0.09) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -144,24 +127,16 @@ const MailXIcon = forwardRef<MailXIconHandle, MailXIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
       <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9" />
       <m.path
        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
        variants={flapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
       <m.path
-       d="m17 17 4 4"
-       custom={0}
-       variants={xVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
-      />
-      <m.path
-       d="m21 17-4 4"
-       custom={1}
-       variants={xVariants}
+       d="M17 17l4 4M21 17l-4 4"
+       variants={popVariants(90, 1.3)}
        style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
      </m.svg>

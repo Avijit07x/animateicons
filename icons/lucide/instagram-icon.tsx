@@ -81,64 +81,26 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
+  const lensVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: 0,
+    scale: [1, 1.15, 0.93, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const flashVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.8, 1],
     transition: {
      duration: 0.4 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const frameVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0.2, 1],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.55 * duration,
      ease: "easeInOut",
-    },
-   },
-  };
-
-  const lensVariants: Variants = {
-   normal: {
-    scale: 1,
-    pathLength: 1,
-   },
-   animate: {
-    scale: [0.85, 1.05, 1],
-    pathLength: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: 0.1 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
-   animate: {
-    scale: [1, 1.5, 1],
-    opacity: [1, 0.4, 1],
-    transition: {
-     duration: 0.35 * duration,
      delay: 0.2 * duration,
-     ease: "easeInOut",
     },
    },
   };
@@ -164,22 +126,21 @@ const InstagramIcon = forwardRef<InstagramIconHandle, InstagramIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.rect
-       width="20"
-       height="20"
-       x="2"
-       y="2"
-       rx="5"
-       ry="5"
-       variants={frameVariants}
-      />
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <m.path
        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
        variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.line x1="17.5" x2="17.51" y1="6.5" y2="6.5" variants={dotVariants} />
+      <m.line
+       x1="17.5"
+       x2="17.51"
+       y1="6.5"
+       y2="6.5"
+       variants={flashVariants}
+       style={{ transformBox: "view-box", originX: "17.5px", originY: "6.5px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

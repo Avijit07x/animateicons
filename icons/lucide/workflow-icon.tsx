@@ -81,28 +81,31 @@ const WorkflowIcon = forwardRef<WorkflowIconHandle, WorkflowIconProps>(
    [controls, onMouseLeave],
   );
 
-  const boxVariants: Variants = {
+  const nodeVariants = (delay: number): Variants => ({
    normal: { scale: 1 },
-   animate: (i: number) => ({
-    scale: [1, 0.75, 1.1, 1],
+   animate: {
+    scale: [1, 1.14, 0.96, 1],
     transition: {
      duration: 0.4 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-     delay: i * 0.4 * duration,
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   const linkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [13, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
+     strokeDashoffset: {
+      duration: 0.35 * duration,
+      ease: "easeInOut",
+      delay: 0.2 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
     },
    },
   };
@@ -135,19 +138,22 @@ const WorkflowIcon = forwardRef<WorkflowIconHandle, WorkflowIconProps>(
        x="3"
        y="3"
        rx="2"
-       variants={boxVariants}
-       custom={0}
+       variants={nodeVariants(0)}
        style={{ transformBox: "view-box", originX: "7px", originY: "7px" }}
       />
-      <m.path d="M7 11v4a2 2 0 0 0 2 2h4" variants={linkVariants} />
+      <m.path
+       d="M7 11v4a2 2 0 0 0 2 2h4"
+       strokeDasharray="13"
+       strokeDashoffset="0"
+       variants={linkVariants}
+      />
       <m.rect
        width="8"
        height="8"
        x="13"
        y="13"
        rx="2"
-       variants={boxVariants}
-       custom={1}
+       variants={nodeVariants(0.5)}
        style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
       />
      </m.svg>

@@ -90,7 +90,7 @@ const BaggageClaimIcon = forwardRef<
     scale: [1, 1.03, 1],
     transition: {
      duration: 0.6 * duration,
-     ease: [0.22, 1, 0.36, 1],
+     ease: "easeInOut",
     },
    },
   };
@@ -124,7 +124,7 @@ const BaggageClaimIcon = forwardRef<
     rotate: [0, 360],
     transition: {
      duration: 0.6 * duration,
-     ease: "linear",
+     ease: "easeInOut",
     },
    },
   };

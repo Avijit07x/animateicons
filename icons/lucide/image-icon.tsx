@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface ImageIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,65 +51,57 @@ const ImageIcon = forwardRef<ImageIconHandle, ImageIconProps>(
   },
   ref,
  ) => {
-  const peakControls = useAnimation();
-  const sunControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   peakControls.start("draw");
-   sunControls.start("draw");
-  }, [peakControls, sunControls, reduced]);
-
-  const stop = useCallback(() => {
-   peakControls.start("rest");
-   sunControls.start("rest");
-  }, [peakControls, sunControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const peakVariants: Variants = {
-   rest: { pathLength: 1, opacity: 1 },
-   draw: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.9 * duration, ease: [0.16, 1, 0.3, 1] },
+  const sunVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.35, 0.9, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const sunVariants: Variants = {
-   rest: { scale: 1, opacity: 1 },
-   draw: {
-    scale: [0, 1.25, 1],
-    opacity: [0, 1, 1],
+  const hillVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1.15, 0.97, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     delay: 0.3 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.08 * duration,
     },
    },
   };
@@ -124,35 +115,33 @@ const ImageIcon = forwardRef<ImageIconHandle, ImageIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
       <m.circle
        cx="9"
        cy="9"
        r="2"
-       animate={sunControls}
-       initial="rest"
        variants={sunVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "9px", originY: "9px" }}
       />
       <m.path
        d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
-       animate={peakControls}
-       initial="rest"
-       variants={peakVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       variants={hillVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

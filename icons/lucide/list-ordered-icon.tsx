@@ -74,41 +74,36 @@ const ListOrderedIcon = forwardRef<ListOrderedIconHandle, ListOrderedIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const wipeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.55, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+    },
+   },
+  });
+
+  const numberVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.25, 1],
     transition: {
      duration: 0.4 * duration,
-     delay: (0.06 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -134,28 +129,30 @@ const ListOrderedIcon = forwardRef<ListOrderedIconHandle, ListOrderedIconProps>(
      >
       <m.path
        d="M11 5h10"
-       custom={0}
-       variants={wipeVariants}
+       variants={rowVariants(0.05)}
        style={{ transformBox: "view-box", originX: "11px", originY: "5px" }}
       />
       <m.path
        d="M11 12h10"
-       custom={1}
-       variants={wipeVariants}
+       variants={rowVariants(0.17)}
        style={{ transformBox: "view-box", originX: "11px", originY: "12px" }}
       />
       <m.path
        d="M11 19h10"
-       custom={2}
-       variants={wipeVariants}
+       variants={rowVariants(0.29)}
        style={{ transformBox: "view-box", originX: "11px", originY: "19px" }}
       />
-      <m.path d="M4 4h1v5" custom={0} variants={drawVariants} />
-      <m.path d="M4 9h2" custom={0} variants={drawVariants} />
+      <m.g
+       variants={numberVariants(0)}
+       style={{ transformBox: "view-box", originX: "4.5px", originY: "6.5px" }}
+      >
+       <path d="M4 4h1v5" />
+       <path d="M4 9h2" />
+      </m.g>
       <m.path
        d="M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02"
-       custom={1}
-       variants={drawVariants}
+       variants={numberVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "4.7px", originY: "17.5px" }}
       />
      </m.svg>
     </m.div>

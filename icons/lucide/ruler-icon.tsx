@@ -84,7 +84,7 @@ const RulerIcon = forwardRef<RulerIconHandle, RulerIconProps>(
   const rulerVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -8, 4, 0],
+    rotate: [0, -6, 4, 0],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
@@ -93,18 +93,17 @@ const RulerIcon = forwardRef<RulerIconHandle, RulerIconProps>(
    },
   };
 
-  const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const tickVariants = (delay: number): Variants => ({
+   normal: { strokeDashoffset: 0 },
+   animate: {
+    strokeDashoffset: [0, -1.5, 0],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: (0.1 + i * 0.1) * duration,
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,10 +132,30 @@ const RulerIcon = forwardRef<RulerIconHandle, RulerIconProps>(
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
        <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
-       <m.path d="m14.5 12.5 2-2" variants={tickVariants} custom={2} />
-       <m.path d="m11.5 9.5 2-2" variants={tickVariants} custom={1} />
-       <m.path d="m8.5 6.5 2-2" variants={tickVariants} custom={0} />
-       <m.path d="m17.5 15.5 2-2" variants={tickVariants} custom={3} />
+       <m.path
+        d="m8.5 6.5 2-2"
+        strokeDasharray="3"
+        strokeDashoffset="0"
+        variants={tickVariants(0.1)}
+       />
+       <m.path
+        d="m11.5 9.5 2-2"
+        strokeDasharray="3"
+        strokeDashoffset="0"
+        variants={tickVariants(0.2)}
+       />
+       <m.path
+        d="m14.5 12.5 2-2"
+        strokeDasharray="3"
+        strokeDashoffset="0"
+        variants={tickVariants(0.3)}
+       />
+       <m.path
+        d="m17.5 15.5 2-2"
+        strokeDasharray="3"
+        strokeDashoffset="0"
+        variants={tickVariants(0.4)}
+       />
       </m.g>
      </m.svg>
     </m.div>

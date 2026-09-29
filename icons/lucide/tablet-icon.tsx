@@ -74,41 +74,32 @@ const TabletIcon = forwardRef<TabletIconHandle, TabletIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const screenVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const tabletVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: [0.9, 1.02, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.65, 1],
-     ease: [0.34, 1.3, 0.64, 1],
-    },
+    rotate: [0, -4, 3, -1, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+  const buttonVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 0.5, 1.6, 1],
     transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
+     times: [0, 0.3, 0.65, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -133,25 +124,20 @@ const TabletIcon = forwardRef<TabletIconHandle, TabletIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       width="16"
-       height="20"
-       x="4"
-       y="2"
-       rx="2"
-       ry="2"
-       variants={screenVariants}
+      <m.g
+       variants={tabletVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.line
-       x1="12"
-       y1="18"
-       x2="12.01"
-       y2="18"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
-      />
+      >
+       <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+       <m.line
+        x1="12"
+        x2="12.01"
+        y1="18"
+        y2="18"
+        variants={buttonVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

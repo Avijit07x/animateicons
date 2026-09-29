@@ -40,13 +40,13 @@ interface LayoutListIconProps extends Omit<
 const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
  (
   {
+   onMouseEnter,
+   onMouseLeave,
    className,
    size = 24,
    duration = 1,
    isAnimated = true,
    color,
-   onMouseEnter,
-   onMouseLeave,
    ...props
   },
   ref,
@@ -74,7 +74,7 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
     else onMouseLeave?.(e as any);
    },
@@ -82,14 +82,14 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
   );
 
   const boxVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: (i: number) => ({
-    scale: [0.85, 1.05, 1],
-    opacity: [0.6, 1],
+    scale: [1, 0.86, 1.06, 1],
     transition: {
-     duration: 0.35 * duration,
-     delay: i * 0.08,
-     ease: "easeOut",
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.08 * duration,
     },
    }),
   };
@@ -97,11 +97,11 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
   const lineVariants: Variants = {
    normal: { scaleX: 1 },
    animate: (i: number) => ({
-    scaleX: [0, 1],
+    scaleX: [1, 0.4, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: 0.15 + i * 0.07,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: (0.12 + i * 0.07) * duration,
     },
    }),
   };
@@ -136,6 +136,7 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
        rx="1"
        variants={boxVariants}
        custom={0}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
       <m.rect
        width="7"
@@ -145,30 +146,31 @@ const LayoutListIcon = forwardRef<LayoutListIconHandle, LayoutListIconProps>(
        rx="1"
        variants={boxVariants}
        custom={1}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
       <m.path
        d="M14 4h7"
        variants={lineVariants}
        custom={0}
-       style={{ transformOrigin: "left" }}
+       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
       />
       <m.path
        d="M14 9h7"
        variants={lineVariants}
        custom={1}
-       style={{ transformOrigin: "left" }}
+       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
       />
       <m.path
        d="M14 15h7"
        variants={lineVariants}
        custom={2}
-       style={{ transformOrigin: "left" }}
+       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
       />
       <m.path
        d="M14 20h7"
        variants={lineVariants}
        custom={3}
-       style={{ transformOrigin: "left" }}
+       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
       />
      </m.svg>
     </m.div>

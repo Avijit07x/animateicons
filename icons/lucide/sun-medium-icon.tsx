@@ -74,40 +74,36 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const coreVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.6, 1.1, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 0.86, 1.08, 1],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
    },
   };
 
-  const rayVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1],
-    opacity: [0, 1],
+  const raysVariants: Variants = {
+   normal: { rotate: 0, scale: 1 },
+   animate: {
+    rotate: [0, 14, -6, 0],
+    scale: [1, 1.14, 0.96, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: (0.35 + i * 0.05) * duration,
-     ease: [0.34, 1.3, 0.64, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -139,54 +135,19 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
        variants={coreVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M12 3v1"
-       custom={0}
-       variants={rayVariants}
+      <m.g
+       variants={raysVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="m18.364 5.636-.707.707"
-       custom={1}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M20 12h1"
-       custom={2}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="m17.657 17.657.707.707"
-       custom={3}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M12 20v1"
-       custom={4}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="m6.343 17.657-.707.707"
-       custom={5}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M3 12h1"
-       custom={6}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="m5.636 5.636.707.707"
-       custom={7}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      >
+       <path d="M12 3v1" />
+       <path d="M12 20v1" />
+       <path d="M3 12h1" />
+       <path d="M20 12h1" />
+       <path d="m18.364 5.636-.707.707" />
+       <path d="m6.343 17.657-.707.707" />
+       <path d="m5.636 5.636.707.707" />
+       <path d="m17.657 17.657.707.707" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

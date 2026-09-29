@@ -95,7 +95,7 @@ const ThermometerSunIcon = forwardRef<
     transition: {
      duration: 0.3 * duration,
      delay: (0.35 + i * 0.05) * duration,
-     ease: [0.34, 1.3, 0.64, 1],
+     ease: "easeOut",
     },
    }),
   };
@@ -105,7 +105,7 @@ const ThermometerSunIcon = forwardRef<
    animate: {
     scaleY: [0, 1],
     opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: [0.34, 1.25, 0.64, 1] },
+    transition: { duration: 0.6 * duration, ease: "easeOut" },
    },
   };
 

@@ -81,21 +81,28 @@ const HeadphonesIcon = forwardRef<HeadphonesIconHandle, HeadphonesIconProps>(
    [controls, onMouseLeave],
   );
 
-  const headphonesVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const cupVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, -3, 3, -2, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 1.16, 0.95, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const earcupVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const bandVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    scale: [1, 1.2, 0.9, 1],
-    opacity: [1, 0.7, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut", repeat: 0 },
+    scaleY: [1, 1.09, 0.98, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
+    },
    },
   };
 
@@ -120,14 +127,25 @@ const HeadphonesIcon = forwardRef<HeadphonesIconHandle, HeadphonesIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={headphonesVariants}
      >
       <m.path
-       d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 
-	            2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 
-	            2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 
-	            2 0 0 1 2-2h3"
-       variants={earcupVariants}
+       d="M3 14H6A2 2 0 0 1 8 16V19A2 2 0 0 1 6 21H5A2 2 0 0 1 3 19V12"
+       variants={cupVariants}
+       style={{ transformBox: "view-box", originX: "5.5px", originY: "16.5px" }}
+      />
+      <m.path
+       d="M3 12A9 9 0 0 1 21 12"
+       variants={bandVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M21 12V19A2 2 0 0 1 19 21H18A2 2 0 0 1 16 19V16A2 2 0 0 1 18 14H21"
+       variants={cupVariants}
+       style={{
+        transformBox: "view-box",
+        originX: "18.5px",
+        originY: "16.5px",
+       }}
       />
      </m.svg>
     </m.div>

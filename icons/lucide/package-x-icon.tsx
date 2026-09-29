@@ -74,41 +74,36 @@ const PackageXIcon = forwardRef<PackageXIconHandle, PackageXIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const boxVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
   const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.25, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -133,28 +128,19 @@ const PackageXIcon = forwardRef<PackageXIconHandle, PackageXIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.polyline
-       points="3.29 7 12 12 20.71 7"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="m7.5 4.27 9 5.15" custom={2} variants={bodyVariants} />
-      <m.path d="M12 22V12" custom={2} variants={bodyVariants} />
-      <m.path
-       d="m17 13 5 5m-5 0 5-5"
-       custom={0}
+      <m.g variants={boxVariants}>
+       <path d="M12 22V12" />
+       <path d="M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.13-.074" />
+       <path d="M3.29 7 12 12l8.71-5" />
+       <path d="m7.5 4.27 8.997 5.148" />
+      </m.g>
+      <m.g
        variants={popVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "19.5px",
-        originY: "15.5px",
-       }}
-      />
+       style={{ transformBox: "view-box", originX: "19px", originY: "17px" }}
+      >
+       <path d="m16.5 14.5 5 5" />
+       <path d="m16.5 19.5 5-5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

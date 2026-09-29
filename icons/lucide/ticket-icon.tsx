@@ -74,41 +74,32 @@ const TicketIcon = forwardRef<TicketIconHandle, TicketIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const ticketVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -5, 4, -2, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
   };
 
-  const perfVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const perfVariants = (i: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.3, 1],
     transition: {
-     duration: 0.25 * duration,
-     delay: (0.5 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: (0.1 + i * 0.08) * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -132,14 +123,27 @@ const TicketIcon = forwardRef<TicketIconHandle, TicketIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M13 5v2" custom={0} variants={perfVariants} />
-      <m.path d="M13 11v2" custom={1} variants={perfVariants} />
-      <m.path d="M13 17v2" custom={2} variants={perfVariants} />
+      <m.g
+       variants={ticketVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+       <m.path
+        d="M13 5v2"
+        variants={perfVariants(0)}
+        style={{ transformBox: "view-box", originX: "13px", originY: "6px" }}
+       />
+       <m.path
+        d="M13 11v2"
+        variants={perfVariants(1)}
+        style={{ transformBox: "view-box", originX: "13px", originY: "12px" }}
+       />
+       <m.path
+        d="M13 17v2"
+        variants={perfVariants(2)}
+        style={{ transformBox: "view-box", originX: "13px", originY: "18px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

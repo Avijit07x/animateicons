@@ -74,37 +74,44 @@ const CloudRainIcon = forwardRef<CloudRainIconHandle, CloudRainIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cloudVariants: Variants = {
-   normal: { x: 0, y: 0 },
+   normal: { x: 0 },
    animate: {
-    x: [0, 1, -1, 0],
-    transition: { duration: 1.4 * duration, ease: "easeInOut" },
+    x: [0, 1, -0.5, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const dropVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
-   animate: (i: number) => ({
-    y: [-5, 0],
-    opacity: [0, 1, 1],
+  const dropVariants = (delay: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [7, 0],
+    opacity: [0, 1],
     transition: {
-     delay: i * 0.12 * duration,
-     duration: 0.55 * duration,
-     ease: "easeOut",
-     times: [0, 0.55, 1],
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -132,9 +139,24 @@ const CloudRainIcon = forwardRef<CloudRainIconHandle, CloudRainIconProps>(
        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
        variants={cloudVariants}
       />
-      <m.path d="M8 14v6" custom={0} variants={dropVariants} />
-      <m.path d="M12 16v6" custom={1} variants={dropVariants} />
-      <m.path d="M16 14v6" custom={2} variants={dropVariants} />
+      <m.path
+       d="M16 14v6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={dropVariants(0.2)}
+      />
+      <m.path
+       d="M8 14v6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={dropVariants(0)}
+      />
+      <m.path
+       d="M12 16v6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={dropVariants(0.1)}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

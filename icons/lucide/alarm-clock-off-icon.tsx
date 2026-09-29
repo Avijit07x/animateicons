@@ -77,12 +77,9 @@ const AlarmClockOffIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
@@ -90,25 +87,20 @@ const AlarmClockOffIcon = forwardRef<
   const clockVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 5, -5, 3, -2, 0],
+    rotate: [0, -6, 6, -4, 0],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.2, 0.45, 0.68, 0.85, 1],
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: 0.1 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
+    strokeDashoffset: [0, 9, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -133,15 +125,23 @@ const AlarmClockOffIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={clockVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M6.87 6.87a8 8 0 1 0 11.26 11.26" />
-      <path d="M19.9 14.25a8 8 0 0 0-9.15-9.15" />
-      <path d="m22 6-3-3" />
-      <path d="M6.26 18.67 4 21" />
-      <path d="M4 4 2 6" />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
+      <m.g
+       variants={clockVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+      >
+       <path d="M6.87 6.87A8 8 0 1 0 18.13 18.13" />
+       <path d="M19.9 14.25A8 8 0 0 0 10.75 5.1" />
+       <path d="m22 6-3-3" />
+       <path d="M6.26 18.67 4 21" />
+       <path d="M4 4 2 6" />
+      </m.g>
+      <m.path
+       d="m2 2 20 20"
+       strokeDasharray="29"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

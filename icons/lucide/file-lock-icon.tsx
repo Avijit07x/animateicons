@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileLockIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,48 +75,32 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
   const shackleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -2, 0.5, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.2 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
-
   const bodyVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    y: [0, 0, 0.6, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.34 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -142,11 +127,8 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
+      <path d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
       <m.path d="M9 17v-2a2 2 0 0 0-4 0v2" variants={shackleVariants} />
       <m.rect
        width="8"
@@ -155,7 +137,6 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
        y="17"
        rx="1"
        variants={bodyVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "19.5px" }}
       />
      </m.svg>
     </m.div>

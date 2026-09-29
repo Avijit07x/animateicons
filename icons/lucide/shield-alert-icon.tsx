@@ -81,37 +81,23 @@ const ShieldAlertIcon = forwardRef<ShieldAlertIconHandle, ShieldAlertIconProps>(
    [controls, onMouseLeave],
   );
 
-  const alertVariants: Variants = {
+  const pulseVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.06, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const markVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -8, 8, -5, 5, 0],
+    rotate: [0, -14, 10, -5, 0],
     transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.45 * duration,
-    },
    },
   };
 
@@ -137,17 +123,17 @@ const ShieldAlertIcon = forwardRef<ShieldAlertIconHandle, ShieldAlertIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.path
+       d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+       variants={pulseVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.g
-       variants={alertVariants}
+       variants={markVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-       <m.path d="M12 8v4" variants={barVariants} />
-       <m.path
-        d="M12 16h.01"
-        variants={dotVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
-       />
+       <path d="M12 8v4" />
+       <path d="M12 16h.01" />
       </m.g>
      </m.svg>
     </m.div>

@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface CatIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,70 +51,52 @@ const CatIcon = forwardRef<CatIconHandle, CatIconProps>(
   },
   ref,
  ) => {
-  const headControls = useAnimation();
-  const eyeControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   headControls.start("idle");
-   eyeControls.start("blink");
-  }, [headControls, eyeControls, reduced]);
-
-  const stop = useCallback(() => {
-   headControls.start("rest");
-   eyeControls.start("open");
-  }, [headControls, eyeControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const headVariants: Variants = {
-   rest: { rotate: 0, y: 0 },
-   idle: {
-    rotate: [0, -10, -10, 0, 0],
-    y: [0, 0, -0.6, 0, 0],
-    transition: {
-     duration: 2.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.18, 0.5, 0.68, 1],
-     repeat: Infinity,
-    },
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -10, 8, -3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
   const eyeVariants: Variants = {
-   open: { scaleY: 1 },
-   blink: {
-    scaleY: [1, 1, 0.1, 1, 1],
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.1, 1],
     transition: {
-     duration: 2.6 * duration,
+     duration: 0.3 * duration,
      ease: "easeInOut",
-     times: [0, 0.34, 0.4, 0.46, 1],
-     repeat: Infinity,
+     delay: 0.25 * duration,
     },
    },
   };
@@ -126,44 +107,44 @@ const CatIcon = forwardRef<CatIconHandle, CatIconProps>(
      className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
-     animate={headControls}
-     initial="rest"
-     variants={headVariants}
      {...props}
-     style={{
-      color,
-      transformOrigin: "bottom center",
-      ...props.style,
-     }}
+     style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z" />
-      <m.path
-       d="M8 14v.5"
-       animate={eyeControls}
-       initial="open"
-       variants={eyeVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
-      />
-      <m.path
-       d="M16 14v.5"
-       animate={eyeControls}
-       initial="open"
-       variants={eyeVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
-      />
-      <path d="M11.25 16.25h1.5L12 17l-.75-.75Z" />
-     </svg>
+      <m.g
+       variants={headVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
+      >
+       <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z" />
+       <m.path
+        d="M8 14v.5"
+        variants={eyeVariants}
+        style={{ transformBox: "view-box", originX: "8px", originY: "14.25px" }}
+       />
+       <m.path
+        d="M16 14v.5"
+        variants={eyeVariants}
+        style={{
+         transformBox: "view-box",
+         originX: "16px",
+         originY: "14.25px",
+        }}
+       />
+       <path d="M11.25 16.25h1.5L12 17l-.75-.75Z" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

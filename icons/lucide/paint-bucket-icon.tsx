@@ -84,7 +84,7 @@ const PaintBucketIcon = forwardRef<PaintBucketIconHandle, PaintBucketIconProps>(
   const bucketVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 12, -4, 0],
+    rotate: [0, 10, -3, 0],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
@@ -94,16 +94,14 @@ const PaintBucketIcon = forwardRef<PaintBucketIconHandle, PaintBucketIconProps>(
   };
 
   const dropVariants: Variants = {
-   normal: { y: 0, opacity: 1, scale: 1 },
+   normal: { scale: 1 },
    animate: {
-    y: [-3, 0.5, 0],
-    opacity: [0, 1, 1],
-    scale: [0.6, 1.1, 1],
+    scale: [1, 1.2, 0.92, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.25 * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.2 * duration,
     },
    },
   };
@@ -132,7 +130,7 @@ const PaintBucketIcon = forwardRef<PaintBucketIconHandle, PaintBucketIconProps>(
      >
       <m.g
        variants={bucketVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "12px" }}
+       style={{ transformBox: "view-box", originX: "11px", originY: "11px" }}
       >
        <path d="M11 7 6 2" />
        <path d="M18.992 12H2.041" />

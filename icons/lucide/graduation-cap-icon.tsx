@@ -100,7 +100,7 @@ const GraduationCapIcon = forwardRef<
   const tasselVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 18, -5, 10, -2, 0],
+    rotate: [0, 18, -5, 10, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",

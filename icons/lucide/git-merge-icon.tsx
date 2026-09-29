@@ -44,7 +44,7 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -74,49 +74,34 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const sourceNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const dropVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
+    y: [0, 1.6, -0.4, 0],
     transition: {
-     duration: duration * 0.3,
-     ease,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const mergePath: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const slideVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
+    x: [0, -1.6, 0.4, 0],
     transition: {
-     duration: duration * 0.6,
-     ease,
-     delay: duration * 0.15,
-    },
-   },
-  };
-
-  const resultNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.6, 1.15, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease,
-     delay: duration * 0.65,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.12 * duration,
     },
    },
   };
@@ -130,7 +115,7 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -140,34 +125,13 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="6"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={sourceNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M6 21V9a9 9 0 0 0 9 11"
-       variants={mergePath}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={resultNode}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <m.circle cx="18" cy="18" r="3" variants={slideVariants} />
+      <m.circle cx="6" cy="6" r="3" variants={dropVariants} />
+      <path d="M6 21V9a9 9 0 0 0 9 9" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -175,5 +139,4 @@ const GitMergeIcon = forwardRef<GitMergeIconHandle, GitMergeIconProps>(
 );
 
 GitMergeIcon.displayName = "GitMergeIcon";
-
 export { GitMergeIcon };

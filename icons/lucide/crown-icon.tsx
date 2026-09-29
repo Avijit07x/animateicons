@@ -84,13 +84,18 @@ const CrownIcon = forwardRef<CrownIconHandle, CrownIconProps>(
   const crownVariants: Variants = {
    normal: { y: 0, rotate: 0, opacity: 1 },
    animate: {
-    y: [-5, 0.8, 0],
-    rotate: [-10, 4, 0],
-    opacity: [0, 1, 1],
+    y: [0, -5, 0.8, 0],
+    rotate: [0, -8, 4, 0],
+    opacity: [1, 0, 1, 1],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeOut",
-     times: [0, 0.65, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
+     opacity: {
+      duration: 0.8 * duration,
+      ease: "easeInOut",
+      times: [0, 0.3, 0.6, 1],
+     },
     },
    },
   };
@@ -98,11 +103,11 @@ const CrownIcon = forwardRef<CrownIconHandle, CrownIconProps>(
   const baseVariants: Variants = {
    normal: { scaleX: 1 },
    animate: {
-    scaleX: [1, 1, 0.8, 1.08, 1],
+    scaleX: [1, 1, 0.8, 1.06, 1],
     transition: {
-     duration: 0.7 * duration,
-     ease: "easeOut",
-     times: [0, 0.5, 0.65, 0.85, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.6, 0.72, 0.86, 1],
     },
    },
   };

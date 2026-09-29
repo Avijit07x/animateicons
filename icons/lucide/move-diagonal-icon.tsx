@@ -95,9 +95,9 @@ const MoveDiagonalIcon = forwardRef<
   const topRightVariants: Variants = {
    normal: { x: 0, y: 0, opacity: 1 },
    animate: {
-    x: [1, 3, 0],
-    y: [-1, -3, 0],
-    opacity: [1, 0.7, 1],
+    x: [0, 1, 3, 0],
+    y: [0, -1, -3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };
@@ -105,9 +105,9 @@ const MoveDiagonalIcon = forwardRef<
   const bottomLeftVariants: Variants = {
    normal: { x: 0, y: 0, opacity: 1 },
    animate: {
-    x: [-1, -3, 0],
-    y: [1, 3, 0],
-    opacity: [1, 0.7, 1],
+    x: [0, -1, -3, 0],
+    y: [0, 1, 3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };

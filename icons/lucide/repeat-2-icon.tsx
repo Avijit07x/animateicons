@@ -74,27 +74,35 @@ const Repeat2Icon = forwardRef<Repeat2IconHandle, Repeat2IconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const loopVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const upVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1.5, 0.45, 0],
     transition: {
-     delay: i * 0.1 * duration,
-     duration: 0.4 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+
+  const downVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.5, -0.45, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
   };
 
   return (
@@ -119,10 +127,14 @@ const Repeat2Icon = forwardRef<Repeat2IconHandle, Repeat2IconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M13 18H7a2 2 0 0 1-2-2V6" custom={0} variants={loopVariants} />
-      <m.path d="m2 9 3-3 3 3" custom={1} variants={loopVariants} />
-      <m.path d="M11 6h6a2 2 0 0 1 2 2v10" custom={2} variants={loopVariants} />
-      <m.path d="m22 15-3 3-3-3" custom={3} variants={loopVariants} />
+      <m.g variants={upVariants}>
+       <path d="m2 9 3-3 3 3" />
+       <path d="M13 18H7a2 2 0 0 1-2-2V6" />
+      </m.g>
+      <m.g variants={downVariants}>
+       <path d="m22 15-3 3-3-3" />
+       <path d="M11 6h6a2 2 0 0 1 2 2v10" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

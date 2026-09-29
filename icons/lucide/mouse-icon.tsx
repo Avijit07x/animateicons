@@ -74,39 +74,21 @@ const MouseIcon = forwardRef<MouseIconHandle, MouseIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
   const wheelVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [0, -2.5, 0],
-    opacity: [0, 1, 1],
+    y: [0, 3, -0.6, 0],
     transition: {
      duration: 0.6 * duration,
-     delay: 0.35 * duration,
-     times: [0, 0.5, 1],
      ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -133,15 +115,7 @@ const MouseIcon = forwardRef<MouseIconHandle, MouseIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       x="5"
-       y="2"
-       width="14"
-       height="20"
-       rx="7"
-       custom={0}
-       variants={bodyVariants}
-      />
+      <rect x="5" y="2" width="14" height="20" rx="7" />
       <m.path d="M12 6v4" variants={wheelVariants} />
      </m.svg>
     </m.div>

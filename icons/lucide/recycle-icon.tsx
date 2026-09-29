@@ -86,7 +86,7 @@ const RecycleIcon = forwardRef<RecycleIconHandle, RecycleIconProps>(
    animate: {
     rotate: [0, 360],
     scale: [1, 0.9, 1],
-    transition: { duration: duration, ease: "easeInOut" },
+    transition: { duration: 0.85 * duration, ease: "easeInOut" },
    },
   };
 

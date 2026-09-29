@@ -74,27 +74,23 @@ const HeadingIcon = forwardRef<HeadingIconHandle, HeadingIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const barVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -2.5, 0.8, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -119,9 +115,9 @@ const HeadingIcon = forwardRef<HeadingIconHandle, HeadingIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M6 20V4" custom={0} variants={drawVariants} />
-      <m.path d="M18 20V4" custom={1} variants={drawVariants} />
-      <m.path d="M6 12h12" custom={2} variants={drawVariants} />
+      <m.path d="M6 12h12" variants={barVariants} />
+      <path d="M6 20V4" />
+      <path d="M18 20V4" />
      </m.svg>
     </m.div>
    </LazyMotion>

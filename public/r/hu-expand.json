@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expand",
+  "type": "registry:ui",
+  "addGlobalCss": false,
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "files": [
+    {
+      "path": "expand-icon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport type { Variants } from \"motion/react\";\nimport {\n LazyMotion,\n domMin,\n m,\n useAnimation,\n useReducedMotion,\n} from \"motion/react\";\nimport {\n forwardRef,\n useCallback,\n useImperativeHandle,\n useRef,\n type HTMLAttributes,\n} from \"react\";\nexport interface ExpandIconHandle {\n startAnimation: () => void;\n stopAnimation: () => void;\n}\n\ninterface ExpandIconProps extends Omit<\n HTMLAttributes<HTMLDivElement>,\n | \"color\"\n | \"onDrag\"\n | \"onDragStart\"\n | \"onDragEnd\"\n | \"onAnimationStart\"\n | \"onAnimationEnd\"\n | \"onAnimationIteration\"\n> {\n size?: number;\n duration?: number;\n isAnimated?: boolean;\n color?: string;\n}\n\nconst ExpandIcon = forwardRef<ExpandIconHandle, ExpandIconProps>(\n (\n  {\n   onMouseEnter,\n   onMouseLeave,\n   className,\n   size = 24,\n   duration = 1,\n   isAnimated = true,\n   color,\n   ...props\n  },\n  ref,\n ) => {\n  const controls = useAnimation();\n  const reduced = useReducedMotion();\n  const isControlled = useRef(false);\n\n  useImperativeHandle(ref, () => {\n   isControlled.current = true;\n   return {\n    startAnimation: () =>\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\n    stopAnimation: () => controls.start(\"normal\"),\n   };\n  });\n\n  const handleEnter = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isAnimated || reduced) return;\n    if (!isControlled.current) controls.start(\"animate\");\n    else onMouseEnter?.(e as any);\n   },\n   [controls, reduced, isAnimated, onMouseEnter],\n  );\n\n  const handleLeave = useCallback(\n   (e?: React.MouseEvent<HTMLDivElement>) => {\n    if (!isControlled.current) controls.start(\"normal\");\n    else onMouseLeave?.(e as any);\n   },\n   [controls, onMouseLeave],\n  );\n\n  const firstVariants: Variants = {\n   normal: { x: 0, y: 0 },\n   animate: {\n    x: [0, 1.5, 0],\n    y: [0, -1.5, 0],\n    transition: { duration: 0.5 * duration, ease: \"easeInOut\" },\n   },\n  };\n\n  const secondVariants: Variants = {\n   normal: { x: 0, y: 0 },\n   animate: {\n    x: [0, -1.5, 0],\n    y: [0, 1.5, 0],\n    transition: { duration: 0.5 * duration, ease: \"easeInOut\" },\n   },\n  };\n\n  return (\n   <LazyMotion features={domMin} strict>\n    <m.div\n     className={cn(\"inline-flex items-center justify-center\", className)}\n     onMouseEnter={handleEnter}\n     onMouseLeave={handleLeave}\n     {...props}\n     style={{ color, ...props.style }}\n    >\n     <m.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      animate={controls}\n      initial=\"normal\"\n     >\n      <m.path\n       d=\"M19 12L19 8.99996C19 7.11435 18.9999 6.17155 18.4142 5.58577C17.8284 4.99999 16.8856 4.99999 15 5L12 5.00001\"\n       variants={firstVariants}\n      />\n      <m.path\n       d=\"M5 12L5.00003 15C5.00004 16.8856 5.00005 17.8284 5.58584 18.4142C6.17163 19 7.11443 19 9.00004 19L12 19\"\n       variants={secondVariants}\n      />\n     </m.svg>\n    </m.div>\n   </LazyMotion>\n  );\n },\n);\n\nExpandIcon.displayName = \"ExpandIcon\";\nexport { ExpandIcon };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

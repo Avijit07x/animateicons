@@ -74,56 +74,41 @@ const TimerResetIcon = forwardRef<TimerResetIconHandle, TimerResetIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const buttonVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.3 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const resetVariants: Variants = {
-   normal: { rotate: 0, pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    rotate: [-40, 0],
-    transition: {
-     pathLength: {
-      duration: 0.55 * duration,
-      delay: 0.15 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.2 * duration, delay: 0.15 * duration },
-     rotate: {
-      duration: 0.6 * duration,
-      delay: 0.15 * duration,
-      ease: [0.34, 1.4, 0.64, 1],
-     },
-    },
+    y: [0, 1.5, 0],
+    transition: { duration: 0.3 * duration, ease: "easeInOut" },
    },
   };
 
   const handVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    rotate: [0, -360],
     transition: {
-     duration: 0.3 * duration,
-     delay: 0.6 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
+    },
+   },
+  };
+
+  const arrowVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.2, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -150,22 +135,18 @@ const TimerResetIcon = forwardRef<TimerResetIconHandle, TimerResetIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M10 2h4"
-       variants={buttonVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "2px" }}
-      />
-      <m.path
-       d="M4 13a8 8 0 0 1 8-7 8 8 0 1 1-5.3 14L4 17.6"
-       variants={resetVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      <m.path d="M10 2h4" variants={buttonVariants} />
+      <path d="M4 13a8 8 0 0 1 8-7 8 8 0 1 1-5.3 14L4 17.6" />
       <m.path
        d="M9 17H4v5"
-       variants={resetVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       variants={arrowVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "17px" }}
       />
-      <m.path d="M12 14v-4" variants={handVariants} />
+      <m.path
+       d="M12 14v-4"
+       variants={handVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "14px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

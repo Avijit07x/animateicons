@@ -84,21 +84,8 @@ const StickyNoteIcon = forwardRef<StickyNoteIconHandle, StickyNoteIconProps>(
   const noteVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -6, 4, -2, 0],
+    rotate: [0, -4, 3, -1.5, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const foldVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.2 * duration,
-    },
    },
   };
 
@@ -129,7 +116,7 @@ const StickyNoteIcon = forwardRef<StickyNoteIconHandle, StickyNoteIconProps>(
        style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
       >
        <path d="M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" />
-       <m.path d="M15 3v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
+       <path d="M15 3v5a1 1 0 0 0 1 1h5" />
       </m.g>
      </m.svg>
     </m.div>

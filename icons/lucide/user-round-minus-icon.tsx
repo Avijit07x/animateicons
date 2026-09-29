@@ -84,38 +84,24 @@ const UserRoundMinusIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.7 * duration,
-     delay: 0.2,
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const minusVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    strokeDashoffset: [20, 0],
-    opacity: [0.4, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.6,
-    },
+    rotate: [0, 180],
+    scale: [1, 0.75, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -138,31 +124,15 @@ const UserRoundMinusIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-minus-icon lucide-user-round-minus"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M2 21a8 8 0 0 1 13.292-6"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M2 21a8 8 0 0 1 13.292-6" />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
       <m.path
        d="M22 19h-6"
-       strokeDasharray="20"
-       strokeDashoffset="0"
        variants={minusVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
      </m.svg>
     </m.div>

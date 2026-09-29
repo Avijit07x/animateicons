@@ -81,60 +81,14 @@ const KeyIcon = forwardRef<KeyIconHandle, KeyIconProps>(
    [controls, onMouseLeave],
   );
 
-  const ease = [0.16, 1, 0.3, 1] as const;
-
-  const sequence: Variants = {
-   normal: { scale: 1, rotate: 0, x: 0, y: 0 },
+  const keyVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: [1, 1.01, 1.01, 1],
-    rotate: [0, -6, 0, 6, 0],
-    x: [0, 0, 0, 0, 0],
-    y: [0, 0, 0, 0, 0],
+    rotate: [0, 11, -5, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease,
-     times: [0, 0.25, 0.5, 0.75, 1],
-    },
-   },
-  };
-
-  const ringLock: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 0.98, 1, 1.02, 1],
-    opacity: [1, 1, 1, 1, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease,
-     times: [0, 0.25, 0.5, 0.75, 1],
-    },
-   },
-  };
-
-  const shaftSlide: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },
-   animate: {
-    x: [0, -0.6, 0, 0.6, 0],
-    opacity: [1, 1, 1, 1, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease,
-     times: [0, 0.25, 0.5, 0.75, 1],
-    },
-   },
-  };
-
-  const headTurn: Variants = {
-   normal: { x: 0, y: 0, rotate: 0, originX: 19, originY: 6 },
-   animate: {
-    rotate: [0, -18, 0, 18, 0],
-    x: [0, -1, 0, 1, 0],
-    y: [0, -0.4, 0, 0.4, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease,
-     times: [0, 0.25, 0.5, 0.75, 1],
-     delay: 0.04,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -158,29 +112,16 @@ const KeyIcon = forwardRef<KeyIconHandle, KeyIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-key-icon lucide-key"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={sequence} initial="normal" animate={controls}>
-       <m.circle
-        cx="7.5"
-        cy="15.5"
-        r="5.5"
-        variants={ringLock}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m21 2-9.6 9.6"
-        variants={shaftSlide}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"
-        variants={headTurn}
-        initial="normal"
-        animate={controls}
-       />
+      <m.g
+       variants={keyVariants}
+       style={{ transformBox: "view-box", originX: "7.5px", originY: "15.5px" }}
+      >
+       <circle cx="7.5" cy="15.5" r="5.5" />
+       <path d="m21 2-9.6 9.6" />
+       <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
       </m.g>
      </m.svg>
     </m.div>

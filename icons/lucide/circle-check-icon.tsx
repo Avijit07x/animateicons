@@ -52,100 +52,59 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const tickControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      controls.start("normal");
-      tickControls.start("normal");
-     } else {
-      controls.start("animate");
-      tickControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     controls.start("normal");
-     tickControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-     tickControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [controls, tickControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-     tickControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [controls, tickControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    scale: 1,
-   },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
     scale: [1, 1.08, 0.96, 1],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 0.75, 1],
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const circleVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    rotate: -90,
-   },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.2, 1],
-    rotate: -90,
-    transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const tickVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    scale: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1, 1],
-    opacity: [0, 1, 1],
-    scale: [0.8, 1.12, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.32 * duration,
-     times: [0, 0.7, 1],
-     ease: "easeOut",
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -171,23 +130,19 @@ const CircleCheckIcon = forwardRef<CircleCheckIconHandle, CircleCheckIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.circle
        cx="12"
        cy="12"
        r="10"
-       variants={circleVariants}
-       initial="normal"
-       animate={controls}
+       variants={shapeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.path
        d="m9 12 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
        variants={tickVariants}
-       initial="normal"
-       animate={tickControls}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

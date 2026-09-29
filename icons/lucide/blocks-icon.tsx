@@ -81,41 +81,12 @@ const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const turnVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: [0, -2, 2, 0],
-    scale: [1, 1.05, 0.95, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.5, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
-   },
-  };
-
-  const rectVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.2, 0.9, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
+    rotate: [0, 90],
+    scale: [1, 0.85, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -140,19 +111,16 @@ const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.path
-       d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"
-       variants={pathVariants}
-      />
+      <path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2" />
       <m.rect
        x="14"
        y="2"
        width="8"
        height="8"
        rx="1"
-       variants={rectVariants}
+       variants={turnVariants}
+       style={{ transformBox: "view-box", originX: "18px", originY: "6px" }}
       />
      </m.svg>
     </m.div>

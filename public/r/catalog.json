@@ -2,10 +2,10 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 682,
+  "total": 1021,
   "libraries": {
-    "lucide": 649,
-    "huge": 33
+    "lucide": 669,
+    "huge": 352
   },
   "icons": [
     {
@@ -25,6 +25,826 @@
         "monitor"
       ],
       "url": "https://animateicons.in/r/hu-activity.json"
+    },
+    {
+      "name": "add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "add",
+        "plus",
+        "new",
+        "create",
+        "increase",
+        "insert"
+      ],
+      "url": "https://animateicons.in/r/hu-add-0-1.json"
+    },
+    {
+      "name": "add-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-add-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "add",
+        "circle",
+        "plus",
+        "new",
+        "create",
+        "more"
+      ],
+      "url": "https://animateicons.in/r/hu-add-circle.json"
+    },
+    {
+      "name": "add-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-add-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "add",
+        "square",
+        "plus",
+        "new",
+        "create",
+        "more"
+      ],
+      "url": "https://animateicons.in/r/hu-add-square.json"
+    },
+    {
+      "name": "alert-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-alert-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "alert",
+        "warning",
+        "caution",
+        "attention",
+        "danger",
+        "triangle"
+      ],
+      "url": "https://animateicons.in/r/hu-alert-0-2.json"
+    },
+    {
+      "name": "alert-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-alert-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "alert",
+        "warning",
+        "circle",
+        "error",
+        "attention",
+        "exclamation"
+      ],
+      "url": "https://animateicons.in/r/hu-alert-circle.json"
+    },
+    {
+      "name": "alert-diamond",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-alert-diamond",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "alert",
+        "warning",
+        "diamond",
+        "caution",
+        "attention",
+        "exclamation"
+      ],
+      "url": "https://animateicons.in/r/hu-alert-diamond.json"
+    },
+    {
+      "name": "alert-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-alert-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "alert",
+        "warning",
+        "square",
+        "error",
+        "attention",
+        "exclamation"
+      ],
+      "url": "https://animateicons.in/r/hu-alert-square.json"
+    },
+    {
+      "name": "angry",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-angry",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "angry",
+        "mad",
+        "face",
+        "emoji",
+        "upset",
+        "rage"
+      ],
+      "url": "https://animateicons.in/r/hu-angry.json"
+    },
+    {
+      "name": "api",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-api",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Connectivity"
+      ],
+      "keywords": [
+        "api",
+        "endpoint",
+        "interface",
+        "integration",
+        "rest",
+        "service"
+      ],
+      "url": "https://animateicons.in/r/hu-api.json"
+    },
+    {
+      "name": "arrow-all-direction",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-all-direction",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrows",
+        "move",
+        "all directions",
+        "drag",
+        "pan",
+        "cross"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-all-direction.json"
+    },
+    {
+      "name": "arrow-down-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-down-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down",
+        "bottom",
+        "decrease",
+        "download",
+        "lower"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-down-0-2.json"
+    },
+    {
+      "name": "arrow-down-double",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-down-double",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down",
+        "double",
+        "bottom",
+        "scroll",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-down-double.json"
+    },
+    {
+      "name": "arrow-down-left-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-down-left-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down left",
+        "diagonal",
+        "southwest",
+        "direction",
+        "incoming"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-down-left-0-1.json"
+    },
+    {
+      "name": "arrow-down-right-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-down-right-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down right",
+        "diagonal",
+        "southeast",
+        "direction",
+        "outgoing"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-down-right-0-1.json"
+    },
+    {
+      "name": "arrow-down-to-line",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-down-to-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down",
+        "bottom",
+        "download",
+        "save",
+        "line"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-down-to-line.json"
+    },
+    {
+      "name": "arrow-left-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-left-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left",
+        "back",
+        "previous",
+        "return",
+        "navigation"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-left-0-2.json"
+    },
+    {
+      "name": "arrow-left-double",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-left-double",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left",
+        "double",
+        "first",
+        "rewind",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-left-double.json"
+    },
+    {
+      "name": "arrow-left-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-left-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left right",
+        "swap",
+        "exchange",
+        "transfer",
+        "horizontal"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-left-right.json"
+    },
+    {
+      "name": "arrow-left-to-line",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-left-to-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left",
+        "start",
+        "first",
+        "beginning",
+        "line"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-left-to-line.json"
+    },
+    {
+      "name": "arrow-right-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-right-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "right",
+        "next",
+        "continue",
+        "forward",
+        "cta"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-right-0-2.json"
+    },
+    {
+      "name": "arrow-right-double",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-right-double",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "right",
+        "double",
+        "last",
+        "forward",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-right-double.json"
+    },
+    {
+      "name": "arrow-up-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up",
+        "top",
+        "increase",
+        "upload",
+        "raise"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-0-2.json"
+    },
+    {
+      "name": "arrow-up-double",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-double",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up",
+        "double",
+        "top",
+        "scroll",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-double.json"
+    },
+    {
+      "name": "arrow-up-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up down",
+        "sort",
+        "swap",
+        "vertical",
+        "reorder"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-down.json"
+    },
+    {
+      "name": "arrow-up-left-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-left-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up left",
+        "diagonal",
+        "northwest",
+        "direction",
+        "pointer"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-left-0-1.json"
+    },
+    {
+      "name": "arrow-up-right-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-right-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "external",
+        "link",
+        "open",
+        "new tab",
+        "diagonal"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-right-0-1.json"
+    },
+    {
+      "name": "arrow-up-to-line",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-arrow-up-to-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up",
+        "top",
+        "scroll to top",
+        "upload",
+        "line"
+      ],
+      "url": "https://animateicons.in/r/hu-arrow-up-to-line.json"
+    },
+    {
+      "name": "attachment-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-attachment-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "attachment",
+        "paperclip",
+        "attach",
+        "file",
+        "clip",
+        "upload"
+      ],
+      "url": "https://animateicons.in/r/hu-attachment-0-1.json"
+    },
+    {
+      "name": "award-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-award-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "award",
+        "trophy",
+        "winner",
+        "prize",
+        "achievement",
+        "champion"
+      ],
+      "url": "https://animateicons.in/r/hu-award-0-1.json"
+    },
+    {
+      "name": "badge-alert",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-alert",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "alert",
+        "warning",
+        "attention",
+        "flagged",
+        "exclamation"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-alert.json"
+    },
+    {
+      "name": "badge-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "check",
+        "verified",
+        "approved",
+        "certified",
+        "trusted"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-check.json"
+    },
+    {
+      "name": "badge-info",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-info",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "info",
+        "information",
+        "details",
+        "notice",
+        "about"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-info.json"
+    },
+    {
+      "name": "badge-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-minus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "minus",
+        "remove",
+        "subtract",
+        "less",
+        "revoke"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-minus.json"
+    },
+    {
+      "name": "badge-plus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-plus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "plus",
+        "add",
+        "new",
+        "grant",
+        "more"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-plus.json"
+    },
+    {
+      "name": "badge-question-mark",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-question-mark",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "question",
+        "help",
+        "unknown",
+        "unverified",
+        "support"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-question-mark.json"
+    },
+    {
+      "name": "badge-x",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-badge-x",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge",
+        "cancel",
+        "rejected",
+        "revoked",
+        "invalid",
+        "close"
+      ],
+      "url": "https://animateicons.in/r/hu-badge-x.json"
+    },
+    {
+      "name": "barcode",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-barcode",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "barcode",
+        "scan",
+        "product",
+        "sku",
+        "inventory",
+        "checkout"
+      ],
+      "url": "https://animateicons.in/r/hu-barcode.json"
+    },
+    {
+      "name": "behance-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-behance-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "behance",
+        "portfolio",
+        "design",
+        "creative",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-behance-0-2.json"
+    },
+    {
+      "name": "bell-dot",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bell-dot",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "bell",
+        "dot",
+        "unread",
+        "new notification",
+        "badge",
+        "alert"
+      ],
+      "url": "https://animateicons.in/r/hu-bell-dot.json"
+    },
+    {
+      "name": "bell-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bell-minus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "bell",
+        "minus",
+        "remove reminder",
+        "unsubscribe",
+        "less",
+        "notification"
+      ],
+      "url": "https://animateicons.in/r/hu-bell-minus.json"
+    },
+    {
+      "name": "bell-plus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bell-plus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "bell",
+        "plus",
+        "add reminder",
+        "subscribe",
+        "new alert",
+        "notification"
+      ],
+      "url": "https://animateicons.in/r/hu-bell-plus.json"
+    },
+    {
+      "name": "bell-ring",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bell-ring",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "bell",
+        "ring",
+        "alarm",
+        "notification",
+        "reminder",
+        "alert"
+      ],
+      "url": "https://animateicons.in/r/hu-bell-ring.json"
+    },
+    {
+      "name": "blogger",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-blogger",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "blogger",
+        "blog",
+        "writing",
+        "publishing",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-blogger.json"
     },
     {
       "name": "bookmark",
@@ -99,6 +919,275 @@
       "url": "https://animateicons.in/r/hu-bookmark-remove.json"
     },
     {
+      "name": "braces",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-braces",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "braces",
+        "curly brackets",
+        "json",
+        "object",
+        "code",
+        "syntax"
+      ],
+      "url": "https://animateicons.in/r/hu-braces.json"
+    },
+    {
+      "name": "browser",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-browser",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Layout"
+      ],
+      "keywords": [
+        "browser",
+        "window",
+        "web",
+        "tab",
+        "page",
+        "internet"
+      ],
+      "url": "https://animateicons.in/r/hu-browser.json"
+    },
+    {
+      "name": "bug-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bug-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "bug",
+        "debug",
+        "issue",
+        "error",
+        "insect",
+        "defect"
+      ],
+      "url": "https://animateicons.in/r/hu-bug-0-1.json"
+    },
+    {
+      "name": "calendar-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "date",
+        "schedule",
+        "event",
+        "planner",
+        "day"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-0-1.json"
+    },
+    {
+      "name": "calendar-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "add",
+        "new event",
+        "schedule",
+        "plus",
+        "book"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-add-0-1.json"
+    },
+    {
+      "name": "calendar-check-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-check-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "check",
+        "booked",
+        "confirmed",
+        "done",
+        "attendance"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-check-0-1.json"
+    },
+    {
+      "name": "calendar-minus-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-minus-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "minus",
+        "remove day",
+        "subtract",
+        "less",
+        "unbook"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-minus-0-1.json"
+    },
+    {
+      "name": "calendar-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "off",
+        "disabled",
+        "no events",
+        "unavailable",
+        "hidden"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-off.json"
+    },
+    {
+      "name": "calendar-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calendar-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "remove",
+        "delete event",
+        "cancel",
+        "clear",
+        "unschedule"
+      ],
+      "url": "https://animateicons.in/r/hu-calendar-remove-0-1.json"
+    },
+    {
+      "name": "camera-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-camera-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "camera",
+        "photo",
+        "picture",
+        "capture",
+        "lens",
+        "snapshot"
+      ],
+      "url": "https://animateicons.in/r/hu-camera-0-1.json"
+    },
+    {
+      "name": "camera-off-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-camera-off-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "camera",
+        "off",
+        "disabled",
+        "no photo",
+        "blocked",
+        "disable"
+      ],
+      "url": "https://animateicons.in/r/hu-camera-off-0-1.json"
+    },
+    {
+      "name": "cancel-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cancel-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "cancel",
+        "close",
+        "x",
+        "cross",
+        "dismiss",
+        "remove"
+      ],
+      "url": "https://animateicons.in/r/hu-cancel-0-1.json"
+    },
+    {
+      "name": "cancel-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cancel-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "cancel",
+        "circle",
+        "close",
+        "error",
+        "dismiss",
+        "failed"
+      ],
+      "url": "https://animateicons.in/r/hu-cancel-circle.json"
+    },
+    {
+      "name": "cancel-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cancel-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "cancel",
+        "square",
+        "close",
+        "unchecked",
+        "dismiss",
+        "remove"
+      ],
+      "url": "https://animateicons.in/r/hu-cancel-square.json"
+    },
+    {
       "name": "check",
       "library": "huge",
       "prefix": "hu",
@@ -138,6 +1227,101 @@
       "url": "https://animateicons.in/r/hu-check-check.json"
     },
     {
+      "name": "check-list",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-check-list",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "checklist",
+        "todo",
+        "tasks",
+        "list",
+        "done",
+        "tick"
+      ],
+      "url": "https://animateicons.in/r/hu-check-list.json"
+    },
+    {
+      "name": "checkmark-circle-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-checkmark-circle-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "check",
+        "circle",
+        "success",
+        "done",
+        "complete",
+        "verified"
+      ],
+      "url": "https://animateicons.in/r/hu-checkmark-circle-0-1.json"
+    },
+    {
+      "name": "checkmark-square-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-checkmark-square-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "check",
+        "square",
+        "checkbox",
+        "checked",
+        "done",
+        "task"
+      ],
+      "url": "https://animateicons.in/r/hu-checkmark-square-0-1.json"
+    },
+    {
+      "name": "chevron-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chevron-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "down",
+        "dropdown",
+        "expand",
+        "accordion",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-chevron-down.json"
+    },
+    {
+      "name": "chevron-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chevron-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "left",
+        "back",
+        "previous",
+        "navigation",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-chevron-left.json"
+    },
+    {
       "name": "chevron-right",
       "library": "huge",
       "prefix": "hu",
@@ -155,6 +1339,140 @@
         "continue"
       ],
       "url": "https://animateicons.in/r/hu-chevron-right.json"
+    },
+    {
+      "name": "chevron-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chevron-up",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "up",
+        "collapse",
+        "scroll",
+        "accordion",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-chevron-up.json"
+    },
+    {
+      "name": "clock-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-clock-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "watch",
+        "hour",
+        "schedule",
+        "timer"
+      ],
+      "url": "https://animateicons.in/r/hu-clock-0-1.json"
+    },
+    {
+      "name": "code",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-code",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "developer",
+        "programming",
+        "brackets",
+        "source",
+        "html"
+      ],
+      "url": "https://animateicons.in/r/hu-code.json"
+    },
+    {
+      "name": "code-xml",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-code-xml",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "xml",
+        "html",
+        "markup",
+        "developer",
+        "slash"
+      ],
+      "url": "https://animateicons.in/r/hu-code-xml.json"
+    },
+    {
+      "name": "collapse",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-collapse",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "collapse",
+        "shrink",
+        "reduce",
+        "close",
+        "smaller",
+        "compress"
+      ],
+      "url": "https://animateicons.in/r/hu-collapse.json"
+    },
+    {
+      "name": "command",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-command",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Tools"
+      ],
+      "keywords": [
+        "command",
+        "cmd",
+        "shortcut",
+        "mac",
+        "keyboard",
+        "key"
+      ],
+      "url": "https://animateicons.in/r/hu-command.json"
+    },
+    {
+      "name": "command-line",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-command-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "command line",
+        "terminal",
+        "console",
+        "shell",
+        "cli",
+        "prompt"
+      ],
+      "url": "https://animateicons.in/r/hu-command-line.json"
     },
     {
       "name": "compass-0-1",
@@ -193,6 +1511,65 @@
       "url": "https://animateicons.in/r/hu-compass-0-2.json"
     },
     {
+      "name": "component",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-component",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Design"
+      ],
+      "keywords": [
+        "component",
+        "module",
+        "block",
+        "ui",
+        "part",
+        "design system"
+      ],
+      "url": "https://animateicons.in/r/hu-component.json"
+    },
+    {
+      "name": "confused",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-confused",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "confused",
+        "unsure",
+        "face",
+        "emoji",
+        "puzzled",
+        "what"
+      ],
+      "url": "https://animateicons.in/r/hu-confused.json"
+    },
+    {
+      "name": "cookie",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cookie",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Tools"
+      ],
+      "keywords": [
+        "cookie",
+        "consent",
+        "privacy",
+        "tracking",
+        "gdpr",
+        "policy"
+      ],
+      "url": "https://animateicons.in/r/hu-cookie.json"
+    },
+    {
       "name": "copy",
       "library": "huge",
       "prefix": "hu",
@@ -206,6 +1583,274 @@
         "clone"
       ],
       "url": "https://animateicons.in/r/hu-copy.json"
+    },
+    {
+      "name": "copy-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-copy-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "copy",
+        "check",
+        "copied",
+        "done",
+        "clipboard",
+        "success"
+      ],
+      "url": "https://animateicons.in/r/hu-copy-check.json"
+    },
+    {
+      "name": "corner-down-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-down-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "enter",
+        "return",
+        "submit",
+        "keyboard",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-down-left.json"
+    },
+    {
+      "name": "corner-down-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-down-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "down right",
+        "enter",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-down-right.json"
+    },
+    {
+      "name": "corner-left-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-left-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "left down",
+        "turn",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-left-down.json"
+    },
+    {
+      "name": "corner-left-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-left-up",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "left up",
+        "turn",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-left-up.json"
+    },
+    {
+      "name": "corner-right-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-right-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "right down",
+        "turn",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-right-down.json"
+    },
+    {
+      "name": "corner-right-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-right-up",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "right up",
+        "turn",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-right-up.json"
+    },
+    {
+      "name": "corner-up-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-up-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "up left",
+        "return",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-up-left.json"
+    },
+    {
+      "name": "corner-up-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-corner-up-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "corner",
+        "up right",
+        "reply",
+        "arrow",
+        "turn",
+        "keyboard"
+      ],
+      "url": "https://animateicons.in/r/hu-corner-up-right.json"
+    },
+    {
+      "name": "coupon-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-coupon-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "coupon",
+        "voucher",
+        "discount",
+        "promo",
+        "deal",
+        "offer"
+      ],
+      "url": "https://animateicons.in/r/hu-coupon-0-1.json"
+    },
+    {
+      "name": "cpu",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cpu",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "cpu",
+        "processor",
+        "chip",
+        "hardware",
+        "computing",
+        "performance"
+      ],
+      "url": "https://animateicons.in/r/hu-cpu.json"
+    },
+    {
+      "name": "credit-card",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-credit-card",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance",
+        "Shopping"
+      ],
+      "keywords": [
+        "credit card",
+        "card",
+        "payment",
+        "checkout",
+        "bank",
+        "pay"
+      ],
+      "url": "https://animateicons.in/r/hu-credit-card.json"
+    },
+    {
+      "name": "cursor-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cursor-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Cursors"
+      ],
+      "keywords": [
+        "cursor",
+        "pointer",
+        "mouse",
+        "arrow",
+        "click",
+        "select"
+      ],
+      "url": "https://animateicons.in/r/hu-cursor-0-1.json"
+    },
+    {
+      "name": "cursor-pointer-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-cursor-pointer-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Cursors"
+      ],
+      "keywords": [
+        "cursor",
+        "pointer",
+        "click",
+        "tap",
+        "select",
+        "mouse"
+      ],
+      "url": "https://animateicons.in/r/hu-cursor-pointer-0-1.json"
     },
     {
       "name": "dashboard-0-1",
@@ -262,6 +1907,102 @@
       "url": "https://animateicons.in/r/hu-dashboard-0-3.json"
     },
     {
+      "name": "database-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-database-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "database",
+        "data",
+        "storage",
+        "sql",
+        "server",
+        "records"
+      ],
+      "url": "https://animateicons.in/r/hu-database-0-1.json"
+    },
+    {
+      "name": "delete-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-delete-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "delete",
+        "trash",
+        "bin",
+        "remove",
+        "discard",
+        "garbage"
+      ],
+      "url": "https://animateicons.in/r/hu-delete-0-2.json"
+    },
+    {
+      "name": "delivery-box-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-delivery-box-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "delivery",
+        "box",
+        "parcel",
+        "package",
+        "shipping",
+        "order"
+      ],
+      "url": "https://animateicons.in/r/hu-delivery-box-0-1.json"
+    },
+    {
+      "name": "delivery-tracking-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-delivery-tracking-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "tracking",
+        "delivery",
+        "parcel",
+        "location",
+        "shipment",
+        "order status"
+      ],
+      "url": "https://animateicons.in/r/hu-delivery-tracking-0-1.json"
+    },
+    {
+      "name": "delivery-truck-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-delivery-truck-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping",
+        "Transportation"
+      ],
+      "keywords": [
+        "delivery",
+        "truck",
+        "shipping",
+        "logistics",
+        "courier",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-delivery-truck-0-1.json"
+    },
+    {
       "name": "discord",
       "library": "huge",
       "prefix": "hu",
@@ -281,6 +2022,25 @@
       "url": "https://animateicons.in/r/hu-discord.json"
     },
     {
+      "name": "discount-tag-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-discount-tag-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "discount",
+        "tag",
+        "sale",
+        "offer",
+        "percent",
+        "price"
+      ],
+      "url": "https://animateicons.in/r/hu-discount-tag-0-1.json"
+    },
+    {
       "name": "download",
       "library": "huge",
       "prefix": "hu",
@@ -297,6 +2057,44 @@
         "get"
       ],
       "url": "https://animateicons.in/r/hu-download.json"
+    },
+    {
+      "name": "edit-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-edit-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "edit",
+        "pencil",
+        "write",
+        "modify",
+        "change",
+        "compose"
+      ],
+      "url": "https://animateicons.in/r/hu-edit-0-2.json"
+    },
+    {
+      "name": "expand",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-expand",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "expand",
+        "grow",
+        "enlarge",
+        "open",
+        "fullscreen",
+        "bigger"
+      ],
+      "url": "https://animateicons.in/r/hu-expand.json"
     },
     {
       "name": "eye",
@@ -319,6 +2117,25 @@
       "url": "https://animateicons.in/r/hu-eye.json"
     },
     {
+      "name": "eye-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-eye-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Design"
+      ],
+      "keywords": [
+        "eye",
+        "hide",
+        "hidden",
+        "invisible",
+        "password",
+        "private"
+      ],
+      "url": "https://animateicons.in/r/hu-eye-off.json"
+    },
+    {
       "name": "facebook",
       "library": "huge",
       "prefix": "hu",
@@ -338,6 +2155,26 @@
       "url": "https://animateicons.in/r/hu-facebook.json"
     },
     {
+      "name": "facebook-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-facebook-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "facebook",
+        "social",
+        "meta",
+        "network",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-facebook-0-1.json"
+    },
+    {
       "name": "figma",
       "library": "huge",
       "prefix": "hu",
@@ -354,6 +2191,505 @@
         "prototype"
       ],
       "url": "https://animateicons.in/r/hu-figma.json"
+    },
+    {
+      "name": "filter",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-filter",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "filter",
+        "funnel",
+        "sort",
+        "refine",
+        "narrow",
+        "search"
+      ],
+      "url": "https://animateicons.in/r/hu-filter.json"
+    },
+    {
+      "name": "filter-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-filter-add",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "filter",
+        "add",
+        "new filter",
+        "plus",
+        "funnel",
+        "refine"
+      ],
+      "url": "https://animateicons.in/r/hu-filter-add.json"
+    },
+    {
+      "name": "filter-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-filter-remove",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "filter",
+        "clear filter",
+        "remove filter",
+        "reset",
+        "funnel",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/hu-filter-remove.json"
+    },
+    {
+      "name": "finger-print",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-finger-print",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "fingerprint",
+        "biometric",
+        "touch id",
+        "identity",
+        "auth",
+        "unlock"
+      ],
+      "url": "https://animateicons.in/r/hu-finger-print.json"
+    },
+    {
+      "name": "finger-print-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-finger-print-add",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "fingerprint",
+        "add",
+        "enroll",
+        "register",
+        "biometric",
+        "new"
+      ],
+      "url": "https://animateicons.in/r/hu-finger-print-add.json"
+    },
+    {
+      "name": "finger-print-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-finger-print-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "fingerprint",
+        "check",
+        "verified",
+        "matched",
+        "biometric",
+        "success"
+      ],
+      "url": "https://animateicons.in/r/hu-finger-print-check.json"
+    },
+    {
+      "name": "finger-print-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-finger-print-remove",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "fingerprint",
+        "remove",
+        "delete",
+        "unenroll",
+        "biometric",
+        "clear"
+      ],
+      "url": "https://animateicons.in/r/hu-finger-print-remove.json"
+    },
+    {
+      "name": "finger-print-scan",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-finger-print-scan",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "fingerprint",
+        "scan",
+        "scanner",
+        "reading",
+        "biometric",
+        "verify"
+      ],
+      "url": "https://animateicons.in/r/hu-finger-print-scan.json"
+    },
+    {
+      "name": "fire",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-fire",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "fire",
+        "flame",
+        "hot",
+        "trending",
+        "popular",
+        "burn"
+      ],
+      "url": "https://animateicons.in/r/hu-fire.json"
+    },
+    {
+      "name": "flag-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-flag-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "flag",
+        "report",
+        "mark",
+        "milestone",
+        "banner",
+        "goal"
+      ],
+      "url": "https://animateicons.in/r/hu-flag-0-1.json"
+    },
+    {
+      "name": "flag-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-flag-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "flag",
+        "off",
+        "unflag",
+        "unreport",
+        "clear",
+        "hidden"
+      ],
+      "url": "https://animateicons.in/r/hu-flag-off.json"
+    },
+    {
+      "name": "flash",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-flash",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "flash",
+        "bolt",
+        "lightning",
+        "power",
+        "fast",
+        "energy"
+      ],
+      "url": "https://animateicons.in/r/hu-flash.json"
+    },
+    {
+      "name": "flash-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-flash-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "flash",
+        "off",
+        "no flash",
+        "power off",
+        "disabled",
+        "bolt"
+      ],
+      "url": "https://animateicons.in/r/hu-flash-off.json"
+    },
+    {
+      "name": "folder-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "directory",
+        "files",
+        "documents",
+        "storage",
+        "organize"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-0-1.json"
+    },
+    {
+      "name": "folder-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-add",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "add",
+        "new folder",
+        "create",
+        "plus",
+        "directory"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-add.json"
+    },
+    {
+      "name": "folder-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "check",
+        "verified",
+        "synced",
+        "done",
+        "approved"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-check.json"
+    },
+    {
+      "name": "folder-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-minus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "minus",
+        "remove from folder",
+        "subtract",
+        "less",
+        "directory"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-minus.json"
+    },
+    {
+      "name": "folder-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "off",
+        "hidden",
+        "disabled",
+        "unavailable",
+        "no access"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-off.json"
+    },
+    {
+      "name": "folder-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-folder-remove",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "folder",
+        "remove",
+        "delete folder",
+        "cancel",
+        "discard",
+        "directory"
+      ],
+      "url": "https://animateicons.in/r/hu-folder-remove.json"
+    },
+    {
+      "name": "full-screen",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-full-screen",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "fullscreen",
+        "full screen",
+        "maximize",
+        "expand",
+        "enlarge",
+        "view"
+      ],
+      "url": "https://animateicons.in/r/hu-full-screen.json"
+    },
+    {
+      "name": "gift",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-gift",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "gift",
+        "present",
+        "box",
+        "reward",
+        "birthday",
+        "surprise"
+      ],
+      "url": "https://animateicons.in/r/hu-gift.json"
+    },
+    {
+      "name": "git-branch",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-git-branch",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "branch",
+        "version control",
+        "fork",
+        "source control",
+        "repository"
+      ],
+      "url": "https://animateicons.in/r/hu-git-branch.json"
+    },
+    {
+      "name": "git-commit",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-git-commit",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "commit",
+        "version control",
+        "history",
+        "checkpoint",
+        "save"
+      ],
+      "url": "https://animateicons.in/r/hu-git-commit.json"
+    },
+    {
+      "name": "git-fork",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-git-fork",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "fork",
+        "copy",
+        "version control",
+        "repository",
+        "branch"
+      ],
+      "url": "https://animateicons.in/r/hu-git-fork.json"
+    },
+    {
+      "name": "git-merge",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-git-merge",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "merge",
+        "version control",
+        "combine",
+        "join",
+        "integrate"
+      ],
+      "url": "https://animateicons.in/r/hu-git-merge.json"
+    },
+    {
+      "name": "git-pull-request",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-git-pull-request",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "pr",
+        "review",
+        "merge request",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/hu-git-pull-request.json"
     },
     {
       "name": "github",
@@ -375,6 +2711,45 @@
       "url": "https://animateicons.in/r/hu-github.json"
     },
     {
+      "name": "globe-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-globe-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Connectivity",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "globe",
+        "world",
+        "web",
+        "language",
+        "international",
+        "website"
+      ],
+      "url": "https://animateicons.in/r/hu-globe-0-2.json"
+    },
+    {
+      "name": "grid-view",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-grid-view",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "view",
+        "tiles",
+        "gallery",
+        "layout",
+        "cards"
+      ],
+      "url": "https://animateicons.in/r/hu-grid-view.json"
+    },
+    {
       "name": "heart",
       "library": "huge",
       "prefix": "hu",
@@ -392,6 +2767,664 @@
         "react"
       ],
       "url": "https://animateicons.in/r/hu-heart.json"
+    },
+    {
+      "name": "heart-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart-add",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "heart",
+        "add",
+        "add favorite",
+        "like",
+        "save",
+        "wishlist"
+      ],
+      "url": "https://animateicons.in/r/hu-heart-add.json"
+    },
+    {
+      "name": "heart-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "heart",
+        "check",
+        "liked",
+        "favorited",
+        "saved",
+        "confirmed"
+      ],
+      "url": "https://animateicons.in/r/hu-heart-check.json"
+    },
+    {
+      "name": "heart-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart-minus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "heart",
+        "minus",
+        "unfavorite",
+        "unlike",
+        "less",
+        "remove"
+      ],
+      "url": "https://animateicons.in/r/hu-heart-minus.json"
+    },
+    {
+      "name": "heart-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "heart",
+        "off",
+        "hide",
+        "disabled",
+        "no likes",
+        "muted"
+      ],
+      "url": "https://animateicons.in/r/hu-heart-off.json"
+    },
+    {
+      "name": "heart-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-heart-remove",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "heart",
+        "remove",
+        "remove favorite",
+        "unlike",
+        "unsave",
+        "wishlist"
+      ],
+      "url": "https://animateicons.in/r/hu-heart-remove.json"
+    },
+    {
+      "name": "help-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-help-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "help",
+        "question",
+        "support",
+        "faq",
+        "info",
+        "assistance"
+      ],
+      "url": "https://animateicons.in/r/hu-help-circle.json"
+    },
+    {
+      "name": "help-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-help-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "help",
+        "question",
+        "square",
+        "support",
+        "faq",
+        "unknown"
+      ],
+      "url": "https://animateicons.in/r/hu-help-square.json"
+    },
+    {
+      "name": "home-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-home-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "home",
+        "house",
+        "main",
+        "dashboard",
+        "start",
+        "index"
+      ],
+      "url": "https://animateicons.in/r/hu-home-0-1.json"
+    },
+    {
+      "name": "home-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-home-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "home",
+        "house",
+        "main",
+        "start",
+        "index",
+        "dashboard"
+      ],
+      "url": "https://animateicons.in/r/hu-home-0-2.json"
+    },
+    {
+      "name": "hourglass",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-hourglass",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "hourglass",
+        "wait",
+        "loading",
+        "time",
+        "sand",
+        "pending"
+      ],
+      "url": "https://animateicons.in/r/hu-hourglass.json"
+    },
+    {
+      "name": "hourglass-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-hourglass-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "hourglass",
+        "off",
+        "stopped",
+        "no wait",
+        "disabled",
+        "cancelled"
+      ],
+      "url": "https://animateicons.in/r/hu-hourglass-off.json"
+    },
+    {
+      "name": "idea-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-idea-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "idea",
+        "lightbulb",
+        "tip",
+        "insight",
+        "creative",
+        "innovation"
+      ],
+      "url": "https://animateicons.in/r/hu-idea-0-1.json"
+    },
+    {
+      "name": "image-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-image-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "image",
+        "photo",
+        "picture",
+        "gallery",
+        "landscape",
+        "media"
+      ],
+      "url": "https://animateicons.in/r/hu-image-0-1.json"
+    },
+    {
+      "name": "image-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-image-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "image",
+        "add",
+        "upload",
+        "add photo",
+        "plus",
+        "new picture"
+      ],
+      "url": "https://animateicons.in/r/hu-image-add-0-1.json"
+    },
+    {
+      "name": "image-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-image-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "image",
+        "no image",
+        "broken image",
+        "missing",
+        "hidden",
+        "picture"
+      ],
+      "url": "https://animateicons.in/r/hu-image-off.json"
+    },
+    {
+      "name": "image-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-image-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Photography",
+        "Multimedia"
+      ],
+      "keywords": [
+        "image",
+        "remove",
+        "delete photo",
+        "minus",
+        "discard",
+        "picture"
+      ],
+      "url": "https://animateicons.in/r/hu-image-remove-0-1.json"
+    },
+    {
+      "name": "information-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-information-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "information",
+        "info",
+        "help",
+        "details",
+        "about",
+        "notice"
+      ],
+      "url": "https://animateicons.in/r/hu-information-circle.json"
+    },
+    {
+      "name": "information-diamond",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-information-diamond",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "info",
+        "information",
+        "diamond",
+        "details",
+        "about",
+        "notice"
+      ],
+      "url": "https://animateicons.in/r/hu-information-diamond.json"
+    },
+    {
+      "name": "information-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-information-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "info",
+        "information",
+        "square",
+        "details",
+        "about",
+        "notice"
+      ],
+      "url": "https://animateicons.in/r/hu-information-square.json"
+    },
+    {
+      "name": "instagram",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-instagram",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "instagram",
+        "social",
+        "photo",
+        "share",
+        "brand",
+        "profile"
+      ],
+      "url": "https://animateicons.in/r/hu-instagram.json"
+    },
+    {
+      "name": "invoice-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-invoice-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance",
+        "Shopping"
+      ],
+      "keywords": [
+        "invoice",
+        "bill",
+        "document",
+        "billing",
+        "payment",
+        "statement"
+      ],
+      "url": "https://animateicons.in/r/hu-invoice-0-1.json"
+    },
+    {
+      "name": "keyboard",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-keyboard",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "keyboard",
+        "type",
+        "keys",
+        "input",
+        "typing",
+        "hardware"
+      ],
+      "url": "https://animateicons.in/r/hu-keyboard.json"
+    },
+    {
+      "name": "keyboard-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-keyboard-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "keyboard",
+        "off",
+        "disabled",
+        "no typing",
+        "hide keyboard",
+        "blocked"
+      ],
+      "url": "https://animateicons.in/r/hu-keyboard-off.json"
+    },
+    {
+      "name": "laugh",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-laugh",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "laugh",
+        "lol",
+        "face",
+        "emoji",
+        "funny",
+        "joy"
+      ],
+      "url": "https://animateicons.in/r/hu-laugh.json"
+    },
+    {
+      "name": "layers-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layers-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layers",
+        "stack",
+        "levels",
+        "depth",
+        "design",
+        "order"
+      ],
+      "url": "https://animateicons.in/r/hu-layers-0-1.json"
+    },
+    {
+      "name": "layout-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "template",
+        "columns",
+        "structure",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-1.json"
+    },
+    {
+      "name": "left-to-right-list-bullet",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-left-to-right-list-bullet",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "bullet list",
+        "bullets",
+        "unordered",
+        "items",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-left-to-right-list-bullet.json"
+    },
+    {
+      "name": "left-to-right-list-number",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-left-to-right-list-number",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "numbered list",
+        "ordered",
+        "numbers",
+        "items",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-left-to-right-list-number.json"
+    },
+    {
+      "name": "lightbulb",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lightbulb",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "lightbulb",
+        "idea",
+        "light",
+        "tip",
+        "bright",
+        "insight"
+      ],
+      "url": "https://animateicons.in/r/hu-lightbulb.json"
+    },
+    {
+      "name": "lightbulb-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lightbulb-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "lightbulb",
+        "off",
+        "idea",
+        "dark",
+        "switch off",
+        "power saving"
+      ],
+      "url": "https://animateicons.in/r/hu-lightbulb-off.json"
+    },
+    {
+      "name": "link-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-link-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "link",
+        "chain",
+        "url",
+        "connect",
+        "hyperlink",
+        "attach"
+      ],
+      "url": "https://animateicons.in/r/hu-link-0-1.json"
+    },
+    {
+      "name": "link-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-link-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "unlink",
+        "broken link",
+        "detach",
+        "remove link",
+        "disconnect",
+        "url"
+      ],
+      "url": "https://animateicons.in/r/hu-link-off.json"
+    },
+    {
+      "name": "linkedin-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-linkedin-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "linkedin",
+        "social",
+        "professional",
+        "network",
+        "brand",
+        "profile"
+      ],
+      "url": "https://animateicons.in/r/hu-linkedin-0-1.json"
+    },
+    {
+      "name": "list-view",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-list-view",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "list",
+        "view",
+        "rows",
+        "layout",
+        "items",
+        "table"
+      ],
+      "url": "https://animateicons.in/r/hu-list-view.json"
     },
     {
       "name": "loading-0-1",
@@ -432,6 +3465,319 @@
       "url": "https://animateicons.in/r/hu-loading-0-2.json"
     },
     {
+      "name": "location-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-location-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "pin",
+        "map",
+        "place",
+        "marker",
+        "gps"
+      ],
+      "url": "https://animateicons.in/r/hu-location-0-1.json"
+    },
+    {
+      "name": "location-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-location-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "add",
+        "add place",
+        "drop pin",
+        "plus",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/hu-location-add-0-1.json"
+    },
+    {
+      "name": "location-check-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-location-check-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "check",
+        "check in",
+        "verified place",
+        "arrived",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/hu-location-check-0-1.json"
+    },
+    {
+      "name": "location-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-location-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "remove",
+        "delete place",
+        "minus",
+        "clear pin",
+        "map"
+      ],
+      "url": "https://animateicons.in/r/hu-location-remove-0-1.json"
+    },
+    {
+      "name": "lock-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lock-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "unlock",
+        "open",
+        "lock",
+        "access",
+        "unsecured",
+        "padlock"
+      ],
+      "url": "https://animateicons.in/r/hu-lock-open.json"
+    },
+    {
+      "name": "lock-password",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lock-password",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "lock",
+        "password",
+        "secure",
+        "private",
+        "padlock",
+        "protected"
+      ],
+      "url": "https://animateicons.in/r/hu-lock-password.json"
+    },
+    {
+      "name": "login-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-login-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Accounts & access"
+      ],
+      "keywords": [
+        "login",
+        "sign in",
+        "enter",
+        "account",
+        "access",
+        "authenticate"
+      ],
+      "url": "https://animateicons.in/r/hu-login-0-1.json"
+    },
+    {
+      "name": "logout-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-logout-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Accounts & access"
+      ],
+      "keywords": [
+        "logout",
+        "sign out",
+        "exit",
+        "leave",
+        "account",
+        "session"
+      ],
+      "url": "https://animateicons.in/r/hu-logout-0-1.json"
+    },
+    {
+      "name": "mail-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "email",
+        "envelope",
+        "inbox",
+        "message",
+        "letter"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-0-1.json"
+    },
+    {
+      "name": "mail-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "add",
+        "new email",
+        "compose",
+        "plus",
+        "subscribe"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-add-0-1.json"
+    },
+    {
+      "name": "mail-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "check",
+        "delivered",
+        "verified email",
+        "read",
+        "sent"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-check.json"
+    },
+    {
+      "name": "mail-minus-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-minus-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "minus",
+        "remove email",
+        "subtract",
+        "less",
+        "inbox"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-minus-0-1.json"
+    },
+    {
+      "name": "mail-open-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-open-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "open",
+        "read",
+        "email",
+        "letter",
+        "message"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-open-0-1.json"
+    },
+    {
+      "name": "mail-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mail-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Mail",
+        "Communication"
+      ],
+      "keywords": [
+        "mail",
+        "remove",
+        "delete email",
+        "unsubscribe",
+        "discard",
+        "inbox"
+      ],
+      "url": "https://animateicons.in/r/hu-mail-remove-0-1.json"
+    },
+    {
+      "name": "maximize-screen",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-maximize-screen",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "maximize",
+        "window",
+        "fullscreen",
+        "enlarge",
+        "screen",
+        "expand"
+      ],
+      "url": "https://animateicons.in/r/hu-maximize-screen.json"
+    },
+    {
+      "name": "medium-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-medium-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "medium",
+        "blog",
+        "writing",
+        "publishing",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-medium-square.json"
+    },
+    {
       "name": "menu-0-1",
       "library": "huge",
       "prefix": "hu",
@@ -470,6 +3816,217 @@
       "url": "https://animateicons.in/r/hu-menu-0-2.json"
     },
     {
+      "name": "message-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-message-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "bubble",
+        "comment",
+        "conversation",
+        "text"
+      ],
+      "url": "https://animateicons.in/r/hu-message-0-1.json"
+    },
+    {
+      "name": "mic-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mic-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "mic",
+        "microphone",
+        "audio",
+        "record",
+        "voice",
+        "speak"
+      ],
+      "url": "https://animateicons.in/r/hu-mic-0-1.json"
+    },
+    {
+      "name": "mic-off-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mic-off-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "mic",
+        "mute",
+        "microphone off",
+        "silence",
+        "audio",
+        "muted"
+      ],
+      "url": "https://animateicons.in/r/hu-mic-off-0-1.json"
+    },
+    {
+      "name": "minimize-screen",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-minimize-screen",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "minimize",
+        "window",
+        "restore",
+        "shrink",
+        "screen",
+        "exit fullscreen"
+      ],
+      "url": "https://animateicons.in/r/hu-minimize-screen.json"
+    },
+    {
+      "name": "minus-sign",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-minus-sign",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "minus",
+        "remove",
+        "subtract",
+        "decrease",
+        "less",
+        "collapse"
+      ],
+      "url": "https://animateicons.in/r/hu-minus-sign.json"
+    },
+    {
+      "name": "minus-sign-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-minus-sign-circle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "minus",
+        "circle",
+        "remove",
+        "subtract",
+        "less",
+        "decrease"
+      ],
+      "url": "https://animateicons.in/r/hu-minus-sign-circle.json"
+    },
+    {
+      "name": "minus-sign-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-minus-sign-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "minus",
+        "square",
+        "remove",
+        "subtract",
+        "collapse",
+        "less"
+      ],
+      "url": "https://animateicons.in/r/hu-minus-sign-square.json"
+    },
+    {
+      "name": "money-bag-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-money-bag-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "money",
+        "bag",
+        "cash",
+        "savings",
+        "earnings",
+        "revenue"
+      ],
+      "url": "https://animateicons.in/r/hu-money-bag-0-1.json"
+    },
+    {
+      "name": "moon-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-moon-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "moon",
+        "night",
+        "dark",
+        "theme",
+        "sleep",
+        "crescent"
+      ],
+      "url": "https://animateicons.in/r/hu-moon-0-1.json"
+    },
+    {
+      "name": "more-horizontal",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-more-horizontal",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout",
+        "Tools"
+      ],
+      "keywords": [
+        "more",
+        "ellipsis",
+        "dots",
+        "menu",
+        "options",
+        "overflow"
+      ],
+      "url": "https://animateicons.in/r/hu-more-horizontal.json"
+    },
+    {
+      "name": "more-vertical",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-more-vertical",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout",
+        "Tools"
+      ],
+      "keywords": [
+        "more",
+        "ellipsis",
+        "dots",
+        "menu",
+        "options",
+        "kebab"
+      ],
+      "url": "https://animateicons.in/r/hu-more-vertical.json"
+    },
+    {
       "name": "mouse-pointer-click-0-1",
       "library": "huge",
       "prefix": "hu",
@@ -483,6 +4040,25 @@
         "select"
       ],
       "url": "https://animateicons.in/r/hu-mouse-pointer-click-0-1.json"
+    },
+    {
+      "name": "neutral",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-neutral",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "neutral",
+        "meh",
+        "face",
+        "emoji",
+        "okay",
+        "indifferent"
+      ],
+      "url": "https://animateicons.in/r/hu-neutral.json"
     },
     {
       "name": "new-twitter",
@@ -504,6 +4080,45 @@
       "url": "https://animateicons.in/r/hu-new-twitter.json"
     },
     {
+      "name": "new-twitter-rectangle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-new-twitter-rectangle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "x",
+        "twitter",
+        "social",
+        "box",
+        "post",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-new-twitter-rectangle.json"
+    },
+    {
+      "name": "newspaper",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-newspaper",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "newspaper",
+        "news",
+        "blog",
+        "article",
+        "press",
+        "updates"
+      ],
+      "url": "https://animateicons.in/r/hu-newspaper.json"
+    },
+    {
       "name": "notification",
       "library": "huge",
       "prefix": "hu",
@@ -520,6 +4135,25 @@
         "ring"
       ],
       "url": "https://animateicons.in/r/hu-notification.json"
+    },
+    {
+      "name": "notification-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-notification-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "bell",
+        "alert",
+        "alarm",
+        "reminder",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/hu-notification-0-2.json"
     },
     {
       "name": "notification-off",
@@ -540,6 +4174,771 @@
       "url": "https://animateicons.in/r/hu-notification-off.json"
     },
     {
+      "name": "notification-off-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-notification-off-0-2",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "notification",
+        "off",
+        "mute",
+        "silent",
+        "do not disturb",
+        "bell"
+      ],
+      "url": "https://animateicons.in/r/hu-notification-off-0-2.json"
+    },
+    {
+      "name": "package-delivered",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-package-delivered",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "package",
+        "delivered",
+        "delivery",
+        "received",
+        "shipment",
+        "complete"
+      ],
+      "url": "https://animateicons.in/r/hu-package-delivered.json"
+    },
+    {
+      "name": "panel-bottom",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-bottom",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "bottom",
+        "footer",
+        "split",
+        "layout",
+        "pane"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-bottom.json"
+    },
+    {
+      "name": "panel-bottom-close",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-bottom-close",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "bottom",
+        "close",
+        "collapse footer",
+        "hide",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-bottom-close.json"
+    },
+    {
+      "name": "panel-bottom-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-bottom-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "bottom",
+        "open",
+        "expand footer",
+        "show",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-bottom-open.json"
+    },
+    {
+      "name": "panel-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "left",
+        "sidebar",
+        "split",
+        "layout",
+        "pane"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-left.json"
+    },
+    {
+      "name": "panel-left-close",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-left-close",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "left",
+        "close",
+        "collapse sidebar",
+        "hide",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-left-close.json"
+    },
+    {
+      "name": "panel-left-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-left-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "left",
+        "open",
+        "expand sidebar",
+        "show",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-left-open.json"
+    },
+    {
+      "name": "panel-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "right",
+        "sidebar",
+        "split",
+        "layout",
+        "pane"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-right.json"
+    },
+    {
+      "name": "panel-right-close",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-right-close",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "right",
+        "close",
+        "collapse sidebar",
+        "hide",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-right-close.json"
+    },
+    {
+      "name": "panel-right-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-right-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "right",
+        "open",
+        "expand sidebar",
+        "show",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-right-open.json"
+    },
+    {
+      "name": "panel-top",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-top",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "top",
+        "header",
+        "split",
+        "layout",
+        "pane"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-top.json"
+    },
+    {
+      "name": "panel-top-close",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-top-close",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "top",
+        "close",
+        "collapse header",
+        "hide",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-top-close.json"
+    },
+    {
+      "name": "panel-top-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-panel-top-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "top",
+        "open",
+        "expand header",
+        "show",
+        "layout"
+      ],
+      "url": "https://animateicons.in/r/hu-panel-top-open.json"
+    },
+    {
+      "name": "pause",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-pause",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "pause",
+        "stop",
+        "media",
+        "hold",
+        "wait",
+        "break"
+      ],
+      "url": "https://animateicons.in/r/hu-pause.json"
+    },
+    {
+      "name": "payment-success-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-payment-success-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance",
+        "Shopping"
+      ],
+      "keywords": [
+        "payment",
+        "success",
+        "paid",
+        "confirmed",
+        "transaction",
+        "complete"
+      ],
+      "url": "https://animateicons.in/r/hu-payment-success-0-1.json"
+    },
+    {
+      "name": "percent",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-percent",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping",
+        "Finance"
+      ],
+      "keywords": [
+        "percent",
+        "discount",
+        "sale",
+        "rate",
+        "offer",
+        "tax"
+      ],
+      "url": "https://animateicons.in/r/hu-percent.json"
+    },
+    {
+      "name": "phone",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-phone",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "phone",
+        "call",
+        "contact",
+        "telephone",
+        "support",
+        "dial"
+      ],
+      "url": "https://animateicons.in/r/hu-phone.json"
+    },
+    {
+      "name": "phone-incoming",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-phone-incoming",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "phone",
+        "incoming call",
+        "receive",
+        "call",
+        "answer",
+        "inbound"
+      ],
+      "url": "https://animateicons.in/r/hu-phone-incoming.json"
+    },
+    {
+      "name": "phone-missed",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-phone-missed",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "phone",
+        "missed call",
+        "unanswered",
+        "call",
+        "notification",
+        "declined"
+      ],
+      "url": "https://animateicons.in/r/hu-phone-missed.json"
+    },
+    {
+      "name": "phone-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-phone-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "phone",
+        "call",
+        "disabled",
+        "no calls",
+        "hang up",
+        "blocked"
+      ],
+      "url": "https://animateicons.in/r/hu-phone-off.json"
+    },
+    {
+      "name": "phone-outgoing",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-phone-outgoing",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "phone",
+        "outgoing call",
+        "dial",
+        "call",
+        "outbound",
+        "calling"
+      ],
+      "url": "https://animateicons.in/r/hu-phone-outgoing.json"
+    },
+    {
+      "name": "play",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-play",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "play",
+        "start",
+        "media",
+        "video",
+        "audio",
+        "resume"
+      ],
+      "url": "https://animateicons.in/r/hu-play.json"
+    },
+    {
+      "name": "printer",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-printer",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "printer",
+        "print",
+        "paper",
+        "document",
+        "office",
+        "output"
+      ],
+      "url": "https://animateicons.in/r/hu-printer.json"
+    },
+    {
+      "name": "printer-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-printer-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "printer",
+        "off",
+        "disabled",
+        "no print",
+        "offline",
+        "blocked"
+      ],
+      "url": "https://animateicons.in/r/hu-printer-off.json"
+    },
+    {
+      "name": "qr-code-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-qr-code-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "qr",
+        "qr code",
+        "code",
+        "scan",
+        "barcode",
+        "link"
+      ],
+      "url": "https://animateicons.in/r/hu-qr-code-0-1.json"
+    },
+    {
+      "name": "qr-code-scan",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-qr-code-scan",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "qr",
+        "scan",
+        "scanner",
+        "camera",
+        "read code",
+        "pay"
+      ],
+      "url": "https://animateicons.in/r/hu-qr-code-scan.json"
+    },
+    {
+      "name": "quote",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-quote",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting",
+        "Communication"
+      ],
+      "keywords": [
+        "quote",
+        "testimonial",
+        "citation",
+        "blockquote",
+        "speech",
+        "review"
+      ],
+      "url": "https://animateicons.in/r/hu-quote.json"
+    },
+    {
+      "name": "receipt",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-receipt",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance",
+        "Shopping"
+      ],
+      "keywords": [
+        "receipt",
+        "bill",
+        "purchase",
+        "transaction",
+        "payment",
+        "proof"
+      ],
+      "url": "https://animateicons.in/r/hu-receipt.json"
+    },
+    {
+      "name": "redo",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-redo",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "redo",
+        "repeat",
+        "forward",
+        "history",
+        "reapply",
+        "clockwise"
+      ],
+      "url": "https://animateicons.in/r/hu-redo.json"
+    },
+    {
+      "name": "refresh-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-refresh-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "refresh",
+        "reload",
+        "sync",
+        "update",
+        "retry",
+        "rotate"
+      ],
+      "url": "https://animateicons.in/r/hu-refresh-0-1.json"
+    },
+    {
+      "name": "repository",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-repository",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "File icons"
+      ],
+      "keywords": [
+        "repository",
+        "repo",
+        "project",
+        "source",
+        "codebase",
+        "book"
+      ],
+      "url": "https://animateicons.in/r/hu-repository.json"
+    },
+    {
+      "name": "return-request",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-return-request",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "return",
+        "refund",
+        "exchange",
+        "package",
+        "order",
+        "request"
+      ],
+      "url": "https://animateicons.in/r/hu-return-request.json"
+    },
+    {
+      "name": "rocket-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-rocket-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "rocket",
+        "launch",
+        "startup",
+        "space",
+        "boost",
+        "fast"
+      ],
+      "url": "https://animateicons.in/r/hu-rocket-0-1.json"
+    },
+    {
+      "name": "sad-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sad-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "sad",
+        "unhappy",
+        "face",
+        "emoji",
+        "bad",
+        "negative"
+      ],
+      "url": "https://animateicons.in/r/hu-sad-0-1.json"
+    },
+    {
+      "name": "save",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-save",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "save",
+        "disk",
+        "floppy",
+        "store",
+        "keep",
+        "download"
+      ],
+      "url": "https://animateicons.in/r/hu-save.json"
+    },
+    {
+      "name": "save-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-save-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "save",
+        "off",
+        "disabled",
+        "unsaved",
+        "no save",
+        "blocked"
+      ],
+      "url": "https://animateicons.in/r/hu-save-off.json"
+    },
+    {
+      "name": "scan",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-scan",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "scan",
+        "scanner",
+        "frame",
+        "detect",
+        "read",
+        "capture"
+      ],
+      "url": "https://animateicons.in/r/hu-scan.json"
+    },
+    {
+      "name": "scissor-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-scissor-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "scissors",
+        "cut",
+        "crop",
+        "trim",
+        "snip",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-scissor-0-1.json"
+    },
+    {
+      "name": "scroll-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-scroll-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "scroll",
+        "parchment",
+        "document",
+        "paper",
+        "read",
+        "history"
+      ],
+      "url": "https://animateicons.in/r/hu-scroll-0-1.json"
+    },
+    {
       "name": "search",
       "library": "huge",
       "prefix": "hu",
@@ -556,6 +4955,65 @@
         "query"
       ],
       "url": "https://animateicons.in/r/hu-search.json"
+    },
+    {
+      "name": "send",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-send",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "send",
+        "message",
+        "paper plane",
+        "submit",
+        "share",
+        "mail"
+      ],
+      "url": "https://animateicons.in/r/hu-send.json"
+    },
+    {
+      "name": "server",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-server",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "hosting",
+        "backend",
+        "rack",
+        "infrastructure",
+        "data center"
+      ],
+      "url": "https://animateicons.in/r/hu-server.json"
+    },
+    {
+      "name": "server-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-server-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "offline",
+        "down",
+        "outage",
+        "shutdown",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/hu-server-off.json"
     },
     {
       "name": "settings-0-1",
@@ -596,6 +5054,1237 @@
       "url": "https://animateicons.in/r/hu-settings-0-2.json"
     },
     {
+      "name": "share-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-share-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "share",
+        "send",
+        "forward",
+        "export",
+        "social",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-share-0-1.json"
+    },
+    {
+      "name": "shield-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "security",
+        "protect",
+        "safe",
+        "guard",
+        "defense"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-0-1.json"
+    },
+    {
+      "name": "shield-alert",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-alert",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "alert",
+        "warning",
+        "threat",
+        "risk",
+        "attention"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-alert.json"
+    },
+    {
+      "name": "shield-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "check",
+        "secure",
+        "protected",
+        "verified",
+        "safe"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-check.json"
+    },
+    {
+      "name": "shield-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-minus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "minus",
+        "remove protection",
+        "reduce",
+        "less",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-minus.json"
+    },
+    {
+      "name": "shield-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "off",
+        "unprotected",
+        "disabled",
+        "no security",
+        "exposed"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-off.json"
+    },
+    {
+      "name": "shield-plus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-plus",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "plus",
+        "add protection",
+        "secure",
+        "new",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-plus.json"
+    },
+    {
+      "name": "shield-x",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-x",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "cancel",
+        "insecure",
+        "blocked",
+        "failed",
+        "unprotected"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-x.json"
+    },
+    {
+      "name": "shopping-bag-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-bag-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "shopping",
+        "bag",
+        "purchase",
+        "retail",
+        "store",
+        "buy"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-bag-0-1.json"
+    },
+    {
+      "name": "shopping-bag-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-bag-add",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "shopping bag",
+        "add",
+        "add to bag",
+        "plus",
+        "buy",
+        "purchase"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-bag-add.json"
+    },
+    {
+      "name": "shopping-bag-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-bag-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "shopping bag",
+        "check",
+        "purchased",
+        "order confirmed",
+        "done",
+        "in bag"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-bag-check.json"
+    },
+    {
+      "name": "shopping-bag-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-bag-remove",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "shopping bag",
+        "remove",
+        "remove from bag",
+        "delete",
+        "cancel",
+        "purchase"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-bag-remove.json"
+    },
+    {
+      "name": "shopping-basket-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-basket-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "shopping",
+        "basket",
+        "grocery",
+        "cart",
+        "buy",
+        "store"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-basket-0-1.json"
+    },
+    {
+      "name": "shopping-basket-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-basket-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "basket",
+        "add",
+        "add to basket",
+        "plus",
+        "grocery",
+        "buy"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-basket-add-0-1.json"
+    },
+    {
+      "name": "shopping-basket-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-basket-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "basket",
+        "remove",
+        "remove from basket",
+        "delete",
+        "grocery",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-basket-remove-0-1.json"
+    },
+    {
+      "name": "shopping-cart-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-cart-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "cart",
+        "shopping",
+        "basket",
+        "buy",
+        "checkout",
+        "store"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-cart-0-1.json"
+    },
+    {
+      "name": "shopping-cart-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-cart-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "cart",
+        "add",
+        "add to cart",
+        "shopping",
+        "plus",
+        "buy"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-cart-add-0-1.json"
+    },
+    {
+      "name": "shopping-cart-check-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-cart-check-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "cart",
+        "checkout",
+        "confirmed",
+        "shopping",
+        "check",
+        "done"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-cart-check-0-1.json"
+    },
+    {
+      "name": "shopping-cart-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shopping-cart-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "cart",
+        "remove",
+        "delete",
+        "shopping",
+        "cancel",
+        "clear"
+      ],
+      "url": "https://animateicons.in/r/hu-shopping-cart-remove-0-1.json"
+    },
+    {
+      "name": "shuffle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shuffle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia",
+        "Arrows"
+      ],
+      "keywords": [
+        "shuffle",
+        "random",
+        "mix",
+        "music",
+        "playlist",
+        "swap"
+      ],
+      "url": "https://animateicons.in/r/hu-shuffle.json"
+    },
+    {
+      "name": "sidebar-bottom",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sidebar-bottom",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "sidebar",
+        "bottom",
+        "footer",
+        "panel",
+        "navigation",
+        "toolbar"
+      ],
+      "url": "https://animateicons.in/r/hu-sidebar-bottom.json"
+    },
+    {
+      "name": "sidebar-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sidebar-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "sidebar",
+        "left",
+        "panel",
+        "menu",
+        "navigation",
+        "drawer"
+      ],
+      "url": "https://animateicons.in/r/hu-sidebar-left.json"
+    },
+    {
+      "name": "sidebar-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sidebar-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "sidebar",
+        "right",
+        "panel",
+        "details",
+        "navigation",
+        "drawer"
+      ],
+      "url": "https://animateicons.in/r/hu-sidebar-right.json"
+    },
+    {
+      "name": "sidebar-top",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sidebar-top",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "sidebar",
+        "top",
+        "header",
+        "panel",
+        "navigation",
+        "toolbar"
+      ],
+      "url": "https://animateicons.in/r/hu-sidebar-top.json"
+    },
+    {
+      "name": "sliders-horizontal",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sliders-horizontal",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "sliders",
+        "settings",
+        "adjust",
+        "controls",
+        "filter",
+        "tune"
+      ],
+      "url": "https://animateicons.in/r/hu-sliders-horizontal.json"
+    },
+    {
+      "name": "sliders-vertical",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sliders-vertical",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "sliders",
+        "settings",
+        "adjust",
+        "controls",
+        "equalizer",
+        "tune"
+      ],
+      "url": "https://animateicons.in/r/hu-sliders-vertical.json"
+    },
+    {
+      "name": "smile",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-smile",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji"
+      ],
+      "keywords": [
+        "smile",
+        "happy",
+        "face",
+        "emoji",
+        "good",
+        "positive"
+      ],
+      "url": "https://animateicons.in/r/hu-smile.json"
+    },
+    {
+      "name": "sorting-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sorting-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "sort",
+        "order",
+        "arrange",
+        "list",
+        "rank",
+        "bars"
+      ],
+      "url": "https://animateicons.in/r/hu-sorting-0-1.json"
+    },
+    {
+      "name": "sorting-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sorting-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools",
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "descending",
+        "down",
+        "decrease",
+        "order",
+        "arrange"
+      ],
+      "url": "https://animateicons.in/r/hu-sorting-down.json"
+    },
+    {
+      "name": "sorting-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sorting-up",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools",
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "ascending",
+        "up",
+        "increase",
+        "order",
+        "arrange"
+      ],
+      "url": "https://animateicons.in/r/hu-sorting-up.json"
+    },
+    {
+      "name": "sparkle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sparkle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "sparkle",
+        "star",
+        "shine",
+        "magic",
+        "new",
+        "twinkle"
+      ],
+      "url": "https://animateicons.in/r/hu-sparkle.json"
+    },
+    {
+      "name": "sparkles",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sparkles",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "sparkles",
+        "magic",
+        "ai",
+        "new",
+        "shine",
+        "stars"
+      ],
+      "url": "https://animateicons.in/r/hu-sparkles.json"
+    },
+    {
+      "name": "star",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-star",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "favorite",
+        "rating",
+        "bookmark",
+        "review",
+        "featured"
+      ],
+      "url": "https://animateicons.in/r/hu-star.json"
+    },
+    {
+      "name": "star-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-star-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "unfavorite",
+        "remove favorite",
+        "unrate",
+        "off",
+        "unstar"
+      ],
+      "url": "https://animateicons.in/r/hu-star-off.json"
+    },
+    {
+      "name": "stop",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-stop",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "stop",
+        "halt",
+        "end",
+        "media",
+        "square",
+        "playback"
+      ],
+      "url": "https://animateicons.in/r/hu-stop.json"
+    },
+    {
+      "name": "store-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-store-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "store",
+        "shop",
+        "market",
+        "retail",
+        "storefront",
+        "merchant"
+      ],
+      "url": "https://animateicons.in/r/hu-store-0-1.json"
+    },
+    {
+      "name": "store-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-store-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "store",
+        "add",
+        "new store",
+        "open shop",
+        "plus",
+        "merchant"
+      ],
+      "url": "https://animateicons.in/r/hu-store-add-0-1.json"
+    },
+    {
+      "name": "store-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-store-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "store",
+        "remove",
+        "close shop",
+        "delete store",
+        "cancel",
+        "merchant"
+      ],
+      "url": "https://animateicons.in/r/hu-store-remove-0-1.json"
+    },
+    {
+      "name": "sun-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-sun-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Weather"
+      ],
+      "keywords": [
+        "sun",
+        "light",
+        "day",
+        "brightness",
+        "theme",
+        "sunny"
+      ],
+      "url": "https://animateicons.in/r/hu-sun-0-1.json"
+    },
+    {
+      "name": "table",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-table",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "table",
+        "grid",
+        "rows",
+        "columns",
+        "data",
+        "spreadsheet"
+      ],
+      "url": "https://animateicons.in/r/hu-table.json"
+    },
+    {
+      "name": "tag-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-tag-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "tag",
+        "label",
+        "price",
+        "sale",
+        "category",
+        "badge"
+      ],
+      "url": "https://animateicons.in/r/hu-tag-0-1.json"
+    },
+    {
+      "name": "terminal",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-terminal",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "terminal",
+        "console",
+        "shell",
+        "command",
+        "cli",
+        "prompt"
+      ],
+      "url": "https://animateicons.in/r/hu-terminal.json"
+    },
+    {
+      "name": "text",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "text",
+        "type",
+        "letter",
+        "typography",
+        "content",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text.json"
+    },
+    {
+      "name": "text-align-center",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-align-center",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "align center",
+        "text",
+        "paragraph",
+        "center",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-align-center.json"
+    },
+    {
+      "name": "text-align-justify",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-align-justify",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "justify",
+        "text",
+        "paragraph",
+        "align",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-align-justify.json"
+    },
+    {
+      "name": "text-align-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-align-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "align left",
+        "text",
+        "paragraph",
+        "align",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-align-left.json"
+    },
+    {
+      "name": "text-align-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-align-right",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "align right",
+        "text",
+        "paragraph",
+        "align",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-align-right.json"
+    },
+    {
+      "name": "text-bold",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-bold",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "bold",
+        "text",
+        "format",
+        "strong",
+        "heavy",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-bold.json"
+    },
+    {
+      "name": "text-font",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-font",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "font",
+        "text",
+        "typography",
+        "letters",
+        "typeface",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-font.json"
+    },
+    {
+      "name": "text-indent-less",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-indent-less",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "outdent",
+        "decrease indent",
+        "text",
+        "paragraph",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-indent-less.json"
+    },
+    {
+      "name": "text-indent-more",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-indent-more",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "indent",
+        "increase indent",
+        "text",
+        "paragraph",
+        "format",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-indent-more.json"
+    },
+    {
+      "name": "text-italic",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-italic",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "italic",
+        "text",
+        "format",
+        "slant",
+        "emphasis",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-italic.json"
+    },
+    {
+      "name": "text-strikethrough",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-strikethrough",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "strikethrough",
+        "text",
+        "format",
+        "cross out",
+        "delete",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-strikethrough.json"
+    },
+    {
+      "name": "text-underline",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-text-underline",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "underline",
+        "text",
+        "format",
+        "line",
+        "emphasis",
+        "editor"
+      ],
+      "url": "https://animateicons.in/r/hu-text-underline.json"
+    },
+    {
+      "name": "threads-rectangle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-threads-rectangle",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "threads",
+        "meta",
+        "social",
+        "posts",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-threads-rectangle.json"
+    },
+    {
+      "name": "thumbs-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-thumbs-down",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "thumbs down",
+        "dislike",
+        "disagree",
+        "reject",
+        "vote",
+        "bad"
+      ],
+      "url": "https://animateicons.in/r/hu-thumbs-down.json"
+    },
+    {
+      "name": "thumbs-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-thumbs-up",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "thumbs up",
+        "like",
+        "approve",
+        "good",
+        "vote",
+        "agree"
+      ],
+      "url": "https://animateicons.in/r/hu-thumbs-up.json"
+    },
+    {
+      "name": "tiktok",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-tiktok",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "tiktok",
+        "video",
+        "short video",
+        "social",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-tiktok.json"
+    },
+    {
+      "name": "timer-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-timer-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "timer",
+        "stopwatch",
+        "countdown",
+        "time",
+        "speed",
+        "duration"
+      ],
+      "url": "https://animateicons.in/r/hu-timer-0-1.json"
+    },
+    {
+      "name": "timer-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-timer-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "timer",
+        "off",
+        "stopped",
+        "disabled",
+        "no timer",
+        "cancelled"
+      ],
+      "url": "https://animateicons.in/r/hu-timer-off.json"
+    },
+    {
+      "name": "timer-reset",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-timer-reset",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "timer",
+        "reset",
+        "restart",
+        "stopwatch",
+        "again",
+        "refresh"
+      ],
+      "url": "https://animateicons.in/r/hu-timer-reset.json"
+    },
+    {
+      "name": "toggle-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-toggle-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "toggle",
+        "switch",
+        "off",
+        "disabled",
+        "setting",
+        "control"
+      ],
+      "url": "https://animateicons.in/r/hu-toggle-off.json"
+    },
+    {
+      "name": "toggle-on",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-toggle-on",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "toggle",
+        "switch",
+        "on",
+        "enabled",
+        "setting",
+        "control"
+      ],
+      "url": "https://animateicons.in/r/hu-toggle-on.json"
+    },
+    {
+      "name": "trophy",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-trophy",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Gaming",
+        "Social"
+      ],
+      "keywords": [
+        "trophy",
+        "award",
+        "winner",
+        "prize",
+        "achievement",
+        "champion"
+      ],
+      "url": "https://animateicons.in/r/hu-trophy.json"
+    },
+    {
       "name": "twitter",
       "library": "huge",
       "prefix": "hu",
@@ -613,6 +6302,453 @@
         "network"
       ],
       "url": "https://animateicons.in/r/hu-twitter.json"
+    },
+    {
+      "name": "twitter-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-twitter-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "twitter",
+        "bird",
+        "tweet",
+        "social",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-twitter-square.json"
+    },
+    {
+      "name": "undo",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-undo",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "undo",
+        "revert",
+        "back",
+        "history",
+        "rewind",
+        "counterclockwise"
+      ],
+      "url": "https://animateicons.in/r/hu-undo.json"
+    },
+    {
+      "name": "upload-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-upload-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "upload",
+        "send",
+        "publish",
+        "import",
+        "cloud",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/hu-upload-0-1.json"
+    },
+    {
+      "name": "user",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "user",
+        "person",
+        "profile",
+        "account",
+        "avatar",
+        "member"
+      ],
+      "url": "https://animateicons.in/r/hu-user.json"
+    },
+    {
+      "name": "user-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "add",
+        "sign up",
+        "register",
+        "invite",
+        "new account"
+      ],
+      "url": "https://animateicons.in/r/hu-user-add-0-1.json"
+    },
+    {
+      "name": "user-check-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-check-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "check",
+        "verified",
+        "approved",
+        "member",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/hu-user-check-0-1.json"
+    },
+    {
+      "name": "user-group",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-group",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "users",
+        "group",
+        "team",
+        "community",
+        "people",
+        "members"
+      ],
+      "url": "https://animateicons.in/r/hu-user-group.json"
+    },
+    {
+      "name": "user-minus-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-minus-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "remove",
+        "minus",
+        "delete account",
+        "unfollow",
+        "leave"
+      ],
+      "url": "https://animateicons.in/r/hu-user-minus-0-1.json"
+    },
+    {
+      "name": "user-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "remove",
+        "delete member",
+        "kick",
+        "unfriend",
+        "account"
+      ],
+      "url": "https://animateicons.in/r/hu-user-remove-0-1.json"
+    },
+    {
+      "name": "video-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-video-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "video",
+        "camera",
+        "record",
+        "film",
+        "movie",
+        "camcorder"
+      ],
+      "url": "https://animateicons.in/r/hu-video-0-1.json"
+    },
+    {
+      "name": "video-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-video-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "video",
+        "camera off",
+        "no video",
+        "stop video",
+        "disable",
+        "muted"
+      ],
+      "url": "https://animateicons.in/r/hu-video-off.json"
+    },
+    {
+      "name": "vk-square",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-vk-square",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "vk",
+        "vkontakte",
+        "social",
+        "network",
+        "box",
+        "brand"
+      ],
+      "url": "https://animateicons.in/r/hu-vk-square.json"
+    },
+    {
+      "name": "wallet-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wallet-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "wallet",
+        "money",
+        "payment",
+        "cash",
+        "billfold",
+        "finance"
+      ],
+      "url": "https://animateicons.in/r/hu-wallet-0-1.json"
+    },
+    {
+      "name": "wallet-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wallet-add-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "wallet",
+        "add",
+        "top up",
+        "add funds",
+        "deposit",
+        "money"
+      ],
+      "url": "https://animateicons.in/r/hu-wallet-add-0-1.json"
+    },
+    {
+      "name": "wallet-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wallet-remove-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "wallet",
+        "remove",
+        "withdraw",
+        "remove funds",
+        "delete",
+        "money"
+      ],
+      "url": "https://animateicons.in/r/hu-wallet-remove-0-1.json"
+    },
+    {
+      "name": "webhook",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-webhook",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Connectivity"
+      ],
+      "keywords": [
+        "webhook",
+        "callback",
+        "integration",
+        "event",
+        "hook",
+        "automation"
+      ],
+      "url": "https://animateicons.in/r/hu-webhook.json"
+    },
+    {
+      "name": "webhook-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-webhook-off",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Connectivity"
+      ],
+      "keywords": [
+        "webhook",
+        "off",
+        "disabled",
+        "paused",
+        "integration",
+        "disconnect"
+      ],
+      "url": "https://animateicons.in/r/hu-webhook-off.json"
+    },
+    {
+      "name": "wifi-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wifi-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "wireless",
+        "network",
+        "signal",
+        "internet",
+        "connection"
+      ],
+      "url": "https://animateicons.in/r/hu-wifi-0-1.json"
+    },
+    {
+      "name": "wifi-off-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wifi-off-0-1",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "offline",
+        "no connection",
+        "disconnected",
+        "wireless",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-wifi-off-0-1.json"
+    },
+    {
+      "name": "workflow",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-workflow",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Coding & development",
+        "Design"
+      ],
+      "keywords": [
+        "workflow",
+        "flow",
+        "pipeline",
+        "automation",
+        "process",
+        "diagram"
+      ],
+      "url": "https://animateicons.in/r/hu-workflow.json"
+    },
+    {
+      "name": "youtube",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-youtube",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "youtube",
+        "video",
+        "social",
+        "channel",
+        "brand",
+        "play"
+      ],
+      "url": "https://animateicons.in/r/hu-youtube.json"
+    },
+    {
+      "name": "zoom-in",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-zoom-in",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "zoom",
+        "magnify",
+        "search",
+        "enlarge",
+        "plus",
+        "scale"
+      ],
+      "url": "https://animateicons.in/r/hu-zoom-in.json"
+    },
+    {
+      "name": "zoom-out",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-zoom-out",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "zoom",
+        "zoom out",
+        "shrink",
+        "reduce",
+        "magnify",
+        "scale"
+      ],
+      "url": "https://animateicons.in/r/hu-zoom-out.json"
     },
     {
       "name": "a-arrow-down",
@@ -1022,6 +7158,26 @@
       "url": "https://animateicons.in/r/lu-arrow-down-right.json"
     },
     {
+      "name": "arrow-down-to-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-to-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow-down-to-line",
+        "bottom",
+        "download",
+        "save",
+        "down",
+        "scroll",
+        "import"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-to-line.json"
+    },
+    {
       "name": "arrow-down-up",
       "library": "lucide",
       "prefix": "lu",
@@ -1224,6 +7380,26 @@
       "url": "https://animateicons.in/r/lu-arrow-up-right.json"
     },
     {
+      "name": "arrow-up-to-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-to-line",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow-up-to-line",
+        "top",
+        "scroll",
+        "up",
+        "back to top",
+        "upload",
+        "raise"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-to-line.json"
+    },
+    {
       "name": "arrow-up-z-a",
       "library": "lucide",
       "prefix": "lu",
@@ -1374,6 +7550,26 @@
         "deal"
       ],
       "url": "https://animateicons.in/r/lu-badge-dollar-sign.json"
+    },
+    {
+      "name": "badge-info",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-badge-info",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "badge-info",
+        "info",
+        "information",
+        "badge",
+        "notice",
+        "help",
+        "details"
+      ],
+      "url": "https://animateicons.in/r/lu-badge-info.json"
     },
     {
       "name": "badge-percent",
@@ -2872,6 +9068,46 @@
       "url": "https://animateicons.in/r/lu-chevron-down.json"
     },
     {
+      "name": "chevron-first",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-first",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron-first",
+        "first",
+        "pagination",
+        "start",
+        "beginning",
+        "skip",
+        "page"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-first.json"
+    },
+    {
+      "name": "chevron-last",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevron-last",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron-last",
+        "last",
+        "pagination",
+        "end",
+        "final",
+        "skip",
+        "page"
+      ],
+      "url": "https://animateicons.in/r/lu-chevron-last.json"
+    },
+    {
       "name": "chevron-left",
       "library": "lucide",
       "prefix": "lu",
@@ -3622,6 +9858,26 @@
       "url": "https://animateicons.in/r/lu-cloud.json"
     },
     {
+      "name": "cloud-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cloud-check",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "cloud-check",
+        "cloud",
+        "synced",
+        "saved",
+        "backup",
+        "done",
+        "storage"
+      ],
+      "url": "https://animateicons.in/r/lu-cloud-check.json"
+    },
+    {
       "name": "cloud-download",
       "library": "lucide",
       "prefix": "lu",
@@ -3869,6 +10125,26 @@
       "url": "https://animateicons.in/r/lu-cloud-sun-rain.json"
     },
     {
+      "name": "cloud-sync",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cloud-sync",
+      "addedAt": "2026-09-29",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "cloud-sync",
+        "cloud",
+        "sync",
+        "refresh",
+        "backup",
+        "update",
+        "storage"
+      ],
+      "url": "https://animateicons.in/r/lu-cloud-sync.json"
+    },
+    {
       "name": "cloud-upload",
       "library": "lucide",
       "prefix": "lu",
@@ -4073,6 +10349,26 @@
         "profile"
       ],
       "url": "https://animateicons.in/r/lu-contact-round.json"
+    },
+    {
+      "name": "contrast",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-contrast",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Design"
+      ],
+      "keywords": [
+        "contrast",
+        "contrast",
+        "theme",
+        "dark mode",
+        "light mode",
+        "brightness",
+        "accessibility"
+      ],
+      "url": "https://animateicons.in/r/lu-contrast.json"
     },
     {
       "name": "cookie",
@@ -4734,6 +11030,27 @@
         "eur"
       ],
       "url": "https://animateicons.in/r/lu-euro.json"
+    },
+    {
+      "name": "expand",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-expand",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "expand",
+        "fullscreen",
+        "enlarge",
+        "maximize",
+        "grow",
+        "bigger",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-expand.json"
     },
     {
       "name": "external-link",
@@ -5459,6 +11776,26 @@
       "url": "https://animateicons.in/r/lu-flask-conical.json"
     },
     {
+      "name": "fold-vertical",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-fold-vertical",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "fold-vertical",
+        "fold",
+        "collapse",
+        "compress",
+        "accordion",
+        "hide",
+        "vertical"
+      ],
+      "url": "https://animateicons.in/r/lu-fold-vertical.json"
+    },
+    {
       "name": "folder",
       "library": "lucide",
       "prefix": "lu",
@@ -5734,6 +12071,26 @@
         "react"
       ],
       "url": "https://animateicons.in/r/lu-framer.json"
+    },
+    {
+      "name": "funnel-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-funnel-x",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "funnel-x",
+        "filter",
+        "clear",
+        "reset",
+        "remove",
+        "funnel",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/lu-funnel-x.json"
     },
     {
       "name": "gallery-horizontal",
@@ -6308,6 +12665,26 @@
         "import"
       ],
       "url": "https://animateicons.in/r/lu-hard-drive-download.json"
+    },
+    {
+      "name": "hard-drive-upload",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-hard-drive-upload",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "hard-drive-upload",
+        "upload",
+        "storage",
+        "drive",
+        "backup",
+        "disk",
+        "export"
+      ],
+      "url": "https://animateicons.in/r/lu-hard-drive-upload.json"
     },
     {
       "name": "hash",
@@ -7214,6 +13591,26 @@
         "toggle"
       ],
       "url": "https://animateicons.in/r/lu-list-collapse.json"
+    },
+    {
+      "name": "list-filter",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-filter",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "list-filter",
+        "filter",
+        "list",
+        "sort",
+        "refine",
+        "search",
+        "narrow"
+      ],
+      "url": "https://animateicons.in/r/lu-list-filter.json"
     },
     {
       "name": "list-ordered",
@@ -8274,6 +14671,26 @@
       "url": "https://animateicons.in/r/lu-mouse.json"
     },
     {
+      "name": "mouse-pointer",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mouse-pointer",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Cursors"
+      ],
+      "keywords": [
+        "mouse-pointer",
+        "cursor",
+        "pointer",
+        "arrow",
+        "mouse",
+        "select",
+        "click"
+      ],
+      "url": "https://animateicons.in/r/lu-mouse-pointer.json"
+    },
+    {
       "name": "mouse-pointer-click",
       "library": "lucide",
       "prefix": "lu",
@@ -8759,6 +15176,46 @@
         "collapse"
       ],
       "url": "https://animateicons.in/r/lu-panel-left.json"
+    },
+    {
+      "name": "panel-left-close",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-left-close",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel-left-close",
+        "sidebar",
+        "panel",
+        "close",
+        "collapse",
+        "drawer",
+        "hide"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-left-close.json"
+    },
+    {
+      "name": "panel-left-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-left-open",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel-left-open",
+        "sidebar",
+        "panel",
+        "open",
+        "expand",
+        "drawer",
+        "show"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-left-open.json"
     },
     {
       "name": "paperclip",
@@ -9745,6 +16202,27 @@
       "url": "https://animateicons.in/r/lu-rocket.json"
     },
     {
+      "name": "rotate-ccw",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rotate-ccw",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows",
+        "Design"
+      ],
+      "keywords": [
+        "rotate-ccw",
+        "rotate",
+        "counterclockwise",
+        "undo",
+        "reset",
+        "restore",
+        "turn"
+      ],
+      "url": "https://animateicons.in/r/lu-rotate-ccw.json"
+    },
+    {
       "name": "rotate-cw",
       "library": "lucide",
       "prefix": "lu",
@@ -10331,6 +16809,27 @@
         "ecommerce"
       ],
       "url": "https://animateicons.in/r/lu-shopping-cart.json"
+    },
+    {
+      "name": "shrink",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shrink",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "shrink",
+        "minimize",
+        "reduce",
+        "compress",
+        "smaller",
+        "exit fullscreen",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-shrink.json"
     },
     {
       "name": "shuffle",
@@ -11469,6 +17968,27 @@
       "url": "https://animateicons.in/r/lu-timer-reset.json"
     },
     {
+      "name": "toggle-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-toggle-left",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout",
+        "Tools"
+      ],
+      "keywords": [
+        "toggle-left",
+        "toggle",
+        "switch",
+        "off",
+        "disabled",
+        "inactive",
+        "settings"
+      ],
+      "url": "https://animateicons.in/r/lu-toggle-left.json"
+    },
+    {
       "name": "toggle-right",
       "library": "lucide",
       "prefix": "lu",
@@ -11825,6 +18345,26 @@
         "history"
       ],
       "url": "https://animateicons.in/r/lu-undo.json"
+    },
+    {
+      "name": "unfold-vertical",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-unfold-vertical",
+      "addedAt": "2026-09-29",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "unfold-vertical",
+        "unfold",
+        "expand",
+        "reveal",
+        "accordion",
+        "show",
+        "vertical"
+      ],
+      "url": "https://animateicons.in/r/lu-unfold-vertical.json"
     },
     {
       "name": "unlink",

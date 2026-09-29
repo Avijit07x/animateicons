@@ -74,36 +74,19 @@ const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const plusVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const popVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [1, 1.2, 0.85, 1],
-    rotate: [0, 10, -10, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     repeat: 0,
-     repeatDelay: 0.4,
-    },
+    rotate: [0, 90],
+    scale: [1, 1.2, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,10 +111,12 @@ const PlusIcon = forwardRef<PlusIconHandle, PlusIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={plusVariants}
      >
-      <m.path d="M5 12h14" variants={lineVariants} />
-      <m.path d="M12 5v14" variants={lineVariants} />
+      <m.path
+       d="M5 12h14M12 5v14"
+       variants={popVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

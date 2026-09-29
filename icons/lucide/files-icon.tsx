@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FilesIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,34 +75,34 @@ const FilesIcon = forwardRef<FilesIconHandle, FilesIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const frontVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
+    x: [0, 1, -0.2, 0],
+    y: [0, -1, 0.2, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
-
-  const outlineBackVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const backVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    x: [0, -1, 0.2, 0],
+    y: [0, 1, -0.2, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.18 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -128,18 +129,13 @@ const FilesIcon = forwardRef<FilesIconHandle, FilesIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"
-       variants={outlineVariants}
-      />
-      <m.path
-       d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"
-       variants={outlineVariants}
-      />
-      <m.path
-       d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"
-       variants={outlineBackVariants}
-      />
+      <m.g variants={backVariants}>
+       <path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1" />
+      </m.g>
+      <m.g variants={frontVariants}>
+       <path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8" />
+       <path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -87,22 +87,27 @@ const ClipboardCheckIcon = forwardRef<
   const clipVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -1.5, 0],
-    transition: { duration: 0.45 * duration, ease: "easeInOut" },
+    y: [0, -1, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1, 1],
-    opacity: [0, 1, 1],
-    scale: [0.8, 1.15, 1],
+    strokeDashoffset: [10, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.2 * duration,
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -141,8 +146,9 @@ const ClipboardCheckIcon = forwardRef<
       <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
       <m.path
        d="m9 14 2 2 4-4"
+       strokeDasharray="10"
+       strokeDashoffset="0"
        variants={tickVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "14px" }}
       />
      </m.svg>
     </m.div>

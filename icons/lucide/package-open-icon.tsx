@@ -44,7 +44,7 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.4,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -81,49 +81,19 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1 },
+  const leftFlapVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: 1.03,
-    transition: {
-     duration,
-     ease: [0.22, 1, 0.36, 1],
-     type: "spring",
-     stiffness: 260,
-     damping: 18,
-     mass: 0.6,
-    },
+    rotate: [0, -6, 4, -2, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
-  const lidVariants: Variants = {
-   normal: { y: 0 },
+  const rightFlapVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    y: -2,
-    transition: {
-     duration,
-     ease: [0.22, 1, 0.36, 1],
-     type: "spring",
-     stiffness: 280,
-     damping: 20,
-     mass: 0.5,
-    },
-   },
-  };
-
-  const bodyVariants: Variants = {
-   normal: { y: 0 },
-   animate: {
-    y: -0.5,
-    transition: {
-     duration,
-     ease: [0.22, 1, 0.36, 1],
-     delay: duration * 0.05,
-     type: "spring",
-     stiffness: 300,
-     damping: 22,
-     mass: 0.5,
-    },
+    rotate: [0, 6, -4, 2, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -148,25 +118,18 @@ const PackageOpenIcon = forwardRef<PackageOpenIconHandle, PackageOpenIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
+      <path d="M12 22v-9" />
       <m.path
-       d="M12 22v-9"
-       variants={bodyVariants}
-       animate={controls}
-       initial="normal"
+       d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"
+       variants={leftFlapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "8.5px" }}
       />
-
-      <m.g variants={lidVariants} animate={controls} initial="normal">
-       <path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z" />
-       <path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z" />
-      </m.g>
-
+      <path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13" />
       <m.path
-       d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"
-       variants={bodyVariants}
-       animate={controls}
-       initial="normal"
+       d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"
+       variants={rightFlapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "8.5px" }}
       />
      </m.svg>
     </m.div>

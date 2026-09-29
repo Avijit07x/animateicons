@@ -93,11 +93,11 @@ const GhostIcon = forwardRef<GhostIconHandle, GhostIconProps>(
   const eyeVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -1.2, -1.2, 1.2, 1.2, 0],
+    x: [0, -1.2, 1.2, 1.2, 0],
     transition: {
      duration: duration,
      ease: "easeInOut",
-     times: [0, 0.15, 0.4, 0.55, 0.8, 1],
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };

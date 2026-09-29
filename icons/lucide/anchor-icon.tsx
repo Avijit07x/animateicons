@@ -84,7 +84,7 @@ const AnchorIcon = forwardRef<AnchorIconHandle, AnchorIconProps>(
   const anchorVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 12, -9, 6, -3, 0],
+    rotate: [0, 12, -9, 6, 0],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };

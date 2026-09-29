@@ -84,27 +84,26 @@ const CircleUserRoundIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const headVariants: Variants = {
-   normal: { y: 0 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    y: [0, -1.5, 0.3, 0],
+    scale: [1, 1.1, 0.96, 1],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const shoulderVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -131,12 +130,15 @@ const CircleUserRoundIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M17.925 20.056a6 6 0 0 0-11.851.001"
-       variants={shoulderVariants}
-      />
+      <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
       <m.circle cx="12" cy="11" r="4" variants={headVariants} />
-      <circle cx="12" cy="12" r="10" />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

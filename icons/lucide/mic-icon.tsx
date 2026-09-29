@@ -81,13 +81,28 @@ const MicIcon = forwardRef<MicIconHandle, MicIconProps>(
    [controls, onMouseLeave],
   );
 
-  const micVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const capsuleVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, -3, 3, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.5 * duration, repeat: 0, ease: "easeInOut" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const standVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.06, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
+    },
    },
   };
 
@@ -110,13 +125,25 @@ const MicIcon = forwardRef<MicIconHandle, MicIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={micVariants}
       animate={controls}
       initial="normal"
      >
-      <path d="M12 19v3" />
-      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-      <rect x="9" y="2" width="6" height="13" rx="3" />
+      <m.rect
+       x="9"
+       y="2"
+       width="6"
+       height="13"
+       rx="3"
+       variants={capsuleVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "8.5px" }}
+      />
+      <m.g
+       variants={standVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+      >
+       <path d="M12 19v3" />
+       <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

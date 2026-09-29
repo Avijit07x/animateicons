@@ -81,42 +81,24 @@ const ImagePlusIcon = forwardRef<ImagePlusIconHandle, ImagePlusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const signVariants: Variants = {
-   normal: { scale: 1, opacity: 1, rotate: 0 },
+  const plusVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    rotate: [-90, 0, 0],
-    transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     times: [0, 0.6, 1],
-    },
-   },
-  };
-
-  const peakVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
-    },
+    rotate: [0, 90],
+    scale: [1, 1.25, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
   const sunVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0, 1.25, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.35, 0.9, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.3 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -143,18 +125,13 @@ const ImagePlusIcon = forwardRef<ImagePlusIconHandle, ImagePlusIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={signVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "5px" }}
-      >
-       <path d="M16 5h6" />
-       <path d="M19 2v6" />
-      </m.g>
-      <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5" />
       <m.path
-       d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
-       variants={peakVariants}
+       d="M16 5h6M19 2v6"
+       variants={plusVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "5px" }}
       />
+      <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5" />
+      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
       <m.circle
        cx="9"
        cy="9"

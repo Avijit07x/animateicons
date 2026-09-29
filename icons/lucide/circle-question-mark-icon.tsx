@@ -84,36 +84,35 @@ const CircleQuestionMarkIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const tiltVariants: Variants = {
-   normal: { rotate: 0 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    rotate: [0, -10, 10, -6, 6, 0],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const hookVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scale: [1, 1.1, 0.96, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.1 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const curlVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, -12, 10, -4, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const dotVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1.5, 0.44999999999999996, 0],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.45 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -140,21 +139,19 @@ const CircleQuestionMarkIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={tiltVariants}
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      >
-       <circle cx="12" cy="12" r="10" />
-       <m.path
-        d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
-        variants={hookVariants}
-       />
-       <m.path
-        d="M12 17h.01"
-        variants={dotVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
-       />
-      </m.g>
+      />
+      <m.path
+       d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+       variants={curlVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+      />
+      <m.path d="M12 17h.01" variants={dotVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

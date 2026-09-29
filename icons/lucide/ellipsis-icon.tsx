@@ -86,7 +86,7 @@ const EllipsisIcon = forwardRef<EllipsisIconHandle, EllipsisIconProps>(
    animate: (i: number) => ({
     y: [0, -3, 0],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.55 * duration,
      delay: i * 0.12,
      ease: "easeInOut",
     },

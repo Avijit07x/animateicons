@@ -84,40 +84,24 @@ const UserRoundSearchIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [60, 0],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.6, 1.2, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const searchVariants: Variants = {
-   normal: { x: 0, y: 0, rotate: 0, opacity: 1 },
+  const lensVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    x: [0, 2, -2, 1, 0],
-    y: [0, -1, 2, -1, 0],
-    rotate: [0, 6, -6, 4, 0],
-    transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut" as const,
-    },
+    x: [0, -1.4, -0.4, 0.7, 0],
+    y: [0, 0.3, -1.3, -0.4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -140,27 +124,14 @@ const UserRoundSearchIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-search-icon lucide-user-round-search"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M2 21a8 8 0 0 1 10.434-7.62"
-       strokeDasharray="60"
-       strokeDashoffset="60"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.g variants={searchVariants} initial="normal" animate={controls}>
-       <m.circle cx="18" cy="18" r="3" />
-       <m.path d="m22 22-1.9-1.9" />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
+      <path d="M2 21a8 8 0 0 1 10.434-7.62" />
+      <m.g variants={lensVariants}>
+       <circle cx="18" cy="18" r="3" />
+       <path d="m22 22-1.9-1.9" />
       </m.g>
      </m.svg>
     </m.div>

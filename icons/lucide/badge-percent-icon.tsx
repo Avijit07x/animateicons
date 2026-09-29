@@ -77,42 +77,48 @@ const BadgePercentIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const badgeVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.08, 0.97, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
+  const slashVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
+    transition: {
+     strokeDashoffset: { duration: 0.4 * duration, ease: "easeOut" },
+     opacity: { duration: 0.3 * duration },
+    },
+   },
+  };
+
+  const dotVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.7, 1],
     transition: {
      duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -138,20 +144,23 @@ const BadgePercentIcon = forwardRef<
      >
       <m.path
        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-       custom={0}
-       variants={bodyVariants}
+       variants={badgeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="m15 9-6 6" custom={2} variants={bodyVariants} />
+      <m.path
+       d="m15 9-6 6"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
       <m.path
        d="M9 9h.01"
-       custom={0}
-       variants={popVariants}
+       variants={dotVariants(0.3)}
        style={{ transformBox: "view-box", originX: "9px", originY: "9px" }}
       />
       <m.path
        d="M15 15h.01"
-       custom={1}
-       variants={popVariants}
+       variants={dotVariants(0.4)}
        style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
       />
      </m.svg>

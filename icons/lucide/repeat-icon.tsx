@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface RepeatIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -38,10 +37,6 @@ interface RepeatIconProps extends Omit<
  color?: string;
 }
 
-const TOP_D = "M3 11v-1a4 4 0 0 1 4-4h14";
-const BOTTOM_D = "M21 13v1a4 4 0 0 1-4 4H3";
-const DASH = 0.34;
-
 const RepeatIcon = forwardRef<RepeatIconHandle, RepeatIconProps>(
  (
   {
@@ -60,105 +55,52 @@ const RepeatIcon = forwardRef<RepeatIconHandle, RepeatIconProps>(
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
-  const start = useCallback(() => {
-   if (reduced) return;
-   controls.start("cycle");
-  }, [controls, reduced]);
-
-  const stop = useCallback(() => {
-   controls.start("rest");
-  }, [controls]);
-
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const cycle = 1.8 * duration;
-
-  const baseVariants: Variants = {
-   rest: {
-    opacity: 1,
-    transition: { duration: 0.3 * duration, ease: "easeOut" },
-   },
-   cycle: {
-    opacity: 0.3,
-    transition: { duration: 0.2 * duration, ease: "easeOut" },
-   },
-  };
-
-  const topPulseVariants: Variants = {
-   rest: { opacity: 0, pathLength: 1, pathOffset: 0 },
-   cycle: {
-    opacity: [0, 1, 1, 0, 0],
-    pathLength: [DASH, DASH, DASH, DASH, DASH],
-    pathOffset: [0, 0, 1, 1, 1],
+  const forwardVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 1.5, -0.45, 0],
     transition: {
-     duration: cycle,
-     ease: "linear",
-     times: [0, 0.04, 0.46, 0.5, 1],
-     repeat: Infinity,
-    },
-   },
-  };
-
-  const bottomPulseVariants: Variants = {
-   rest: { opacity: 0, pathLength: 1, pathOffset: 0 },
-   cycle: {
-    opacity: [0, 0, 1, 1, 0],
-    pathLength: [DASH, DASH, DASH, DASH, DASH],
-    pathOffset: [0, 0, 0, 1, 1],
-    transition: {
-     duration: cycle,
-     ease: "linear",
-     times: [0, 0.5, 0.54, 0.96, 1],
-     repeat: Infinity,
-    },
-   },
-  };
-
-  const topHeadVariants: Variants = {
-   rest: { scale: 1 },
-   cycle: {
-    scale: [1, 1, 1.3, 1, 1],
-    transition: {
-     duration: cycle,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.48, 0.58, 1],
-     repeat: Infinity,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const bottomHeadVariants: Variants = {
-   rest: { scale: 1 },
-   cycle: {
-    scale: [1, 1, 1.3, 1],
+  const backwardVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1.5, 0.45, 0],
     transition: {
-     duration: cycle,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.9, 0.98, 1],
-     repeat: Infinity,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -172,56 +114,28 @@ const RepeatIcon = forwardRef<RepeatIconHandle, RepeatIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d={TOP_D}
-       animate={controls}
-       initial="rest"
-       variants={baseVariants}
-      />
-      <m.path
-       d={BOTTOM_D}
-       animate={controls}
-       initial="rest"
-       variants={baseVariants}
-      />
-      <m.path
-       d={TOP_D}
-       animate={controls}
-       initial="rest"
-       variants={topPulseVariants}
-      />
-      <m.path
-       d={BOTTOM_D}
-       animate={controls}
-       initial="rest"
-       variants={bottomPulseVariants}
-      />
-      <m.path
-       d="m17 2 4 4-4 4"
-       animate={controls}
-       initial="rest"
-       variants={topHeadVariants}
-       style={{ transformBox: "fill-box" }}
-      />
-      <m.path
-       d="m7 22-4-4 4-4"
-       animate={controls}
-       initial="rest"
-       variants={bottomHeadVariants}
-       style={{ transformBox: "fill-box" }}
-      />
-     </svg>
+      <m.g variants={forwardVariants}>
+       <path d="m17 2 4 4-4 4" />
+       <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+      </m.g>
+      <m.g variants={backwardVariants}>
+       <path d="m7 22-4-4 4-4" />
+       <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

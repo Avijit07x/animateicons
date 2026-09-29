@@ -81,30 +81,21 @@ const CaptionsIcon = forwardRef<CaptionsIconHandle, CaptionsIconProps>(
    [controls, onMouseLeave],
   );
 
-  const frameVariants: Variants = {
-   normal: { scale: 1 },
+  const wordVariants = (length: number, delay: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    scale: [1, 0.92, 1.03, 1],
-    transition: {
-     duration: 0.45 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
-
-  const wordVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
+    strokeDashoffset: [length, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.2 * duration,
-     ease: "easeOut",
-     delay: (0.15 + i * 0.12) * duration,
+     strokeDashoffset: {
+      duration: 0.3 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: delay * duration },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -128,20 +119,31 @@ const CaptionsIcon = forwardRef<CaptionsIconHandle, CaptionsIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       width="18"
-       height="14"
-       x="3"
-       y="5"
-       rx="2"
-       ry="2"
-       variants={frameVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      <rect width="18" height="14" x="3" y="5" rx="2" ry="2" />
+      <m.path
+       d="M7 11h2"
+       strokeDasharray="2"
+       strokeDashoffset="0"
+       variants={wordVariants(2, 0.05)}
       />
-      <m.path d="M7 11h2" variants={wordVariants} custom={0} />
-      <m.path d="M13 11h4" variants={wordVariants} custom={1} />
-      <m.path d="M7 15h4" variants={wordVariants} custom={2} />
-      <m.path d="M15 15h2" variants={wordVariants} custom={3} />
+      <m.path
+       d="M13 11h4"
+       strokeDasharray="4"
+       strokeDashoffset="0"
+       variants={wordVariants(4, 0.17)}
+      />
+      <m.path
+       d="M7 15h4"
+       strokeDasharray="4"
+       strokeDashoffset="0"
+       variants={wordVariants(4, 0.32)}
+      />
+      <m.path
+       d="M15 15h2"
+       strokeDasharray="2"
+       strokeDashoffset="0"
+       variants={wordVariants(2, 0.44)}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

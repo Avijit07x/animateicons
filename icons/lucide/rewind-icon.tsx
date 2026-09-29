@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface RewindIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,57 +51,48 @@ const RewindIcon = forwardRef<RewindIconHandle, RewindIconProps>(
   },
   ref,
  ) => {
-  const wedgeControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   wedgeControls.start("run");
-  }, [wedgeControls, reduced]);
-
-  const stop = useCallback(() => {
-   wedgeControls.start("rest");
-  }, [wedgeControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const wedgeVariants = (i: number): Variants => ({
-   rest: { x: 0, opacity: 1 },
-   run: {
-    x: [0, -2.4, 0],
-    opacity: [1, 0.75, 1],
+  const wedgeVariants: Variants = {
+   normal: { x: 0 },
+   animate: (i: number) => ({
+    x: [0, -1, 0.3, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
-     delay: i * 0.12 * duration,
+     times: [0, 0.35, 0.7, 1],
+     delay: i * 0.07 * duration,
     },
-   },
-  });
+   }),
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -113,32 +103,30 @@ const RewindIcon = forwardRef<RewindIconHandle, RewindIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M12 6a2 2 0 0 0-3.414-1.414l-6 6a2 2 0 0 0 0 2.828l6 6A2 2 0 0 0 12 18z"
-       animate={wedgeControls}
-       initial="rest"
-       variants={wedgeVariants(0)}
-       style={{ transformBox: "fill-box" }}
+       custom={0}
+       variants={wedgeVariants}
       />
       <m.path
        d="M22 6a2 2 0 0 0-3.414-1.414l-6 6a2 2 0 0 0 0 2.828l6 6A2 2 0 0 0 22 18z"
-       animate={wedgeControls}
-       initial="rest"
-       variants={wedgeVariants(1)}
-       style={{ transformBox: "fill-box" }}
+       custom={1}
+       variants={wedgeVariants}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

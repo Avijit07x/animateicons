@@ -87,11 +87,11 @@ const AlarmClockIcon = forwardRef<AlarmClockIconHandle, AlarmClockIconProps>(
   const clockVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -8, 8, -6.5, 5, -3.5, 2, 0],
+    rotate: [0, -8, 8, -6.5, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",
-     times: [0, 0.14, 0.3, 0.46, 0.62, 0.76, 0.88, 1],
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };
@@ -134,10 +134,11 @@ const AlarmClockIcon = forwardRef<AlarmClockIconHandle, AlarmClockIconProps>(
      >
       <circle cx="12" cy="13" r="8" />
       <m.path
-       d="M12 9v4l2 2"
+       d="M12 9v4"
        variants={handsVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
       />
+      <path d="m12 13 2 2" />
       <path d="M5 3 2 6" />
       <path d="m22 6-3-3" />
       <path d="M6.38 18.7 4 21" />

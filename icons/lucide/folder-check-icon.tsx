@@ -106,14 +106,14 @@ const FolderCheckIcon = forwardRef<FolderCheckIconHandle, FolderCheckIconProps>(
      pathLength: {
       duration: 0.4 * duration,
       delay: 0.14 * duration,
-      ease: [0.16, 1, 0.3, 1],
+      ease: "easeOut",
      },
      opacity: { duration: 0.16 * duration, delay: 0.14 * duration },
      scale: {
       duration: 0.45 * duration,
       delay: 0.18 * duration,
       times: [0, 0.6, 1],
-      ease: [0.34, 1.4, 0.64, 1],
+      ease: "easeInOut",
      },
     },
    },

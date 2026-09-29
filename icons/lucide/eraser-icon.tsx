@@ -84,8 +84,8 @@ const EraserIcon = forwardRef<EraserIconHandle, EraserIconProps>(
   const scrubVariants: Variants = {
    normal: { x: 0, rotate: 0 },
    animate: {
-    x: [0, -1.5, 1.5, -1.5, 1.5, 0],
-    rotate: [0, -4, 4, -4, 4, 0],
+    x: [0, -1.5, 1.5, -1.5, 0],
+    rotate: [0, -4, 4, -4, 0],
     transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };

@@ -92,7 +92,7 @@ const SunSnowIcon = forwardRef<SunSnowIconHandle, SunSnowIconProps>(
     transition: {
      duration: 0.5 * duration,
      delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeOut",
     },
    }),
   };
@@ -105,7 +105,7 @@ const SunSnowIcon = forwardRef<SunSnowIconHandle, SunSnowIconProps>(
     transition: {
      duration: 0.3 * duration,
      delay: (0.35 + i * 0.05) * duration,
-     ease: [0.34, 1.3, 0.64, 1],
+     ease: "easeOut",
     },
    }),
   };

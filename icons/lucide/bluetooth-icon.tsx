@@ -82,18 +82,18 @@ const BluetoothIcon = forwardRef<BluetoothIconHandle, BluetoothIconProps>(
   );
 
   const runeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [64, 0],
     opacity: [0, 1],
-    scale: [1, 1.12, 1],
+    scale: [1, 1.08, 1],
     transition: {
-     pathLength: { duration: 0.7 * duration, ease: "easeInOut" },
-     opacity: { duration: 0.15 * duration },
+     strokeDashoffset: { duration: 0.6 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration, ease: "easeOut" },
      scale: {
-      duration: 0.3 * duration,
-      ease: "easeOut",
-      delay: 0.65 * duration,
+      duration: 0.35 * duration,
+      ease: "easeInOut",
+      delay: 0.5 * duration,
      },
     },
    },
@@ -123,6 +123,8 @@ const BluetoothIcon = forwardRef<BluetoothIconHandle, BluetoothIconProps>(
      >
       <m.path
        d="m7 7 10 10-5 5V2l5 5L7 17"
+       strokeDasharray="64"
+       strokeDashoffset="0"
        variants={runeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />

@@ -74,25 +74,22 @@ const PilcrowIcon = forwardRef<PilcrowIconHandle, PilcrowIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const stemVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, 0.65, 1.04, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: i * 0.1 * duration,
     },
    }),
   };
@@ -119,13 +116,19 @@ const PilcrowIcon = forwardRef<PilcrowIconHandle, PilcrowIconProps>(
       animate={controls}
       initial="normal"
      >
+      <path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13" />
       <m.path
-       d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13"
+       d="M13 4v16"
        custom={0}
-       variants={drawVariants}
+       variants={stemVariants}
+       style={{ transformBox: "view-box", originX: "13px", originY: "4px" }}
       />
-      <m.path d="M13 4v16" custom={1} variants={drawVariants} />
-      <m.path d="M17 4v16" custom={2} variants={drawVariants} />
+      <m.path
+       d="M17 4v16"
+       custom={1}
+       variants={stemVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "4px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

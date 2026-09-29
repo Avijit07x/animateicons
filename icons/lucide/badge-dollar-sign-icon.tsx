@@ -54,99 +54,76 @@ const BadgeDollarSignIcon = forwardRef<
   },
   ref,
  ) => {
-  const outerControls = useAnimation();
-  const dollarControls = useAnimation();
-  const lineControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      outerControls.start("normal");
-      dollarControls.start("normal");
-      lineControls.start("normal");
-     } else {
-      outerControls.start("animate");
-      dollarControls.start("animate");
-      lineControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     outerControls.start("normal");
-     dollarControls.start("normal");
-     lineControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     outerControls.start("animate");
-     dollarControls.start("animate");
-     lineControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    outerControls,
-    dollarControls,
-    lineControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     outerControls.start("normal");
-     dollarControls.start("normal");
-     lineControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [outerControls, dollarControls, lineControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const outerVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const badgeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.02, 1],
-    rotate: [0, 180, 0],
+    scale: [1, 1.08, 0.96, 1],
     transition: {
-     duration: 1.1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const dollarVariants: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [140, 0],
-    scale: [0.96, 1.05, 1],
+    strokeDashoffset: [30, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.25,
+     strokeDashoffset: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
 
   const lineVariants: Variants = {
-   normal: { strokeDashoffset: 0, scaleY: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [16, 0],
-    scaleY: [0.9, 1.05, 1],
-    opacity: [0.8, 1],
+    strokeDashoffset: [13, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.85 * duration,
-     ease: "easeInOut",
-     delay: 0.18,
+     strokeDashoffset: {
+      duration: 0.35 * duration,
+      ease: "easeOut",
+      delay: 0.4 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.4 * duration },
     },
    },
   };
@@ -160,7 +137,7 @@ const BadgeDollarSignIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -170,29 +147,27 @@ const BadgeDollarSignIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-       initial="normal"
-       animate={outerControls}
-       variants={outerVariants}
-       style={{ strokeDasharray: 260, transformOrigin: "12px 12px" }}
+       variants={badgeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.path
        d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
-       initial="normal"
-       animate={dollarControls}
+       strokeDasharray="30"
+       strokeDashoffset="0"
        variants={dollarVariants}
-       style={{ strokeDasharray: 140, strokeLinecap: "round" }}
       />
       <m.path
        d="M12 18V6"
-       initial="normal"
-       animate={lineControls}
+       strokeDasharray="13"
+       strokeDashoffset="0"
        variants={lineVariants}
-       style={{ strokeDasharray: 20, strokeLinecap: "round" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

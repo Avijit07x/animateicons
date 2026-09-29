@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FeatherIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -82,24 +83,10 @@ const FeatherIcon = forwardRef<FeatherIconHandle, FeatherIconProps>(
   );
 
   const featherVariants: Variants = {
-   normal: { y: 0, rotate: 0 },
+   normal: { rotate: 0 },
    animate: {
-    y: [0, -1.5, 0.5, -0.5, 0],
-    rotate: [0, -8, 5, -2, 0],
-    transition: { duration: duration, ease: "easeInOut" },
-   },
-  };
-
-  const barbVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.2 * duration,
-    },
+    rotate: [0, 5, -3, 1.5, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -127,11 +114,11 @@ const FeatherIcon = forwardRef<FeatherIconHandle, FeatherIconProps>(
      >
       <m.g
        variants={featherVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       style={{ transformBox: "view-box", originX: "2px", originY: "22px" }}
       >
        <path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" />
        <path d="M16 8 2 22" />
-       <m.path d="M17.488 15H9" variants={barbVariants} />
+       <path d="M17.488 15H9" />
       </m.g>
      </m.svg>
     </m.div>

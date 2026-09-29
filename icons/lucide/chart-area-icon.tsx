@@ -74,42 +74,21 @@ const ChartAreaIcon = forwardRef<ChartAreaIconHandle, ChartAreaIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.2 * duration },
-   },
+  const areaVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scaleY: [1, 0.5, 1.06, 1],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-    },
-   },
-  };
-
-  const chartVariants: Variants = {
-   normal: {
-    scale: 1,
-    transition: { duration: 0.2 * duration },
-   },
-   animate: {
-    scale: [1, 1.05, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
@@ -133,14 +112,14 @@ const ChartAreaIcon = forwardRef<ChartAreaIconHandle, ChartAreaIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={chartVariants}
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={pathVariants} />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
       <m.path
        d="M7 11.207a.5.5 0 0 1 .146-.353l2-2a.5.5 0 0 1 .708 0l3.292 3.292a.5.5 0 0 0 .708 0l4.292-4.292a.5.5 0 0 1 .854.353V16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1z"
-       variants={pathVariants}
+       variants={areaVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
       />
      </m.svg>
     </m.div>

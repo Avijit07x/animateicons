@@ -87,7 +87,7 @@ const FlaskConicalIcon = forwardRef<
   const flaskVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -10, 8, -5, 2, 0],
+    rotate: [0, -10, 8, -5, 0],
     transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
@@ -95,7 +95,7 @@ const FlaskConicalIcon = forwardRef<
   const liquidVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 9, -7, 4, -1, 0],
+    rotate: [0, 9, -7, 4, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",

@@ -74,41 +74,31 @@ const Disc2Icon = forwardRef<Disc2IconHandle, Disc2IconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, rotate: 0 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    rotate: [-40, 0],
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.2, 0.92, 1],
     transition: {
-     delay: i * 0.16 * duration,
-     duration: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.1 * duration,
     },
-   }),
+   },
   };
 
   const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.42 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    scale: [1, 2, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -134,19 +124,11 @@ const Disc2Icon = forwardRef<Disc2IconHandle, Disc2IconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle
-       cx="12"
-       cy="12"
-       r="10"
-       custom={0}
-       variants={ringVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      <circle cx="12" cy="12" r="10" />
       <m.circle
        cx="12"
        cy="12"
        r="4"
-       custom={1}
        variants={ringVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />

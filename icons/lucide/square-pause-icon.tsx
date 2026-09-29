@@ -74,37 +74,36 @@ const SquarePauseIcon = forwardRef<SquarePauseIconHandle, SquarePauseIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const frameVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const boxVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.55 * duration, ease: "easeInOut" },
+    scale: [1, 1.06, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const barVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleY: [0, 1],
-    opacity: [0, 1],
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.55, 1],
     transition: {
-     delay: (0.3 + i * 0.08) * duration,
-     duration: 0.35 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: (0.1 + delay) * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -134,15 +133,15 @@ const SquarePauseIcon = forwardRef<SquarePauseIconHandle, SquarePauseIconProps>(
        x="3"
        y="3"
        rx="2"
-       variants={frameVariants}
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.line
        x1="10"
        x2="10"
        y1="15"
        y2="9"
-       custom={0}
-       variants={barVariants}
+       variants={barVariants(0)}
        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
       />
       <m.line
@@ -150,8 +149,7 @@ const SquarePauseIcon = forwardRef<SquarePauseIconHandle, SquarePauseIconProps>(
        x2="14"
        y1="15"
        y2="9"
-       custom={1}
-       variants={barVariants}
+       variants={barVariants(0.1)}
        style={{ transformBox: "view-box", originX: "14px", originY: "12px" }}
       />
      </m.svg>

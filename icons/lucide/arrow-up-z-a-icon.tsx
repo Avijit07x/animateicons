@@ -81,61 +81,33 @@ const ArrowUpZAIcon = forwardRef<ArrowUpZAIconHandle, ArrowUpZAIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, -5, 3, 0],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
-   },
-  };
-
   const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [6, -2, 0],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
+    y: [0, -2, 0.5, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.1,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const zVariants: Variants = {
-   normal: { opacity: 1, x: 0 },
+  const swapVariants = (dy: number, dx: number): Variants => ({
+   normal: { x: 0, y: 0 },
    animate: {
-    opacity: [0, 1],
-    x: [6, 0],
+    y: [0, dy, 0],
+    x: [0, dx, 0, dx, 0],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeOut",
-     delay: 0.2,
+     y: { duration: 0.9 * duration, ease: "easeInOut", times: [0, 0.5, 1] },
+     x: {
+      duration: 0.9 * duration,
+      ease: "easeInOut",
+      times: [0, 0.25, 0.5, 0.75, 1],
+     },
     },
    },
-  };
-
-  const aVariants: Variants = {
-   normal: { opacity: 1, y: 0 },
-   animate: {
-    opacity: [0, 1],
-    y: [6, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeOut",
-     delay: 0.3,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -158,38 +130,16 @@ const ArrowUpZAIcon = forwardRef<ArrowUpZAIconHandle, ArrowUpZAIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path
-       d="m3 8 4-4 4 4"
-       variants={arrowVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M7 4v16"
-       variants={lineVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M15 4h5l-5 6h5"
-       variants={zVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M15 20v-3.5a2.5 2.5 0 0 1 5 0V20"
-       variants={aVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M20 18h-5"
-       variants={aVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={arrowVariants}>
+       <path d="m3 8 4-4 4 4" />
+       <path d="M7 4v16" />
+      </m.g>
+      <m.path d="M15 4h5l-5 6h5" variants={swapVariants(10, 2.5)} />
+      <m.g variants={swapVariants(-10, -2.5)}>
+       <path d="M15 20v-3.5a2.5 2.5 0 0 1 5 0V20" />
+       <path d="M20 18h-5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

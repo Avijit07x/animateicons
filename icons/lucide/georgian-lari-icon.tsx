@@ -84,67 +84,18 @@ const GeorgianLariIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const stemVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const arcStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    y: [0, -1.6, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.06,
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const leftVert: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.16,
-    },
-   },
-  };
-
-  const rightVert: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.26,
-    },
-   },
-  };
-
-  const baseStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.36,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -167,44 +118,11 @@ const GeorgianLariIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-georgian-lari-icon lucide-georgian-lari"
      >
-      <g opacity={0.35}>
-       <path d="M11.5 21a7.5 7.5 0 1 1 7.35-9" />
-       <path d="M13 12V3" />
-       <path d="M4 21h16" />
-       <path d="M9 12V3" />
-      </g>
-
-      <m.path
-       d="M11.5 21a7.5 7.5 0 1 1 7.35-9"
-       pathLength={1}
-       variants={arcStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M9 12V3"
-       pathLength={1}
-       variants={leftVert}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M13 12V3"
-       pathLength={1}
-       variants={rightVert}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M4 21h16"
-       pathLength={1}
-       variants={baseStroke}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M11.5 21a7.5 7.5 0 1 1 7.35-9" />
+      <m.path d="M13 12V3" variants={stemVariants(0.12)} />
+      <path d="M4 21h16" />
+      <m.path d="M9 12V3" variants={stemVariants(0)} />
      </m.svg>
     </m.div>
    </LazyMotion>

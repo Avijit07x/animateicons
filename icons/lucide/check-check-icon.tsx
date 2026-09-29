@@ -81,24 +81,21 @@ const CheckCheckIcon = forwardRef<CheckCheckIconHandle, CheckCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const tick1Variants: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },
+  const tickVariants = (delay: number, length: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [20, 0],
-    scale: [1, 1.2, 1],
-    opacity: [0.5, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const tick2Variants: Variants = {
-   normal: { opacity: 1, x: 0 },
-   animate: {
+    strokeDashoffset: [-length, 0],
     opacity: [0, 1],
-    x: [-6, 0],
-    transition: { duration: 0.5 * duration, ease: "easeOut", delay: 0.35 },
+    transition: {
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: delay * duration },
+    },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -119,22 +116,20 @@ const CheckCheckIcon = forwardRef<CheckCheckIconHandle, CheckCheckIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M18 6 7 17l-5-5"
-       strokeDasharray="20"
+       strokeDasharray="24"
        strokeDashoffset="0"
-       variants={tick1Variants}
-       initial="normal"
-       animate={controls}
+       variants={tickVariants(0, 24)}
       />
       <m.path
        d="m22 10-7.5 7.5L13 16"
-       strokeDasharray="20"
+       strokeDasharray="14"
        strokeDashoffset="0"
-       variants={tick2Variants}
-       initial="normal"
-       animate={controls}
+       variants={tickVariants(0.25, 14)}
       />
      </m.svg>
     </m.div>

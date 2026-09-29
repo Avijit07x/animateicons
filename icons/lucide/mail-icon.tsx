@@ -51,94 +51,45 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
   },
   ref,
  ) => {
-  const flapControls = useAnimation();
-  const bodyControls = useAnimation();
-  const containerControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      containerControls.start("normal");
-      flapControls.start("normal");
-      bodyControls.start("normal");
-     } else {
-      containerControls.start("animate");
-      flapControls.start("animate");
-      bodyControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     containerControls.start("normal");
-     flapControls.start("normal");
-     bodyControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     containerControls.start("animate");
-     flapControls.start("animate");
-     bodyControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    containerControls,
-    flapControls,
-    bodyControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     containerControls.start("normal");
-     flapControls.start("normal");
-     bodyControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [containerControls, flapControls, bodyControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const containerVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [0.85, 1.06, 0.98, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.55, 0.8, 1],
-     ease: "easeOut",
-    },
-   },
-  };
-
   const flapVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    strokeDashoffset: [24, 0],
-    opacity: [0, 1],
+    scaleY: [1, -0.8, -0.8, 1],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.22 * duration,
-     ease: "easeOut",
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
-   },
-  };
-
-  const bodyVariants: Variants = {
-   normal: { opacity: 1 },
-   animate: {
-    opacity: [1, 0.95, 1],
-    transition: { duration: 0.45 * duration, ease: "easeOut" },
    },
   };
 
@@ -150,11 +101,8 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
      onMouseLeave={handleLeave}
      {...props}
      style={{ color, ...props.style }}
-     initial="normal"
-     animate={containerControls}
-     variants={containerVariants}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -164,25 +112,16 @@ const MailIcon = forwardRef<MailIconHandle, MailIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
-       strokeDasharray="24"
-       initial="normal"
-       animate={flapControls}
        variants={flapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
-      <m.rect
-       x="2"
-       y="4"
-       width="20"
-       height="16"
-       rx="2"
-       initial="normal"
-       animate={bodyControls}
-       variants={bodyVariants}
-      />
-     </svg>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

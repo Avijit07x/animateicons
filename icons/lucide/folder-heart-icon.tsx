@@ -74,38 +74,34 @@ const FolderHeartIcon = forwardRef<FolderHeartIconHandle, FolderHeartIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
+  const folderVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const heartVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.6, 1.22, 1, 1.14, 1],
-    opacity: [0, 1, 1, 1, 1],
+    scale: [1, 1.25, 1, 1.15, 1],
     transition: {
-     duration: 0.75 * duration,
-     delay: 0.12 * duration,
-     times: [0, 0.3, 0.5, 0.72, 1],
+     duration: 0.7 * duration,
      ease: "easeInOut",
+     times: [0, 0.25, 0.5, 0.75, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -131,14 +127,15 @@ const FolderHeartIcon = forwardRef<FolderHeartIconHandle, FolderHeartIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M10.638 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v3.417" />
+      <m.path
+       d="M10.638 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v3.417"
+       variants={folderVariants}
+      />
       <m.path
        d="M14.62 18.8A2.25 2.25 0 1 1 18 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"
        variants={heartVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "18.5px" }}
+       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
       />
      </m.svg>
     </m.div>

@@ -74,44 +74,22 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.2 * duration },
-   },
+  const sliceVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    x: [0, 0.9, -0.15, 0],
+    y: [0, -0.9, 0.15, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-    },
-   },
-  };
-
-  const chartVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-    transition: { duration: 0.2 * duration },
-   },
-   animate: {
-    scale: [1, 1.05, 1],
-    rotate: [0, 5, -5, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -135,15 +113,14 @@ const ChartPieIcon = forwardRef<ChartPieIconHandle, ChartPieIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={chartVariants}
       animate={controls}
       initial="normal"
      >
       <m.path
        d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"
-       variants={pathVariants}
+       variants={sliceVariants}
       />
-      <m.path d="M21.21 15.89A10 10 0 1 1 8 2.83" variants={pathVariants} />
+      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
      </m.svg>
     </m.div>
    </LazyMotion>

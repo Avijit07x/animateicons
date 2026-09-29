@@ -58,7 +58,8 @@ const UserRoundIcon = forwardRef<UserRoundIconHandle, UserRoundIconProps>(
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => controls.start("animate"),
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
     stopAnimation: () => controls.start("normal"),
    };
   });
@@ -80,25 +81,27 @@ const UserRoundIcon = forwardRef<UserRoundIconHandle, UserRoundIconProps>(
    [controls, onMouseLeave],
   );
 
-  const curveVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     delay: 0.3,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
+    scaleY: [1, 0.88, 1.04, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -121,23 +124,14 @@ const UserRoundIcon = forwardRef<UserRoundIconHandle, UserRoundIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-icon lucide-user-round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="12"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.circle cx="12" cy="8" r="5" variants={headVariants} />
       <m.path
        d="M20 21a8 8 0 0 0-16 0"
-       strokeDasharray="40"
-       strokeDashoffset="0"
-       variants={curveVariants}
-       initial="normal"
-       animate={controls}
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />
      </m.svg>
     </m.div>

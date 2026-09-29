@@ -77,60 +77,33 @@ const CalendarFoldIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
+  const ringVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.6, -0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
+   },
+  };
+
   const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const hangerVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scale: [1, 1, 0.97, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const headerVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   },
-  };
-
-  const foldVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.42 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
    },
   };
@@ -157,18 +130,15 @@ const CalendarFoldIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 2v4" custom={0} variants={hangerVariants} />
-      <m.path d="M16 2v4" custom={1} variants={hangerVariants} />
-      <m.path
-       d="M3 20a2 2 0 0 0 2 2h10a2.4 2.4 0 0 0 1.706-.706l3.588-3.588A2.4 2.4 0 0 0 21 16V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <m.g
        variants={bodyVariants}
-      />
-      <m.path
-       d="M3 10h18"
-       variants={headerVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "10px" }}
-      />
-      <m.path d="M15 22v-5a1 1 0 0 1 1-1h5" variants={foldVariants} />
+       style={{ transformBox: "view-box", originX: "21px", originY: "21px" }}
+      >
+       <path d="M21 15V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10v-5a1 1 0 011-1za2.4 2.4 0 01-.706 1.706l-3.588 3.588A2.4 2.4 0 0115 21" />
+       <path d="M3 9h18" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

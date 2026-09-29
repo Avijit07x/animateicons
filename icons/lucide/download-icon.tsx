@@ -81,52 +81,27 @@ const DownloadIcon = forwardRef<DownloadIconHandle, DownloadIconProps>(
    [controls, onMouseLeave],
   );
 
-  const shaftVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [30, 0],
-    opacity: [0.4, 1],
+    y: [0, 2.5, -0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { y: 0, opacity: 1, scale: 1 },
-   animate: {
-    y: [-2, 2, 0],
-    scale: [1, 1.05, 1],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.05,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const trayVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [60, 0],
-    opacity: [0.3, 1],
+    y: [0, 0.8, -0.2, 0],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.1,
-    },
-   },
-  };
-
-  const groupPulse: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.02, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.15 * duration,
     },
    },
   };
@@ -150,32 +125,17 @@ const DownloadIcon = forwardRef<DownloadIconHandle, DownloadIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-download-icon lucide-download"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={groupPulse} initial="normal" animate={controls}>
-       <m.path
-        d="M12 3v12"
-        strokeDasharray="30"
-        strokeDashoffset="30"
-        variants={shaftVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m7 10 5 5 5-5"
-        variants={headVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
-        strokeDasharray="60"
-        strokeDashoffset="60"
-        variants={trayVariants}
-        initial="normal"
-        animate={controls}
-       />
+      <m.g variants={arrowVariants}>
+       <path d="M12 15V3" />
+       <path d="m7 10 5 5 5-5" />
       </m.g>
+      <m.path
+       d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+       variants={trayVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

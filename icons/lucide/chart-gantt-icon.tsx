@@ -74,36 +74,25 @@ const ChartGanttIcon = forwardRef<ChartGanttIconHandle, ChartGanttIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const axisVariants: Variants = {
-   normal: { pathLength: 1 },
+  const taskVariants = (i: number): Variants => ({
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.4 * duration, ease: "easeOut" },
-   },
-  };
-
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    x: [0, 2.5, -0.6, 0],
     transition: {
-     delay: (0.3 + i * 0.13) * duration,
-     duration: 0.5 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: i * 0.1 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -127,10 +116,10 @@ const ChartGanttIcon = forwardRef<ChartGanttIconHandle, ChartGanttIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={axisVariants} />
-      <m.path d="M10 6h8" custom={0} variants={barVariants} />
-      <m.path d="M8 11h7" custom={1} variants={barVariants} />
-      <m.path d="M12 16h6" custom={2} variants={barVariants} />
+      <m.path d="M10 6h8" variants={taskVariants(0)} />
+      <m.path d="M8 11h7" variants={taskVariants(1)} />
+      <m.path d="M12 16h6" variants={taskVariants(2)} />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
      </m.svg>
     </m.div>
    </LazyMotion>

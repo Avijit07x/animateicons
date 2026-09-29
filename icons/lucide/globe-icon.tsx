@@ -52,103 +52,40 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
   ref,
  ) => {
   const controls = useAnimation();
-  const pathControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      controls.start("normal");
-      pathControls.start("normal");
-     } else {
-      controls.start("animate");
-      pathControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     controls.start("normal");
-     pathControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-     pathControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [controls, pathControls, reduced, isAnimated, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-     pathControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [controls, pathControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
+  const meridianVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scale: [1, 1.03, 1],
-    rotate: 360,
-    transition: {
-     rotate: {
-      duration: 1.4 * duration,
-      ease: "linear",
-     },
-     scale: {
-      duration: 0.25 * duration,
-      ease: "easeOut",
-     },
-    },
-   },
-  };
-
-  const outlineVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0.9, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const orbitVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.5, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.08 * duration,
-     ease: "easeOut",
-    },
+    scaleX: [1, -1, 1],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
@@ -173,28 +110,14 @@ const GlobeIcon = forwardRef<GlobeIconHandle, GlobeIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.circle
-       cx="12"
-       cy="12"
-       r="10"
-       variants={outlineVariants}
-       initial="normal"
-       animate={pathControls}
-      />
+      <circle cx="12" cy="12" r="10" />
       <m.path
        d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-       variants={orbitVariants}
-       initial="normal"
-       animate={pathControls}
+       variants={meridianVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M2 12h20"
-       variants={orbitVariants}
-       initial="normal"
-       animate={pathControls}
-      />
+      <path d="M2 12h20" />
      </m.svg>
     </m.div>
    </LazyMotion>

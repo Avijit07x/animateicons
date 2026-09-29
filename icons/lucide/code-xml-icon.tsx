@@ -51,94 +51,68 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
   },
   ref,
  ) => {
-  const leftControls = useAnimation();
-  const rightControls = useAnimation();
-  const slashControls = useAnimation();
-  const isControlled = useRef(false);
+  const controls = useAnimation();
   const reduced = useReducedMotion();
+  const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      leftControls.start("normal");
-      rightControls.start("normal");
-      slashControls.start("normal");
-     } else {
-      leftControls.start("animate");
-      rightControls.start("animate");
-      slashControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     leftControls.start("normal");
-     rightControls.start("normal");
-     slashControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     leftControls.start("animate");
-     rightControls.start("animate");
-     slashControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    leftControls,
-    rightControls,
-    slashControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     leftControls.start("normal");
-     rightControls.start("normal");
-     slashControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [leftControls, rightControls, slashControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const leftArrowVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const leftVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    x: [0, -1, 0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const rightArrowVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const rightVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut", delay: 0.1 },
+    x: [0, 1, -0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [1, 0, 1],
-    opacity: [1, 0.4, 1],
+    rotate: [0, 10, -3, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -162,24 +136,15 @@ const CodeXmlIcon = forwardRef<CodeXmlIconHandle, CodeXmlIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="m6 8-4 4 4 4"
-       animate={leftControls}
-       initial="normal"
-       variants={leftArrowVariants}
-      />
-      <m.path
-       d="m18 16 4-4-4-4"
-       animate={rightControls}
-       initial="normal"
-       variants={rightArrowVariants}
-      />
+      <m.path d="m18 16 4-4-4-4" variants={rightVariants} />
+      <m.path d="m6 8-4 4 4 4" variants={leftVariants} />
       <m.path
        d="m14.5 4-5 16"
-       animate={slashControls}
-       initial="normal"
        variants={slashVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

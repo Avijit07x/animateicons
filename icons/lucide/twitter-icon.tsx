@@ -81,22 +81,12 @@ const TwitterIcon = forwardRef<TwitterIconHandle, TwitterIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { y: 0, scale: 1, rotate: 0 },
+  const spinVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    y: [0, -4, 0, -2, 0],
-    scale: [1, 1.08, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
-   animate: {
-    opacity: [0.9, 1, 1],
-    scale: [1, 1.12, 1],
-    transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.15 },
+    rotate: [0, 180],
+    scale: [1, 0.78, 1],
+    transition: { duration: 0.95 * duration, ease: "easeInOut" },
    },
   };
 
@@ -118,15 +108,15 @@ const TwitterIcon = forwardRef<TwitterIconHandle, TwitterIconProps>(
       width={size}
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
-       d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 
-	               106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 
-	               389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-       variants={pathVariants}
-       initial="normal"
-       animate={controls}
+       d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+       variants={spinVariants}
+       style={{
+        transformBox: "view-box",
+        originX: "256.9px",
+        originY: "256px",
+       }}
       />
      </m.svg>
     </m.div>

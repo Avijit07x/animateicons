@@ -81,21 +81,27 @@ const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const leftSwordVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    rotate: [0, -5, 5, -3, 3, 0],
-    scale: [1, 1.05, 0.95, 1],
-    transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
+    rotate: [0, 7, -3, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const rightSwordVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
+    rotate: [0, -7, 3, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
@@ -120,22 +126,25 @@ const SwordsIcon = forwardRef<SwordsIconHandle, SwordsIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.polyline
-       points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"
-       variants={pathVariants}
-      />
-      <m.line x1="13" x2="19" y1="19" y2="13" variants={pathVariants} />
-      <m.line x1="16" x2="20" y1="16" y2="20" variants={pathVariants} />
-      <m.line x1="19" x2="21" y1="21" y2="19" variants={pathVariants} />
-      <m.polyline
-       points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"
-       variants={pathVariants}
-      />
-      <m.line x1="5" x2="9" y1="14" y2="18" variants={pathVariants} />
-      <m.line x1="7" x2="4" y1="17" y2="20" variants={pathVariants} />
-      <m.line x1="3" x2="5" y1="19" y2="21" variants={pathVariants} />
+      <m.g
+       variants={leftSwordVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
+      >
+       <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5" />
+       <line x1="13" x2="19" y1="19" y2="13" />
+       <line x1="16" x2="20" y1="16" y2="20" />
+       <line x1="19" x2="21" y1="21" y2="19" />
+      </m.g>
+      <m.g
+       variants={rightSwordVariants}
+       style={{ transformBox: "view-box", originX: "7px", originY: "17px" }}
+      >
+       <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5" />
+       <line x1="5" x2="9" y1="14" y2="18" />
+       <line x1="7" x2="4" y1="17" y2="20" />
+       <line x1="3" x2="5" y1="19" y2="21" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -87,7 +87,7 @@ const BoxesIcon = forwardRef<BoxesIconHandle, BoxesIconProps>(
     scale: [1, 1.04, 1],
     transition: {
      duration,
-     ease: [0.22, 1, 0.36, 1],
+     ease: "easeInOut",
     },
    },
   };
@@ -99,7 +99,7 @@ const BoxesIcon = forwardRef<BoxesIconHandle, BoxesIconProps>(
     transition: {
      duration: duration * 0.9,
      delay: i * 0.08,
-     ease: [0.22, 1, 0.36, 1],
+     ease: "easeInOut",
     },
    }),
   };

@@ -81,38 +81,24 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
    [controls, onMouseLeave],
   );
 
-  const diffVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.15, 0.9, 1],
-    rotate: [0, -2, 2, 0],
-    transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const plusVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, 180],
+    scale: [1, 1.1, 1],
+    transition: { duration: 0.95 * duration, ease: "easeInOut" },
    },
   };
 
   const minusVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
+   normal: { scaleX: 1 },
    animate: {
-    x: [-10, 0, 10, 0],
-    opacity: [0.8, 1, 0.8, 1],
+    scaleX: [1, 0.55, 1.05, 1],
     transition: {
-     duration: 1.2 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.12 * duration,
     },
    },
   };
@@ -138,11 +124,19 @@ const DiffIcon = forwardRef<DiffIconHandle, DiffIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={diffVariants}
      >
-      <m.path d="M12 3v14" variants={plusVariants} />{" "}
-      <m.path d="M5 10h14" variants={plusVariants} />{" "}
-      <m.path d="M5 21h14" variants={minusVariants} />{" "}
+      <m.g
+       variants={plusVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+      >
+       <path d="M12 3v14" />
+       <path d="M5 10h14" />
+      </m.g>
+      <m.path
+       d="M5 21h14"
+       variants={minusVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

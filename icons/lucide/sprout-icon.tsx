@@ -82,14 +82,13 @@ const SproutIcon = forwardRef<SproutIconHandle, SproutIconProps>(
   );
 
   const growVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.08, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 0.82, 1.06, 1],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
    },
   };
@@ -97,11 +96,11 @@ const SproutIcon = forwardRef<SproutIconHandle, SproutIconProps>(
   const leafVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -14, 8, -4, 0],
+    rotate: [0, -12, 8, -3, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: 0.3 * duration,
+     delay: 0.2 * duration,
     },
    },
   };

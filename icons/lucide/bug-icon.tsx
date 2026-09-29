@@ -84,8 +84,8 @@ const BugIcon = forwardRef<BugIconHandle, BugIconProps>(
   const bodyVariants: Variants = {
    normal: { rotate: 0, y: 0 },
    animate: {
-    rotate: [0, -6, 6, -4, 4, 0],
-    y: [0, -0.8, 0, -0.8, 0, 0],
+    rotate: [0, -6, 6, -4, 0],
+    y: [0, -0.8, 0, -0.8, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };

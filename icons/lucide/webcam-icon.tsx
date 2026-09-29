@@ -74,39 +74,21 @@ const WebcamIcon = forwardRef<WebcamIconHandle, WebcamIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
   const lensVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { x: 0 },
    animate: {
-    scale: [1.7, 0.9, 1],
-    opacity: [0, 1, 1],
+    x: [0, -2, 1.5, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.35 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.2, 0.64, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -133,16 +115,10 @@ const WebcamIcon = forwardRef<WebcamIconHandle, WebcamIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="12" cy="10" r="8" custom={0} variants={bodyVariants} />
-      <m.circle
-       cx="12"
-       cy="10"
-       r="3"
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
-      />
-      <m.path d="M7 22h10" custom={1} variants={bodyVariants} />
-      <m.path d="M12 22v-4" custom={1} variants={bodyVariants} />
+      <circle cx="12" cy="10" r="8" />
+      <m.circle cx="12" cy="10" r="3" variants={lensVariants} />
+      <path d="M7 22h10" />
+      <path d="M12 22v-4" />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -95,8 +95,8 @@ const MoveHorizontalIcon = forwardRef<
   const rightArrowVariants: Variants = {
    normal: { x: 0, opacity: 1 },
    animate: {
-    x: [1, 3, 0],
-    opacity: [1, 0.7, 1],
+    x: [0, 1, 3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };
@@ -104,8 +104,8 @@ const MoveHorizontalIcon = forwardRef<
   const leftArrowVariants: Variants = {
    normal: { x: 0, opacity: 1 },
    animate: {
-    x: [-1, -3, 0],
-    opacity: [1, 0.7, 1],
+    x: [0, -1, -3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };

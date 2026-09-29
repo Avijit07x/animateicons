@@ -74,42 +74,24 @@ const WaypointsIcon = forwardRef<WaypointsIconHandle, WaypointsIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const nodeVariants = (i: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: i * 0.1 * duration,
     },
-   }),
-  };
-
-  const nodeVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: (0.35 + i * 0.16) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,48 +115,36 @@ const WaypointsIcon = forwardRef<WaypointsIconHandle, WaypointsIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="m10.586 5.414-5.172 5.172"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M6 12h12" custom={0} variants={bodyVariants} />
-      <m.path
-       d="m18.586 13.414-5.172 5.172"
-       custom={0}
-       variants={bodyVariants}
-      />
+      <path d="m10.586 5.414-5.172 5.172" />
+      <path d="m18.586 13.414-5.172 5.172" />
+      <path d="M6 12h12" />
       <m.circle
        cx="12"
        cy="4"
        r="2"
-       custom={0}
-       variants={nodeVariants}
+       variants={nodeVariants(0)}
        style={{ transformBox: "view-box", originX: "12px", originY: "4px" }}
-      />
-      <m.circle
-       cx="4"
-       cy="12"
-       r="2"
-       custom={1}
-       variants={nodeVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "12px" }}
       />
       <m.circle
        cx="20"
        cy="12"
        r="2"
-       custom={2}
-       variants={nodeVariants}
+       variants={nodeVariants(1)}
        style={{ transformBox: "view-box", originX: "20px", originY: "12px" }}
       />
       <m.circle
        cx="12"
        cy="20"
        r="2"
-       custom={3}
-       variants={nodeVariants}
+       variants={nodeVariants(2)}
        style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
+      />
+      <m.circle
+       cx="4"
+       cy="12"
+       r="2"
+       variants={nodeVariants(3)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

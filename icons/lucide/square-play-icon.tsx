@@ -74,35 +74,33 @@ const SquarePlayIcon = forwardRef<SquarePlayIconHandle, SquarePlayIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const frameVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const boxVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.55 * duration, ease: "easeInOut" },
+    scale: [1, 1.06, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const symbolVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const playVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    x: [0, 2, -0.4, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.32 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -135,12 +133,12 @@ const SquarePlayIcon = forwardRef<SquarePlayIconHandle, SquarePlayIconProps>(
        width="18"
        height="18"
        rx="2"
-       variants={frameVariants}
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.path
        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
-       variants={symbolVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       variants={playVariants}
       />
      </m.svg>
     </m.div>

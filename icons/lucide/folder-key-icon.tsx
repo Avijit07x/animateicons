@@ -74,38 +74,34 @@ const FolderKeyIcon = forwardRef<FolderKeyIconHandle, FolderKeyIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
+  const folderVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const keyVariants: Variants = {
-   normal: { scale: 1, rotate: 0, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    scale: [0.3, 1.15, 1],
-    rotate: [-40, 5, 0],
-    opacity: [0, 1, 1],
+    rotate: [0, 24, -8, 0],
     transition: {
-     duration: 0.6 * duration,
-     delay: 0.14 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -131,27 +127,19 @@ const FolderKeyIcon = forwardRef<FolderKeyIconHandle, FolderKeyIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M13 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v1.36" />
       <m.path
-       d="M19 12v6"
-       variants={keyVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "20px" }}
+       d="M13 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v1.36"
+       variants={folderVariants}
       />
-      <m.path
-       d="M19 14h2"
+      <m.g
        variants={keyVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "20px" }}
-      />
-      <m.circle
-       cx="19"
-       cy="20"
-       r="2"
-       variants={keyVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "20px" }}
-      />
+       style={{ transformBox: "view-box", originX: "19px", originY: "13px" }}
+      >
+       <path d="M19 12v6" />
+       <path d="M19 14h2" />
+       <circle cx="19" cy="20" r="2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

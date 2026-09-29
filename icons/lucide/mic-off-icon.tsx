@@ -81,22 +81,23 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
    [controls, onMouseLeave],
   );
 
-  const micVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    scale: [1, 1.05, 0.95, 1],
-    rotate: [0, -3, 3, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.5 * duration, repeat: 0, ease: "easeInOut" },
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [1, 0, 1],
-    opacity: 1,
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
+    strokeDashoffset: [29, 0],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeOut",
+     delay: 0.1 * duration,
+    },
    },
   };
 
@@ -121,12 +122,20 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={micVariants}
      >
-      <path d="M12 19v3" />
-      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-      <rect x="9" y="2" width="6" height="13" rx="3" />
-      <m.path d="M2 2L22 22" variants={slashVariants} />
+      <m.g variants={bodyVariants}>
+       <path d="M12 19v3" />
+       <path d="M15 9.34V5a3 3 0 0 0-5.68-1.33" />
+       <path d="M16.95 16.95A7 7 0 0 1 5 12v-2" />
+       <path d="M18.89 13.23A7 7 0 0 0 19 12v-2" />
+       <path d="M9 9v3a3 3 0 0 0 5.12 2.12" />
+      </m.g>
+      <m.path
+       d="m2 2 20 20"
+       strokeDasharray="29 200"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

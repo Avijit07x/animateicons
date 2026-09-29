@@ -74,40 +74,30 @@ const HistoryIcon = forwardRef<HistoryIconHandle, HistoryIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { rotate: 0, pathLength: 1, opacity: 1 },
+  const handsVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    rotate: [30, 0],
-    transition: {
-     pathLength: { duration: 0.6 * duration, ease: [0.16, 1, 0.3, 1] },
-     opacity: { duration: 0.2 * duration },
-     rotate: { duration: 0.6 * duration, ease: [0.34, 1.4, 0.64, 1] },
-    },
+    rotate: [0, -360],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
-  const handVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    rotate: [-40, 12, 0],
-    opacity: [0, 1, 1],
+    x: [0, -1.5, 0.5, 0],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -134,19 +124,11 @@ const HistoryIcon = forwardRef<HistoryIconHandle, HistoryIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
-       variants={arcVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M3 3v5h5"
-       variants={arcVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+      <m.path d="M3 3v5h5" variants={arrowVariants} />
       <m.path
        d="M12 7v5l4 2"
-       variants={handVariants}
+       variants={handsVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

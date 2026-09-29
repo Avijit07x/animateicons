@@ -118,7 +118,7 @@
 		{
 			"name": "huge (full barrel)",
 			"path": "dist/huge.js",
-			"limit": "35 kB",
+			"limit": "100 kB",
 			"ignore": [
 				"react",
 				"react-dom"

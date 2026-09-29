@@ -77,41 +77,36 @@ const TicketPercentIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const ticketVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.04, 0.98, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
+  const percentVariants: Variants = {
+   normal: { rotate: 0, scale: 1 },
+   animate: {
+    rotate: [0, -16, 12, -6, 0],
+    scale: [1, 1.15, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -138,22 +133,17 @@ const TicketPercentIcon = forwardRef<
      >
       <m.path
        d="M2 9a3 3 0 1 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 1 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
-       custom={0}
-       variants={bodyVariants}
+       variants={ticketVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="m15 9-6 6" custom={2} variants={bodyVariants} />
-      <m.path
-       d="M9 9h.01"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "9px", originY: "9px" }}
-      />
-      <m.path
-       d="M15 15h.01"
-       custom={1}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
-      />
+      <m.g
+       variants={percentVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M9 9h.01" />
+       <path d="m15 9-6 6" />
+       <path d="M15 15h.01" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

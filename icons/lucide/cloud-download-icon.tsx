@@ -84,25 +84,15 @@ const CloudDownloadIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const cloudVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.4, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
-   },
-  };
-
   const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { x: 0, y: 0 },
    animate: {
-    y: [-3, 1.5, 0],
-    opacity: [0, 1, 1],
+    x: [0, 0, 0, 0],
+    y: [0, 1.5, -0.375, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.65, 1],
-     delay: 0.1 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -133,10 +123,7 @@ const CloudDownloadIcon = forwardRef<
        <path d="M12 13v8l-4-4" />
        <path d="m12 21 4-4" />
       </m.g>
-      <m.path
-       d="M4.393 15.269A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.436 8.284"
-       variants={cloudVariants}
-      />
+      <path d="M4.393 15.269A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.436 8.284" />
      </m.svg>
     </m.div>
    </LazyMotion>

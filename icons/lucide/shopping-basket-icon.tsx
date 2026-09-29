@@ -77,27 +77,31 @@ const ShoppingBasketIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const handleVariants = (angle: number): Variants => ({
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, angle, -angle * 0.65, angle * 0.25, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
+  });
+
+  const basketVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.95, 1.02, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -122,17 +126,26 @@ const ShoppingBasketIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M2 11h20" custom={0} variants={bodyVariants} />
       <m.path
-       d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"
-       custom={0}
-       variants={bodyVariants}
+       d="m19 11-4-7"
+       variants={handleVariants(12)}
+       style={{ transformBox: "view-box", originX: "19px", originY: "11px" }}
       />
-      <m.path d="m5 11 4-7" custom={1} variants={bodyVariants} />
-      <m.path d="m19 11-4-7" custom={1} variants={bodyVariants} />
-      <m.path d="m9 11 1 9" custom={2} variants={bodyVariants} />
-      <m.path d="m15 11-1 9" custom={2} variants={bodyVariants} />
-      <m.path d="M4.5 15.5h15" custom={3} variants={bodyVariants} />
+      <m.path
+       d="m5 11 4-7"
+       variants={handleVariants(-12)}
+       style={{ transformBox: "view-box", originX: "5px", originY: "11px" }}
+      />
+      <m.g
+       variants={basketVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
+      >
+       <path d="m15 11-1 9" />
+       <path d="M2 11h20" />
+       <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" />
+       <path d="M4.5 15.5h15" />
+       <path d="m9 11 1 9" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

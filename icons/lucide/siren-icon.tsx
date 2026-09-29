@@ -84,7 +84,7 @@ const SirenIcon = forwardRef<SirenIconHandle, SirenIconProps>(
   const domeVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -5, 5, -5, 5, 0],
+    rotate: [0, -5, 5, -5, 0],
     transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };

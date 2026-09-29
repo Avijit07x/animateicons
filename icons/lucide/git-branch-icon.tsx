@@ -44,7 +44,7 @@ const GitBranchIcon = forwardRef<GitBranchIconHandle, GitBranchIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -81,61 +81,18 @@ const GitBranchIcon = forwardRef<GitBranchIconHandle, GitBranchIconProps>(
    [controls, onMouseLeave],
   );
 
-  const easeSmooth: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const trunkNodeVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.12, 1],
-    opacity: [1, 0.9, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.35,
-     ease: easeSmooth,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     pathLength: {
-      duration: duration * 0.6,
-      ease: easeSmooth,
-      delay: duration * 0.15,
-     },
-     opacity: {
-      duration: duration * 0.3,
-      ease: "easeOut",
-      delay: duration * 0.15,
-     },
-    },
-   },
-  };
-
-  const branchNodeVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease: easeSmooth,
-     delay: duration * 0.55,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -146,7 +103,7 @@ const GitBranchIcon = forwardRef<GitBranchIconHandle, GitBranchIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -156,35 +113,13 @@ const GitBranchIcon = forwardRef<GitBranchIconHandle, GitBranchIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ overflow: "visible" }}
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="6"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={trunkNodeVariants}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M15 6a9 9 0 0 0-9 9V3"
-       variants={pathVariants}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={branchNodeVariants}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <path d="M15 6a9 9 0 0 0-9 9V3" />
+      <m.circle cx="18" cy="6" r="3" variants={nodeVariants(0.12)} />
+      <m.circle cx="6" cy="18" r="3" variants={nodeVariants(0)} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -192,5 +127,4 @@ const GitBranchIcon = forwardRef<GitBranchIconHandle, GitBranchIconProps>(
 );
 
 GitBranchIcon.displayName = "GitBranchIcon";
-
 export { GitBranchIcon };

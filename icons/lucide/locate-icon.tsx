@@ -74,36 +74,36 @@ const LocateIcon = forwardRef<LocateIconHandle, LocateIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const tickVariants = (dx: number, dy: number): Variants => ({
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [1.4, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.45 * duration, ease: [0.34, 1.2, 0.64, 1] },
-   },
-  };
-
-  const tickVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [1.8, 1],
-    opacity: [0, 1],
+    x: [0, dx, dx * -0.2, 0],
+    y: [0, dy, dy * -0.2, 0],
     transition: {
-     duration: 0.35 * duration,
-     delay: (0.3 + i * 0.06) * duration,
-     ease: [0.34, 1.2, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
-   }),
+   },
+  });
+
+  const ringVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 0.86, 1.03, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
+   },
   };
 
   return (
@@ -128,47 +128,27 @@ const LocateIcon = forwardRef<LocateIconHandle, LocateIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.line x1="2" x2="5" y1="12" y2="12" variants={tickVariants(1.5, 0)} />
+      <m.line
+       x1="19"
+       x2="22"
+       y1="12"
+       y2="12"
+       variants={tickVariants(-1.5, 0)}
+      />
+      <m.line x1="12" x2="12" y1="2" y2="5" variants={tickVariants(0, 1.5)} />
+      <m.line
+       x1="12"
+       x2="12"
+       y1="19"
+       y2="22"
+       variants={tickVariants(0, -1.5)}
+      />
       <m.circle
        cx="12"
        cy="12"
        r="7"
        variants={ringVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.line
-       x1="2"
-       y1="12"
-       x2="5"
-       y2="12"
-       custom={0}
-       variants={tickVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.line
-       x1="19"
-       y1="12"
-       x2="22"
-       y2="12"
-       custom={1}
-       variants={tickVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.line
-       x1="12"
-       y1="2"
-       x2="12"
-       y2="5"
-       custom={2}
-       variants={tickVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.line
-       x1="12"
-       y1="19"
-       x2="12"
-       y2="22"
-       custom={3}
-       variants={tickVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

@@ -82,29 +82,29 @@ const SpellCheckIcon = forwardRef<SpellCheckIconHandle, SpellCheckIconProps>(
   );
 
   const letterVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: i * 0.2 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+  const checkVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1, 1],
-    opacity: [0, 1, 1],
-    scale: [0.8, 1.15, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.45 * duration,
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.25 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.25 * duration },
     },
    },
   };
@@ -131,12 +131,15 @@ const SpellCheckIcon = forwardRef<SpellCheckIconHandle, SpellCheckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="m6 16 6-12 6 12" variants={letterVariants} custom={0} />
-      <m.path d="M8 12h8" variants={letterVariants} custom={1} />
+      <m.g variants={letterVariants}>
+       <path d="m6 16 6-12 6 12" />
+       <path d="M8 12h8" />
+      </m.g>
       <m.path
        d="m16 20 2 2 4-4"
-       variants={tickVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={checkVariants}
       />
      </m.svg>
     </m.div>

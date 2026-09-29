@@ -74,60 +74,37 @@ const MailCheckIcon = forwardRef<MailCheckIconHandle, MailCheckIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.04, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const flapVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, -0.8, -0.8, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
    },
   };
 
   const checkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
-    scale: [0.8, 1.12, 1],
     transition: {
-     pathLength: {
-      duration: 0.4 * duration,
-      delay: 0.24 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.16 * duration, delay: 0.24 * duration },
-     scale: {
+     strokeDashoffset: {
       duration: 0.45 * duration,
-      delay: 0.28 * duration,
-      times: [0, 0.6, 1],
-      ease: [0.34, 1.4, 0.64, 1],
+      ease: "easeOut",
+      delay: 0.2 * duration,
      },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
     },
    },
   };
@@ -153,18 +130,18 @@ const MailCheckIcon = forwardRef<MailCheckIconHandle, MailCheckIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
       <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8" />
       <m.path
        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
        variants={flapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
       <m.path
        d="m16 19 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
        variants={checkVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
      </m.svg>
     </m.div>

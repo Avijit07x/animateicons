@@ -77,42 +77,37 @@ const MessageCircleMoreIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.3, 1],
-    opacity: [0, 1, 1],
+  const dotVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
+   animate: {
+    y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.26 + i * 0.12) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -139,26 +134,11 @@ const MessageCircleMoreIcon = forwardRef<
       <m.path
        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
-      />
-      <m.path
-       d="M8 12h.01"
-       custom={0}
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "12px" }}
-      />
-      <m.path
-       d="M12 12h.01"
-       custom={1}
-       variants={dotVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M16 12h.01"
-       custom={2}
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "16px", originY: "12px" }}
-      />
+      <m.path d="M8 12h.01" variants={dotVariants(0)} />
+      <m.path d="M12 12h.01" variants={dotVariants(0.1)} />
+      <m.path d="M16 12h.01" variants={dotVariants(0.2)} />
      </m.svg>
     </m.div>
    </LazyMotion>

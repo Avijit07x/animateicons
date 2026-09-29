@@ -74,41 +74,37 @@ const HazeIcon = forwardRef<HazeIconHandle, HazeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const sunVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.1, 0.98, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const rayVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1],
-    opacity: [0, 1],
+  const driftVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.55, 1.03, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: (0.35 + i * 0.05) * duration,
-     ease: [0.34, 1.3, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -132,38 +128,26 @@ const HazeIcon = forwardRef<HazeIconHandle, HazeIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M16 13a4 4 0 0 0-8 0" custom={0} variants={bodyVariants} />
-      <m.path d="M22 17H2" custom={1} variants={bodyVariants} />
-      <m.path d="M22 21H2" custom={1} variants={bodyVariants} />
-      <m.path
-       d="M12 5V2.5"
-       custom={0}
-       variants={rayVariants}
+      <m.g
+       variants={sunVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+      >
+       <path d="m5.2 6.2 1.4 1.4" />
+       <path d="M2 13h2" />
+       <path d="M20 13h2" />
+       <path d="m17.4 7.6 1.4-1.4" />
+       <path d="M16 13a4 4 0 0 0-8 0" />
+       <path d="M12 5V2.5" />
+      </m.g>
+      <m.path
+       d="M22 17H2"
+       variants={driftVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "22px", originY: "17px" }}
       />
       <m.path
-       d="m5.2 6.2 1.4 1.4"
-       custom={1}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      />
-      <m.path
-       d="M2 13h2"
-       custom={2}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      />
-      <m.path
-       d="M20 13h2"
-       custom={3}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      />
-      <m.path
-       d="m17.4 7.6 1.4-1.4"
-       custom={4}
-       variants={rayVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+       d="M22 21H2"
+       variants={driftVariants(0.2)}
+       style={{ transformBox: "view-box", originX: "2px", originY: "21px" }}
       />
      </m.svg>
     </m.div>

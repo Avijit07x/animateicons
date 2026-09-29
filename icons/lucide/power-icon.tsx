@@ -81,25 +81,27 @@ const PowerIcon = forwardRef<PowerIconHandle, PowerIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const stemVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    y: [0, 2, -0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const lineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, y: 0 },
+  const ringVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    y: [-2, 0],
+    scale: [1, 1.07, 0.97, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: [0.22, 1, 0.36, 1],
-     delay: 0.2 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -126,8 +128,12 @@ const PowerIcon = forwardRef<PowerIconHandle, PowerIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M12 2v10" variants={lineVariants} />
-      <m.path d="M18.4 6.6a9 9 0 1 1-12.77.04" variants={arcVariants} />
+      <m.path d="M12 2v10" variants={stemVariants} />
+      <m.path
+       d="M18.4 6.6a9 9 0 1 1-12.77.04"
+       variants={ringVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

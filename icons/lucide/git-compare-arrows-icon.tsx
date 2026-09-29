@@ -47,7 +47,7 @@ const GitCompareArrowsIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -77,81 +77,47 @@ const GitCompareArrowsIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const topNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: { duration: duration * 0.3, ease },
-   },
-  };
-
-  const bottomNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: { duration: duration * 0.3, ease, delay: duration * 0.3 },
-   },
-  };
-
-  const topPath: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.5,
-     ease,
-     delay: duration * 0.15,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
+    },
+   },
+  });
+
+  const headLeftVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1.5, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const bottomPath: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const headRightVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
+    x: [0, 1.5, -0.4, 0],
     transition: {
-     duration: duration * 0.5,
-     ease,
-     delay: duration * 0.45,
-    },
-   },
-  };
-
-  const topArrow: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: {
-    x: [-4, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease,
-     delay: duration * 0.3,
-    },
-   },
-  };
-
-  const bottomArrow: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: {
-    x: [4, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease,
-     delay: duration * 0.6,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -165,7 +131,7 @@ const GitCompareArrowsIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -175,55 +141,16 @@ const GitCompareArrowsIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="5"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={topNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M12 6h5a2 2 0 0 1 2 2v7"
-       variants={topPath}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="m15 9-3-3 3-3"
-       variants={topArrow}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="19"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={bottomNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M12 18H7a2 2 0 0 1-2-2V9"
-       variants={bottomPath}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="m9 15 3 3-3 3"
-       variants={bottomArrow}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <m.circle cx="5" cy="6" r="3" variants={nodeVariants(0.1)} />
+      <path d="M12 6h5a2 2 0 0 1 2 2v7" />
+      <m.path d="m15 9-3-3 3-3" variants={headLeftVariants} />
+      <m.circle cx="19" cy="18" r="3" variants={nodeVariants(0.2)} />
+      <path d="M12 18H7a2 2 0 0 1-2-2V9" />
+      <m.path d="m9 15 3 3-3 3" variants={headRightVariants} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -231,5 +158,4 @@ const GitCompareArrowsIcon = forwardRef<
 );
 
 GitCompareArrowsIcon.displayName = "GitCompareArrowsIcon";
-
 export { GitCompareArrowsIcon };

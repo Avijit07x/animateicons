@@ -74,41 +74,24 @@ const SignpostBigIcon = forwardRef<SignpostBigIconHandle, SignpostBigIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const signVariants = (angle: number, delay: number): Variants => ({
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, angle, -angle * 0.7, angle * 0.3, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const armVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.42 * duration,
-     delay: (0.38 + i * 0.1) * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,23 +116,17 @@ const SignpostBigIcon = forwardRef<SignpostBigIconHandle, SignpostBigIconProps>(
       initial="normal"
      >
       <m.path
-       d="M10 22V4a2 2 0 1 1 4 0v18"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M8 22h8" custom={0} variants={bodyVariants} />
-      <m.path
        d="M10 9H4L2 7l2-2h6"
-       custom={0}
-       variants={armVariants}
+       variants={signVariants(-9, 0)}
        style={{ transformBox: "view-box", originX: "10px", originY: "7px" }}
       />
       <m.path
        d="M14 5h6l2 2-2 2h-6"
-       custom={1}
-       variants={armVariants}
+       variants={signVariants(9, 0.08)}
        style={{ transformBox: "view-box", originX: "14px", originY: "7px" }}
       />
+      <path d="M10 22V4a2 2 0 1 1 4 0v18" />
+      <path d="M8 22h8" />
      </m.svg>
     </m.div>
    </LazyMotion>

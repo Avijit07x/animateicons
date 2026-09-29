@@ -77,48 +77,37 @@ const PackageCheckIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const boxVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const checkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+  const tickVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
-    scale: [0.7, 1.15, 1],
     transition: {
-     pathLength: {
-      duration: 0.4 * duration,
-      delay: 0.5 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.15 * duration, delay: 0.5 * duration },
-     scale: {
+     strokeDashoffset: {
       duration: 0.45 * duration,
-      delay: 0.54 * duration,
-      times: [0, 0.6, 1],
-      ease: [0.34, 1.4, 0.64, 1],
+      ease: "easeOut",
+      delay: 0.2 * duration,
      },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
     },
    },
   };
@@ -145,22 +134,17 @@ const PackageCheckIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
+      <m.g variants={boxVariants}>
+       <path d="M12 22V12" />
+       <path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753" />
+       <path d="M3.29 7 12 12l8.71-5" />
+       <path d="m7.5 4.27 8.997 5.148" />
+      </m.g>
       <m.path
-       d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.polyline
-       points="3.29 7 12 12 20.71 7"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="m7.5 4.27 9 5.15" custom={2} variants={bodyVariants} />
-      <m.path d="M12 22V12" custom={2} variants={bodyVariants} />
-      <m.path
-       d="m16 16 2 2 4-4"
-       variants={checkVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "17px" }}
+       d="m16 17 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={tickVariants}
       />
      </m.svg>
     </m.div>

@@ -74,35 +74,25 @@ const ChartBarBigIcon = forwardRef<ChartBarBigIconHandle, ChartBarBigIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const axisVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.4 * duration, ease: "easeOut" },
-   },
-  };
-
-  const barVariants: Variants = {
+  const barVariants = (i: number): Variants => ({
    normal: { scaleX: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
+   animate: {
+    scaleX: [1, 0.55, 1.04, 1],
     transition: {
-     delay: (0.3 + i * 0.14) * duration,
-     duration: 0.5 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.12 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -126,26 +116,24 @@ const ChartBarBigIcon = forwardRef<ChartBarBigIconHandle, ChartBarBigIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={axisVariants} />
-      <m.rect
-       x="7"
-       y="13"
-       width="9"
-       height="4"
-       rx="1"
-       custom={0}
-       variants={barVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "15px" }}
-      />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
       <m.rect
        x="7"
        y="5"
        width="12"
        height="4"
        rx="1"
-       custom={1}
-       variants={barVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "7px" }}
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "7px", originY: "12px" }}
+      />
+      <m.rect
+       x="7"
+       y="13"
+       width="9"
+       height="4"
+       rx="1"
+       variants={barVariants(1)}
+       style={{ transformBox: "view-box", originX: "7px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

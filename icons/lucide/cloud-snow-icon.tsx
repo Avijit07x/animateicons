@@ -74,12 +74,9 @@ const CloudSnowIcon = forwardRef<CloudSnowIconHandle, CloudSnowIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
@@ -87,23 +84,28 @@ const CloudSnowIcon = forwardRef<CloudSnowIconHandle, CloudSnowIconProps>(
   const cloudVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, 1, -1, 0],
-    transition: { duration: 1.4 * duration, ease: "easeInOut" },
+    x: [0, 1, -0.5, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const flakeVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
-   animate: (i: number) => ({
-    y: [-3, 0],
-    opacity: [0, 1],
+  const flakeVariants = (delay: number): Variants => ({
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, 0.8, -0.5, 0],
+    y: [0, 1.5, -0.4, 0],
     transition: {
-     delay: i * 0.09 * duration,
      duration: 0.6 * duration,
-     ease: "easeOut",
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -131,12 +133,12 @@ const CloudSnowIcon = forwardRef<CloudSnowIconHandle, CloudSnowIconProps>(
        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
        variants={cloudVariants}
       />
-      <m.path d="M8 15h.01" custom={0} variants={flakeVariants} />
-      <m.path d="M12 17h.01" custom={1} variants={flakeVariants} />
-      <m.path d="M16 15h.01" custom={2} variants={flakeVariants} />
-      <m.path d="M8 19h.01" custom={3} variants={flakeVariants} />
-      <m.path d="M12 21h.01" custom={4} variants={flakeVariants} />
-      <m.path d="M16 19h.01" custom={5} variants={flakeVariants} />
+      <m.path d="M8 15h.01" variants={flakeVariants(0)} />
+      <m.path d="M8 19h.01" variants={flakeVariants(0.1)} />
+      <m.path d="M12 17h.01" variants={flakeVariants(0.05)} />
+      <m.path d="M12 21h.01" variants={flakeVariants(0.15)} />
+      <m.path d="M16 15h.01" variants={flakeVariants(0.1)} />
+      <m.path d="M16 19h.01" variants={flakeVariants(0.2)} />
      </m.svg>
     </m.div>
    </LazyMotion>

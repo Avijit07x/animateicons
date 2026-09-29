@@ -74,39 +74,29 @@ const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
+
   const bagVariants: Variants = {
-   normal: { scaleX: 1, scaleY: 1, y: 0 },
+   normal: { rotate: 0 },
    animate: {
-    y: [-6, 0, 0, 0, 0],
-    scaleY: [1, 1, 0.86, 1.05, 1],
-    scaleX: [1, 1, 1.12, 0.97, 1],
-    transition: {
-     duration: 0.7 * duration,
-     times: [0, 0.4, 0.55, 0.78, 1],
-     ease: "easeOut",
-    },
+    rotate: [0, -5, 4, -2, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
   const handleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.4, 1.2, 1],
-    opacity: [0, 1, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.42 * duration,
-     times: [0, 0.6, 1],
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -135,15 +125,11 @@ const ShoppingBagIcon = forwardRef<ShoppingBagIconHandle, ShoppingBagIconProps>(
      >
       <m.g
        variants={bagVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "4px" }}
       >
-       <m.path
-        d="M16 10a4 4 0 0 1-8 0"
-        variants={handleVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-       />
        <path d="M3.103 6.034h17.794" />
        <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+       <m.path d="M16 10a4 4 0 0 1-8 0" variants={handleVariants} />
       </m.g>
      </m.svg>
     </m.div>

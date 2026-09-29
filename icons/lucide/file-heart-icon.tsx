@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileHeartIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,35 +75,18 @@ const FileHeartIcon = forwardRef<FileHeartIconHandle, FileHeartIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
   const heartVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.18, 0.95, 1.08, 1],
-    transition: {
-     duration: 0.7 * duration,
-     delay: 0.15 * duration,
-     times: [0, 0.3, 0.5, 0.7, 1],
-     ease: "easeInOut",
-    },
+    scale: [1, 1.2, 0.96, 1.1, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,15 +112,12 @@ const FileHeartIcon = forwardRef<FileHeartIconHandle, FileHeartIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
+      <path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
       <m.path
        d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"
        variants={heartVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "18px" }}
+       style={{ transformBox: "view-box", originX: "7px", originY: "18.5px" }}
       />
      </m.svg>
     </m.div>

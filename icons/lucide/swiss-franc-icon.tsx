@@ -81,54 +81,17 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const barVariants = (dx: number, delay: number): Variants => ({
+   normal: { x: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const mainStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.75, 1],
+    x: [0, dx, 0],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.06,
+     delay: delay * duration,
     },
    },
-  };
-
-  const topStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.75, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.18,
-    },
-   },
-  };
-
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.28,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -151,36 +114,10 @@ const SwissFrancIcon = forwardRef<SwissFrancIconHandle, SwissFrancIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-swiss-franc-icon lucide-swiss-franc"
      >
-      <g opacity={0.35}>
-       <path d="M10 21V3h8" />
-       <path d="M6 16h9" />
-       <path d="M10 9.5h7" />
-      </g>
-
-      <m.path
-       d="M10 21V3h8"
-       pathLength={1}
-       variants={mainStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M10 9.5h7"
-       pathLength={1}
-       variants={topStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 16h9"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M10 21V3h8" />
+      <m.path d="M6 16h9" variants={barVariants(-2, 0)} />
+      <m.path d="M10 9.5h7" variants={barVariants(2, 0.08)} />
      </m.svg>
     </m.div>
    </LazyMotion>

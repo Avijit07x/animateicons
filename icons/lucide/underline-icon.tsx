@@ -74,34 +74,34 @@ const UnderlineIcon = forwardRef<UnderlineIconHandle, UnderlineIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const uVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const letterVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.45 * duration, ease: [0.16, 1, 0.3, 1] },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const underlineVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const lineVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
+    scaleX: [1, 0.45, 1],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.4 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -128,13 +128,13 @@ const UnderlineIcon = forwardRef<UnderlineIconHandle, UnderlineIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M6 4v6a6 6 0 0 0 12 0V4" variants={uVariants} />
+      <m.path d="M6 4v6a6 6 0 0 0 12 0V4" variants={letterVariants} />
       <m.line
        x1="4"
-       y1="20"
        x2="20"
+       y1="20"
        y2="20"
-       variants={underlineVariants}
+       variants={lineVariants}
        style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
       />
      </m.svg>

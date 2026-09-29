@@ -4362,5 +4362,285 @@
 			"exercise",
 			"strength"
 		]
+	},
+	{
+		"name": "panel-left-open",
+		"addedAt": "2026-09-29",
+		"category": ["Layout"],
+		"keywords": [
+			"panel-left-open",
+			"sidebar",
+			"panel",
+			"open",
+			"expand",
+			"drawer",
+			"show"
+		]
+	},
+	{
+		"name": "panel-left-close",
+		"addedAt": "2026-09-29",
+		"category": ["Layout"],
+		"keywords": [
+			"panel-left-close",
+			"sidebar",
+			"panel",
+			"close",
+			"collapse",
+			"drawer",
+			"hide"
+		]
+	},
+	{
+		"name": "fold-vertical",
+		"addedAt": "2026-09-29",
+		"category": ["Layout"],
+		"keywords": [
+			"fold-vertical",
+			"fold",
+			"collapse",
+			"compress",
+			"accordion",
+			"hide",
+			"vertical"
+		]
+	},
+	{
+		"name": "unfold-vertical",
+		"addedAt": "2026-09-29",
+		"category": ["Layout"],
+		"keywords": [
+			"unfold-vertical",
+			"unfold",
+			"expand",
+			"reveal",
+			"accordion",
+			"show",
+			"vertical"
+		]
+	},
+	{
+		"name": "expand",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"expand",
+			"fullscreen",
+			"enlarge",
+			"maximize",
+			"grow",
+			"bigger",
+			"resize"
+		]
+	},
+	{
+		"name": "shrink",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"shrink",
+			"minimize",
+			"reduce",
+			"compress",
+			"smaller",
+			"exit fullscreen",
+			"resize"
+		]
+	},
+	{
+		"name": "chevron-first",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows"],
+		"keywords": [
+			"chevron-first",
+			"first",
+			"pagination",
+			"start",
+			"beginning",
+			"skip",
+			"page"
+		]
+	},
+	{
+		"name": "chevron-last",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows"],
+		"keywords": [
+			"chevron-last",
+			"last",
+			"pagination",
+			"end",
+			"final",
+			"skip",
+			"page"
+		]
+	},
+	{
+		"name": "toggle-left",
+		"addedAt": "2026-09-29",
+		"category": ["Layout", "Tools"],
+		"keywords": [
+			"toggle-left",
+			"toggle",
+			"switch",
+			"off",
+			"disabled",
+			"inactive",
+			"settings"
+		]
+	},
+	{
+		"name": "list-filter",
+		"addedAt": "2026-09-29",
+		"category": ["Tools"],
+		"keywords": [
+			"list-filter",
+			"filter",
+			"list",
+			"sort",
+			"refine",
+			"search",
+			"narrow"
+		]
+	},
+	{
+		"name": "funnel-x",
+		"addedAt": "2026-09-29",
+		"category": ["Tools"],
+		"keywords": [
+			"funnel-x",
+			"filter",
+			"clear",
+			"reset",
+			"remove",
+			"funnel",
+			"cancel"
+		]
+	},
+	{
+		"name": "arrow-up-to-line",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow-up-to-line",
+			"top",
+			"scroll",
+			"up",
+			"back to top",
+			"upload",
+			"raise"
+		]
+	},
+	{
+		"name": "arrow-down-to-line",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow-down-to-line",
+			"bottom",
+			"download",
+			"save",
+			"down",
+			"scroll",
+			"import"
+		]
+	},
+	{
+		"name": "cloud-check",
+		"addedAt": "2026-09-29",
+		"category": ["File icons"],
+		"keywords": [
+			"cloud-check",
+			"cloud",
+			"synced",
+			"saved",
+			"backup",
+			"done",
+			"storage"
+		]
+	},
+	{
+		"name": "cloud-sync",
+		"addedAt": "2026-09-29",
+		"category": ["File icons"],
+		"keywords": [
+			"cloud-sync",
+			"cloud",
+			"sync",
+			"refresh",
+			"backup",
+			"update",
+			"storage"
+		]
+	},
+	{
+		"name": "badge-info",
+		"addedAt": "2026-09-29",
+		"category": ["Notification"],
+		"keywords": [
+			"badge-info",
+			"info",
+			"information",
+			"badge",
+			"notice",
+			"help",
+			"details"
+		]
+	},
+	{
+		"name": "mouse-pointer",
+		"addedAt": "2026-09-29",
+		"category": ["Cursors"],
+		"keywords": [
+			"mouse-pointer",
+			"cursor",
+			"pointer",
+			"arrow",
+			"mouse",
+			"select",
+			"click"
+		]
+	},
+	{
+		"name": "rotate-ccw",
+		"addedAt": "2026-09-29",
+		"category": ["Arrows", "Design"],
+		"keywords": [
+			"rotate-ccw",
+			"rotate",
+			"counterclockwise",
+			"undo",
+			"reset",
+			"restore",
+			"turn"
+		]
+	},
+	{
+		"name": "contrast",
+		"addedAt": "2026-09-29",
+		"category": ["Design"],
+		"keywords": [
+			"contrast",
+			"contrast",
+			"theme",
+			"dark mode",
+			"light mode",
+			"brightness",
+			"accessibility"
+		]
+	},
+	{
+		"name": "hard-drive-upload",
+		"addedAt": "2026-09-29",
+		"category": ["Devices"],
+		"keywords": [
+			"hard-drive-upload",
+			"upload",
+			"storage",
+			"drive",
+			"backup",
+			"disk",
+			"export"
+		]
 	}
 ]

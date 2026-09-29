@@ -81,30 +81,28 @@ const InfoIcon = forwardRef<InfoIconHandle, InfoIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const ringVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    rotate: [0, -2, 2, 0],
-    scale: [1, 1.08, 0.95, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 1.08, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const dotVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const pulseVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.3, 0.8, 1],
-    opacity: [1, 0.5, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut", repeat: 0 },
+    y: [0, -2, 0.6, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.08 * duration,
+    },
    },
   };
 
@@ -129,11 +127,16 @@ const InfoIcon = forwardRef<InfoIconHandle, InfoIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.circle cx="12" cy="12" r="10" variants={drawVariants} />
-      <m.path d="M12 16v-4" variants={pulseVariants} />
-      <m.path d="M12 8h.01" variants={pulseVariants} />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={ringVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <path d="M12 16v-4" />
+      <m.path d="M12 8h.01" variants={dotVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

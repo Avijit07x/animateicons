@@ -81,43 +81,22 @@ const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: {
-    rotate: 0,
-   },
+  const spokesVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    rotate: [0, 300, 360],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, 120],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const centerVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.25, 1],
-    opacity: [1, 0.7, 1],
+    scale: [1, 1.15, 0.95, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const sweepVariants: Variants = {
-   normal: {
-    opacity: 0.8,
-   },
-   animate: {
-    opacity: [0.8, 0.25, 0.8],
-    transition: {
-     duration: 0.4 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -141,30 +120,25 @@ const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
+      initial="normal"
      >
-      <m.circle cx="12" cy="12" r="10" variants={ringVariants} />
-
-      <m.circle cx="12" cy="12" r="4" variants={centerVariants} />
-
-      <m.line x1="21.17" y1="8" x2="12" y2="8" variants={sweepVariants} />
-      <m.line
-       x1="3.95"
-       y1="6.06"
-       x2="8.54"
-       y2="14"
-       variants={sweepVariants}
-       transition={{ delay: 0.08 * duration }}
+      <circle cx="12" cy="12" r="10" />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="4"
+       variants={centerVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.line
-       x1="10.88"
-       y1="21.94"
-       x2="15.46"
-       y2="14"
-       variants={sweepVariants}
-       transition={{ delay: 0.16 * duration }}
-      />
+      <m.g
+       variants={spokesVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <line x1="21.17" y1="8" x2="12" y2="8" />
+       <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+       <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

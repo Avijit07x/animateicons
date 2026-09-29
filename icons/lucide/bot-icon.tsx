@@ -92,7 +92,7 @@ const BotIcon = forwardRef<BotIconHandle, BotIconProps>(
   const antennaVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -16, 12, -6, 3, 0],
+    rotate: [0, -16, 12, -6, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
@@ -100,11 +100,11 @@ const BotIcon = forwardRef<BotIconHandle, BotIconProps>(
   const eyeVariants: Variants = {
    normal: { scaleY: 1 },
    animate: {
-    scaleY: [1, 0.1, 1, 1, 0.1, 1],
+    scaleY: [1, 0.1, 0.1, 1],
     transition: {
      duration: 0.8 * duration,
      ease: "easeInOut",
-     times: [0, 0.15, 0.3, 0.6, 0.75, 0.9],
+     times: [0, 0.33, 0.67, 1],
     },
    },
   };

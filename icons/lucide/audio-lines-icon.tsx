@@ -74,38 +74,24 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const barVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleY: [1, 1.4, 0.6, 1],
-    opacity: [1, 0.8, 1],
+  const barVariants = (scale: number, delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, scale, 1],
     transition: {
-     duration: 0.9 * duration,
-     repeat: 0,
-     delay: i * 0.2,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const paths = [
-   "M2 10v3",
-   "M6 6v11",
-   "M10 3v18",
-   "M14 8v7",
-   "M18 5v13",
-   "M22 10v3",
-  ];
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -129,15 +115,36 @@ const AudioLinesIcon = forwardRef<AudioLinesIconHandle, AudioLinesIconProps>(
       animate={controls}
       initial="normal"
      >
-      {paths.map((d, i) => (
-       <m.path
-        key={i}
-        d={d}
-        variants={barVariants}
-        custom={i}
-        style={{ originY: 0.5 }}
-       />
-      ))}
+      <m.path
+       d="M2 10v3"
+       variants={barVariants(2.4, 0.0)}
+       style={{ transformBox: "view-box", originX: "2px", originY: "11.5px" }}
+      />
+      <m.path
+       d="M6 6v11"
+       variants={barVariants(0.55, 0.05)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "11.5px" }}
+      />
+      <m.path
+       d="M10 3v18"
+       variants={barVariants(0.55, 0.1)}
+       style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
+      />
+      <m.path
+       d="M14 8v7"
+       variants={barVariants(1.7, 0.15)}
+       style={{ transformBox: "view-box", originX: "14px", originY: "11.5px" }}
+      />
+      <m.path
+       d="M18 5v13"
+       variants={barVariants(0.6, 0.2)}
+       style={{ transformBox: "view-box", originX: "18px", originY: "11.5px" }}
+      />
+      <m.path
+       d="M22 10v3"
+       variants={barVariants(2.4, 0.25)}
+       style={{ transformBox: "view-box", originX: "22px", originY: "11.5px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

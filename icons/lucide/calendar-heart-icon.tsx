@@ -77,61 +77,33 @@ const CalendarHeartIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const ringVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const hangerVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, 1.6, -0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const headerVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const heartVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0, 1.2, 0.95, 1.08, 1],
-    opacity: [0, 1, 1, 1, 1],
+    scale: [1, 1.2, 1, 1.12, 1],
     transition: {
      duration: 0.7 * duration,
-     delay: 0.42 * duration,
-     times: [0, 0.35, 0.55, 0.75, 1],
      ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -158,21 +130,14 @@ const CalendarHeartIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 2v4" custom={0} variants={hangerVariants} />
-      <m.path d="M16 2v4" custom={1} variants={hangerVariants} />
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" />
+      <path d="M3 9h18" />
       <m.path
-       d="M12.127 22H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.125"
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M3 10h18"
-       variants={headerVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "10px" }}
-      />
-      <m.path
-       d="M14.62 18.8A2.25 2.25 0 1 1 18 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"
+       d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z"
        variants={heartVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
+       style={{ transformBox: "view-box", originX: "18px", originY: "17.5px" }}
       />
      </m.svg>
     </m.div>

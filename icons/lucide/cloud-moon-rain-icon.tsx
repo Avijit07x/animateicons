@@ -77,63 +77,40 @@ const CloudMoonRainIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const moonVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -12, 10, -4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
   };
 
-  const cloudVariants: Variants = {
-   normal: { x: 0, pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    x: [-6, 0],
-    pathLength: [0, 1],
+  const dropVariants = (delay: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [3, 0],
     opacity: [0, 1],
     transition: {
-     x: {
-      duration: 0.6 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.34, 1.2, 0.64, 1],
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
      },
-     pathLength: {
-      duration: 0.5 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.16, 1, 0.3, 1],
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
      },
-     opacity: { duration: 0.2 * duration, delay: i * 0.1 * duration },
     },
-   }),
-  };
-
-  const dropVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
-   animate: (i: number) => ({
-    y: [-4, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: (0.4 + i * 0.1) * duration,
-     ease: [0.34, 1.2, 0.6, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -158,17 +135,23 @@ const CloudMoonRainIcon = forwardRef<
       initial="normal"
      >
       <m.path
-       d="M18.376 14.512a6 6 0 0 0 3.461-4.127c.148-.625-.659-.97-1.248-.714a4 4 0 0 1-5.259-5.26c.255-.589-.09-1.395-.716-1.248a6 6 0 0 0-4.594 5.36"
-       custom={0}
-       variants={bodyVariants}
+       d="M11 20v2"
+       strokeDasharray="3"
+       strokeDashoffset="0"
+       variants={dropVariants(0.1)}
       />
       <m.path
-       d="M3 20a5 5 0 1 1 8.9-4H13a3 3 0 0 1 2 5.24"
-       custom={0}
-       variants={cloudVariants}
+       d="M18.376 14.512a6 6 0 0 0 3.461-4.127c.148-.625-.659-.97-1.248-.714a4 4 0 0 1-5.259-5.26c.255-.589-.09-1.395-.716-1.248a6 6 0 0 0-4.594 5.36"
+       variants={moonVariants}
+       style={{ transformBox: "view-box", originX: "16px", originY: "9px" }}
       />
-      <m.path d="M11 20v2" custom={0} variants={dropVariants} />
-      <m.path d="M7 19v2" custom={1} variants={dropVariants} />
+      <path d="M3 20a5 5 0 1 1 8.9-4H13a3 3 0 0 1 2 5.24" />
+      <m.path
+       d="M7 19v2"
+       strokeDasharray="3"
+       strokeDashoffset="0"
+       variants={dropVariants(0)}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

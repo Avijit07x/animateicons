@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface DrumIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,69 +51,69 @@ const DrumIcon = forwardRef<DrumIconHandle, DrumIconProps>(
   },
   ref,
  ) => {
-  const stickControls = useAnimation();
-  const skinControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   stickControls.start("hit");
-   skinControls.start("hit");
-  }, [stickControls, skinControls, reduced]);
-
-  const stop = useCallback(() => {
-   stickControls.start("rest");
-   skinControls.start("rest");
-  }, [stickControls, skinControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const stickVariants = (i: number): Variants => ({
-   rest: { rotate: 0 },
-   hit: {
-    rotate: i === 0 ? [0, 14, -3, 0] : [0, -14, 3, 0],
+  const leftStickVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -14, 7, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     times: [0, 0.35, 0.7, 1],
-     delay: i * 0.12 * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.7, 1],
     },
    },
-  });
+  };
+
+  const rightStickVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, 14, -7, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.7, 1],
+     delay: 0.18 * duration,
+    },
+   },
+  };
 
   const skinVariants: Variants = {
-   rest: { scaleY: 1 },
-   hit: {
-    scaleY: [1, 0.88, 1.05, 1],
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.86, 1, 0.86, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     times: [0, 0.38, 0.72, 1],
-     delay: 0.3 * duration,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.5, 0.63, 0.76, 1],
     },
    },
   };
@@ -128,29 +127,27 @@ const DrumIcon = forwardRef<DrumIconHandle, DrumIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="m2 2 8 8"
-       animate={stickControls}
-       initial="rest"
-       variants={stickVariants(0)}
+       variants={leftStickVariants}
        style={{ transformBox: "view-box", originX: "2px", originY: "2px" }}
       />
       <m.path
        d="m22 2-8 8"
-       animate={stickControls}
-       initial="rest"
-       variants={stickVariants(1)}
+       variants={rightStickVariants}
        style={{ transformBox: "view-box", originX: "22px", originY: "2px" }}
       />
       <m.ellipse
@@ -158,8 +155,6 @@ const DrumIcon = forwardRef<DrumIconHandle, DrumIconProps>(
        cy="9"
        rx="10"
        ry="5"
-       animate={skinControls}
-       initial="rest"
        variants={skinVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "9px" }}
       />
@@ -167,7 +162,7 @@ const DrumIcon = forwardRef<DrumIconHandle, DrumIconProps>(
       <path d="M12 14v8" />
       <path d="M17 13.4v7.9" />
       <path d="M2 9v8a10 5 0 0 0 20 0V9" />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

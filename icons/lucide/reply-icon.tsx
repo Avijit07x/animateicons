@@ -81,24 +81,14 @@ const ReplyIcon = forwardRef<ReplyIconHandle, ReplyIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arrowVariants: Variants = {
+  const nudgeVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -3, 0],
+    x: [0, -2, 0.6, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-    },
-   },
-  };
-
-  const curveVariants: Variants = {
-   normal: { opacity: 1 },
-   animate: {
-    opacity: [1, 0.6, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -122,19 +112,13 @@ const ReplyIcon = forwardRef<ReplyIconHandle, ReplyIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M20 18v-2a4 4 0 0 0-4-4H4"
-       variants={curveVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m9 17-5-5 5-5"
-       variants={arrowVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={nudgeVariants}>
+       <path d="M20 18v-2a4 4 0 0 0-4-4H4" />
+       <path d="m9 17-5-5 5-5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

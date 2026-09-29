@@ -81,28 +81,27 @@ const LanguagesIcon = forwardRef<LanguagesIconHandle, LanguagesIconProps>(
    [controls, onMouseLeave],
   );
 
-  const glyphVariants: Variants = {
-   normal: { scale: 1 },
-   animate: (i: number) => ({
-    scale: [1, 0.7, 1.1, 1],
+  const dipVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.6, -0.4, 0],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
-     delay: i * 0.2 * duration,
     },
-   }),
+   },
   };
 
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const hopVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: 0.45 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.15 * duration,
     },
    },
   };
@@ -129,23 +128,15 @@ const LanguagesIcon = forwardRef<LanguagesIconHandle, LanguagesIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={glyphVariants}
-       custom={0}
-       style={{ transformBox: "view-box", originX: "7px", originY: "8px" }}
-      >
+      <m.g variants={dipVariants}>
        <path d="m5 8 6 6" />
        <path d="m4 14 6-6 2-3" />
        <path d="M2 5h12" />
        <path d="M7 2h1" />
       </m.g>
-      <m.g
-       variants={glyphVariants}
-       custom={1}
-       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
-      >
+      <m.g variants={hopVariants}>
        <path d="m22 22-5-10-5 10" />
-       <m.path d="M14 18h6" variants={barVariants} />
+       <path d="M14 18h6" />
       </m.g>
      </m.svg>
     </m.div>

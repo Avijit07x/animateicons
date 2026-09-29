@@ -88,18 +88,14 @@ const BellElectricIcon = forwardRef<
   );
 
   const bodyVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { x: 0 },
    animate: {
-    rotate: [0, -2.5, 2.5, -2, 1.5, -1, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     times: [0, 0.16, 0.34, 0.52, 0.7, 0.86, 1],
-    },
+    x: [0, -1.2, 1.2, -0.8, 0],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
-  const wave1Variants: Variants = {
+  const waveVariants = (delay: number): Variants => ({
    normal: { opacity: 1, scale: 1 },
    animate: {
     opacity: [0, 1, 0.4, 1],
@@ -108,23 +104,10 @@ const BellElectricIcon = forwardRef<
      duration: 0.9 * duration,
      times: [0, 0.3, 0.6, 1],
      ease: "easeOut",
+     delay: delay * duration,
     },
    },
-  };
-
-  const wave2Variants: Variants = {
-   normal: { opacity: 1, scale: 1 },
-   animate: {
-    opacity: [0, 1, 0.4, 1],
-    scale: [0.85, 1, 0.9, 1],
-    transition: {
-     duration: 0.9 * duration,
-     times: [0, 0.3, 0.6, 1],
-     ease: "easeOut",
-     delay: 0.1 * duration,
-    },
-   },
-  };
+  });
 
   const buttonVariants: Variants = {
    normal: { scale: 1 },
@@ -159,20 +142,17 @@ const BellElectricIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={bodyVariants}
-      style={{ transformOrigin: "center" }}
      >
       <m.path
        d="M18.518 17.347A7 7 0 0 1 14 19"
-       variants={wave1Variants}
+       variants={waveVariants(0)}
        style={{ transformBox: "view-box", originX: "14px", originY: "18px" }}
       />
       <m.path
        d="M18.8 4A11 11 0 0 1 20 9"
-       variants={wave2Variants}
+       variants={waveVariants(0.1)}
        style={{ transformBox: "view-box", originX: "19px", originY: "6px" }}
       />
-      <path d="M9 9h.01" />
       <m.circle
        cx="20"
        cy="16"
@@ -180,8 +160,11 @@ const BellElectricIcon = forwardRef<
        variants={buttonVariants}
        style={{ transformBox: "view-box", originX: "20px", originY: "16px" }}
       />
-      <circle cx="9" cy="9" r="7" />
-      <rect x="4" y="16" width="10" height="6" rx="2" />
+      <m.g variants={bodyVariants}>
+       <path d="M9 9h.01" />
+       <circle cx="9" cy="9" r="7" />
+       <rect x="4" y="16" width="10" height="6" rx="2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

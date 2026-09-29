@@ -77,63 +77,36 @@ const CalendarPlusIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const ringVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const hangerVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, 1.6, -0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const headerVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
-  const signVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+  const badgeVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.42 * duration,
-     delay: (0.42 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -158,28 +131,14 @@ const CalendarPlusIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 2v4" custom={0} variants={hangerVariants} />
-      <m.path d="M16 2v4" custom={1} variants={hangerVariants} />
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <path d="M21 11.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3" />
+      <path d="M3 9h18" />
       <m.path
-       d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M3 10h18"
-       variants={headerVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "10px" }}
-      />
-      <m.path
-       d="M16 19h6"
-       custom={0}
-       variants={signVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
-      />
-      <m.path
-       d="M19 16v6"
-       custom={1}
-       variants={signVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
+       d="M16 18h6M19 15v6"
+       variants={badgeVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "18px" }}
       />
      </m.svg>
     </m.div>

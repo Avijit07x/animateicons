@@ -74,41 +74,47 @@ const PiggyBankIcon = forwardRef<PiggyBankIconHandle, PiggyBankIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const hopVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1.8, 0.6, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
+  const tailVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -25, 20, -10, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: 0.05 * duration,
     },
-   }),
+   },
+  };
+
+  const blinkVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.1, 1],
+    transition: {
+     duration: 0.3 * duration,
+     ease: "easeInOut",
+     delay: 0.25 * duration,
+    },
+   },
   };
 
   return (
@@ -133,18 +139,19 @@ const PiggyBankIcon = forwardRef<PiggyBankIconHandle, PiggyBankIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M2 8v1a2 2 0 0 0 2 2h1" custom={1} variants={bodyVariants} />
-      <m.path
-       d="M16 10h.01"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "16px", originY: "10px" }}
-      />
+      <m.g variants={hopVariants}>
+       <path d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z" />
+       <m.path
+        d="M16 10h.01"
+        variants={blinkVariants}
+        style={{ transformBox: "view-box", originX: "16px", originY: "10px" }}
+       />
+       <m.path
+        d="M2 8v1a2 2 0 0 0 2 2h1"
+        variants={tailVariants}
+        style={{ transformBox: "view-box", originX: "5px", originY: "11px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

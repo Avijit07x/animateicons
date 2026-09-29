@@ -104,7 +104,7 @@ const CoffeeIcon = forwardRef<CoffeeIconHandle, CoffeeIconProps>(
     y: 0,
    },
    animate: {
-    opacity: [0.4, 1, 0.4, 1],
+    opacity: [1, 0.5, 1, 0.4, 1],
     y: [0, -4, 0],
     transition: {
      duration: 0.8 * duration,

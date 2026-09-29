@@ -74,42 +74,25 @@ const UsbIcon = forwardRef<UsbIconHandle, UsbIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const popVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.4, 0.92, 1],
     transition: {
      duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,35 +116,31 @@ const UsbIcon = forwardRef<UsbIconHandle, UsbIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M4.7 19.3 19 5" custom={0} variants={bodyVariants} />
-      <m.path d="M9.26 7.68 5 12l2 5" custom={1} variants={bodyVariants} />
-      <m.path d="m10 14 5 2 3.5-3.5" custom={1} variants={bodyVariants} />
       <m.circle
        cx="10"
        cy="7"
        r="1"
-       custom={0}
-       variants={popVariants}
+       variants={popVariants(0.3)}
        style={{ transformBox: "view-box", originX: "10px", originY: "7px" }}
       />
       <m.circle
        cx="4"
        cy="20"
        r="1"
-       custom={0}
-       variants={popVariants}
+       variants={popVariants(0)}
        style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
       />
+      <path d="M4.7 19.3 19 5" />
       <m.path
        d="m21 3-3 1 2 2Z"
-       custom={1}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "4px" }}
+       variants={popVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "19.5px", originY: "4.3px" }}
       />
+      <path d="M9.26 7.68 5 12l2 5" />
+      <path d="m10 14 5 2 3.5-3.5" />
       <m.path
        d="m18 12 1-1 1 1-1 1Z"
-       custom={1}
-       variants={popVariants}
+       variants={popVariants(0.2)}
        style={{ transformBox: "view-box", originX: "19px", originY: "12px" }}
       />
      </m.svg>

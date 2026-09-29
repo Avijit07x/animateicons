@@ -87,11 +87,11 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
   const bellVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 7, -18, 14, -9, 5, -2, 0],
+    rotate: [0, -18, 14, -9, 0],
     transition: {
-     duration: 1.3 * duration,
+     duration: 1 * duration,
      ease: "easeInOut",
-     times: [0, 0.09, 0.26, 0.45, 0.62, 0.78, 0.9, 1],
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };
@@ -99,12 +99,12 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
   const clapperVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, 1.5, -5, 4, -2.5, 1.5, -1, 0],
+    x: [0, -5, 4, -2.5, 0],
     transition: {
-     duration: 1.3 * duration,
+     duration: 1 * duration,
      ease: "easeInOut",
-     times: [0, 0.09, 0.26, 0.45, 0.62, 0.78, 0.9, 1],
-     delay: 0.08 * duration,
+     times: [0, 0.25, 0.5, 0.75, 1],
+     delay: 0.06 * duration,
     },
    },
   };
@@ -112,13 +112,13 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
   const waveVariants: Variants = {
    normal: { opacity: 1, scale: 1 },
    animate: {
-    opacity: [0, 1, 0.25, 1, 1],
-    scale: [0.5, 1.15, 0.7, 1.15, 1],
+    opacity: [1, 0.5, 1, 0.25, 1, 1],
+    scale: [1, 0.6, 1.15, 0.7, 1.15, 1],
     transition: {
-     duration: 1.3 * duration,
+     duration: 1 * duration,
      ease: "easeOut",
-     times: [0, 0.25, 0.5, 0.75, 1],
-     delay: 0.08 * duration,
+     times: [0, 0.18, 0.385, 0.59, 0.795, 1],
+     delay: 0.06 * duration,
     },
    },
   };

@@ -77,41 +77,36 @@ const MessageCircleXIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const xVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+  const popVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.26 + i * 0.09) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -139,20 +134,15 @@ const MessageCircleXIcon = forwardRef<
       <m.path
        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
-      />
-      <m.path
-       d="m15 9-6 6"
-       custom={0}
-       variants={xVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="m9 9 6 6"
-       custom={1}
-       variants={xVariants}
+      <m.g
+       variants={popVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      >
+       <path d="m15 9-6 6" />
+       <path d="m9 9 6 6" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

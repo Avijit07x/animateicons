@@ -44,7 +44,7 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.6,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -81,32 +81,17 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const boxVariants: Variants = {
+   normal: { y: 0, scaleY: 1 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    y: [0, -1, 0],
+    y: [0, -1, 0.4, 0],
+    scaleY: [1, 1.04, 0.94, 1],
     transition: {
-     duration: duration,
-     ease: [0.22, 1, 0.36, 1],
-    },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0.4, 1],
-    transition: {
-     duration: duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: i * 0.08,
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -130,29 +115,15 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path
-       d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
-       variants={pathVariants}
-       custom={0}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m3.3 7 8.7 5 8.7-5"
-       variants={pathVariants}
-       custom={1}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M12 22V12"
-       variants={pathVariants}
-       custom={2}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+       <path d="m3.3 7 8.7 5 8.7-5" />
+       <path d="M12 22V12" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

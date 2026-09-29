@@ -84,7 +84,7 @@ const PhoneIcon = forwardRef<PhoneIconHandle, PhoneIconProps>(
   const phoneVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -8, 8, -6, 6, 0],
+    rotate: [0, -8, 8, -6, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",
@@ -95,7 +95,6 @@ const PhoneIcon = forwardRef<PhoneIconHandle, PhoneIconProps>(
   const pulseVariants: Variants = {
    normal: { opacity: 0, scale: 0.3 },
    animate: {
-    opacity: [0, 0.25, 0],
     scale: [0.3, 1.5],
     transition: {
      duration: 0.9 * duration,

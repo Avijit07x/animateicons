@@ -88,7 +88,7 @@ const HourglassIcon = forwardRef<HourglassIconHandle, HourglassIconProps>(
    normal: { rotate: 0 },
    animate: {
     rotate: [0, 180],
-    transition: { duration: 0.9 * duration, ease: [0.65, 0, 0.35, 1] },
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 

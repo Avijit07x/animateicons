@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface VideoIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -56,48 +55,40 @@ const VideoIcon = forwardRef<VideoIconHandle, VideoIconProps>(
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
-  const start = useCallback(() => {
-   if (reduced) return;
-   controls.start("pan");
-  }, [controls, reduced]);
-
-  const stop = useCallback(() => {
-   controls.start("rest");
-  }, [controls]);
-
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const cameraVariants: Variants = {
-   rest: { rotate: 0 },
-   pan: {
-    rotate: [0, -6, -6, 2.5, 0],
+  const lensVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 1, -0.3, 0],
     transition: {
-     duration: 0.75 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.32, 0.5, 0.8, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -118,23 +109,17 @@ const VideoIcon = forwardRef<VideoIconHandle, VideoIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={controls}
-      initial="rest"
+      initial="normal"
      >
-      <m.g
-       variants={cameraVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "9px",
-        originY: "18px",
-       }}
-      >
-       <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" />
-       <rect x="2" y="6" width="14" height="12" rx="2" />
-      </m.g>
+      <m.path
+       d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"
+       variants={lensVariants}
+      />
+      <rect x="2" y="6" width="14" height="12" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

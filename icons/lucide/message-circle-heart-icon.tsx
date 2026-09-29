@@ -88,28 +88,25 @@ const MessageCircleHeartIcon = forwardRef<
   );
 
   const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.65 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
 
   const heartVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.6, 1.22, 1, 1.14, 1],
-    opacity: [0, 1, 1, 1, 1],
+    scale: [1, 1.3, 1, 1.18, 1],
     transition: {
-     duration: 0.7 * duration,
-     delay: 0.24 * duration,
-     times: [0, 0.3, 0.5, 0.72, 1],
+     duration: 0.55 * duration,
      ease: "easeInOut",
+     delay: 0.3 * duration,
     },
    },
   };
@@ -136,16 +133,17 @@ const MessageCircleHeartIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+      <m.g
        variants={bubbleVariants}
        style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
-      />
-      <m.path
-       d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z"
-       variants={heartVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      >
+       <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+       <m.path
+        d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z"
+        variants={heartVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

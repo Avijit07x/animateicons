@@ -81,39 +81,25 @@ const CircleXIcon = forwardRef<CircleXIconHandle, CircleXIconProps>(
    [controls, onMouseLeave],
   );
 
-  const popVariants: Variants = {
+  const shapeVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.08, 0.96, 1],
+    scale: [1, 1.1, 0.96, 1],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 0.75, 1],
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   },
-  };
-
-  const circleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, rotate: -90 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.2, 1],
-    rotate: -90,
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
   const crossVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: (0.3 + i * 0.12) * duration,
-    },
-   }),
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -138,19 +124,19 @@ const CircleXIcon = forwardRef<CircleXIconHandle, CircleXIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.g
-       variants={popVariants}
+       variants={crossVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <m.circle
-        cx="12"
-        cy="12"
-        r="10"
-        variants={circleVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-       />
-       <m.path d="m9 9 6 6" variants={crossVariants} custom={0} />
-       <m.path d="m15 9-6 6" variants={crossVariants} custom={1} />
+       <path d="m15 9-6 6" />
+       <path d="m9 9 6 6" />
       </m.g>
      </m.svg>
     </m.div>

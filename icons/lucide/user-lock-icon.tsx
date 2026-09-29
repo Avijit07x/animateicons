@@ -80,20 +80,41 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
    },
    [controls, onMouseLeave],
   );
-  const headBodyVariants: Variants = {
-   normal: { scale: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
-    transition: { duration: 0.4 * duration },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const lockVariants: Variants = {
-   normal: { x: 0, rotate: 0 },
+  const shackleVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    x: [0, -2, 2, -2, 2, 0],
-    rotate: [0, -3, 3, -3, 3, 0],
-    transition: { duration: 0.5 * duration },
+    y: [0, -2, 0.5, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
+    },
+   },
+  };
+
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1, 0.88, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
+    },
    },
   };
 
@@ -106,7 +127,7 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -116,38 +137,22 @@ const UserLockIcon = forwardRef<UserLockIconHandle, UserLockIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="10"
-       cy="7"
-       r="4"
-       variants={headBodyVariants}
-       animate={controls}
-       initial="normal"
-      />
-      <m.path
-       d="M10.3 15H7a4 4 0 0 0-4 4v2"
-       variants={headBodyVariants}
-       animate={controls}
-       initial="normal"
-      />
-      <m.path
-       d="M15 15.5V14a2 2 0 0 1 4 0v1.5"
-       variants={lockVariants}
-       animate={controls}
-       initial="normal"
-      />
+      <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
+      <m.circle cx="10" cy="7" r="4" variants={headVariants} />
+      <m.path d="M15 15.5V14a2 2 0 0 1 4 0v1.5" variants={shackleVariants} />
       <m.rect
        width="8"
        height="5"
        x="13"
        y="16"
        rx=".899"
-       variants={lockVariants}
-       animate={controls}
-       initial="normal"
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "21px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

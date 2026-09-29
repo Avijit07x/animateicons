@@ -81,31 +81,17 @@ const ListTreeIcon = forwardRef<ListTreeIconHandle, ListTreeIconProps>(
    [controls, onMouseLeave],
   );
 
-  const rowVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.55, 1],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: i * 0.15 * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const branchVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: (0.1 + i * 0.1) * duration,
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -131,28 +117,21 @@ const ListTreeIcon = forwardRef<ListTreeIconHandle, ListTreeIconProps>(
      >
       <m.path
        d="M8 5h13"
-       variants={rowVariants}
-       custom={0}
+       variants={rowVariants(0)}
        style={{ transformBox: "view-box", originX: "8px", originY: "5px" }}
       />
       <m.path
        d="M13 12h8"
-       variants={rowVariants}
-       custom={1}
+       variants={rowVariants(0.14)}
        style={{ transformBox: "view-box", originX: "13px", originY: "12px" }}
       />
       <m.path
        d="M13 19h8"
-       variants={rowVariants}
-       custom={2}
+       variants={rowVariants(0.28)}
        style={{ transformBox: "view-box", originX: "13px", originY: "19px" }}
       />
-      <m.path d="M3 10a2 2 0 0 0 2 2h3" variants={branchVariants} custom={1} />
-      <m.path
-       d="M3 5v12a2 2 0 0 0 2 2h3"
-       variants={branchVariants}
-       custom={0}
-      />
+      <path d="M3 10a2 2 0 0 0 2 2h3" />
+      <path d="M3 5v12a2 2 0 0 0 2 2h3" />
      </m.svg>
     </m.div>
    </LazyMotion>

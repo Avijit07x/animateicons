@@ -91,7 +91,7 @@ const GitlabIcon = forwardRef<GitlabIconHandle, GitlabIconProps>(
     opacity: [1, 0.85, 1],
     transition: {
      duration,
-     ease: [0.34, 1.56, 0.64, 1],
+     ease: "easeInOut",
     },
    },
   };

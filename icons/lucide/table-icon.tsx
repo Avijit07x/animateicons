@@ -81,17 +81,25 @@ const TableIcon = forwardRef<TableIconHandle, TableIconProps>(
    [controls, onMouseLeave],
   );
 
-  const lineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const rowVariants = (dy: number): Variants => ({
+   normal: { y: 0 },
+   animate: {
+    y: [0, dy, 0],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+   },
+  });
+
+  const columnVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 2.5, -1.2, 0],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: i * 0.12 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: 0.25 * duration,
+     times: [0, 0.4, 0.75, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -116,10 +124,10 @@ const TableIcon = forwardRef<TableIconHandle, TableIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M12 3v18" variants={lineVariants} custom={2} />
+      <m.path d="M12 3v18" variants={columnVariants} />
       <rect width="18" height="18" x="3" y="3" rx="2" />
-      <m.path d="M3 9h18" variants={lineVariants} custom={0} />
-      <m.path d="M3 15h18" variants={lineVariants} custom={1} />
+      <m.path d="M3 9h18" variants={rowVariants(-1.5)} />
+      <m.path d="M3 15h18" variants={rowVariants(1.5)} />
      </m.svg>
     </m.div>
    </LazyMotion>

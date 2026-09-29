@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,22 +75,23 @@ const FileIcon = forwardRef<FileIconHandle, FileIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const foldVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
+    x: [0, 1.4, -0.3, 0],
+    y: [0, -1, 0.3, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -115,11 +117,8 @@ const FileIcon = forwardRef<FileIconHandle, FileIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -84,7 +84,7 @@ const DeleteIcon = forwardRef<DeleteIconHandle, DeleteIconProps>(
   const keyVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -1.2, 0.4, 0],
+    x: [0, -1, 0.3, 0],
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
@@ -94,16 +94,16 @@ const DeleteIcon = forwardRef<DeleteIconHandle, DeleteIconProps>(
   };
 
   const crossVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: (0.2 + i * 0.12) * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -130,8 +130,13 @@ const DeleteIcon = forwardRef<DeleteIconHandle, DeleteIconProps>(
      >
       <m.g variants={keyVariants}>
        <path d="M10 5a2 2 0 0 0-1.344.519l-6.328 5.74a1 1 0 0 0 0 1.481l6.328 5.741A2 2 0 0 0 10 19h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" />
-       <m.path d="m12 9 6 6" variants={crossVariants} custom={0} />
-       <m.path d="m18 9-6 6" variants={crossVariants} custom={1} />
+       <m.g
+        variants={crossVariants}
+        style={{ transformBox: "view-box", originX: "15px", originY: "12px" }}
+       >
+        <path d="m12 9 6 6" />
+        <path d="m18 9-6 6" />
+       </m.g>
       </m.g>
      </m.svg>
     </m.div>

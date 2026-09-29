@@ -77,51 +77,24 @@ const IndentDecreaseIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const wipeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.06 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const arrowVariants: Variants = {
-   normal: { x: 0, pathLength: 1, opacity: 1 },
+  const shiftVariants = (dx: number, delay: number): Variants => ({
+   normal: { x: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    x: [0, -3, 0],
+    x: [0, dx, 0],
     transition: {
-     pathLength: {
-      duration: 0.4 * duration,
-      delay: 0.32 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.2 * duration, delay: 0.32 * duration },
-     x: {
-      duration: 0.5 * duration,
-      delay: 0.55 * duration,
-      times: [0, 0.5, 1],
-      ease: "easeInOut",
-     },
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -145,25 +118,10 @@ const IndentDecreaseIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M21 5H11"
-       custom={0}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "5px" }}
-      />
-      <m.path
-       d="M21 12H11"
-       custom={1}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "12px" }}
-      />
-      <m.path
-       d="M21 19H11"
-       custom={2}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "19px" }}
-      />
-      <m.path d="m7 8-4 4 4 4" variants={arrowVariants} />
+      <m.path d="M21 5H11" variants={shiftVariants(-1.5, 0)} />
+      <m.path d="M21 12H11" variants={shiftVariants(-1.5, 0.07)} />
+      <m.path d="M21 19H11" variants={shiftVariants(-1.5, 0.14)} />
+      <m.path d="m7 8-4 4 4 4" variants={shiftVariants(-2, 0)} />
      </m.svg>
     </m.div>
    </LazyMotion>

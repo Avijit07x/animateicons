@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileSpreadsheetIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -77,34 +78,21 @@ const FileSpreadsheetIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
   const cellVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+   normal: { strokeDashoffset: 0 },
+   animate: (delay: number) => ({
+    strokeDashoffset: [3, 0],
     transition: {
      duration: 0.3 * duration,
-     delay: (0.18 + i * 0.09) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeOut",
+     delay: delay * duration,
     },
    }),
   };
@@ -131,34 +119,35 @@ const FileSpreadsheetIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
       <m.path
        d="M8 13h2"
-       custom={0}
+       strokeDasharray="3"
+       strokeDashoffset="0"
        variants={cellVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "13px" }}
+       custom={0}
       />
       <m.path
        d="M14 13h2"
-       custom={1}
+       strokeDasharray="3"
+       strokeDashoffset="0"
        variants={cellVariants}
-       style={{ transformBox: "view-box", originX: "14px", originY: "13px" }}
+       custom={0.15}
       />
       <m.path
        d="M8 17h2"
-       custom={2}
+       strokeDasharray="3"
+       strokeDashoffset="0"
        variants={cellVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "17px" }}
+       custom={0.3}
       />
       <m.path
        d="M14 17h2"
-       custom={3}
+       strokeDasharray="3"
+       strokeDashoffset="0"
        variants={cellVariants}
-       style={{ transformBox: "view-box", originX: "14px", originY: "17px" }}
+       custom={0.45}
       />
      </m.svg>
     </m.div>

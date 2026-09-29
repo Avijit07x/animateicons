@@ -77,48 +77,25 @@ const ChartCandlestickIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const axisVariants: Variants = {
-   normal: { pathLength: 1 },
+  const candleVariants = (dy: number, delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.4 * duration, ease: "easeOut" },
+    y: [0, dy, -dy * 0.25, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
+    },
    },
-  };
-
-  const bodyVariants: Variants = {
-   normal: { scaleY: 1 },
-   animate: (i: number) => ({
-    scaleY: [0, 1],
-    transition: {
-     delay: (0.3 + i * 0.16) * duration,
-     duration: 0.45 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
-
-  const wickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     delay: (0.42 + i * 0.16) * duration,
-     duration: 0.35 * duration,
-     ease: "easeOut",
-    },
-   }),
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -142,31 +119,17 @@ const ChartCandlestickIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M9 5v4" custom={0} variants={wickVariants} />
-      <m.rect
-       width="4"
-       height="6"
-       x="7"
-       y="9"
-       rx="1"
-       custom={0}
-       variants={bodyVariants}
-       style={{ transformBox: "view-box", originX: "9px", originY: "12px" }}
-      />
-      <m.path d="M9 15v2" custom={0} variants={wickVariants} />
-      <m.path d="M17 3v2" custom={1} variants={wickVariants} />
-      <m.rect
-       width="4"
-       height="8"
-       x="15"
-       y="5"
-       rx="1"
-       custom={1}
-       variants={bodyVariants}
-       style={{ transformBox: "view-box", originX: "17px", originY: "9px" }}
-      />
-      <m.path d="M17 13v3" custom={1} variants={wickVariants} />
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={axisVariants} />
+      <m.g variants={candleVariants(1.5, 0)}>
+       <path d="M9 5v4" />
+       <rect width="4" height="6" x="7" y="9" rx="1" />
+       <path d="M9 15v2" />
+      </m.g>
+      <m.g variants={candleVariants(-1.5, 0.08)}>
+       <path d="M17 3v2" />
+       <rect width="4" height="8" x="15" y="5" rx="1" />
+       <path d="M17 13v3" />
+      </m.g>
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
      </m.svg>
     </m.div>
    </LazyMotion>

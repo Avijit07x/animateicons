@@ -81,22 +81,16 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    x: 0,
-    y: 0,
-    scale: 1,
-    opacity: 1,
-   },
+  const planeVariants: Variants = {
+   normal: { x: 0, y: 0, opacity: 1 },
    animate: {
-    scale: [1, 0.85, 0, 0, 1],
-    x: [0, 6, 16, -16, 0],
-    y: [0, -4, -16, 16, 0],
-    opacity: [1, 1, 0, 0, 1],
+    x: [0, 12, -12, 0],
+    y: [0, -12, 12, 0],
+    opacity: [1, 0, 0, 1],
     transition: {
-     duration: 1.4 * duration,
-     ease: "easeInOut",
-     times: [0, 0.2, 0.4, 0.6, 1],
+     duration: 0.9 * duration,
+     ease: ["easeIn", "easeInOut", "easeOut"],
+     times: [0, 0.4, 0.45, 1],
     },
    },
   };
@@ -122,10 +116,11 @@ const SendIcon = forwardRef<SendIconHandle, SendIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
-      <path d="m21.854 2.147-10.94 10.939" />
+      <m.g variants={planeVariants}>
+       <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+       <path d="m21.854 2.147-10.94 10.939" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

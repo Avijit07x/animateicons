@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface SpeakerIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,68 +51,57 @@ const SpeakerIcon = forwardRef<SpeakerIconHandle, SpeakerIconProps>(
   },
   ref,
  ) => {
-  const wooferControls = useAnimation();
-  const tweeterControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   wooferControls.start("boom");
-   tweeterControls.start("boom");
-  }, [wooferControls, tweeterControls, reduced]);
-
-  const stop = useCallback(() => {
-   wooferControls.start("rest");
-   tweeterControls.start("rest");
-  }, [wooferControls, tweeterControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const wooferVariants: Variants = {
-   rest: { scale: 1 },
-   boom: {
-    scale: [1, 1.14, 0.96, 1.06, 1],
+  const woofVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.18, 0.94, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.24, 0.5, 0.76, 1],
-     repeat: Infinity,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const tweeterVariants: Variants = {
-   rest: { scale: 1 },
-   boom: {
-    scale: [1, 1.5, 1],
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.7, 0.9, 1],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
+     delay: 0.12 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -127,42 +115,33 @@ const SpeakerIcon = forwardRef<SpeakerIconHandle, SpeakerIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <rect width="16" height="20" x="4" y="2" rx="2" />
       <m.path
        d="M12 6h.01"
-       animate={tweeterControls}
-       initial="rest"
        variants={tweeterVariants}
-       style={{ transformBox: "fill-box" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "6px" }}
       />
-      <m.circle
-       cx="12"
-       cy="14"
-       r="4"
-       animate={wooferControls}
-       initial="rest"
-       variants={wooferVariants}
-       style={{ transformBox: "fill-box" }}
-      />
-      <m.path
-       d="M12 14h.01"
-       animate={wooferControls}
-       initial="rest"
-       variants={wooferVariants}
-       style={{ transformBox: "fill-box" }}
-      />
-     </svg>
+      <m.g
+       variants={woofVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "14px" }}
+      >
+       <circle cx="12" cy="14" r="4" />
+       <path d="M12 14h.01" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

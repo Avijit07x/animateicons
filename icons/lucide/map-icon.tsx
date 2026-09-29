@@ -74,45 +74,19 @@ const MapIcon = forwardRef<MapIconHandle, MapIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const mapVariants: Variants = {
-   normal: { scaleX: 1, pathLength: 1, opacity: 1 },
+   normal: { skewX: 0 },
    animate: {
-    scaleX: [0.78, 1.03, 1],
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     scaleX: {
-      duration: 0.6 * duration,
-      times: [0, 0.7, 1],
-      ease: [0.34, 1.4, 0.64, 1],
-     },
-     pathLength: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-     opacity: { duration: 0.2 * duration },
-    },
+    skewX: [0, -8, 6, -3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
-  };
-
-  const creaseVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.3 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
   };
 
   return (
@@ -137,13 +111,14 @@ const MapIcon = forwardRef<MapIconHandle, MapIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"
+      <m.g
        variants={mapVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path d="M15 5.764v15" custom={0} variants={creaseVariants} />
-      <m.path d="M9 3.236v15" custom={1} variants={creaseVariants} />
+      >
+       <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+       <path d="M15 5.764v15" />
+       <path d="M9 3.236v15" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

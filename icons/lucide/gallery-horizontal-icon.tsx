@@ -90,9 +90,9 @@ const GalleryHorizontalIcon = forwardRef<
     x: [0, -5, 5, 0],
     opacity: [1, 0, 0, 1],
     transition: {
-     duration: 0.7 * duration,
-     ease: ["easeIn", "linear", "easeOut"],
-     times: [0, 0.4, 0.41, 1],
+     duration: 0.8 * duration,
+     ease: ["easeIn", "easeInOut", "easeOut"],
+     times: [0, 0.4, 0.45, 1],
     },
    },
   };

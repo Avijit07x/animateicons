@@ -43,7 +43,7 @@ const LogOutIcon = forwardRef<LogOutIconHandle, LogOutIconProps>(
    onMouseEnter,
    onMouseLeave,
    className,
-   size = 28,
+   size = 24,
    duration = 1,
    isAnimated = true,
    color,
@@ -81,38 +81,14 @@ const LogOutIcon = forwardRef<LogOutIconHandle, LogOutIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, 3, -2, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const arrowVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
+   normal: { x: 0 },
    animate: {
-    x: [8, -2, 0],
-    opacity: [0, 1, 1],
+    x: [0, -1, 1.6, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const doorVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: {
-     duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: 0.1,
+     times: [0, 0.25, 0.65, 1],
     },
    },
   };
@@ -138,15 +114,12 @@ const LogOutIcon = forwardRef<LogOutIconHandle, LogOutIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path d="m16 17 5-5-5-5" variants={arrowVariants} />
-      <m.path d="M21 12H9" variants={arrowVariants} />
-
-      <m.path
-       d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
-       variants={doorVariants}
-      />
+      <m.g variants={arrowVariants}>
+       <path d="m16 17 5-5-5-5" />
+       <path d="M21 12H9" />
+      </m.g>
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
      </m.svg>
     </m.div>
    </LazyMotion>

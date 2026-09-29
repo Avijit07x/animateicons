@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileTypeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,47 +75,21 @@ const FileTypeIcon = forwardRef<FileTypeIconHandle, FileTypeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const stemVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.24 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   },
-  };
-
-  const serifVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+  const typeVariants: Variants = {
+   normal: { strokeDashoffset: 0 },
+   animate: (delay: number) => ({
+    strokeDashoffset: [9, 0],
     transition: {
      duration: 0.3 * duration,
-     delay: (0.18 + i * 0.28) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeOut",
+     delay: delay * duration,
     },
    }),
   };
@@ -141,23 +116,28 @@ const FileTypeIcon = forwardRef<FileTypeIconHandle, FileTypeIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
       <m.path
        d="M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={typeVariants}
        custom={0}
-       variants={serifVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12.5px" }}
       />
-      <m.path d="M12 12v6" variants={stemVariants} />
+      <m.path
+       d="M12 12v6"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={typeVariants}
+       custom={0.2}
+      />
       <m.path
        d="M11 18h2"
-       custom={1}
-       variants={serifVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={typeVariants}
+       custom={0.4}
       />
      </m.svg>
     </m.div>

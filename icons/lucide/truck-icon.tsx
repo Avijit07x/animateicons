@@ -74,41 +74,36 @@ const TruckIcon = forwardRef<TruckIconHandle, TruckIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const driveVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1, 1, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
+  const bodyVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -133,33 +128,15 @@ const TruckIcon = forwardRef<TruckIconHandle, TruckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="M15 18H9" custom={2} variants={bodyVariants} />
-      <m.circle
-       cx="7"
-       cy="18"
-       r="2"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "18px" }}
-      />
-      <m.circle
-       cx="17"
-       cy="18"
-       r="2"
-       custom={1}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "17px", originY: "18px" }}
-      />
+      <m.g variants={driveVariants}>
+       <m.g variants={bodyVariants}>
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+        <path d="M15 18H9" />
+        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+       </m.g>
+       <circle cx="17" cy="18" r="2" />
+       <circle cx="7" cy="18" r="2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

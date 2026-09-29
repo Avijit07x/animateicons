@@ -74,47 +74,29 @@ const TimerOffIcon = forwardRef<TimerOffIconHandle, TimerOffIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dialVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.1 + i * 0.08) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const buttonVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.3 * duration, ease: [0.16, 1, 0.3, 1] },
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [0, 22, 0],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.5 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 1],
     },
    },
   };
@@ -141,23 +123,18 @@ const TimerOffIcon = forwardRef<TimerOffIconHandle, TimerOffIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.g variants={bodyVariants}>
+       <path d="M10 2h4" />
+       <path d="M4.6 11a8 8 0 0 0 1.7 8.7 8 8 0 0 0 8.7 1.7" />
+       <path d="M7.4 7.4a8 8 0 0 1 10.3 1 8 8 0 0 1 .9 10.2" />
+       <path d="M12 12v-2" />
+      </m.g>
       <m.path
-       d="M10 2h4"
-       variants={buttonVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "2px" }}
+       d="m2 2 20 20"
+       strokeDasharray="29"
+       strokeDashoffset="0"
+       variants={slashVariants}
       />
-      <m.path
-       d="M4.6 11a8 8 0 0 0 1.7 8.7 8 8 0 0 0 8.7 1.7"
-       custom={0}
-       variants={dialVariants}
-      />
-      <m.path
-       d="M7.4 7.4a8 8 0 0 1 10.3 1 8 8 0 0 1 .9 10.2"
-       custom={1}
-       variants={dialVariants}
-      />
-      <m.path d="M12 12v-2" custom={2} variants={dialVariants} />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

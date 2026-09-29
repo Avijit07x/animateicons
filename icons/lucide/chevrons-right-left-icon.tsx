@@ -77,31 +77,34 @@ const ChevronsRightLeftIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const rightToLeft: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const leftVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    x: [0, -4, 0],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 0.9 * duration, repeat: 0 },
+    x: [0, 1.5, -0.4, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const leftToRight: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const rightVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    x: [0, 4, 0],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 0.9 * duration, repeat: 0, delay: 0.3 },
+    x: [0, -1.5, 0.4, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
@@ -127,8 +130,8 @@ const ChevronsRightLeftIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="m20 17-5-5 5-5" variants={rightToLeft} stroke="currentColor" />
-      <m.path d="m4 17 5-5-5-5" variants={leftToRight} stroke="currentColor" />
+      <m.path d="m4 17 5-5-5-5" variants={leftVariants} />
+      <m.path d="m20 17-5-5 5-5" variants={rightVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>
