@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface UtensilsIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,68 +51,56 @@ const UtensilsIcon = forwardRef<UtensilsIconHandle, UtensilsIconProps>(
   },
   ref,
  ) => {
-  const forkControls = useAnimation();
-  const knifeControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   forkControls.start("set");
-   knifeControls.start("set");
-  }, [forkControls, knifeControls, reduced]);
-
-  const stop = useCallback(() => {
-   forkControls.start("rest");
-   knifeControls.start("rest");
-  }, [forkControls, knifeControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const forkVariants: Variants = {
-   rest: { rotate: 0 },
-   set: {
-    rotate: [0, -9, 2, 0],
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, 7, -2, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const knifeVariants: Variants = {
-   rest: { rotate: 0 },
-   set: {
-    rotate: [0, 9, -2, 0],
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -7, 2, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
-     delay: 0.08 * duration,
     },
    },
   };
@@ -127,39 +114,32 @@ const UtensilsIcon = forwardRef<UtensilsIconHandle, UtensilsIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"
-       animate={forkControls}
-       initial="rest"
+      <m.g
        variants={forkVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
-      />
-      <m.path
-       d="M7 2v20"
-       animate={forkControls}
-       initial="rest"
-       variants={forkVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
-      />
+       style={{ transformBox: "view-box", originX: "7px", originY: "22px" }}
+      >
+       <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+       <path d="M7 2v20" />
+      </m.g>
       <m.path
        d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"
-       animate={knifeControls}
-       initial="rest"
        variants={knifeVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
+       style={{ transformBox: "view-box", originX: "18.5px", originY: "22px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

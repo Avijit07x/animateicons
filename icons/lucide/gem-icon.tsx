@@ -81,26 +81,29 @@ const GemIcon = forwardRef<GemIconHandle, GemIconProps>(
    [controls, onMouseLeave],
   );
 
-  const gemVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const bodyVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scale: [1, 1.1, 0.97, 1],
-    rotate: [0, -6, 4, 0],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    scaleX: [1, 0.92, 1.02, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
   const facetVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+   normal: { x: 0, scaleX: 1 },
+   animate: {
+    x: [0, 1.8, -0.5, 0],
+    scaleX: [1, 0.8, 1, 1],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: (0.1 + i * 0.12) * duration,
+     times: [0, 0.4, 0.75, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -125,17 +128,17 @@ const GemIcon = forwardRef<GemIconHandle, GemIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.path
+       d="M10.5 3 8 9l4 13 4-13-2.5-6"
+       variants={facetVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.g
-       variants={gemVariants}
+       variants={bodyVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <m.path
-        d="M10.5 3 8 9l4 13 4-13-2.5-6"
-        variants={facetVariants}
-        custom={1}
-       />
        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z" />
-       <m.path d="M2 9h20" variants={facetVariants} custom={0} />
+       <path d="M2 9h20" />
       </m.g>
      </m.svg>
     </m.div>

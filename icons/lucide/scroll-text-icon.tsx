@@ -81,30 +81,19 @@ const ScrollTextIcon = forwardRef<ScrollTextIconHandle, ScrollTextIconProps>(
    [controls, onMouseLeave],
   );
 
-  const scrollVariants: Variants = {
-   normal: { scaleY: 1 },
+  const lineVariants = (delay: number): Variants => ({
+   normal: { y: 0, scaleX: 1 },
    animate: {
-    scaleY: [1, 0.85, 1.04, 1],
+    y: [0, -2, 0.5, 0],
+    scaleX: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     delay: delay * duration,
      times: [0, 0.35, 0.7, 1],
     },
    },
-  };
-
-  const lineVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: (0.3 + i * 0.15) * duration,
-    },
-   }),
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -128,25 +117,18 @@ const ScrollTextIcon = forwardRef<ScrollTextIconHandle, ScrollTextIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={scrollVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
-      >
-       <m.path
-        d="M15 12h-5"
-        variants={lineVariants}
-        custom={1}
-        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
-       />
-       <m.path
-        d="M15 8h-5"
-        variants={lineVariants}
-        custom={0}
-        style={{ transformBox: "view-box", originX: "10px", originY: "8px" }}
-       />
-       <path d="M19 17V5a2 2 0 0 0-2-2H4" />
-       <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
-      </m.g>
+      <m.path
+       d="M15 12h-5"
+       variants={lineVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
+      />
+      <m.path
+       d="M15 8h-5"
+       variants={lineVariants(0)}
+       style={{ transformBox: "view-box", originX: "10px", originY: "8px" }}
+      />
+      <path d="M19 17V5a2 2 0 0 0-2-2H4" />
+      <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
      </m.svg>
     </m.div>
    </LazyMotion>

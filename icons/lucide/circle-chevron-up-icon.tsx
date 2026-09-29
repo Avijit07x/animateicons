@@ -54,87 +54,57 @@ const CircleChevronUpIcon = forwardRef<
   },
   ref,
  ) => {
-  const circleControls = useAnimation();
-  const arrowControls = useAnimation();
-  const isControlled = useRef(false);
-  const tickControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
+  const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      circleControls.start("normal");
-      tickControls.start("normal");
-      arrowControls.start("normal");
-     } else {
-      circleControls.start("animate");
-      tickControls.start("animate");
-      arrowControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     circleControls.start("normal");
-     tickControls.start("normal");
-     arrowControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     circleControls.start("animate");
-     tickControls.start("animate");
-     arrowControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    circleControls,
-    tickControls,
-    arrowControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     circleControls.start("normal");
-     tickControls.start("normal");
-     arrowControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [circleControls, tickControls, arrowControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
-  const circleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.1, 0.9, 1.05, 1],
-    opacity: 1,
+    scale: [1, 1.1, 0.96, 1],
     transition: {
-     duration: 1.2 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+  const chevronVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    y: [10, 0],
-    opacity: [0, 1],
+    x: [0, 0, 0, 0],
+    y: [0, -2, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut",
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -158,21 +128,17 @@ const CircleChevronUpIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.circle
        cx="12"
        cy="12"
        r="10"
-       animate={circleControls}
-       initial="normal"
-       variants={circleVariants}
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="m8 14 4-4 4 4"
-       animate={arrowControls}
-       initial="normal"
-       variants={arrowVariants}
-      />
+      <m.path d="m8 14 4-4 4 4" variants={chevronVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

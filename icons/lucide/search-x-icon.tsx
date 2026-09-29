@@ -82,24 +82,24 @@ const SearchXIcon = forwardRef<SearchXIconHandle, SearchXIconProps>(
   );
 
   const lensVariants: Variants = {
-   normal: { x: 0 },
+   normal: { scale: 1 },
    animate: {
-    x: [0, -1.5, 1.5, -1, 1, 0],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    scale: [1, 1.06, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const crossVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: (0.25 + i * 0.12) * duration,
-    },
-   }),
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -124,11 +124,19 @@ const SearchXIcon = forwardRef<SearchXIconHandle, SearchXIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g variants={lensVariants}>
-       <m.path d="m13.5 8.5-5 5" variants={crossVariants} custom={1} />
-       <m.path d="m8.5 8.5 5 5" variants={crossVariants} custom={0} />
+      <m.g
+       variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "11px", originY: "11px" }}
+      >
        <circle cx="11" cy="11" r="8" />
        <path d="m21 21-4.3-4.3" />
+       <m.g
+        variants={crossVariants}
+        style={{ transformBox: "view-box", originX: "11px", originY: "11px" }}
+       >
+        <path d="m13.5 8.5-5 5" />
+        <path d="m8.5 8.5 5 5" />
+       </m.g>
       </m.g>
      </m.svg>
     </m.div>

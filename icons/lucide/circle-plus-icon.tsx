@@ -81,20 +81,24 @@ const CirclePlusIcon = forwardRef<CirclePlusIconHandle, CirclePlusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const circleAnim: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.1, 1],
-    rotate: 360,
-    transition: { duration: 2 * duration, repeat: 0, ease: "linear" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const plusLine: Variants = {
-   normal: { opacity: 1 },
+  const plusVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    opacity: [1, 0.4, 1],
-    transition: { duration: 1 * duration, repeat: 0, ease: "easeInOut" },
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -124,11 +128,14 @@ const CirclePlusIcon = forwardRef<CirclePlusIconHandle, CirclePlusIconProps>(
        cx="12"
        cy="12"
        r="10"
-       variants={circleAnim}
-       stroke="currentColor"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="M8 12h8" variants={plusLine} stroke="currentColor" />
-      <m.path d="M12 8v8" variants={plusLine} stroke="currentColor" />
+      <m.path
+       d="M8 12h8M12 8v8"
+       variants={plusVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

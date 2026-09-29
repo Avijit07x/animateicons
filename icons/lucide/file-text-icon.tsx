@@ -52,53 +52,52 @@ const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
   },
   ref,
  ) => {
-  const lineControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   lineControls.start("write");
-  }, [lineControls, reduced]);
-
-  const stop = useCallback(() => {
-   lineControls.start("rest");
-  }, [lineControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const lineVariants = (i: number): Variants => ({
-   rest: { pathLength: 1, opacity: 1 },
-   write: {
-    pathLength: [0, 1],
+  const lineVariants = (delay: number, length: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [-length, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: [0.16, 1, 0.3, 1],
-     delay: i * 0.12 * duration,
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
     },
    },
   });
@@ -112,7 +111,7 @@ const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -122,31 +121,30 @@ const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
       <m.path
        d="M10 9H8"
-       animate={lineControls}
-       initial="rest"
-       variants={lineVariants(0)}
-       style={{ transformBox: "fill-box", transformOrigin: "left center" }}
+       strokeDasharray="3"
+       strokeDashoffset="0"
+       variants={lineVariants(0, 3)}
       />
       <m.path
        d="M16 13H8"
-       animate={lineControls}
-       initial="rest"
-       variants={lineVariants(1)}
-       style={{ transformBox: "fill-box", transformOrigin: "left center" }}
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={lineVariants(0.15, 9)}
       />
       <m.path
        d="M16 17H8"
-       animate={lineControls}
-       initial="rest"
-       variants={lineVariants(2)}
-       style={{ transformBox: "fill-box", transformOrigin: "left center" }}
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={lineVariants(0.3, 9)}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

@@ -54,66 +54,58 @@ const SquareArrowOutUpRightIcon = forwardRef<
   },
   ref,
  ) => {
-  const boxControls = useAnimation();
-  const arrowControls = useAnimation();
-  const isControlled = useRef(false);
+  const controls = useAnimation();
   const reduced = useReducedMotion();
+  const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      boxControls.start("normal");
-      arrowControls.start("normal");
-     }
-     boxControls.start("animate");
-     arrowControls.start("animate");
-    },
-    stopAnimation: () => {
-     boxControls.start("normal");
-     arrowControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     boxControls.start("animate");
-     arrowControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [boxControls, arrowControls, isAnimated, reduced, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     boxControls.start("normal");
-     arrowControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [boxControls, arrowControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const boxVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    scale: [1, 0.97, 1.02, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const arrowVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1 },
+   normal: { x: 0, y: 0 },
    animate: {
-    x: [0, 3, 0],
-    y: [0, -3, 0],
-    opacity: [1, 1, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    x: [0, 1.75, -0.4, 0],
+    y: [0, -1.75, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -126,7 +118,7 @@ const SquareArrowOutUpRightIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -136,28 +128,19 @@ const SquareArrowOutUpRightIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
        variants={boxVariants}
-       initial="normal"
-       animate={boxControls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-
-      <m.path
-       d="m21 3-9 9"
-       variants={arrowVariants}
-       initial="normal"
-       animate={arrowControls}
-      />
-
-      <m.path
-       d="M15 3h6v6"
-       variants={arrowVariants}
-       initial="normal"
-       animate={arrowControls}
-      />
-     </svg>
+      <m.g variants={arrowVariants}>
+       <path d="m21 3-9 9" />
+       <path d="M15 3h6v6" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

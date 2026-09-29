@@ -81,83 +81,28 @@ const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeIconProps>(
    [controls, onMouseLeave],
   );
 
-  const ease = [0.12, 1, 0.25, 1] as const;
-
-  const drawTop: Variants = {
-   normal: { strokeDasharray: "1", strokeDashoffset: 0 },
+  const topVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDasharray: "1",
-    strokeDashoffset: [1, 0],
-    transition: { duration: 0.5 * duration, ease, delay: 0.06 },
-   },
-  };
-
-  const drawMid: Variants = {
-   normal: { strokeDasharray: "1", strokeDashoffset: 0 },
-   animate: {
-    strokeDasharray: "1",
-    strokeDashoffset: [1, 0],
+    y: [0, -1.5, 0.6, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.16,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const drawCurve: Variants = {
-   normal: { strokeDasharray: "1", strokeDashoffset: 0 },
+  const midVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDasharray: "1",
-    strokeDashoffset: [1, 0],
+    y: [0, -1.2, 0.6, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.26,
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.08 * duration,
     },
-   },
-  };
-
-  const drawNotch: Variants = {
-   normal: { strokeDasharray: "1", strokeDashoffset: 0 },
-   animate: {
-    strokeDasharray: "1",
-    strokeDashoffset: [1, 0],
-    transition: {
-     duration: 0.45 * duration,
-     ease: "easeInOut",
-     delay: 0.42,
-    },
-   },
-  };
-
-  const groupSettle: Variants = {
-   normal: { scale: 1, x: 0, y: 0 },
-   animate: {
-    scale: [1, 1.05, 1],
-    x: [0, -1, 0],
-    y: [0, -1, 0],
-    transition: { duration: 0.6 * duration, ease },
-   },
-  };
-
-  const diagonalResolve: Variants = {
-   normal: {
-    strokeDasharray: "1",
-    strokeDashoffset: 0,
-    x: 0,
-    y: 0,
-    opacity: 1,
-    scale: 1,
-   },
-   animate: {
-    strokeDasharray: "1",
-    strokeDashoffset: [1, 0],
-    x: [-0.3, 0.5, 0],
-    y: [-0.2, 0.5, 0],
-    scale: [1, 1.05, 1],
-    opacity: [1, 1],
-    transition: { duration: 0.6 * duration, ease, delay: 0.5 },
    },
   };
 
@@ -180,53 +125,14 @@ const IndianRupeeIcon = forwardRef<IndianRupeeIconHandle, IndianRupeeIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-indian-rupee-icon lucide-indian-rupee"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={groupSettle} initial="normal" animate={controls}>
-       <g opacity={0.3}>
-        <path d="M6 3h12" />
-        <path d="M6 8h12" />
-        <path d="M9 13c6.667 0 6.667-10 0-10" />
-        <path d="M6 13h3" />
-        <path d="m6 13 8.5 8" />
-       </g>
-
-       <m.path
-        d="M6 3h12"
-        pathLength={1}
-        variants={drawTop}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M6 8h12"
-        pathLength={1}
-        variants={drawMid}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M9 13c6.667 0 6.667-10 0-10"
-        pathLength={1}
-        variants={drawCurve}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M6 13h3"
-        pathLength={1}
-        variants={drawNotch}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m6 13 8.5 8"
-        pathLength={1}
-        variants={diagonalResolve}
-        initial="normal"
-        animate={controls}
-       />
-      </m.g>
+      <m.path d="M6 3h12" variants={topVariants} />
+      <m.path d="M6 8h12" variants={midVariants} />
+      <path d="m6 13 8.5 8" />
+      <path d="M6 13h3" />
+      <path d="M9 13c6.667 0 6.667-10 0-10" />
      </m.svg>
     </m.div>
    </LazyMotion>

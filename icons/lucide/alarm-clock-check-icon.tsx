@@ -90,11 +90,11 @@ const AlarmClockCheckIcon = forwardRef<
   const clockVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -6, 6, -4, 2, 0],
+    rotate: [0, -6, 6, -4, 0],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.16, 0.36, 0.56, 0.78, 1],
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };
@@ -109,14 +109,14 @@ const AlarmClockCheckIcon = forwardRef<
      pathLength: {
       duration: 0.4 * duration,
       delay: 0.28 * duration,
-      ease: [0.16, 1, 0.3, 1],
+      ease: "easeOut",
      },
      opacity: { duration: 0.16 * duration, delay: 0.28 * duration },
      scale: {
       duration: 0.45 * duration,
       delay: 0.32 * duration,
       times: [0, 0.6, 1],
-      ease: [0.34, 1.4, 0.64, 1],
+      ease: "easeInOut",
      },
     },
    },

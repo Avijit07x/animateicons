@@ -81,39 +81,27 @@ const UsersIcon = forwardRef<UsersIconHandle, UsersIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [50, 0],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.6, 1.2, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const sideArcVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 0.8 },
+  const sideHeadVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.2, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.3,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -137,40 +125,13 @@ const UsersIcon = forwardRef<UsersIconHandle, UsersIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-users-icon lucide-users"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-       strokeDasharray="50"
-       strokeDashoffset="50"
-       variants={arcVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M16 3.128a4 4 0 0 1 0 7.744"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={sideArcVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M22 21v-2a4 4 0 0 0-3-3.87"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={sideArcVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="9"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <m.path d="M16 3.128a4 4 0 0 1 0 7.744" variants={sideHeadVariants} />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <m.circle cx="9" cy="7" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

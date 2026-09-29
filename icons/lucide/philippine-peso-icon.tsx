@@ -84,54 +84,18 @@ const PhilippinePesoIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const topStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.06,
-    },
-   },
-  };
-
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scaleX: [1, 0.6, 1.05, 1],
     transition: {
      duration: 0.55 * duration,
      ease: "easeInOut",
-     delay: 0.16,
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const pStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.26,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -154,36 +118,18 @@ const PhilippinePesoIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-philippine-peso-icon lucide-philippine-peso"
      >
-      <g opacity={0.35}>
-       <path d="M20 11H4" />
-       <path d="M20 7H4" />
-       <path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7" />
-      </g>
-
       <m.path
        d="M20 7H4"
-       pathLength={1}
-       variants={topStroke}
-       initial="normal"
-       animate={controls}
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
       <m.path
        d="M20 11H4"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
+       variants={barVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
       />
-      <m.path
-       d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7"
-       pathLength={1}
-       variants={pStroke}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7" />
      </m.svg>
     </m.div>
    </LazyMotion>

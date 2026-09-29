@@ -74,27 +74,35 @@ const WrapTextIcon = forwardRef<WrapTextIconHandle, WrapTextIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const arrowVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1.5, 0.4, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+
+  const tailVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 1.3, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
+    },
+   },
   };
 
   return (
@@ -119,14 +127,14 @@ const WrapTextIcon = forwardRef<WrapTextIconHandle, WrapTextIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 5h18" custom={0} variants={drawVariants} />
+      <m.path d="m16 16-3 3 3 3" variants={arrowVariants} />
+      <path d="M3 12h14.5a1 1 0 0 1 0 7H13" />
       <m.path
-       d="M3 12h14.5a1 1 0 0 1 0 7H13"
-       custom={1}
-       variants={drawVariants}
+       d="M3 19h6"
+       variants={tailVariants}
+       style={{ transformBox: "view-box", originX: "3px", originY: "19px" }}
       />
-      <m.path d="M3 19h6" custom={2} variants={drawVariants} />
-      <m.path d="m16 16-3 3 3 3" custom={3} variants={drawVariants} />
+      <path d="M3 5h18" />
      </m.svg>
     </m.div>
    </LazyMotion>

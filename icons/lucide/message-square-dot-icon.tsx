@@ -77,39 +77,22 @@ const MessageSquareDotIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
   const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1, y: 0 },
    animate: {
-    scale: [0, 1.4, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.25, 0.92, 1],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.24 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -136,11 +119,7 @@ const MessageSquareDotIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7"
-       variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
-      />
+      <path d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7" />
       <m.circle
        cx="19"
        cy="6"

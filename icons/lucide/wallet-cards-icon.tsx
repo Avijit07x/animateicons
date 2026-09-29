@@ -74,27 +74,36 @@ const WalletCardsIcon = forwardRef<WalletCardsIconHandle, WalletCardsIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const cardVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -1.6, 0.5, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+
+  const pocketVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.2, -0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
+    },
+   },
   };
 
   return (
@@ -119,25 +128,12 @@ const WalletCardsIcon = forwardRef<WalletCardsIconHandle, WalletCardsIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       width="18"
-       height="18"
-       x="3"
-       y="3"
-       rx="2"
-       custom={0}
-       variants={bodyVariants}
-      />
       <m.path
-       d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"
-       custom={1}
-       variants={bodyVariants}
+       d="M3 11h3.75a2 2 0 0 1 1.6.8l.45.6a4 4 0 0 0 6.4 0l.45-.6a2 2 0 0 1 1.6-.8H21"
+       variants={pocketVariants}
       />
-      <m.path
-       d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"
-       custom={2}
-       variants={bodyVariants}
-      />
+      <m.path d="M3 7h18" variants={cardVariants} />
+      <rect x="3" y="3" width="18" height="18" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileSearchIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,48 +75,22 @@ const FileSearchIcon = forwardRef<FileSearchIconHandle, FileSearchIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
   const lensVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+    x: [0, 1.5, -1.2, 0],
+    y: [0, -0.8, 0.6, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.2 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const handleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.5 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
@@ -142,23 +117,12 @@ const FileSearchIcon = forwardRef<FileSearchIconHandle, FileSearchIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.circle
-       cx="11.5"
-       cy="14.5"
-       r="2.5"
-       variants={lensVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "11.5px",
-        originY: "14.5px",
-       }}
-      />
-      <m.path d="M13.3 16.3 15 18" variants={handleVariants} />
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+      <m.g variants={lensVariants}>
+       <circle cx="11.5" cy="14.5" r="2.5" />
+       <path d="M13.3 16.3 15 18" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

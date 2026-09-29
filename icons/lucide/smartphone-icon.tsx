@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface SmartphoneIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,54 +51,53 @@ const SmartphoneIcon = forwardRef<SmartphoneIconHandle, SmartphoneIconProps>(
   },
   ref,
  ) => {
-  const buzzControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   buzzControls.start("ring");
-  }, [buzzControls, reduced]);
-
-  const stop = useCallback(() => {
-   buzzControls.start("rest");
-  }, [buzzControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const buzzVariants: Variants = {
-   rest: { x: 0, rotate: 0 },
-   ring: {
-    x: [0, -1.2, 1.2, -1.2, 1.2, 0],
-    rotate: [0, -3, 3, -3, 3, 0],
+   normal: { x: 0, rotate: 0 },
+   animate: {
+    x: [0, -1, 1, -0.5, 0],
+    rotate: [0, -4, 4, -2, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const dotVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.6, 0.9, 1],
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
-     repeatDelay: 0.35 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -110,26 +108,34 @@ const SmartphoneIcon = forwardRef<SmartphoneIconHandle, SmartphoneIconProps>(
      className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
-     animate={buzzControls}
-     initial="rest"
-     variants={buzzVariants}
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-      <path d="M12 18h.01" />
-     </svg>
+      <m.g
+       variants={buzzVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+       <m.path
+        d="M12 18h.01"
+        variants={dotVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
+       />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

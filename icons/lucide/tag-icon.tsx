@@ -74,41 +74,19 @@ const TagIcon = forwardRef<TagIconHandle, TagIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
+  const swingVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -12, 9, -4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
   };
 
   return (
@@ -133,20 +111,13 @@ const TagIcon = forwardRef<TagIconHandle, TagIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.circle
-       cx="7.5"
-       cy="7.5"
-       r=".5"
-       fill="currentColor"
-       custom={0}
-       variants={popVariants}
+      <m.g
+       variants={swingVariants}
        style={{ transformBox: "view-box", originX: "7.5px", originY: "7.5px" }}
-      />
+      >
+       <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+       <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

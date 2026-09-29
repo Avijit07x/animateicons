@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface CalendarIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,63 +51,56 @@ const CalendarIcon = forwardRef<CalendarIconHandle, CalendarIconProps>(
   },
   ref,
  ) => {
-  const ringControls = useAnimation();
-  const pageControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   ringControls.start("flip");
-   pageControls.start("flip");
-  }, [ringControls, pageControls, reduced]);
-
-  const stop = useCallback(() => {
-   ringControls.start("rest");
-   pageControls.start("rest");
-  }, [ringControls, pageControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const ringVariants: Variants = {
-   rest: { y: 0 },
-   flip: {
-    y: [0, -1.5, 0],
-    transition: { duration: 0.8 * duration, ease: [0.34, 1.4, 0.64, 1] },
+   normal: { y: 0 },
+   animate: {
+    y: [0, 1.6, -0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const pageVariants: Variants = {
-   rest: { scaleY: 1 },
-   flip: {
-    scaleY: [1, 0.88, 1.03, 1],
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1, 0.96, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     times: [0, 0.35, 0.7, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
    },
   };
@@ -122,44 +114,29 @@ const CalendarIcon = forwardRef<CalendarIconHandle, CalendarIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M8 2v4"
-       animate={ringControls}
-       initial="rest"
-       variants={ringVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
-      />
-      <m.path
-       d="M16 2v4"
-       animate={ringControls}
-       initial="rest"
-       variants={ringVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "bottom center" }}
-      />
-      <m.rect
-       width="18"
-       height="18"
-       x="3"
-       y="4"
-       rx="2"
-       animate={pageControls}
-       initial="rest"
-       variants={pageVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "top center" }}
-      />
-      <path d="M3 10h18" />
-     </svg>
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <m.g
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      >
+       <rect x="3" y="3" width="18" height="18" rx="2" />
+       <path d="M3 9h18" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

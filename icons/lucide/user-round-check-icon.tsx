@@ -84,37 +84,30 @@ const UserRoundCheckIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     delay: 0.2,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
    },
   };
 
   const tickVariants: Variants = {
    normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [20, 0],
-    opacity: [0.3, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.5,
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -138,31 +131,16 @@ const UserRoundCheckIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-check-icon lucide-user-round-check"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M2 21a8 8 0 0 1 13.292-6"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M2 21a8 8 0 0 1 13.292-6" />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
       <m.path
        d="m16 19 2 2 4-4"
-       strokeDasharray="20"
-       strokeDashoffset="20"
+       strokeDasharray="9"
+       strokeDashoffset="0"
        variants={tickVariants}
-       initial="normal"
-       animate={controls}
       />
      </m.svg>
     </m.div>

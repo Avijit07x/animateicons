@@ -81,29 +81,11 @@ const BanIcon = forwardRef<BanIconHandle, BanIconProps>(
    [controls, onMouseLeave],
   );
 
-  const banVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 0.9, 1.06, 1],
-    rotate: [0, -12, 4, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.3, 0.7, 1],
-    },
-   },
-  };
-
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
-    },
+    rotate: [0, -16, 12, -6, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -129,13 +111,12 @@ const BanIcon = forwardRef<BanIconHandle, BanIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={banVariants}
+      <circle cx="12" cy="12" r="10" />
+      <m.path
+       d="M4.929 4.929 19.07 19.071"
+       variants={slashVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      >
-       <circle cx="12" cy="12" r="10" />
-       <m.path d="M4.929 4.929 19.07 19.071" variants={slashVariants} />
-      </m.g>
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

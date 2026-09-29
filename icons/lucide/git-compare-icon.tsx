@@ -44,7 +44,7 @@ const GitCompareIcon = forwardRef<GitCompareIconHandle, GitCompareIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -74,65 +74,25 @@ const GitCompareIcon = forwardRef<GitCompareIconHandle, GitCompareIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const topNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.3,
-     ease,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const bottomNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.3,
-     ease,
-     delay: duration * 0.15,
-    },
-   },
-  };
-
-  const pathTop: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: duration * 0.5,
-     ease,
-     delay: duration * 0.3,
-    },
-   },
-  };
-
-  const pathBottom: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: duration * 0.5,
-     ease,
-     delay: duration * 0.3,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -143,7 +103,7 @@ const GitCompareIcon = forwardRef<GitCompareIconHandle, GitCompareIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -153,41 +113,14 @@ const GitCompareIcon = forwardRef<GitCompareIconHandle, GitCompareIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="6"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={topNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={bottomNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M13 6h3a2 2 0 0 1 2 2v7"
-       variants={pathTop}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M11 18H8a2 2 0 0 1-2-2V9"
-       variants={pathBottom}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <m.circle cx="18" cy="18" r="3" variants={nodeVariants(0)} />
+      <m.circle cx="6" cy="6" r="3" variants={nodeVariants(0.12)} />
+      <path d="M13 6h3a2 2 0 0 1 2 2v7" />
+      <path d="M11 18H8a2 2 0 0 1-2-2V9" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -195,5 +128,4 @@ const GitCompareIcon = forwardRef<GitCompareIconHandle, GitCompareIconProps>(
 );
 
 GitCompareIcon.displayName = "GitCompareIcon";
-
 export { GitCompareIcon };

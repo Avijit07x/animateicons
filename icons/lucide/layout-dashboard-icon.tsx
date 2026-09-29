@@ -84,27 +84,15 @@ const LayoutDashboardIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.06, 0.98, 1],
-    rotate: [0, -1.5, 1.5, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut" },
-   },
-  };
-
   const tileVariants: Variants = {
-   normal: { opacity: 1, scale: 1, y: 0 },
+   normal: { scale: 1 },
    animate: (i: number) => ({
-    opacity: [0.6, 1],
-    scale: [0.95, 1.04, 1],
-    y: [3, -2, 0],
+    scale: [1, 0.78, 1.1, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.85 * duration,
      ease: "easeInOut",
-     delay: i * 0.08,
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.08 * duration,
     },
    }),
   };
@@ -130,7 +118,6 @@ const LayoutDashboardIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.rect
        width="7"
@@ -140,8 +127,7 @@ const LayoutDashboardIcon = forwardRef<
        rx="1"
        variants={tileVariants}
        custom={0}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
       <m.rect
        width="7"
@@ -151,8 +137,7 @@ const LayoutDashboardIcon = forwardRef<
        rx="1"
        variants={tileVariants}
        custom={1}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
       <m.rect
        width="7"
@@ -162,8 +147,7 @@ const LayoutDashboardIcon = forwardRef<
        rx="1"
        variants={tileVariants}
        custom={2}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
       <m.rect
        width="7"
@@ -173,8 +157,7 @@ const LayoutDashboardIcon = forwardRef<
        rx="1"
        variants={tileVariants}
        custom={3}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
       />
      </m.svg>
     </m.div>

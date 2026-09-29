@@ -84,67 +84,18 @@ const PoundSterlingIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const curveStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.06,
-    },
-   },
-  };
-
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scaleX: [1, 0.6, 1.08, 1],
     transition: {
      duration: 0.55 * duration,
      ease: "easeInOut",
-     delay: 0.16,
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const vertStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.26,
-    },
-   },
-  };
-
-  const baseStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeInOut",
-     delay: 0.36,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -167,43 +118,18 @@ const PoundSterlingIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-pound-sterling-icon lucide-pound-sterling"
      >
-      <g opacity={0.35}>
-       <path d="M18 7c0-5.333-8-5.333-8 0" />
-       <path d="M10 7v14" />
-       <path d="M6 21h12" />
-       <path d="M6 13h10" />
-      </g>
-
+      <path d="M18 7c0-5.333-8-5.333-8 0" />
+      <path d="M10 7v14" />
       <m.path
-       d="M18 7c0-5.333-8-5.333-8 0"
-       pathLength={1}
-       variants={curveStroke}
-       initial="normal"
-       animate={controls}
+       d="M6 21h12"
+       variants={barVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "21px" }}
       />
       <m.path
        d="M6 13h10"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M10 7v14"
-       pathLength={1}
-       variants={vertStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 21h12"
-       pathLength={1}
-       variants={baseStroke}
-       initial="normal"
-       animate={controls}
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "6px", originY: "13px" }}
       />
      </m.svg>
     </m.div>

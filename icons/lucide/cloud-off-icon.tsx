@@ -74,38 +74,29 @@ const CloudOffIcon = forwardRef<CloudOffIconHandle, CloudOffIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [0, 30, 0],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 1],
     },
    },
   };
@@ -132,17 +123,16 @@ const CloudOffIcon = forwardRef<CloudOffIconHandle, CloudOffIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.g variants={bodyVariants}>
+       <path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
+       <path d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78" />
+      </m.g>
       <m.path
-       d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057"
-       custom={0}
-       variants={bodyVariants}
+       d="m2 2 20 20"
+       strokeDasharray="30"
+       strokeDashoffset="0"
+       variants={slashVariants}
       />
-      <m.path
-       d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -77,45 +77,49 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const leftArrow: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const leftVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    x: [0, -4, 0],
-    opacity: [1, 0.5, 1],
-    transition: { duration: 1 * duration, repeat: 0 },
-   },
-  };
-
-  const rightArrow: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: {
-    x: [0, 4, 0],
-    opacity: [1, 0.5, 1],
-    transition: { duration: 1 * duration, repeat: 0, delay: 0.2 },
-   },
-  };
-
-  const dot: Variants = {
-   normal: { opacity: 0.3 },
-   animate: (i: number) => ({
-    opacity: [0.3, 1, 0.3],
+    x: [0, -0.9, 0.2, 0],
     transition: {
-     duration: 1 * duration,
-     repeat: Infinity,
-     delay: i * 0.3,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
-   }),
+   },
   };
+
+  const rightVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 0.9, -0.2, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
+   },
+  };
+
+  const dotVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
+   animate: {
+    y: [0, -2, 0.6, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
+    },
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -139,11 +143,11 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 12h.01" variants={dot} custom={0} />
-      <m.path d="M12 12h.01" variants={dot} custom={1} />
-      <m.path d="M16 12h.01" variants={dot} custom={2} />
-      <m.path d="m7 7-5 5 5 5" variants={leftArrow} stroke="currentColor" />
-      <m.path d="m17 7 5 5-5 5" variants={rightArrow} stroke="currentColor" />
+      <m.path d="M8 12h.01" variants={dotVariants(0)} />
+      <m.path d="M12 12h.01" variants={dotVariants(0.1)} />
+      <m.path d="M16 12h.01" variants={dotVariants(0.2)} />
+      <m.path d="m17 7 5 5-5 5" variants={rightVariants} />
+      <m.path d="m7 7-5 5 5 5" variants={leftVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

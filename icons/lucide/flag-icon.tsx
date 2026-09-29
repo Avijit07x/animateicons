@@ -74,26 +74,18 @@ const FlagIcon = forwardRef<FlagIconHandle, FlagIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const hoistVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
+  const flagVariants: Variants = {
+   normal: { skewY: 0 },
    animate: {
-    scaleY: [0, 1.04, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.6 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    skewY: [0, 11, -7, 3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -121,8 +113,8 @@ const FlagIcon = forwardRef<FlagIconHandle, FlagIconProps>(
      >
       <m.path
        d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"
-       variants={hoistVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "22px" }}
+       variants={flagVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

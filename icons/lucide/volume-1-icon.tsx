@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface Volume1IconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,57 +51,60 @@ const Volume1Icon = forwardRef<Volume1IconHandle, Volume1IconProps>(
   },
   ref,
  ) => {
-  const waveControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   waveControls.start("play");
-  }, [waveControls, reduced]);
-
-  const stop = useCallback(() => {
-   waveControls.start("rest");
-  }, [waveControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const waveVariants = (i: number): Variants => ({
-   rest: { opacity: 1, scale: 1 },
-   play: {
-    opacity: [0.25, 1, 0.25],
-    scale: [0.85, 1.1, 0.85],
+  const speakerVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.1, 0.96, 1],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
-     delay: i * 0.12 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
-  });
+  };
+
+  const waveVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 1.5, -0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
+    },
+   },
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -113,26 +115,26 @@ const Volume1Icon = forwardRef<Volume1IconHandle, Volume1IconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
       <m.path
-       d="M16 9a5 5 0 0 1 0 6"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(0)}
-       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
+       d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"
+       variants={speakerVariants}
+       style={{ transformBox: "view-box", originX: "6.5px", originY: "12px" }}
       />
-     </svg>
+      <m.path d="M16 9a5 5 0 0 1 0 6" variants={waveVariants} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

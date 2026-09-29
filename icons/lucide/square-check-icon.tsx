@@ -81,38 +81,30 @@ const SquareCheckIcon = forwardRef<SquareCheckIconHandle, SquareCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const popVariants: Variants = {
+  const boxVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.08, 0.96, 1],
+    scale: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 0.75, 1],
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const boxVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.2, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
-   },
-  };
-
   const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1, 1],
-    opacity: [0, 1, 1],
-    scale: [0.8, 1.12, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.32 * duration,
-     times: [0, 0.7, 1],
-     ease: "easeOut",
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -139,24 +131,21 @@ const SquareCheckIcon = forwardRef<SquareCheckIconHandle, SquareCheckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={popVariants}
+      <m.rect
+       width="18"
+       height="18"
+       x="3"
+       y="3"
+       rx="2"
+       variants={boxVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      >
-       <m.rect
-        width="18"
-        height="18"
-        x="3"
-        y="3"
-        rx="2"
-        variants={boxVariants}
-       />
-       <m.path
-        d="m9 12 2 2 4-4"
-        variants={tickVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-       />
-      </m.g>
+      />
+      <m.path
+       d="m9 12 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={tickVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

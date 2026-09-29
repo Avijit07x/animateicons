@@ -84,24 +84,24 @@ const DatabaseIcon = forwardRef<DatabaseIconHandle, DatabaseIconProps>(
   const lidVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -2.5, 0.5, 0],
+    y: [0, -1, 0.3, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut",
-     times: [0, 0.4, 0.75, 1],
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const diskVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, 2.5, -0.6, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.2 * duration,
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.06 * duration,
     },
    },
   };
@@ -130,7 +130,7 @@ const DatabaseIcon = forwardRef<DatabaseIconHandle, DatabaseIconProps>(
      >
       <m.ellipse cx="12" cy="5" rx="9" ry="3" variants={lidVariants} />
       <path d="M3 5V19A9 3 0 0 0 21 19V5" />
-      <m.path d="M3 12A9 3 0 0 0 21 12" variants={ringVariants} />
+      <m.path d="M3 12A9 3 0 0 0 21 12" variants={diskVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

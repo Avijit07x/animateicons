@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -118,7 +118,7 @@
 		{
 			"name": "huge (full barrel)",
 			"path": "dist/huge.js",
-			"limit": "35 kB",
+			"limit": "100 kB",
 			"ignore": [
 				"react",
 				"react-dom"

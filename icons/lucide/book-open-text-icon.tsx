@@ -84,38 +84,14 @@ const BookOpenTextIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.04, 0.98, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const strokeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0.9, 1, 1],
-    opacity: [0.7, 1, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: i * 0.12,
-    },
-   }),
-  };
-
   const lineVariants: Variants = {
-   normal: { opacity: 1, y: 0, scaleX: 1 },
+   normal: { scaleX: 1 },
    animate: (i: number) => ({
-    opacity: [0.6, 1, 1],
-    y: [1.5, -1, 0],
-    scaleX: [0.9, 1.05, 1],
+    scaleX: [1, 0.2, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     delay: 0.2 + i * 0.1,
+     delay: i * 0.1 * duration,
     },
    }),
   };
@@ -141,50 +117,33 @@ const BookOpenTextIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
+      <path d="M12 5v16" />
       <m.path
-       d="M12 7v14"
-       variants={strokeVariants}
+       d="M6 9h2"
        custom={0}
-       initial="normal"
-       animate={controls}
+       variants={lineVariants}
+       style={{ transformBox: "view-box", originX: "6px", originY: "9px" }}
       />
       <m.path
-       d="M16 12h2"
-       variants={lineVariants}
-       custom={0}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M16 8h2"
-       variants={lineVariants}
+       d="M6 13h2"
        custom={1}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-       variants={strokeVariants}
-       custom={1}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 12h2"
        variants={lineVariants}
+       style={{ transformBox: "view-box", originX: "6px", originY: "13px" }}
+      />
+      <m.path
+       d="M16 9h2"
        custom={2}
-       initial="normal"
-       animate={controls}
+       variants={lineVariants}
+       style={{ transformBox: "view-box", originX: "16px", originY: "9px" }}
       />
       <m.path
-       d="M6 8h2"
-       variants={lineVariants}
+       d="M16 13h2"
        custom={3}
-       initial="normal"
-       animate={controls}
+       variants={lineVariants}
+       style={{ transformBox: "view-box", originX: "16px", originY: "13px" }}
       />
+      <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
      </m.svg>
     </m.div>
    </LazyMotion>

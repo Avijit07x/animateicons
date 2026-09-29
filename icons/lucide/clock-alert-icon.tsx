@@ -74,62 +74,29 @@ const ClockAlertIcon = forwardRef<ClockAlertIconHandle, ClockAlertIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dialVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const minuteVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: [0.16, 1, 0.3, 1] },
+    rotate: [0, 360],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
-  const handsVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
+  const markVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    rotate: [-45, 12, 0],
-    opacity: [0, 1, 1],
+    rotate: [0, -14, 12, -6, 0],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.35 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.5 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1.3, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: 0.75 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: 0.2 * duration,
     },
    },
   };
@@ -156,18 +123,20 @@ const ClockAlertIcon = forwardRef<ClockAlertIconHandle, ClockAlertIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M21.25 8.2A10 10 0 1 0 16 21.16" variants={dialVariants} />
       <m.path
-       d="M12 6v6l4 2"
-       variants={handsVariants}
+       d="M12 6V12"
+       variants={minuteVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="M20 12v5" variants={barVariants} />
-      <m.path
-       d="M20 21h.01"
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "20px", originY: "21px" }}
-      />
+      <path d="M12 12L16 14" />
+      <m.g
+       variants={markVariants}
+       style={{ transformBox: "view-box", originX: "20px", originY: "16.5px" }}
+      >
+       <path d="M20 12v5" />
+       <path d="M20 21h.01" />
+      </m.g>
+      <path d="M21.25 8.2A10 10 0 1 0 16 21.16" />
      </m.svg>
     </m.div>
    </LazyMotion>

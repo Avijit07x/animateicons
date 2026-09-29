@@ -84,8 +84,8 @@ const HandshakeIcon = forwardRef<HandshakeIconHandle, HandshakeIconProps>(
   const shakeVariants: Variants = {
    normal: { y: 0, rotate: 0 },
    animate: {
-    y: [0, 1.2, -1.2, 0.8, -0.8, 0],
-    rotate: [0, -4, 4, -3, 3, 0],
+    y: [0, 1.2, -1.2, 0.8, 0],
+    rotate: [0, -4, 4, -3, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };

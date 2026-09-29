@@ -77,51 +77,33 @@ const FolderSearchIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
+  const folderVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const lensVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, -12, 8, -3, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.14 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const handleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.34 * duration,
-     ease: "easeOut",
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     delay: 0.05 * duration,
     },
    },
   };
@@ -147,18 +129,18 @@ const FolderSearchIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1" />
-      <m.circle
-       cx="17"
-       cy="17"
-       r="3"
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
+      <m.path
+       d="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1"
+       variants={folderVariants}
       />
-      <m.path d="m21 21-1.9-1.9" variants={handleVariants} />
+      <m.g
+       variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="m21 21-1.9-1.9" />
+       <circle cx="17" cy="17" r="3" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

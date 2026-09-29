@@ -44,74 +44,52 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 1,
+   duration = 0.2,
    isAnimated = true,
    color,
    ...props
   },
   ref,
  ) => {
-  const bodyControls = useAnimation();
-  const clipControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      bodyControls.start("normal");
-      clipControls.start("normal");
-     } else {
-      bodyControls.start("animate");
-      clipControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     bodyControls.start("normal");
-     clipControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     bodyControls.start("animate");
-     clipControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [bodyControls, clipControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     bodyControls.start("normal");
-     clipControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [bodyControls, clipControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, y: 0 },
-
-   animate: {
-    strokeDashoffset: [240, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
-    y: [0, -2, 0],
-   },
-  };
-
   const clipVariants: Variants = {
-   normal: { strokeDashoffset: 0, y: 0 },
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [60, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut", delay: 0.2 },
-    y: [0, -2, 0],
+    y: [0, -1, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -124,7 +102,7 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -134,6 +112,8 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.rect
        x="8"
@@ -142,19 +122,10 @@ const ClipboardIcon = forwardRef<ClipboardIconHandle, ClipboardIconProps>(
        height="4"
        rx="1"
        ry="1"
-       initial="normal"
-       animate={clipControls}
        variants={clipVariants}
-       style={{ strokeDasharray: 60, strokeLinecap: "round" }}
       />
-      <m.path
-       d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-       initial="normal"
-       animate={bodyControls}
-       variants={bodyVariants}
-       style={{ strokeDasharray: 240, strokeLinecap: "round" }}
-      />
-     </svg>
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

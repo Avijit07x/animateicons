@@ -74,55 +74,36 @@ const CpuIcon = forwardRef<CpuIconHandle, CpuIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const pinVariants = (delay: number): Variants => ({
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.2, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+  const coreVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 0.75, 1.15, 1],
     transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
-   }),
-  };
-
-  const pinVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: (0.4 + i * 0.03) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
+   },
   };
 
   return (
@@ -147,95 +128,26 @@ const CpuIcon = forwardRef<CpuIconHandle, CpuIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       x="4"
-       y="4"
-       width="16"
-       height="16"
-       rx="2"
-       custom={0}
-       variants={bodyVariants}
-      />
+      <m.path d="M7 2v2" variants={pinVariants(0)} />
+      <m.path d="M12 2v2" variants={pinVariants(0.025)} />
+      <m.path d="M17 2v2" variants={pinVariants(0.05)} />
+      <m.path d="M20 7h2" variants={pinVariants(0.075)} />
+      <m.path d="M20 12h2" variants={pinVariants(0.1)} />
+      <m.path d="M20 17h2" variants={pinVariants(0.125)} />
+      <m.path d="M17 20v2" variants={pinVariants(0.15)} />
+      <m.path d="M12 20v2" variants={pinVariants(0.175)} />
+      <m.path d="M7 20v2" variants={pinVariants(0.2)} />
+      <m.path d="M2 17h2" variants={pinVariants(0.225)} />
+      <m.path d="M2 12h2" variants={pinVariants(0.25)} />
+      <m.path d="M2 7h2" variants={pinVariants(0.275)} />
+      <rect x="4" y="4" width="16" height="16" rx="2" />
       <m.rect
        x="8"
        y="8"
        width="8"
        height="8"
        rx="1"
-       custom={0}
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M12 2v2"
-       custom={0}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M17 2v2"
-       custom={1}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M7 2v2"
-       custom={2}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M20 7h2"
-       custom={3}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M20 12h2"
-       custom={4}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M20 17h2"
-       custom={5}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M17 20v2"
-       custom={6}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M12 20v2"
-       custom={7}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M7 20v2"
-       custom={8}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M2 17h2"
-       custom={9}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M2 12h2"
-       custom={10}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M2 7h2"
-       custom={11}
-       variants={pinVariants}
+       variants={coreVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

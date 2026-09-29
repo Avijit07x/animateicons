@@ -84,38 +84,18 @@ const RussianRubleIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const coinVariants: Variants = {
+   normal: { y: 0, scaleX: 1 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const mainStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    y: [0, -2, 0.5, 0],
+    scaleX: [1, 0.25, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.06,
-    },
-   },
-  };
-
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.26,
+     y: {
+      duration: 0.7 * duration,
+      ease: "easeInOut",
+      times: [0, 0.35, 0.7, 1],
+     },
+     scaleX: { duration: 0.7 * duration, ease: "easeInOut" },
     },
    },
   };
@@ -141,28 +121,14 @@ const RussianRubleIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-russian-ruble-icon lucide-russian-ruble"
      >
-      <g opacity={0.35}>
+      <m.g
+       variants={coinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
        <path d="M6 11h8a4 4 0 0 0 0-8H9v18" />
        <path d="M6 15h8" />
-      </g>
-
-      <m.path
-       d="M6 11h8a4 4 0 0 0 0-8H9v18"
-       pathLength={1}
-       variants={mainStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 15h8"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
-      />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

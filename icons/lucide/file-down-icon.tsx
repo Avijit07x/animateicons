@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileDownIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -81,15 +82,27 @@ const FileDownIcon = forwardRef<FileDownIconHandle, FileDownIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+  const foldVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    y: [-3, 1.2, 0],
-    opacity: [0, 1, 1],
+    x: [0, 1, -0.3, 0],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.65, 1],
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+  const arrowVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, 0, 0, 0],
+    y: [0, 1.5, -0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -117,7 +130,7 @@ const FileDownIcon = forwardRef<FileDownIconHandle, FileDownIconProps>(
       initial="normal"
      >
       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
       <m.g variants={arrowVariants}>
        <path d="M12 18v-6" />
        <path d="m9 15 3 3 3-3" />

@@ -84,40 +84,40 @@ const BringToFrontIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    rotate: [0, -3, 3, 0],
-    scale: [1, 1.05, 0.95, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.5, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
-    },
-   },
-  };
-
-  const rectVariants: Variants = {
+  const frontVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.2, 0.9, 1],
+    scale: [1, 1.18, 0.98, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.42, 0, 0.58, 1],
-     repeat: 0,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const backTopVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, -1, 0.2, 0],
+    y: [0, -1, 0.2, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const backBottomVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, 1, -0.2, 0],
+    y: [0, 1, -0.2, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -143,16 +143,23 @@ const BringToFrontIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.rect x="8" y="8" width="8" height="8" rx="2" variants={rectVariants} />
       <m.path
        d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2"
-       variants={pathVariants}
+       variants={backTopVariants}
       />
       <m.path
        d="M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2"
-       variants={pathVariants}
+       variants={backBottomVariants}
+      />
+      <m.rect
+       x="8"
+       y="8"
+       width="8"
+       height="8"
+       rx="2"
+       variants={frontVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

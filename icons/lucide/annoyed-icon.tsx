@@ -87,7 +87,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
     rotate: [0, -2, 2, 0],
     x: [0, -0.5, 0.5, 0],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },
@@ -98,7 +98,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
    animate: {
     y: [0, 0.5, 0],
     transition: {
-     duration: 0.3 * duration,
+     duration: 0.37 * duration,
      ease: "easeOut",
     },
    },
@@ -109,7 +109,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
    animate: {
     x: [0, dir, 0],
     transition: {
-     duration: 0.25 * duration,
+     duration: 0.31 * duration,
      ease: "easeOut",
     },
    },
@@ -120,7 +120,7 @@ const AnnoyedIcon = forwardRef<AnnoyedIconHandle, AnnoyedIconProps>(
    animate: {
     scaleX: [1, 0.9, 1],
     transition: {
-     duration: 0.3 * duration,
+     duration: 0.37 * duration,
      ease: "easeOut",
     },
    },

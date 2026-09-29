@@ -95,8 +95,8 @@ const MoveVerticalIcon = forwardRef<
   const topArrowVariants: Variants = {
    normal: { y: 0, opacity: 1 },
    animate: {
-    y: [-1, -3, 0],
-    opacity: [1, 0.7, 1],
+    y: [0, -1, -3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };
@@ -104,8 +104,8 @@ const MoveVerticalIcon = forwardRef<
   const bottomArrowVariants: Variants = {
    normal: { y: 0, opacity: 1 },
    animate: {
-    y: [1, 3, 0],
-    opacity: [1, 0.7, 1],
+    y: [0, 1, 3, 0],
+    opacity: [1, 1, 0.7, 1],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };

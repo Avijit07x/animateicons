@@ -85,15 +85,15 @@ const MountainIcon = forwardRef<MountainIconHandle, MountainIconProps>(
   );
 
   const riseVariants: Variants = {
-   normal: { scaleY: 1, pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1, strokeDashoffset: 0, opacity: 1 },
    animate: {
-    scaleY: [0, 1],
-    pathLength: [0, 1],
+    scaleY: [0.5, 1.05, 1],
+    strokeDashoffset: [72, 0],
     opacity: [0, 1],
     transition: {
-     scaleY: { duration: 0.6 * duration, ease: [0.34, 1.35, 0.64, 1] },
-     pathLength: { duration: 0.6 * duration, ease: [0.16, 1, 0.3, 1] },
-     opacity: { duration: 0.2 * duration },
+     scaleY: { duration: 0.6 * duration, ease: "easeInOut" },
+     strokeDashoffset: { duration: 0.7 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
     },
    },
   };
@@ -122,6 +122,8 @@ const MountainIcon = forwardRef<MountainIconHandle, MountainIconProps>(
      >
       <m.path
        d="m8 3 4 8 5-5 5 15H2L8 3z"
+       strokeDasharray="72"
+       strokeDashoffset="0"
        variants={riseVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />

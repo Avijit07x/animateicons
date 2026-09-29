@@ -74,42 +74,38 @@ const ServerIcon = forwardRef<ServerIconHandle, ServerIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const blinkVariants = (delay: number): Variants => ({
+   normal: { opacity: 1, scale: 1 },
+   animate: {
+    opacity: [1, 0.15, 1],
+    scale: [1, 0.6, 1.2, 1],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+    },
+   },
+  });
+
+  const unitVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.92, 1.02, 1],
     transition: {
      duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     ease: "easeInOut",
+     delay: delay * duration,
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -140,8 +136,8 @@ const ServerIcon = forwardRef<ServerIconHandle, ServerIconProps>(
        y="2"
        rx="2"
        ry="2"
-       custom={0}
-       variants={bodyVariants}
+       variants={unitVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "6px" }}
       />
       <m.rect
        width="20"
@@ -150,25 +146,23 @@ const ServerIcon = forwardRef<ServerIconHandle, ServerIconProps>(
        y="14"
        rx="2"
        ry="2"
-       custom={0}
-       variants={bodyVariants}
+       variants={unitVariants(0.15)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
       />
       <m.line
        x1="6"
-       y1="6"
        x2="6.01"
+       y1="6"
        y2="6"
-       custom={0}
-       variants={popVariants}
+       variants={blinkVariants(0.1)}
        style={{ transformBox: "view-box", originX: "6px", originY: "6px" }}
       />
       <m.line
        x1="6"
-       y1="18"
        x2="6.01"
+       y1="18"
        y2="18"
-       custom={1}
-       variants={popVariants}
+       variants={blinkVariants(0.25)}
        style={{ transformBox: "view-box", originX: "6px", originY: "18px" }}
       />
      </m.svg>

@@ -82,23 +82,29 @@ const BadgeCheckIcon = forwardRef<BadgeCheckIconHandle, BadgeCheckIconProps>(
   );
 
   const badgeVariants: Variants = {
-   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   normal: { scale: 1 },
    animate: {
-    rotate: [0, 45],
-    scale: [1, 1.1, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    scale: [1, 1.08, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.35 * duration,
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.3 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -130,7 +136,12 @@ const BadgeCheckIcon = forwardRef<BadgeCheckIconHandle, BadgeCheckIconProps>(
        variants={badgeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="m9 12 2 2 4-4" variants={tickVariants} />
+      <m.path
+       d="m9 12 2 2 4-4"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={tickVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

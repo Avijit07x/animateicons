@@ -77,36 +77,37 @@ const ShoppingCartIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cartVariants: Variants = {
-   normal: { y: 0, rotate: 0, scale: 1 },
+   normal: { x: 0 },
    animate: {
-    y: [0, -3, 0, -1, 0],
-    rotate: [0, -4, 3, -2, 0],
+    x: [0, -1.2, 0.9, 0],
     transition: {
-     duration: 1.8 * duration,
-     repeat: 0,
+     duration: 0.7 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const wheelVariants: Variants = {
-   normal: { rotate: 0 },
+  const wheelVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    rotate: [0, 360],
-    transition: { duration: 1 * duration, ease: "linear", repeat: 0 },
+    y: [0, -1, 0.3, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+     times: [0, 0.35, 0.7, 1],
+    },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -130,13 +131,11 @@ const ShoppingCartIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="8" cy="21" r="1" variants={wheelVariants} />
-      <m.circle cx="19" cy="21" r="1" variants={wheelVariants} />
-
-      <m.path
-       d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
-       variants={cartVariants}
-      />
+      <m.g variants={cartVariants}>
+       <m.circle cx="8" cy="21" r="1" variants={wheelVariants(0.1)} />
+       <m.circle cx="19" cy="21" r="1" variants={wheelVariants(0.2)} />
+       <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

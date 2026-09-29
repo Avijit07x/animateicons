@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileCodeIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,36 +75,48 @@ const FileCodeIcon = forwardRef<FileCodeIconHandle, FileCodeIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const foldVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
+    x: [0, 1, -0.3, 0],
+    y: [0, -1, 0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
-
-  const bracketVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: (dir: number) => ({
-    x: [dir * 6, 0],
-    opacity: [0, 1],
+  const leftVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, -1.2, 0.3, 0],
+    y: [0, 0, 0, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.22 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
+  };
+  const rightVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, 1.2, -0.3, 0],
+    y: [0, 0, 0, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
   };
 
   return (
@@ -128,13 +141,10 @@ const FileCodeIcon = forwardRef<FileCodeIconHandle, FileCodeIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.path d="M10 12.5 8 15l2 2.5" custom={-1} variants={bracketVariants} />
-      <m.path d="m14 12.5 2 2.5-2 2.5" custom={1} variants={bracketVariants} />
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
+      <m.path d="M10 12.5 8 15l2 2.5" variants={leftVariants} />
+      <m.path d="m14 12.5 2 2.5-2 2.5" variants={rightVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -81,61 +81,33 @@ const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.08, 0.96, 1],
-    rotate: [0, -4, 2, 0],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
-   },
-  };
-
   const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [6, -2, 0],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     delay: 0.1,
-    },
-   },
-  };
-
-  const topPathVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: {
-    x: [-6, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeOut",
-     delay: 0.2,
-    },
-   },
-  };
-
-  const rectVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.8, 1.1, 1],
-    opacity: [0.7, 1, 1],
+    y: [0, -2, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut",
-     delay: 0.3,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
+
+  const swapVariants = (dy: number, dx: number): Variants => ({
+   normal: { x: 0, y: 0 },
+   animate: {
+    y: [0, dy, 0],
+    x: [0, dx, 0, dx, 0],
+    transition: {
+     y: { duration: 0.9 * duration, ease: "easeInOut", times: [0, 0.5, 1] },
+     x: {
+      duration: 0.9 * duration,
+      ease: "easeInOut",
+      times: [0, 0.25, 0.5, 0.75, 1],
+     },
+    },
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -158,41 +130,22 @@ const ArrowUp10Icon = forwardRef<ArrowUp10IconHandle, ArrowUp10IconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path
-       d="m3 8 4-4 4 4"
-       variants={arrowVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M7 4v16"
-       variants={lineVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M17 10V4h-2"
-       variants={topPathVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M15 10h4"
-       variants={topPathVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={arrowVariants}>
+       <path d="m3 8 4-4 4 4" />
+       <path d="M7 4v16" />
+      </m.g>
+      <m.g variants={swapVariants(10, 2.5)}>
+       <path d="M17 10V4h-2" />
+       <path d="M15 10h4" />
+      </m.g>
       <m.rect
        x="15"
        y="14"
        width="4"
        height="6"
        ry="2"
-       variants={rectVariants}
-       initial="normal"
-       animate={controls}
+       variants={swapVariants(-10, -2.5)}
       />
      </m.svg>
     </m.div>

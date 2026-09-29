@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface RadioIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,54 +51,45 @@ const RadioIcon = forwardRef<RadioIconHandle, RadioIconProps>(
   },
   ref,
  ) => {
-  const waveControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   waveControls.start("tune");
-  }, [waveControls, reduced]);
-
-  const stop = useCallback(() => {
-   waveControls.start("rest");
-  }, [waveControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const waveVariants = (i: number): Variants => ({
-   rest: { opacity: 1, scale: 1 },
-   tune: {
-    opacity: [0.2, 1, 0.2],
-    scale: [0.92, 1.06, 0.92],
+  const waveVariants = (peak: number, delay: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, peak, 0.97, 1],
     transition: {
-     duration: 1.2 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
-     delay: i * 0.16 * duration,
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
    },
   });
@@ -113,47 +103,41 @@ const RadioIcon = forwardRef<RadioIconHandle, RadioIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M16.247 7.761a6 6 0 0 1 0 8.478"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(0)}
+      <m.g
+       variants={waveVariants(1.15, 0.1)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M16.247 7.761a6 6 0 0 1 0 8.478" />
+       <path d="M7.753 16.239a6 6 0 0 1 0-8.478" />
+      </m.g>
+      <m.g
+       variants={waveVariants(1.08, 0.2)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M19.075 4.933a10 10 0 0 1 0 14.134" />
+       <path d="M4.925 19.067a10 10 0 0 1 0-14.134" />
+      </m.g>
+      <m.circle
+       cx="12"
+       cy="12"
+       r="2"
+       variants={waveVariants(1.3, 0)}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M19.075 4.933a10 10 0 0 1 0 14.134"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(1)}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M4.925 19.067a10 10 0 0 1 0-14.134"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(1)}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M7.753 16.239a6 6 0 0 1 0-8.478"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(0)}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <circle cx="12" cy="12" r="2" />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

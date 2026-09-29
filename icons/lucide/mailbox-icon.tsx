@@ -99,12 +99,12 @@ const MailboxIcon = forwardRef<MailboxIconHandle, MailboxIconProps>(
   const flagVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [40, -8, 0],
+    rotate: [0, 40, -8, 0],
     transition: {
      duration: 0.6 * duration,
      delay: 0.1 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     times: [0, 0.18, 0.672, 1],
+     ease: "easeInOut",
     },
    },
   };

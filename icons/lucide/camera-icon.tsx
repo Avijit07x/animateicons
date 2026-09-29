@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface CameraIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,53 +51,53 @@ const CameraIcon = forwardRef<CameraIconHandle, CameraIconProps>(
   },
   ref,
  ) => {
-  const lensControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   lensControls.start("snap");
-  }, [lensControls, reduced]);
-
-  const stop = useCallback(() => {
-   lensControls.start("rest");
-  }, [lensControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const lensVariants: Variants = {
-   rest: { scale: 1 },
-   snap: {
-    scale: [1, 0.45, 1.15, 1],
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 0.6, 1.15, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     times: [0, 0.3, 0.65, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
+   },
+  };
+
+  const bodyVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.97, 1],
+    transition: { duration: 0.35 * duration, ease: "easeInOut" },
    },
   };
 
@@ -111,28 +110,32 @@ const CameraIcon = forwardRef<CameraIconHandle, CameraIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+      <m.path
+       d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+      />
       <m.circle
        cx="12"
        cy="13"
        r="3"
-       animate={lensControls}
-       initial="rest"
        variants={lensVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

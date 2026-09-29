@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileArchiveIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,49 +75,32 @@ const FileArchiveIcon = forwardRef<FileArchiveIconHandle, FileArchiveIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const notchVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const toothVariants: Variants = {
+   normal: { x: 0 },
    animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+    x: [0, i % 2 ? -1.2 : 1.2, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: (0.18 + i * 0.1) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: i * 0.08 * duration,
     },
    }),
   };
-
   const pullVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+    y: [0, 1, -0.3, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -143,36 +127,12 @@ const FileArchiveIcon = forwardRef<FileArchiveIconHandle, FileArchiveIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.path
-       d="M8 7V6"
-       custom={0}
-       variants={notchVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "6.5px" }}
-      />
-      <m.path
-       d="M8 12v-1"
-       custom={1}
-       variants={notchVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "11.5px" }}
-      />
-      <m.path
-       d="M8 18v-2"
-       custom={2}
-       variants={notchVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "17px" }}
-      />
-      <m.circle
-       cx="8"
-       cy="20"
-       r="2"
-       variants={pullVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "20px" }}
-      />
+      <path d="M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+      <m.path d="M8 7V6" variants={toothVariants} custom={0} />
+      <m.path d="M8 12v-1" variants={toothVariants} custom={1} />
+      <m.path d="M8 18v-2" variants={toothVariants} custom={2} />
+      <m.circle cx="8" cy="20" r="2" variants={pullVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

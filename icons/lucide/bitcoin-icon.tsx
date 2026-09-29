@@ -103,7 +103,7 @@ const BitcoinIcon = forwardRef<BitcoinIconHandle, BitcoinIconProps>(
   const spark = (delay: number): Variants => ({
    normal: { scale: 0.6, opacity: 0 },
    animate: {
-    scale: [0.6, 1.25, 1],
+    scale: [0.6, 1.25, 0.6],
     opacity: [0, 0.9, 0],
     transition: { duration: 0.35 * duration, ease: "easeOut", delay },
    },

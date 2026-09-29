@@ -81,36 +81,29 @@ const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const searchVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1, rotate: 0 },
+  const lensVariants: Variants = {
+   normal: { x: 0, y: 0, rotate: 0 },
    animate: {
-    x: [0, 2, -2, 1, 0],
-    y: [0, -1, 2, -1, 0],
-    rotate: [0, 5, -5, 3, 0],
+    x: [0, -1.5, 1, 0],
+    y: [0, -1.5, 0.5, 0],
+    rotate: [0, -14, 10, 0],
     transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut" as const,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
    },
   };
@@ -134,27 +127,17 @@ const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-search-icon lucide-user-search"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="10"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M10.3 15H7a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.g variants={searchVariants} initial="normal" animate={controls}>
-       <m.circle cx="17" cy="17" r="3" />
-       <m.path d="m21 21-1.9-1.9" />
+      <m.circle cx="10" cy="7" r="4" variants={headVariants} />
+      <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
+      <m.g
+       variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
+      >
+       <circle cx="17" cy="17" r="3" />
+       <path d="m21 21-1.9-1.9" />
       </m.g>
      </m.svg>
     </m.div>

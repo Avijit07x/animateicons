@@ -81,25 +81,14 @@ const UndoIcon = forwardRef<UndoIconHandle, UndoIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const undoVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, -12, 3, 0],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.35 * duration,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -126,15 +115,13 @@ const UndoIcon = forwardRef<UndoIconHandle, UndoIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M3 7v6h6"
-       variants={headVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "13px" }}
-      />
-      <m.path
-       d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"
-       variants={arcVariants}
-      />
+      <m.g
+       variants={undoVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      >
+       <path d="M3 7v6h6" />
+       <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

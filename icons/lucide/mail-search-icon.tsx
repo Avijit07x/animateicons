@@ -74,64 +74,33 @@ const MailSearchIcon = forwardRef<MailSearchIconHandle, MailSearchIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.04, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
-     ease: "easeInOut",
-    },
-   },
-  };
-
   const flapVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, -0.8, -0.8, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.65, 1],
     },
    },
   };
 
   const lensVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, 12, -10, 5, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.22 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const handleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.42 * duration,
-     ease: "easeOut",
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -157,22 +126,21 @@ const MailSearchIcon = forwardRef<MailSearchIconHandle, MailSearchIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
       <path d="M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5" />
       <m.path
        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
        variants={flapVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
-      <m.circle
-       cx="18"
-       cy="18"
-       r="3"
+      <m.g
        variants={lensVariants}
        style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
-      />
-      <m.path d="m22 22-1.5-1.5" variants={handleVariants} />
+      >
+       <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+       <circle cx="18" cy="18" r="3" />
+       <path d="m22 22-1.5-1.5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -81,30 +81,49 @@ const NetworkIcon = forwardRef<NetworkIconHandle, NetworkIconProps>(
    [controls, onMouseLeave],
   );
 
-  const nodeVariants: Variants = {
+  const nodeVariants = (delay: number, size: number): Variants => ({
    normal: { scale: 1 },
-   animate: (i: number) => ({
-    scale: [1, 0, 1.15, 1],
+   animate: {
+    scale: [1, size, 0.96, 1],
     transition: {
      duration: 0.4 * duration,
-     ease: "easeOut",
-     times: [0, 0.2, 0.7, 1],
-     delay: i * 0.3 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
-  const linkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
+  const stemVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [-5, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: (0.15 + i * 0.1) * duration,
+     strokeDashoffset: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: 0.1 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.1 * duration },
     },
-   }),
+   },
+  };
+
+  const branchVariants: Variants = {
+   normal: { scaleX: 1, opacity: 1 },
+   animate: {
+    scaleX: [0, 1],
+    opacity: [0, 1],
+    transition: {
+     scaleX: {
+      duration: 0.3 * duration,
+      ease: "easeOut",
+      delay: 0.3 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.3 * duration },
+    },
+   },
   };
 
   return (
@@ -135,8 +154,7 @@ const NetworkIcon = forwardRef<NetworkIconHandle, NetworkIconProps>(
        width="6"
        height="6"
        rx="1"
-       variants={nodeVariants}
-       custom={1}
+       variants={nodeVariants(0.55, 1.2)}
        style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
       <m.rect
@@ -145,8 +163,7 @@ const NetworkIcon = forwardRef<NetworkIconHandle, NetworkIconProps>(
        width="6"
        height="6"
        rx="1"
-       variants={nodeVariants}
-       custom={1}
+       variants={nodeVariants(0.55, 1.2)}
        style={{ transformBox: "view-box", originX: "5px", originY: "19px" }}
       />
       <m.rect
@@ -155,16 +172,20 @@ const NetworkIcon = forwardRef<NetworkIconHandle, NetworkIconProps>(
        width="6"
        height="6"
        rx="1"
-       variants={nodeVariants}
-       custom={0}
+       variants={nodeVariants(0, 1.2)}
        style={{ transformBox: "view-box", originX: "12px", originY: "5px" }}
       />
       <m.path
        d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"
-       variants={linkVariants}
-       custom={1}
+       variants={branchVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path d="M12 12V8" variants={linkVariants} custom={0} />
+      <m.path
+       d="M12 12V8"
+       strokeDasharray="5"
+       strokeDashoffset="0"
+       variants={stemVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

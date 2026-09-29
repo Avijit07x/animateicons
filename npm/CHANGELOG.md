@@ -1,5 +1,14 @@
 # @animateicons/react
 
+## 0.7.0
+
+### Minor Changes
+
+- Added 319 animated Huge icons, bringing the `huge` subpath from 33 to 352 icons and the package to 1021. They arrive as whole families with their opposites and directional variants: forms and controls, feedback and status (`AlertCircleIcon`, `AlertDiamondIcon`, `BadgeCheckIcon`), navigation and layout (`ArrowUpDownIcon`, `BellRingIcon`), calendars, bells, brands and more.
+- Added 20 Lucide icons, bringing the `lucide` subpath to 669: `ArrowDownToLineIcon`, `ArrowUpToLineIcon`, `BadgeInfoIcon`, `ChevronFirstIcon`, `ChevronLastIcon`, `CloudCheckIcon`, `CloudSyncIcon`, `ContrastIcon`, `ExpandIcon`, `FoldVerticalIcon`, `FunnelXIcon`, `HardDriveUploadIcon`, `ListFilterIcon`, `MousePointerIcon`, `PanelLeftCloseIcon`, `PanelLeftOpenIcon`, `RotateCcwIcon`, `ShrinkIcon`, `ToggleLeftIcon` and `UnfoldVerticalIcon`.
+- Reworked the hover animation of every Lucide icon. Motion is now a single eased pass that starts and ends at rest, with no springs, endless loops or hard jumps. Icons that only pulsed now animate the part that carries the meaning (a tick draws in, a lock shackle lifts, a clock's minute hand turns), and icons of the same family move alike. Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+- The `lucide` barrel is smaller (about 93 kB brotlied, down from about 101 kB) and the `huge` barrel is about 95 kB.
+
 ## 0.6.0
 
 ### Minor Changes

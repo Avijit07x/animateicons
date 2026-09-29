@@ -84,24 +84,24 @@ const HeartPulseIcon = forwardRef<HeartPulseIconHandle, HeartPulseIconProps>(
   const heartVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.1, 0.96, 1.06, 1],
+    scale: [1, 1.07, 0.97, 1],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.2, 0.4, 0.6, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const pulseVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, 1.4, 0.8, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
    },
   };
@@ -128,16 +128,16 @@ const HeartPulseIcon = forwardRef<HeartPulseIconHandle, HeartPulseIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
+      <m.path
+       d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
        variants={heartVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"
+       variants={pulseVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      >
-       <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
-       <m.path
-        d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"
-        variants={pulseVariants}
-       />
-      </m.g>
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -84,23 +84,24 @@ const CastIcon = forwardRef<CastIconHandle, CastIconProps>(
   const dotVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.8, 1],
-    transition: { duration: 0.3 * duration, ease: "easeOut" },
+    scale: [1, 1.6, 1],
+    transition: { duration: 0.4 * duration, ease: "easeInOut" },
    },
   };
 
-  const waveVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const waveVariants = (delay: number): Variants => ({
+   normal: { scale: 1, opacity: 1 },
+   animate: {
+    scale: [1, 1.2, 0.97, 1],
+    opacity: [1, 0.4, 1, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: (0.15 + i * 0.15) * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -125,8 +126,16 @@ const CastIcon = forwardRef<CastIconHandle, CastIconProps>(
       initial="normal"
      >
       <path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6" />
-      <m.path d="M2 12a9 9 0 0 1 8 8" variants={waveVariants} custom={1} />
-      <m.path d="M2 16a5 5 0 0 1 4 4" variants={waveVariants} custom={0} />
+      <m.path
+       d="M2 12a9 9 0 0 1 8 8"
+       variants={waveVariants(0.16)}
+       style={{ transformBox: "view-box", originX: "2px", originY: "20px" }}
+      />
+      <m.path
+       d="M2 16a5 5 0 0 1 4 4"
+       variants={waveVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "2px", originY: "20px" }}
+      />
       <m.line
        x1="2"
        x2="2.01"

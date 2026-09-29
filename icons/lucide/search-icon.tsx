@@ -88,7 +88,7 @@ const SearchIcon = forwardRef<SearchIconHandle, SearchIconProps>(
     y: [0, -1, 2, -1, 0],
     rotate: [0, 6, -6, 4, 0],
     transition: {
-     duration: 1.2 * duration,
+     duration: 1 * duration,
      ease: "easeInOut" as const,
     },
    },

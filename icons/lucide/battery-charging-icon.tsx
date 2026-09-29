@@ -77,39 +77,34 @@ const BatteryChargingIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
   const boltVariants: Variants = {
    normal: { scale: 1, opacity: 1 },
    animate: {
-    scale: [0, 1.28, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.18, 0.96, 1],
+    opacity: [1, 0.45, 1, 1],
     transition: {
-     duration: 0.42 * duration,
-     delay: 0.4 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.5, 0.55, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const nubVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1.6, 1],
+    transition: {
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: 0.35 * duration,
     },
    },
   };
@@ -137,21 +132,17 @@ const BatteryChargingIcon = forwardRef<
       initial="normal"
      >
       <m.path
-       d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M22 14v-4" custom={1} variants={bodyVariants} />
-      <m.path
        d="m11 7-3 5h4l-3 5"
        variants={boltVariants}
        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
       />
+      <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+      <m.path
+       d="M22 14v-4"
+       variants={nubVariants}
+       style={{ transformBox: "view-box", originX: "22px", originY: "12px" }}
+      />
+      <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
      </m.svg>
     </m.div>
    </LazyMotion>

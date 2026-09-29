@@ -84,26 +84,25 @@ const LandmarkIcon = forwardRef<LandmarkIconHandle, LandmarkIconProps>(
   const pillarVariants: Variants = {
    normal: { scaleY: 1 },
    animate: (i: number) => ({
-    scaleY: [0, 1.1, 1],
+    scaleY: [1, 0.6, 1.05, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: i * 0.08 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: i * 0.04 * duration,
     },
    }),
   };
 
   const roofVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [-3, 0.5, 0],
-    opacity: [0, 1, 1],
+    y: [0, 2.8, -0.4, 0],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     times: [0, 0.7, 1],
-     delay: 0.3 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.06 * duration,
     },
    },
   };

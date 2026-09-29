@@ -84,39 +84,31 @@ const BookOpenCheckIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const bookVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+    scaleX: [1, 0.8, 1.05, 1],
+    transition: {
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.72, 1],
+    },
    },
   };
 
-  const spineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const tickVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const bookBodyVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.05, 0.98, 1],
-    opacity: 1,
-    transition: { duration: 0.8 * duration, ease: "easeOut", delay: 0.15 },
-   },
-  };
-
-  const checkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: { duration: 0.7 * duration, ease: "easeOut", delay: 0.25 },
+    strokeDashoffset: [10, 0],
+    opacity: [0, 1],
+    transition: {
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.35 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.35 * duration },
+    },
    },
   };
 
@@ -141,26 +133,20 @@ const BookOpenCheckIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      <m.path
-       d="M12 21V7"
-       variants={spineVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m16 12 2 2 4-4"
-       variants={checkVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"
-       variants={bookBodyVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g
+       variants={bookVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M12 5v16" />
+       <m.path
+        d="m16 12 2 2 4-4"
+        strokeDasharray="10"
+        strokeDashoffset="0"
+        variants={tickVariants}
+       />
+       <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

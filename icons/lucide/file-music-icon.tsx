@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileMusicIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,48 +75,34 @@ const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const foldVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const stemVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    x: [0, 1, -0.3, 0],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.2 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
-
   const noteVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+    x: [0, 0, 0, 0],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.36 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -142,19 +129,12 @@ const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.path d="M8 20v-7l3 1.474" variants={stemVariants} />
-      <m.circle
-       cx="6"
-       cy="20"
-       r="2"
-       variants={noteVariants}
-       style={{ transformBox: "view-box", originX: "6px", originY: "20px" }}
-      />
+      <path d="M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35" />
+      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
+      <m.g variants={noteVariants}>
+       <path d="M8 20v-7l3 1.474" />
+       <circle cx="6" cy="20" r="2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

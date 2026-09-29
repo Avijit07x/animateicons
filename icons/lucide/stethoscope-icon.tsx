@@ -81,15 +81,22 @@ const StethoscopeIcon = forwardRef<StethoscopeIconHandle, StethoscopeIconProps>(
    [controls, onMouseLeave],
   );
 
-  const tubeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const earVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
+    scaleY: [1, 0.3, 1],
+    transition: { duration: 0.3 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const tubeVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [23, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     delay: 0 * duration,
+     strokeDashoffset: { duration: 0.45 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
     },
    },
   };
@@ -99,18 +106,10 @@ const StethoscopeIcon = forwardRef<StethoscopeIconHandle, StethoscopeIconProps>(
    animate: {
     scale: [1, 1.4, 1, 1.4, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      delay: 0.3 * duration,
     },
-   },
-  };
-
-  const earVariants: Variants = {
-   normal: { scaleY: 1 },
-   animate: {
-    scaleY: [1, 0.3, 1],
-    transition: { duration: 0.3 * duration, ease: "easeInOut" },
    },
   };
 
@@ -139,15 +138,20 @@ const StethoscopeIcon = forwardRef<StethoscopeIconHandle, StethoscopeIconProps>(
       <m.path
        d="M11 2v2"
        variants={earVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "4px" }}
+       style={{ transformBox: "view-box", originX: "11px", originY: "3px" }}
       />
       <m.path
        d="M5 2v2"
        variants={earVariants}
-       style={{ transformBox: "view-box", originX: "5px", originY: "4px" }}
+       style={{ transformBox: "view-box", originX: "5px", originY: "3px" }}
       />
       <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
-      <m.path d="M8 15a6 6 0 0 0 12 0v-3" variants={tubeVariants} />
+      <m.path
+       d="M8 15a6 6 0 0 0 12 0v-3"
+       strokeDasharray="23"
+       strokeDashoffset="0"
+       variants={tubeVariants}
+      />
       <m.circle
        cx="20"
        cy="10"

@@ -74,39 +74,35 @@ const PlugZapIcon = forwardRef<PlugZapIconHandle, PlugZapIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const plugVariants: Variants = {
+   normal: { x: 0, y: 0 },
+   animate: {
+    x: [0, 1.5, -0.4, 0],
+    y: [0, -1.5, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const boltVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const zapVariants: Variants = {
+   normal: { opacity: 1, scale: 1 },
    animate: {
-    scale: [0, 1.28, 1],
-    opacity: [0, 1, 1],
+    opacity: [1, 0.25, 1, 0.5, 1],
+    scale: [1, 1.2, 1, 1.1, 1],
     transition: {
-     duration: 0.42 * duration,
-     delay: 0.4 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.5, 0.55, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
    },
   };
@@ -133,18 +129,16 @@ const PlugZapIcon = forwardRef<PlugZapIconHandle, PlugZapIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="m2 22 3-3" custom={1} variants={bodyVariants} />
-      <m.path d="M7.5 13.5 10 11" custom={1} variants={bodyVariants} />
-      <m.path d="M10.5 16.5 13 14" custom={1} variants={bodyVariants} />
+      <m.g variants={plugVariants}>
+       <path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" />
+       <path d="m2 22 3-3" />
+       <path d="M7.5 13.5 10 11" />
+       <path d="M10.5 16.5 13 14" />
+      </m.g>
       <m.path
        d="m18 3-4 4h6l-4 4"
-       variants={boltVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "7px" }}
+       variants={zapVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "7px" }}
       />
      </m.svg>
     </m.div>

@@ -81,30 +81,27 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { transition: { duration: 0.3 * duration } },
-   animate: { transition: { staggerChildren: 0.1 } },
-  };
-
-  const commandLineVariants: Variants = {
-   normal: {
-    scaleX: 1,
-    originX: 0,
-    transition: { duration: 0.3 * duration },
-   },
+  const promptVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    scaleX: [1, 0.3, 1],
-    originX: 0,
-    transition: { duration: 0.6 * duration, times: [0, 0.5, 1], repeat: 0 },
+    x: [0, 2, -0.4, 0],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const chevronVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const cursorVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    x: [0, -2, 0],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 0.5 * duration, repeat: 0 },
+    opacity: [1, 0.1, 1, 0.1, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
+    },
    },
   };
 
@@ -127,12 +124,11 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={svgVariants}
       animate={controls}
       initial="normal"
      >
-      <m.path d="M12 19h8" variants={commandLineVariants} />
-      <m.path d="m4 17 6-6-6-6" variants={chevronVariants} />
+      <m.path d="M12 19h8" variants={cursorVariants} />
+      <m.path d="m4 17 6-6-6-6" variants={promptVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

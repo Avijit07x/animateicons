@@ -86,7 +86,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
    animate: {
     scale: [1, 1.05, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },
@@ -98,7 +98,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
     y: [0, 2, 0],
     opacity: [1, 0.4, 1],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.48 * duration,
      ease: "easeOut",
      delay,
     },
@@ -110,7 +110,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
    animate: {
     scale: [1, 0.85, 1],
     transition: {
-     duration: 0.3 * duration,
+     duration: 0.41 * duration,
      ease: "easeOut",
     },
    },

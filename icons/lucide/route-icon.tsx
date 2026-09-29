@@ -74,42 +74,25 @@ const RouteIcon = forwardRef<RouteIconHandle, RouteIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const trailVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const stopVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scale: [1, 1.25, 0.95, 1],
     transition: {
-     duration: 0.7 * duration,
-     delay: 0.1 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const nodeVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.25, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.1 + i * 0.62) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -137,20 +120,15 @@ const RouteIcon = forwardRef<RouteIconHandle, RouteIconProps>(
        cx="6"
        cy="19"
        r="3"
-       custom={0}
-       variants={nodeVariants}
+       variants={stopVariants(0)}
        style={{ transformBox: "view-box", originX: "6px", originY: "19px" }}
       />
-      <m.path
-       d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"
-       variants={trailVariants}
-      />
+      <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
       <m.circle
        cx="18"
        cy="5"
        r="3"
-       custom={1}
-       variants={nodeVariants}
+       variants={stopVariants(0.25)}
        style={{ transformBox: "view-box", originX: "18px", originY: "5px" }}
       />
      </m.svg>

@@ -74,45 +74,25 @@ const ChartColumnIcon = forwardRef<ChartColumnIconHandle, ChartColumnIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.2 * duration },
-   },
+  const barVariants = (i: number): Variants => ({
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    scaleY: [1, 0.4, 1.05, 1],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
+     delay: i * 0.1 * duration,
     },
    },
-  };
-
-  const chartVariants: Variants = {
-   normal: {
-    scale: 1,
-    transition: { duration: 0.2 * duration },
-   },
-   animate: {
-    scale: [1, 1.05, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,14 +113,25 @@ const ChartColumnIcon = forwardRef<ChartColumnIconHandle, ChartColumnIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={chartVariants}
       animate={controls}
       initial="normal"
      >
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={pathVariants} />
-      <m.path d="M18 17V9" variants={pathVariants} />
-      <m.path d="M13 17V5" variants={pathVariants} />
-      <m.path d="M8 17v-3" variants={pathVariants} />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+      <m.path
+       d="M8 17v-3"
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
+      <m.path
+       d="M13 17V5"
+       variants={barVariants(1)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
+      <m.path
+       d="M18 17V9"
+       variants={barVariants(2)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

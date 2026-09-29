@@ -81,23 +81,22 @@ const CameraOffIcon = forwardRef<CameraOffIconHandle, CameraOffIconProps>(
    [controls, onMouseLeave],
   );
 
-  const cameraVariants: Variants = {
-   normal: { rotate: 0 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    rotate: [0, -8, 8, -5, 5, 0],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    opacity: [1, 0.45, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [31, 0],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.3 * duration,
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -124,15 +123,17 @@ const CameraOffIcon = forwardRef<CameraOffIconHandle, CameraOffIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={cameraVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      >
+      <m.g variants={bodyVariants}>
        <path d="M14.564 14.558a3 3 0 1 1-4.122-4.121" />
        <path d="M20 20H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 .819-.175" />
        <path d="M9.695 4.024A2 2 0 0 1 10.004 4h3.993a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v7.344" />
       </m.g>
-      <m.path d="m2 2 20 20" variants={slashVariants} />
+      <m.path
+       d="m2 2 20 20"
+       strokeDasharray="30 200"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

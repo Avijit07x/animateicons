@@ -74,38 +74,30 @@ const ReceiptTextIcon = forwardRef<ReceiptTextIconHandle, ReceiptTextIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const paperVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -3, 2.5, -1, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
-  const wipeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const lineVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+    scaleX: [1, 0.55, 1.05, 1],
     transition: {
-     duration: 0.35 * duration,
-     delay: (0.4 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: (0.05 + i * 0.08) * duration,
     },
    }),
   };
@@ -132,29 +124,30 @@ const ReceiptTextIcon = forwardRef<ReceiptTextIconHandle, ReceiptTextIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M14 8H8"
-       custom={0}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "8px" }}
-      />
-      <m.path
-       d="M16 12H8"
-       custom={1}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "12px" }}
-      />
-      <m.path
-       d="M13 16H8"
-       custom={2}
-       variants={wipeVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "16px" }}
-      />
+      <m.g
+       variants={paperVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+       <m.path
+        d="M14 8H8"
+        custom={0}
+        variants={lineVariants}
+        style={{ transformBox: "view-box", originX: "8px", originY: "8px" }}
+       />
+       <m.path
+        d="M16 12H8"
+        custom={1}
+        variants={lineVariants}
+        style={{ transformBox: "view-box", originX: "8px", originY: "12px" }}
+       />
+       <m.path
+        d="M13 16H8"
+        custom={2}
+        variants={lineVariants}
+        style={{ transformBox: "view-box", originX: "8px", originY: "16px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

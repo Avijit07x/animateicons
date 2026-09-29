@@ -81,39 +81,14 @@ const WalletIcon = forwardRef<WalletIconHandle, WalletIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const lidVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    strokeDashoffset: [80, 0],
-    opacity: [0.4, 1],
+    rotate: [0, -4, 1.5, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const flapVariants: Variants = {
-   normal: { rotate: 0, originX: 0.1, originY: 0.5 },
-   animate: {
-    rotate: [-6, 0, -3, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.2,
-    },
-   },
-  };
-
-  const swipeVariants: Variants = {
-   normal: { x: 0, opacity: 0 },
-   animate: {
-    x: [0, 6, 0],
-    opacity: [0, 1, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.45,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -137,28 +112,15 @@ const WalletIcon = forwardRef<WalletIconHandle, WalletIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-wallet-icon lucide-wallet"
+      animate={controls}
+      initial="normal"
      >
       <m.path
-       d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"
-       strokeDasharray="80"
-       strokeDashoffset="80"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
+       d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+       variants={lidVariants}
+       style={{ transformBox: "view-box", originX: "3px", originY: "5px" }}
       />
-      <m.g variants={flapVariants} initial="normal" animate={controls}>
-       <m.path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
-      </m.g>
-      <m.line
-       x1="14"
-       y1="12"
-       x2="18"
-       y2="12"
-       variants={swipeVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
      </m.svg>
     </m.div>
    </LazyMotion>

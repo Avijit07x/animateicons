@@ -74,49 +74,29 @@ const BellOffIcon = forwardRef<BellOffIconHandle, BellOffIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bellVariants: Variants = {
-   normal: { rotate: 0 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    rotate: [0, 6, -6, 4, -2, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     times: [0, 0.2, 0.45, 0.68, 0.85, 1],
-    },
-   },
-  };
-
-  const clapperVariants: Variants = {
-   normal: { x: 0 },
-   animate: {
-    x: [0, 1, -2, 1, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: 0.05 * duration,
-    },
+    opacity: [1, 0.45, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
+    strokeDashoffset: [31, 0],
     transition: {
      duration: 0.45 * duration,
+     ease: "easeInOut",
      delay: 0.1 * duration,
-     ease: [0.16, 1, 0.3, 1],
     },
    },
   };
@@ -124,7 +104,7 @@ const BellOffIcon = forwardRef<BellOffIconHandle, BellOffIconProps>(
   return (
    <LazyMotion features={domMin} strict>
     <m.div
-     className={cn("relative inline-flex", className)}
+     className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
      {...props}
@@ -142,13 +122,18 @@ const BellOffIcon = forwardRef<BellOffIconHandle, BellOffIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={bellVariants}
-      style={{ transformOrigin: "top center" }}
      >
-      <m.path d="M10.268 21a2 2 0 0 0 3.464 0" variants={clapperVariants} />
-      <path d="M17 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 .258-1.742" />
-      <path d="M8.668 3.01A6 6 0 0 1 18 8c0 2.687.77 4.653 1.707 6.05" />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
+      <m.g variants={bodyVariants}>
+       <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+       <path d="M17 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 .258-1.742" />
+       <path d="M8.668 3.01A6 6 0 0 1 18 8c0 2.687.77 4.653 1.707 6.05" />
+      </m.g>
+      <m.path
+       d="m2 2 20 20"
+       strokeDasharray="30 200"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

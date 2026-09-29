@@ -81,37 +81,30 @@ const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     delay: 0.2,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
    },
   };
 
   const tickVariants: Variants = {
    normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [20, 0],
-    opacity: [0.3, 1],
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.5,
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -135,32 +128,17 @@ const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-check-icon lucide-user-check"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="m16 11 2 2 4-4"
-       strokeDasharray="20"
-       strokeDashoffset="20"
+       strokeDasharray="9"
+       strokeDashoffset="0"
        variants={tickVariants}
-       initial="normal"
-       animate={controls}
       />
-      <m.path
-       d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="9"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <m.circle cx="9" cy="7" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -84,11 +84,11 @@ const HammerIcon = forwardRef<HammerIconHandle, HammerIconProps>(
   const hammerVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -20, 10, -4, 0],
+    rotate: [0, -18, 9, -3, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.85 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.6, 0.8, 1],
+     times: [0, 0.4, 0.7, 0.87, 1],
     },
    },
   };

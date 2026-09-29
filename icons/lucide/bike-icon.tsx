@@ -44,7 +44,7 @@ const BikeIcon = forwardRef<BikeIconHandle, BikeIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 1.4,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -82,47 +82,14 @@ const BikeIcon = forwardRef<BikeIconHandle, BikeIconProps>(
   );
 
   const bikeVariants: Variants = {
-   normal: { x: 0 },
+   normal: { x: "0%", opacity: 1 },
    animate: {
-    x: [0, 40, -40, 0],
+    x: ["0%", "60%", "-60%", "0%"],
+    opacity: [1, 0, 0, 1],
     transition: {
-     duration,
+     duration: 0.9 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.401, 1],
-    },
-   },
-  };
-
-  const wheelVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: 720,
-    transition: {
-     duration,
-     ease: "linear",
-    },
-   },
-  };
-
-  const frontWheelVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: 720,
-    transition: {
-     duration,
-     ease: "linear",
-     delay: 0.06,
-    },
-   },
-  };
-
-  const pedalVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: 720,
-    transition: {
-     duration,
-     ease: "linear",
+     times: [0, 0.4, 0.5, 1],
     },
    },
   };
@@ -153,35 +120,10 @@ const BikeIcon = forwardRef<BikeIconHandle, BikeIconProps>(
       initial="normal"
       variants={bikeVariants}
      >
-      <m.g
-       variants={wheelVariants}
-       style={{ transformOrigin: "5.5px 17.5px" }}
-       initial="normal"
-       animate={controls}
-      >
-       <circle cx="5.5" cy="17.5" r="3.5" />
-      </m.g>
-
-      <m.g
-       variants={frontWheelVariants}
-       style={{ transformOrigin: "18.5px 17.5px" }}
-       initial="normal"
-       animate={controls}
-      >
-       <circle cx="18.5" cy="17.5" r="3.5" />
-      </m.g>
-
-      <m.g
-       variants={pedalVariants}
-       style={{ transformOrigin: "12px 14px" }}
-       initial="normal"
-       animate={controls}
-      >
-       <circle cx="12" cy="14" r="0.8" />
-      </m.g>
-
+      <circle cx="5.5" cy="17.5" r="3.5" />
+      <circle cx="18.5" cy="17.5" r="3.5" />
+      <circle cx="12" cy="14" r="0.8" />
       <circle cx="15" cy="5" r="1" />
-
       <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
      </m.svg>
     </m.div>

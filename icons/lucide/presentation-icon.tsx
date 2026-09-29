@@ -84,28 +84,23 @@ const PresentationIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const screenVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
+  const boardVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    scaleY: [0, 1.05, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeOut",
-     times: [0, 0.75, 1],
-    },
+    rotate: [0, -3, 2.5, -1, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
-  const standVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+  const legVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    y: [-2, 0],
-    opacity: [0, 1],
+    scaleX: [1, 1.15, 0.97, 1],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: 0.35 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
    },
   };
@@ -132,13 +127,18 @@ const PresentationIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <path d="M2 3h20" />
+      <m.g
+       variants={boardVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
+      >
+       <path d="M2 3h20" />
+       <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" />
+      </m.g>
       <m.path
-       d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"
-       variants={screenVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
+       d="m7 21 5-5 5 5"
+       variants={legVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
       />
-      <m.path d="m7 21 5-5 5 5" variants={standVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -84,37 +84,23 @@ const OctagonAlertIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const alertVariants: Variants = {
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.08, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const markVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -8, 8, -5, 5, 0],
+    rotate: [0, -14, 12, -7, 0],
     transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.15 * duration,
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.45 * duration,
-    },
    },
   };
 
@@ -140,17 +126,17 @@ const OctagonAlertIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
+      <m.path
+       d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.g
-       variants={alertVariants}
+       variants={markVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <m.path
-        d="M12 16h.01"
-        variants={dotVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
-       />
-       <m.path d="M12 8v4" variants={barVariants} />
-       <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" />
+       <path d="M12 8v4" />
+       <path d="M12 16h.01" />
       </m.g>
      </m.svg>
     </m.div>

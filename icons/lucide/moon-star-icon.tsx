@@ -74,40 +74,30 @@ const MoonStarIcon = forwardRef<MoonStarIconHandle, MoonStarIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const moonVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -8, 6, -3, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
   const starVariants: Variants = {
-   normal: { scale: 1, rotate: 0, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [0, 1.3, 1],
-    rotate: [-40, 0],
-    opacity: [0, 1, 1],
+    rotate: [0, 180],
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.45 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.5, 0.55, 1],
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
    },
   };
@@ -134,20 +124,17 @@ const MoonStarIcon = forwardRef<MoonStarIconHandle, MoonStarIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.g
+       variants={starVariants}
+       style={{ transformBox: "view-box", originX: "20px", originY: "5px" }}
+      >
+       <path d="M18 5h4" />
+       <path d="M20 3v4" />
+      </m.g>
       <m.path
        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M18 5h4"
-       variants={starVariants}
-       style={{ transformBox: "view-box", originX: "20px", originY: "5px" }}
-      />
-      <m.path
-       d="M20 3v4"
-       variants={starVariants}
-       style={{ transformBox: "view-box", originX: "20px", originY: "5px" }}
+       variants={moonVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

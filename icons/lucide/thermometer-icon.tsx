@@ -74,22 +74,24 @@ const ThermometerIcon = forwardRef<ThermometerIconHandle, ThermometerIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const riseVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
+  const tubeVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1, scaleY: 1 },
    animate: {
-    scaleY: [0, 1],
+    strokeDashoffset: [50, 0],
     opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: [0.34, 1.25, 0.64, 1] },
+    scaleY: [0.94, 1.03, 1],
+    transition: {
+     strokeDashoffset: { duration: 0.7 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
+     scaleY: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
    },
   };
 
@@ -117,7 +119,9 @@ const ThermometerIcon = forwardRef<ThermometerIconHandle, ThermometerIconProps>(
      >
       <m.path
        d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"
-       variants={riseVariants}
+       strokeDasharray="50"
+       strokeDashoffset="0"
+       variants={tubeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
      </m.svg>

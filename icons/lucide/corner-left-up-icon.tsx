@@ -84,33 +84,27 @@ const CornerLeftUpIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.03, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const arrowVariants: Variants = {
-   normal: { opacity: 1, y: 0 },
-   animate: {
-    opacity: [0, 1, 1],
-    y: [3, -3, 0],
+    y: [0, -2.5, 0.5, 0],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeOut",
-     times: [0, 0.6, 1],
-     delay: 0.5 * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
-  const pathVariants: Variants = {
-   normal: { pathLength: 1 },
+  const shaftVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    transition: { duration: 0.9 * duration, ease: [0.16, 1, 0.3, 1] },
+    scaleY: [1, 1.156, 0.969, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
@@ -135,20 +129,13 @@ const CornerLeftUpIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.path
        d="M20 20h-7a4 4 0 0 1-4-4V4"
-       variants={pathVariants}
-       initial="normal"
-       animate={controls}
+       variants={shaftVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
-      <m.path
-       d="M14 9 9 4 4 9"
-       variants={arrowVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.path d="M14 9 9 4 4 9" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

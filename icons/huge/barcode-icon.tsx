@@ -1,0 +1,171 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import type { Variants } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
+export interface BarcodeIconHandle {
+ startAnimation: () => void;
+ stopAnimation: () => void;
+}
+
+interface BarcodeIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
+ size?: number;
+ duration?: number;
+ isAnimated?: boolean;
+ color?: string;
+}
+
+const BarcodeIcon = forwardRef<BarcodeIconHandle, BarcodeIconProps>(
+ (
+  {
+   onMouseEnter,
+   onMouseLeave,
+   className,
+   size = 24,
+   duration = 1,
+   isAnimated = true,
+   color,
+   ...props
+  },
+  ref,
+ ) => {
+  const controls = useAnimation();
+  const reduced = useReducedMotion();
+  const isControlled = useRef(false);
+
+  useImperativeHandle(ref, () => {
+   isControlled.current = true;
+   return {
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
+   };
+  });
+
+  const handleEnter = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isAnimated || reduced) return;
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
+   },
+   [controls, reduced, isAnimated, onMouseEnter],
+  );
+
+  const handleLeave = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
+   },
+   [controls, onMouseLeave],
+  );
+
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 0.45, 1],
+    transition: {
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+    },
+   },
+  });
+
+  const dotVariants = (delay: number): Variants => ({
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.15, 1],
+    transition: {
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+    },
+   },
+  });
+
+  return (
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
+    >
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+     >
+      <m.path
+       d="M3 5V19"
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "3px", originY: "12px" }}
+      />
+      <m.path
+       d="M7.5 5V15"
+       variants={barVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "7.5px", originY: "10px" }}
+      />
+      <m.path
+       d="M12 5V19"
+       variants={barVariants(0.16)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M16.5 5V15"
+       variants={barVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "16.5px", originY: "10px" }}
+      />
+      <m.path
+       d="M21 5V19"
+       variants={barVariants(0.32)}
+       style={{ transformBox: "view-box", originX: "21px", originY: "12px" }}
+      />
+      <m.path
+       d="M16.625 18.75H16.5M16.75 18.75C16.75 18.8881 16.6381 19 16.5 19C16.3619 19 16.25 18.8881 16.25 18.75C16.25 18.6119 16.3619 18.5 16.5 18.5C16.6381 18.5 16.75 18.6119 16.75 18.75Z"
+       variants={dotVariants(0.2)}
+      />
+      <m.path
+       d="M7.625 18.75H7.5M7.75 18.75C7.75 18.8881 7.63807 19 7.5 19C7.36193 19 7.25 18.8881 7.25 18.75C7.25 18.6119 7.36193 18.5 7.5 18.5C7.63807 18.5 7.75 18.6119 7.75 18.75Z"
+       variants={dotVariants(0.1)}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
+  );
+ },
+);
+
+BarcodeIcon.displayName = "BarcodeIcon";
+export { BarcodeIcon };

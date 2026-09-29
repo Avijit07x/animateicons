@@ -81,34 +81,15 @@ const PlayIcon = forwardRef<PlayIconHandle, PlayIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: {
-    scale: 1,
-   },
-   animate: {
-    scale: [1, 0.92, 1],
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
   const playVariants: Variants = {
-   normal: {
-    x: 0,
-    scale: 1,
-    pathLength: 1,
-    opacity: 1,
-   },
+   normal: { x: 0, scale: 1 },
    animate: {
-    x: [0, 1.5, 0],
-    scale: [1, 1.12, 1],
-    pathLength: [0.6, 1],
-    opacity: [0.6, 1],
+    x: [0, 3, -0.6, 0],
+    scale: [1, 1.1, 1, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -134,11 +115,11 @@ const PlayIcon = forwardRef<PlayIconHandle, PlayIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.path
        d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
        variants={playVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

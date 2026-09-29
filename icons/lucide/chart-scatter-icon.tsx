@@ -84,40 +84,19 @@ const ChartScatterIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1 },
+  const dotVariants = (delay: number): Variants => ({
+   normal: { y: 0, scale: 1 },
    animate: {
-    scale: [1, 1.04, 1],
+    y: [0, -1.5, 0.4, 0],
+    scale: [1, 1.5, 0.95, 1],
     transition: {
-     duration: 0.6 * duration,
-     ease: [0.22, 1, 0.36, 1],
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const axisVariants: Variants = {
-   normal: { pathLength: 1 },
-   animate: {
-    pathLength: [0, 1],
-    transition: {
-     duration: 0.7 * duration,
+     duration: 0.55 * duration,
      ease: "easeInOut",
-     delay: 0.1,
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -138,46 +117,58 @@ const ChartScatterIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={iconVariants}
+      initial="normal"
      >
       <m.circle
        cx="7.5"
        cy="7.5"
        r=".5"
        fill="currentColor"
-       variants={dotVariants}
+       variants={dotVariants(0)}
+       style={{ transformBox: "view-box", originX: "7.5px", originY: "7.5px" }}
       />
       <m.circle
        cx="18.5"
        cy="5.5"
        r=".5"
        fill="currentColor"
-       variants={dotVariants}
+       variants={dotVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "18.5px", originY: "5.5px" }}
       />
       <m.circle
        cx="11.5"
        cy="11.5"
        r=".5"
        fill="currentColor"
-       variants={dotVariants}
+       variants={dotVariants(0.16)}
+       style={{
+        transformBox: "view-box",
+        originX: "11.5px",
+        originY: "11.5px",
+       }}
       />
       <m.circle
        cx="7.5"
        cy="16.5"
        r=".5"
        fill="currentColor"
-       variants={dotVariants}
+       variants={dotVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "7.5px", originY: "16.5px" }}
       />
       <m.circle
        cx="17.5"
        cy="14.5"
        r=".5"
        fill="currentColor"
-       variants={dotVariants}
+       variants={dotVariants(0.32)}
+       style={{
+        transformBox: "view-box",
+        originX: "17.5px",
+        originY: "14.5px",
+       }}
       />
-      <m.path d="M3 3v16a2 2 0 0 0 2 2h16" variants={axisVariants} />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
      </m.svg>
     </m.div>
    </LazyMotion>

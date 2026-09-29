@@ -81,41 +81,25 @@ const Building2Icon = forwardRef<Building2IconHandle, Building2IconProps>(
    [controls, onMouseLeave],
   );
 
-  const buildingVariants: Variants = {
-   normal: { scaleY: 1 },
+  const doorVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scaleY: [1, 0.92, 1.03, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
+    scaleX: [1, 0.45, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
   const windowVariants: Variants = {
    normal: { scaleX: 1, opacity: 1 },
    animate: (i: number) => ({
-    scaleX: [1, 0, 1],
-    opacity: [1, 0, 1],
+    scaleX: [1, 0.3, 1],
+    opacity: [1, 0.35, 1],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     delay: (0.15 + i * 0.15) * duration,
+     delay: (0.1 + i * 0.1) * duration,
     },
    }),
-  };
-  const doorVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.45 * duration,
-    },
-   },
   };
 
   return (
@@ -140,26 +124,25 @@ const Building2Icon = forwardRef<Building2IconHandle, Building2IconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={buildingVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
-      >
-       <m.path
-        d="M10 12h4"
-        variants={windowVariants}
-        custom={0}
-        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-       />
-       <m.path
-        d="M10 8h4"
-        variants={windowVariants}
-        custom={1}
-        style={{ transformBox: "view-box", originX: "12px", originY: "8px" }}
-       />
-       <m.path d="M14 21v-3a2 2 0 0 0-4 0v3" variants={doorVariants} />
-       <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" />
-       <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
-      </m.g>
+      <m.path
+       d="M10 12h4"
+       custom={0}
+       variants={windowVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M10 8h4"
+       custom={1}
+       variants={windowVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "8px" }}
+      />
+      <m.path
+       d="M14 21v-3a2 2 0 0 0-4 0v3"
+       variants={doorVariants}
+       style={{ transformBox: "view-box", originX: "10px", originY: "21px" }}
+      />
+      <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" />
+      <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
      </m.svg>
     </m.div>
    </LazyMotion>

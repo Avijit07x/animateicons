@@ -87,9 +87,9 @@ const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
   const lockVariants: Variants = {
    normal: { x: 0, rotate: 0 },
    animate: {
-    x: [0, -3, 3, -3, 3, 0],
-    rotate: [0, -2, 2, -2, 2, 0],
-    transition: { duration: 0.4 * duration },
+    x: [0, -3, 3, -3, 0],
+    rotate: [0, -2, 2, -2, 0],
+    transition: { duration: 0.55 * duration },
    },
   };
 

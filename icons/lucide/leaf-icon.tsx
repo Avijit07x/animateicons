@@ -81,23 +81,13 @@ const LeafIcon = forwardRef<LeafIconHandle, LeafIconProps>(
    [controls, onMouseLeave],
   );
 
-  const leafVariants: Variants = {
+  const swayVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 6, -4, 3, -1, 0],
-    transition: { duration: duration, ease: "easeInOut" },
-   },
-  };
-
-  const veinVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    rotate: [0, -8, 7, -3, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
     },
    },
   };
@@ -124,16 +114,12 @@ const LeafIcon = forwardRef<LeafIconHandle, LeafIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={leafVariants}
-       style={{ transformBox: "view-box", originX: "2px", originY: "21px" }}
-      >
-       <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-       <m.path
-        d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"
-        variants={veinVariants}
-       />
-      </m.g>
+      <m.path
+       d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+       variants={swayVariants}
+       style={{ transformBox: "view-box", originX: "13px", originY: "12px" }}
+      />
+      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface VolumeOffIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,67 +51,55 @@ const VolumeOffIcon = forwardRef<VolumeOffIconHandle, VolumeOffIconProps>(
   },
   ref,
  ) => {
-  const slashControls = useAnimation();
-  const waveControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   slashControls.start("cut");
-   waveControls.start("cut");
-  }, [slashControls, waveControls, reduced]);
-
-  const stop = useCallback(() => {
-   slashControls.start("rest");
-   waveControls.start("rest");
-  }, [slashControls, waveControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const slashVariants: Variants = {
-   rest: { pathLength: 1, opacity: 1 },
-   cut: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.9 * duration, ease: [0.16, 1, 0.3, 1] },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
-  const waveVariants = (i: number): Variants => ({
-   rest: { opacity: 1 },
-   cut: {
-    opacity: [1, 0.25, 1],
+  const slashVariants: Variants = {
+   normal: { strokeDashoffset: 0 },
+   animate: {
+    strokeDashoffset: [32, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-     delay: i * 0.08 * duration,
+     duration: 0.45 * duration,
+     ease: "easeOut",
+     delay: 0.1 * duration,
     },
    },
-  });
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -123,41 +110,32 @@ const VolumeOffIcon = forwardRef<VolumeOffIconHandle, VolumeOffIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M16 9a5 5 0 0 1 .95 2.293"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(0)}
-       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
-      />
-      <m.path
-       d="M19.364 5.636a9 9 0 0 1 1.889 9.96"
-       animate={waveControls}
-       initial="rest"
-       variants={waveVariants(1)}
-       style={{ transformBox: "fill-box", originX: "0%", originY: "50%" }}
-      />
+      <m.g variants={bodyVariants}>
+       <path d="M16 9a5 5 0 0 1 .95 2.293" />
+       <path d="M19.364 5.636a9 9 0 0 1 1.889 9.96" />
+       <path d="m7 7-.587.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298V11" />
+       <path d="M9.828 4.172A.686.686 0 0 1 11 4.657v.686" />
+      </m.g>
       <m.path
        d="m2 2 20 20"
-       animate={slashControls}
-       initial="rest"
+       strokeDasharray="30 200"
+       strokeDashoffset="0"
        variants={slashVariants}
-       style={{ transformBox: "fill-box", originX: "0%", originY: "0%" }}
       />
-      <path d="m7 7-.587.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298V11" />
-      <path d="M9.828 4.172A.686.686 0 0 1 11 4.657v.686" />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

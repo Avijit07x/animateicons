@@ -88,7 +88,7 @@ const ChartLineIcon = forwardRef<ChartLineIconHandle, ChartLineIconProps>(
    normal: {
     pathLength: 1,
     opacity: 1,
-    transition: { duration: 0.2 * duration },
+    transition: { duration: 0.25 * duration },
    },
    animate: {
     pathLength: [0, 1],
@@ -103,7 +103,7 @@ const ChartLineIcon = forwardRef<ChartLineIconHandle, ChartLineIconProps>(
   const chartVariants: Variants = {
    normal: {
     scale: 1,
-    transition: { duration: 0.2 * duration },
+    transition: { duration: 0.25 * duration },
    },
    animate: {
     scale: [1, 1.05, 1],

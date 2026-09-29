@@ -77,50 +77,44 @@ const CloudRainWindIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cloudVariants: Variants = {
-   normal: { x: 0, pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    x: [-6, 0],
-    pathLength: [0, 1],
-    opacity: [0, 1],
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1, 0.5, 0],
     transition: {
-     x: {
-      duration: 0.6 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.34, 1.2, 0.64, 1],
-     },
-     pathLength: {
-      duration: 0.5 * duration,
-      delay: i * 0.1 * duration,
-      ease: [0.16, 1, 0.3, 1],
-     },
-     opacity: { duration: 0.2 * duration, delay: i * 0.1 * duration },
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const dropVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
-   animate: (i: number) => ({
-    y: [-4, 0],
+  const dropVariants = (delay: number, sign: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [9 * sign, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: (0.4 + i * 0.1) * duration,
-     ease: [0.34, 1.2, 0.6, 1],
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -146,12 +140,26 @@ const CloudRainWindIcon = forwardRef<
      >
       <m.path
        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
-       custom={0}
        variants={cloudVariants}
       />
-      <m.path d="m9 13-3 7" custom={0} variants={dropVariants} />
-      <m.path d="m17 13-3 7" custom={1} variants={dropVariants} />
-      <m.path d="m9.2 22 3-7" custom={2} variants={dropVariants} />
+      <m.path
+       d="m9.2 22 3-7"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={dropVariants(0.1, -1)}
+      />
+      <m.path
+       d="m9 13-3 7"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={dropVariants(0, 1)}
+      />
+      <m.path
+       d="m17 13-3 7"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={dropVariants(0.2, 1)}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

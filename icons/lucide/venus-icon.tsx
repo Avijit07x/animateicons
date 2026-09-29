@@ -81,76 +81,48 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const softSpring: [number, number, number, number] = [0.32, 1.2, 0.5, 1];
-  const smoothDraw: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
   const circleVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    scale: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [38, 0],
     opacity: [0, 1],
-    scale: [0.88, 1.04, 1],
+    scale: [0.9, 1.04, 1],
     transition: {
-     pathLength: { duration: duration * 0.55, ease: smoothDraw },
-     opacity: { duration: duration * 0.3, ease: smoothDraw },
-     scale: { duration: duration * 0.55, ease: softSpring },
+     strokeDashoffset: { duration: 0.55 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
+     scale: { duration: 0.55 * duration, ease: "easeInOut" },
     },
    },
   };
 
   const stemVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [8, 0],
     opacity: [0, 1],
     transition: {
-     pathLength: {
-      duration: duration * 0.5,
-      ease: smoothDraw,
-      delay: duration * 0.18,
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: 0.2 * duration,
      },
-     opacity: {
-      duration: duration * 0.25,
-      ease: smoothDraw,
-      delay: duration * 0.18,
-     },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
     },
    },
   };
 
   const crossVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    scaleX: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [7, 0],
     opacity: [0, 1],
-    scaleX: [0, 1.08, 1],
     transition: {
-     pathLength: {
-      duration: duration * 0.65,
-      ease: smoothDraw,
-      delay: duration * 0.35,
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: 0.45 * duration,
      },
-     opacity: {
-      duration: duration * 0.3,
-      ease: smoothDraw,
-      delay: duration * 0.35,
-     },
-     scaleX: {
-      duration: duration * 0.65,
-      ease: softSpring,
-      delay: duration * 0.35,
-     },
+     opacity: { duration: 0.25 * duration, delay: 0.45 * duration },
     },
    },
   };
@@ -181,24 +153,22 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
        cx="12"
        cy="9"
        r="6"
+       strokeDasharray="38"
+       strokeDashoffset="0"
        variants={circleVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "9px" }}
       />
-
       <m.path
        d="M12 15v7"
+       strokeDasharray="8"
+       strokeDashoffset="0"
        variants={stemVariants}
-       initial="normal"
-       animate={controls}
       />
-
       <m.path
        d="M9 19h6"
+       strokeDasharray="7"
+       strokeDashoffset="0"
        variants={crossVariants}
-       initial="normal"
-       animate={controls}
-       style={{ originX: "12px", originY: "19px" }}
       />
      </m.svg>
     </m.div>

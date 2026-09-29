@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FileMinusIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,36 +75,30 @@ const FileMinusIcon = forwardRef<FileMinusIconHandle, FileMinusIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const outlineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const pageVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
+    y: [0, -1, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
-
   const minusVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: 0.22 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    rotate: [0, 180],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -129,16 +124,15 @@ const FileMinusIcon = forwardRef<FileMinusIconHandle, FileMinusIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
-       variants={outlineVariants}
-      />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={outlineVariants} />
-      <m.path
-       d="M9 15h6"
-       variants={minusVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
-      />
+      <m.g variants={pageVariants}>
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M9 15h6"
+        variants={minusVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

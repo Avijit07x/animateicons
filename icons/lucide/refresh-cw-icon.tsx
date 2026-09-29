@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface RefreshCwIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,53 +51,42 @@ const RefreshCwIcon = forwardRef<RefreshCwIconHandle, RefreshCwIconProps>(
   },
   ref,
  ) => {
-  const spinControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   spinControls.start("spin");
-  }, [spinControls, reduced]);
-
-  const stop = useCallback(() => {
-   spinControls.stop();
-  }, [spinControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const spinVariants: Variants = {
-   rest: { rotate: 0 },
-   spin: {
-    rotate: [0, 360],
-    transition: {
-     duration: 1 * duration,
-     ease: "linear",
-     repeat: Infinity,
-    },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 180],
+    scale: [1, 0.92, 1],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
@@ -108,28 +96,28 @@ const RefreshCwIcon = forwardRef<RefreshCwIconHandle, RefreshCwIconProps>(
      className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
-     animate={spinControls}
-     initial="rest"
-     variants={spinVariants}
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-      <path d="M21 3v5h-5" />
-      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-      <path d="M8 16H3v5" />
-     </svg>
+      <m.path
+       d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5"
+       variants={spinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

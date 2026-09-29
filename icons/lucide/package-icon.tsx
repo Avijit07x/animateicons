@@ -74,27 +74,24 @@ const PackageIcon = forwardRef<PackageIconHandle, PackageIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const boxVariants: Variants = {
+   normal: { y: 0, rotate: 0 },
+   animate: {
+    y: [0, -1, 0.3, 0],
+    rotate: [0, -6, 4, 0],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
   return (
@@ -119,18 +116,15 @@ const PackageIcon = forwardRef<PackageIconHandle, PackageIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.polyline
-       points="3.29 7 12 12 20.71 7"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="M12 22V12" custom={2} variants={bodyVariants} />
-      <m.path d="m7.5 4.27 9 5.15" custom={2} variants={bodyVariants} />
+      <m.g
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" />
+       <path d="M12 22V12" />
+       <polyline points="3.29 7 12 12 20.71 7" />
+       <path d="m7.5 4.27 9 5.15" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

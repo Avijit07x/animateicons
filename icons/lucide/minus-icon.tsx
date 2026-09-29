@@ -90,7 +90,7 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
     scaleX: [1, 0.55, 1],
     y: [0, -1, 0],
     transition: {
-     duration: 0.28 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },

@@ -84,30 +84,26 @@ const HeadphoneOffIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const headphonesVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    scale: [1, 1.1, 0.95, 1],
-    rotate: [0, -3, 3, -2, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const earcupVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.2, 0.9, 1],
-    opacity: [1, 0.7, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut", repeat: 0 },
+    opacity: [1, 0.4, 1],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+    },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [1, 0, 1],
-    opacity: 1,
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
+    strokeDashoffset: [0, 24, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 1],
+    },
    },
   };
 
@@ -132,18 +128,19 @@ const HeadphoneOffIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={headphonesVariants}
      >
+      <m.g variants={bodyVariants}>
+       <path d="M21 14h-1.343" />
+       <path d="M9.128 3.47A9 9 0 0 1 21 12v3.343" />
+       <path d="M20.414 20.414A2 2 0 0 1 19 21h-1a2 2 0 0 1-2-2v-3" />
+       <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 2.636-6.364" />
+      </m.g>
       <m.path
-       d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 
-	            2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 
-	            0v7a2 2 0 0 1-2 2h-1a2 
-	            2 0 0 1-2-2v-3a2 2 0 0 1 
-	            2-2h3"
-       variants={earcupVariants}
+       d="m2 2 20 20"
+       strokeDasharray="29"
+       strokeDashoffset="0"
+       variants={slashVariants}
       />
-
-      <m.path d="M22 2L2 22" variants={slashVariants} strokeWidth={2.5} />
      </m.svg>
     </m.div>
    </LazyMotion>

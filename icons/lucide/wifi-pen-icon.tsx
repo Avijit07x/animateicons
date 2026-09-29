@@ -51,144 +51,41 @@ const WifiPenIcon = forwardRef<WifiPenIconHandle, WifiPenIconProps>(
   },
   ref,
  ) => {
-  const groupControls = useAnimation();
-  const arcLargeControls = useAnimation();
-  const arcMidControls = useAnimation();
-  const arcSmallControls = useAnimation();
-  const penControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      groupControls.start("normal");
-      arcLargeControls.start("normal");
-      arcMidControls.start("normal");
-      arcSmallControls.start("normal");
-      penControls.start("normal");
-     } else {
-      groupControls.start("animate");
-      arcLargeControls.start("animate");
-      arcMidControls.start("animate");
-      arcSmallControls.start("animate");
-      penControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     penControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     groupControls.start("animate");
-     arcLargeControls.start("animate");
-     arcMidControls.start("animate");
-     arcSmallControls.start("animate");
-     penControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    penControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     penControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    penControls,
-    onMouseLeave,
-   ],
+   [controls, onMouseLeave],
   );
 
-  const groupVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.05, 0.99, 1],
-    transition: {
-     duration: 0.7 * duration,
-     times: [0, 0.5, 0.8, 1],
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcLargeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.36 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcMidVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: 0.24 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcSmallVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.12 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
   const penVariants: Variants = {
-   normal: { rotate: 0, x: 0, y: 0, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    rotate: [-8, 8, -4, 0],
-    x: [6, -2, 2, 0],
-    y: [0, -2, 0, 0],
-    opacity: [0.6, 1, 1, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    rotate: [0, -9, 7, -3, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -208,34 +105,24 @@ const WifiPenIcon = forwardRef<WifiPenIconHandle, WifiPenIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
       initial="normal"
-      animate={groupControls}
-      variants={groupVariants}
      >
+      <path d="M2 8.82a15 15 0 0 1 20 0" />
       <m.path
-       d="M2 8.82a15 15 0 0 1 20 0"
-       initial="normal"
-       animate={arcLargeControls}
-       variants={arcLargeVariants}
+       d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+       variants={penVariants}
+       style={{
+        transformBox: "view-box",
+        originX: "13.6px",
+        originY: "21.4px",
+       }}
       />
-      <m.path
-       d="M5 12.859a10 10 0 0 1 10.5-2.222"
-       initial="normal"
-       animate={arcMidControls}
-       variants={arcMidVariants}
-      />
-      <m.path
-       d="M8.5 16.429a5 5 0 0 1 3-1.406"
-       initial="normal"
-       animate={arcSmallControls}
-       variants={arcSmallVariants}
-      />
-      <m.g initial="normal" animate={penControls} variants={penVariants}>
-       <m.path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-      </m.g>
+      <path d="M5 12.859a10 10 0 0 1 10.5-2.222" />
+      <path d="M8.5 16.429a5 5 0 0 1 3-1.406" />
      </m.svg>
     </m.div>
    </LazyMotion>

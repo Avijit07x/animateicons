@@ -77,48 +77,30 @@ const AccessibilityIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const containerVariants: Variants = {
+  const figureVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: -6,
+    rotate: [0, 6, -3, 0],
     transition: {
-     duration: 0.35,
-     ease: "easeOut",
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const wheelVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    rotate: 360,
-    transition: {
-     duration: 1.4 * duration,
-     repeat: Infinity,
-     ease: "linear",
-    },
-   },
-  };
-  const handVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: -25,
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     repeat: Infinity,
-     repeatType: "mirror",
-    },
+    rotate: [0, 180],
+    transition: { duration: 0.75 * duration, ease: "easeInOut" },
    },
   };
 
@@ -143,14 +125,20 @@ const AccessibilityIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={containerVariants}
      >
-      <circle cx="16" cy="4" r="1" />
-      <path d="m18 19 1-7-6 1" />
-      <m.path d="m5 8 3-3 5.5 3-2.36 3.5" variants={handVariants} />
-      <m.g variants={wheelVariants}>
-       <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
-       <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
+      <m.g
+       variants={figureVariants}
+       style={{ transformBox: "view-box", originX: "9px", originY: "16px" }}
+      >
+       <circle cx="16" cy="4" r="1" />
+       <path d="m18 19 1-7-6 1" />
+       <path d="m5 8 3-3 5.5 3-2.36 3.5" />
+      </m.g>
+      <m.g
+       variants={wheelVariants}
+       style={{ transformBox: "view-box", originX: "9px", originY: "16px" }}
+      >
+       <path d="M4.24 14.5a5 5 0 0 0 6.88 6M13.76 17.5a5 5 0 0 0-6.88-6" />
       </m.g>
      </m.svg>
     </m.div>

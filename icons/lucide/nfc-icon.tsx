@@ -81,18 +81,18 @@ const NfcIcon = forwardRef<NfcIconHandle, NfcIconProps>(
    [controls, onMouseLeave],
   );
 
-  const waveVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const waveVariants = (i: number): Variants => ({
+   normal: { x: 0 },
+   animate: {
+    x: [0, 1.6, -0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     ease: "easeOut",
-     delay: i * 0.12 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: i * 0.09 * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -116,26 +116,16 @@ const NfcIcon = forwardRef<NfcIconHandle, NfcIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M6 8.32a7.43 7.43 0 0 1 0 7.36"
-       variants={waveVariants}
-       custom={0}
-      />
+      <m.path d="M6 8.32a7.43 7.43 0 0 1 0 7.36" variants={waveVariants(0)} />
       <m.path
        d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"
-       variants={waveVariants}
-       custom={1}
+       variants={waveVariants(1)}
       />
       <m.path
        d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"
-       variants={waveVariants}
-       custom={2}
+       variants={waveVariants(2)}
       />
-      <m.path
-       d="M16.37 2a20.16 20.16 0 0 1 0 20"
-       variants={waveVariants}
-       custom={3}
-      />
+      <m.path d="M16.37 2a20.16 20.16 0 0 1 0 20" variants={waveVariants(3)} />
      </m.svg>
     </m.div>
    </LazyMotion>

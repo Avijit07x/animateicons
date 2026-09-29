@@ -50,7 +50,7 @@ describe("tools", () => {
 	});
 
 	it("get_icon returns source + import snippet", async () => {
-		const out = await getIconTool(ctx, { name: "bell-ring" });
+		const out = await getIconTool(ctx, { name: "lu-bell-ring" });
 		expect(out.found).toBe(true);
 		expect(out.componentName).toBe("BellRingIcon");
 		expect(out.source).toContain("BellRingIcon");
@@ -65,7 +65,7 @@ describe("tools", () => {
 
 	it("add_icon writes the component to disk", async () => {
 		const cwd = makeTmpDir();
-		const out = await addIconTool({ ...ctx, cwd }, { name: "bell-ring" });
+		const out = await addIconTool({ ...ctx, cwd }, { name: "lu-bell-ring" });
 		expect(out.added).toBe(true);
 		expect(out.file && fs.existsSync(out.file)).toBe(true);
 		expect(fs.readFileSync(out.file!, "utf8")).toContain("BellRingIcon");

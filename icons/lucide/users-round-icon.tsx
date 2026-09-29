@@ -81,39 +81,27 @@ const UsersRoundIcon = forwardRef<UsersRoundIconHandle, UsersRoundIconProps>(
    [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [60, 0],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const sideVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 0.7 },
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [50, 0],
-    opacity: [0.2, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.8 * duration,
-     delay: 0.4,
-     ease: "easeInOut" as const,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -137,31 +125,14 @@ const UsersRoundIcon = forwardRef<UsersRoundIconHandle, UsersRoundIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-users-round-icon lucide-users-round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M18 21a8 8 0 0 0-16 0"
-       strokeDasharray="60"
-       strokeDashoffset="60"
-       variants={arcVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M18 21a8 8 0 0 0-16 0" />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
       <m.path
        d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"
-       strokeDasharray="50"
-       strokeDashoffset="50"
        variants={sideVariants}
-       initial="normal"
-       animate={controls}
       />
      </m.svg>
     </m.div>

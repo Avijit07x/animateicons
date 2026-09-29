@@ -51,77 +51,52 @@ const EyeOffIcon = forwardRef<EyeOffIconHandle, EyeOffIconProps>(
   },
   ref,
  ) => {
-  const arcControls = useAnimation();
-  const slashControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      arcControls.start("visible");
-      slashControls.start("visible");
-     } else {
-      arcControls.start("hide");
-      slashControls.start("strike");
-     }
-    },
-    stopAnimation: () => {
-     arcControls.start("visible");
-     slashControls.start("visible");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     arcControls.start("hide");
-     slashControls.start("strike");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [arcControls, slashControls, isAnimated, reduced, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     arcControls.start("visible");
-     slashControls.start("visible");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [arcControls, slashControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const arcVariants: Variants = {
-   visible: {
-    opacity: 1,
-    scale: 1,
-   },
-   hide: {
-    opacity: 0.4,
-    scale: 0.92,
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-    },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.45, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   visible: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   strike: {
-    pathLength: [0, 1],
-    opacity: [0.6, 1],
+   normal: { strokeDashoffset: 0 },
+   animate: {
+    strokeDashoffset: [24, 0],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.45 * duration,
      ease: "easeOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -135,7 +110,7 @@ const EyeOffIcon = forwardRef<EyeOffIconHandle, EyeOffIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -145,28 +120,21 @@ const EyeOffIcon = forwardRef<EyeOffIconHandle, EyeOffIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.g
-       animate={arcControls}
-       initial="visible"
-       variants={arcVariants}
-       style={{
-        transformBox: "fill-box",
-        transformOrigin: "center",
-       }}
-      >
+      <m.g variants={bodyVariants}>
        <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
        <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
       </m.g>
-
       <m.path
        d="m2 2 20 20"
-       animate={slashControls}
-       initial="visible"
+       strokeDasharray="29"
+       strokeDashoffset="0"
        variants={slashVariants}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

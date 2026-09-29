@@ -81,36 +81,41 @@ const CopyCheckIcon = forwardRef<CopyCheckIconHandle, CopyCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const backVariants: Variants = {
+  const frontVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -1.5, 0],
-    y: [0, -1.5, 0],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    x: [0, 1, -0.3, 0],
+    y: [0, 1, -0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const frontVariants: Variants = {
-   normal: { scale: 1 },
+  const backVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [1, 0.94, 1.04, 1],
+    x: [0, -1, 0.3, 0],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const tickVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.45 * duration,
      ease: "easeOut",
-     delay: 0.25 * duration,
+     delay: 0.15 * duration,
     },
    },
   };
@@ -137,11 +142,13 @@ const CopyCheckIcon = forwardRef<CopyCheckIconHandle, CopyCheckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={frontVariants}
-       style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
-      >
-       <m.path d="m12 15 2 2 4-4" variants={tickVariants} />
+      <m.g variants={frontVariants}>
+       <m.path
+        d="m12 15 2 2 4-4"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={tickVariants}
+       />
        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
       </m.g>
       <m.path

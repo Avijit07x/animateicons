@@ -44,7 +44,7 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -74,75 +74,25 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const bottomNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: { duration: duration * 0.3, ease },
-   },
-  };
-
-  const trunk: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.45,
-     ease,
-     delay: duration * 0.15,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const branch: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     duration: duration * 0.4,
-     ease,
-     delay: duration * 0.4,
-    },
-   },
-  };
-
-  const leftNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.25,
-     ease,
-     delay: duration * 0.65,
-    },
-   },
-  };
-
-  const rightNode: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.25,
-     ease,
-     delay: duration * 0.65,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -153,7 +103,7 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -163,51 +113,15 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="12"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={bottomNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M12 12v3"
-       variants={trunk}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"
-       variants={branch}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="6"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={leftNode}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={rightNode}
-       initial="normal"
-       animate={controls}
-      />
-     </svg>
+      <m.circle cx="12" cy="18" r="3" variants={nodeVariants(0)} />
+      <m.circle cx="6" cy="6" r="3" variants={nodeVariants(0.1)} />
+      <m.circle cx="18" cy="6" r="3" variants={nodeVariants(0.2)} />
+      <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" />
+      <path d="M12 12v3" />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -215,5 +129,4 @@ const GitForkIcon = forwardRef<GitForkIconHandle, GitForkIconProps>(
 );
 
 GitForkIcon.displayName = "GitForkIcon";
-
 export { GitForkIcon };

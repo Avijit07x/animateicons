@@ -74,40 +74,19 @@ const MonitorIcon = forwardRef<MonitorIconHandle, MonitorIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const screenVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    scale: [0.9, 1.02, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.65, 1],
-     ease: [0.34, 1.3, 0.64, 1],
-    },
+    rotate: [0, -5, 4, -2, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
-  };
-
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
   };
 
   return (
@@ -139,24 +118,10 @@ const MonitorIcon = forwardRef<MonitorIconHandle, MonitorIconProps>(
        y="3"
        rx="2"
        variants={screenVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "17px" }}
       />
-      <m.line
-       x1="12"
-       y1="17"
-       x2="12"
-       y2="21"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.line
-       x1="8"
-       y1="21"
-       x2="16"
-       y2="21"
-       custom={1}
-       variants={bodyVariants}
-      />
+      <line x1="8" x2="16" y1="21" y2="21" />
+      <line x1="12" x2="12" y1="17" y2="21" />
      </m.svg>
     </m.div>
    </LazyMotion>

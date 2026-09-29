@@ -47,7 +47,7 @@ const GitCommitHorizontalIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.7,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -77,83 +77,34 @@ const GitCommitHorizontalIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
+   (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e);
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const overshootEase: [number, number, number, number] = [0.34, 1.56, 0.64, 1];
-  const smoothDecel: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-  const svgVariants: Variants = {
-   normal: { rotate: 0 },
+  const lineVariants = (from: "start" | "end"): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    rotate: 360,
-    transition: {
-     duration: duration,
-     ease: "linear",
-    },
-   },
-  };
-
-  const commitNodeVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.2, 1.24, 0.92, 1],
+    strokeDashoffset: from === "start" ? [7, 0] : [-7, 0],
     opacity: [0, 1],
     transition: {
-     scale: {
-      duration: 0.52 * duration,
-      ease: overshootEase,
-      delay: 0,
-     },
-     opacity: {
-      duration: 0.22 * duration,
-      ease: "easeOut",
-      delay: 0,
-     },
+     strokeDashoffset: { duration: 0.4 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration, ease: "easeOut" },
     },
    },
-  };
+  });
 
-  const leftLineVariants: Variants = {
-   normal: { x1: 3, opacity: 1 },
+  const commitVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    x1: [9, 3],
-    opacity: [0, 1],
+    scale: [1, 1.35, 0.92, 1],
     transition: {
-     x1: {
-      duration: 0.42 * duration,
-      ease: smoothDecel,
-      delay: 0.42 * duration,
-     },
-     opacity: {
-      duration: 0.18 * duration,
-      ease: "easeOut",
-      delay: 0.42 * duration,
-     },
-    },
-   },
-  };
-
-  const rightLineVariants: Variants = {
-   normal: { x2: 21, opacity: 1 },
-   animate: {
-    x2: [15, 21],
-    opacity: [0, 1],
-    transition: {
-     x2: {
-      duration: 0.42 * duration,
-      ease: smoothDecel,
-      delay: 0.42 * duration,
-     },
-     opacity: {
-      duration: 0.18 * duration,
-      ease: "easeOut",
-      delay: 0.42 * duration,
-     },
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.3 * duration,
     },
    },
   };
@@ -177,37 +128,33 @@ const GitCommitHorizontalIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={svgVariants}
-      initial="normal"
       animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="12"
-       cy="12"
-       r="3"
-       variants={commitNodeVariants}
-       initial="normal"
-       animate={controls}
-      />
-
       <m.line
        x1="3"
        x2="9"
        y1="12"
        y2="12"
-       variants={leftLineVariants}
-       initial="normal"
-       animate={controls}
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={lineVariants("end")}
       />
-
+      <m.circle
+       cx="12"
+       cy="12"
+       r="3"
+       variants={commitVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.line
        x1="15"
        x2="21"
        y1="12"
        y2="12"
-       variants={rightLineVariants}
-       initial="normal"
-       animate={controls}
+       strokeDasharray="7"
+       strokeDashoffset="0"
+       variants={lineVariants("start")}
       />
      </m.svg>
     </m.div>
@@ -217,5 +164,4 @@ const GitCommitHorizontalIcon = forwardRef<
 );
 
 GitCommitHorizontalIcon.displayName = "GitCommitHorizontalIcon";
-
 export { GitCommitHorizontalIcon };

@@ -81,48 +81,40 @@ const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
+  const dotVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: 0,
+    scale: [1, 1.25, 0.9, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const mainPathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+  const stemVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0.3, 1],
-    opacity: [0.6, 1],
+    scaleY: [1, 1.06, 0.97, 1],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.08 * duration,
     },
    },
   };
 
-  const secondaryVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+  const lettersVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    scaleY: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 0.45 * duration,
-     delay: 0.12 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.14 * duration,
     },
    },
   };
@@ -148,17 +140,27 @@ const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.path
-       d="M16 8a6 6 0 0 1 6 6v7h-4v-7
-	              a2 2 0 0 0-2-2 
-	              2 2 0 0 0-2 2v7h-4v-7
-	              a6 6 0 0 1 6-6z"
-       variants={mainPathVariants}
+       d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+       variants={lettersVariants}
+       style={{ transformBox: "view-box", originX: "16px", originY: "21px" }}
       />
-      <m.rect width="4" height="12" x="2" y="9" variants={secondaryVariants} />
-      <m.circle cx="4" cy="4" r="2" variants={secondaryVariants} />
+      <m.rect
+       width="4"
+       height="12"
+       x="2"
+       y="9"
+       variants={stemVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "21px" }}
+      />
+      <m.circle
+       cx="4"
+       cy="4"
+       r="2"
+       variants={dotVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "4px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

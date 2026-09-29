@@ -77,38 +77,29 @@ const StrikethroughIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const letterVariants: Variants = {
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.45, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
-  const strikeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+  const lineVariants: Variants = {
+   normal: { strokeDashoffset: 0 },
    animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [16, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.4 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -135,15 +126,18 @@ const StrikethroughIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M16 4H9a3 3 0 0 0-2.83 4" custom={0} variants={drawVariants} />
-      <m.path d="M14 12a4 4 0 0 1 0 8H6" custom={1} variants={drawVariants} />
+      <m.g variants={letterVariants}>
+       <path d="M16 4H9a3 3 0 0 0-2.83 4" />
+       <path d="M14 12a4 4 0 0 1 0 8H6" />
+      </m.g>
       <m.line
        x1="4"
-       y1="12"
        x2="20"
+       y1="12"
        y2="12"
-       variants={strikeVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "12px" }}
+       strokeDasharray="16"
+       strokeDashoffset="0"
+       variants={lineVariants}
       />
      </m.svg>
     </m.div>

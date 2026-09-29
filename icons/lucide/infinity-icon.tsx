@@ -81,14 +81,13 @@ const InfinityIcon = forwardRef<InfinityIconHandle, InfinityIconProps>(
    [controls, onMouseLeave],
   );
 
-  const loopVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const rockVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    rotate: [0, -10, 8, -3, 0],
     transition: {
-     pathLength: { duration: duration, ease: "easeInOut" },
-     opacity: { duration: 0.2 * duration },
+     duration: 0.8 * duration,
+     ease: "easeInOut",
     },
    },
   };
@@ -117,7 +116,8 @@ const InfinityIcon = forwardRef<InfinityIconHandle, InfinityIconProps>(
      >
       <m.path
        d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"
-       variants={loopVariants}
+       variants={rockVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

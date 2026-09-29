@@ -74,40 +74,36 @@ const TvMinimalIcon = forwardRef<TvMinimalIconHandle, TvMinimalIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const screenVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.9, 1.02, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.04, 0.98, 1],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.65, 1],
-     ease: [0.34, 1.3, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const standVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.7, 1.08, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -132,6 +128,11 @@ const TvMinimalIcon = forwardRef<TvMinimalIconHandle, TvMinimalIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.path
+       d="M7 21h10"
+       variants={standVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
+      />
       <m.rect
        width="20"
        height="14"
@@ -141,7 +142,6 @@ const TvMinimalIcon = forwardRef<TvMinimalIconHandle, TvMinimalIconProps>(
        variants={screenVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
       />
-      <m.path d="M7 21h10" custom={1} variants={bodyVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

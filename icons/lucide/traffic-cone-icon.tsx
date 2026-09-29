@@ -84,7 +84,7 @@ const TrafficConeIcon = forwardRef<TrafficConeIconHandle, TrafficConeIconProps>(
   const coneVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -12, 9, -5, 2, 0],
+    rotate: [0, -12, 9, -5, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };

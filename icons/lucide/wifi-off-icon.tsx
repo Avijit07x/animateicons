@@ -51,166 +51,52 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
   },
   ref,
  ) => {
-  const groupControls = useAnimation();
-  const arcLargeControls = useAnimation();
-  const arcMidControls = useAnimation();
-  const arcSmallControls = useAnimation();
-  const dotControls = useAnimation();
-  const slashControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      groupControls.start("normal");
-      arcLargeControls.start("normal");
-      arcMidControls.start("normal");
-      arcSmallControls.start("normal");
-      dotControls.start("normal");
-      slashControls.start("normal");
-     } else {
-      groupControls.start("animate");
-      arcLargeControls.start("animate");
-      arcMidControls.start("animate");
-      arcSmallControls.start("animate");
-      dotControls.start("animate");
-      slashControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     dotControls.start("normal");
-     slashControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     groupControls.start("animate");
-     arcLargeControls.start("animate");
-     arcMidControls.start("animate");
-     arcSmallControls.start("animate");
-     dotControls.start("animate");
-     slashControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    dotControls,
-    slashControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     dotControls.start("normal");
-     slashControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    dotControls,
-    slashControls,
-    onMouseLeave,
-   ],
+   [controls, onMouseLeave],
   );
 
-  const groupVariants: Variants = {
-   normal: { scale: 1 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    scale: [1, 1.05, 0.99, 1],
-    transition: {
-     duration: 0.7 * duration,
-     times: [0, 0.5, 0.8, 1],
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcLargeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.36 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcMidVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: 0.24 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcSmallVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.12 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.4, 1.25, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.35 * duration,
-     times: [0, 0.6, 1],
-     ease: "easeOut",
-    },
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [32, 0],
     transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.02,
+     duration: 0.45 * duration,
+     ease: "easeOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -231,54 +117,24 @@ const WifiOffIcon = forwardRef<WifiOffIconHandle, WifiOffIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
       initial="normal"
-      animate={groupControls}
-      variants={groupVariants}
      >
-      <m.path
-       d="M12 20h.01"
-       initial="normal"
-       animate={dotControls}
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
-      />
-      <m.path
-       d="M8.5 16.429a5 5 0 0 1 7 0"
-       initial="normal"
-       animate={arcSmallControls}
-       variants={arcSmallVariants}
-      />
-      <m.path
-       d="M5 12.859a10 10 0 0 1 5.17-2.69"
-       initial="normal"
-       animate={arcMidControls}
-       variants={arcMidVariants}
-      />
-      <m.path
-       d="M19 12.859a10 10 0 0 0-2.007-1.523"
-       initial="normal"
-       animate={arcMidControls}
-       variants={arcMidVariants}
-      />
-      <m.path
-       d="M2 8.82a15 15 0 0 1 4.177-2.643"
-       initial="normal"
-       animate={arcLargeControls}
-       variants={arcLargeVariants}
-      />
-      <m.path
-       d="M22 8.82a15 15 0 0 0-11.288-3.764"
-       initial="normal"
-       animate={arcLargeControls}
-       variants={arcLargeVariants}
-      />
+      <m.g variants={bodyVariants}>
+       <path d="M12 20h.01" />
+       <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+       <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
+       <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
+       <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
+       <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
+      </m.g>
       <m.path
        d="m2 2 20 20"
-       initial="normal"
-       animate={slashControls}
+       strokeDasharray="30 200"
+       strokeDashoffset="0"
        variants={slashVariants}
       />
      </m.svg>

@@ -51,71 +51,46 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
   },
   ref,
  ) => {
-  const folderControls = useAnimation();
-  const paperControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      folderControls.start("normal");
-      paperControls.start("normal");
-     } else {
-      folderControls.start("animate");
-      paperControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     folderControls.start("normal");
-     paperControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     folderControls.start("animate");
-     paperControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [folderControls, paperControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     folderControls.start("normal");
-     paperControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [folderControls, paperControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const folderVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+   normal: { y: 0, skewX: 0 },
    animate: {
-    scale: [1, 1.05, 0.97, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1.5, 0.5, 0],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const paperVariants: Variants = {
-   normal: { y: 0, opacity: 0 },
-   animate: {
-    y: [-6, 0],
-    opacity: [0, 1, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut", delay: 0.2 },
+    y: [0, -2, 0.6, 0],
+    skewX: [0, -9, 4, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
@@ -138,22 +113,13 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
-       animate={folderControls}
-       initial="normal"
        variants={folderVariants}
-      />
-      <m.rect
-       x="7"
-       y="11"
-       width="10"
-       height="6"
-       rx="1"
-       animate={paperControls}
-       initial="normal"
-       variants={paperVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
      </m.svg>
     </m.div>

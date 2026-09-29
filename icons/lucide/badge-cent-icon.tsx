@@ -51,99 +51,56 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
   },
   ref,
  ) => {
-  const outerControls = useAnimation();
-  const lineControls = useAnimation();
-  const semiControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      outerControls.start("normal");
-      lineControls.start("normal");
-      semiControls.start("normal");
-     } else {
-      outerControls.start("animate");
-      lineControls.start("animate");
-      semiControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     outerControls.start("normal");
-     lineControls.start("normal");
-     semiControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     outerControls.start("animate");
-     lineControls.start("animate");
-     semiControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    outerControls,
-    lineControls,
-    semiControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     outerControls.start("normal");
-     lineControls.start("normal");
-     semiControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [outerControls, lineControls, semiControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const outerVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const badgeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.02, 1],
-    rotate: [0, 180, 0],
+    scale: [1, 1.08, 0.97, 1],
     transition: {
-     duration: 1.1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const lineVariants: Variants = {
-   normal: { strokeDashoffset: 0, scaleY: 1, opacity: 1 },
+  const coinVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    strokeDashoffset: [16, 0],
-    scaleY: [1, 1.16, 0.98, 1],
-    opacity: [0.9, 1, 1],
+    scaleX: [1, 0.1, 1],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.55 * duration,
      ease: "easeInOut",
-     delay: 0.18,
-    },
-   },
-  };
-
-  const semiVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [80, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.9 * duration,
-     ease: [0.22, 0.8, 0.2, 1],
-     delay: 0.32,
+     delay: 0.1 * duration,
     },
    },
   };
@@ -157,7 +114,7 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -167,33 +124,22 @@ const BadgeCentIcon = forwardRef<BadgeCentIconHandle, BadgeCentIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-       initial="normal"
-       animate={outerControls}
-       variants={outerVariants}
-       style={{ strokeDasharray: 260, transformOrigin: "12px 12px" }}
+       variants={badgeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M12 7v10"
-       initial="normal"
-       animate={lineControls}
-       variants={lineVariants}
-       style={{
-        strokeDasharray: 16,
-        strokeLinecap: "round",
-        transformOrigin: "12px 12px",
-       }}
-      />
-      <m.path
-       d="M15.4 10a4 4 0 1 0 0 4"
-       initial="normal"
-       animate={semiControls}
-       variants={semiVariants}
-       style={{ strokeDasharray: 80, strokeLinecap: "round" }}
-      />
-     </svg>
+      <m.g
+       variants={coinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M12 7v10" />
+       <path d="M15.4 10a4 4 0 1 0 0 4" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

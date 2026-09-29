@@ -81,21 +81,11 @@ const FramerIcon = forwardRef<FramerIconHandle, FramerIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const leanVariants: Variants = {
+   normal: { skewX: 0 },
    animate: {
-    scale: [1, 1.07, 0.95, 1],
-    rotate: [0, -2, 2, 0],
-    transition: { duration: 1.4 * duration, ease: "easeInOut", repeat: 0 },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: { duration: 1.5 * duration, ease: "easeInOut", repeat: 0 },
+    skewX: [0, -9, 6, -3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -120,11 +110,11 @@ const FramerIcon = forwardRef<FramerIconHandle, FramerIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.path
        d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"
-       variants={pathVariants}
+       variants={leanVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
       />
      </m.svg>
     </m.div>

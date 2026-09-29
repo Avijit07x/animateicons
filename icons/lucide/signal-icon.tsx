@@ -76,42 +76,30 @@ const SignalIcon = forwardRef<SignalIconHandle, SignalIconProps>(
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else {
-     onMouseLeave?.(e as any);
-    }
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
-   animate: {
-    scale: [1, 1.05, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
-   },
-  };
-
   const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 0.8 },
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.3, 1],
-    opacity: [0.5, 1, 0.8],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scale: [1, 1.7, 1],
+    transition: { duration: 0.4 * duration, ease: "easeInOut" },
    },
   };
 
-  const barPulse = (delay: number): Variants => ({
-   normal: { scaleY: 1, opacity: 0.9, transformOrigin: "center bottom" },
-   animate: {
-    scaleY: [1, 1.4, 0.95, 1],
-    opacity: [0.8, 1, 0.85, 1],
+  const barVariants: Variants = {
+   normal: { scaleY: 1 },
+   animate: (i: number) => ({
+    scaleY: [1, 0.35, 1],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     delay,
+     delay: (0.1 + i * 0.1) * duration,
     },
-   },
-  });
+   }),
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -134,37 +122,35 @@ const SignalIcon = forwardRef<SignalIconHandle, SignalIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
        d="M2 20h.01"
        variants={dotVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "2px", originY: "20px" }}
       />
       <m.path
        d="M7 20v-4"
-       variants={barPulse(0.1)}
-       initial="normal"
-       animate={controls}
+       variants={barVariants}
+       custom={0}
+       style={{ transformBox: "view-box", originX: "7px", originY: "20px" }}
       />
       <m.path
        d="M12 20v-8"
-       variants={barPulse(0.25)}
-       initial="normal"
-       animate={controls}
+       variants={barVariants}
+       custom={1}
+       style={{ transformBox: "view-box", originX: "12px", originY: "20px" }}
       />
       <m.path
        d="M17 20V8"
-       variants={barPulse(0.4)}
-       initial="normal"
-       animate={controls}
+       variants={barVariants}
+       custom={2}
+       style={{ transformBox: "view-box", originX: "17px", originY: "20px" }}
       />
       <m.path
        d="M22 4v16"
-       variants={barPulse(0.55)}
-       initial="normal"
-       animate={controls}
+       variants={barVariants}
+       custom={3}
+       style={{ transformBox: "view-box", originX: "22px", originY: "20px" }}
       />
      </m.svg>
     </m.div>

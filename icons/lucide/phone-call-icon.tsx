@@ -84,24 +84,23 @@ const PhoneCallIcon = forwardRef<PhoneCallIconHandle, PhoneCallIconProps>(
   const phoneVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -10, 10, -6, 6, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, -12, 10, -6, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
+  const peaks = [1.3, 1.1];
+
   const waveVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
-   animate: {
-    opacity: [1, 0.6, 1],
-    scale: [1, 1.1, 1],
+   normal: { scale: 1 },
+   animate: (i: number) => ({
+    scale: [1, peaks[i], 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: (0.15 + i * 0.1) * duration,
     },
-   },
+   }),
   };
 
   return (
@@ -123,28 +122,25 @@ const PhoneCallIcon = forwardRef<PhoneCallIconHandle, PhoneCallIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M13 2a9 9 0 0 1 9 9"
        variants={waveVariants}
-       initial="normal"
-       animate={controls}
+       custom={1}
+       style={{ transformBox: "view-box", originX: "13px", originY: "11px" }}
       />
       <m.path
        d="M13 6a5 5 0 0 1 5 5"
        variants={waveVariants}
-       initial="normal"
-       animate={controls}
+       custom={0}
+       style={{ transformBox: "view-box", originX: "13px", originY: "11px" }}
       />
       <m.path
        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
        variants={phoneVariants}
-       initial="normal"
-       animate={controls}
-       style={{
-        transformBox: "fill-box",
-        transformOrigin: "center",
-       }}
+       style={{ transformBox: "fill-box", transformOrigin: "center" }}
       />
      </m.svg>
     </m.div>

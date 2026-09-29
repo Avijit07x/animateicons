@@ -74,38 +74,35 @@ const FolderDotIcon = forwardRef<FolderDotIconHandle, FolderDotIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
+  const folderVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0, scale: 1 },
    animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
+    y: [0, -1.6, 0.4, 0],
+    scale: [1, 1.3, 0.92, 1],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.14 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -131,17 +128,17 @@ const FolderDotIcon = forwardRef<FolderDotIconHandle, FolderDotIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
-      <m.circle
-       cx="12"
-       cy="13"
-       r="1"
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      />
+      <m.g variants={folderVariants}>
+       <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+       <m.circle
+        cx="12"
+        cy="13"
+        r="1"
+        variants={dotVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

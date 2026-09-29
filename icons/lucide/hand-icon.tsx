@@ -84,7 +84,7 @@ const HandIcon = forwardRef<HandIconHandle, HandIconProps>(
   const waveVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -14, 4, -10, 2, 0],
+    rotate: [0, -14, 4, -10, 0],
     transition: { duration: duration, ease: "easeInOut" },
    },
   };

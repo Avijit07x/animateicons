@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FigmaIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -81,44 +82,18 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: {
-    scale: 1,
-    y: 0,
-   },
-   animate: {
-    scale: [1, 1.04, 1],
-    y: [0, -1, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const shapeVariants: Variants = {
-   normal: {
-    opacity: 1,
-    scale: 1,
-   },
+  const pieceVariants: Variants = {
+   normal: { y: 0 },
    animate: (i: number) => ({
-    opacity: [0, 1],
-    scale: [0.85, 1],
+    y: [0, -0.9, 0],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: i * 0.08,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 1],
+     delay: i * 0.07 * duration,
     },
    }),
   };
-
-  const paths = [
-   "M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z",
-   "M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z",
-   "M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z",
-   "M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z",
-   "M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z",
-  ];
 
   return (
    <LazyMotion features={domMin} strict>
@@ -141,11 +116,32 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
-      {paths.map((d, i) => (
-       <m.path key={i} d={d} variants={shapeVariants} custom={i} />
-      ))}
+      <m.path
+       d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"
+       variants={pieceVariants}
+       custom={0}
+      />
+      <m.path
+       d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"
+       variants={pieceVariants}
+       custom={0}
+      />
+      <m.path
+       d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"
+       variants={pieceVariants}
+       custom={1}
+      />
+      <m.path
+       d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"
+       variants={pieceVariants}
+       custom={1}
+      />
+      <m.path
+       d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"
+       variants={pieceVariants}
+       custom={2}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

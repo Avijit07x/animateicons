@@ -91,7 +91,7 @@ const MailOpenIcon = forwardRef<MailOpenIconHandle, MailOpenIconProps>(
     transition: {
      duration: 0.6 * duration,
      times: [0, 0.5, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     ease: "easeInOut",
     },
    },
   };

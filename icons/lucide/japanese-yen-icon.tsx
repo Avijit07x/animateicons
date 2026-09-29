@@ -81,51 +81,27 @@ const JapaneseYenIcon = forwardRef<JapaneseYenIconHandle, JapaneseYenIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const upperVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const vStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
+    y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.06,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const midStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const lowerVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
+    y: [0, -1.5, 0.6, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.22,
-    },
-   },
-  };
-
-  const baseStroke: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.34,
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -151,36 +127,10 @@ const JapaneseYenIcon = forwardRef<JapaneseYenIconHandle, JapaneseYenIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      className="lucide lucide-japanese-yen-icon lucide-japanese-yen"
      >
-      <g opacity={0.35}>
-       <path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3" />
-       <path d="M6 15h12" />
-       <path d="M6 11h12" />
-      </g>
-
-      <m.path
-       d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3"
-       pathLength={1}
-       variants={vStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 11h12"
-       pathLength={1}
-       variants={midStroke}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M6 15h12"
-       pathLength={1}
-       variants={baseStroke}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3" />
+      <m.path d="M6 15h12" variants={lowerVariants} />
+      <m.path d="M6 11h12" variants={upperVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

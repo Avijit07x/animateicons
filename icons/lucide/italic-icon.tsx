@@ -74,38 +74,21 @@ const ItalicIcon = forwardRef<ItalicIconHandle, ItalicIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const drawVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: (0.05 + i * 0.12) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const slantVariants: Variants = {
+  const leanVariants: Variants = {
    normal: { skewX: 0 },
    animate: {
-    skewX: [-10, 2, 0],
+    skewX: [0, -14, 4, 0],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.25 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -133,33 +116,12 @@ const ItalicIcon = forwardRef<ItalicIconHandle, ItalicIconProps>(
       initial="normal"
      >
       <m.g
-       variants={slantVariants}
+       variants={leanVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
-       <m.line
-        x1="19"
-        y1="4"
-        x2="10"
-        y2="4"
-        custom={0}
-        variants={drawVariants}
-       />
-       <m.line
-        x1="14"
-        y1="20"
-        x2="5"
-        y2="20"
-        custom={1}
-        variants={drawVariants}
-       />
-       <m.line
-        x1="15"
-        y1="4"
-        x2="9"
-        y2="20"
-        custom={2}
-        variants={drawVariants}
-       />
+       <line x1="19" x2="10" y1="4" y2="4" />
+       <line x1="14" x2="5" y1="20" y2="20" />
+       <line x1="15" x2="9" y1="4" y2="20" />
       </m.g>
      </m.svg>
     </m.div>

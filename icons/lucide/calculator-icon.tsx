@@ -52,56 +52,59 @@ const CalculatorIcon = forwardRef<CalculatorIconHandle, CalculatorIconProps>(
   },
   ref,
  ) => {
-  const keyControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   keyControls.start("press");
-  }, [keyControls, reduced]);
-
-  const stop = useCallback(() => {
-   keyControls.start("rest");
-  }, [keyControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const keyVariants = (i: number): Variants => ({
-   rest: { scale: 1, opacity: 1 },
-   press: {
+   normal: { scale: 1 },
+   animate: {
     scale: [1, 1.8, 1],
-    opacity: [1, 1, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     delay: i * 0.06 * duration,
+     duration: 0.35 * duration,
+     ease: "easeInOut",
+     delay: (0.15 + i * 0.06) * duration,
     },
    },
   });
+
+  const displayVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
+   animate: {
+    strokeDashoffset: [9, 0],
+    opacity: [0, 1],
+    transition: {
+     strokeDashoffset: { duration: 0.4 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration, ease: "easeOut" },
+    },
+   },
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -112,7 +115,7 @@ const CalculatorIcon = forwardRef<CalculatorIconHandle, CalculatorIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -122,60 +125,56 @@ const CalculatorIcon = forwardRef<CalculatorIconHandle, CalculatorIconProps>(
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <rect width="16" height="20" x="4" y="2" rx="2" />
-      <line x1="8" x2="16" y1="6" y2="6" />
+      <m.line
+       x1="8"
+       x2="16"
+       y1="6"
+       y2="6"
+       strokeDasharray="9"
+       strokeDashoffset="0"
+       variants={displayVariants}
+      />
       <line x1="16" x2="16" y1="14" y2="18" />
       <m.path
        d="M16 10h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(0)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "16px", originY: "10px" }}
       />
       <m.path
        d="M12 10h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(1)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
       />
       <m.path
        d="M8 10h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(2)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "8px", originY: "10px" }}
       />
       <m.path
        d="M12 14h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(3)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "14px" }}
       />
       <m.path
        d="M8 14h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(4)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "8px", originY: "14px" }}
       />
       <m.path
        d="M12 18h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(5)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "18px" }}
       />
       <m.path
        d="M8 18h.01"
-       animate={keyControls}
-       initial="rest"
        variants={keyVariants(6)}
-       style={{ transformBox: "fill-box", transformOrigin: "center" }}
+       style={{ transformBox: "view-box", originX: "8px", originY: "18px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

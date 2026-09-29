@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface MegaphoneIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,54 +51,42 @@ const MegaphoneIcon = forwardRef<MegaphoneIconHandle, MegaphoneIconProps>(
   },
   ref,
  ) => {
-  const hornControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   hornControls.start("shout");
-  }, [hornControls, reduced]);
-
-  const stop = useCallback(() => {
-   hornControls.start("rest");
-  }, [hornControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const hornVariants: Variants = {
-   rest: { rotate: 0, scale: 1 },
-   shout: {
-    rotate: [0, -6, 4, -2, 0],
-    scale: [1, 1.06, 1.01, 1.03, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeInOut",
-     times: [0, 0.22, 0.46, 0.72, 1],
-    },
+  const shoutVariants: Variants = {
+   normal: { rotate: 0, x: 0 },
+   animate: {
+    rotate: [0, -8, 6, -3, 0],
+    x: [0, 1.2, -0.5, 0.3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -109,27 +96,31 @@ const MegaphoneIcon = forwardRef<MegaphoneIconHandle, MegaphoneIconProps>(
      className={cn("inline-flex items-center justify-center", className)}
      onMouseEnter={handleEnter}
      onMouseLeave={handleLeave}
-     animate={hornControls}
-     initial="rest"
-     variants={hornVariants}
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-      <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
-      <path d="M8 6v8" />
-     </svg>
+      <m.g
+       variants={shoutVariants}
+       style={{ transformBox: "view-box", originX: "5px", originY: "11px" }}
+      >
+       <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+       <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
+       <path d="M8 6v8" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

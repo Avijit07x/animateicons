@@ -84,40 +84,29 @@ const TrendingUpDownIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const upVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    rotate: [0, 2, -2, 0],
+    x: [0, 1, -0.3, 0],
+    y: [0, -1.5, 0.4, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease: [0.22, 1, 0.36, 1],
-    },
-   },
-  };
-
-  const upPathVariants: Variants = {
-   normal: { pathLength: 1, pathOffset: 0 },
-   animate: {
-    pathLength: [0, 1],
-    pathOffset: [1, 0],
-    transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const downPathVariants: Variants = {
-   normal: { opacity: 1, x: 0, y: 0 },
+  const downVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    opacity: [0, 1],
-    x: [4, 0],
-    y: [-4, 0],
+    x: [0, 1, -0.3, 0],
+    y: [0, 1.5, -0.4, 0],
     transition: {
-     duration: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
-     delay: 0.15,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.15 * duration,
     },
    },
   };
@@ -141,34 +130,17 @@ const TrendingUpDownIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={iconVariants}
+      initial="normal"
      >
-      <m.path
-       d="M14.828 14.828 21 21"
-       variants={downPathVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M21 16v5h-5"
-       variants={downPathVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="m21 3-9 9-4-4-6 6"
-       variants={upPathVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M21 8V3h-5"
-       variants={upPathVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={downVariants}>
+       <path d="M14.828 14.828 21 21" />
+       <path d="M21 16v5h-5" />
+      </m.g>
+      <m.g variants={upVariants}>
+       <path d="m21 3-9 9-4-4-6 6" />
+       <path d="M21 8V3h-5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

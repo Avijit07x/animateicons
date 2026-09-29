@@ -74,25 +74,22 @@ const RainbowIcon = forwardRef<RainbowIconHandle, RainbowIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const arcVariants: Variants = {
+   normal: { y: 0 },
    animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
      delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
     },
    }),
   };
@@ -119,9 +116,9 @@ const RainbowIcon = forwardRef<RainbowIconHandle, RainbowIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M22 17a10 10 0 0 0-20 0" custom={0} variants={bodyVariants} />
-      <m.path d="M6 17a6 6 0 0 1 12 0" custom={1} variants={bodyVariants} />
-      <m.path d="M10 17a2 2 0 0 1 4 0" custom={2} variants={bodyVariants} />
+      <m.path d="M22 17a10 10 0 0 0-20 0" custom={2} variants={arcVariants} />
+      <m.path d="M6 17a6 6 0 0 1 12 0" custom={1} variants={arcVariants} />
+      <m.path d="M10 17a2 2 0 0 1 4 0" custom={0} variants={arcVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

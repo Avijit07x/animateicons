@@ -81,21 +81,18 @@ const LoaderIcon = forwardRef<LoaderIconHandle, LoaderIconProps>(
    [controls, onMouseLeave],
   );
 
-  const wrapperVariants: Variants = {
-   normal: { rotate: 0, scale: 1, transition: { duration: 0.3 * duration } },
+  const spokeVariants = (i: number): Variants => ({
+   normal: { opacity: 1, scale: 1 },
    animate: {
-    rotate: 360,
-    scale: [1, 1.1, 1],
+    opacity: [1, 0.2, 1],
+    scale: [1, 0.8, 1],
     transition: {
-     rotate: { duration: 1 * duration, ease: "linear", repeat: Infinity },
-     scale: {
-      duration: 0.6 * duration,
-      repeat: Infinity,
-      repeatType: "mirror",
-     },
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: i * 0.05 * duration,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -116,18 +113,17 @@ const LoaderIcon = forwardRef<LoaderIconHandle, LoaderIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={wrapperVariants}
       animate={controls}
       initial="normal"
      >
-      <m.path d="M12 2v4" />
-      <m.path d="m16.2 7.8 2.9-2.9" />
-      <m.path d="M18 12h4" />
-      <m.path d="m16.2 16.2 2.9 2.9" />
-      <m.path d="M12 18v4" />
-      <m.path d="m4.9 19.1 2.9-2.9" />
-      <m.path d="M2 12h4" />
-      <m.path d="m4.9 4.9 2.9 2.9" />
+      <m.path d="M12 2v4" variants={spokeVariants(0)} />
+      <m.path d="m16.2 7.8 2.9-2.9" variants={spokeVariants(1)} />
+      <m.path d="M18 12h4" variants={spokeVariants(2)} />
+      <m.path d="m16.2 16.2 2.9 2.9" variants={spokeVariants(3)} />
+      <m.path d="M12 18v4" variants={spokeVariants(4)} />
+      <m.path d="m4.9 19.1 2.9-2.9" variants={spokeVariants(5)} />
+      <m.path d="M2 12h4" variants={spokeVariants(6)} />
+      <m.path d="m4.9 4.9 2.9 2.9" variants={spokeVariants(7)} />
      </m.svg>
     </m.div>
    </LazyMotion>

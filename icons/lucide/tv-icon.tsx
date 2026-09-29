@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface TvIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,67 +51,53 @@ const TvIcon = forwardRef<TvIconHandle, TvIconProps>(
   },
   ref,
  ) => {
-  const antennaControls = useAnimation();
-  const screenControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   screenControls.start("on");
-   antennaControls.start("on");
-  }, [antennaControls, screenControls, reduced]);
-
-  const stop = useCallback(() => {
-   screenControls.start("rest");
-   antennaControls.start("rest");
-  }, [antennaControls, screenControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const screenVariants: Variants = {
-   rest: { opacity: 1 },
-   on: {
-    opacity: [1, 0.32, 1, 0.44, 1, 0.76, 1],
-    transition: {
-     duration: 1.05 * duration,
-     ease: "linear",
-     times: [0, 0.08, 0.16, 0.28, 0.4, 0.58, 1],
-    },
+  const antennaVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -10, 8, -4, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
-  const antennaVariants: Variants = {
-   rest: { rotate: 0 },
-   on: {
-    rotate: [0, -7, 5.5, -3.4, 1.8, -0.8, 0],
+  const screenVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.04, 0.98, 1],
     transition: {
-     duration: 1.05 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.16, 0.34, 0.52, 0.7, 0.86, 1],
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.05 * duration,
     },
    },
   };
@@ -126,23 +111,23 @@ const TvIcon = forwardRef<TvIconHandle, TvIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="m17 2-5 5-5-5"
-       animate={antennaControls}
-       initial="rest"
        variants={antennaVariants}
-       style={{ transformBox: "fill-box", originX: "50%", originY: "100%" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
       <m.rect
        width="20"
@@ -150,11 +135,10 @@ const TvIcon = forwardRef<TvIconHandle, TvIconProps>(
        x="2"
        y="7"
        rx="2"
-       animate={screenControls}
-       initial="rest"
        variants={screenVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "14.5px" }}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

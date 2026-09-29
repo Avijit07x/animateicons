@@ -74,51 +74,32 @@ const ClockPlusIcon = forwardRef<ClockPlusIconHandle, ClockPlusIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dialVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const minuteVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: [0.16, 1, 0.3, 1] },
+    rotate: [0, 360],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
-  const handsVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
+  const plusVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: [-45, 12, 0],
-    opacity: [0, 1, 1],
+    rotate: [0, 90],
+    scale: [1, 1.2, 1],
     transition: {
-     duration: 0.55 * duration,
-     delay: 0.35 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
-  };
-
-  const signVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.5 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
   };
 
   return (
@@ -144,26 +125,17 @@ const ClockPlusIcon = forwardRef<ClockPlusIconHandle, ClockPlusIconProps>(
       initial="normal"
      >
       <m.path
-       d="M21.92 13.267a10 10 0 1 0-8.653 8.653"
-       variants={dialVariants}
-      />
-      <m.path
-       d="M12 6v6l3.644 1.822"
-       variants={handsVariants}
+       d="M12 6V12"
+       variants={minuteVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
+      <path d="M12 12l3.644 1.822" />
       <m.path
-       d="M16 19h6"
-       custom={0}
-       variants={signVariants}
+       d="M16 19h6M19 16v6"
+       variants={plusVariants}
        style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
-      <m.path
-       d="M19 16v6"
-       custom={1}
-       variants={signVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
-      />
+      <path d="M21.92 13.267a10 10 0 1 0-8.653 8.653" />
      </m.svg>
     </m.div>
    </LazyMotion>

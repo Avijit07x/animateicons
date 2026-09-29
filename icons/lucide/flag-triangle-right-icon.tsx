@@ -77,26 +77,18 @@ const FlagTriangleRightIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const hoistVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
+  const flagVariants: Variants = {
+   normal: { skewY: 0 },
    animate: {
-    scaleY: [0, 1.04, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.6 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    skewY: [0, 11, -7, 3, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -124,8 +116,8 @@ const FlagTriangleRightIcon = forwardRef<
      >
       <m.path
        d="M6 22V2.8a.8.8 0 0 1 1.17-.71l11.38 5.69a.8.8 0 0 1 0 1.44L6 15.5"
-       variants={hoistVariants}
-       style={{ transformBox: "view-box", originX: "6px", originY: "22px" }}
+       variants={flagVariants}
+       style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

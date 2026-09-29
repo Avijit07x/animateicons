@@ -74,35 +74,33 @@ const CircleStopIcon = forwardRef<CircleStopIconHandle, CircleStopIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const symbolVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const stopVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.3, 0.9, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.3 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -129,14 +127,20 @@ const CircleStopIcon = forwardRef<CircleStopIconHandle, CircleStopIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="12" cy="12" r="10" variants={ringVariants} />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
       <m.rect
        x="9"
        y="9"
        width="6"
        height="6"
        rx="1"
-       variants={symbolVariants}
+       variants={stopVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

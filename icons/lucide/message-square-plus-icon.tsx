@@ -77,39 +77,31 @@ const MessageSquarePlusIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const bubbleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: {
-    scale: [0.3, 1.05, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.7, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const plusVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const popVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [0.3, 1.2, 0.94, 1],
-    opacity: [0, 1, 1, 1],
-    transition: {
-     duration: 0.55 * duration,
-     delay: 0.26 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    rotate: [0, 180],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.55 * duration, ease: "easeInOut" },
    },
   };
 
@@ -138,18 +130,15 @@ const MessageSquarePlusIcon = forwardRef<
       <m.path
        d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="M12 8v6"
-       variants={plusVariants}
+      <m.g
+       variants={popVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
-      <m.path
-       d="M9 11h6"
-       variants={plusVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
+      >
+       <path d="M12 8v6" />
+       <path d="M9 11h6" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

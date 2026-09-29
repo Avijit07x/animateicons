@@ -74,40 +74,27 @@ const BatteryLowIcon = forwardRef<BatteryLowIconHandle, BatteryLowIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const barVariants: Variants = {
+   normal: { opacity: 1, scaleY: 1 },
+   animate: {
+    opacity: [1, 0.1, 1, 0.1, 1],
+    scaleY: [1, 0.6, 1, 0.6, 1],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
   };
 
-  const barVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const nubVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.45 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    x: [0, 0.8, 0],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -133,21 +120,13 @@ const BatteryLowIcon = forwardRef<BatteryLowIconHandle, BatteryLowIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       x="2"
-       y="6"
-       width="16"
-       height="12"
-       rx="2"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M22 14v-4" custom={1} variants={bodyVariants} />
+      <m.path d="M22 14v-4" variants={nubVariants} />
       <m.path
        d="M6 14v-4"
        variants={barVariants}
        style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
       />
+      <rect x="2" y="6" width="16" height="12" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

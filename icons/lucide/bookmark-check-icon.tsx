@@ -84,29 +84,31 @@ const BookmarkCheckIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bookmarkVariants: Variants = {
-   normal: {
-    y: 0,
-    scaleX: 1,
-    scaleY: 1,
-   },
+  const hopVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    y: [0, -4, 0],
-    scaleY: [1, 1.1, 0.95, 1],
-    scaleX: [1, 0.97, 1.02, 1],
+    y: [0, -1.6, 0.4, 0],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const checkVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const tickVariants: Variants = {
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    strokeDashoffset: [10, 0],
+    opacity: [0, 1],
+    transition: {
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.2 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+    },
    },
   };
 
@@ -131,10 +133,16 @@ const BookmarkCheckIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={bookmarkVariants}
      >
-      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" />
-      <m.path d="m9 10 2 2 4-4" variants={checkVariants} />
+      <m.g variants={hopVariants}>
+       <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+       <m.path
+        d="m9 10 2 2 4-4"
+        strokeDasharray="10"
+        strokeDashoffset="0"
+        variants={tickVariants}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

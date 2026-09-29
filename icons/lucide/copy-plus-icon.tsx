@@ -81,26 +81,41 @@ const CopyPlusIcon = forwardRef<CopyPlusIconHandle, CopyPlusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const backVariants: Variants = {
+  const frontVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -1.5, 0],
-    y: [0, -1.5, 0],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    x: [0, 1, -0.3, 0],
+    y: [0, 1, -0.3, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
    },
   };
 
-  const signVariants: Variants = {
-   normal: { scale: 1, opacity: 1, rotate: 0 },
+  const backVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    rotate: [-90, 0, 0],
+    x: [0, -1, 0.3, 0],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     times: [0, 0.6, 1],
-     delay: 0.15 * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+    },
+   },
+  };
+
+  const plusVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 180],
+    scale: [1, 1.3, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -127,14 +142,16 @@ const CopyPlusIcon = forwardRef<CopyPlusIconHandle, CopyPlusIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={signVariants}
-       style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
-      >
-       <line x1="15" x2="15" y1="12" y2="18" />
-       <line x1="12" x2="18" y1="15" y2="15" />
+      <m.g variants={frontVariants}>
+       <m.g
+        variants={plusVariants}
+        style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
+       >
+        <line x1="15" x2="15" y1="12" y2="18" />
+        <line x1="12" x2="18" y1="15" y2="15" />
+       </m.g>
+       <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
       </m.g>
-      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
       <m.path
        d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
        variants={backVariants}

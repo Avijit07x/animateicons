@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { Transition, Variants } from "motion/react";
+import type { Variants } from "motion/react";
 import {
  LazyMotion,
  domMin,
@@ -74,45 +74,29 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
-  const defaultTransition: Transition = {
-   type: "spring",
-   stiffness: 160,
-   damping: 17,
-   mass: 1,
-  };
 
-  const boxVariants: Variants = {
-   normal: {
-    translateX: 0,
-    translateY: 0,
-    rotate: 0,
-   },
+  const frontVariants: Variants = {
+   normal: { x: 0, y: 0, rotate: 0, transition: { duration: 0 } },
    animate: {
-    translateX: -3,
-    translateY: -3,
-    rotate: 360,
-    transition: {
-     ...defaultTransition,
-     duration: 0.7 * duration,
-    },
+    x: [0, -3, 0],
+    y: [0, -3, 0],
+    rotate: [0, 360],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
-  const pathVariants: Variants = {
+  const backVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: 3,
-    y: 3,
-    transition: defaultTransition,
+    x: [0, 3, 0],
+    y: [0, 3, 0],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
@@ -135,6 +119,8 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.rect
        width="14"
@@ -143,18 +129,12 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
        y="8"
        rx="2"
        ry="2"
-       variants={boxVariants}
-       animate={controls}
-       transition={{
-        ...defaultTransition,
-        duration: 0.7 * duration,
-       }}
+       variants={frontVariants}
+       style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
       />
       <m.path
        d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
-       variants={pathVariants}
-       animate={controls}
-       transition={defaultTransition}
+       variants={backVariants}
       />
      </m.svg>
     </m.div>
@@ -164,5 +144,4 @@ const CopyIcon = forwardRef<CopyIconHandle, CopyIconProps>(
 );
 
 CopyIcon.displayName = "CopyIcon";
-
 export { CopyIcon };

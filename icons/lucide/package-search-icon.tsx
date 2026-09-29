@@ -77,52 +77,33 @@ const PackageSearchIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.18, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
-
-  const handleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const boxVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -1, 0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: 0.72 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const lensVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -14, 10, -5, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -149,31 +130,19 @@ const PackageSearchIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.polyline
-       points="3.29 7 12 12 20.71 7"
-       custom={1}
-       variants={bodyVariants}
-      />
-      <m.path d="m7.5 4.27 9 5.15" custom={2} variants={bodyVariants} />
-      <m.path d="M12 22V12" custom={2} variants={bodyVariants} />
-      <m.circle
-       cx="18.5"
-       cy="15.5"
-       r="2.5"
-       custom={0}
-       variants={popVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "18.5px",
-        originY: "15.5px",
-       }}
-      />
-      <m.path d="M20.27 17.27 22 19" variants={handleVariants} />
+      <m.g variants={boxVariants}>
+       <path d="M12 22V12" />
+       <path d="M21 10.498V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.98-.559" />
+       <path d="M3.29 7 12 12l8.71-5" />
+       <path d="m7.5 4.27 8.997 5.148" />
+      </m.g>
+      <m.g
+       variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "22px", originY: "20px" }}
+      >
+       <path d="M20.27 18.27 22 20" />
+       <circle cx="18.5" cy="16.5" r="2.5" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

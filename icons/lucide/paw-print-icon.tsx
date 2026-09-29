@@ -86,7 +86,7 @@ const PawPrintIcon = forwardRef<PawPrintIconHandle, PawPrintIconProps>(
    animate: {
     scale: [1, 0.85, 1.06, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.55 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },
@@ -99,7 +99,7 @@ const PawPrintIcon = forwardRef<PawPrintIconHandle, PawPrintIconProps>(
     scale: [1, 0, 1.3, 1],
     opacity: [1, 0, 1, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
      times: [0, 0.2, 0.6, 1],
      delay: (0.2 + i * 0.1) * duration,

@@ -81,28 +81,22 @@ const StarOffIcon = forwardRef<StarOffIconHandle, StarOffIconProps>(
    [controls, onMouseLeave],
   );
 
-  const starVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const bodyVariants: Variants = {
+   normal: { opacity: 1 },
    animate: {
-    scale: [1, 1.12, 0.95, 1],
-    rotate: [0, -10, 6, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
+    opacity: [1, 0.4, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [0, 30, 0],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.3 * duration,
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 1],
     },
    },
   };
@@ -129,14 +123,16 @@ const StarOffIcon = forwardRef<StarOffIconHandle, StarOffIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g
-       variants={starVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      >
+      <m.g variants={bodyVariants}>
        <path d="m10.344 4.688 1.181-2.393a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.237 3.152" />
        <path d="m17.945 17.945.43 2.505a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a8 8 0 0 0 .4-.099" />
       </m.g>
-      <m.path d="m2 2 20 20" variants={slashVariants} />
+      <m.path
+       d="m2 2 20 20"
+       strokeDasharray="30"
+       strokeDashoffset="0"
+       variants={slashVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

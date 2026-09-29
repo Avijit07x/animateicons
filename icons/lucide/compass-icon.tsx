@@ -81,25 +81,26 @@ const CompassIcon = forwardRef<CompassIconHandle, CompassIconProps>(
    [controls, onMouseLeave],
   );
 
-  const circleVariants: Variants = {
+  const ringVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+    scale: [1, 1.06, 0.98, 1],
+    transition: {
+     duration: 0.9 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const needleVariants: Variants = {
-   normal: {
-    rotate: 0,
-    opacity: 1,
-   },
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    rotate: [0, 200, 170, 180],
-    opacity: [0.9, 1],
+    rotate: [0, 190, 172, 180],
     transition: {
      duration: 1 * duration,
      ease: "easeInOut",
+     times: [0, 0.5, 0.78, 1],
     },
    },
   };
@@ -125,23 +126,18 @@ const CompassIcon = forwardRef<CompassIconHandle, CompassIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={circleVariants}
      >
-      <m.path
-       d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"
-       variants={needleVariants}
-       style={{
-        transformBox: "fill-box",
-        transformOrigin: "center",
-       }}
-      />
-
       <m.circle
        cx="12"
        cy="12"
        r="10"
-       variants={circleVariants}
-       initial="normal"
+       variants={ringVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"
+       variants={needleVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

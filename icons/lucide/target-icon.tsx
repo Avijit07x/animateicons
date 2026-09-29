@@ -81,15 +81,15 @@ const TargetIcon = forwardRef<TargetIconHandle, TargetIconProps>(
    [controls, onMouseLeave],
   );
 
+  const peaks = [1.7, 1.22, 1.08];
+
   const ringVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: (i: number) => ({
-    scale: [1, 0.8, 1.08, 1],
-    opacity: [1, 0.6, 1, 1],
+    scale: [1, peaks[i], 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
      delay: i * 0.1 * duration,
     },
    }),

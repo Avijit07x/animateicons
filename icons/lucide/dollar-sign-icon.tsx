@@ -81,31 +81,12 @@ const DollarSignIcon = forwardRef<DollarSignIconHandle, DollarSignIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+  const coinVariants: Variants = {
+   normal: { scaleX: 1, y: 0 },
    animate: {
-    scale: [1, 1.06, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -1, 0],
-    transition: { duration: 1.2 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const strokeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.7, 1],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
-   },
-  };
-
-  const spineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.8, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    scaleX: [1, 0.2, 1],
+    y: [0, -1.5, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
    },
   };
 
@@ -130,12 +111,12 @@ const DollarSignIcon = forwardRef<DollarSignIconHandle, DollarSignIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      <m.line x1="12" x2="12" y1="2" y2="22" variants={spineVariants} />
+      <line x1="12" x2="12" y1="2" y2="22" />
       <m.path
        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-       variants={strokeVariants}
+       variants={coinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

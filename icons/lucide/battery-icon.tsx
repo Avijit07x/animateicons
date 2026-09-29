@@ -51,104 +51,57 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
   },
   ref,
  ) => {
-  const svgControls = useAnimation();
-  const rectControls = useAnimation();
-  const tipControls = useAnimation();
-
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      svgControls.start("normal");
-      rectControls.start("normal");
-      tipControls.start("normal");
-     } else {
-      svgControls.start("warning");
-      rectControls.start("warning");
-      tipControls.start("warning");
-     }
-    },
-    stopAnimation: () => {
-     svgControls.start("normal");
-     rectControls.start("normal");
-     tipControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     svgControls.start("warning");
-     rectControls.start("warning");
-     tipControls.start("warning");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [svgControls, rectControls, tipControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     svgControls.start("normal");
-     rectControls.start("normal");
-     tipControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [svgControls, rectControls, tipControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
-   warning: {
-    scale: [1, 1.05, 1],
-    rotate: [0, -2, 2, 0],
-    transition: {
-     duration: 0.45 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const rectVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   warning: {
-    pathLength: [0.3, 1],
-    opacity: [0.4, 1],
+  const bodyVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.92, 1.02, 1],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const tipVariants: Variants = {
-   normal: {
-    opacity: 1,
-    scale: 1,
-   },
-   warning: {
-    opacity: [1, 0.2, 1],
-    scale: [1, 1.4, 1],
+  const capVariants: Variants = {
+   normal: { x: 0, scaleY: 1 },
+   animate: {
+    x: [0, -1.3, 0.3, 0],
+    scaleY: [1, 1.5, 1, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     repeat: Infinity,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -172,15 +125,13 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      animate={svgControls}
+      animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
-       d="M22 14L22 10"
-       animate={tipControls}
-       initial="normal"
-       variants={tipVariants}
+       d="M 22 14 L 22 10"
+       variants={capVariants}
+       style={{ transformBox: "view-box", originX: "22px", originY: "12px" }}
       />
       <m.rect
        x="2"
@@ -188,9 +139,8 @@ const BatteryIcon = forwardRef<BatteryIconHandle, BatteryIconProps>(
        width="16"
        height="12"
        rx="2"
-       animate={rectControls}
-       initial="normal"
-       variants={rectVariants}
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "2px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

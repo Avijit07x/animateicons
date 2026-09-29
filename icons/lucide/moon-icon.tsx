@@ -74,42 +74,18 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    y: 0,
-    scale: 1,
-    opacity: 1,
-   },
+  const moonVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    y: [0, -2, 0],
-    scale: [1, 1.04, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const pathVariant: Variants = {
-   normal: {
-    opacity: 0.85,
-   },
-   animate: {
-    opacity: [0.85, 1, 0.9],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, -16, 12, -6, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -129,16 +105,16 @@ const MoonIcon = forwardRef<MoonIconHandle, MoonIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-       variants={pathVariant}
+       variants={moonVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

@@ -70,74 +70,37 @@ const TriangleAlertIcon = forwardRef<
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
    [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.07, 0.97, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const markVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 3, -8, 7, -5, 3, 0],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeInOut",
-     times: [0, 0.1, 0.28, 0.46, 0.64, 0.82, 1],
-    },
-   },
-  };
-
-  const triangleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [1, 1.06, 1],
-    opacity: [0.6, 1, 1],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeOut",
-     times: [0, 0.3, 1],
-    },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { scaleY: 1, opacity: 1 },
-   animate: {
-    scaleY: [0.3, 1.2, 0.96, 1],
-    opacity: [0, 1, 1, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     delay: 0.16 * duration,
-    },
-   },
-  };
-
-  const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0, 1.6, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
-     delay: 0.3 * duration,
-    },
+    rotate: [0, -14, 12, -6, 0],
+    transition: { duration: 0.6 * duration, ease: "easeInOut" },
    },
   };
 
@@ -157,23 +120,24 @@ const TriangleAlertIcon = forwardRef<
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
        d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"
-       variants={triangleVariants}
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
       />
-      <m.path
-       d="M12 9v4"
-       variants={lineVariants}
-       style={{ transformOrigin: "12px 13px" }}
-      />
-      <m.path d="M12 17h.01" variants={dotVariants} />
+      <m.g
+       variants={markVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+      >
+       <path d="M12 9v4" />
+       <path d="M12 17h.01" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

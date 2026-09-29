@@ -85,15 +85,13 @@ const QuoteIcon = forwardRef<QuoteIconHandle, QuoteIconProps>(
   );
 
   const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.2, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.06 + i * 0.12) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.45 * duration,
+     delay: i * 0.15 * duration,
+     ease: "easeInOut",
     },
    }),
   };
@@ -124,13 +122,13 @@ const QuoteIcon = forwardRef<QuoteIconHandle, QuoteIconProps>(
        d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
        custom={0}
        variants={popVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "11px" }}
+       style={{ transformBox: "view-box", originX: "6.5px", originY: "12px" }}
       />
       <m.path
        d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
        custom={1}
        variants={popVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "11px" }}
+       style={{ transformBox: "view-box", originX: "17.5px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

@@ -74,31 +74,34 @@ const AtomIcon = forwardRef<AtomIconHandle, AtomIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
-  const pathVariants: Variants = {
-   normal: {
-    rotate: 0,
-    scale: 1,
-    transition: { duration: 0.3 * duration },
-   },
+
+  const orbitVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: 360,
-    scale: [1, 1.1, 1],
+    rotate: [0, 180],
+    scale: [1, 0.9, 1],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const nucleusVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.7, 1],
     transition: {
-     duration: 2 * duration,
-     ease: "linear",
-     repeat: Infinity,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.2 * duration,
     },
    },
   };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -118,13 +121,23 @@ const AtomIcon = forwardRef<AtomIconHandle, AtomIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      variants={pathVariants}
       animate={controls}
       initial="normal"
      >
-      <circle cx="12" cy="12" r="1" />
-      <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z" />
-      <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z" />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="1"
+       variants={nucleusVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.g
+       variants={orbitVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z" />
+       <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

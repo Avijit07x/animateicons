@@ -88,7 +88,7 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
    animate: {
     scaleX: [1, 0.75, 1],
     transition: {
-     duration: 0.28 * duration,
+     duration: 0.48 * duration,
      ease: "easeOut",
     },
    },
@@ -103,7 +103,7 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
     x: [0, 3, 0],
     opacity: [1, 0.6, 1],
     transition: {
-     duration: 0.32 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },
@@ -118,8 +118,8 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
     x: [0, -3, 0],
     opacity: [1, 0.6, 1],
     transition: {
-     duration: 0.32 * duration,
-     delay: 0.05 * duration,
+     duration: 0.55 * duration,
+     delay: 0.09 * duration,
      ease: "easeOut",
     },
    },

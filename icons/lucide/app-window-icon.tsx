@@ -84,39 +84,26 @@ const AppWindowIcon = forwardRef<AppWindowIconHandle, AppWindowIconProps>(
   const windowVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 0.85, 1.05, 1],
+    scale: [1, 0.93, 1.03, 1],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.3, 0.7, 1],
     },
    },
   };
 
-  const barVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: 0.2 * duration,
-    },
-   },
-  };
-
-  const buttonVariants: Variants = {
+  const dividerVariants = (delay: number): Variants => ({
    normal: { scaleY: 1 },
-   animate: (i: number) => ({
-    scaleY: [1, 0, 1],
+   animate: {
+    scaleY: [1, 0.3, 1],
     transition: {
-     duration: 0.3 * duration,
+     duration: 0.4 * duration,
      ease: "easeInOut",
-     delay: (0.3 + i * 0.1) * duration,
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -145,18 +132,16 @@ const AppWindowIcon = forwardRef<AppWindowIconHandle, AppWindowIconProps>(
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
        <rect x="2" y="4" width="20" height="16" rx="2" />
-       <m.path
-        d="M10 4v4"
-        variants={buttonVariants}
-        custom={1}
-        style={{ transformBox: "view-box", originX: "10px", originY: "6px" }}
-       />
-       <m.path d="M2 8h20" variants={barVariants} />
+       <path d="M2 8h20" />
        <m.path
         d="M6 4v4"
-        variants={buttonVariants}
-        custom={0}
+        variants={dividerVariants(0.15)}
         style={{ transformBox: "view-box", originX: "6px", originY: "6px" }}
+       />
+       <m.path
+        d="M10 4v4"
+        variants={dividerVariants(0.25)}
+        style={{ transformBox: "view-box", originX: "10px", originY: "6px" }}
        />
       </m.g>
      </m.svg>

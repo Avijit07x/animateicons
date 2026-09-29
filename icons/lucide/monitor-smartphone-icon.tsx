@@ -77,41 +77,31 @@ const MonitorSmartphoneIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
+  const monitorVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -4, 3, -1.5, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+   },
   };
 
-  const popVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+  const phoneVariants: Variants = {
+   normal: { rotate: 0 },
+   animate: {
+    rotate: [0, -9, 8, -4, 0],
     transition: {
-     duration: 0.38 * duration,
-     delay: (0.45 + i * 0.08) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
-   }),
+   },
   };
 
   return (
@@ -138,19 +128,18 @@ const MonitorSmartphoneIcon = forwardRef<
      >
       <m.path
        d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"
-       custom={0}
-       variants={bodyVariants}
+       variants={monitorVariants}
+       style={{ transformBox: "view-box", originX: "10px", originY: "19px" }}
       />
-      <m.path d="M10 19v-3.96 3.15" custom={1} variants={bodyVariants} />
-      <m.path d="M7 19h5" custom={1} variants={bodyVariants} />
+      <path d="M10 19v-3.96 3.15" />
+      <path d="M7 19h5" />
       <m.rect
        width="6"
        height="10"
        x="16"
        y="12"
        rx="2"
-       custom={0}
-       variants={popVariants}
+       variants={phoneVariants}
        style={{ transformBox: "view-box", originX: "19px", originY: "17px" }}
       />
      </m.svg>

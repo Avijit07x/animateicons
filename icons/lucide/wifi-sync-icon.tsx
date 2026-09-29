@@ -51,142 +51,42 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
   },
   ref,
  ) => {
-  const groupControls = useAnimation();
-  const arcLargeControls = useAnimation();
-  const arcMidControls = useAnimation();
-  const arcSmallControls = useAnimation();
-  const syncArrowControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      groupControls.start("normal");
-      arcLargeControls.start("normal");
-      arcMidControls.start("normal");
-      arcSmallControls.start("normal");
-      syncArrowControls.start("normal");
-     } else {
-      groupControls.start("animate");
-      arcLargeControls.start("animate");
-      arcMidControls.start("animate");
-      arcSmallControls.start("animate");
-      syncArrowControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     syncArrowControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     groupControls.start("animate");
-     arcLargeControls.start("animate");
-     arcMidControls.start("animate");
-     arcSmallControls.start("animate");
-     syncArrowControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    syncArrowControls,
-    reduced,
-    onMouseEnter,
-    isAnimated,
-   ],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     groupControls.start("normal");
-     arcLargeControls.start("normal");
-     arcMidControls.start("normal");
-     arcSmallControls.start("normal");
-     syncArrowControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [
-    groupControls,
-    arcLargeControls,
-    arcMidControls,
-    arcSmallControls,
-    syncArrowControls,
-    onMouseLeave,
-   ],
+   [controls, onMouseLeave],
   );
 
-  const groupVariants: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.05, 0.99, 1],
-    transition: {
-     duration: 0.7 * duration,
-     times: [0, 0.5, 0.8, 1],
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcLargeVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.36 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcMidVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: 0.24 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const arcSmallVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.3 * duration,
-     delay: 0.12 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const syncArrowVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
+  const syncVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 360],
-    opacity: [0.6, 1, 1],
-    transition: { duration: 1.4 * duration, ease: "easeInOut", repeat: 0 },
+    scale: [1, 0.9, 1],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 
@@ -206,41 +106,28 @@ const WifiSyncIcon = forwardRef<WifiSyncIconHandle, WifiSyncIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
       initial="normal"
-      animate={groupControls}
-      variants={groupVariants}
      >
-      <m.path
-       d="M2 8.82a15 15 0 0 1 20 0"
-       initial="normal"
-       animate={arcLargeControls}
-       variants={arcLargeVariants}
-      />
-      <m.path
-       d="M5 12.86a10 10 0 0 1 3-2.032"
-       initial="normal"
-       animate={arcMidControls}
-       variants={arcMidVariants}
-      />
-      <m.path
-       d="M8.5 16.429h.01"
-       initial="normal"
-       animate={arcSmallControls}
-       variants={arcSmallVariants}
-      />
       <m.g
-       initial="normal"
-       animate={syncArrowControls}
-       variants={syncArrowVariants}
+       variants={syncVariants}
+       style={{
+        transformBox: "view-box",
+        originX: "16.965px",
+        originY: "16.105px",
+       }}
       >
-       <m.path d="M11.965 10.105v4L13.5 12.5a5 5 0 0 1 8 1.5" />
-       <m.path d="M11.965 14.105h4" />
-       <m.path d="M17.965 18.105h4L20.43 19.71a5 5 0 0 1-8-1.5" />
-       <m.path d="M21.965 22.105v-4" />
+       <path d="M11.965 10.105v4L13.5 12.5a5 5 0 0 1 8 1.5" />
+       <path d="M11.965 14.105h4" />
+       <path d="M17.965 18.105h4L20.43 19.71a5 5 0 0 1-8-1.5" />
+       <path d="M21.965 22.105v-4" />
       </m.g>
+      <path d="M2 8.82a15 15 0 0 1 20 0" />
+      <path d="M5 12.86a10 10 0 0 1 3-2.032" />
+      <path d="M8.5 16.429h.01" />
      </m.svg>
     </m.div>
    </LazyMotion>

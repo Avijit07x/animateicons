@@ -74,28 +74,24 @@ const AlignLeftIcon = forwardRef<AlignLeftIconHandle, AlignLeftIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const wipeVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.6, 1],
     transition: {
-     duration: 0.4 * duration,
-     delay: (0.06 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -121,20 +117,17 @@ const AlignLeftIcon = forwardRef<AlignLeftIconHandle, AlignLeftIconProps>(
      >
       <m.path
        d="M21 5H3"
-       custom={0}
-       variants={wipeVariants}
+       variants={rowVariants(0)}
        style={{ transformBox: "view-box", originX: "3px", originY: "5px" }}
       />
       <m.path
        d="M15 12H3"
-       custom={1}
-       variants={wipeVariants}
+       variants={rowVariants(0.1)}
        style={{ transformBox: "view-box", originX: "3px", originY: "12px" }}
       />
       <m.path
        d="M17 19H3"
-       custom={2}
-       variants={wipeVariants}
+       variants={rowVariants(0.2)}
        style={{ transformBox: "view-box", originX: "3px", originY: "19px" }}
       />
      </m.svg>

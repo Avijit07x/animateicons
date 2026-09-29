@@ -44,7 +44,7 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 1.3,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -75,38 +75,19 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const flameVariant: Variants = {
-   normal: {
-    scale: 1,
-    y: 0,
-    rotate: 0,
-   },
+  const flameVariants: Variants = {
+   normal: { scaleX: 1, scaleY: 1, skewX: 0 },
    animate: {
-    scale: [1, 1.05, 1.02, 1],
-    y: [0, -2, -1, 0],
-    rotate: [0, -2, 1, 0],
-    transition: {
-     duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const flickerVariant: Variants = {
-   normal: { strokeDashoffset: 0 },
-   animate: {
-    strokeDashoffset: [0, -40, 0],
-    transition: {
-     duration: duration * 0.8,
-     ease: "linear",
-    },
+    scaleX: [1, 0.93, 1.04, 0.98, 1],
+    scaleY: [1, 1.08, 0.95, 1.03, 1],
+    skewX: [0, -5, 4, -2, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -126,20 +107,16 @@ const FlameIcon = forwardRef<FlameIconHandle, FlameIconProps>(
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={flameVariant}
      >
       <m.path
        d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"
-       variants={flickerVariant}
-       style={{
-        strokeDasharray: 120,
-        transformOrigin: "12px 18px",
-       }}
+       variants={flameVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />
      </m.svg>
     </m.div>

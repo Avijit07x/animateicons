@@ -74,38 +74,33 @@ const PinOffIcon = forwardRef<PinOffIconHandle, PinOffIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const pinVariants: Variants = {
+   normal: { rotate: 0, opacity: 1 },
+   animate: {
+    rotate: [0, -8, 6, -3, 0],
+    opacity: [1, 0.45, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     rotate: { duration: 0.6 * duration, ease: "easeInOut" },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
     },
-   }),
+   },
   };
 
   const slashVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    strokeDashoffset: [29, 0],
     transition: {
-     duration: 0.35 * duration,
-     delay: 0.55 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.15 * duration,
     },
    },
   };
@@ -132,18 +127,20 @@ const PinOffIcon = forwardRef<PinOffIconHandle, PinOffIconProps>(
       animate={controls}
       initial="normal"
      >
+      <m.g
+       variants={pinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <path d="M12 17v5" />
+       <path d="M15 9.34V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H7.89" />
+       <path d="M9 9v1.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h11" />
+      </m.g>
       <m.path
-       d="M15 9.34V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H7.89"
-       custom={0}
-       variants={bodyVariants}
+       d="m2 2 20 20"
+       strokeDasharray="29 200"
+       strokeDashoffset="0"
+       variants={slashVariants}
       />
-      <m.path
-       d="M9 9v1.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h11"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path d="M12 17v5" custom={1} variants={bodyVariants} />
-      <m.path d="m2 2 20 20" variants={slashVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

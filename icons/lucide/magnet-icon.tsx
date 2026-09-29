@@ -84,8 +84,8 @@ const MagnetIcon = forwardRef<MagnetIconHandle, MagnetIconProps>(
   const magnetVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -1.2, 0.4, -1.2, 0.4, 0],
-    y: [0, 1.2, -0.4, 1.2, -0.4, 0],
+    x: [0, -1.2, 0.4, -1.2, 0],
+    y: [0, 1.2, -0.4, 1.2, 0],
     transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };

@@ -74,29 +74,39 @@ const DropletsIcon = forwardRef<DropletsIconHandle, DropletsIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dropletVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.12, 1],
-    opacity: [0, 1, 1],
+  const dropletVariants = (delay: number, length: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
+   animate: {
+    strokeDashoffset: [length, 0],
+    opacity: [0, 1],
+    scale: [0.92, 1.06, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.14 * duration,
-     times: [0, 0.65, 1],
-     ease: [0.34, 1.4, 0.6, 1],
+     strokeDashoffset: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     opacity: {
+      duration: 0.25 * duration,
+      ease: "easeOut",
+      delay: delay * duration,
+     },
+     scale: {
+      duration: 0.55 * duration,
+      ease: "easeInOut",
+      times: [0, 0.7, 1],
+      delay: delay * duration,
+     },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -122,14 +132,16 @@ const DropletsIcon = forwardRef<DropletsIconHandle, DropletsIconProps>(
      >
       <m.path
        d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
-       custom={0}
-       variants={dropletVariants}
+       strokeDasharray="36"
+       strokeDashoffset="0"
+       variants={dropletVariants(0.2, 36)}
        style={{ transformBox: "view-box", originX: "16px", originY: "13px" }}
       />
       <m.path
        d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
-       custom={1}
-       variants={dropletVariants}
+       strokeDasharray="31"
+       strokeDashoffset="0"
+       variants={dropletVariants(0, 31)}
        style={{ transformBox: "view-box", originX: "7px", originY: "11px" }}
       />
      </m.svg>

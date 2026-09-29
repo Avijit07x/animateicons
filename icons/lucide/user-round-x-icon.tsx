@@ -81,50 +81,27 @@ const UserRoundXIcon = forwardRef<UserRoundXIconHandle, UserRoundXIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [60, 0],
-    opacity: [0.3, 1],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.6, 1.2, 1],
-    opacity: [0, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
      duration: 0.6 * duration,
-     ease: "easeOut" as const,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const crossGroupVariants: Variants = {
-   normal: { scale: 1, rotate: 0, opacity: 1 },
+  const crossVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
+    rotate: [0, 90],
     scale: [1, 1.3, 1],
-    rotate: [0, -10, 10, 0],
-    opacity: 1,
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
-    },
-   },
-  };
-
-  const crossLineVariants: Variants = {
-   normal: { strokeDashoffset: 0 },
-   animate: {
-    strokeDashoffset: [20, 0],
     transition: {
      duration: 0.5 * duration,
-     ease: "easeInOut" as const,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -148,41 +125,21 @@ const UserRoundXIcon = forwardRef<UserRoundXIconHandle, UserRoundXIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-round-x-icon lucide-user-round-x"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M2 21a8 8 0 0 1 11.873-7"
-       strokeDasharray="60"
-       strokeDashoffset="60"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="8"
-       r="5"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.g variants={crossGroupVariants} initial="normal" animate={controls}>
-       <m.path
-        d="m17 17 5 5"
-        strokeDasharray="20"
-        strokeDashoffset="20"
-        variants={crossLineVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="m22 17-5 5"
-        strokeDasharray="20"
-        strokeDashoffset="20"
-        variants={crossLineVariants}
-        initial="normal"
-        animate={controls}
-       />
+      <path d="M2 21a8 8 0 0 1 11.873-7" />
+      <m.circle cx="10" cy="8" r="5" variants={headVariants} />
+      <m.g
+       variants={crossVariants}
+       style={{
+        transformBox: "view-box",
+        originX: "19.5px",
+        originY: "19.5px",
+       }}
+      >
+       <path d="m17 17 5 5" />
+       <path d="m22 17-5 5" />
       </m.g>
      </m.svg>
     </m.div>

@@ -87,16 +87,15 @@ const SendHorizontalIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { x: 0, scale: 1, opacity: 1 },
+  const planeVariants: Variants = {
+   normal: { x: 0, opacity: 1 },
    animate: {
-    scale: [1, 0.85, 0, 0, 1],
-    x: [0, 6, 20, -20, 0],
-    opacity: [1, 1, 0, 0, 1],
+    x: [0, 12, -12, 0],
+    opacity: [1, 0, 0, 1],
     transition: {
-     duration: 1.4 * duration,
-     ease: "easeInOut",
-     times: [0, 0.2, 0.4, 0.6, 1],
+     duration: 0.9 * duration,
+     ease: ["easeIn", "easeInOut", "easeOut"],
+     times: [0, 0.4, 0.45, 1],
     },
    },
   };
@@ -122,11 +121,11 @@ const SendHorizontalIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
-      <path d="M6 12h16" />
+      <m.g variants={planeVariants}>
+       <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
+       <path d="M6 12h16" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

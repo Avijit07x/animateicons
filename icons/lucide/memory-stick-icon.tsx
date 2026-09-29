@@ -74,42 +74,36 @@ const MemoryStickIcon = forwardRef<MemoryStickIconHandle, MemoryStickIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const pinVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
+   animate: {
+    scaleY: [1, 1.8, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
-  const pinVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.15, 1],
-    opacity: [0, 1, 1],
+  const chipVariants = (delay: number): Variants => ({
+   normal: { opacity: 1 },
+   animate: {
+    opacity: [1, 0.2, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: (0.4 + i * 0.04) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,75 +127,37 @@ const MemoryStickIcon = forwardRef<MemoryStickIconHandle, MemoryStickIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.rect
-       x="2"
-       y="6"
-       width="20"
-       height="10"
-       rx="2"
-       custom={0}
-       variants={bodyVariants}
-      />
-      <m.path
-       d="M8 12v-2"
-       custom={0}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
-      <m.path
-       d="M12 12v-2"
-       custom={1}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
-      <m.path
-       d="M16 12v-2"
-       custom={2}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
-      <m.path
-       d="M4 18v-2"
-       custom={0}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
-      <m.path
-       d="M8 18v-2"
-       custom={1}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
-      />
+      <m.path d="M12 12v-2" variants={chipVariants(0.14)} />
       <m.path
        d="M12 18v-2"
-       custom={2}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       variants={pinVariants(0.14)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "16px" }}
       />
+      <m.path d="M16 12v-2" variants={chipVariants(0.28)} />
       <m.path
        d="M16 18v-2"
-       custom={3}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       variants={pinVariants(0.21)}
+       style={{ transformBox: "view-box", originX: "16px", originY: "16px" }}
       />
+      <path d="M2 11h1.5" />
       <m.path
        d="M20 18v-2"
-       custom={4}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       variants={pinVariants(0.28)}
+       style={{ transformBox: "view-box", originX: "20px", originY: "16px" }}
       />
+      <path d="M20.5 11H22" />
       <m.path
-       d="M2 11h1.5"
-       custom={2}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       d="M4 18v-2"
+       variants={pinVariants(0)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "16px" }}
       />
+      <m.path d="M8 12v-2" variants={chipVariants(0)} />
       <m.path
-       d="M20.5 11H22"
-       custom={2}
-       variants={pinVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "11px" }}
+       d="M8 18v-2"
+       variants={pinVariants(0.07)}
+       style={{ transformBox: "view-box", originX: "8px", originY: "16px" }}
       />
+      <rect x="2" y="6" width="20" height="10" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -74,42 +74,25 @@ const CoinsIcon = forwardRef<CoinsIconHandle, CoinsIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const flipVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
+   animate: {
+    scaleX: [1, 0.2, 1.05, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const coin2Variants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scale: [0, 1.12, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: (0.5 + i * 0.06) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -133,20 +116,20 @@ const CoinsIcon = forwardRef<CoinsIconHandle, CoinsIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="8" cy="8" r="6" custom={0} variants={bodyVariants} />
-      <m.path d="M7 6h1v4" custom={1} variants={bodyVariants} />
-      <m.path
-       d="M18.09 10.37A6 6 0 1 1 10.34 18"
-       custom={0}
-       variants={coin2Variants}
-       style={{ transformBox: "view-box", originX: "14px", originY: "14px" }}
-      />
-      <m.path
-       d="m16.71 13.88.7.71-2.82 2.82"
-       custom={1}
-       variants={coin2Variants}
-       style={{ transformBox: "view-box", originX: "15px", originY: "15px" }}
-      />
+      <m.g
+       variants={flipVariants(0.15)}
+       style={{ transformBox: "view-box", originX: "8px", originY: "16px" }}
+      >
+       <path d="M13.744 17.736a6 6 0 1 1-7.48-7.48" />
+       <path d="m6.134 14.768.866-.5 2 3.464" />
+      </m.g>
+      <m.g
+       variants={flipVariants(0)}
+       style={{ transformBox: "view-box", originX: "16px", originY: "8px" }}
+      >
+       <path d="M15 6h1v4" />
+       <circle cx="16" cy="8" r="6" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

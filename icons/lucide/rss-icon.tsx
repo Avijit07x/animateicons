@@ -85,22 +85,22 @@ const RssIcon = forwardRef<RssIconHandle, RssIconProps>(
    normal: { scale: 1 },
    animate: {
     scale: [1, 1.6, 1],
-    transition: { duration: 0.3 * duration, ease: "easeOut" },
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
-  const waveVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const waveVariants = (peak: number, delay: number): Variants => ({
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, peak, 0.97, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: (0.15 + i * 0.15) * duration,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -124,14 +124,22 @@ const RssIcon = forwardRef<RssIconHandle, RssIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M4 11a9 9 0 0 1 9 9" variants={waveVariants} custom={0} />
-      <m.path d="M4 4a16 16 0 0 1 16 16" variants={waveVariants} custom={1} />
       <m.circle
        cx="5"
        cy="19"
        r="1"
        variants={dotVariants}
        style={{ transformBox: "view-box", originX: "5px", originY: "19px" }}
+      />
+      <m.path
+       d="M4 11a9 9 0 0 1 9 9"
+       variants={waveVariants(1.15, 0.1)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+      />
+      <m.path
+       d="M4 4a16 16 0 0 1 16 16"
+       variants={waveVariants(1.07, 0.22)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
       />
      </m.svg>
     </m.div>

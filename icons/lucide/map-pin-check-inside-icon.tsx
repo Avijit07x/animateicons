@@ -54,65 +54,57 @@ const MapPinCheckInsideIcon = forwardRef<
   },
   ref,
  ) => {
-  const pinControls = useAnimation();
-  const checkControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      pinControls.start("normal");
-      checkControls.start("normal");
-     } else {
-      pinControls.start("animate");
-      checkControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     pinControls.start("normal");
-     checkControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     pinControls.start("animate");
-     checkControls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [pinControls, checkControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     pinControls.start("normal");
-     checkControls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [pinControls, checkControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
   const pinVariants: Variants = {
-   normal: { strokeDashoffset: 0 },
+   normal: { rotate: 0 },
    animate: {
-    strokeDashoffset: [160, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    rotate: [0, -8, 6, -3, 0],
+    transition: { duration: 1.1 * duration, ease: "easeInOut" },
    },
   };
 
   const checkVariants: Variants = {
    normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [28, 0],
+    strokeDashoffset: [9, 0],
     opacity: [0, 1],
-    transition: { duration: 1 * duration, ease: "easeOut", delay: 0.28 },
+    transition: {
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.2 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+    },
    },
   };
 
@@ -125,7 +117,7 @@ const MapPinCheckInsideIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -135,22 +127,22 @@ const MapPinCheckInsideIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-       initial="normal"
-       animate={pinControls}
+      <m.g
        variants={pinVariants}
-       style={{ strokeDasharray: 160, strokeLinecap: "round" }}
-      />
-      <m.path
-       d="m9 10 2 2 4-4"
-       initial="normal"
-       animate={checkControls}
-       variants={checkVariants}
-       style={{ strokeDasharray: 28, strokeLinecap: "round" }}
-      />
-     </svg>
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+       <m.path
+        d="m9 10 2 2 4-4"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={checkVariants}
+       />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

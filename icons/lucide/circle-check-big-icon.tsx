@@ -55,94 +55,59 @@ const CircleCheckBigIcon = forwardRef<
   ref,
  ) => {
   const controls = useAnimation();
-  const tickControls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      controls.start("normal");
-      tickControls.start("normal");
-     } else {
-      controls.start("animate");
-      tickControls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     controls.start("normal");
-     tickControls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     controls.start("animate");
-     tickControls.start("animate");
-    } else {
-     onMouseEnter?.(e as any);
-    }
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [controls, tickControls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-     tickControls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [controls, tickControls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    scale: 1,
-   },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.12, 0.96, 1],
+    scale: [1, 1.08, 0.96, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const circleVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0.7, 1],
-    opacity: [0.7, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const tickVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
+    strokeDashoffset: [20, 0],
+    opacity: [0, 1],
     transition: {
-     duration: 0.3 * duration,
-     delay: 0.12 * duration,
-     ease: "easeOut",
+     strokeDashoffset: {
+      duration: 0.45 * duration,
+      ease: "easeOut",
+      delay: 0.15 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
     },
    },
   };
@@ -168,19 +133,17 @@ const CircleCheckBigIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
        d="M21.801 10A10 10 0 1 1 17 3.335"
-       variants={circleVariants}
-       initial="normal"
-       animate={controls}
+       variants={shapeVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
       <m.path
        d="m9 11 3 3L22 4"
+       strokeDasharray="20"
+       strokeDashoffset="0"
        variants={tickVariants}
-       initial="normal"
-       animate={tickControls}
       />
      </m.svg>
     </m.div>

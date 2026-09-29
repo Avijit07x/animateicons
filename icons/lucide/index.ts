@@ -647,6 +647,26 @@ import { ShapesIcon } from "./shapes-icon";
 import { StethoscopeIcon } from "./stethoscope-icon";
 import { PillIcon } from "./pill-icon";
 import { DumbbellIcon } from "./dumbbell-icon";
+import { PanelLeftOpenIcon } from "./panel-left-open-icon";
+import { PanelLeftCloseIcon } from "./panel-left-close-icon";
+import { FoldVerticalIcon } from "./fold-vertical-icon";
+import { UnfoldVerticalIcon } from "./unfold-vertical-icon";
+import { ExpandIcon } from "./expand-icon";
+import { ShrinkIcon } from "./shrink-icon";
+import { ChevronFirstIcon } from "./chevron-first-icon";
+import { ChevronLastIcon } from "./chevron-last-icon";
+import { ToggleLeftIcon } from "./toggle-left-icon";
+import { ListFilterIcon } from "./list-filter-icon";
+import { FunnelXIcon } from "./funnel-x-icon";
+import { ArrowUpToLineIcon } from "./arrow-up-to-line-icon";
+import { ArrowDownToLineIcon } from "./arrow-down-to-line-icon";
+import { CloudCheckIcon } from "./cloud-check-icon";
+import { CloudSyncIcon } from "./cloud-sync-icon";
+import { BadgeInfoIcon } from "./badge-info-icon";
+import { MousePointerIcon } from "./mouse-pointer-icon";
+import { RotateCcwIcon } from "./rotate-ccw-icon";
+import { ContrastIcon } from "./contrast-icon";
+import { HardDriveUploadIcon } from "./hard-drive-upload-icon";
 
 const ICON_LIST: IconListItem[] = [
  {
@@ -5374,6 +5394,306 @@ const ICON_LIST: IconListItem[] = [
   addedAt: "2026-09-27",
   category: ["Medical"],
   keywords: ["dumbbell", "fitness", "gym", "workout", "exercise", "strength"],
+ },
+ {
+  name: "panel-left-open",
+  icon: PanelLeftOpenIcon,
+  addedAt: "2026-09-29",
+  category: ["Layout"],
+  keywords: [
+   "panel-left-open",
+   "sidebar",
+   "panel",
+   "open",
+   "expand",
+   "drawer",
+   "show",
+  ],
+ },
+ {
+  name: "panel-left-close",
+  icon: PanelLeftCloseIcon,
+  addedAt: "2026-09-29",
+  category: ["Layout"],
+  keywords: [
+   "panel-left-close",
+   "sidebar",
+   "panel",
+   "close",
+   "collapse",
+   "drawer",
+   "hide",
+  ],
+ },
+ {
+  name: "fold-vertical",
+  icon: FoldVerticalIcon,
+  addedAt: "2026-09-29",
+  category: ["Layout"],
+  keywords: [
+   "fold-vertical",
+   "fold",
+   "collapse",
+   "compress",
+   "accordion",
+   "hide",
+   "vertical",
+  ],
+ },
+ {
+  name: "unfold-vertical",
+  icon: UnfoldVerticalIcon,
+  addedAt: "2026-09-29",
+  category: ["Layout"],
+  keywords: [
+   "unfold-vertical",
+   "unfold",
+   "expand",
+   "reveal",
+   "accordion",
+   "show",
+   "vertical",
+  ],
+ },
+ {
+  name: "expand",
+  icon: ExpandIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows", "Layout"],
+  keywords: [
+   "expand",
+   "fullscreen",
+   "enlarge",
+   "maximize",
+   "grow",
+   "bigger",
+   "resize",
+  ],
+ },
+ {
+  name: "shrink",
+  icon: ShrinkIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows", "Layout"],
+  keywords: [
+   "shrink",
+   "minimize",
+   "reduce",
+   "compress",
+   "smaller",
+   "exit fullscreen",
+   "resize",
+  ],
+ },
+ {
+  name: "chevron-first",
+  icon: ChevronFirstIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows"],
+  keywords: [
+   "chevron-first",
+   "first",
+   "pagination",
+   "start",
+   "beginning",
+   "skip",
+   "page",
+  ],
+ },
+ {
+  name: "chevron-last",
+  icon: ChevronLastIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows"],
+  keywords: [
+   "chevron-last",
+   "last",
+   "pagination",
+   "end",
+   "final",
+   "skip",
+   "page",
+  ],
+ },
+ {
+  name: "toggle-left",
+  icon: ToggleLeftIcon,
+  addedAt: "2026-09-29",
+  category: ["Layout", "Tools"],
+  keywords: [
+   "toggle-left",
+   "toggle",
+   "switch",
+   "off",
+   "disabled",
+   "inactive",
+   "settings",
+  ],
+ },
+ {
+  name: "list-filter",
+  icon: ListFilterIcon,
+  addedAt: "2026-09-29",
+  category: ["Tools"],
+  keywords: [
+   "list-filter",
+   "filter",
+   "list",
+   "sort",
+   "refine",
+   "search",
+   "narrow",
+  ],
+ },
+ {
+  name: "funnel-x",
+  icon: FunnelXIcon,
+  addedAt: "2026-09-29",
+  category: ["Tools"],
+  keywords: [
+   "funnel-x",
+   "filter",
+   "clear",
+   "reset",
+   "remove",
+   "funnel",
+   "cancel",
+  ],
+ },
+ {
+  name: "arrow-up-to-line",
+  icon: ArrowUpToLineIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows"],
+  keywords: [
+   "arrow-up-to-line",
+   "top",
+   "scroll",
+   "up",
+   "back to top",
+   "upload",
+   "raise",
+  ],
+ },
+ {
+  name: "arrow-down-to-line",
+  icon: ArrowDownToLineIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows"],
+  keywords: [
+   "arrow-down-to-line",
+   "bottom",
+   "download",
+   "save",
+   "down",
+   "scroll",
+   "import",
+  ],
+ },
+ {
+  name: "cloud-check",
+  icon: CloudCheckIcon,
+  addedAt: "2026-09-29",
+  category: ["File icons"],
+  keywords: [
+   "cloud-check",
+   "cloud",
+   "synced",
+   "saved",
+   "backup",
+   "done",
+   "storage",
+  ],
+ },
+ {
+  name: "cloud-sync",
+  icon: CloudSyncIcon,
+  addedAt: "2026-09-29",
+  category: ["File icons"],
+  keywords: [
+   "cloud-sync",
+   "cloud",
+   "sync",
+   "refresh",
+   "backup",
+   "update",
+   "storage",
+  ],
+ },
+ {
+  name: "badge-info",
+  icon: BadgeInfoIcon,
+  addedAt: "2026-09-29",
+  category: ["Notification"],
+  keywords: [
+   "badge-info",
+   "info",
+   "information",
+   "badge",
+   "notice",
+   "help",
+   "details",
+  ],
+ },
+ {
+  name: "mouse-pointer",
+  icon: MousePointerIcon,
+  addedAt: "2026-09-29",
+  category: ["Cursors"],
+  keywords: [
+   "mouse-pointer",
+   "cursor",
+   "pointer",
+   "arrow",
+   "mouse",
+   "select",
+   "click",
+  ],
+ },
+ {
+  name: "rotate-ccw",
+  icon: RotateCcwIcon,
+  addedAt: "2026-09-29",
+  category: ["Arrows", "Design"],
+  keywords: [
+   "rotate-ccw",
+   "rotate",
+   "counterclockwise",
+   "undo",
+   "reset",
+   "restore",
+   "turn",
+  ],
+ },
+ {
+  name: "contrast",
+  icon: ContrastIcon,
+  addedAt: "2026-09-29",
+  category: ["Design"],
+  keywords: [
+   "contrast",
+   "contrast",
+   "theme",
+   "dark mode",
+   "light mode",
+   "brightness",
+   "accessibility",
+  ],
+ },
+ {
+  name: "hard-drive-upload",
+  icon: HardDriveUploadIcon,
+  addedAt: "2026-09-29",
+  category: ["Devices"],
+  keywords: [
+   "hard-drive-upload",
+   "upload",
+   "storage",
+   "drive",
+   "backup",
+   "disk",
+   "export",
+  ],
  },
 ];
 

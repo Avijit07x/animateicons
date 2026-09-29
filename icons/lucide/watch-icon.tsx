@@ -74,55 +74,19 @@ const WatchIcon = forwardRef<WatchIconHandle, WatchIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const dialVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const handVariants: Variants = {
+   normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
-    scale: [0, 1.08, 1],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.45 * duration,
-     delay: 0.25 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
+    rotate: [0, 360],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
-  };
-
-  const handsVariants: Variants = {
-   normal: { rotate: 0, opacity: 1 },
-   animate: {
-    rotate: [-40, 12, 0],
-    opacity: [0, 1, 1],
-    transition: {
-     duration: 0.5 * duration,
-     delay: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
-    },
-   },
-  };
-
-  const bandVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: i * 0.1 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
   };
 
   return (
@@ -148,27 +112,14 @@ const WatchIcon = forwardRef<WatchIconHandle, WatchIconProps>(
       initial="normal"
      >
       <m.path
-       d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05"
-       custom={0}
-       variants={bandVariants}
+       d="M12 10v2.2"
+       variants={handVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12.2px" }}
       />
-      <m.path
-       d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05"
-       custom={1}
-       variants={bandVariants}
-      />
-      <m.circle
-       cx="12"
-       cy="12"
-       r="6"
-       variants={dialVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M12 10v2.2l1.6 1"
-       variants={handsVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      <path d="m12 12.2 1.6 1" />
+      <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" />
+      <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" />
+      <circle cx="12" cy="12" r="6" />
      </m.svg>
     </m.div>
    </LazyMotion>

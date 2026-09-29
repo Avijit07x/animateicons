@@ -51,94 +51,54 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
   },
   ref,
  ) => {
-  const shieldControls = useAnimation();
-  const x1Controls = useAnimation();
-  const x2Controls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: () => {
-     if (reduced) {
-      shieldControls.start("normal");
-      x1Controls.start("normal");
-      x2Controls.start("normal");
-     } else {
-      shieldControls.start("animate");
-      x1Controls.start("animate");
-      x2Controls.start("animate");
-     }
-    },
-    stopAnimation: () => {
-     shieldControls.start("normal");
-     x1Controls.start("normal");
-     x2Controls.start("normal");
-    },
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) {
-     shieldControls.start("animate");
-     x1Controls.start("animate");
-     x2Controls.start("animate");
-    } else onMouseEnter?.(e as any);
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
    },
-   [shieldControls, x1Controls, x2Controls, reduced, onMouseEnter, isAnimated],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     shieldControls.start("normal");
-     x1Controls.start("normal");
-     x2Controls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [shieldControls, x1Controls, x2Controls, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const shieldVariants: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1, rotate: 0 },
+  const pulseVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    strokeDashoffset: [300, 24, 0],
-    scale: [1, 0.98, 1.04, 1],
-    rotate: [0, -2, 1, 0],
+    scale: [1, 1.06, 0.97, 1],
     transition: {
-     duration: 1.0 * duration,
-     ease: [0.18, 0.85, 0.25, 1],
-     times: [0, 0.35, 0.75, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const x1Variants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const crossVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: [0.22, 0.9, 0.28, 1],
-     delay: 0.28,
-    },
-   },
-  };
-
-  const x2Variants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: [0.22, 0.9, 0.28, 1],
-     delay: 0.36,
-    },
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -151,7 +111,7 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -161,29 +121,22 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-       initial="normal"
-       animate={shieldControls}
-       variants={shieldVariants}
-       style={{ strokeDasharray: 300, transformOrigin: "12px 12px" }}
+       variants={pulseVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
-      <m.path
-       d="m14.5 9.5-5 5"
-       initial="normal"
-       animate={x1Controls}
-       variants={x1Variants}
-       style={{ strokeDasharray: 40, strokeLinecap: "round" }}
-      />
-      <m.path
-       d="m9.5 9.5 5 5"
-       initial="normal"
-       animate={x2Controls}
-       variants={x2Variants}
-       style={{ strokeDasharray: 40, strokeLinecap: "round" }}
-      />
-     </svg>
+      <m.g
+       variants={crossVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="m14.5 9.5-5 5" />
+       <path d="m9.5 9.5 5 5" />
+      </m.g>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface SkipBackIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,69 +51,57 @@ const SkipBackIcon = forwardRef<SkipBackIconHandle, SkipBackIconProps>(
   },
   ref,
  ) => {
-  const headControls = useAnimation();
-  const barControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   headControls.start("skip");
-   barControls.start("skip");
-  }, [headControls, barControls, reduced]);
-
-  const stop = useCallback(() => {
-   headControls.start("rest");
-   barControls.start("rest");
-  }, [headControls, barControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const headVariants: Variants = {
-   rest: { x: 0 },
-   skip: {
-    x: [0, -2.2, 0.6, 0],
+  const playVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.42, 0.74, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const barVariants: Variants = {
-   rest: { x: 0, scaleY: 1 },
-   skip: {
-    x: [0, -0.7, 0.2, 0],
-    scaleY: [1, 1.1, 0.98, 1],
+   normal: { x: 0 },
+   animate: {
+    x: [0, -0.8, 0.2, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.42, 0.74, 1],
-     delay: 0.08 * duration,
+     delay: 0.1 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -128,32 +115,25 @@ const SkipBackIcon = forwardRef<SkipBackIconHandle, SkipBackIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z"
-       animate={headControls}
-       initial="rest"
-       variants={headVariants}
-       style={{ transformBox: "fill-box" }}
+       variants={playVariants}
       />
-      <m.path
-       d="M3 20V4"
-       animate={barControls}
-       initial="rest"
-       variants={barVariants}
-       style={{ transformBox: "fill-box", originX: "50%", originY: "50%" }}
-      />
-     </svg>
+      <m.path d="M3 20V4" variants={barVariants} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

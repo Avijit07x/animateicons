@@ -47,7 +47,7 @@ const GitBranchMinusIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -84,73 +84,28 @@ const GitBranchMinusIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const easeSmooth: [number, number, number, number] = [0.25, 1, 0.5, 1];
-
-  const trunkNodeVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
+  const nodeVariants = (delay: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.12, 1],
-    opacity: [1, 0.9, 1],
+    y: [0, -1.8, 0.5, 0],
     transition: {
-     duration: duration * 0.35,
-     ease: easeSmooth,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.3, 1],
-    transition: {
-     pathLength: {
-      duration: duration * 0.6,
-      ease: easeSmooth,
-      delay: duration * 0.15,
-     },
-     opacity: {
-      duration: duration * 0.3,
-      ease: "easeOut",
-      delay: duration * 0.15,
-     },
-    },
-   },
-  };
-
-  const branchNodeVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
-   animate: {
-    scale: [0.7, 1.1, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: duration * 0.35,
-     ease: easeSmooth,
-     delay: duration * 0.55,
-    },
-   },
-  };
+  });
 
   const minusVariants: Variants = {
-   normal: {
-    scaleX: 1,
-    y: 0,
-   },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scaleX: [1, 0.55, 1],
-    y: [0, -1, 0],
+    rotate: [0, 180],
+    scale: [1, 1.3, 1],
     transition: {
-     duration: 0.28 * duration,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: 0.2 * duration,
     },
    },
   };
@@ -164,7 +119,7 @@ const GitBranchMinusIcon = forwardRef<
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -174,42 +129,18 @@ const GitBranchMinusIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ overflow: "visible" }}
+      animate={controls}
+      initial="normal"
      >
-      <m.circle
-       cx="6"
-       cy="18"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={trunkNodeVariants}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M15 6a9 9 0 0 0-9 9V3"
-       variants={pathVariants}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.circle
-       cx="18"
-       cy="6"
-       r="3"
-       style={{ transformOrigin: "center" }}
-       variants={branchNodeVariants}
-       initial="normal"
-       animate={controls}
-      />
-
+      <path d="M15 6a9 9 0 0 0-9 9V3" />
       <m.path
        d="M21 18h-6"
        variants={minusVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
       />
-     </svg>
+      <m.circle cx="18" cy="6" r="3" variants={nodeVariants(0.12)} />
+      <m.circle cx="6" cy="18" r="3" variants={nodeVariants(0)} />
+     </m.svg>
     </m.div>
    </LazyMotion>
   );
@@ -217,5 +148,4 @@ const GitBranchMinusIcon = forwardRef<
 );
 
 GitBranchMinusIcon.displayName = "GitBranchMinusIcon";
-
 export { GitBranchMinusIcon };

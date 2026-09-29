@@ -81,14 +81,14 @@ const AtSignIcon = forwardRef<AtSignIconHandle, AtSignIconProps>(
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const spinVariants: Variants = {
+   normal: { rotate: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    rotate: [0, 24, -8, 0],
     transition: {
-     pathLength: { duration: 0.7 * duration, ease: "easeInOut" },
-     opacity: { duration: 0.15 * duration },
+     duration: 0.8 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -96,11 +96,11 @@ const AtSignIcon = forwardRef<AtSignIconHandle, AtSignIconProps>(
   const coreVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 0.6, 1.12, 1],
+    scale: [1, 0.8, 1],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     delay: 0.2 * duration,
     },
    },
   };
@@ -136,7 +136,8 @@ const AtSignIcon = forwardRef<AtSignIconHandle, AtSignIconProps>(
       />
       <m.path
        d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"
-       variants={ringVariants}
+       variants={spinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

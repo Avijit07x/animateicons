@@ -81,37 +81,26 @@ const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0, scale: 1 },
+  const nozzleVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    rotate: [0, -4, 4, -2, 2, 0],
-    transition: { duration: 2 * duration, ease: "easeInOut", repeat: 0 },
+    y: [0, 2, 0],
+    transition: { duration: 0.35 * duration, ease: "easeInOut" },
    },
   };
 
-  const sprayVariants: Variants = {
-   normal: { scale: 1, opacity: 1, y: 0 },
-   animate: (i: number) => ({
-    scale: [1, 1.3, 0.7, 1],
-    opacity: [1, 0.4, 1],
-    y: [0, -2, 2, 0],
+  const puffVariants = (delay: number): Variants => ({
+   normal: { x: 0, opacity: 1 },
+   animate: {
+    x: [0, -1.5, 0],
+    opacity: [1, 0.3, 1],
     transition: {
-     duration: 1 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     repeat: 0,
-     delay: i * 0.2,
+     delay: delay * duration,
     },
-   }),
-  };
-
-  const sprayDots = [
-   "M3 3h.01",
-   "M7 5h.01",
-   "M11 7h.01",
-   "M3 7h.01",
-   "M7 9h.01",
-   "M3 11h.01",
-  ];
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -134,19 +123,14 @@ const SprayCanIcon = forwardRef<SprayCanIconHandle, SprayCanIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
-      {sprayDots.map((d, i) => (
-       <m.path
-        key={i}
-        d={d}
-        variants={sprayVariants}
-        custom={i}
-        animate={controls}
-        initial="normal"
-       />
-      ))}
-      <rect width="4" height="4" x="15" y="5" />
+      <m.path d="M3 3h.01" variants={puffVariants(0.28)} />
+      <m.path d="M7 5h.01" variants={puffVariants(0.2)} />
+      <m.path d="M11 7h.01" variants={puffVariants(0.12)} />
+      <m.path d="M3 7h.01" variants={puffVariants(0.28)} />
+      <m.path d="M7 9h.01" variants={puffVariants(0.2)} />
+      <m.path d="M3 11h.01" variants={puffVariants(0.28)} />
+      <m.rect width="4" height="4" x="15" y="5" variants={nozzleVariants} />
       <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2" />
       <path d="m13 14 8-2" />
       <path d="m13 19 8-2" />

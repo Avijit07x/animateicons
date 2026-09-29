@@ -74,50 +74,47 @@ const FolderLockIcon = forwardRef<FolderLockIconHandle, FolderLockIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const liftVariants: Variants = {
-   normal: { scale: 1 },
+  const folderVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
-     times: [0, 0.5, 1],
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
   const shackleVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, -2.2, 0.5, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: "easeOut",
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };
 
   const bodyVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scaleY: 1 },
    animate: {
-    scale: [0.4, 1.1, 1],
-    opacity: [0, 1, 1],
+    scaleY: [1, 1, 0.88, 1],
     transition: {
-     duration: 0.5 * duration,
-     delay: 0.16 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -143,10 +140,11 @@ const FolderLockIcon = forwardRef<FolderLockIconHandle, FolderLockIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={liftVariants}
-      style={{ transformOrigin: "center" }}
      >
-      <path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5" />
+      <m.path
+       d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5"
+       variants={folderVariants}
+      />
       <m.path d="M20 17v-2a2 2 0 1 0-4 0v2" variants={shackleVariants} />
       <m.rect
        width="8"
@@ -155,7 +153,7 @@ const FolderLockIcon = forwardRef<FolderLockIconHandle, FolderLockIconProps>(
        y="17"
        rx="1"
        variants={bodyVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "19.5px" }}
+       style={{ transformBox: "view-box", originX: "18px", originY: "22px" }}
       />
      </m.svg>
     </m.div>

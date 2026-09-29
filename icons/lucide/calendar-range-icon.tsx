@@ -77,74 +77,45 @@ const CalendarRangeIcon = forwardRef<
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const ringVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: [0.16, 1, 0.3, 1] },
-   },
-  };
-
-  const hangerVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+    y: [0, 1.6, -0.3, 0],
     transition: {
-     duration: 0.3 * duration,
-     delay: i * 0.08 * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
-  };
-
-  const headerVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: {
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     delay: 0.28 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
-  };
-
-  const markVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     delay: (0.4 + i * 0.1) * duration,
-     ease: [0.16, 1, 0.3, 1],
-    },
-   }),
   };
 
   const dotVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { scale: 1 },
    animate: (i: number) => ({
-    scale: [0, 1.25, 1],
-    opacity: [0, 1, 1],
+    scale: [1, 1.7, 1],
     transition: {
-     duration: 0.35 * duration,
-     delay: (0.45 + i * 0.1) * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: (0.1 + i * 0.25) * duration,
+    },
+   }),
+  };
+
+  const spanVariants: Variants = {
+   normal: { scaleX: 1 },
+   animate: (i: number) => ({
+    scaleX: [1, 0.3, 1],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: (0.2 + i * 0.15) * duration,
     },
    }),
   };
@@ -171,44 +142,33 @@ const CalendarRangeIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path d="M8 2v4" custom={0} variants={hangerVariants} />
-      <m.path d="M16 2v4" custom={1} variants={hangerVariants} />
-      <m.rect
-       width="18"
-       height="18"
-       x="3"
-       y="4"
-       rx="2"
-       variants={bodyVariants}
-      />
+      <m.path d="M8 2v3" variants={ringVariants} />
+      <m.path d="M16 2v3" variants={ringVariants} />
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18" />
       <m.path
-       d="M3 10h18"
-       variants={headerVariants}
-       style={{ transformBox: "view-box", originX: "3px", originY: "10px" }}
-      />
-      <m.path
-       d="M17 14h-6"
+       d="M17 13h-6"
        custom={0}
-       variants={markVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "14px" }}
+       variants={spanVariants}
+       style={{ transformBox: "view-box", originX: "17px", originY: "13px" }}
       />
       <m.path
-       d="M13 18H7"
+       d="M13 17H7"
        custom={1}
-       variants={markVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "18px" }}
+       variants={spanVariants}
+       style={{ transformBox: "view-box", originX: "13px", originY: "17px" }}
       />
       <m.path
-       d="M7 14h.01"
+       d="M7 13h.01"
        custom={0}
        variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "14px" }}
+       style={{ transformBox: "view-box", originX: "7px", originY: "13px" }}
       />
       <m.path
-       d="M17 18h.01"
+       d="M17 17h.01"
        custom={1}
        variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "17px", originY: "18px" }}
+       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
       />
      </m.svg>
     </m.div>

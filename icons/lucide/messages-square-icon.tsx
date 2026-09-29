@@ -89,7 +89,7 @@ const MessagesSquareIcon = forwardRef<
    animate: (i: number) => ({
     scale: [1, 0.85, 1.08, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.55 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
      delay: i * 0.25 * duration,

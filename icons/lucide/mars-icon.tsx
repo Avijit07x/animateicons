@@ -44,7 +44,7 @@ const MarsIcon = forwardRef<MarsIconHandle, MarsIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -81,75 +81,53 @@ const MarsIcon = forwardRef<MarsIconHandle, MarsIconProps>(
    [controls, onMouseLeave],
   );
 
-  const softSpring: [number, number, number, number] = [0.32, 1.2, 0.5, 1];
-  const smoothDraw: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
   const arrowVariants: Variants = {
-   normal: {
-    scale: 1,
-    opacity: 1,
-    rotate: 0,
-   },
+   normal: { scale: 1, opacity: 1, rotate: 0 },
    animate: {
     scale: [0, 1.12, 1],
     opacity: [0, 1],
     rotate: [-12, 2, 0],
     transition: {
-     scale: { duration: duration * 0.55, ease: softSpring },
-     opacity: { duration: duration * 0.3, ease: smoothDraw },
-     rotate: { duration: duration * 0.55, ease: softSpring },
+     scale: { duration: 0.45 * duration, ease: "easeInOut" },
+     opacity: { duration: 0.25 * duration },
+     rotate: { duration: 0.45 * duration, ease: "easeInOut" },
     },
    },
   };
 
   const lineVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [10, 0],
     opacity: [0, 1],
     transition: {
-     pathLength: {
-      duration: duration * 0.5,
-      ease: smoothDraw,
-      delay: duration * 0.18,
+     strokeDashoffset: {
+      duration: 0.4 * duration,
+      ease: "easeOut",
+      delay: 0.12 * duration,
      },
-     opacity: {
-      duration: duration * 0.25,
-      ease: smoothDraw,
-      delay: duration * 0.18,
-     },
+     opacity: { duration: 0.25 * duration, delay: 0.12 * duration },
     },
    },
   };
 
   const circleVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-    scale: 1,
-   },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [38, 0],
     opacity: [0, 1],
     scale: [0.88, 1.04, 1],
     transition: {
-     pathLength: {
-      duration: duration * 0.65,
-      ease: smoothDraw,
-      delay: duration * 0.35,
+     strokeDashoffset: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: 0.3 * duration,
      },
-     opacity: {
-      duration: duration * 0.3,
-      ease: smoothDraw,
-      delay: duration * 0.35,
-     },
+     opacity: { duration: 0.25 * duration, delay: 0.3 * duration },
      scale: {
-      duration: duration * 0.65,
-      ease: softSpring,
-      delay: duration * 0.35,
+      duration: 0.55 * duration,
+      ease: "easeInOut",
+      delay: 0.3 * duration,
      },
     },
    },
@@ -180,24 +158,22 @@ const MarsIcon = forwardRef<MarsIconHandle, MarsIconProps>(
       <m.path
        d="M16 3h5v5"
        variants={arrowVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "18.5px", originY: "5.5px" }}
       />
-
       <m.path
        d="m21 3-6.75 6.75"
+       strokeDasharray="10"
+       strokeDashoffset="0"
        variants={lineVariants}
-       initial="normal"
-       animate={controls}
       />
-
       <m.circle
        cx="10"
        cy="14"
        r="6"
+       strokeDasharray="38"
+       strokeDashoffset="0"
        variants={circleVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "10px", originY: "14px" }}
       />
      </m.svg>
     </m.div>

@@ -81,31 +81,24 @@ const ListPlusIcon = forwardRef<ListPlusIconHandle, ListPlusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const rowVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
-   animate: (i: number) => ({
-    scaleX: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay: i * 0.1 * duration,
-    },
-   }),
-  };
-
-  const signVariants: Variants = {
-   normal: { scale: 1, opacity: 1, rotate: 0 },
+  const rowVariants = (delay: number): Variants => ({
+   normal: { scaleX: 1 },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
-    rotate: [-90, 0, 0],
+    scaleX: [1, 0.7, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     times: [0, 0.6, 1],
-     delay: 0.25 * duration,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
+   },
+  });
+
+  const plusVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   animate: {
+    rotate: [0, 90],
+    scale: [1, 1.25, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -133,29 +126,24 @@ const ListPlusIcon = forwardRef<ListPlusIconHandle, ListPlusIconProps>(
      >
       <m.path
        d="M16 5H3"
-       variants={rowVariants}
-       custom={0}
+       variants={rowVariants(0)}
        style={{ transformBox: "view-box", originX: "3px", originY: "5px" }}
       />
       <m.path
        d="M11 12H3"
-       variants={rowVariants}
-       custom={1}
+       variants={rowVariants(0.1)}
        style={{ transformBox: "view-box", originX: "3px", originY: "12px" }}
       />
       <m.path
        d="M16 19H3"
-       variants={rowVariants}
-       custom={2}
+       variants={rowVariants(0.2)}
        style={{ transformBox: "view-box", originX: "3px", originY: "19px" }}
       />
-      <m.g
-       variants={signVariants}
+      <m.path
+       d="M18 9v6M21 12h-6"
+       variants={plusVariants}
        style={{ transformBox: "view-box", originX: "18px", originY: "12px" }}
-      >
-       <path d="M18 9v6" />
-       <path d="M21 12h-6" />
-      </m.g>
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

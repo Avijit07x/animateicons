@@ -84,37 +84,20 @@ const PenToolIcon = forwardRef<PenToolIconHandle, PenToolIconProps>(
   const penVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, 6, -4, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
-    },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.1 * duration,
-    },
+    rotate: [0, -7, 6, -3, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
   const anchorVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 0.5, 1.4, 1],
+    scale: [1, 1.5, 0.9, 1],
     transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     times: [0, 0.3, 0.7, 1],
-     delay: 0.35 * duration,
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: 0.2 * duration,
     },
    },
   };
@@ -143,11 +126,11 @@ const PenToolIcon = forwardRef<PenToolIconHandle, PenToolIconProps>(
      >
       <m.g
        variants={penVariants}
-       style={{ transformBox: "view-box", originX: "2.3px", originY: "2.3px" }}
+       style={{ transformBox: "view-box", originX: "11px", originY: "11px" }}
       >
        <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
        <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
-       <m.path d="m2.3 2.3 7.286 7.286" variants={lineVariants} />
+       <path d="m2.3 2.3 7.286 7.286" />
        <m.circle
         cx="11"
         cy="11"

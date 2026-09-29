@@ -74,39 +74,44 @@ const Repeat1Icon = forwardRef<Repeat1IconHandle, Repeat1IconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const loopVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
-    opacity: [0, 1],
+  const forwardVariants: Variants = {
+   normal: { x: 0 },
+   animate: {
+    x: [0, 1.5, -0.45, 0],
     transition: {
-     delay: i * 0.1 * duration,
-     duration: 0.4 * duration,
-     ease: [0.16, 1, 0.3, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
-   }),
+   },
   };
 
-  const numberVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const backwardVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    scale: [0, 1.2, 1],
-    opacity: [0, 1, 1],
+    x: [0, -1.5, 0.45, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.5 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+  const digitVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.35, 1],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
     },
    },
   };
@@ -133,17 +138,17 @@ const Repeat1Icon = forwardRef<Repeat1IconHandle, Repeat1IconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M3 11v-1a4 4 0 0 1 4-4h14"
-       custom={0}
-       variants={loopVariants}
-      />
-      <m.path d="m17 2 4 4-4 4" custom={1} variants={loopVariants} />
-      <m.path d="M21 13v1a4 4 0 0 1-4 4H3" custom={2} variants={loopVariants} />
-      <m.path d="m7 22-4-4 4-4" custom={3} variants={loopVariants} />
+      <m.g variants={forwardVariants}>
+       <path d="m17 2 4 4-4 4" />
+       <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+      </m.g>
+      <m.g variants={backwardVariants}>
+       <path d="m7 22-4-4 4-4" />
+       <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+      </m.g>
       <m.path
        d="M11 10h1v4"
-       variants={numberVariants}
+       variants={digitVariants}
        style={{ transformBox: "view-box", originX: "11.5px", originY: "12px" }}
       />
      </m.svg>

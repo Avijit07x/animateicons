@@ -81,36 +81,27 @@ const UserPenIcon = forwardRef<UserPenIconHandle, UserPenIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.7 * duration,
-     delay: 0.2,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
 
-  const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
-   animate: {
-    scale: [0.5, 1.15, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
-   },
-  };
-
   const penVariants: Variants = {
-   normal: { rotate: 0, x: 0, y: 0, opacity: 1 },
+   normal: { rotate: 0 },
    animate: {
-    rotate: [-8, 8, -4, 0],
-    x: [6, -2, 2, 0],
-    y: [0, -2, 0, 0],
-    opacity: [0.6, 1, 1, 1],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    rotate: [0, 10, -6, 3, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     delay: 0.05 * duration,
+    },
    },
   };
 
@@ -133,30 +124,20 @@ const UserPenIcon = forwardRef<UserPenIconHandle, UserPenIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-pen-icon lucide-user-pen"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M11.5 15H7a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="10"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M11.5 15H7a4 4 0 0 0-4 4v2" />
       <m.path
        d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
        variants={penVariants}
-       initial="normal"
-       animate={controls}
+       style={{
+        transformBox: "view-box",
+        originX: "13.5px",
+        originY: "21.5px",
+       }}
       />
+      <m.circle cx="10" cy="7" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

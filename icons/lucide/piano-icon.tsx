@@ -96,7 +96,7 @@ const PianoIcon = forwardRef<PianoIconHandle, PianoIconProps>(
     scaleY: [1, 1.22, 1],
     transition: {
      duration: 0.8 * duration,
-     ease: [0.34, 1.4, 0.64, 1],
+     ease: "easeInOut",
      delay: i * 0.12 * duration,
     },
    },

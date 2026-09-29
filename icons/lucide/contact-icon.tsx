@@ -81,39 +81,28 @@ const ContactIcon = forwardRef<ContactIconHandle, ContactIconProps>(
    [controls, onMouseLeave],
   );
 
-  const rectVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const headVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [100, 0],
-    opacity: [0.3, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    y: [0, -1.2, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const circleVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const shouldersVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, delay: 0.3, ease: "easeOut" },
-   },
-  };
-
-  const lineVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
-   animate: {
-    x: [-10, 0],
-    opacity: [0, 1],
-    transition: { duration: 0.4 * duration, ease: "easeOut", delay: 0.6 },
-   },
-  };
-
-  const curveVariants: Variants = {
-   normal: { opacity: 1, strokeDashoffset: 0 },
-   animate: {
-    strokeDashoffset: [30, 0],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, delay: 0.5, ease: "easeInOut" },
+    scaleY: [1, 0.8, 1.05, 1],
+    transition: {
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: 0.3 * duration,
+    },
    },
   };
 
@@ -136,48 +125,18 @@ const ContactIcon = forwardRef<ContactIconHandle, ContactIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-contact-icon lucide-contact"
+      animate={controls}
+      initial="normal"
      >
+      <path d="M16 2v2" />
       <m.path
-       d="M16 2v2"
-       variants={lineVariants}
-       initial="normal"
-       animate={controls}
+       d="M7 21v-2a2 2 0 012-2h6a2 2 0 012 2v2"
+       variants={shouldersVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "21px" }}
       />
-      <m.path
-       d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
-       strokeDasharray="30"
-       strokeDashoffset="0"
-       variants={curveVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M8 2v2"
-       variants={lineVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="12"
-       cy="11"
-       r="3"
-       variants={circleVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.rect
-       x="3"
-       y="4"
-       width="18"
-       height="18"
-       rx="2"
-       strokeDasharray="100"
-       strokeDashoffset="0"
-       variants={rectVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <path d="M8 2v2" />
+      <m.circle cx="12" cy="10" r="3" variants={headVariants} />
+      <rect x="3" y="3" width="18" height="18" rx="2" />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -16,6 +16,7 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
+
 export interface FacebookIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -74,43 +75,18 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
+  const logoVariants: Variants = {
+   normal: { skewX: 0 },
    animate: {
-    scale: [1, 1.15, 0.92, 1],
-    rotate: [0, -4, 4, 0],
-    transition: {
-     duration: 0.9 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0.2, 1],
-    opacity: [0.4, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-    },
+    skewX: [0, -8, 5, -2, 0],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -135,11 +111,11 @@ const FacebookIcon = forwardRef<FacebookIconHandle, FacebookIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.path
        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7 a1 1 0 0 1 1-1h3z"
-       variants={pathVariants}
+       variants={logoVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
       />
      </m.svg>
     </m.div>

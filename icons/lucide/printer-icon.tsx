@@ -16,7 +16,6 @@ import {
  useRef,
  type HTMLAttributes,
 } from "react";
-
 export interface PrinterIconHandle {
  startAnimation: () => void;
  stopAnimation: () => void;
@@ -52,52 +51,44 @@ const PrinterIcon = forwardRef<PrinterIconHandle, PrinterIconProps>(
   },
   ref,
  ) => {
-  const paperControls = useAnimation();
+  const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
-
-  const start = useCallback(() => {
-   if (reduced) return;
-   paperControls.start("feed");
-  }, [paperControls, reduced]);
-
-  const stop = useCallback(() => {
-   paperControls.start("rest");
-  }, [paperControls]);
 
   useImperativeHandle(ref, () => {
    isControlled.current = true;
    return {
-    startAnimation: start,
-    stopAnimation: stop,
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
    };
   });
 
   const handleEnter = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
-    if (!isControlled.current) start();
+    if (!isControlled.current) controls.start("animate");
     else onMouseEnter?.(e as any);
    },
-   [isAnimated, reduced, start, onMouseEnter],
+   [controls, reduced, isAnimated, onMouseEnter],
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) stop();
-    else onMouseLeave?.(e);
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
-   [stop, onMouseLeave],
+   [controls, onMouseLeave],
   );
 
-  const paperVariants: Variants = {
-   rest: { scaleY: 1 },
-   feed: {
-    scaleY: [0.15, 1.06, 1],
+  const sheetVariants: Variants = {
+   normal: { y: 0 },
+   animate: {
+    y: [0, -3, 0.6, 0],
     transition: {
-     duration: 0.9 * duration,
-     ease: [0.16, 1, 0.3, 1],
-     times: [0, 0.7, 1],
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
@@ -111,16 +102,18 @@ const PrinterIcon = forwardRef<PrinterIconHandle, PrinterIconProps>(
      {...props}
      style={{ color, ...props.style }}
     >
-     <svg
+     <m.svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
       <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
@@ -130,12 +123,9 @@ const PrinterIcon = forwardRef<PrinterIconHandle, PrinterIconProps>(
        width="12"
        height="8"
        rx="1"
-       animate={paperControls}
-       initial="rest"
-       variants={paperVariants}
-       style={{ transformBox: "fill-box", transformOrigin: "top center" }}
+       variants={sheetVariants}
       />
-     </svg>
+     </m.svg>
     </m.div>
    </LazyMotion>
   );

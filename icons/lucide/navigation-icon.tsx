@@ -74,26 +74,22 @@ const NavigationIcon = forwardRef<NavigationIconHandle, NavigationIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
   const cursorVariants: Variants = {
-   normal: { rotate: 0, scale: 1, opacity: 1 },
+   normal: { rotate: 0, scale: 1 },
    animate: {
-    rotate: [-28, 10, 0],
-    scale: [0.9, 1, 1],
-    opacity: [0, 1, 1],
+    rotate: [0, -16, 8, 0],
+    scale: [1, 0.92, 1, 1],
     transition: {
-     duration: 0.65 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.75 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };

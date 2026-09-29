@@ -74,35 +74,34 @@ const CirclePlayIcon = forwardRef<CirclePlayIconHandle, CirclePlayIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const ringVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
+  const shapeVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    pathLength: [0, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
-  const symbolVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+  const playVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [0, 1.1, 1],
-    opacity: [0, 1, 1],
+    x: [0, 1.5, -0.375, 0],
+    y: [0, 0, 0, 0],
     transition: {
-     duration: 0.4 * duration,
-     delay: 0.3 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.34, 1.4, 0.64, 1],
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -129,10 +128,15 @@ const CirclePlayIcon = forwardRef<CirclePlayIconHandle, CirclePlayIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle cx="12" cy="12" r="10" variants={ringVariants} />
       <m.path
        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
-       variants={symbolVariants}
+       variants={playVariants}
+      />
+      <m.circle
+       cx="12"
+       cy="12"
+       r="10"
+       variants={shapeVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

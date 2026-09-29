@@ -84,7 +84,7 @@ const PhoneMissedIcon = forwardRef<PhoneMissedIconHandle, PhoneMissedIconProps>(
   const phoneVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -6, 6, -4, 4, 0],
+    rotate: [0, -6, 6, -4, 0],
     transition: {
      duration: 0.9 * duration,
      ease: "easeInOut",

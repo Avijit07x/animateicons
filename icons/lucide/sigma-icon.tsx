@@ -82,18 +82,18 @@ const SigmaIcon = forwardRef<SigmaIconHandle, SigmaIconProps>(
   );
 
   const glyphVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, scale: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
-    pathLength: [0, 1],
+    strokeDashoffset: [49, 0],
     opacity: [0, 1],
     scale: [1, 1.08, 1],
     transition: {
-     pathLength: { duration: 0.7 * duration, ease: "easeInOut" },
-     opacity: { duration: 0.1 * duration },
+     strokeDashoffset: { duration: 0.7 * duration, ease: "easeOut" },
+     opacity: { duration: 0.25 * duration },
      scale: {
       duration: 0.3 * duration,
-      ease: "easeOut",
-      delay: 0.65 * duration,
+      ease: "easeInOut",
+      delay: 0.55 * duration,
      },
     },
    },
@@ -123,6 +123,8 @@ const SigmaIcon = forwardRef<SigmaIconHandle, SigmaIconProps>(
      >
       <m.path
        d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"
+       strokeDasharray="49"
+       strokeDashoffset="0"
        variants={glyphVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />

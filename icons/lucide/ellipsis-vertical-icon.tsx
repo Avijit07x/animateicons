@@ -89,7 +89,7 @@ const EllipsisVerticalIcon = forwardRef<
    animate: (i: number) => ({
     x: [0, -3, 0],
     transition: {
-     duration: 0.35 * duration,
+     duration: 0.55 * duration,
      delay: i * 0.12,
      ease: "easeInOut",
     },

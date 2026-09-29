@@ -81,38 +81,29 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
    [controls, onMouseLeave],
   );
 
-  const nodeVariants = (delay: number): Variants => ({
-   normal: {
-    scale: 1,
-    opacity: 1,
-   },
+  const arrowVariants: Variants = {
+   normal: { y: 0 },
    animate: {
-    scale: [0.6, 1.25, 1],
-    opacity: [0, 1, 1],
+    y: [0, 1.5, -1, 0],
     transition: {
-     duration: 0.4 * duration,
-     times: [0, 0.6, 1],
-     ease: [0.22, 1, 0.36, 1],
-     delay,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
    },
-  });
+  };
 
-  const lineVariants = (delay: number): Variants => ({
-   normal: {
-    strokeDashoffset: 0,
-    opacity: 1,
-   },
+  const trayVariants: Variants = {
+   normal: { scaleY: 1 },
    animate: {
-    strokeDashoffset: [9, 0],
-    opacity: [0, 1],
+    scaleY: [1, 0.94, 1.02, 1],
     transition: {
-     duration: 0.35 * duration,
-     ease: "easeOut",
-     delay,
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.3, 0.7, 1],
     },
    },
-  });
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -136,43 +127,14 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.circle
-       cx="18"
-       cy="5"
-       r="3"
-       variants={nodeVariants(0.42)}
-       style={{ transformBox: "view-box", originX: "18px", originY: "5px" }}
-      />
-      <m.circle
-       cx="6"
-       cy="12"
-       r="3"
-       variants={nodeVariants(0)}
-       style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
-      />
-      <m.circle
-       cx="18"
-       cy="19"
-       r="3"
-       variants={nodeVariants(0.48)}
-       style={{ transformBox: "view-box", originX: "18px", originY: "19px" }}
-      />
-
-      <m.line
-       x1="8.59"
-       y1="13.51"
-       x2="15.42"
-       y2="17.49"
-       strokeDasharray="9"
-       variants={lineVariants(0.18)}
-      />
-      <m.line
-       x1="8.59"
-       y1="10.49"
-       x2="15.41"
-       y2="6.51"
-       strokeDasharray="9"
-       variants={lineVariants(0.18)}
+      <m.g variants={arrowVariants}>
+       <path d="M12 2v13" />
+       <path d="m16 6-4-4-4 4" />
+      </m.g>
+      <m.path
+       d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"
+       variants={trayVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
       />
      </m.svg>
     </m.div>

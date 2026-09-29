@@ -81,31 +81,24 @@ const UserPlusIcon = forwardRef<UserPlusIconHandle, UserPlusIconProps>(
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
-   animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
   const headVariants: Variants = {
-   normal: { scale: 1, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [0.5, 1.2, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    y: [0, -1.5, 0.5, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
   const plusVariants: Variants = {
-   normal: { scale: 1, rotate: 0, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [1, 1.3, 1],
-    rotate: [0, 25, -25, 0],
-    opacity: 1,
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
+    rotate: [0, 180],
+    scale: [1, 1.25, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,27 +121,17 @@ const UserPlusIcon = forwardRef<UserPlusIconHandle, UserPlusIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-user-plus-icon lucide-user-plus"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-       strokeDasharray="40"
-       strokeDashoffset="40"
-       variants={bodyVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.circle
-       cx="9"
-       cy="7"
-       r="4"
-       variants={headVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.g variants={plusVariants} initial="normal" animate={controls}>
-       <m.line x1="19" x2="19" y1="8" y2="14" />
-       <m.line x1="22" x2="16" y1="11" y2="11" />
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <m.circle cx="9" cy="7" r="4" variants={headVariants} />
+      <m.g
+       variants={plusVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "11px" }}
+      >
+       <line x1="19" x2="19" y1="8" y2="14" />
+       <line x1="22" x2="16" y1="11" y2="11" />
       </m.g>
      </m.svg>
     </m.div>

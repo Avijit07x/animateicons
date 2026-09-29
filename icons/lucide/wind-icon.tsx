@@ -74,29 +74,34 @@ const WindIcon = forwardRef<WindIconHandle, WindIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const gustVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1, x: 0 },
-   animate: (i: number) => ({
-    pathLength: [0, 1],
+  const gustVariants = (length: number, i: number): Variants => ({
+   normal: { strokeDashoffset: 0, opacity: 1, x: 0 },
+   animate: {
+    strokeDashoffset: [-length, 0],
     opacity: [0, 1],
     x: [-3, 0],
     transition: {
-     delay: i * 0.12 * duration,
-     duration: 0.6 * duration,
-     ease: "easeOut",
+     strokeDashoffset: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: i * 0.12 * duration,
+     },
+     opacity: { duration: 0.25 * duration, delay: i * 0.12 * duration },
+     x: {
+      duration: 0.55 * duration,
+      ease: "easeOut",
+      delay: i * 0.12 * duration,
+     },
     },
-   }),
-  };
+   },
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -121,19 +126,22 @@ const WindIcon = forwardRef<WindIconHandle, WindIconProps>(
       initial="normal"
      >
       <m.path
-       d="M9.8 4.4A2 2 0 1 1 11 8H2"
-       custom={0}
-       variants={gustVariants}
+       d="M12.8 19.6A2 2 0 1 0 14 16H2"
+       strokeDasharray="21 21"
+       strokeDashoffset="0"
+       variants={gustVariants(21, 2)}
       />
       <m.path
        d="M17.5 8a2.5 2.5 0 1 1 2 4H2"
-       custom={1}
-       variants={gustVariants}
+       strokeDasharray="29 29"
+       strokeDashoffset="0"
+       variants={gustVariants(29, 1)}
       />
       <m.path
-       d="M12.8 19.6A2 2 0 1 0 14 16H2"
-       custom={2}
-       variants={gustVariants}
+       d="M9.8 4.4A2 2 0 1 1 11 8H2"
+       strokeDasharray="18 18"
+       strokeDashoffset="0"
+       variants={gustVariants(18, 0)}
       />
      </m.svg>
     </m.div>

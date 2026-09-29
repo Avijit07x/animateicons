@@ -95,7 +95,7 @@ const BookmarkIcon = forwardRef<BookmarkIconHandle, BookmarkIconProps>(
     scaleY: [1, 1.1, 0.95, 1],
     scaleX: [1, 0.97, 1.02, 1],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },

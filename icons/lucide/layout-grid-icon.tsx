@@ -75,51 +75,24 @@ const LayoutGridIcon = forwardRef<LayoutGridIconHandle, LayoutGridIconProps>(
 
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else onMouseLeave?.(e as any);
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const gridVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const tileVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.03, 1],
-    rotate: [0, 1, 0],
+    scale: [1, 1.22, 0.96, 1],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut" as const,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const tileVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
-   animate: (i: number) => ({
-    opacity: [0.4, 1],
-    scale: [0.85, 1.08, 1],
-    transition: {
-     duration: 0.55 * duration,
-     delay: 0.08 * i,
-     ease: "easeOut" as const,
-    },
-   }),
-  };
-
-  const sweepVariants: Variants = {
-   normal: { x: -26, y: -26, opacity: 0 },
-   animate: {
-    x: [-26, 26],
-    y: [-26, 26],
-    opacity: [0, 0.35, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut" as const,
-     delay: 0.1,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -140,75 +113,49 @@ const LayoutGridIcon = forwardRef<LayoutGridIconHandle, LayoutGridIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-layout-grid-icon lucide-layout-grid"
+      animate={controls}
+      initial="normal"
      >
-      <defs>
-       <linearGradient id="grid-sweep" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-        <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
-        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-       </linearGradient>
-      </defs>
-
-      <m.g variants={gridVariants} initial="normal" animate={controls}>
-       <m.rect
-        width="7"
-        height="7"
-        x="3"
-        y="3"
-        rx="1"
-        variants={tileVariants}
-        custom={0}
-        initial="normal"
-        animate={controls}
-       />
-       <m.rect
-        width="7"
-        height="7"
-        x="14"
-        y="3"
-        rx="1"
-        variants={tileVariants}
-        custom={1}
-        initial="normal"
-        animate={controls}
-       />
-       <m.rect
-        width="7"
-        height="7"
-        x="14"
-        y="14"
-        rx="1"
-        variants={tileVariants}
-        custom={2}
-        initial="normal"
-        animate={controls}
-       />
-       <m.rect
-        width="7"
-        height="7"
-        x="3"
-        y="14"
-        rx="1"
-        variants={tileVariants}
-        custom={3}
-        initial="normal"
-        animate={controls}
-       />
-
-       <m.rect
-        x="2"
-        y="2"
-        width="20"
-        height="20"
-        rx="3"
-        fill="url(#grid-sweep)"
-        variants={sweepVariants}
-        initial="normal"
-        animate={controls}
-        style={{ pointerEvents: "none" }}
-       />
-      </m.g>
+      <m.rect
+       width="7"
+       height="7"
+       x="3"
+       y="3"
+       rx="1"
+       variants={tileVariants(0)}
+       style={{ transformBox: "view-box", originX: "6.5px", originY: "6.5px" }}
+      />
+      <m.rect
+       width="7"
+       height="7"
+       x="14"
+       y="3"
+       rx="1"
+       variants={tileVariants(0.08)}
+       style={{ transformBox: "view-box", originX: "17.5px", originY: "6.5px" }}
+      />
+      <m.rect
+       width="7"
+       height="7"
+       x="14"
+       y="14"
+       rx="1"
+       variants={tileVariants(0.16)}
+       style={{
+        transformBox: "view-box",
+        originX: "17.5px",
+        originY: "17.5px",
+       }}
+      />
+      <m.rect
+       width="7"
+       height="7"
+       x="3"
+       y="14"
+       rx="1"
+       variants={tileVariants(0.24)}
+       style={{ transformBox: "view-box", originX: "6.5px", originY: "17.5px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

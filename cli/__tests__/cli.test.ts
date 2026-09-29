@@ -40,7 +40,7 @@ describe("search / list / info", () => {
 	});
 
 	it("returns metadata for a known icon", async () => {
-		const { icon } = await runInfo("bell-ring", { registryBase: PUBLIC_R });
+		const { icon } = await runInfo("lu-bell-ring", { registryBase: PUBLIC_R });
 		expect(icon?.registryName).toBe("lu-bell-ring");
 		expect(icon?.url).toContain("/r/lu-bell-ring.json");
 	});
@@ -49,7 +49,7 @@ describe("search / list / info", () => {
 describe("add", () => {
 	it("writes an icon to the target directory", async () => {
 		const cwd = makeTmpDir();
-		const outcome = await runAdd(["bell-ring"], {
+		const outcome = await runAdd(["lu-bell-ring"], {
 			cwd,
 			dir: "components/icons",
 			registryBase: PUBLIC_R,
@@ -70,11 +70,11 @@ describe("add", () => {
 		const cwd = makeTmpDir();
 		const opts = { cwd, dir: "components/icons", registryBase: PUBLIC_R };
 
-		await runAdd(["bell-ring"], opts);
-		const second = await runAdd(["bell-ring"], opts);
+		await runAdd(["lu-bell-ring"], opts);
+		const second = await runAdd(["lu-bell-ring"], opts);
 		expect(second.added[0].skipped).toBe(true);
 
-		const third = await runAdd(["bell-ring"], { ...opts, overwrite: true });
+		const third = await runAdd(["lu-bell-ring"], { ...opts, overwrite: true });
 		expect(third.added[0].skipped).toBe(false);
 	});
 

@@ -81,53 +81,17 @@ const PauseIcon = forwardRef<PauseIconHandle, PauseIconProps>(
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: {
-    scale: 1,
-   },
+  const barVariants = (delay: number): Variants => ({
+   normal: { scaleY: 1 },
    animate: {
-    scale: [1, 0.92, 1],
+    scaleY: [1, 0.55, 1],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
-
-  const barLeftVariants: Variants = {
-   normal: {
-    x: 0,
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    x: [-0.8, 0],
-    pathLength: [0.6, 1],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-    },
-   },
-  };
-
-  const barRightVariants: Variants = {
-   normal: {
-    x: 0,
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    x: [0.8, 0],
-    pathLength: [0.6, 1],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.4 * duration,
-     ease: "easeOut",
-     delay: 0.05 * duration,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -150,7 +114,6 @@ const PauseIcon = forwardRef<PauseIconHandle, PauseIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
      >
       <m.rect
        x="14"
@@ -158,7 +121,8 @@ const PauseIcon = forwardRef<PauseIconHandle, PauseIconProps>(
        width="5"
        height="18"
        rx="1"
-       variants={barRightVariants}
+       variants={barVariants(0.15)}
+       style={{ transformBox: "view-box", originX: "16.5px", originY: "12px" }}
       />
       <m.rect
        x="5"
@@ -166,7 +130,8 @@ const PauseIcon = forwardRef<PauseIconHandle, PauseIconProps>(
        width="5"
        height="18"
        rx="1"
-       variants={barLeftVariants}
+       variants={barVariants(0)}
+       style={{ transformBox: "view-box", originX: "7.5px", originY: "12px" }}
       />
      </m.svg>
     </m.div>
