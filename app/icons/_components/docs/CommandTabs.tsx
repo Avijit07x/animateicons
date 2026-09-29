@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import CopyButton from "./CopyButton";
 
-export type CommandItem = { manager: string; code: string; html: string };
+type CommandItem = { manager: string; code: string; html: string };
 
 /**
  * Client half of the package-manager command block: renders npm/pnpm/yarn/bun

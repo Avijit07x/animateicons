@@ -1,0 +1,8 @@
+#!/bin/sh
+# Enforces the commit convention: feat, fix, perf, chore, docs, refactor,
+# test, ci, build or revert, for example `feat(icons): add plane-landing`.
+if [ ! -x node_modules/.bin/commitlint ]; then
+	echo "› commit-msg: commitlint is not installed, skipping. Run pnpm install."
+	exit 0
+fi
+pnpm exec commitlint --edit "$1"

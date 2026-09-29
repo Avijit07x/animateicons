@@ -23,5 +23,11 @@ export default defineConfig({
 		css: false,
 		clearMocks: true,
 		restoreMocks: true,
+		coverage: {
+			provider: "v8",
+			reporter: ["text-summary", "html"],
+			include: ["lib/**", "utils/**", "scripts/**"],
+			exclude: ["**/*.d.ts", "**/*.generated.ts"],
+		},
 	},
 });

@@ -6,6 +6,13 @@ on:
   push:
     branches: [main, dev]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -33,6 +40,9 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Find unused files, exports and dependencies (knip)
+        run: pnpm knip
+
       - name: Test
         run: pnpm test
         env:
@@ -51,6 +61,9 @@ jobs:
 
       - name: Build npm package
         run: pnpm --filter @animateicons/react build
+
+      - name: Validate package exports and types (publint + attw)
+        run: pnpm exec publint npm && pnpm exec attw --pack npm --profile node16
 
       - name: Smoke-test npm package against built dist
         run: pnpm --filter @animateicons/react test:smoke

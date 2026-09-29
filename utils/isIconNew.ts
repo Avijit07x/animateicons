@@ -1,6 +1,6 @@
 import { differenceInDays } from "date-fns";
 
-export const NEW_WINDOW_DAYS = 3;
+const NEW_WINDOW_DAYS = 3;
 
 /** An icon counts as "new" when it was added within the last few days.
  *  Single source of truth for the gallery's NEW badge, the "New" sidebar

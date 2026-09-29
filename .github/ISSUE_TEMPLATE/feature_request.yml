@@ -1,0 +1,16 @@
+name: Feature request
+description: Suggest an improvement to the packages, CLI, MCP server or gallery
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+name: Icon request
+description: Ask for a new animated icon
+labels: ["icon"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Icon name
+      placeholder: plane-landing
+    validations:
+      required: true
+  - type: dropdown
+    id: library
+    attributes:
+      label: Library
+      options:
+        - Lucide
+        - Huge
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Reference link
+      description: Where the static icon lives, so the shape matches the source.
+  - type: textarea
+    id: animation
+    attributes:
+      label: Animation idea
+      description: What should move, and what should it mean?

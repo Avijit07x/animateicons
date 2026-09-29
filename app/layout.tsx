@@ -6,7 +6,6 @@ import { CommandSearchProvider } from "@/components/command-search/CommandSearch
 import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
-// import SponsorPopup from "@/components/SponsorPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -138,7 +137,6 @@ export default async function RootLayout({
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
-				{/* <SponsorPopup /> */}
 				<AppBootLoader />
 				<Analytics />
 				<ClarityAnalytics />

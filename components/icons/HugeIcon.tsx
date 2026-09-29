@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface HugeIconProps extends React.SVGProps<SVGSVGElement> {
+interface HugeIconProps extends React.SVGProps<SVGSVGElement> {
 	size?: number;
 	strokeWidth?: number;
 }

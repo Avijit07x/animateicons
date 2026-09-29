@@ -59,6 +59,27 @@ This will run the docs playground where you can preview and test icons.
 
 ---
 
+## Tooling and checks
+
+Run these before opening a pull request:
+
+```bash
+pnpm verify        # everything CI runs
+pnpm knip          # unused files, exports and dependencies
+pnpm lint:package  # validates the published package exports and types
+pnpm test:coverage # test coverage report
+```
+
+Enable the git hooks once with `pnpm hooks:install`. The hooks format and lint
+the files you stage, check your commit message against the convention
+(`feat:`, `fix:`, `perf:`, `chore:`, `docs:`, `refactor:`, `test:`, `ci:`,
+`build:`, `revert:`), and run lint before every push.
+
+Dependabot opens weekly pull requests for minor and patch updates. Major
+updates are done by hand.
+
+---
+
 ## Project Structure
 
 AnimateIcons supports multiple icon libraries. Each library maintains its own icons and `ICON_LIST`.

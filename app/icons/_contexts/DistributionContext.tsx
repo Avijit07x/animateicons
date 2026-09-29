@@ -69,10 +69,9 @@ export const useDistribution = (): DistributionContextValue => {
 
 /**
  * Convert a kebab-case icon stem ("bell-ring") into its npm export
- * name ("BellRingIcon"). Pure function, exported so any AnimateIcons
- * surface that needs to format the npm import can stay consistent.
+ * name ("BellRingIcon").
  */
-export const npmComponentName = (stem: string): string =>
+const npmComponentName = (stem: string): string =>
 	`${stem
 		.split("-")
 		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))

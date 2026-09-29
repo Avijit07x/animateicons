@@ -26,7 +26,7 @@ export type BmcSupportersResponse = {
 	total: number;
 };
 
-export type Supporter = {
+type Supporter = {
 	id: number;
 	name: string;
 	message: string | null;
