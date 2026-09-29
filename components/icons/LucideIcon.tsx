@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface LucideIconProps extends React.SVGProps<SVGSVGElement> {
+interface LucideIconProps extends React.SVGProps<SVGSVGElement> {
 	size?: number;
 	strokeWidth?: number;
 }

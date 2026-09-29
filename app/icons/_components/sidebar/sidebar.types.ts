@@ -1,4 +1,4 @@
-export type SidebarItem = {
+type SidebarItem = {
 	label: string;
 	href?: string;
 	name?: string;

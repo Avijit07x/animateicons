@@ -17,7 +17,7 @@ import {
 	useState,
 } from "react";
 
-export type PlaygroundIcon = {
+type PlaygroundIcon = {
 	name: string;
 	library: "lucide" | "huge";
 	prefix: "lu" | "hu";

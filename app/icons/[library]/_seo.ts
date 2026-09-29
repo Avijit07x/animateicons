@@ -60,9 +60,6 @@ const CONTENT: Record<LibraryKey, LibraryContent> = {
 export const isLibrary = (v: string): v is LibraryKey =>
 	v === "lucide" || v === "huge";
 
-export const getLibraryContent = (library: LibraryKey): LibraryContent =>
-	CONTENT[library];
-
 /**
  * Build a Next.js Metadata object for an AnimateIcons library page.
  * Title and description are the canonical values; OG / Twitter reuse

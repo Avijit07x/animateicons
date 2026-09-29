@@ -22,4 +22,4 @@ export const getAllSupporters = async (): Promise<Supporter[]> => {
 	return [...bmc, ...github].sort(compareSupporters);
 };
 
-export type { Supporter, SupporterSource } from "./types";
+export type { Supporter } from "./types";

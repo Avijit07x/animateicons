@@ -15,7 +15,7 @@ export interface AddOptions {
 	utilsImport?: string;
 }
 
-export interface AddedIcon {
+interface AddedIcon {
 	registryName: string;
 	file: string;
 	skipped: boolean;

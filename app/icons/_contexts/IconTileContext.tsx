@@ -138,13 +138,3 @@ export const useIsCopiedCli = (tileId: string): boolean =>
 
 export const useIsLoading = (tileId: string): boolean =>
 	useTileState().loadingId === tileId;
-
-/**
- * Backwards-compatible aggregate hook. Prefer the selector hooks above
- * - this one re-renders on any field change.
- */
-export const useIconTileState = () => {
-	const state = useTileState();
-	const dispatch = useIconTileDispatch();
-	return { ...state, ...dispatch };
-};
