@@ -1,0 +1,8 @@
+#!/bin/sh
+# Formats and lints only the staged files. CI re-checks everything, so
+# bypass locally in an emergency with `git commit --no-verify`.
+if [ ! -x node_modules/.bin/lint-staged ]; then
+	echo "› pre-commit: lint-staged is not installed, skipping. Run pnpm install."
+	exit 0
+fi
+pnpm exec lint-staged

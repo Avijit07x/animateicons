@@ -31,7 +31,10 @@
 		"changeset:version": "changeset version",
 		"release:npm:patch": "pnpm --filter @animateicons/react release:patch && git push --follow-tags",
 		"release:npm:minor": "pnpm --filter @animateicons/react release:minor && git push --follow-tags",
-		"release:npm:major": "pnpm --filter @animateicons/react release:major && git push --follow-tags"
+		"release:npm:major": "pnpm --filter @animateicons/react release:major && git push --follow-tags",
+		"knip": "knip",
+		"lint:package": "pnpm --filter @animateicons/react build && publint npm && attw --pack npm --profile node16",
+		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^3.1.1",
@@ -39,7 +42,6 @@
 		"@microsoft/clarity": "^1.0.2",
 		"@next/mdx": "^16.3.7",
 		"@radix-ui/react-separator": "^1.1.15",
-		"@radix-ui/react-tooltip": "^1.2.16",
 		"@types/mdx": "^2.0.14",
 		"@vercel/analytics": "^2.0.1",
 		"babel-plugin-react-compiler": "^1.0.0",
@@ -54,13 +56,14 @@
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
 		"shiki": "^4.4.3",
-		"swr": "^2.5.1",
 		"tailwind-merge": "^3.7.0",
 		"use-debounce": "^10.1.1"
 	},
 	"devDependencies": {
-		"@changesets/changelog-github": "^0.7.0",
+		"@arethetypeswrong/cli": "^0.18.5",
 		"@changesets/cli": "^2.31.1",
+		"@commitlint/cli": "^21.2.3",
+		"@commitlint/config-conventional": "^21.2.3",
 		"@tailwindcss/postcss": "^4.3.3",
 		"@testing-library/jest-dom": "^7.0.1",
 		"@testing-library/react": "^16.3.3",
@@ -68,16 +71,32 @@
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
 		"@vitejs/plugin-react": "^5.2.0",
+		"@vitest/coverage-v8": "4.1.10",
 		"baseline-browser-mapping": "^2.11.26",
 		"eslint": "^9.39.5",
 		"eslint-config-next": "^16.3.7",
 		"jsdom": "^30.1.1",
+		"knip": "^6.38.0",
+		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.9",
 		"prettier-plugin-tailwindcss": "^0.8.1",
+		"publint": "^0.3.24",
 		"tailwindcss": "^4.3.3",
 		"tsx": "^4.23.15",
 		"tw-animate-css": "^1.4.0",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.10"
+	},
+	"pnpm": {
+		"overrides": {
+			"picomatch@^4": "4.0.7"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,mjs,cjs}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{json,md,mdx,css,yml,yaml}": "prettier --write"
 	}
 }

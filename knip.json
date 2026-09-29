@@ -1,0 +1,36 @@
+{
+	"$schema": "https://unpkg.com/knip@6/schema.json",
+	"ignoreDependencies": [
+		"server-only",
+		"baseline-browser-mapping",
+		"lint-staged",
+		"@commitlint/cli"
+	],
+	"ignoreIssues": {
+		"components/ui/**": ["exports", "types"],
+		"icons/*/index.ts": ["exports"]
+	},
+	"workspaces": {
+		".": {
+			"entry": ["scripts/*.ts", "eslint-rules/*.mjs"]
+		},
+		"npm": {
+			"entry": ["scripts/*.mjs", "src/lib/*.ts", "__tests__/*.mjs"],
+			"ignoreDependencies": [
+				"react",
+				"react-dom",
+				"motion",
+				"@types/react-dom",
+				"@types/react"
+			]
+		},
+		"cli": {
+			"entry": ["__tests__/*.{ts,tsx}"],
+			"ignoreDependencies": ["@animateicons/core", "fuse.js"]
+		},
+		"mcp": {
+			"entry": ["__tests__/*.ts"],
+			"ignoreDependencies": ["@animateicons/core", "fuse.js"]
+		}
+	}
+}
