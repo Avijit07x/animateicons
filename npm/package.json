@@ -30,26 +30,50 @@
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"module-sync": "./dist/index.js",
-			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"module-sync": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
 		},
 		"./lucide": {
-			"types": "./dist/lucide.d.ts",
-			"module-sync": "./dist/lucide.js",
-			"import": "./dist/lucide.js",
-			"require": "./dist/lucide.cjs"
+			"import": {
+				"types": "./dist/lucide.d.ts",
+				"default": "./dist/lucide.js"
+			},
+			"module-sync": {
+				"types": "./dist/lucide.d.ts",
+				"default": "./dist/lucide.js"
+			},
+			"require": {
+				"types": "./dist/lucide.d.cts",
+				"default": "./dist/lucide.cjs"
+			}
 		},
 		"./lucide/*": {
 			"types": "./dist/icons/lucide/*.d.ts",
 			"import": "./dist/icons/lucide/*.js"
 		},
 		"./huge": {
-			"types": "./dist/huge.d.ts",
-			"module-sync": "./dist/huge.js",
-			"import": "./dist/huge.js",
-			"require": "./dist/huge.cjs"
+			"import": {
+				"types": "./dist/huge.d.ts",
+				"default": "./dist/huge.js"
+			},
+			"module-sync": {
+				"types": "./dist/huge.d.ts",
+				"default": "./dist/huge.js"
+			},
+			"require": {
+				"types": "./dist/huge.d.cts",
+				"default": "./dist/huge.cjs"
+			}
 		},
 		"./huge/*": {
 			"types": "./dist/icons/huge/*.d.ts",
