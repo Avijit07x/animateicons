@@ -40,7 +40,7 @@
 		"verify": "pnpm run typecheck && pnpm run build && pnpm run test"
 	},
 	"devDependencies": {
-		"@types/node": "^25.9.1",
+		"@types/node": "^26.6.3",
 		"@types/react": "^19.2.15",
 		"cac": "^6.7.14",
 		"fuse.js": "^7.3.0",
@@ -48,7 +48,7 @@
 		"picocolors": "^1.1.1",
 		"tsup": "^8.3.0",
 		"typescript": "^5.9.3",
-		"vitest": "^3.2.4"
+		"vitest": "^4.1.11"
 	},
 	"publishConfig": {
 		"access": "public"

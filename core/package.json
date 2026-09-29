@@ -33,9 +33,9 @@
 		"fuse.js": "^7.3.0"
 	},
 	"devDependencies": {
-		"@types/node": "^25.9.1",
+		"@types/node": "^26.6.3",
 		"tsup": "^8.3.0",
 		"typescript": "^5.9.3",
-		"vitest": "^3.2.4"
+		"vitest": "^4.1.11"
 	}
 }
