@@ -75,9 +75,6 @@ the files you stage, check your commit message against the convention
 (`feat:`, `fix:`, `perf:`, `chore:`, `docs:`, `refactor:`, `test:`, `ci:`,
 `build:`, `revert:`), and run lint before every push.
 
-Dependabot opens weekly pull requests for minor and patch updates. Major
-updates are done by hand.
-
 ---
 
 ## Project Structure
