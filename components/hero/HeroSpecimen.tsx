@@ -65,7 +65,7 @@ const HeroSpecimen: React.FC = () => {
 			footLeft={cur.name}
 			footRight={cur.note}
 			crosshair
-			className="mx-auto w-full max-w-md select-none"
+			className="mx-auto w-full select-none lg:max-w-md"
 		>
 			<div className="text-primary flex aspect-square w-full items-center justify-center">
 				{reduced ? (

@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
 				className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-7xl flex-col px-6"
 			>
 				<div className="grid flex-1 items-center gap-y-12 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-10">
-					<div className="flex flex-col items-start gap-7">
+					<div className="mx-auto flex w-full max-w-xl flex-col items-start gap-7 lg:mx-0 lg:max-w-none">
 						<motion.p
 							variants={item}
 							className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase"
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
 
 						<motion.h1
 							variants={item}
-							className="text-[clamp(2.75rem,8vw,6.25rem)] leading-[0.9] font-semibold tracking-tight"
+							className="text-[clamp(2.75rem,7vw,6.25rem)] leading-[0.9] font-semibold tracking-tight"
 						>
 							<span className="text-textPrimary">Make every</span>
 							<br />
@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
 							onMouseLeave={() => copyRef.current?.stopAnimation()}
 							variants={item}
 							aria-label="Copy install command"
-							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full max-w-sm cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-[color,background-color,border-color,box-shadow] duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2 active:scale-[0.99]"
+							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-[color,background-color,border-color,box-shadow] duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2 active:scale-[0.99] lg:max-w-md"
 						>
 							<code className="text-textPrimary font-mono text-sm">
 								<span className="text-textMuted select-none">$ </span>
@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
 
 						<motion.div
 							variants={item}
-							className="flex flex-wrap items-center gap-3 pt-1"
+							className="grid w-full grid-cols-1 gap-3 pt-1 min-[480px]:grid-cols-2 lg:max-w-md"
 						>
 							<Link
 								href="/icons/lucide"
@@ -133,7 +133,10 @@ const HeroSection: React.FC = () => {
 						</motion.div>
 					</div>
 
-					<motion.div variants={item} className="w-full">
+					<motion.div
+						variants={item}
+						className="mx-auto w-full max-w-xl lg:max-w-none"
+					>
 						<HeroSpecimen />
 					</motion.div>
 				</div>
