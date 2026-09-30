@@ -33,7 +33,7 @@ type Props = ButtonVariantProps | LinkVariantProps;
 const TRIGGER_CLASS =
 	"text-textSecondary grid size-7 place-items-center rounded-full transition-colors hover:bg-white/15 hover:text-white";
 
-export const actionItemVariants: Variants = {
+const actionItemVariants: Variants = {
 	hidden: { opacity: 0, y: 12, scale: 0.5, transition: { duration: 0.12 } },
 	show: {
 		opacity: 1,

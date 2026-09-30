@@ -17,5 +17,3 @@ export const LIBRARIES = [
 		icons: LIBRARY_PREVIEWS.huge,
 	},
 ];
-
-export type Library = (typeof LIBRARIES)[number];
