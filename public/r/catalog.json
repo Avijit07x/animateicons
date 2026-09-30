@@ -2,10 +2,10 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1021,
+  "total": 1106,
   "libraries": {
     "lucide": 669,
-    "huge": 352
+    "huge": 437
   },
   "icons": [
     {
@@ -158,6 +158,66 @@
         "exclamation"
       ],
       "url": "https://animateicons.in/r/hu-alert-square.json"
+    },
+    {
+      "name": "analytics-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-analytics-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Finance"
+      ],
+      "keywords": [
+        "analytics",
+        "chart",
+        "bar chart",
+        "stats",
+        "report",
+        "metrics"
+      ],
+      "url": "https://animateicons.in/r/hu-analytics-0-1.json"
+    },
+    {
+      "name": "analytics-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-analytics-down",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Finance"
+      ],
+      "keywords": [
+        "analytics",
+        "decline",
+        "trend down",
+        "decrease",
+        "loss",
+        "falling"
+      ],
+      "url": "https://animateicons.in/r/hu-analytics-down.json"
+    },
+    {
+      "name": "analytics-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-analytics-up",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Finance"
+      ],
+      "keywords": [
+        "analytics",
+        "growth",
+        "trend up",
+        "increase",
+        "profit",
+        "rising"
+      ],
+      "url": "https://animateicons.in/r/hu-analytics-up.json"
     },
     {
       "name": "angry",
@@ -579,6 +639,25 @@
       "url": "https://animateicons.in/r/hu-award-0-1.json"
     },
     {
+      "name": "backward-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-backward-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "backward",
+        "previous",
+        "skip back",
+        "rewind",
+        "media",
+        "track"
+      ],
+      "url": "https://animateicons.in/r/hu-backward-0-1.json"
+    },
+    {
       "name": "badge-alert",
       "library": "huge",
       "prefix": "hu",
@@ -712,6 +791,26 @@
       "url": "https://animateicons.in/r/hu-badge-x.json"
     },
     {
+      "name": "bank",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bank",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Finance",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "bank",
+        "finance",
+        "money",
+        "institution",
+        "savings",
+        "government"
+      ],
+      "url": "https://animateicons.in/r/hu-bank.json"
+    },
+    {
       "name": "barcode",
       "library": "huge",
       "prefix": "hu",
@@ -827,6 +926,26 @@
       "url": "https://animateicons.in/r/hu-bell-ring.json"
     },
     {
+      "name": "blocks",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-blocks",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Shapes",
+        "Tools"
+      ],
+      "keywords": [
+        "blocks",
+        "modules",
+        "apps",
+        "components",
+        "build",
+        "integrations"
+      ],
+      "url": "https://animateicons.in/r/hu-blocks.json"
+    },
+    {
       "name": "blogger",
       "library": "huge",
       "prefix": "hu",
@@ -845,6 +964,64 @@
         "brand"
       ],
       "url": "https://animateicons.in/r/hu-blogger.json"
+    },
+    {
+      "name": "bluesky",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bluesky",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "bluesky",
+        "bsky",
+        "social",
+        "butterfly",
+        "decentralized",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-bluesky.json"
+    },
+    {
+      "name": "book-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-book-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "book",
+        "read",
+        "library",
+        "study",
+        "docs",
+        "documentation"
+      ],
+      "url": "https://animateicons.in/r/hu-book-0-1.json"
+    },
+    {
+      "name": "book-open-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-book-open-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "book",
+        "open",
+        "read",
+        "pages",
+        "library",
+        "guide"
+      ],
+      "url": "https://animateicons.in/r/hu-book-open-0-1.json"
     },
     {
       "name": "bookmark",
@@ -938,6 +1115,25 @@
       "url": "https://animateicons.in/r/hu-braces.json"
     },
     {
+      "name": "briefcase-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-briefcase-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "briefcase",
+        "work",
+        "job",
+        "business",
+        "portfolio",
+        "career"
+      ],
+      "url": "https://animateicons.in/r/hu-briefcase-0-1.json"
+    },
+    {
       "name": "browser",
       "library": "huge",
       "prefix": "hu",
@@ -975,6 +1171,45 @@
         "defect"
       ],
       "url": "https://animateicons.in/r/hu-bug-0-1.json"
+    },
+    {
+      "name": "building-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-building-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "building",
+        "office",
+        "company",
+        "business",
+        "city",
+        "headquarters"
+      ],
+      "url": "https://animateicons.in/r/hu-building-0-1.json"
+    },
+    {
+      "name": "calculator",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-calculator",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Finance",
+        "Tools"
+      ],
+      "keywords": [
+        "calculator",
+        "math",
+        "calculate",
+        "numbers",
+        "budget",
+        "accounting"
+      ],
+      "url": "https://animateicons.in/r/hu-calculator.json"
     },
     {
       "name": "calendar-0-1",
@@ -1186,6 +1421,45 @@
         "remove"
       ],
       "url": "https://animateicons.in/r/hu-cancel-square.json"
+    },
+    {
+      "name": "chart-line",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chart-line",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Finance"
+      ],
+      "keywords": [
+        "chart",
+        "line chart",
+        "graph",
+        "trend",
+        "stats",
+        "growth"
+      ],
+      "url": "https://animateicons.in/r/hu-chart-line.json"
+    },
+    {
+      "name": "chat-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chat-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "chat",
+        "message",
+        "conversation",
+        "comment",
+        "bubble",
+        "support"
+      ],
+      "url": "https://animateicons.in/r/hu-chat-0-1.json"
     },
     {
       "name": "check",
@@ -2059,6 +2333,26 @@
       "url": "https://animateicons.in/r/hu-download.json"
     },
     {
+      "name": "dribbble",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-dribbble",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Design"
+      ],
+      "keywords": [
+        "dribbble",
+        "design",
+        "portfolio",
+        "shots",
+        "creative",
+        "social"
+      ],
+      "url": "https://animateicons.in/r/hu-dribbble.json"
+    },
+    {
       "name": "edit-0-2",
       "library": "huge",
       "prefix": "hu",
@@ -2191,6 +2485,159 @@
         "prototype"
       ],
       "url": "https://animateicons.in/r/hu-figma.json"
+    },
+    {
+      "name": "file-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "document",
+        "page",
+        "text",
+        "paper",
+        "doc"
+      ],
+      "url": "https://animateicons.in/r/hu-file-0-1.json"
+    },
+    {
+      "name": "file-add",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-add",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "new file",
+        "add file",
+        "create",
+        "document",
+        "plus"
+      ],
+      "url": "https://animateicons.in/r/hu-file-add.json"
+    },
+    {
+      "name": "file-block",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-block",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "blocked",
+        "forbidden",
+        "restricted",
+        "document",
+        "no access"
+      ],
+      "url": "https://animateicons.in/r/hu-file-block.json"
+    },
+    {
+      "name": "file-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-check",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "approved",
+        "verified",
+        "done",
+        "document",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/hu-file-check.json"
+    },
+    {
+      "name": "file-down",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-down",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "download",
+        "save",
+        "receive",
+        "document",
+        "down"
+      ],
+      "url": "https://animateicons.in/r/hu-file-down.json"
+    },
+    {
+      "name": "file-remove",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-remove",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "remove file",
+        "delete file",
+        "document",
+        "discard",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/hu-file-remove.json"
+    },
+    {
+      "name": "file-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-file-up",
+      "addedAt": "2026-09-30",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "file",
+        "upload",
+        "send",
+        "share",
+        "document",
+        "up"
+      ],
+      "url": "https://animateicons.in/r/hu-file-up.json"
+    },
+    {
+      "name": "film-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-film-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Photography"
+      ],
+      "keywords": [
+        "film",
+        "movie",
+        "cinema",
+        "video",
+        "reel",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-film-0-1.json"
     },
     {
       "name": "filter",
@@ -2559,6 +3006,25 @@
       "url": "https://animateicons.in/r/hu-folder-remove.json"
     },
     {
+      "name": "forward-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-forward-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "forward",
+        "next",
+        "skip",
+        "fast forward",
+        "media",
+        "track"
+      ],
+      "url": "https://animateicons.in/r/hu-forward-0-1.json"
+    },
+    {
       "name": "full-screen",
       "library": "huge",
       "prefix": "hu",
@@ -2731,6 +3197,25 @@
       "url": "https://animateicons.in/r/hu-globe-0-2.json"
     },
     {
+      "name": "google",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "google",
+        "search",
+        "sign in",
+        "account",
+        "oauth",
+        "login"
+      ],
+      "url": "https://animateicons.in/r/hu-google.json"
+    },
+    {
       "name": "grid-view",
       "library": "huge",
       "prefix": "hu",
@@ -2748,6 +3233,66 @@
         "cards"
       ],
       "url": "https://animateicons.in/r/hu-grid-view.json"
+    },
+    {
+      "name": "handshake",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-handshake",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Communication",
+        "People"
+      ],
+      "keywords": [
+        "handshake",
+        "deal",
+        "partnership",
+        "agreement",
+        "collaboration",
+        "trust"
+      ],
+      "url": "https://animateicons.in/r/hu-handshake.json"
+    },
+    {
+      "name": "headphone-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-headphone-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Devices"
+      ],
+      "keywords": [
+        "headphones",
+        "headset",
+        "off",
+        "muted",
+        "no audio",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/hu-headphone-off.json"
+    },
+    {
+      "name": "headphones",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-headphones",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Devices"
+      ],
+      "keywords": [
+        "headphones",
+        "headset",
+        "audio",
+        "music",
+        "listen",
+        "podcast"
+      ],
+      "url": "https://animateicons.in/r/hu-headphones.json"
     },
     {
       "name": "heart",
@@ -2983,6 +3528,46 @@
       "url": "https://animateicons.in/r/hu-hourglass-off.json"
     },
     {
+      "name": "id",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-id",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Accounts & access",
+        "People"
+      ],
+      "keywords": [
+        "id",
+        "identity",
+        "card",
+        "badge",
+        "employee",
+        "identification"
+      ],
+      "url": "https://animateicons.in/r/hu-id.json"
+    },
+    {
+      "name": "id-verified",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-id-verified",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Accounts & access",
+        "People"
+      ],
+      "keywords": [
+        "id",
+        "identity",
+        "verified",
+        "kyc",
+        "approved",
+        "badge"
+      ],
+      "url": "https://animateicons.in/r/hu-id-verified.json"
+    },
+    {
       "name": "idea-0-1",
       "library": "huge",
       "prefix": "hu",
@@ -3177,6 +3762,66 @@
         "statement"
       ],
       "url": "https://animateicons.in/r/hu-invoice-0-1.json"
+    },
+    {
+      "name": "kanban",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-kanban",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Layout",
+        "Tools"
+      ],
+      "keywords": [
+        "kanban",
+        "board",
+        "columns",
+        "project",
+        "workflow",
+        "cards"
+      ],
+      "url": "https://animateicons.in/r/hu-kanban.json"
+    },
+    {
+      "name": "key-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-key-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "key",
+        "access",
+        "password",
+        "unlock",
+        "login",
+        "secret"
+      ],
+      "url": "https://animateicons.in/r/hu-key-0-1.json"
+    },
+    {
+      "name": "key-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-key-0-2",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "key",
+        "access",
+        "api key",
+        "unlock",
+        "credentials",
+        "secret"
+      ],
+      "url": "https://animateicons.in/r/hu-key-0-2.json"
     },
     {
       "name": "keyboard",
@@ -3541,6 +4186,46 @@
       "url": "https://animateicons.in/r/hu-location-remove-0-1.json"
     },
     {
+      "name": "lock-keyhole",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lock-keyhole",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "lock",
+        "locked",
+        "keyhole",
+        "secure",
+        "private",
+        "protected"
+      ],
+      "url": "https://animateicons.in/r/hu-lock-keyhole.json"
+    },
+    {
+      "name": "lock-keyhole-open",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-lock-keyhole-open",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "unlock",
+        "unlocked",
+        "keyhole",
+        "open",
+        "access",
+        "public"
+      ],
+      "url": "https://animateicons.in/r/hu-lock-keyhole-open.json"
+    },
+    {
       "name": "lock-open",
       "library": "huge",
       "prefix": "hu",
@@ -3739,6 +4424,26 @@
       "url": "https://animateicons.in/r/hu-mail-remove-0-1.json"
     },
     {
+      "name": "mastodon",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mastodon",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "mastodon",
+        "fediverse",
+        "social",
+        "decentralized",
+        "toots",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-mastodon.json"
+    },
+    {
       "name": "maximize-screen",
       "library": "huge",
       "prefix": "hu",
@@ -3776,6 +4481,46 @@
         "brand"
       ],
       "url": "https://animateicons.in/r/hu-medium-square.json"
+    },
+    {
+      "name": "megaphone-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-megaphone-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Communication",
+        "Notification"
+      ],
+      "keywords": [
+        "megaphone",
+        "announce",
+        "marketing",
+        "broadcast",
+        "promote",
+        "campaign"
+      ],
+      "url": "https://animateicons.in/r/hu-megaphone-0-1.json"
+    },
+    {
+      "name": "megaphone-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-megaphone-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Communication",
+        "Notification"
+      ],
+      "keywords": [
+        "megaphone",
+        "muted",
+        "no announcements",
+        "off",
+        "silence",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/hu-megaphone-off.json"
     },
     {
       "name": "menu-0-1",
@@ -4042,6 +4787,44 @@
       "url": "https://animateicons.in/r/hu-mouse-pointer-click-0-1.json"
     },
     {
+      "name": "music-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-music-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "note",
+        "song",
+        "audio",
+        "sound",
+        "melody"
+      ],
+      "url": "https://animateicons.in/r/hu-music-0-1.json"
+    },
+    {
+      "name": "music-note-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-music-note-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "notes",
+        "song",
+        "melody",
+        "audio",
+        "tune"
+      ],
+      "url": "https://animateicons.in/r/hu-music-note-0-1.json"
+    },
+    {
       "name": "neutral",
       "library": "huge",
       "prefix": "hu",
@@ -4117,6 +4900,25 @@
         "updates"
       ],
       "url": "https://animateicons.in/r/hu-newspaper.json"
+    },
+    {
+      "name": "notebook-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-notebook-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "notebook",
+        "notes",
+        "journal",
+        "diary",
+        "planner",
+        "write"
+      ],
+      "url": "https://animateicons.in/r/hu-notebook-0-1.json"
     },
     {
       "name": "notification",
@@ -4210,6 +5012,45 @@
         "complete"
       ],
       "url": "https://animateicons.in/r/hu-package-delivered.json"
+    },
+    {
+      "name": "paint-brush-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-paint-brush-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Design",
+        "Tools"
+      ],
+      "keywords": [
+        "paint",
+        "brush",
+        "art",
+        "draw",
+        "design",
+        "color"
+      ],
+      "url": "https://animateicons.in/r/hu-paint-brush-0-1.json"
+    },
+    {
+      "name": "palette",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-palette",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Design"
+      ],
+      "keywords": [
+        "palette",
+        "color",
+        "paint",
+        "art",
+        "theme",
+        "design"
+      ],
+      "url": "https://animateicons.in/r/hu-palette.json"
     },
     {
       "name": "panel-bottom",
@@ -4440,6 +5281,86 @@
       "url": "https://animateicons.in/r/hu-panel-top-open.json"
     },
     {
+      "name": "passport",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-passport",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Accounts & access",
+        "People"
+      ],
+      "keywords": [
+        "passport",
+        "travel",
+        "identity",
+        "document",
+        "visa",
+        "international"
+      ],
+      "url": "https://animateicons.in/r/hu-passport.json"
+    },
+    {
+      "name": "passport-expired",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-passport-expired",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Accounts & access",
+        "People"
+      ],
+      "keywords": [
+        "passport",
+        "expired",
+        "invalid",
+        "rejected",
+        "travel",
+        "renew"
+      ],
+      "url": "https://animateicons.in/r/hu-passport-expired.json"
+    },
+    {
+      "name": "passport-valid",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-passport-valid",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Accounts & access",
+        "People"
+      ],
+      "keywords": [
+        "passport",
+        "valid",
+        "verified",
+        "approved",
+        "travel",
+        "visa"
+      ],
+      "url": "https://animateicons.in/r/hu-passport-valid.json"
+    },
+    {
+      "name": "password-validation",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-password-validation",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "password",
+        "validation",
+        "strength",
+        "verified",
+        "credentials",
+        "login"
+      ],
+      "url": "https://animateicons.in/r/hu-password-validation.json"
+    },
+    {
       "name": "pause",
       "library": "huge",
       "prefix": "hu",
@@ -4477,6 +5398,66 @@
         "complete"
       ],
       "url": "https://animateicons.in/r/hu-payment-success-0-1.json"
+    },
+    {
+      "name": "pen-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-pen-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Design"
+      ],
+      "keywords": [
+        "pen",
+        "write",
+        "edit",
+        "sign",
+        "draw",
+        "compose"
+      ],
+      "url": "https://animateicons.in/r/hu-pen-0-1.json"
+    },
+    {
+      "name": "pencil",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-pencil",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Design"
+      ],
+      "keywords": [
+        "pencil",
+        "write",
+        "draw",
+        "sketch",
+        "note",
+        "edit"
+      ],
+      "url": "https://animateicons.in/r/hu-pencil.json"
+    },
+    {
+      "name": "pencil-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-pencil-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools",
+        "Design"
+      ],
+      "keywords": [
+        "pen",
+        "pencil",
+        "edit off",
+        "read only",
+        "locked",
+        "no editing"
+      ],
+      "url": "https://animateicons.in/r/hu-pencil-off.json"
     },
     {
       "name": "percent",
@@ -4594,6 +5575,26 @@
       "url": "https://animateicons.in/r/hu-phone-outgoing.json"
     },
     {
+      "name": "pinterest",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-pinterest",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "pinterest",
+        "pin",
+        "board",
+        "social",
+        "inspiration",
+        "images"
+      ],
+      "url": "https://animateicons.in/r/hu-pinterest.json"
+    },
+    {
       "name": "play",
       "library": "huge",
       "prefix": "hu",
@@ -4611,6 +5612,45 @@
         "resume"
       ],
       "url": "https://animateicons.in/r/hu-play.json"
+    },
+    {
+      "name": "playlist-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-playlist-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "playlist",
+        "queue",
+        "songs",
+        "tracks",
+        "music",
+        "list"
+      ],
+      "url": "https://animateicons.in/r/hu-playlist-0-1.json"
+    },
+    {
+      "name": "podcast",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-podcast",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Communication"
+      ],
+      "keywords": [
+        "podcast",
+        "broadcast",
+        "mic",
+        "audio",
+        "radio",
+        "stream"
+      ],
+      "url": "https://animateicons.in/r/hu-podcast.json"
     },
     {
       "name": "printer",
@@ -4729,6 +5769,26 @@
       "url": "https://animateicons.in/r/hu-receipt.json"
     },
     {
+      "name": "reddit",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-reddit",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "reddit",
+        "forum",
+        "community",
+        "social",
+        "subreddit",
+        "upvote"
+      ],
+      "url": "https://animateicons.in/r/hu-reddit.json"
+    },
+    {
       "name": "redo",
       "library": "huge",
       "prefix": "hu",
@@ -4765,6 +5825,66 @@
         "rotate"
       ],
       "url": "https://animateicons.in/r/hu-refresh-0-1.json"
+    },
+    {
+      "name": "repeat",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-repeat",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Arrows"
+      ],
+      "keywords": [
+        "repeat",
+        "loop",
+        "replay",
+        "cycle",
+        "again",
+        "playlist"
+      ],
+      "url": "https://animateicons.in/r/hu-repeat.json"
+    },
+    {
+      "name": "repeat-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-repeat-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Arrows"
+      ],
+      "keywords": [
+        "repeat off",
+        "loop off",
+        "no loop",
+        "disable repeat",
+        "once",
+        "playlist"
+      ],
+      "url": "https://animateicons.in/r/hu-repeat-off.json"
+    },
+    {
+      "name": "repeat-one-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-repeat-one-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Arrows"
+      ],
+      "keywords": [
+        "repeat one",
+        "loop one",
+        "replay track",
+        "single",
+        "song",
+        "playlist"
+      ],
+      "url": "https://animateicons.in/r/hu-repeat-one-0-1.json"
     },
     {
       "name": "repository",
@@ -4957,6 +6077,82 @@
       "url": "https://animateicons.in/r/hu-search.json"
     },
     {
+      "name": "security-block",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-security-block",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "security",
+        "shield",
+        "blocked",
+        "unprotected",
+        "off",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/hu-security-block.json"
+    },
+    {
+      "name": "security-check",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-security-check",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "security",
+        "shield",
+        "verified",
+        "safe",
+        "protected",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/hu-security-check.json"
+    },
+    {
+      "name": "security-lock",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-security-lock",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "security",
+        "shield",
+        "lock",
+        "encrypted",
+        "private",
+        "secure"
+      ],
+      "url": "https://animateicons.in/r/hu-security-lock.json"
+    },
+    {
+      "name": "security-warning",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-security-warning",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "security",
+        "shield",
+        "warning",
+        "alert",
+        "risk",
+        "threat"
+      ],
+      "url": "https://animateicons.in/r/hu-security-warning.json"
+    },
+    {
       "name": "send",
       "library": "huge",
       "prefix": "hu",
@@ -5091,6 +6287,26 @@
         "defense"
       ],
       "url": "https://animateicons.in/r/hu-shield-0-1.json"
+    },
+    {
+      "name": "shield-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-shield-0-2",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Security",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "shield",
+        "protect",
+        "security",
+        "privacy",
+        "safe",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/hu-shield-0-2.json"
     },
     {
       "name": "shield-alert",
@@ -5518,6 +6734,26 @@
       "url": "https://animateicons.in/r/hu-sidebar-top.json"
     },
     {
+      "name": "slack",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-slack",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Communication"
+      ],
+      "keywords": [
+        "slack",
+        "chat",
+        "team",
+        "workspace",
+        "messaging",
+        "work"
+      ],
+      "url": "https://animateicons.in/r/hu-slack.json"
+    },
+    {
       "name": "sliders-horizontal",
       "library": "huge",
       "prefix": "hu",
@@ -5573,6 +6809,26 @@
         "positive"
       ],
       "url": "https://animateicons.in/r/hu-smile.json"
+    },
+    {
+      "name": "snapchat",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-snapchat",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "snapchat",
+        "snap",
+        "ghost",
+        "stories",
+        "social",
+        "camera"
+      ],
+      "url": "https://animateicons.in/r/hu-snapchat.json"
     },
     {
       "name": "sorting-0-1",
@@ -5670,6 +6926,46 @@
         "stars"
       ],
       "url": "https://animateicons.in/r/hu-sparkles.json"
+    },
+    {
+      "name": "speaker-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-speaker-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia",
+        "Devices"
+      ],
+      "keywords": [
+        "speaker",
+        "audio",
+        "sound",
+        "loudspeaker",
+        "music",
+        "hifi"
+      ],
+      "url": "https://animateicons.in/r/hu-speaker-0-1.json"
+    },
+    {
+      "name": "spotify",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-spotify",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Multimedia"
+      ],
+      "keywords": [
+        "spotify",
+        "music",
+        "streaming",
+        "playlist",
+        "audio",
+        "podcast"
+      ],
+      "url": "https://animateicons.in/r/hu-spotify.json"
     },
     {
       "name": "star",
@@ -5843,6 +7139,102 @@
         "badge"
       ],
       "url": "https://animateicons.in/r/hu-tag-0-1.json"
+    },
+    {
+      "name": "target-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-target-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "target",
+        "goal",
+        "aim",
+        "focus",
+        "objective",
+        "bullseye"
+      ],
+      "url": "https://animateicons.in/r/hu-target-0-1.json"
+    },
+    {
+      "name": "task-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-task-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "task",
+        "todo",
+        "checklist",
+        "clipboard",
+        "to do",
+        "assignment"
+      ],
+      "url": "https://animateicons.in/r/hu-task-0-1.json"
+    },
+    {
+      "name": "task-add-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-task-add-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "task",
+        "add task",
+        "new task",
+        "todo",
+        "create",
+        "plus"
+      ],
+      "url": "https://animateicons.in/r/hu-task-add-0-1.json"
+    },
+    {
+      "name": "task-remove-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-task-remove-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Tools"
+      ],
+      "keywords": [
+        "task",
+        "remove task",
+        "delete task",
+        "todo",
+        "cancel",
+        "minus"
+      ],
+      "url": "https://animateicons.in/r/hu-task-remove-0-1.json"
+    },
+    {
+      "name": "telegram",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-telegram",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Communication"
+      ],
+      "keywords": [
+        "telegram",
+        "chat",
+        "message",
+        "send",
+        "social",
+        "channel"
+      ],
+      "url": "https://animateicons.in/r/hu-telegram.json"
     },
     {
       "name": "terminal",
@@ -6092,6 +7484,26 @@
       "url": "https://animateicons.in/r/hu-text-underline.json"
     },
     {
+      "name": "threads",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-threads",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "threads",
+        "meta",
+        "social",
+        "posts",
+        "conversation",
+        "network"
+      ],
+      "url": "https://animateicons.in/r/hu-threads.json"
+    },
+    {
       "name": "threads-rectangle",
       "library": "huge",
       "prefix": "hu",
@@ -6285,6 +7697,26 @@
       "url": "https://animateicons.in/r/hu-trophy.json"
     },
     {
+      "name": "twitch",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-twitch",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Social"
+      ],
+      "keywords": [
+        "twitch",
+        "stream",
+        "live",
+        "gaming",
+        "video",
+        "social"
+      ],
+      "url": "https://animateicons.in/r/hu-twitch.json"
+    },
+    {
       "name": "twitter",
       "library": "huge",
       "prefix": "hu",
@@ -6401,6 +7833,26 @@
       "url": "https://animateicons.in/r/hu-user-add-0-1.json"
     },
     {
+      "name": "user-block-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-block-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "block",
+        "ban",
+        "restrict",
+        "forbidden",
+        "prohibit"
+      ],
+      "url": "https://animateicons.in/r/hu-user-block-0-1.json"
+    },
+    {
       "name": "user-check-0-1",
       "library": "huge",
       "prefix": "hu",
@@ -6419,6 +7871,26 @@
         "account"
       ],
       "url": "https://animateicons.in/r/hu-user-check-0-1.json"
+    },
+    {
+      "name": "user-circle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-circle",
+      "addedAt": "2026-09-30",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "profile",
+        "account",
+        "avatar",
+        "person",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/hu-user-circle.json"
     },
     {
       "name": "user-group",
@@ -6480,6 +7952,26 @@
       "url": "https://animateicons.in/r/hu-user-remove-0-1.json"
     },
     {
+      "name": "user-settings-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-user-settings-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "user",
+        "settings",
+        "account",
+        "preferences",
+        "profile",
+        "manage"
+      ],
+      "url": "https://animateicons.in/r/hu-user-settings-0-1.json"
+    },
+    {
       "name": "video-0-1",
       "library": "huge",
       "prefix": "hu",
@@ -6497,6 +7989,25 @@
         "camcorder"
       ],
       "url": "https://animateicons.in/r/hu-video-0-1.json"
+    },
+    {
+      "name": "video-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-video-0-2",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "video",
+        "camera",
+        "record",
+        "film",
+        "movie",
+        "clip"
+      ],
+      "url": "https://animateicons.in/r/hu-video-0-2.json"
     },
     {
       "name": "video-off",
@@ -6536,6 +8047,139 @@
         "brand"
       ],
       "url": "https://animateicons.in/r/hu-vk-square.json"
+    },
+    {
+      "name": "volume-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "sound",
+        "audio",
+        "speaker",
+        "loud",
+        "unmute"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-0-1.json"
+    },
+    {
+      "name": "volume-high",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-high",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "high",
+        "loud",
+        "max",
+        "sound",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-high.json"
+    },
+    {
+      "name": "volume-minus",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-minus",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "down",
+        "decrease",
+        "quieter",
+        "minus",
+        "sound"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-minus.json"
+    },
+    {
+      "name": "volume-mute-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-mute-0-1",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "mute",
+        "speaker",
+        "silent",
+        "no sound",
+        "quiet"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-mute-0-1.json"
+    },
+    {
+      "name": "volume-mute-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-mute-0-2",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "mute",
+        "muted",
+        "sound off",
+        "silent",
+        "audio off"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-mute-0-2.json"
+    },
+    {
+      "name": "volume-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "mute",
+        "sound off",
+        "silent",
+        "audio off",
+        "quiet"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-off.json"
+    },
+    {
+      "name": "volume-up",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-volume-up",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "volume",
+        "up",
+        "increase",
+        "louder",
+        "plus",
+        "sound"
+      ],
+      "url": "https://animateicons.in/r/hu-volume-up.json"
     },
     {
       "name": "wallet-0-1",
@@ -6633,6 +8277,26 @@
         "disconnect"
       ],
       "url": "https://animateicons.in/r/hu-webhook-off.json"
+    },
+    {
+      "name": "whatsapp",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-whatsapp",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Brands",
+        "Communication"
+      ],
+      "keywords": [
+        "whatsapp",
+        "chat",
+        "message",
+        "call",
+        "social",
+        "meta"
+      ],
+      "url": "https://animateicons.in/r/hu-whatsapp.json"
     },
     {
       "name": "wifi-0-1",

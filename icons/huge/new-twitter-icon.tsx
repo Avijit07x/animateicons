@@ -81,33 +81,12 @@ const NewTwitterIcon = forwardRef<NewTwitterIconHandle, NewTwitterIconProps>(
    [controls, onMouseLeave],
   );
 
-  const containerVariants: Variants = {
-   normal: {
-    scale: 1,
-    rotate: 0,
-   },
+  const spinVariants: Variants = {
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scale: [1, 1.04, 1],
-    rotate: [0, 2, -2, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-    },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
-   animate: {
-    pathLength: [0, 1],
-    opacity: [0.4, 1],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, 180],
+    scale: [1, 0.78, 1],
+    transition: { duration: 0.95 * duration, ease: "easeInOut" },
    },
   };
 
@@ -130,13 +109,13 @@ const NewTwitterIcon = forwardRef<NewTwitterIconHandle, NewTwitterIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={containerVariants}
+      initial="normal"
      >
       <m.path
        d="M3 21L10.5484 13.4516M21 3L13.4516 10.5484M13.4516 10.5484L8 3H3L10.5484 13.4516M13.4516 10.5484L21 21H16L10.5484 13.4516"
-       variants={pathVariants}
+       variants={spinVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

@@ -85,34 +85,25 @@ const BookmarkRemoveIcon = forwardRef<
   );
 
   const bookmarkVariants: Variants = {
-   normal: {
-    y: 0,
-    scaleX: 1,
-    scaleY: 1,
-   },
+   normal: { y: 0, scaleX: 1, scaleY: 1 },
    animate: {
-    y: [0, -4, 0],
-    scaleY: [1, 1.1, 0.95, 1],
-    scaleX: [1, 0.97, 1.02, 1],
+    y: [0, -4, 0.8, 0],
+    scaleY: [1, 1.1, 0.94, 1],
+    scaleX: [1, 0.97, 1.03, 1],
     transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
 
   const crossVariants: Variants = {
-   normal: {
-    pathLength: 1,
-    opacity: 1,
-   },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    pathLength: [0, 1],
-    opacity: 1,
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-    },
+    rotate: [0, 90],
+    scale: [1, 1.3, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -135,13 +126,19 @@ const BookmarkRemoveIcon = forwardRef<
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={bookmarkVariants}
+      initial="normal"
      >
-      <path d="M11 2C7.22876 2 5.34315 2 4.17157 3.12874C3 4.25748 3 6.07416 3 9.70753V17.9808C3 20.2867 3 21.4396 3.77285 21.8523C5.26947 22.6514 8.0768 19.9852 9.41 19.1824C10.1832 18.7168 10.5698 18.484 11 18.484C11.4302 18.484 11.8168 18.7168 12.59 19.1824C13.9232 19.9852 16.7305 22.6514 18.2272 21.8523C19 21.4396 19 20.2867 19 17.9808V12" />
-
-      <m.path d="M21 2L14 8.99954M21 9L14 2.00046" variants={crossVariants} />
+      <m.path
+       d="M11 2C7.22876 2 5.34315 2 4.17157 3.12874C3 4.25748 3 6.07416 3 9.70753V17.9808C3 20.2867 3 21.4396 3.77285 21.8523C5.26947 22.6514 8.0768 19.9852 9.41 19.1824C10.1832 18.7168 10.5698 18.484 11 18.484C11.4302 18.484 11.8168 18.7168 12.59 19.1824C13.9232 19.9852 16.7305 22.6514 18.2272 21.8523C19 21.4396 19 20.2867 19 17.9808V12"
+       variants={bookmarkVariants}
+       style={{ transformBox: "view-box", originX: "11px", originY: "12px" }}
+      />
+      <m.path
+       d="M21 2L14 8.99954M21 9L14 2.00046"
+       variants={crossVariants}
+       style={{ transformBox: "view-box", originX: "17.5px", originY: "5.5px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

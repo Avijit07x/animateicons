@@ -2789,5 +2789,739 @@
 		"addedAt": "2026-09-29",
 		"category": ["Home"],
 		"keywords": ["home", "house", "main", "start", "index", "dashboard"]
+	},
+	{
+		"name": "music-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["music", "note", "song", "audio", "sound", "melody"]
+	},
+	{
+		"name": "music-note-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["music", "notes", "song", "melody", "audio", "tune"]
+	},
+	{
+		"name": "headphones",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Devices"],
+		"keywords": ["headphones", "headset", "audio", "music", "listen", "podcast"]
+	},
+	{
+		"name": "headphone-off",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Devices"],
+		"keywords": [
+			"headphones",
+			"headset",
+			"off",
+			"muted",
+			"no audio",
+			"disabled"
+		]
+	},
+	{
+		"name": "volume-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "sound", "audio", "speaker", "loud", "unmute"]
+	},
+	{
+		"name": "volume-high",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "high", "loud", "max", "sound", "audio"]
+	},
+	{
+		"name": "volume-up",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "up", "increase", "louder", "plus", "sound"]
+	},
+	{
+		"name": "volume-minus",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "down", "decrease", "quieter", "minus", "sound"]
+	},
+	{
+		"name": "volume-mute-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "mute", "speaker", "silent", "no sound", "quiet"]
+	},
+	{
+		"name": "volume-mute-0-2",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "mute", "muted", "sound off", "silent", "audio off"]
+	},
+	{
+		"name": "volume-off",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["volume", "mute", "sound off", "silent", "audio off", "quiet"]
+	},
+	{
+		"name": "speaker-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Devices"],
+		"keywords": ["speaker", "audio", "sound", "loudspeaker", "music", "hifi"]
+	},
+	{
+		"name": "podcast",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Communication"],
+		"keywords": ["podcast", "broadcast", "mic", "audio", "radio", "stream"]
+	},
+	{
+		"name": "film-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Photography"],
+		"keywords": ["film", "movie", "cinema", "video", "reel", "clip"]
+	},
+	{
+		"name": "video-0-2",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["video", "camera", "record", "film", "movie", "clip"]
+	},
+	{
+		"name": "forward-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["forward", "next", "skip", "fast forward", "media", "track"]
+	},
+	{
+		"name": "backward-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": [
+			"backward",
+			"previous",
+			"skip back",
+			"rewind",
+			"media",
+			"track"
+		]
+	},
+	{
+		"name": "repeat",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Arrows"],
+		"keywords": ["repeat", "loop", "replay", "cycle", "again", "playlist"]
+	},
+	{
+		"name": "repeat-off",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Arrows"],
+		"keywords": [
+			"repeat off",
+			"loop off",
+			"no loop",
+			"disable repeat",
+			"once",
+			"playlist"
+		]
+	},
+	{
+		"name": "repeat-one-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia", "Arrows"],
+		"keywords": [
+			"repeat one",
+			"loop one",
+			"replay track",
+			"single",
+			"song",
+			"playlist"
+		]
+	},
+	{
+		"name": "playlist-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Multimedia"],
+		"keywords": ["playlist", "queue", "songs", "tracks", "music", "list"]
+	},
+	{
+		"name": "book-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["book", "read", "library", "study", "docs", "documentation"]
+	},
+	{
+		"name": "book-open-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["book", "open", "read", "pages", "library", "guide"]
+	},
+	{
+		"name": "pen-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Design"],
+		"keywords": ["pen", "write", "edit", "sign", "draw", "compose"]
+	},
+	{
+		"name": "pencil-off",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Design"],
+		"keywords": [
+			"pen",
+			"pencil",
+			"edit off",
+			"read only",
+			"locked",
+			"no editing"
+		]
+	},
+	{
+		"name": "pencil",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Design"],
+		"keywords": ["pencil", "write", "draw", "sketch", "note", "edit"]
+	},
+	{
+		"name": "paint-brush-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Design", "Tools"],
+		"keywords": ["paint", "brush", "art", "draw", "design", "color"]
+	},
+	{
+		"name": "palette",
+		"addedAt": "2026-09-30",
+		"category": ["Design"],
+		"keywords": ["palette", "color", "paint", "art", "theme", "design"]
+	},
+	{
+		"name": "shield-0-2",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": ["shield", "protect", "security", "privacy", "safe", "guard"]
+	},
+	{
+		"name": "security-check",
+		"addedAt": "2026-09-30",
+		"category": ["Security"],
+		"keywords": ["security", "shield", "verified", "safe", "protected", "check"]
+	},
+	{
+		"name": "security-block",
+		"addedAt": "2026-09-30",
+		"category": ["Security"],
+		"keywords": [
+			"security",
+			"shield",
+			"blocked",
+			"unprotected",
+			"off",
+			"disabled"
+		]
+	},
+	{
+		"name": "security-warning",
+		"addedAt": "2026-09-30",
+		"category": ["Security"],
+		"keywords": ["security", "shield", "warning", "alert", "risk", "threat"]
+	},
+	{
+		"name": "security-lock",
+		"addedAt": "2026-09-30",
+		"category": ["Security"],
+		"keywords": ["security", "shield", "lock", "encrypted", "private", "secure"]
+	},
+	{
+		"name": "key-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": ["key", "access", "password", "unlock", "login", "secret"]
+	},
+	{
+		"name": "key-0-2",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": ["key", "access", "api key", "unlock", "credentials", "secret"]
+	},
+	{
+		"name": "lock-keyhole",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": ["lock", "locked", "keyhole", "secure", "private", "protected"]
+	},
+	{
+		"name": "lock-keyhole-open",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": ["unlock", "unlocked", "keyhole", "open", "access", "public"]
+	},
+	{
+		"name": "password-validation",
+		"addedAt": "2026-09-30",
+		"category": ["Security", "Accounts & access"],
+		"keywords": [
+			"password",
+			"validation",
+			"strength",
+			"verified",
+			"credentials",
+			"login"
+		]
+	},
+	{
+		"name": "user-circle",
+		"addedAt": "2026-09-30",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["user", "profile", "account", "avatar", "person", "circle"]
+	},
+	{
+		"name": "user-settings-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["People", "Accounts & access"],
+		"keywords": [
+			"user",
+			"settings",
+			"account",
+			"preferences",
+			"profile",
+			"manage"
+		]
+	},
+	{
+		"name": "user-block-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["user", "block", "ban", "restrict", "forbidden", "prohibit"]
+	},
+	{
+		"name": "passport",
+		"addedAt": "2026-09-30",
+		"category": ["Accounts & access", "People"],
+		"keywords": [
+			"passport",
+			"travel",
+			"identity",
+			"document",
+			"visa",
+			"international"
+		]
+	},
+	{
+		"name": "passport-valid",
+		"addedAt": "2026-09-30",
+		"category": ["Accounts & access", "People"],
+		"keywords": ["passport", "valid", "verified", "approved", "travel", "visa"]
+	},
+	{
+		"name": "passport-expired",
+		"addedAt": "2026-09-30",
+		"category": ["Accounts & access", "People"],
+		"keywords": [
+			"passport",
+			"expired",
+			"invalid",
+			"rejected",
+			"travel",
+			"renew"
+		]
+	},
+	{
+		"name": "id",
+		"addedAt": "2026-09-30",
+		"category": ["Accounts & access", "People"],
+		"keywords": [
+			"id",
+			"identity",
+			"card",
+			"badge",
+			"employee",
+			"identification"
+		]
+	},
+	{
+		"name": "id-verified",
+		"addedAt": "2026-09-30",
+		"category": ["Accounts & access", "People"],
+		"keywords": ["id", "identity", "verified", "kyc", "approved", "badge"]
+	},
+	{
+		"name": "analytics-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Finance"],
+		"keywords": [
+			"analytics",
+			"chart",
+			"bar chart",
+			"stats",
+			"report",
+			"metrics"
+		]
+	},
+	{
+		"name": "analytics-up",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Finance"],
+		"keywords": [
+			"analytics",
+			"growth",
+			"trend up",
+			"increase",
+			"profit",
+			"rising"
+		]
+	},
+	{
+		"name": "analytics-down",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Finance"],
+		"keywords": [
+			"analytics",
+			"decline",
+			"trend down",
+			"decrease",
+			"loss",
+			"falling"
+		]
+	},
+	{
+		"name": "chart-line",
+		"addedAt": "2026-09-30",
+		"category": ["Tools", "Finance"],
+		"keywords": ["chart", "line chart", "graph", "trend", "stats", "growth"]
+	},
+	{
+		"name": "briefcase-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["briefcase", "work", "job", "business", "portfolio", "career"]
+	},
+	{
+		"name": "target-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["target", "goal", "aim", "focus", "objective", "bullseye"]
+	},
+	{
+		"name": "handshake",
+		"addedAt": "2026-09-30",
+		"category": ["Communication", "People"],
+		"keywords": [
+			"handshake",
+			"deal",
+			"partnership",
+			"agreement",
+			"collaboration",
+			"trust"
+		]
+	},
+	{
+		"name": "building-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": [
+			"building",
+			"office",
+			"company",
+			"business",
+			"city",
+			"headquarters"
+		]
+	},
+	{
+		"name": "bank",
+		"addedAt": "2026-09-30",
+		"category": ["Finance", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"bank",
+			"finance",
+			"money",
+			"institution",
+			"savings",
+			"government"
+		]
+	},
+	{
+		"name": "calculator",
+		"addedAt": "2026-09-30",
+		"category": ["Finance", "Tools"],
+		"keywords": [
+			"calculator",
+			"math",
+			"calculate",
+			"numbers",
+			"budget",
+			"accounting"
+		]
+	},
+	{
+		"name": "task-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": [
+			"task",
+			"todo",
+			"checklist",
+			"clipboard",
+			"to do",
+			"assignment"
+		]
+	},
+	{
+		"name": "task-add-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["task", "add task", "new task", "todo", "create", "plus"]
+	},
+	{
+		"name": "task-remove-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": [
+			"task",
+			"remove task",
+			"delete task",
+			"todo",
+			"cancel",
+			"minus"
+		]
+	},
+	{
+		"name": "kanban",
+		"addedAt": "2026-09-30",
+		"category": ["Layout", "Tools"],
+		"keywords": ["kanban", "board", "columns", "project", "workflow", "cards"]
+	},
+	{
+		"name": "megaphone-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Communication", "Notification"],
+		"keywords": [
+			"megaphone",
+			"announce",
+			"marketing",
+			"broadcast",
+			"promote",
+			"campaign"
+		]
+	},
+	{
+		"name": "megaphone-off",
+		"addedAt": "2026-09-30",
+		"category": ["Communication", "Notification"],
+		"keywords": [
+			"megaphone",
+			"muted",
+			"no announcements",
+			"off",
+			"silence",
+			"disabled"
+		]
+	},
+	{
+		"name": "blocks",
+		"addedAt": "2026-09-30",
+		"category": ["Shapes", "Tools"],
+		"keywords": [
+			"blocks",
+			"modules",
+			"apps",
+			"components",
+			"build",
+			"integrations"
+		]
+	},
+	{
+		"name": "chat-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Communication"],
+		"keywords": [
+			"chat",
+			"message",
+			"conversation",
+			"comment",
+			"bubble",
+			"support"
+		]
+	},
+	{
+		"name": "notebook-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["Tools"],
+		"keywords": ["notebook", "notes", "journal", "diary", "planner", "write"]
+	},
+	{
+		"name": "file-0-1",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": ["file", "document", "page", "text", "paper", "doc"]
+	},
+	{
+		"name": "file-add",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": ["file", "new file", "add file", "create", "document", "plus"]
+	},
+	{
+		"name": "file-remove",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": [
+			"file",
+			"remove file",
+			"delete file",
+			"document",
+			"discard",
+			"cancel"
+		]
+	},
+	{
+		"name": "file-up",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": ["file", "upload", "send", "share", "document", "up"]
+	},
+	{
+		"name": "file-down",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": ["file", "download", "save", "receive", "document", "down"]
+	},
+	{
+		"name": "file-check",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": ["file", "approved", "verified", "done", "document", "check"]
+	},
+	{
+		"name": "file-block",
+		"addedAt": "2026-09-30",
+		"category": ["File icons"],
+		"keywords": [
+			"file",
+			"blocked",
+			"forbidden",
+			"restricted",
+			"document",
+			"no access"
+		]
+	},
+	{
+		"name": "whatsapp",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Communication"],
+		"keywords": ["whatsapp", "chat", "message", "call", "social", "meta"]
+	},
+	{
+		"name": "telegram",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Communication"],
+		"keywords": ["telegram", "chat", "message", "send", "social", "channel"]
+	},
+	{
+		"name": "pinterest",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": ["pinterest", "pin", "board", "social", "inspiration", "images"]
+	},
+	{
+		"name": "reddit",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": [
+			"reddit",
+			"forum",
+			"community",
+			"social",
+			"subreddit",
+			"upvote"
+		]
+	},
+	{
+		"name": "twitch",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": ["twitch", "stream", "live", "gaming", "video", "social"]
+	},
+	{
+		"name": "spotify",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Multimedia"],
+		"keywords": [
+			"spotify",
+			"music",
+			"streaming",
+			"playlist",
+			"audio",
+			"podcast"
+		]
+	},
+	{
+		"name": "slack",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Communication"],
+		"keywords": ["slack", "chat", "team", "workspace", "messaging", "work"]
+	},
+	{
+		"name": "google",
+		"addedAt": "2026-09-30",
+		"category": ["Brands"],
+		"keywords": ["google", "search", "sign in", "account", "oauth", "login"]
+	},
+	{
+		"name": "threads",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": [
+			"threads",
+			"meta",
+			"social",
+			"posts",
+			"conversation",
+			"network"
+		]
+	},
+	{
+		"name": "mastodon",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": [
+			"mastodon",
+			"fediverse",
+			"social",
+			"decentralized",
+			"toots",
+			"network"
+		]
+	},
+	{
+		"name": "snapchat",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": ["snapchat", "snap", "ghost", "stories", "social", "camera"]
+	},
+	{
+		"name": "dribbble",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Design"],
+		"keywords": [
+			"dribbble",
+			"design",
+			"portfolio",
+			"shots",
+			"creative",
+			"social"
+		]
+	},
+	{
+		"name": "bluesky",
+		"addedAt": "2026-09-30",
+		"category": ["Brands", "Social"],
+		"keywords": [
+			"bluesky",
+			"bsky",
+			"social",
+			"butterfly",
+			"decentralized",
+			"network"
+		]
 	}
 ]

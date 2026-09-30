@@ -81,53 +81,22 @@ const Menu01Icon = forwardRef<Menu01IconHandle, Menu01IconProps>(
    [controls, onMouseLeave],
   );
 
-  const topVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
+  const lineVariants = (
+   delay: number,
+   shift: number,
+   shrink: number,
+  ): Variants => ({
+   normal: { x: 0, scaleX: 1 },
    animate: {
-    x: 3,
-    scaleX: 0.85,
+    x: [0, shift, 0],
+    scaleX: [1, shrink, 1],
     transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0,
+     duration: 0.5 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
-
-  const middleVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
-   animate: {
-    x: 5,
-    scaleX: 0.7,
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0.05 * duration,
-    },
-   },
-  };
-
-  const bottomVariants: Variants = {
-   normal: {
-    x: 0,
-    scaleX: 1,
-   },
-   animate: {
-    x: 7,
-    scaleX: 0.55,
-    transition: {
-     duration: 0.25 * duration,
-     ease: "easeOut",
-     delay: 0.1 * duration,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -148,25 +117,23 @@ const Menu01Icon = forwardRef<Menu01IconHandle, Menu01IconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
+      initial="normal"
      >
       <m.path
        d="M4 5L20 5"
-       variants={topVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={lineVariants(0, 2, 0.85)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "5px" }}
       />
-
       <m.path
        d="M4 12L20 12"
-       variants={middleVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={lineVariants(0.06, 4, 0.7)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "12px" }}
       />
-
       <m.path
        d="M4 19L20 19"
-       variants={bottomVariants}
-       style={{ transformOrigin: "left center" }}
+       variants={lineVariants(0.12, 6, 0.55)}
+       style={{ transformBox: "view-box", originX: "4px", originY: "19px" }}
       />
      </m.svg>
     </m.div>

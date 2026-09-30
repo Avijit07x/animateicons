@@ -74,30 +74,18 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
   );
 
   const handleLeave = useCallback(
-   (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isControlled.current) {
-     controls.start("normal");
-    } else {
-     onMouseLeave?.(e as any);
-    }
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
    },
    [controls, onMouseLeave],
   );
 
-  const activityVariants: Variants = {
-   normal: {
-    strokeDasharray: "none",
-    strokeDashoffset: 0,
-    opacity: 1,
-   },
+  const drawVariants: Variants = {
+   normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDasharray: "60 120",
-    strokeDashoffset: [0, -180],
-    transition: {
-     duration: 1.4 * duration,
-     ease: "linear",
-     repeat: Infinity,
-    },
+    strokeDashoffset: [42, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -120,12 +108,14 @@ const ActivityIcon = forwardRef<ActivityIconHandle, ActivityIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
+      initial="normal"
      >
       <m.path
        d="M3.00012 12H7.34073C7.74075 12 8.10229 12.2384 8.25987 12.6061L10.8436 18.6348C10.9386 18.8563 11.1564 19 11.3975 19C11.7303 19 12.0001 18.7302 12.0001 18.3974V5.60262C12.0001 5.2698 12.2699 5 12.6027 5C12.8438 5 13.0617 5.14367 13.1566 5.36526L15.74 11.3939C15.8976 11.7616 16.2591 12 16.6592 12H20.9998"
-       variants={activityVariants}
+       strokeDasharray="42"
+       strokeDashoffset="0"
+       variants={drawVariants}
       />
      </m.svg>
     </m.div>

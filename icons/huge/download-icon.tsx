@@ -81,52 +81,27 @@ const DownloadIcon = forwardRef<DownloadIconHandle, DownloadIconProps>(
    [controls, onMouseLeave],
   );
 
-  const shaftVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+  const arrowVariants: Variants = {
+   normal: { y: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [24, 0],
-    opacity: [0.4, 1],
+    y: [0, 4, -4, 0],
+    opacity: [1, 0, 0, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-    },
-   },
-  };
-
-  const headVariants: Variants = {
-   normal: { y: 0, scale: 1, opacity: 1 },
-   animate: {
-    y: [-2, 2, 0],
-    scale: [1, 1.05, 1],
-    opacity: [0.6, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     delay: 0.05 * duration,
+     times: [0, 0.4, 0.5, 1],
     },
    },
   };
 
   const trayVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    strokeDashoffset: [40, 0],
-    opacity: [0.3, 1],
+    y: [0, 0, 1, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
-    },
-   },
-  };
-
-  const groupPulse: Variants = {
-   normal: { scale: 1 },
-   animate: {
-    scale: [1, 1.02, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
+     times: [0, 0.75, 0.9, 1],
     },
    },
   };
@@ -150,31 +125,17 @@ const DownloadIcon = forwardRef<DownloadIconHandle, DownloadIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.g variants={groupPulse} initial="normal" animate={controls}>
-       <m.path
-        d="M11.9997 15.0002V3.00016"
-        strokeDasharray="24"
-        strokeDashoffset="24"
-        variants={shaftVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002"
-        variants={headVariants}
-        initial="normal"
-        animate={controls}
-       />
-       <m.path
-        d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"
-        strokeDasharray="40"
-        strokeDashoffset="40"
-        variants={trayVariants}
-        initial="normal"
-        animate={controls}
-       />
+      <m.g variants={arrowVariants}>
+       <path d="M11.9997 15.0002V3.00016" />
+       <path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002" />
       </m.g>
+      <m.path
+       d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"
+       variants={trayVariants}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>
