@@ -43,10 +43,10 @@ const HeroSection: React.FC = () => {
 	}, [copied]);
 
 	return (
-		<section className="relative flex min-h-[calc(100dvh-4rem)] flex-col overflow-hidden pb-12 max-sm:justify-center lg:pb-16">
+		<section className="relative flex min-h-[min(calc(100dvh-4rem),72rem)] flex-col justify-center overflow-hidden pb-12 lg:pb-16">
 			<div
 				aria-hidden="true"
-				className="bg-plus-grid pointer-events-none absolute inset-0"
+				className="bg-plus-grid pointer-events-none absolute inset-y-0 left-1/2 w-full max-w-480 -translate-x-1/2"
 			/>
 
 			<motion.div
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.5, duration: 0.8 }}
-				className="relative z-10 mt-11 min-h-[300px] flex-1 max-sm:h-60 max-sm:min-h-0 max-sm:flex-none"
+				className="relative z-10 mx-auto mt-11 min-h-[300px] w-full max-w-480 flex-1 max-sm:h-60 max-sm:min-h-0 max-sm:flex-none"
 			>
 				<FloatingIcons
 					items={SHOWCASE}

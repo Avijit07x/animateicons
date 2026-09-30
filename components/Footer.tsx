@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
 				aria-hidden="true"
 				className="pointer-events-none mt-10 px-2 select-none"
 			>
-				<span className="from-textPrimary/22 to-textPrimary/2 block bg-linear-to-b bg-clip-text text-center text-[14vw] leading-[0.78] font-bold tracking-tighter whitespace-nowrap text-transparent">
+				<span className="from-textPrimary/22 to-textPrimary/2 block bg-linear-to-b bg-clip-text text-center text-[min(14vw,17rem)] leading-[0.78] font-bold tracking-tighter whitespace-nowrap text-transparent">
 					AnimateIcons
 				</span>
 			</div>

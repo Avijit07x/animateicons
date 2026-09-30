@@ -11,12 +11,14 @@ const FOOTER_ICONS = [...SHOWCASE].reverse().slice(0, 12);
 
 const FooterCta: React.FC = () => (
 	<section aria-label="Get started" className="relative">
-		<FloatingIcons
-			items={FOOTER_ICONS}
-			cols={6}
-			rows={2}
-			className="[mask-image:radial-gradient(ellipse_48%_60%_at_50%_50%,transparent_60%,black_100%)] max-sm:hidden"
-		/>
+		<div className="absolute inset-y-0 left-1/2 w-full max-w-480 -translate-x-1/2">
+			<FloatingIcons
+				items={FOOTER_ICONS}
+				cols={6}
+				rows={2}
+				className="[mask-image:radial-gradient(ellipse_48%_60%_at_50%_50%,transparent_60%,black_100%)] max-sm:hidden"
+			/>
+		</div>
 
 		<div className="relative z-10 mx-auto flex min-h-[420px] max-w-7xl flex-col items-center justify-center px-6 py-16 text-center lg:py-24">
 			<h2 className="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
