@@ -85,12 +85,12 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
   const pieceVariants: Variants = {
    normal: { y: 0 },
    animate: (i: number) => ({
-    y: [0, -0.9, 0],
+    y: [0, -3, 0.6, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 1],
-     delay: i * 0.07 * duration,
+     times: [0, 0.4, 0.75, 1],
+     delay: i * 0.1 * duration,
     },
    }),
   };

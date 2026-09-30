@@ -81,44 +81,18 @@ const Dashboard03Icon = forwardRef<Dashboard03IconHandle, Dashboard03IconProps>(
    [controls, onMouseLeave],
   );
 
-  const gridVariants: Variants = {
-   normal: { scale: 1, rotate: 0 },
+  const tileVariants = (delay: number): Variants => ({
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.04, 1],
-    rotate: [0, 1, 0],
+    scale: [1, 0.82, 1.06, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+     delay: delay * duration,
     },
    },
-  };
-
-  const tileVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
-   animate: (i: number) => ({
-    opacity: [0.5, 1],
-    scale: [0.9, 1.08, 1],
-    transition: {
-     duration: 0.55 * duration,
-     delay: 0.08 * i,
-     ease: "easeOut",
-    },
-   }),
-  };
-
-  const sweepVariants: Variants = {
-   normal: { x: -26, y: -26, opacity: 0 },
-   animate: {
-    x: [-26, 26],
-    y: [-26, 26],
-    opacity: [0, 0.25, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     delay: 0.1,
-    },
-   },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -137,66 +111,47 @@ const Dashboard03Icon = forwardRef<Dashboard03IconHandle, Dashboard03IconProps>(
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
+      strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <defs>
-       <linearGradient id="dashboard03-sweep" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-        <stop offset="50%" stopColor="currentColor" stopOpacity="0.25" />
-        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-       </linearGradient>
-      </defs>
-
-      <m.g variants={gridVariants} initial="normal" animate={controls}>
-       <m.g
-        variants={tileVariants}
-        custom={0}
-        initial="normal"
-        animate={controls}
-       >
-        <path d="M10.5 6.75C10.5 4.67893 8.82107 3 6.75 3C4.67893 3 3 4.67893 3 6.75C3 8.82107 4.67893 10.5 6.75 10.5C8.82107 10.5 10.5 8.82107 10.5 6.75Z" />
-       </m.g>
-
-       <m.g
-        variants={tileVariants}
-        custom={1}
-        initial="normal"
-        animate={controls}
-       >
-        <path d="M21 6.75C21 4.67893 19.3211 3 17.25 3C15.1789 3 13.5 4.67893 13.5 6.75C13.5 8.82107 15.1789 10.5 17.25 10.5C19.3211 10.5 21 8.82107 21 6.75Z" />
-       </m.g>
-
-       <m.g
-        variants={tileVariants}
-        custom={2}
-        initial="normal"
-        animate={controls}
-       >
-        <path d="M21 17.25C21 15.1789 19.3211 13.5 17.25 13.5C15.1789 13.5 13.5 15.1789 13.5 17.25C13.5 19.3211 15.1789 21 17.25 21C19.3211 21 21 19.3211 21 17.25Z" />
-       </m.g>
-
-       <m.g
-        variants={tileVariants}
-        custom={3}
-        initial="normal"
-        animate={controls}
-       >
-        <path d="M10.5 17.25C10.5 15.1789 8.82107 13.5 6.75 13.5C4.67893 13.5 3 15.1789 3 17.25C3 19.3211 4.67893 21 6.75 21C8.82107 21 10.5 19.3211 10.5 17.25Z" />
-       </m.g>
-
-       <m.rect
-        x="2"
-        y="2"
-        width="20"
-        height="20"
-        rx="6"
-        fill="url(#dashboard03-sweep)"
-        variants={sweepVariants}
-        initial="normal"
-        animate={controls}
-        style={{ pointerEvents: "none" }}
-       />
-      </m.g>
+      <m.path
+       d="M10.5 6.75C10.5 4.67893 8.82107 3 6.75 3C4.67893 3 3 4.67893 3 6.75C3 8.82107 4.67893 10.5 6.75 10.5C8.82107 10.5 10.5 8.82107 10.5 6.75Z"
+       variants={tileVariants(0)}
+       style={{
+        transformBox: "view-box",
+        originX: "6.75px",
+        originY: "6.75px",
+       }}
+      />
+      <m.path
+       d="M21 6.75C21 4.67893 19.3211 3 17.25 3C15.1789 3 13.5 4.67893 13.5 6.75C13.5 8.82107 15.1789 10.5 17.25 10.5C19.3211 10.5 21 8.82107 21 6.75Z"
+       variants={tileVariants(0.07)}
+       style={{
+        transformBox: "view-box",
+        originX: "17.25px",
+        originY: "6.75px",
+       }}
+      />
+      <m.path
+       d="M21 17.25C21 15.1789 19.3211 13.5 17.25 13.5C15.1789 13.5 13.5 15.1789 13.5 17.25C13.5 19.3211 15.1789 21 17.25 21C19.3211 21 21 19.3211 21 17.25Z"
+       variants={tileVariants(0.14)}
+       style={{
+        transformBox: "view-box",
+        originX: "17.25px",
+        originY: "17.25px",
+       }}
+      />
+      <m.path
+       d="M10.5 17.25C10.5 15.1789 8.82107 13.5 6.75 13.5C4.67893 13.5 3 15.1789 3 17.25C3 19.3211 4.67893 21 6.75 21C8.82107 21 10.5 19.3211 10.5 17.25Z"
+       variants={tileVariants(0.21)}
+       style={{
+        transformBox: "view-box",
+        originX: "6.75px",
+        originY: "17.25px",
+       }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -81,36 +81,18 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
    [controls, onMouseLeave],
   );
 
-  const containerVariants: Variants = {
-   normal: {
-    scale: 1,
-    y: 0,
-   },
+  const pieceVariants = (row: number): Variants => ({
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.04, 1],
-    y: [0, -1, 0],
+    y: [0, -3, 0.6, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
+     delay: row * 0.1 * duration,
     },
    },
-  };
-
-  const segmentVariants: Variants = {
-   normal: {
-    opacity: 1,
-    y: 0,
-   },
-   animate: (i: number) => ({
-    opacity: [0, 1],
-    y: [3, 0],
-    transition: {
-     duration: 0.45 * duration,
-     ease: "easeOut",
-     delay: i * 0.08,
-    },
-   }),
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -122,42 +104,35 @@ const FigmaIcon = forwardRef<FigmaIconHandle, FigmaIconProps>(
      style={{ color, ...props.style }}
     >
      <m.svg
+      xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
+      strokeLinecap="round"
       strokeLinejoin="round"
-      initial="normal"
       animate={controls}
-      variants={containerVariants}
+      initial="normal"
      >
       <m.path
        d="M12 3V9H9C7.34315 9 6 7.65685 6 6C6 4.34315 7.34315 3 9 3H12Z"
-       variants={segmentVariants}
-       custom={0}
+       variants={pieceVariants(0)}
       />
-
       <m.path
        d="M12 3V9H15C16.6569 9 18 7.65685 18 6C18 4.34315 16.6569 3 15 3H12Z"
-       variants={segmentVariants}
-       custom={1}
+       variants={pieceVariants(0)}
       />
-
       <m.path
        d="M12 9V15H9C7.34315 15 6 13.6569 6 12C6 10.3431 7.34315 9 9 9H12Z"
-       variants={segmentVariants}
-       custom={2}
+       variants={pieceVariants(1)}
       />
-
       <m.path
        d="M9 21C10.6569 21 12 19.6569 12 18V15H9C7.34315 15 6 16.3431 6 18C6 19.6569 7.34315 21 9 21Z"
-       variants={segmentVariants}
-       custom={3}
+       variants={pieceVariants(2)}
       />
-
-      <m.circle cx="15" cy="12" r="3" variants={segmentVariants} custom={4} />
+      <m.circle cx="15" cy="12" r="3" variants={pieceVariants(1)} />
      </m.svg>
     </m.div>
    </LazyMotion>

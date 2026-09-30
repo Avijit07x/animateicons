@@ -81,21 +81,18 @@ const Loading01Icon = forwardRef<Loading01IconHandle, Loading01IconProps>(
    [controls, onMouseLeave],
   );
 
-  const loaderVariants: Variants = {
-   normal: { rotate: 0, scale: 1, transition: { duration: 0.3 * duration } },
+  const spokeVariants = (delay: number): Variants => ({
+   normal: { opacity: 1, scale: 1 },
    animate: {
-    rotate: 360,
-    scale: [1, 1.1, 1],
+    opacity: [1, 0.2, 1],
+    scale: [1, 0.8, 1],
     transition: {
-     rotate: { duration: 1 * duration, ease: "linear", repeat: Infinity },
-     scale: {
-      duration: 0.6 * duration,
-      repeat: Infinity,
-      repeatType: "mirror",
-     },
+     duration: 0.4 * duration,
+     ease: "easeInOut",
+     delay: delay * duration,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -115,19 +112,54 @@ const Loading01Icon = forwardRef<Loading01IconHandle, Loading01IconProps>(
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
-      initial="normal"
+      strokeLinejoin="round"
       animate={controls}
-      variants={loaderVariants}
-      style={{ transformOrigin: "center" }}
+      initial="normal"
      >
-      <path d="M12 3V6" />
-      <path d="M12 18V21" />
-      <path d="M21 12L18 12" />
-      <path d="M6 12L3 12" />
-      <path d="M18.3635 5.63672L16.2422 7.75804" />
-      <path d="M7.75804 16.2422L5.63672 18.3635" />
-      <path d="M18.3635 18.3635L16.2422 16.2422" />
-      <path d="M7.75804 7.75804L5.63672 5.63672" />
+      <m.path
+       d="M12 3V6"
+       variants={spokeVariants(0.0)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "4.5px" }}
+      />
+      <m.path
+       d="M12 18V21"
+       variants={spokeVariants(0.2)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "19.5px" }}
+      />
+      <m.path
+       d="M21 12L18 12"
+       variants={spokeVariants(0.1)}
+       style={{ transformBox: "view-box", originX: "19.5px", originY: "12px" }}
+      />
+      <m.path
+       d="M6 12L3 12"
+       variants={spokeVariants(0.3)}
+       style={{ transformBox: "view-box", originX: "4.5px", originY: "12px" }}
+      />
+      <m.path
+       d="M18.3635 5.63672L16.2422 7.75804"
+       variants={spokeVariants(0.05)}
+       style={{ transformBox: "view-box", originX: "17.3px", originY: "6.7px" }}
+      />
+      <m.path
+       d="M7.75804 16.2422L5.63672 18.3635"
+       variants={spokeVariants(0.25)}
+       style={{ transformBox: "view-box", originX: "6.7px", originY: "17.3px" }}
+      />
+      <m.path
+       d="M18.3635 18.3635L16.2422 16.2422"
+       variants={spokeVariants(0.15)}
+       style={{
+        transformBox: "view-box",
+        originX: "17.3px",
+        originY: "17.3px",
+       }}
+      />
+      <m.path
+       d="M7.75804 7.75804L5.63672 5.63672"
+       variants={spokeVariants(0.35)}
+       style={{ transformBox: "view-box", originX: "6.7px", originY: "6.7px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

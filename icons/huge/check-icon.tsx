@@ -82,14 +82,19 @@ const CheckIcon = forwardRef<CheckIconHandle, CheckIconProps>(
   );
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, scale: 1, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
-    strokeDashoffset: [24, 0],
-    scale: [1, 1.15, 1],
-    opacity: [0.5, 1],
+    strokeDashoffset: [22, 0],
+    opacity: [0, 1],
+    scale: [1, 1.12, 1],
     transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
+     strokeDashoffset: { duration: 0.45 * duration, ease: "easeOut" },
+     opacity: { duration: 0.1 * duration },
+     scale: {
+      duration: 0.3 * duration,
+      ease: "easeInOut",
+      delay: 0.4 * duration,
+     },
     },
    },
   };
@@ -113,14 +118,15 @@ const CheckIcon = forwardRef<CheckIconHandle, CheckIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
       <m.path
        d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7"
-       strokeDasharray="24"
+       strokeDasharray="22"
        strokeDashoffset="0"
        variants={tickVariants}
-       initial="normal"
-       animate={controls}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12.5px" }}
       />
      </m.svg>
     </m.div>

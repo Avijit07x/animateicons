@@ -132,6 +132,54 @@
       ]
     },
     {
+      "name": "hu-analytics-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/analytics-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/analytics-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-analytics-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/analytics-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/analytics-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-analytics-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/analytics-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/analytics-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-angry",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -484,6 +532,22 @@
       ]
     },
     {
+      "name": "hu-backward-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/backward-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/backward-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-badge-alert",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -596,6 +660,22 @@
       ]
     },
     {
+      "name": "hu-bank",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/bank-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bank.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-barcode",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -692,6 +772,22 @@
       ]
     },
     {
+      "name": "hu-blocks",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/blocks-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/blocks.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-blogger",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -704,6 +800,54 @@
           "path": "icons/huge/blogger-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/blogger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-bluesky",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/bluesky-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bluesky.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-book-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/book-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/book-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-book-open-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/book-open-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/book-open-0-1.tsx"
         }
       ]
     },
@@ -788,6 +932,22 @@
       ]
     },
     {
+      "name": "hu-briefcase-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/briefcase-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/briefcase-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-browser",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -816,6 +976,38 @@
           "path": "icons/huge/bug-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/bug-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-building-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/building-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/building-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-calculator",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/calculator-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calculator.tsx"
         }
       ]
     },
@@ -992,6 +1184,38 @@
           "path": "icons/huge/cancel-square-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/cancel-square.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-chart-line",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/chart-line-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chart-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-chat-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/chat-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chat-0-1.tsx"
         }
       ]
     },
@@ -1732,6 +1956,22 @@
       ]
     },
     {
+      "name": "hu-dribbble",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/dribbble-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/dribbble.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-edit-0-2",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -1840,6 +2080,134 @@
           "path": "icons/huge/figma-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/figma.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-add",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-add-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-add.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-block",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-block-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-remove",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-remove-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-remove.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-file-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/file-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/file-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-film-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/film-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/film-0-1.tsx"
         }
       ]
     },
@@ -2148,6 +2516,22 @@
       ]
     },
     {
+      "name": "hu-forward-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/forward-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/forward-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-full-screen",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2292,6 +2676,22 @@
       ]
     },
     {
+      "name": "hu-google",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/google-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/google.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-grid-view",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2304,6 +2704,54 @@
           "path": "icons/huge/grid-view-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/grid-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-handshake",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/handshake-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/handshake.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-headphone-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/headphone-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headphone-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-headphones",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/headphones-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/headphones.tsx"
         }
       ]
     },
@@ -2500,6 +2948,38 @@
       ]
     },
     {
+      "name": "hu-id",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/id-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/id.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-id-verified",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/id-verified-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/id-verified.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-idea-0-1",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -2656,6 +3136,54 @@
           "path": "icons/huge/invoice-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/invoice-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-kanban",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/kanban-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/kanban.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-key-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/key-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/key-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-key-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/key-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/key-0-2.tsx"
         }
       ]
     },
@@ -2964,6 +3492,38 @@
       ]
     },
     {
+      "name": "hu-lock-keyhole",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/lock-keyhole-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lock-keyhole.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-lock-keyhole-open",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/lock-keyhole-open-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lock-keyhole-open.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-lock-open",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3124,6 +3684,22 @@
       ]
     },
     {
+      "name": "hu-mastodon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/mastodon-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mastodon.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-maximize-screen",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3152,6 +3728,38 @@
           "path": "icons/huge/medium-square-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/medium-square.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-megaphone-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/megaphone-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/megaphone-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-megaphone-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/megaphone-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/megaphone-off.tsx"
         }
       ]
     },
@@ -3380,6 +3988,38 @@
       ]
     },
     {
+      "name": "hu-music-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/music-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-music-note-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/music-note-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music-note-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-neutral",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3440,6 +4080,22 @@
           "path": "icons/huge/newspaper-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/newspaper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-notebook-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/notebook-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/notebook-0-1.tsx"
         }
       ]
     },
@@ -3520,6 +4176,38 @@
           "path": "icons/huge/package-delivered-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/package-delivered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-paint-brush-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/paint-brush-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/paint-brush-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-palette",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/palette-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/palette.tsx"
         }
       ]
     },
@@ -3716,6 +4404,70 @@
       ]
     },
     {
+      "name": "hu-passport-expired",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/passport-expired-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/passport-expired.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-passport",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/passport-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/passport.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-passport-valid",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/passport-valid-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/passport-valid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-password-validation",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/password-validation-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/password-validation.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-pause",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3744,6 +4496,54 @@
           "path": "icons/huge/payment-success-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/payment-success-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-pen-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/pen-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pen-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-pencil",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/pencil-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pencil.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-pencil-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/pencil-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pencil-off.tsx"
         }
       ]
     },
@@ -3844,6 +4644,22 @@
       ]
     },
     {
+      "name": "hu-pinterest",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/pinterest-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pinterest.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-play",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3856,6 +4672,38 @@
           "path": "icons/huge/play-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/play.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-playlist-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/playlist-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/playlist-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-podcast",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/podcast-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/podcast.tsx"
         }
       ]
     },
@@ -3956,6 +4804,22 @@
       ]
     },
     {
+      "name": "hu-reddit",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/reddit-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/reddit.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-redo",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3984,6 +4848,54 @@
           "path": "icons/huge/refresh-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/refresh-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-repeat",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/repeat-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/repeat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-repeat-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/repeat-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/repeat-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-repeat-one-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/repeat-one-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/repeat-one-0-1.tsx"
         }
       ]
     },
@@ -4148,6 +5060,70 @@
       ]
     },
     {
+      "name": "hu-security-block",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/security-block-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/security-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-security-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/security-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/security-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-security-lock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/security-lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/security-lock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-security-warning",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/security-warning-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/security-warning.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-send",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -4256,6 +5232,22 @@
           "path": "icons/huge/shield-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/shield-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-shield-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/shield-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-0-2.tsx"
         }
       ]
     },
@@ -4612,6 +5604,22 @@
       ]
     },
     {
+      "name": "hu-slack",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/slack-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/slack.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-sliders-horizontal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -4656,6 +5664,22 @@
           "path": "icons/huge/smile-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/smile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-snapchat",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/snapchat-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/snapchat.tsx"
         }
       ]
     },
@@ -4736,6 +5760,38 @@
           "path": "icons/huge/sparkles-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-speaker-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/speaker-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/speaker-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-spotify",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/spotify-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/spotify.tsx"
         }
       ]
     },
@@ -4880,6 +5936,86 @@
           "path": "icons/huge/tag-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/tag-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-target-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/target-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/target-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-task-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/task-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/task-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-task-add-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/task-add-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/task-add-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-task-remove-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/task-remove-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/task-remove-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-telegram",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/telegram-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/telegram.tsx"
         }
       ]
     },
@@ -5092,6 +6228,22 @@
       ]
     },
     {
+      "name": "hu-threads",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/threads-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/threads.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-threads-rectangle",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -5252,6 +6404,22 @@
       ]
     },
     {
+      "name": "hu-twitch",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/twitch-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/twitch.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-twitter",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -5332,6 +6500,22 @@
       ]
     },
     {
+      "name": "hu-user-block-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/user-block-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-block-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-user-check-0-1",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -5344,6 +6528,22 @@
           "path": "icons/huge/user-check-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/user-check-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-user-circle",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/user-circle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-circle.tsx"
         }
       ]
     },
@@ -5412,6 +6612,22 @@
       ]
     },
     {
+      "name": "hu-user-settings-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/user-settings-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-settings-0-1.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-video-0-1",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -5424,6 +6640,22 @@
           "path": "icons/huge/video-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/video-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-video-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/video-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/video-0-2.tsx"
         }
       ]
     },
@@ -5456,6 +6688,118 @@
           "path": "icons/huge/vk-square-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/vk-square.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-high",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-high-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-high.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-mute-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-mute-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-mute-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-mute-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-mute-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-mute-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-volume-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/volume-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/volume-up.tsx"
         }
       ]
     },
@@ -5536,6 +6880,22 @@
           "path": "icons/huge/webhook-off-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/webhook-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-whatsapp",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/whatsapp-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/whatsapp.tsx"
         }
       ]
     },

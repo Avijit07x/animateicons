@@ -82,15 +82,12 @@ const SearchIcon = forwardRef<SearchIconHandle, SearchIconProps>(
   );
 
   const lensVariants: Variants = {
-   normal: { x: 0, y: 0, rotate: 0, opacity: 1 },
+   normal: { x: 0, y: 0, rotate: 0 },
    animate: {
     x: [0, 2, -2, 1, 0],
     y: [0, -1, 2, -1, 0],
     rotate: [0, 6, -6, 4, 0],
-    transition: {
-     duration: 1.2 * duration,
-     ease: "easeInOut" as const,
-    },
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -116,8 +113,11 @@ const SearchIcon = forwardRef<SearchIconHandle, SearchIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g variants={lensVariants}>
-       <m.circle cx="11" cy="11" r="8" />
+      <m.g
+       variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "11px", originY: "11px" }}
+      >
+       <circle cx="11" cy="11" r="8" />
        <path d="M17 17L21 21" />
       </m.g>
      </m.svg>
