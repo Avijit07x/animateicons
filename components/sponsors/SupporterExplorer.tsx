@@ -16,9 +16,10 @@
  */
 
 import { GitHub } from "@/components/icons/Github";
+import { MoneyBag01Icon } from "@/icons/huge/money-bag-0-1-icon";
+import { UserGroupIcon } from "@/icons/huge/user-group-icon";
 import { cn } from "@/lib/utils";
 import type { Supporter, SupporterSource } from "@/lib/supporters/types";
-import { Coffee, Users } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
 import SupporterAvatar from "./SupporterAvatar";
 
@@ -27,13 +28,17 @@ type Filter = "all" | SupporterSource;
 type Tab = {
 	id: Filter;
 	label: string;
-	Icon: React.ComponentType<{ className?: string }>;
+	icon: React.ReactNode;
 };
 
 const TABS: readonly Tab[] = [
-	{ id: "all", label: "All", Icon: Users },
-	{ id: "bmc", label: "Buy me a coffee", Icon: Coffee },
-	{ id: "github", label: "GitHub Sponsors", Icon: GitHub },
+	{ id: "all", label: "All", icon: <UserGroupIcon size={16} /> },
+	{ id: "bmc", label: "Buy me a coffee", icon: <MoneyBag01Icon size={16} /> },
+	{
+		id: "github",
+		label: "GitHub Sponsors",
+		icon: <GitHub className="size-4" />,
+	},
 ] as const;
 
 const PANEL_ID = "supporters-panel";
@@ -103,9 +108,9 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 			<div
 				role="tablist"
 				aria-label="Filter supporters by source"
-				className="flex flex-wrap gap-2"
+				className="flex flex-wrap justify-center gap-2"
 			>
-				{TABS.map(({ id, label, Icon }) => {
+				{TABS.map(({ id, label, icon }) => {
 					const active = filter === id;
 					return (
 						<button
@@ -122,21 +127,20 @@ const SupporterExplorer: React.FC<Props> = ({ supporters }) => {
 							onClick={() => setFilter(id)}
 							onKeyDown={onKeyDown}
 							className={cn(
-								"inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors",
-								"focus-visible:ring-primary/40 focus-visible:ring-2 focus-visible:outline-none",
+								"inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none",
 								active
-									? "border-primary/40 bg-primary/15 text-primary"
-									: "border-border/60 hover:border-primary/40 text-textSecondary hover:text-textPrimary",
+									? "bg-white/12 text-white"
+									: "bg-surfaceElevated text-textSecondary hover:text-textPrimary focus-visible:bg-surfaceActive",
 							)}
 						>
-							<Icon className="size-4" />
+							{icon}
 							<span>{label}</span>
 							<span
 								className={cn(
-									"inline-flex min-w-5 items-center justify-center rounded-sm px-1.5 py-0.5 text-[10px] font-semibold tabular-nums",
+									"inline-flex min-w-5 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-semibold tabular-nums",
 									active
-										? "bg-primary/20 text-primary"
-										: "text-textMuted bg-white/5",
+										? "bg-white/15 text-white"
+										: "text-textMuted bg-white/8",
 								)}
 							>
 								{counts[id]}
@@ -185,7 +189,7 @@ const EMPTY_COPY: Record<Filter, { title: string; body: string }> = {
 const EmptyState: React.FC<{ filter: Filter }> = ({ filter }) => {
 	const { title, body } = EMPTY_COPY[filter];
 	return (
-		<div className="border-border/60 flex flex-col items-center gap-2 rounded-2xl border border-dashed bg-gradient-to-b from-white/[0.02] to-transparent px-6 py-12 text-center">
+		<div className="bg-surface flex min-h-60 flex-col items-center gap-2 rounded-3xl px-6 pt-20 text-center">
 			<p className="text-textPrimary text-sm font-medium">{title}</p>
 			<p className="text-textMuted max-w-sm text-xs">{body}</p>
 		</div>

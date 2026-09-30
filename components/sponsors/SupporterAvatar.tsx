@@ -13,10 +13,10 @@
  */
 
 import { GitHub } from "@/components/icons/Github";
+import { MoneyBag01Icon } from "@/icons/huge/money-bag-0-1-icon";
 import { firstGrapheme } from "@/lib/utils/firstGrapheme";
 import { cn } from "@/lib/utils";
 import type { Supporter } from "@/lib/supporters/types";
-import { Coffee } from "lucide-react";
 import SupporterAvatarImage from "./SupporterAvatarImage";
 
 type Props = {
@@ -24,18 +24,25 @@ type Props = {
 };
 
 const sourceMeta = {
-	bmc: { label: "Buy me a coffee", Icon: Coffee, badge: "Coffee" },
-	github: { label: "GitHub Sponsors", Icon: GitHub, badge: "Sponsor" },
+	bmc: {
+		label: "Buy me a coffee",
+		icon: <MoneyBag01Icon size={12} />,
+		badge: "Coffee",
+	},
+	github: {
+		label: "GitHub Sponsors",
+		icon: <GitHub className="size-3" />,
+		badge: "Sponsor",
+	},
 } as const;
 
 const SupporterAvatar: React.FC<Props> = ({ supporter }) => {
 	const initial = firstGrapheme(supporter.name);
-	const { Icon: SourceIcon, label, badge } = sourceMeta[supporter.source];
+	const { icon, label, badge } = sourceMeta[supporter.source];
 
 	const tileClass = cn(
-		"group border-border/60 hover:border-primary/40 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
-		"relative flex flex-col gap-2.5 rounded-xl border p-4 transition-colors",
-		"bg-gradient-to-b from-white/[0.03] to-white/[0.01]",
+		"group bg-surface hover:bg-surfaceElevated relative flex flex-col gap-3 rounded-3xl p-4 transition-colors",
+		"focus-visible:bg-surfaceElevated focus-visible:outline-none",
 	);
 
 	const inner = (
@@ -43,7 +50,7 @@ const SupporterAvatar: React.FC<Props> = ({ supporter }) => {
 			<div className="flex items-center gap-2.5">
 				<span
 					aria-hidden="true"
-					className="border-primary/30 bg-primary/15 text-primary relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border text-sm font-semibold"
+					className="bg-primary/15 text-primary relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full text-sm font-semibold"
 				>
 					<span aria-hidden="true">{initial}</span>
 					{supporter.avatarUrl && (
@@ -63,10 +70,10 @@ const SupporterAvatar: React.FC<Props> = ({ supporter }) => {
 				</p>
 			)}
 			<span
-				className="text-textMuted mt-auto inline-flex items-center gap-1.5 text-[10px] font-medium tracking-wide uppercase"
+				className="text-textMuted mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-white/8 px-2.5 py-1 text-[10px] font-medium"
 				title={label}
 			>
-				<SourceIcon className="size-3" />
+				{icon}
 				{badge}
 			</span>
 		</>

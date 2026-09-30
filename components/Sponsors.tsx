@@ -1,44 +1,59 @@
 "use client";
 
+import { useCopy } from "@/hooks/useCopy";
+import { useIconHover } from "@/hooks/useIconHover";
+import { Cancel01Icon } from "@/icons/huge/cancel-0-1-icon";
+import { CheckIcon } from "@/icons/huge/check-icon";
+import { CopyIcon } from "@/icons/huge/copy-icon";
+import { CreditCardIcon } from "@/icons/huge/credit-card-icon";
+import { HeartIcon } from "@/icons/huge/heart-icon";
+import { MoneyBag01Icon } from "@/icons/huge/money-bag-0-1-icon";
+import type { IconHandle } from "@/types/icon";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
-import { HeartIcon, HeartIconHandle } from "../icons/huge/heart-icon";
-import { CoffeeIcon, CoffeeIconHandle } from "../icons/lucide/coffee-icon";
-import { CopyIcon, CopyIconHandle } from "../icons/lucide/copy-icon";
-import {
-	DollarSignIcon,
-	DollarSignIconHandle,
-} from "../icons/lucide/dollar-sign-icon";
-import { XIcon } from "../icons/lucide/x-icon";
-import handleHover from "../utils/handleHover";
-import { CheckIcon } from "./icons/CheckIcon";
+import { useState, type ComponentType, type Ref } from "react";
 
-type Props = {};
+type SponsorIcon = ComponentType<{
+	size?: number;
+	color?: string;
+	ref?: Ref<IconHandle>;
+}>;
 
-const Sponsors: React.FC<Props> = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [copied, setCopied] = useState<boolean>(false);
-	const hoverEnabledRef = useRef(false);
-	const dollarRef = useRef<DollarSignIconHandle>(null);
-	const heartRef = useRef<HeartIconHandle>(null);
-	const heRef = useRef<HeartIconHandle>(null);
-	const coffeeRef = useRef<CoffeeIconHandle>(null);
-	const copyRef = useRef<CopyIconHandle>(null);
+const SPRING = { type: "spring", stiffness: 260, damping: 28 } as const;
+const UPI_ID = "avijit07x@axl";
 
-	const toggleSponsors = () => {
-		setIsOpen(!isOpen);
-		hoverEnabledRef.current = false;
-	};
+const SponsorLink: React.FC<{
+	href: string;
+	label: string;
+	ariaLabel: string;
+	icon: SponsorIcon;
+	color: string;
+}> = ({ href, label, ariaLabel, icon: Icon, color }) => {
+	const { ref, hoverProps } = useIconHover();
 
-	const handleCopyUpi = async () => {
-		try {
-			await navigator.clipboard.writeText("avijit07x@axl");
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1500);
-		} catch {}
-	};
+	return (
+		<Link
+			href={href}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={ariaLabel}
+			{...hoverProps}
+			className="text-textPrimary flex items-center gap-2.5 rounded-full bg-white/8 px-4 py-2.5 text-sm transition-colors hover:bg-white/12"
+		>
+			<Icon ref={ref} size={16} color={color} />
+			<span>{label}</span>
+		</Link>
+	);
+};
+
+const Sponsors: React.FC = () => {
+	const [isOpen, setIsOpen] = useState(false);
+	const { copied, copy } = useCopy(1500);
+	const { ref: heartRef, hoverProps: heartHoverProps } = useIconHover();
+	const { ref: copyRef, hoverProps: copyHoverProps } = useIconHover();
+
+	const toggle = () => setIsOpen((open) => !open);
 
 	return (
 		<>
@@ -49,7 +64,7 @@ const Sponsors: React.FC<Props> = () => {
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.25, ease: "easeOut" }}
-						onClick={toggleSponsors}
+						onClick={toggle}
 						className="fixed inset-0 z-150 bg-black/25 backdrop-blur-sm"
 					/>
 				)}
@@ -61,148 +76,105 @@ const Sponsors: React.FC<Props> = () => {
 					animate={{
 						y: 0,
 						width: isOpen ? 280 : 44,
-						height: isOpen ? 450 : 44,
-						borderRadius: isOpen ? 20 : 999,
+						height: isOpen ? 440 : 44,
+						borderRadius: isOpen ? 22 : 999,
 					}}
 					transition={{
-						y: {
-							type: "spring",
-							stiffness: 260,
-							damping: 28,
-						},
-						width: {
-							type: "spring",
-							stiffness: 260,
-							damping: 28,
-						},
-						height: {
-							type: "spring",
-							stiffness: 260,
-							damping: 28,
-						},
-						borderRadius: {
-							duration: 0.08,
-							ease: "linear",
-						},
+						y: SPRING,
+						width: SPRING,
+						height: SPRING,
+						borderRadius: { duration: 0.08, ease: "linear" },
 					}}
-					onAnimationComplete={() => {
-						if (isOpen) hoverEnabledRef.current = true;
-					}}
-					className="from-bgDark to-bgDark border-primary/25 relative flex flex-col overflow-hidden border bg-linear-to-br via-zinc-900"
+					className="bg-surfaceElevated relative flex flex-col overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)]"
 				>
 					<button
-						onClick={toggleSponsors}
-						className={`${
-							isOpen ? "m-2 ml-auto size-6" : "size-11"
-						} group flex items-center justify-center`}
+						type="button"
+						onClick={toggle}
 						aria-label={isOpen ? "Close sponsor panel" : "Open sponsor options"}
 						aria-expanded={isOpen}
 						aria-controls="sponsor-panel"
-						onMouseEnter={(e) => handleHover(e, heRef)}
-						onMouseLeave={(e) => handleHover(e, heRef)}
+						{...heartHoverProps}
+						className={`${
+							isOpen ? "m-2 ml-auto size-7" : "size-11"
+						} text-textSecondary hover:text-textPrimary flex items-center justify-center rounded-full transition-colors`}
 					>
 						{isOpen ? (
-							<XIcon className="size-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
+							<Cancel01Icon size={16} />
 						) : (
-							<HeartIcon ref={heRef} className="size-4.5 text-pink-500" />
+							<HeartIcon
+								ref={heartRef}
+								size={18}
+								color="var(--color-primary)"
+							/>
 						)}
 					</button>
 
 					<AnimatePresence>
 						{isOpen && (
 							<motion.div
+								id="sponsor-panel"
 								initial={{ opacity: 0, y: 8 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 6 }}
-								transition={{
-									duration: 0.25,
-									ease: "easeOut",
-								}}
-								className="text-textPrimary flex w-full flex-col gap-3 px-4 pb-4"
+								transition={{ duration: 0.25, ease: "easeOut" }}
+								className="flex w-full flex-col gap-2 px-3 pb-3"
 							>
-								<Link
+								<SponsorLink
 									href="https://buymeacoffee.com/avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label="Support via Buy Me a Coffee"
-									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={(e) => handleHover(e, coffeeRef)}
-									onMouseLeave={(e) => handleHover(e, coffeeRef)}
-								>
-									<CoffeeIcon
-										ref={coffeeRef}
-										className="size-4.5 text-yellow-400"
-									/>
-									<span>Buy Me Coffee</span>
-								</Link>
-
-								<Link
+									label="Buy Me Coffee"
+									ariaLabel="Support via Buy Me a Coffee"
+									icon={MoneyBag01Icon}
+									color="var(--color-warning)"
+								/>
+								<SponsorLink
 									href="https://github.com/sponsors/avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label="Sponsor on GitHub"
-									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={(e) => handleHover(e, heartRef)}
-									onMouseLeave={(e) => handleHover(e, heartRef)}
-								>
-									<HeartIcon ref={heartRef} className="size-4 text-pink-500" />
-									<span>GitHub Sponsors</span>
-								</Link>
-
-								<Link
+									label="GitHub Sponsors"
+									ariaLabel="Sponsor on GitHub"
+									icon={HeartIcon}
+									color="var(--color-primary)"
+								/>
+								<SponsorLink
 									href="https://paypal.me/avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label="Donate via PayPal"
-									className="bg-primary/20 hover:bg-primary/25 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors duration-300"
-									onMouseEnter={(e) => handleHover(e, dollarRef)}
-									onMouseLeave={(e) => handleHover(e, dollarRef)}
-								>
-									<DollarSignIcon
-										ref={dollarRef}
-										className="size-4 text-green-500"
-										duration={0.7}
-									/>
-									<span>PayPal</span>
-								</Link>
+									label="PayPal"
+									ariaLabel="Donate via PayPal"
+									icon={CreditCardIcon}
+									color="var(--color-success)"
+								/>
 
-								<button
-									onClick={handleCopyUpi}
-									onMouseEnter={(e) => handleHover(e, copyRef)}
-									onMouseLeave={(e) => handleHover(e, copyRef)}
-									aria-label="Copy UPI ID and view QR code for payment"
-									aria-live="polite"
-									className="bg-primary/20 hover:bg-primary/25 flex flex-col items-center gap-2 rounded-md px-3 py-3 text-sm transition-colors duration-300"
-								>
+								<div className="mt-1 flex flex-col items-center gap-3 rounded-3xl bg-white/6 p-3">
 									<div className="flex w-full items-center justify-between">
-										<span className="font-medium">UPI Payment</span>
-										<span className="size-4">
-											{copied ? (
-												<CheckIcon className="size-4 text-green-500" />
-											) : (
-												<CopyIcon
-													ref={copyRef}
-													className="size-3.5 text-gray-400"
-												/>
-											)}
+										<span className="text-textPrimary text-sm font-medium">
+											UPI Payment
 										</span>
+										<button
+											type="button"
+											onClick={() => copy(UPI_ID)}
+											aria-label="Copy UPI ID"
+											{...copyHoverProps}
+											className="text-textSecondary hover:text-textPrimary flex size-7 items-center justify-center rounded-full transition-colors hover:bg-white/10"
+										>
+											{copied ? (
+												<CheckIcon size={14} color="var(--color-success)" />
+											) : (
+												<CopyIcon ref={copyRef} size={14} />
+											)}
+										</button>
 									</div>
-									<div className="flex justify-center pt-2">
-										<Image
-											src="qrcode.svg"
-											alt="UPI QR code for avijit07x@axl payment"
-											width={150}
-											height={100}
-											className="rounded-xs"
-										/>
+									<Image
+										src="qrcode.svg"
+										alt={`UPI QR code for ${UPI_ID} payment`}
+										width={150}
+										height={100}
+										className="rounded-xl"
+									/>
+									<div className="text-textMuted text-center text-xs">
+										<p>
+											UPI ID:{" "}
+											<span className="text-textSecondary">{UPI_ID}</span>
+										</p>
+										<p className="mt-1">Scan to pay with any UPI app</p>
 									</div>
-									<div className="text-textSecondary flex items-center gap-2 text-xs">
-										<span>UPI ID:</span>
-										<span>avijit07x@axl</span>
-									</div>
-
-									<span className="text-xs">Scan to pay with any UPI app</span>
-								</button>
+								</div>
 							</motion.div>
 						)}
 					</AnimatePresence>
