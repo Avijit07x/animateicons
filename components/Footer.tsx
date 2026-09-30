@@ -64,13 +64,13 @@ const Footer: React.FC = () => {
 					)}
 				</nav>
 
-				<p className="text-textMuted mt-6 text-sm">
+				<p className="text-textMuted mt-6 text-sm text-balance">
 					Free and open source under the MIT license. Built by{" "}
 					<Link
 						href="https://github.com/avijit07x"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-textSecondary hover:text-primary transition-colors"
+						className="text-textSecondary hover:text-primary whitespace-nowrap transition-colors"
 					>
 						Avijit Dey
 					</Link>

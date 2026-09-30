@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
 	}, [copied]);
 
 	return (
-		<section className="relative flex min-h-[calc(100dvh-4rem)] flex-col overflow-hidden pb-12 lg:pb-16">
+		<section className="relative flex min-h-[calc(100dvh-4rem)] flex-col overflow-hidden pb-12 max-sm:justify-center lg:pb-16">
 			<div
 				aria-hidden="true"
 				className="bg-plus-grid pointer-events-none absolute inset-0"
@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
 			>
 				<motion.h1
 					variants={item}
-					className="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+					className="text-[clamp(2.25rem,9.3vw,2.75rem)] leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
 				>
 					<span className="text-textPrimary">
 						Make Every <br className="hidden max-sm:block" />
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.5, duration: 0.8 }}
-				className="relative z-10 mt-11 min-h-[300px] flex-1"
+				className="relative z-10 mt-11 min-h-[300px] flex-1 max-sm:h-60 max-sm:min-h-0 max-sm:flex-none"
 			>
 				<FloatingIcons
 					items={SHOWCASE}
