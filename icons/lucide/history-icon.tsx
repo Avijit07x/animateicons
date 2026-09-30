@@ -81,7 +81,7 @@ const HistoryIcon = forwardRef<HistoryIconHandle, HistoryIconProps>(
    [controls, onMouseLeave],
   );
 
-  const handsVariants: Variants = {
+  const minuteVariants: Variants = {
    normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
     rotate: [0, -360],
@@ -127,10 +127,11 @@ const HistoryIcon = forwardRef<HistoryIconHandle, HistoryIconProps>(
       <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
       <m.path d="M3 3v5h5" variants={arrowVariants} />
       <m.path
-       d="M12 7v5l4 2"
-       variants={handsVariants}
+       d="M12 7v5"
+       variants={minuteVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
+      <path d="M12 12l4 2" />
      </m.svg>
     </m.div>
    </LazyMotion>

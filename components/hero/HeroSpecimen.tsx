@@ -1,11 +1,12 @@
 "use client";
 
+import { ArrowUpZAIcon } from "@/icons/lucide/arrow-up-z-a-icon";
 import { BellRingIcon } from "@/icons/lucide/bell-ring-icon";
+import { DrumIcon } from "@/icons/lucide/drum-icon";
 import { EyeIcon } from "@/icons/lucide/eye-icon";
-import { LaptopMinimalIcon } from "@/icons/lucide/laptop-minimal-icon";
 import { RadioIcon } from "@/icons/lucide/radio-icon";
-import { SunMediumIcon } from "@/icons/lucide/sun-medium-icon";
-import { WaypointsIcon } from "@/icons/lucide/waypoints-icon";
+import { TrafficConeIcon } from "@/icons/lucide/traffic-cone-icon";
+import { WifiIcon } from "@/icons/lucide/wifi-icon";
 import SpecimenFrame from "@/components/home/SpecimenFrame";
 import type { IconHandle } from "@/types/icon";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -25,10 +26,11 @@ type SpotIcon = React.ComponentType<{
 
 const SPECIMENS = [
 	{ Icon: BellRingIcon, name: "bell-ring", note: "pendulum swing" },
-	{ Icon: LaptopMinimalIcon, name: "laptop-minimal", note: "screen wake" },
+	{ Icon: TrafficConeIcon, name: "traffic-cone", note: "cone wobble" },
+	{ Icon: WifiIcon, name: "wifi", note: "arc ripple" },
 	{ Icon: EyeIcon, name: "eye", note: "blink + scan" },
-	{ Icon: SunMediumIcon, name: "sun-medium", note: "ray radiate" },
-	{ Icon: WaypointsIcon, name: "waypoints", note: "route draw" },
+	{ Icon: ArrowUpZAIcon, name: "arrow-up-z-a", note: "letter swap" },
+	{ Icon: DrumIcon, name: "drum", note: "stick beat" },
 	{ Icon: RadioIcon, name: "radio", note: "signal broadcast" },
 ] as unknown as { Icon: SpotIcon; name: string; note: string }[];
 
