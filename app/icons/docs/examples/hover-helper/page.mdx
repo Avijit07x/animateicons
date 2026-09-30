@@ -23,7 +23,7 @@ if (e.type === "mouseleave") ref.current?.stopAnimation()
 
 export const handleHoverUsageCode = `import { useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { BellIcon } from "@animateicons/react/lucide"
+import { NotificationIcon } from "@animateicons/react/huge"
 import type { IconHandle } from "@animateicons/react"
 import { handleHover } from "@/lib/handle-hover"
 
@@ -37,7 +37,7 @@ export function NotificationBell() {
     		onMouseEnter={(e) => handleHover(e, ref)}
     		onMouseLeave={(e) => handleHover(e, ref)}
     	>
-    		<BellIcon ref={ref} size={18} />
+    		<NotificationIcon ref={ref} size={18} />
     	</Button>
     )
 

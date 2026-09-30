@@ -2624,6 +2624,18 @@ const ICON_META: IconMeta[] = [
     category: ["Brands","Social"],
     keywords: ["bluesky", "bsky", "social", "butterfly", "decentralized", "network"],
   },
+  {
+    name: "bot",
+    addedAt: "2026-09-30",
+    category: ["Coding & development"],
+    keywords: ["bot", "robot", "ai", "assistant", "agent", "automation", "chatbot", "mcp"],
+  },
+  {
+    name: "bot-off",
+    addedAt: "2026-09-30",
+    category: ["Coding & development"],
+    keywords: ["bot", "robot", "off", "disabled", "offline", "ai", "assistant", "mute"],
+  },
 ];
 
 const ICON_COUNT = ICON_META.length;
@@ -3066,6 +3078,8 @@ const iconLoaders: Record<string, () => Promise<ComponentType<any>>> = {
   "snapchat": () => import("./snapchat-icon").then((m) => m.SnapchatIcon),
   "dribbble": () => import("./dribbble-icon").then((m) => m.DribbbleIcon),
   "bluesky": () => import("./bluesky-icon").then((m) => m.BlueskyIcon),
+  "bot": () => import("./bot-icon").then((m) => m.BotIcon),
+  "bot-off": () => import("./bot-off-icon").then((m) => m.BotOffIcon),
 };
 
 const cache = new Map<string, ComponentType<any>>();

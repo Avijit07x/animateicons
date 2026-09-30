@@ -1,13 +1,16 @@
 "use client";
 
-import { CheckIcon, type CheckIconHandle } from "@/icons/lucide/check-icon";
-import { CopyIcon, type CopyIconHandle } from "@/icons/lucide/copy-icon";
+import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
+import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
+import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
+import { CopyIcon, type CopyIconHandle } from "@/icons/huge/copy-icon";
+import { useCopy } from "@/hooks/useCopy";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, Variants } from "motion/react";
-import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import HeroSpecimen from "./hero/HeroSpecimen";
+import React, { useEffect, useRef } from "react";
+import FloatingIcons from "./FloatingIcons";
+import IconLink from "./IconLink";
+import { SHOWCASE } from "./home/showcase-icons";
 
 const container: Variants = {
 	hidden: { opacity: 0 },
@@ -29,7 +32,7 @@ const item: Variants = {
 const INSTALL = "npm i @animateicons/react";
 
 const HeroSection: React.FC = () => {
-	const [copied, setCopied] = useState(false);
+	const { copied, copy } = useCopy();
 	const copyRef = useRef<CopyIconHandle | null>(null);
 	const checkRef = useRef<CheckIconHandle | null>(null);
 
@@ -39,15 +42,8 @@ const HeroSection: React.FC = () => {
 		return () => cancelAnimationFrame(id);
 	}, [copied]);
 
-	const copy = () => {
-		navigator.clipboard?.writeText(INSTALL).then(() => {
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1600);
-		});
-	};
-
 	return (
-		<section className="relative min-h-[calc(100dvh-4rem)] overflow-hidden">
+		<section className="relative flex min-h-[calc(100dvh-4rem)] flex-col overflow-hidden pb-12 lg:pb-16">
 			<div
 				aria-hidden="true"
 				className="bg-plus-grid pointer-events-none absolute inset-0"
@@ -57,89 +53,95 @@ const HeroSection: React.FC = () => {
 				variants={container}
 				initial="hidden"
 				animate="show"
-				className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-7xl flex-col px-6"
+				className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-6 pt-12 text-center lg:pt-16"
 			>
-				<div className="grid flex-1 items-center gap-y-12 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-10">
-					<div className="mx-auto flex w-full max-w-xl flex-col items-start gap-7 lg:mx-0 lg:max-w-none">
-						<motion.p
-							variants={item}
-							className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase"
-						>
-							<span className="text-primary">01</span> / Animated icon library
-							for React
-						</motion.p>
+				<motion.h1
+					variants={item}
+					className="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+				>
+					<span className="text-textPrimary">
+						Make Every <br className="hidden max-sm:block" />
+						Icon{" "}
+					</span>
+					<span className="text-primary">Move</span>
+					<br />
+					<span className="text-textPrimary font-medium">
+						with AnimateIcons
+					</span>
+				</motion.h1>
 
-						<motion.h1
-							variants={item}
-							className="text-[clamp(2.75rem,7vw,6.25rem)] leading-[0.9] font-semibold tracking-tight"
-						>
-							<span className="text-textPrimary">Make every</span>
-							<br />
-							<span className="text-textPrimary">icon </span>
-							<span className="text-primary">move.</span>
-						</motion.h1>
+				<motion.p
+					variants={item}
+					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance sm:text-base"
+				>
+					{ICON_COUNTS.total} open-source animated SVG icons for React, in
+					Lucide and Huge styles. Drop-in components that animate on hover,
+					focus, or your own code.
+				</motion.p>
 
-						<motion.p
-							variants={item}
-							className="text-textSecondary max-w-md text-sm leading-relaxed sm:text-base"
-						>
-							{ICON_COUNTS.total} open-source SVG icons that animate at the path
-							level, driven by hover, focus, or your own code. One motion
-							system, two libraries.
-						</motion.p>
+				<motion.button
+					type="button"
+					onClick={() => copy(INSTALL)}
+					onMouseEnter={() => copyRef.current?.startAnimation()}
+					onMouseLeave={() => copyRef.current?.stopAnimation()}
+					variants={item}
+					aria-label="Copy install command"
+					className="group bg-surfaceElevated focus-visible:ring-primary/40 hover:bg-surfaceActive flex max-w-full cursor-pointer items-center gap-4 rounded-full py-2.5 pr-4 pl-5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 active:scale-[0.98]"
+				>
+					<code className="text-textPrimary font-mono text-sm">
+						<span className="text-textMuted select-none">$ </span>
+						{INSTALL}
+					</code>
+					<span className="text-textMuted group-hover:text-primary flex items-center transition-colors">
+						{copied ? (
+							<CheckIcon
+								ref={checkRef}
+								size={16}
+								color="var(--color-success)"
+							/>
+						) : (
+							<CopyIcon ref={copyRef} size={16} />
+						)}
+					</span>
+				</motion.button>
 
-						<motion.button
-							type="button"
-							onClick={copy}
-							onMouseEnter={() => copyRef.current?.startAnimation()}
-							onMouseLeave={() => copyRef.current?.stopAnimation()}
-							variants={item}
-							aria-label="Copy install command"
-							className="group border-border bg-surface/60 hover:border-primary/70 hover:bg-surfaceElevated focus-visible:border-primary/70 focus-visible:ring-primary/40 flex w-full cursor-pointer items-center justify-between gap-3 rounded-md border px-4 py-2.5 text-left transition-[color,background-color,border-color,box-shadow] duration-200 hover:shadow-[0_0_24px_-6px_var(--color-primaryGlow)] focus:outline-none focus-visible:ring-2 active:scale-[0.99] lg:max-w-md"
-						>
-							<code className="text-textPrimary font-mono text-sm">
-								<span className="text-textMuted select-none">$ </span>
-								{INSTALL}
-							</code>
-							<span className="text-textMuted group-hover:text-primary flex items-center transition-colors">
-								{copied ? (
-									<CheckIcon
-										ref={checkRef}
-										size={16}
-										color="var(--color-success)"
-									/>
-								) : (
-									<CopyIcon ref={copyRef} size={16} />
-								)}
-							</span>
-						</motion.button>
-
-						<motion.div
-							variants={item}
-							className="grid w-full grid-cols-1 gap-3 pt-1 min-[480px]:grid-cols-2 lg:max-w-md"
-						>
-							<Link
-								href="/icons/lucide"
-								prefetch={false}
-								className="group btn btn-primary"
-							>
-								Browse {ICON_COUNTS.total} icons
-								<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-							</Link>
-							<Link href="/icons/docs" className="group btn btn-secondary">
-								Documentation
-								<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-							</Link>
-						</motion.div>
-					</div>
-
-					<motion.div
-						variants={item}
-						className="mx-auto w-full max-w-xl lg:max-w-none"
+				<motion.div
+					variants={item}
+					className="flex flex-wrap items-center justify-center gap-3"
+				>
+					<IconLink
+						href="/icons/lucide"
+						prefetch={false}
+						icon={ArrowRight02Icon}
+						variant="default"
+						size="pill"
 					>
-						<HeroSpecimen />
-					</motion.div>
-				</div>
+						Browse {ICON_COUNTS.total} icons
+					</IconLink>
+					<IconLink
+						href="/icons/docs"
+						icon={ArrowUpRight01Icon}
+						variant="secondary"
+						size="pill"
+					>
+						Documentation
+					</IconLink>
+				</motion.div>
+			</motion.div>
+
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ delay: 0.5, duration: 0.8 }}
+				className="relative z-10 mt-11 min-h-[300px] flex-1"
+			>
+				<FloatingIcons
+					items={SHOWCASE}
+					cols={10}
+					rows={3}
+					thinOnPhone
+					className="[mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]"
+				/>
 			</motion.div>
 		</section>
 	);

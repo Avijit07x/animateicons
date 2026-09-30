@@ -1,31 +1,38 @@
-import Link from "next/link";
+import IconLink from "@/components/IconLink";
+import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import React from "react";
 
 const IconLibraryEmptyState: React.FC = () => {
 	return (
 		<div className="flex w-full flex-col">
-			<main className="flex min-h-[calc(100dvh-3.75rem)] items-center justify-center px-6">
+			<main className="flex min-h-[calc(100dvh-3.5rem)] items-center justify-center px-6">
 				<div className="flex max-w-md flex-col items-center gap-4 text-center">
-					<p className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase">
-						<span className="text-primary">Library</span> / Two systems
-					</p>
-
-					<h2 className="text-textPrimary text-2xl font-semibold tracking-tight sm:text-3xl">
+					<h2 className="text-textPrimary text-3xl font-semibold tracking-tight sm:text-4xl">
 						Choose an icon library<span className="text-primary">.</span>
 					</h2>
 
-					<p className="text-textSecondary text-sm leading-relaxed">
+					<p className="text-textSecondary text-sm leading-relaxed sm:text-base">
 						Browse a collection of beautifully crafted animated icons with
 						search, copy, and live preview.
 					</p>
 
 					<div className="mt-3 flex flex-wrap justify-center gap-3">
-						<Link href="/icons/lucide" className="btn btn-primary">
+						<IconLink
+							href="/icons/lucide"
+							icon={ArrowRight02Icon}
+							variant="default"
+							size="pill"
+						>
 							Browse Lucide
-						</Link>
-						<Link href="/icons/huge" className="btn btn-secondary">
+						</IconLink>
+						<IconLink
+							href="/icons/huge"
+							icon={ArrowRight02Icon}
+							variant="secondary"
+							size="pill"
+						>
 							Browse Huge
-						</Link>
+						</IconLink>
 					</div>
 				</div>
 			</main>

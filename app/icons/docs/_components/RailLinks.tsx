@@ -1,17 +1,16 @@
 "use client";
 
-/**
- * Below the "On This Page" TOC: a Contribute block (edit this page / report an
- * issue) and a Community block (star on GitHub + socials). Fills the otherwise
- * empty right rail on short pages. The edit link is derived from the pathname.
- */
-
 import { GitHub } from "@/components/icons/Github";
-import { LinkedinIcon } from "@/icons/lucide/linkedin-icon";
-import { TwitterIcon } from "@/icons/lucide/twitter-icon";
-import { CircleDot, SquarePen, Star } from "lucide-react";
+import { useIconHover } from "@/hooks/useIconHover";
+import { Bug01Icon } from "@/icons/huge/bug-0-1-icon";
+import { Edit02Icon } from "@/icons/huge/edit-0-2-icon";
+import { Linkedin01Icon } from "@/icons/huge/linkedin-0-1-icon";
+import { StarIcon } from "@/icons/huge/star-icon";
+import { TwitterIcon } from "@/icons/huge/twitter-icon";
+import type { IconHandle } from "@/types/icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { ComponentType, Ref } from "react";
 import {
 	LINKEDIN_URL,
 	NEW_ISSUE_URL,
@@ -20,64 +19,95 @@ import {
 	editUrl,
 } from "../_lib/links";
 
-const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
-	const pathname = usePathname();
+type RailIcon = ComponentType<{ size?: number; ref?: Ref<IconHandle> }>;
+
+const RailLink: React.FC<{
+	href: string;
+	icon: RailIcon;
+	children: React.ReactNode;
+}> = ({ href, icon: Icon, children }) => {
+	const { ref, hoverProps } = useIconHover();
 
 	return (
-		<div className="space-y-6 text-sm">
-			<div className="space-y-2">
-				<p className="text-textPrimary font-medium">Contribute</p>
-				<Link
-					href={editUrl(pathname)}
-					target="_blank"
-					className="text-textSecondary hover:text-textPrimary flex items-center gap-2 transition-colors"
-				>
-					<SquarePen className="size-3.5" /> Edit this page
-				</Link>
-				<Link
-					href={NEW_ISSUE_URL}
-					target="_blank"
-					className="text-textSecondary hover:text-textPrimary flex items-center gap-2 transition-colors"
-				>
-					<CircleDot className="size-3.5" /> Report an issue
-				</Link>
+		<Link
+			href={href}
+			target="_blank"
+			rel="noopener noreferrer"
+			{...hoverProps}
+			className="text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary flex items-center gap-2.5 rounded-full px-3 py-2 transition-colors"
+		>
+			<Icon ref={ref} size={16} />
+			{children}
+		</Link>
+	);
+};
+
+const SocialLink: React.FC<{
+	href: string;
+	label: string;
+	icon: RailIcon;
+}> = ({ href, label, icon: Icon }) => {
+	const { ref, hoverProps } = useIconHover();
+
+	return (
+		<Link
+			href={href}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={label}
+			{...hoverProps}
+			className="text-textMuted hover:bg-surfaceElevated hover:text-textPrimary flex size-9 items-center justify-center rounded-full transition-colors"
+		>
+			<Icon ref={ref} size={16} />
+		</Link>
+	);
+};
+
+const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
+	const pathname = usePathname();
+	const { ref: starRef, hoverProps: starHoverProps } = useIconHover();
+
+	return (
+		<div className="space-y-6 text-[13px]">
+			<div>
+				<p className="text-textMuted mb-1.5 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+					Contribute
+				</p>
+				<RailLink href={editUrl(pathname)} icon={Edit02Icon}>
+					Edit this page
+				</RailLink>
+				<RailLink href={NEW_ISSUE_URL} icon={Bug01Icon}>
+					Report an issue
+				</RailLink>
 			</div>
 
-			<div className="space-y-2">
-				<p className="text-textPrimary font-medium">Community</p>
+			<div>
+				<p className="text-textMuted mb-1.5 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+					Community
+				</p>
 				<Link
 					href={REPO_URL}
 					target="_blank"
-					className="group border-border/60 hover:border-primary/50 hover:bg-surface flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors"
+					rel="noopener noreferrer"
+					{...starHoverProps}
+					className="bg-surfaceElevated hover:bg-surfaceActive mb-2 flex items-center gap-2.5 rounded-full px-4 py-2.5 transition-colors"
 				>
 					<GitHub className="size-4 shrink-0" />
-					<span className="text-textPrimary text-sm font-medium">
-						Star on GitHub
-					</span>
+					<span className="text-textPrimary font-medium">Star on GitHub</span>
 					{stars !== null && (
 						<span className="text-textMuted ml-auto flex items-center gap-1 text-xs">
-							<Star className="size-3 fill-amber-400 text-amber-400" />
+							<StarIcon ref={starRef} size={13} color="var(--color-warning)" />
 							{stars.toLocaleString()}
 						</span>
 					)}
 				</Link>
-				<div className="flex items-center gap-1">
-					<Link
-						href={TWITTER_URL}
-						target="_blank"
-						aria-label="Twitter"
-						className="text-textMuted hover:text-textPrimary flex size-8 items-center justify-center rounded-md transition-colors hover:bg-white/5"
-					>
-						<TwitterIcon size={16} />
-					</Link>
-					<Link
+				<div className="flex items-center gap-1 px-1">
+					<SocialLink href={TWITTER_URL} label="Twitter" icon={TwitterIcon} />
+					<SocialLink
 						href={LINKEDIN_URL}
-						target="_blank"
-						aria-label="LinkedIn"
-						className="text-textMuted hover:text-textPrimary flex size-8 items-center justify-center rounded-md transition-colors hover:bg-white/5"
-					>
-						<LinkedinIcon size={16} />
-					</Link>
+						label="LinkedIn"
+						icon={Linkedin01Icon}
+					/>
 				</div>
 			</div>
 		</div>

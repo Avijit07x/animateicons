@@ -38,7 +38,6 @@ const Page: React.FC<Props> = async ({ params }) => {
 		notFound();
 	}
 
-	// After the guard, TS narrows `library` to "lucide" | "huge".
 	const jsonLd = buildLibraryJsonLd(library, ICON_COUNTS[library]);
 	const displayName = library === "lucide" ? "Lucide" : "Huge";
 
@@ -46,9 +45,9 @@ const Page: React.FC<Props> = async ({ params }) => {
 		<div className="flex w-full flex-col">
 			<JsonLd data={jsonLd} />
 
-			<AnnouncementBanner />
 			<Navbar />
-			<main className="min-h-[calc(100dvh-3.75rem)] pb-3">
+			<AnnouncementBanner />
+			<main className="min-h-[calc(100dvh-3.5rem)] pb-3">
 				<div className="mx-auto h-full w-full max-w-384">
 					<h1 className="sr-only">{displayName} Animated Icons for React</h1>
 

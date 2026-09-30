@@ -1,39 +1,9 @@
 "use client";
 
-/**
- * CommandSearch
- *
- * The Cmd+K palette modal. Centered glass panel, fuzzy-searches across
- * every icon in both libraries (Lucide + Huge), supports full keyboard
- * navigation:
- *
- *   - Type to filter (debounced via useMemo, no extra state machine)
- *   - ↑ / ↓ - move selection
- *   - Enter - open the selected icon's detail page
- *   - Esc - close the palette
- *
- * Results are capped at MAX_RESULTS for performance - the full icon
- * set is fine to filter, but rendering that many motion components
- * with hover handlers is not. Limit is generous enough that any real
- * query narrows long before hitting it.
- *
- * Input is capped at MAX_SEARCH_LENGTH, and queries longer than
- * MAX_MATCHABLE_LENGTH skip the Fuse search entirely - it can't match,
- * and its cost scales with pattern length (#45).
- */
-
 import { MAX_SEARCH_LENGTH } from "@/app/icons/_contexts/IconSearchContext";
 import { Kbd } from "@/components/ui/kbd";
-import {
-	getIcon as getHugeIcon,
-	ICON_META as HUGE_META,
-} from "@/icons/huge/meta";
-import {
-	getIcon as getLucideIcon,
-	ICON_META as LUCIDE_META,
-} from "@/icons/lucide/meta";
-import { cn } from "@/lib/utils";
-import Fuse from "fuse.js";
+import { SearchIcon, type SearchIconHandle } from "@/icons/huge/search-icon";
+import { ICON_CATALOG, POPULAR_ICONS, searchIcons } from "@/lib/icon-search";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -46,93 +16,20 @@ type Props = {
 	onClose: () => void;
 };
 
-/** Build a single flat icon catalog the first time the module loads.
- *  Both libraries combined; library tag preserved for the badge column
- *  and the navigation target. */
-const ALL_ICONS: CommandSearchIcon[] = [
-	...LUCIDE_META.map((i) => ({
-		name: i.name,
-		library: "lucide" as const,
-		component: getLucideIcon(i.name),
-		keywords: i.keywords,
-	})),
-	...HUGE_META.map((i) => ({
-		name: i.name,
-		library: "huge" as const,
-		component: getHugeIcon(i.name),
-		keywords: i.keywords,
-	})),
-];
-
-/** Fuse instance is module-level so it doesn't rebuild on every modal
- *  open. ~286 items, indexed once, reused across opens. */
-const FUSE = new Fuse(ALL_ICONS, {
-	keys: [
-		{ name: "name", weight: 0.85 },
-		{ name: "keywords", weight: 0.15 },
-	],
-	threshold: 0.3,
-	ignoreLocation: true,
-	minMatchCharLength: 2,
-	includeScore: true,
-});
-
-const MAX_MATCHABLE_LENGTH = [...LUCIDE_META, ...HUGE_META].reduce(
-	(max, icon) => {
-		const longestKeyword = (icon.keywords ?? []).reduce(
-			(longest, keyword) => Math.max(longest, keyword.length),
-			0,
-		);
-		return Math.max(max, icon.name.length, longestKeyword);
-	},
-	0,
-);
-
 const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 	const [query, setQuery] = useState("");
 	const [selected, setSelected] = useState(0);
 	const inputRef = useRef<HTMLInputElement | null>(null);
+	const searchIconRef = useRef<SearchIconHandle | null>(null);
 	const router = useRouter();
 
+	const searching = query.trim().length >= 2;
 	const results = useMemo<CommandSearchIcon[]>(() => {
 		const q = query.trim().toLowerCase();
-		if (q.length < 2) return ALL_ICONS.slice(0, MAX_RESULTS);
-		if (q.length > MAX_MATCHABLE_LENGTH) return [];
-
-		const exact: CommandSearchIcon[] = [];
-		const startsWith: CommandSearchIcon[] = [];
-		const contains: CommandSearchIcon[] = [];
-
-		for (const icon of ALL_ICONS) {
-			const name = icon.name.toLowerCase();
-			if (name === q) exact.push(icon);
-			else if (name.startsWith(q)) startsWith.push(icon);
-			else if (name.includes(q)) contains.push(icon);
-		}
-
-		const fuseHits = FUSE.search(q)
-			.filter((r) => (r.score ?? 1) < 0.4)
-			.map((r) => r.item);
-
-		const seen = new Set<string>();
-		const merged: CommandSearchIcon[] = [];
-		for (const list of [exact, startsWith, contains, fuseHits]) {
-			for (const icon of list) {
-				const key = `${icon.library}-${icon.name}`;
-				if (!seen.has(key)) {
-					seen.add(key);
-					merged.push(icon);
-					if (merged.length >= MAX_RESULTS) return merged;
-				}
-			}
-		}
-		return merged;
+		if (q.length < 2) return POPULAR_ICONS;
+		return searchIcons(q, MAX_RESULTS);
 	}, [query]);
 
-	// Reset selection when the query changes (highlight the top match), and
-	// clear the query when the palette opens. Both are resets driven by a
-	// value change, so we adjust during render - React's recommended
-	// alternative to a setState-in-effect.
 	const [prevQuery, setPrevQuery] = useState(query);
 	if (query !== prevQuery) {
 		setPrevQuery(query);
@@ -148,15 +45,15 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 		}
 	}
 
-	// Focus the input when the palette opens - a real side effect, so it
-	// stays in an effect. rAF so the input exists in the DOM first.
 	useEffect(() => {
 		if (!isOpen) return;
-		const id = requestAnimationFrame(() => inputRef.current?.focus());
+		const id = requestAnimationFrame(() => {
+			inputRef.current?.focus();
+			searchIconRef.current?.startAnimation();
+		});
 		return () => cancelAnimationFrame(id);
 	}, [isOpen]);
 
-	// Lock body scroll while open.
 	useEffect(() => {
 		if (!isOpen) return;
 		const prev = document.body.style.overflow;
@@ -208,7 +105,7 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 					role="dialog"
 					aria-modal="true"
 					aria-label="Search icons"
-					className="fixed inset-0 z-[100] flex items-start justify-center bg-black/70 px-4 pt-[15vh] backdrop-blur-sm"
+					className="fixed inset-0 z-[100] flex items-start justify-center bg-black/70 px-4 pt-[15vh] backdrop-blur-md"
 				>
 					<motion.div
 						key="cmdk-panel"
@@ -217,33 +114,14 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 						exit={{ opacity: 0, scale: 0.96, y: -8 }}
 						transition={{ type: "spring", stiffness: 480, damping: 36 }}
 						onClick={(e) => e.stopPropagation()}
-						className={cn(
-							"relative w-full max-w-xl overflow-hidden rounded-2xl",
-							"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
-							"shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_30px_80px_-30px_rgba(0,0,0,0.85)]",
-						)}
+						className="bg-surface relative w-full max-w-lg overflow-hidden rounded-[18px] p-2.5 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)]"
 					>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-
-						<div className="border-border/40 flex items-center gap-3 border-b px-4 py-3">
-							<svg
-								width="18"
-								height="18"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								className="text-textMuted shrink-0"
-								aria-hidden="true"
-							>
-								<circle cx="11" cy="11" r="8" />
-								<path d="m21 21-4.3-4.3" />
-							</svg>
+						<div className="bg-surfaceElevated flex h-11 items-center gap-2.5 rounded-full pr-2.5 pl-4">
+							<SearchIcon
+								ref={searchIconRef}
+								size={18}
+								color="var(--color-primary)"
+							/>
 							<input
 								ref={inputRef}
 								type="text"
@@ -253,23 +131,31 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 									setQuery(e.target.value.slice(0, MAX_SEARCH_LENGTH))
 								}
 								placeholder="Search icons by name or keyword…"
-								className="text-textPrimary placeholder:text-textMuted flex-1 bg-transparent text-sm outline-none"
+								className="text-textPrimary placeholder:text-textMuted caret-primary min-w-0 flex-1 bg-transparent text-sm outline-none"
 								autoComplete="off"
 								spellCheck={false}
 							/>
-							<Kbd className="hidden sm:inline-flex">Esc</Kbd>
+							<Kbd className="hidden h-5 rounded-full bg-white/10 px-2 text-[0.65rem] sm:inline-flex">
+								Esc
+							</Kbd>
 						</div>
+
+						{results.length > 0 && (
+							<p className="text-textMuted px-3.5 pt-3 text-[11px] font-medium">
+								{searching ? "Results" : "Popular"}
+							</p>
+						)}
 
 						<div
 							role="listbox"
 							aria-label="Icon results"
-							className="max-h-[50vh] space-y-0.5 overflow-y-auto p-2"
+							className="max-h-[40vh] [scrollbar-width:none] space-y-0.5 overflow-y-auto [mask-image:linear-gradient(to_bottom,transparent,black_6px,black_calc(100%-16px),transparent)] pt-1.5 pb-4 [&::-webkit-scrollbar]:hidden"
 						>
 							{results.length === 0 ? (
-								<div className="text-textSecondary px-3 py-8 text-center text-sm">
+								<div className="text-textSecondary px-3 py-10 text-center text-sm">
 									No icons match{" "}
-									<span className="text-textPrimary font-mono">
-										&quot;{query}&quot;
+									<span className="text-textPrimary font-medium">
+										&ldquo;{query}&rdquo;
 									</span>
 								</div>
 							) : (
@@ -285,17 +171,25 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 							)}
 						</div>
 
-						<div className="border-border/40 text-textMuted flex items-center justify-between gap-3 border-t px-4 py-2 text-[11px]">
-							<div className="flex items-center gap-3">
-								<span className="inline-flex items-center gap-1.5">
-									<Kbd>↑↓</Kbd> navigate
+						<div className="text-textMuted mt-2 flex items-center justify-between gap-3 px-2.5 pb-0.5 text-[11px]">
+							<div className="flex items-center gap-4">
+								<span className="inline-flex items-center gap-2">
+									<Kbd className="h-5 rounded-full bg-white/10 px-2 text-[0.65rem]">
+										↑↓
+									</Kbd>
+									navigate
 								</span>
-								<span className="inline-flex items-center gap-1.5">
-									<Kbd>↵</Kbd> open
+								<span className="inline-flex items-center gap-2">
+									<Kbd className="h-5 rounded-full bg-white/10 px-2 text-[0.65rem]">
+										↵
+									</Kbd>
+									open
 								</span>
 							</div>
 							<span>
-								{results.length} of {ALL_ICONS.length}
+								{searching
+									? `${results.length} of ${ICON_CATALOG.length}`
+									: `${ICON_CATALOG.length} icons`}
 							</span>
 						</div>
 					</motion.div>

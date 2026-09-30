@@ -1,7 +1,8 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { PanelLeftIcon } from "lucide-react";
+import { useIconHover } from "@/hooks/useIconHover";
+import { PanelLeftIcon } from "@/icons/huge/panel-left-icon";
 import { Slot } from "radix-ui";
 import * as React from "react";
 
@@ -259,6 +260,7 @@ function SidebarTrigger({
 	...props
 }: React.ComponentProps<typeof Button>) {
 	const { toggleSidebar } = useSidebar();
+	const { ref, hoverProps } = useIconHover();
 
 	return (
 		<Button
@@ -271,9 +273,10 @@ function SidebarTrigger({
 				onClick?.(event);
 				toggleSidebar();
 			}}
+			{...hoverProps}
 			{...props}
 		>
-			<PanelLeftIcon className="size-4.5" />
+			<PanelLeftIcon ref={ref} size={18} />
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);
@@ -481,7 +484,7 @@ const sidebarMenuButtonVariants = cva(
 				default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
 				outline:
 					"bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
-				dark: "bg-transparent text-textPrimary hover:bg-surfaceHover hover:text-textPrimary focus-visible:bg-surfaceHover focus-visible:text-textPrimary active:bg-surfaceHover active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary rounded-md",
+				dark: "bg-transparent text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary focus-visible:bg-surfaceElevated focus-visible:text-textPrimary active:bg-surfaceElevated active:text-textPrimary data-[active=true]:bg-surfaceElevated data-[active=true]:text-textPrimary rounded-full font-medium transition-colors",
 			},
 			size: {
 				default: "h-8 text-sm",

@@ -13,10 +13,11 @@
  * client-only persistence layer.
  */
 
-import { ArrowRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
+import { Cancel01Icon } from "@/icons/huge/cancel-0-1-icon";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
-import Link from "next/link";
+import IconLink from "./IconLink";
 import { useState } from "react";
 
 const AnnouncementBanner: React.FC = () => {
@@ -35,43 +36,47 @@ const AnnouncementBanner: React.FC = () => {
 					animate={{ height: "auto", opacity: 1 }}
 					exit={{ height: 0, opacity: 0 }}
 					transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-					className="border-border/50 bg-primary/5 border-b backdrop-blur"
+					className="overflow-hidden"
 					role="region"
 					aria-label="Site announcement"
 				>
-					<div className="mx-auto flex max-w-384 items-center justify-between gap-3 px-4 py-2.5 text-xs sm:text-sm lg:px-6">
-						<div className="text-textPrimary flex min-w-0 items-center gap-2">
+					<div className="border-border/60 mx-auto flex max-w-384 items-center justify-between gap-3 border-b px-4 py-2 text-xs sm:text-[13px] lg:px-6">
+						<div className="flex min-w-0 items-center gap-3">
 							<span
 								aria-hidden="true"
-								className="bg-primary hidden shrink-0 rounded-sm px-2 py-0.5 text-[10px] font-semibold tracking-wide text-(--cta-text) uppercase sm:inline-flex"
+								className="bg-primary shrink-0 rounded-full px-2.5 py-1 text-[10px] leading-none font-bold tracking-wide text-white uppercase"
 							>
 								New
 							</span>
-							<span className="truncate">
-								<span className="font-medium">@animateicons/react</span>{" "}
-								<span className="text-textSecondary">
+							<span className="text-textSecondary min-w-0 truncate">
+								<span className="text-textPrimary font-medium">
+									@animateicons/react
+								</span>{" "}
+								<span className="max-sm:hidden">
 									is live on npm. All {ICON_COUNTS.total} icons in one install.
 								</span>
+								<span className="sm:hidden">is live on npm.</span>
 							</span>
 						</div>
 
 						<div className="flex shrink-0 items-center gap-1">
-							<Link
+							<IconLink
 								href="https://www.npmjs.com/package/@animateicons/react"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-primary hover:text-primary/80 inline-flex items-center gap-1 rounded-sm px-2 py-1 font-medium transition-colors"
+								icon={ArrowRight02Icon}
+								iconSize={13}
+								className="bg-primary/12 text-primary hover:bg-primary/20 inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium transition-colors"
 							>
 								View on npm
-								<ArrowRight className="size-3.5" aria-hidden="true" />
-							</Link>
+							</IconLink>
 							<button
 								type="button"
 								onClick={dismiss}
 								aria-label="Dismiss announcement"
-								className="text-textSecondary hover:text-textPrimary hover:bg-surfaceHover rounded-sm p-1 transition-colors"
+								className="text-textSecondary hover:text-textPrimary grid size-7 place-items-center rounded-full transition-colors hover:bg-white/10"
 							>
-								<X className="size-3.5" aria-hidden="true" />
+								<Cancel01Icon size={14} />
 							</button>
 						</div>
 					</div>

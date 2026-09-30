@@ -19,28 +19,23 @@ const CommandTabs: React.FC<{ title: string; items: CommandItem[] }> = ({
 	const current = items.find((i) => i.manager === active) ?? items[0];
 
 	return (
-		<div className="group/code bg-surface relative my-6 overflow-hidden rounded-xl shadow-lg ring-1 shadow-black/20 ring-white/10">
-			<div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.03] px-2">
-				<div className="flex items-center">
-					<span className="text-textMuted mr-1 px-2 font-mono text-xs">
-						{title}
-					</span>
+		<div className="group/code bg-surfaceElevated relative my-6 overflow-hidden rounded-3xl">
+			<div className="flex items-center justify-between border-b border-white/8 py-2 pr-2 pl-5">
+				<div className="flex items-center gap-1">
+					<span className="text-textMuted mr-2 font-mono text-xs">{title}</span>
 					{items.map((i) => (
 						<button
 							key={i.manager}
 							type="button"
 							onClick={() => setActive(i.manager)}
 							className={cn(
-								"relative px-2.5 py-2.5 font-mono text-xs transition-colors",
+								"rounded-full px-3 py-1 font-mono text-xs transition-colors",
 								active === i.manager
-									? "text-textPrimary"
+									? "bg-white/12 text-white"
 									: "text-textMuted hover:text-textSecondary",
 							)}
 						>
 							{i.manager}
-							{active === i.manager && (
-								<span className="bg-primary absolute inset-x-2 bottom-0 h-0.5 rounded-full" />
-							)}
 						</button>
 					))}
 				</div>
@@ -48,7 +43,7 @@ const CommandTabs: React.FC<{ title: string; items: CommandItem[] }> = ({
 			</div>
 
 			<div
-				className="text-[0.8125rem] max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-4 [&_pre]:leading-[1.7]"
+				className="text-[0.8125rem] max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-5 [&_pre]:leading-[1.7]"
 				dangerouslySetInnerHTML={{ __html: current.html }}
 			/>
 		</div>

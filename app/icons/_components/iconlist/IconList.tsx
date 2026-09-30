@@ -1,14 +1,16 @@
 "use client";
 
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, MotionConfig } from "motion/react";
 import React, { useEffect, useState } from "react";
 
+import { useCoarsePointer } from "@/hooks/useCoarsePointer";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useCategory } from "../../_contexts/CategoryContext";
 import { useIconSearchResult } from "../../_contexts/IconSearchContext";
 
 import { useIconSearchFilter } from "@/hooks/useIconFilter";
 import { IconTileProvider } from "../../_contexts/IconTileContext";
+import { ICON_GRID_CLASS } from "./iconGrid";
 import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconListSkeleton from "./IconListSkeleton";
 import IconsNotFound from "./IconsNotFound";
@@ -18,6 +20,7 @@ const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearchResult();
 	const { library } = useIconLibrary();
 	const { category } = useCategory();
+	const coarse = useCoarsePointer();
 
 	const [loaded, setLoaded] = useState<{
 		library: string;
@@ -59,34 +62,37 @@ const IconList: React.FC = () => {
 
 	return (
 		<IconTileProvider>
-			<AnimatePresence>
-				{filteredItems.length > 0 ? (
-					<>
-						<div className="576:grid-cols-2 900:grid-cols-3 border-border/60 mb-10 grid w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-							{filteredItems.map((item) => (
-								<IconTile
-									key={item.name}
-									item={item}
-									getIcon={active.getIcon}
-								/>
-							))}
-						</div>
-
-						{!debouncedQuery && (
-							<div className="py-4 text-center">
-								<p className="text-textPrimary text-sm font-medium">
-									The collection is continuously expanding
-								</p>
-								<p className="text-textMuted mt-1 text-xs">
-									New animated icons are added on a regular basis.
-								</p>
+			<MotionConfig reducedMotion="user">
+				<AnimatePresence>
+					{filteredItems.length > 0 ? (
+						<>
+							<div className={ICON_GRID_CLASS}>
+								{filteredItems.map((item) => (
+									<IconTile
+										key={item.name}
+										item={item}
+										getIcon={active.getIcon}
+										alwaysShowActions={coarse}
+									/>
+								))}
 							</div>
-						)}
-					</>
-				) : (
-					<IconsNotFound />
-				)}
-			</AnimatePresence>
+
+							{!debouncedQuery && (
+								<div className="py-4 text-center">
+									<p className="text-textPrimary text-sm font-medium">
+										The collection is continuously expanding
+									</p>
+									<p className="text-textMuted mt-1 text-xs">
+										New animated icons are added on a regular basis.
+									</p>
+								</div>
+							)}
+						</>
+					) : (
+						<IconsNotFound />
+					)}
+				</AnimatePresence>
+			</MotionConfig>
 		</IconTileProvider>
 	);
 };

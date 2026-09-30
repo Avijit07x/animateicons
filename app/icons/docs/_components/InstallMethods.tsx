@@ -1,10 +1,9 @@
 "use client";
 
-import { BlocksIcon } from "@/icons/lucide/blocks-icon";
-import { BoxIcon } from "@/icons/lucide/box-icon";
-import { SparklesIcon } from "@/icons/lucide/sparkles-icon";
-import { TerminalIcon } from "@/icons/lucide/terminal-icon";
-import { cn } from "@/lib/utils";
+import { BotIcon } from "@/icons/huge/bot-icon";
+import { Layout01Icon } from "@/icons/huge/layout-0-1-icon";
+import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
+import { TerminalIcon } from "@/icons/huge/terminal-icon";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 import Link from "next/link";
@@ -30,13 +29,13 @@ const METHODS: {
 		title: "npm package",
 		desc: "One install, every icon. Best for most apps.",
 		href: "#install-npm",
-		Icon: BoxIcon,
+		Icon: PackageDeliveredIcon,
 	},
 	{
 		title: "shadcn CLI",
 		desc: "Copy each icon into your codebase as source.",
 		href: "/icons/docs/shadcn",
-		Icon: BlocksIcon,
+		Icon: Layout01Icon,
 	},
 	{
 		title: "animateicons CLI",
@@ -48,7 +47,7 @@ const METHODS: {
 		title: "AI agents (MCP)",
 		desc: "Let Claude Code or Cursor add icons for you.",
 		href: "/icons/docs/mcp",
-		Icon: SparklesIcon,
+		Icon: BotIcon,
 	},
 ];
 
@@ -64,16 +63,13 @@ const InstallMethodCard: React.FC<(typeof METHODS)[number]> = ({
 			href={href}
 			onMouseEnter={(e) => handleHover(e, ref)}
 			onMouseLeave={(e) => handleHover(e, ref)}
-			className={cn(
-				"group border-border/60 bg-surface/40 hover:border-primary/50 hover:bg-surface",
-				"flex items-start gap-3 rounded-xl border p-4 transition-colors",
-			)}
+			className="group bg-surface hover:bg-surfaceElevated flex items-center gap-4 rounded-3xl p-4 transition-colors"
 		>
-			<span className="border-border/60 bg-bgDark text-primary flex size-9 shrink-0 items-center justify-center rounded-lg border">
-				<Icon ref={ref} size={18} />
+			<span className="bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center rounded-full">
+				<Icon ref={ref} size={20} />
 			</span>
 			<span className="min-w-0">
-				<span className="text-textPrimary group-hover:text-primary block text-sm font-semibold transition-colors">
+				<span className="text-textPrimary block text-sm font-semibold">
 					{title}
 				</span>
 				<span className="text-textMuted mt-0.5 block text-xs leading-5">

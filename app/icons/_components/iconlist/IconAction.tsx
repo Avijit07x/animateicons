@@ -1,22 +1,5 @@
 "use client";
 
-/**
- * IconAction
- *
- * SRP: render one of the three tooltip-wrapped, hover-animated 24×24
- * action buttons that sit under every AnimateIcons tile (Copy CLI
- * command / Copy JSX code / Open in v0.dev) - either as a real button
- * (in-page action) or an anchor (external link).
- *
- * Replaces three near-identical inline blocks in the original
- * IconTile.tsx. Polymorphic via discriminated union on `as` so
- * TypeScript narrows the prop set correctly: button variant requires
- * `onClick`, link variant requires `href`.
- *
- * The AnimateIcons icon used as the visual is passed as children;
- * supply its ref so this component can drive its hover animation.
- */
-
 import {
 	Tooltip,
 	TooltipContent,
@@ -24,12 +7,13 @@ import {
 } from "@/components/ui/tooltip";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
+import type { Variants } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 type BaseProps = {
 	tooltip: string;
 	ariaLabel: string;
-	/** Ref to the animated icon's imperative handle. */
 	iconRef: React.RefObject<IconHandle | null>;
 	children: React.ReactNode;
 };
@@ -46,7 +30,18 @@ type LinkVariantProps = BaseProps & {
 
 type Props = ButtonVariantProps | LinkVariantProps;
 
-const TRIGGER_CLASS = "flex size-6 items-center justify-center";
+const TRIGGER_CLASS =
+	"text-textSecondary grid size-7 place-items-center rounded-full transition-colors hover:bg-white/15 hover:text-white";
+
+const actionItemVariants: Variants = {
+	hidden: { opacity: 0, y: 12, scale: 0.5, transition: { duration: 0.12 } },
+	show: {
+		opacity: 1,
+		y: 0,
+		scale: 1,
+		transition: { type: "spring", stiffness: 520, damping: 26 },
+	},
+};
 
 const IconAction: React.FC<Props> = (props) => {
 	const { tooltip, ariaLabel, iconRef, children } = props;
@@ -81,10 +76,12 @@ const IconAction: React.FC<Props> = (props) => {
 		);
 
 	return (
-		<Tooltip>
-			<TooltipTrigger asChild>{trigger}</TooltipTrigger>
-			<TooltipContent side="bottom">{tooltip}</TooltipContent>
-		</Tooltip>
+		<motion.span variants={actionItemVariants} className="grid">
+			<Tooltip>
+				<TooltipTrigger asChild>{trigger}</TooltipTrigger>
+				<TooltipContent side="bottom">{tooltip}</TooltipContent>
+			</Tooltip>
+		</motion.span>
 	);
 };
 

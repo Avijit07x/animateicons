@@ -435,6 +435,8 @@ import { MastodonIcon } from "./mastodon-icon";
 import { SnapchatIcon } from "./snapchat-icon";
 import { DribbbleIcon } from "./dribbble-icon";
 import { BlueskyIcon } from "./bluesky-icon";
+import { BotIcon } from "./bot-icon";
+import { BotOffIcon } from "./bot-off-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -3495,6 +3497,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-30",
     category: ["Brands","Social"],
     keywords: ["bluesky", "bsky", "social", "butterfly", "decentralized", "network"],
+  },
+  {
+    name: "bot",
+    icon: BotIcon,
+    addedAt: "2026-09-30",
+    category: ["Coding & development"],
+    keywords: ["bot", "robot", "ai", "assistant", "agent", "automation", "chatbot", "mcp"],
+  },
+  {
+    name: "bot-off",
+    icon: BotOffIcon,
+    addedAt: "2026-09-30",
+    category: ["Coding & development"],
+    keywords: ["bot", "robot", "off", "disabled", "offline", "ai", "assistant", "mute"],
   },
 ];
 

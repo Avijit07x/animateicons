@@ -17,7 +17,7 @@ const IconListClient = () => {
 	return (
 		<>
 			{isMobile ? (
-				<div className="border-border/50 bg-bgDark sticky top-15 z-40 h-13 border-b px-4">
+				<div className="bg-bgDark sticky top-14 z-40 px-4 pb-2">
 					<SearchBar />
 				</div>
 			) : null}

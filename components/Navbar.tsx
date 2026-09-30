@@ -3,15 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import CommandSearchTrigger from "./command-search/CommandSearchTrigger";
 import NavbarActions from "./NavbarActions";
-import { Separator } from "./ui/separator";
 
 const Navbar = async () => {
 	const stars = await fetchStars();
 	return (
-		<header className="border-border/60 bg-bgDark/70 sticky top-0 z-50 border-b backdrop-blur-xl">
+		<header className="bg-bgDark/70 sticky top-0 z-50 backdrop-blur-xl">
 			<nav>
-				<div className="mx-auto max-w-7xl px-6 pt-1">
-					<div className="flex h-14 items-center justify-between">
+				<div className="mx-auto max-w-7xl px-6">
+					<div className="flex h-16 items-center justify-between">
 						<div className="flex items-center">
 							<Link href="/" className="flex items-center gap-2">
 								<Image
@@ -31,15 +30,18 @@ const Navbar = async () => {
 							<Link
 								href="/icons/lucide"
 								prefetch={false}
-								className="hover:text-primaryHover hover:bg-surface text-textPrimary hidden items-center gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium md:flex"
+								className="pill-link hidden md:flex"
 							>
 								Icons
 							</Link>
+							<Link
+								href="/icons/docs"
+								prefetch={false}
+								className="pill-link hidden md:flex"
+							>
+								Docs
+							</Link>
 							<CommandSearchTrigger />
-							<Separator
-								orientation="vertical"
-								className="hidden h-4! w-1 md:flex"
-							/>
 							<NavbarActions stars={stars} />
 						</div>
 					</div>

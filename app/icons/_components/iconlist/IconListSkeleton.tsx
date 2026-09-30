@@ -1,8 +1,9 @@
+import { ICON_GRID_CLASS } from "./iconGrid";
 import IconTileSkeleton from "./IconTileSkeleton";
 
 const IconListSkeleton: React.FC = () => {
 	return (
-		<div className="576:grid-cols-2 900:grid-cols-3 border-border/60 mb-10 grid w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+		<div className={ICON_GRID_CLASS}>
 			{Array.from({ length: 30 }).map((_, i) => (
 				<IconTileSkeleton key={i} />
 			))}

@@ -17,15 +17,15 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { BellIcon } from "@/icons/lucide/bell-icon";
-import { CircleCheckIcon } from "@/icons/lucide/circle-check-icon";
-import { DownloadIcon } from "@/icons/lucide/download-icon";
-import { LogOutIcon } from "@/icons/lucide/log-out-icon";
-import { SearchIcon } from "@/icons/lucide/search-icon";
-import { SettingsIcon } from "@/icons/lucide/settings-icon";
-import { SparklesIcon } from "@/icons/lucide/sparkles-icon";
-import { Trash2Icon } from "@/icons/lucide/trash-2-icon";
-import { UserIcon } from "@/icons/lucide/user-icon";
+import { CheckmarkCircle01Icon } from "@/icons/huge/checkmark-circle-0-1-icon";
+import { Delete02Icon } from "@/icons/huge/delete-0-2-icon";
+import { DownloadIcon } from "@/icons/huge/download-icon";
+import { Logout01Icon } from "@/icons/huge/logout-0-1-icon";
+import { NotificationIcon } from "@/icons/huge/notification-icon";
+import { SearchIcon } from "@/icons/huge/search-icon";
+import { Settings01Icon } from "@/icons/huge/settings-0-1-icon";
+import { SparklesIcon } from "@/icons/huge/sparkles-icon";
+import { UserIcon } from "@/icons/huge/user-icon";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 import { useRef } from "react";
@@ -46,7 +46,7 @@ export function ButtonDemo() {
 export function InputDemo() {
 	const ref = useRef<IconHandle>(null);
 	return (
-		<InputGroup className="border-border bg-bgDark w-full max-w-xs rounded-md">
+		<InputGroup className="bg-surfaceElevated w-full max-w-xs rounded-full border-0 shadow-none">
 			<InputGroupAddon>
 				<SearchIcon ref={ref} size={16} className="text-textMuted" />
 			</InputGroupAddon>
@@ -66,16 +66,16 @@ export function CardDemo() {
 		<div
 			onMouseEnter={(e) => handleHover(e, ref)}
 			onMouseLeave={(e) => handleHover(e, ref)}
-			className="border-border bg-surface w-full max-w-xs rounded-xl border p-5"
+			className="bg-surface w-full max-w-xs rounded-3xl p-5"
 		>
-			<div className="bg-primary/10 text-primary mb-3 flex size-10 items-center justify-center rounded-lg">
+			<div className="bg-primary/10 text-primary mb-3 flex size-11 items-center justify-center rounded-full">
 				<SparklesIcon ref={ref} size={20} />
 			</div>
 			<p className="text-textPrimary font-semibold">Smart suggestions</p>
 			<p className="text-textMuted mt-1 text-sm">
 				Get AI-powered icon recommendations as you type.
 			</p>
-			<Button size="sm" variant="outline" className="mt-4">
+			<Button size="sm" variant="secondary" className="mt-4">
 				Learn more
 			</Button>
 		</div>
@@ -89,13 +89,13 @@ export function TooltipDemo() {
 			<Tooltip>
 				<TooltipTrigger asChild>
 					<Button
-						variant="outline"
+						variant="secondary"
 						size="icon"
 						aria-label="Delete"
 						onMouseEnter={(e) => handleHover(e, ref)}
 						onMouseLeave={(e) => handleHover(e, ref)}
 					>
-						<Trash2Icon ref={ref} size={16} />
+						<Delete02Icon ref={ref} size={16} />
 					</Button>
 				</TooltipTrigger>
 				<TooltipContent>Delete</TooltipContent>
@@ -110,10 +110,10 @@ export function MenuDemo() {
 	const logout = useRef<IconHandle>(null);
 
 	const item =
-		"text-textSecondary hover:text-textPrimary hover:bg-white/5 flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors";
+		"text-textSecondary hover:text-textPrimary hover:bg-white/8 flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-sm transition-colors";
 
 	return (
-		<div className="border-border bg-bgDark w-full max-w-56 rounded-xl border p-1.5">
+		<div className="bg-surfaceElevated w-full max-w-56 rounded-3xl p-1.5">
 			<button
 				type="button"
 				className={item}
@@ -129,7 +129,7 @@ export function MenuDemo() {
 				onMouseEnter={(e) => handleHover(e, settings)}
 				onMouseLeave={(e) => handleHover(e, settings)}
 			>
-				<SettingsIcon ref={settings} size={16} />
+				<Settings01Icon ref={settings} size={16} />
 				Settings
 			</button>
 			<button
@@ -138,7 +138,7 @@ export function MenuDemo() {
 				onMouseEnter={(e) => handleHover(e, logout)}
 				onMouseLeave={(e) => handleHover(e, logout)}
 			>
-				<LogOutIcon ref={logout} size={16} />
+				<Logout01Icon ref={logout} size={16} />
 				Log out
 			</button>
 		</div>
@@ -151,9 +151,9 @@ export function BannerDemo() {
 		<div
 			onMouseEnter={(e) => handleHover(e, ref)}
 			onMouseLeave={(e) => handleHover(e, ref)}
-			className="flex w-full max-w-sm items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3"
+			className="flex w-full max-w-sm items-center gap-3 rounded-3xl bg-emerald-500/10 px-4 py-3"
 		>
-			<CircleCheckIcon
+			<CheckmarkCircle01Icon
 				ref={ref}
 				size={18}
 				className="shrink-0 text-emerald-400"
@@ -169,7 +169,7 @@ export function NavbarDemo() {
 	const user = useRef<IconHandle>(null);
 
 	return (
-		<div className="border-border bg-bgDark flex w-full max-w-sm items-center justify-between rounded-xl border px-4 py-2">
+		<div className="bg-surfaceElevated flex w-full max-w-sm items-center justify-between rounded-full py-1.5 pr-2 pl-5">
 			<span className="text-textPrimary text-sm font-semibold">Dashboard</span>
 			<div className="flex items-center gap-0.5">
 				<Button
@@ -179,7 +179,7 @@ export function NavbarDemo() {
 					onMouseEnter={(e) => handleHover(e, bell)}
 					onMouseLeave={(e) => handleHover(e, bell)}
 				>
-					<BellIcon ref={bell} size={18} />
+					<NotificationIcon ref={bell} size={18} />
 				</Button>
 				<Button
 					variant="ghost"
@@ -188,7 +188,7 @@ export function NavbarDemo() {
 					onMouseEnter={(e) => handleHover(e, settings)}
 					onMouseLeave={(e) => handleHover(e, settings)}
 				>
-					<SettingsIcon ref={settings} size={18} />
+					<Settings01Icon ref={settings} size={18} />
 				</Button>
 				<Button
 					variant="ghost"

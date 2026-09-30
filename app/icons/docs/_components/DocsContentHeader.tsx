@@ -1,11 +1,6 @@
 "use client";
 
-/**
- * Row above each doc's content: breadcrumb on the left, "Open in AI"
- * dropdown on the right. Both derive from the current pathname + nav tree.
- */
-
-import { ChevronRight } from "lucide-react";
+import { ChevronRightIcon } from "@/icons/huge/chevron-right-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import OpenInAI from "../../_components/docs/OpenInAI";
@@ -27,13 +22,13 @@ const DocsContentHeader: React.FC = () => {
 				>
 					Docs
 				</Link>
-				<ChevronRight className="text-textMuted size-3.5" />
+				<ChevronRightIcon size={14} className="text-textMuted" />
 				<span className="text-textPrimary font-medium">{title}</span>
 			</nav>
 
 			<OpenInAI
 				pageUrl={`https://animateicons.in${pathname}`}
-				title={`AnimateIcons — ${title}`}
+				title={`AnimateIcons - ${title}`}
 			/>
 		</div>
 	);

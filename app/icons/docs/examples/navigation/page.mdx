@@ -15,7 +15,11 @@ export const metadata = {
 
 export const navbarCode = `import { useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { BellIcon, SettingsIcon, UserIcon } from "@animateicons/react/lucide"
+import {
+	NotificationIcon,
+	Settings01Icon,
+	UserIcon,
+} from "@animateicons/react/huge"
 import type { IconHandle } from "@animateicons/react"
 
 export function Navbar() {
@@ -25,7 +29,7 @@ export function Navbar() {
 	const user = useRef<IconHandle>(null)
 
     return (
-    	<nav className="flex items-center justify-between rounded-xl border px-4 py-2">
+    	<nav className="flex items-center justify-between rounded-full bg-zinc-900 py-1.5 pr-2 pl-5">
     		<span className="text-sm font-semibold">Dashboard</span>
     		<div className="flex items-center gap-0.5">
     			<Button
@@ -34,7 +38,7 @@ export function Navbar() {
     				onMouseEnter={() => bell.current?.startAnimation()}
     				onMouseLeave={() => bell.current?.stopAnimation()}
     			>
-    				<BellIcon ref={bell} size={18} />
+    				<NotificationIcon ref={bell} size={18} />
     			</Button>
     			<Button
     				variant="ghost"
@@ -42,7 +46,7 @@ export function Navbar() {
     				onMouseEnter={() => settings.current?.startAnimation()}
     				onMouseLeave={() => settings.current?.stopAnimation()}
     			>
-    				<SettingsIcon ref={settings} size={18} />
+    				<Settings01Icon ref={settings} size={18} />
     			</Button>
     			<Button
     				variant="ghost"
@@ -59,7 +63,11 @@ export function Navbar() {
 }`;
 
 export const menuCode = `import { useRef } from "react"
-import { UserIcon, SettingsIcon, LogOutIcon } from "@animateicons/react/lucide"
+import {
+	UserIcon,
+	Settings01Icon,
+	Logout01Icon,
+} from "@animateicons/react/huge"
 import type { IconHandle } from "@animateicons/react"
 
 export function AccountMenu() {
@@ -68,10 +76,10 @@ export function AccountMenu() {
 	const logout = useRef<IconHandle>(null)
 
     const item =
-    	"flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm"
+    	"flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-sm"
 
     return (
-    	<div className="w-56 rounded-xl border p-1.5">
+    	<div className="w-56 rounded-3xl bg-zinc-900 p-1.5">
     		<button
     			className={item}
     			onMouseEnter={() => profile.current?.startAnimation()}
@@ -85,7 +93,7 @@ export function AccountMenu() {
     			onMouseEnter={() => settings.current?.startAnimation()}
     			onMouseLeave={() => settings.current?.stopAnimation()}
     		>
-    			<SettingsIcon ref={settings} size={16} />
+    			<Settings01Icon ref={settings} size={16} />
     			Settings
     		</button>
     		<button
@@ -93,7 +101,7 @@ export function AccountMenu() {
     			onMouseEnter={() => logout.current?.startAnimation()}
     			onMouseLeave={() => logout.current?.stopAnimation()}
     		>
-    			<LogOutIcon ref={logout} size={16} />
+    			<Logout01Icon ref={logout} size={16} />
     			Log out
     		</button>
     	</div>

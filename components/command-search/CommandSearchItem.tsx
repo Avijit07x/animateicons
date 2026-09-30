@@ -1,23 +1,12 @@
 "use client";
 
-/**
- * CommandSearchItem
- *
- * Single row in the Cmd+K results. The icon plays its hover variant
- * whenever the row is hovered OR keyboard-selected (parent passes
- * isSelected). Clicking the row navigates to the icon's detail page.
- */
-
+import type { IconSearchEntry } from "@/lib/icon-search";
 import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
 import { Suspense, useEffect, useRef } from "react";
 
-export type CommandSearchIcon = {
-	name: string;
-	library: "lucide" | "huge";
-	component: React.ElementType;
-};
+export type CommandSearchIcon = IconSearchEntry;
 
 type Props = {
 	item: CommandSearchIcon;
@@ -39,8 +28,6 @@ const CommandSearchItem: React.FC<Props> = ({
 		ref?: React.Ref<IconHandle>;
 	}>;
 
-	// Keyboard-selected rows should animate their icon too - feels much
-	// more alive than a static highlight.
 	useEffect(() => {
 		if (isSelected) {
 			iconRef.current?.startAnimation();
@@ -63,30 +50,31 @@ const CommandSearchItem: React.FC<Props> = ({
 			onMouseLeave={(e) => handleHover(e, iconRef)}
 			onClick={onSelect}
 			className={cn(
-				"flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors",
-				"text-textPrimary",
-				isSelected
-					? "bg-primary/10 ring-primary/30 ring-1 ring-inset"
-					: "hover:bg-white/[0.04]",
+				"text-textPrimary flex w-full items-center gap-3 rounded-full py-1 pr-3 pl-1 text-left transition-colors",
+				isSelected && "bg-surfaceElevated",
 			)}
 		>
 			<span
 				className={cn(
-					"inline-flex size-8 items-center justify-center rounded-lg",
-					"border-border/60 from-surface to-surfaceElevated border bg-gradient-to-b",
+					"inline-flex size-9 shrink-0 items-center justify-center rounded-full transition-colors",
+					isSelected
+						? "bg-primary text-white"
+						: "bg-surfaceElevated text-textSecondary",
 				)}
 			>
 				<Suspense fallback={null}>
-					<Icon ref={iconRef} size={16} />
+					<Icon ref={iconRef} size={17} />
 				</Suspense>
 			</span>
 
-			<span className="flex-1 truncate font-mono text-sm">{item.name}</span>
+			<span className="flex-1 truncate text-[13px] font-medium">
+				{item.name}
+			</span>
 
 			<span
 				className={cn(
-					"text-textMuted rounded-sm px-2 py-0.5 text-[10px] tracking-wide uppercase",
-					"border-border/60 border",
+					"text-textMuted rounded-full px-2 py-0.5 text-[10px] font-medium capitalize transition-colors",
+					isSelected ? "bg-surfaceActive" : "bg-surfaceElevated",
 				)}
 			>
 				{item.library}

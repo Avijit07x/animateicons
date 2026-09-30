@@ -24,19 +24,21 @@
  */
 
 import { getIconCode } from "@/actions/getIconCode";
-import { CheckIcon } from "@/components/icons/CheckIcon";
 import { V0Icon, type V0IconHandle } from "@/components/icons/V0Icon";
-import { CopyIcon, type CopyIconHandle } from "@/icons/lucide/copy-icon";
+import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
+import { CopyIcon, type CopyIconHandle } from "@/icons/huge/copy-icon";
+import { Loading01Icon } from "@/icons/huge/loading-0-1-icon";
 import {
-	PackageOpenIcon,
-	type PackageOpenIconHandle,
-} from "@/icons/lucide/package-open-icon";
+	PackageDeliveredIcon,
+	type PackageDeliveredIconHandle,
+} from "@/icons/huge/package-delivered-icon";
 import {
 	TerminalIcon,
 	type TerminalIconHandle,
-} from "@/icons/lucide/terminal-icon";
-import { Loader } from "lucide-react";
-import { useRef } from "react";
+} from "@/icons/huge/terminal-icon";
+import type { Variants } from "motion/react";
+import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
 import {
 	npmImportLine,
 	useDistribution,
@@ -60,13 +62,18 @@ type Props = {
 	name: string;
 };
 
-/**
- * In-memory cache of fetched AnimateIcons source strings shared across
- * every action row in the gallery - first "Copy code" click hits the
- * server action, subsequent clicks (any tile, any tab on this page)
- * hit the Map.
- */
 const codeCache = new Map<string, string>();
+
+const pillVariants: Variants = {
+	hidden: {
+		backgroundColor: "rgba(255,255,255,0)",
+		transition: { duration: 0.15 },
+	},
+	show: {
+		backgroundColor: "rgba(255,255,255,0.08)",
+		transition: { duration: 0.3, staggerChildren: 0.06, delayChildren: 0.04 },
+	},
+};
 
 const IconTileActions: React.FC<Props> = ({
 	tileId,
@@ -83,7 +90,8 @@ const IconTileActions: React.FC<Props> = ({
 	const { distribution } = useDistribution();
 
 	const cliRef = useRef<TerminalIconHandle>(null);
-	const npmRef = useRef<PackageOpenIconHandle>(null);
+	const npmRef = useRef<PackageDeliveredIconHandle>(null);
+	const checkRef = useRef<CheckIconHandle>(null);
 	const codeRef = useRef<CopyIconHandle>(null);
 	const v0Ref = useRef<V0IconHandle>(null);
 
@@ -119,58 +127,73 @@ const IconTileActions: React.FC<Props> = ({
 	};
 
 	const isNpm = distribution === "npm";
+	const justCopied = isCopied || isCopiedCli;
+
+	useEffect(() => {
+		if (!justCopied) return;
+		const id = requestAnimationFrame(() => checkRef.current?.startAnimation());
+		return () => cancelAnimationFrame(id);
+	}, [justCopied]);
 
 	return (
-		<div
+		<motion.div
+			initial="hidden"
+			animate="show"
+			exit="hidden"
 			onClick={(e) => e.stopPropagation()}
-			className="mt-2 flex items-center justify-center gap-6"
+			className="absolute inset-x-0 bottom-4 flex justify-center"
 		>
-			<IconAction
-				tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}
-				ariaLabel={
-					isCopiedCli
-						? "Copied"
-						: isNpm
-							? "Copy npm import"
-							: "Copy CLI Command"
-				}
-				iconRef={isNpm ? npmRef : cliRef}
-				onClick={copyInstallSnippet}
+			<motion.div
+				variants={pillVariants}
+				className="flex items-center gap-0.5 rounded-full p-0.5"
 			>
-				{isCopiedCli ? (
-					<CheckIcon />
-				) : isNpm ? (
-					<PackageOpenIcon size={18} ref={npmRef} />
-				) : (
-					<TerminalIcon size={18} ref={cliRef} />
-				)}
-			</IconAction>
+				<IconAction
+					tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}
+					ariaLabel={
+						isCopiedCli
+							? "Copied"
+							: isNpm
+								? "Copy npm import"
+								: "Copy CLI Command"
+					}
+					iconRef={isNpm ? npmRef : cliRef}
+					onClick={copyInstallSnippet}
+				>
+					{isCopiedCli ? (
+						<CheckIcon size={14} ref={checkRef} />
+					) : isNpm ? (
+						<PackageDeliveredIcon size={14} ref={npmRef} />
+					) : (
+						<TerminalIcon size={14} ref={cliRef} />
+					)}
+				</IconAction>
 
-			<IconAction
-				tooltip="copy code"
-				ariaLabel={isCopied ? "Code Copied" : "Copy JSX Code"}
-				iconRef={codeRef}
-				onClick={copyToClipboard}
-			>
-				{isCopied ? (
-					<CheckIcon />
-				) : isLoading ? (
-					<Loader size={17} className="animate-spin" />
-				) : (
-					<CopyIcon size={17} ref={codeRef} />
-				)}
-			</IconAction>
+				<IconAction
+					tooltip="copy code"
+					ariaLabel={isCopied ? "Code Copied" : "Copy JSX Code"}
+					iconRef={codeRef}
+					onClick={copyToClipboard}
+				>
+					{isCopied ? (
+						<CheckIcon size={14} ref={checkRef} />
+					) : isLoading ? (
+						<Loading01Icon size={14} className="animate-spin" />
+					) : (
+						<CopyIcon size={14} ref={codeRef} />
+					)}
+				</IconAction>
 
-			<IconAction
-				as="link"
-				tooltip="open in v0.dev"
-				ariaLabel="Open in v0.dev"
-				iconRef={v0Ref}
-				href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${name}.json`}
-			>
-				<V0Icon size={22} ref={v0Ref} />
-			</IconAction>
-		</div>
+				<IconAction
+					as="link"
+					tooltip="open in v0.dev"
+					ariaLabel="Open in v0.dev"
+					iconRef={v0Ref}
+					href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${name}.json`}
+				>
+					<V0Icon size={15} ref={v0Ref} />
+				</IconAction>
+			</motion.div>
+		</motion.div>
 	);
 };
 

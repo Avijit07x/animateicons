@@ -34,14 +34,6 @@ type Ctx = {
 
 const PlaygroundContext = createContext<Ctx | null>(null);
 
-/** "bell-ring" → "BellRingIcon" so the snippet displays the canonical
- *  component name a consumer would import. */
-export const iconNameToComponent = (name: string): string =>
-	`${name
-		.split("-")
-		.map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-		.join("")}Icon`;
-
 export const PlaygroundProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {

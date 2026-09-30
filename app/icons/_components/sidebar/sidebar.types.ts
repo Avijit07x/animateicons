@@ -1,12 +1,17 @@
+import type { IconHandle } from "@/types/icon";
+import type { ComponentType, Ref } from "react";
+
 type SidebarItem = {
 	label: string;
 	href?: string;
 	name?: string;
-	icon?: React.ComponentType<{ className?: string }>;
+	icon?: ComponentType<{
+		size?: number;
+		color?: string;
+		ref?: Ref<IconHandle>;
+	}>;
 	target?: string;
 	isActive?: boolean;
-	/** Visual emphasis for important CTAs (e.g. Supporters). Renders the
-	 *  icon + label tinted, with a subtle border/glow. */
 	highlight?: boolean;
 };
 

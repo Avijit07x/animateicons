@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
-import { ArrowUpRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import IconLink from "@/components/IconLink";
 import Navbar from "@/components/Navbar";
+import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
+import SponsorsHeader from "@/components/sponsors/SponsorsHeader";
 import SupporterWall from "@/components/sponsors/SupporterWall";
 import SupporterWallSkeleton from "@/components/sponsors/SupporterWallSkeleton";
-
-/**
- * /sponsors
- *
- * Wall of supporters pulled live from Buy Me a Coffee + GitHub Sponsors.
- * Statically rendered with ISR (revalidate=3600 inside the fetchers). The
- * page shell follows the home page's editorial "Motion Specimen" system.
- */
 
 export const metadata: Metadata = {
 	title: "Supporters",
@@ -38,20 +31,8 @@ const SponsorsPage = () => {
 					className="bg-plus-grid pointer-events-none absolute inset-0"
 				/>
 
-				<section className="relative mx-auto max-w-6xl px-6 py-20 lg:py-28">
-					<p className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase">
-						<span className="text-primary">Supporters</span> / Community funded
-					</p>
-					<h1 className="text-textPrimary mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-						Kept free by the community
-						<span className="text-primary">.</span>
-					</h1>
-					<p className="text-textSecondary mt-4 max-w-2xl text-sm leading-relaxed sm:text-base">
-						AnimateIcons is an independent, open-source library maintained
-						without ads, paid tiers, or corporate backing. The contributors
-						below directly fund hosting and ongoing development, keeping every
-						icon free.
-					</p>
+				<section className="relative mx-auto max-w-5xl px-6 py-16 lg:py-24">
+					<SponsorsHeader />
 
 					<div className="mt-14">
 						<Suspense fallback={<SupporterWallSkeleton />}>
@@ -59,43 +40,37 @@ const SponsorsPage = () => {
 						</Suspense>
 					</div>
 
-					<div className="border-border/60 mt-16 border-t pt-10">
-						<div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-							<div className="max-w-md">
-								<p className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-									Support the project
-								</p>
-								<p className="text-textSecondary mt-3 text-sm leading-relaxed">
-									Both one-time contributions and recurring sponsorships are
-									recognized above.
-								</p>
-							</div>
-							<div className="flex flex-wrap gap-3">
-								<Link
-									href="https://www.buymeacoffee.com/avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="group btn btn-primary"
-								>
-									Buy me a coffee
-									<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-								</Link>
-								<Link
-									href="https://github.com/sponsors/Avijit07x"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="group btn btn-secondary"
-								>
-									GitHub Sponsors
-									<ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-								</Link>
-							</div>
+					<div className="mt-16 flex flex-col items-center gap-5 text-center">
+						<p className="text-textSecondary max-w-md text-sm leading-relaxed">
+							Both one-time contributions and recurring sponsorships are
+							recognized above.
+						</p>
+						<div className="flex flex-wrap justify-center gap-3">
+							<IconLink
+								href="https://www.buymeacoffee.com/avijit07x"
+								target="_blank"
+								rel="noopener noreferrer"
+								icon={ArrowUpRight01Icon}
+								variant="default"
+								size="pill"
+							>
+								Buy me a coffee
+							</IconLink>
+							<IconLink
+								href="https://github.com/sponsors/Avijit07x"
+								target="_blank"
+								rel="noopener noreferrer"
+								icon={ArrowUpRight01Icon}
+								variant="secondary"
+								size="pill"
+							>
+								GitHub Sponsors
+							</IconLink>
 						</div>
+						<p className="text-textMuted text-xs">
+							Data refreshes hourly. Anonymous tips are not shown.
+						</p>
 					</div>
-
-					<p className="text-textMuted mt-10 font-mono text-[10px] tracking-widest uppercase">
-						Data refreshes hourly · anonymous tips not shown
-					</p>
 				</section>
 			</main>
 			<Footer />
