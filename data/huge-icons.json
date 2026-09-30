@@ -3523,5 +3523,35 @@
 			"decentralized",
 			"network"
 		]
+	},
+	{
+		"name": "bot",
+		"addedAt": "2026-09-30",
+		"category": ["Coding & development"],
+		"keywords": [
+			"bot",
+			"robot",
+			"ai",
+			"assistant",
+			"agent",
+			"automation",
+			"chatbot",
+			"mcp"
+		]
+	},
+	{
+		"name": "bot-off",
+		"addedAt": "2026-09-30",
+		"category": ["Coding & development"],
+		"keywords": [
+			"bot",
+			"robot",
+			"off",
+			"disabled",
+			"offline",
+			"ai",
+			"assistant",
+			"mute"
+		]
 	}
 ]

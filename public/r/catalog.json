@@ -2,10 +2,10 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1106,
+  "total": 1108,
   "libraries": {
     "lucide": 669,
-    "huge": 437
+    "huge": 439
   },
   "icons": [
     {
@@ -1094,6 +1094,48 @@
         "cancel"
       ],
       "url": "https://animateicons.in/r/hu-bookmark-remove.json"
+    },
+    {
+      "name": "bot",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bot",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "bot",
+        "robot",
+        "ai",
+        "assistant",
+        "agent",
+        "automation",
+        "chatbot",
+        "mcp"
+      ],
+      "url": "https://animateicons.in/r/hu-bot.json"
+    },
+    {
+      "name": "bot-off",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-bot-off",
+      "addedAt": "2026-09-30",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "bot",
+        "robot",
+        "off",
+        "disabled",
+        "offline",
+        "ai",
+        "assistant",
+        "mute"
+      ],
+      "url": "https://animateicons.in/r/hu-bot-off.json"
     },
     {
       "name": "braces",
