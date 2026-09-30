@@ -3,46 +3,40 @@ import { fetchStars } from "@/lib/github/stars";
 import Image from "next/image";
 import Link from "next/link";
 
-/**
- * Slim header for the docs shell — logo, top-nav links, sponsor + GitHub.
- * No icon search here: the gallery's search filters an icon grid that docs
- * pages don't render, so instead we link to the gallery ("Icons").
- */
 const DocsNavbar = async () => {
 	const stars = await fetchStars();
 
 	return (
-		<header className="border-border/50 bg-bgDark sticky top-0 z-50 h-15 w-full border-b px-4 py-3 lg:px-6">
+		<header className="bg-bgDark/85 border-border/60 sticky top-0 z-50 h-14 w-full border-b px-4 backdrop-blur-md lg:px-6">
 			<div className="mx-auto flex h-full max-w-360 items-center justify-between gap-4">
-				<div className="flex items-center gap-6">
-					<Link href="/" className="flex items-center gap-2">
+				<div className="flex items-center gap-4">
+					<Link href="/" className="flex items-center gap-2.5">
 						<Image
 							src="/logo.svg"
 							alt="AnimateIcons"
-							width={34}
-							height={34}
+							width={30}
+							height={30}
 							loading="eager"
-							className="-ml-0.5"
 						/>
-						<span className="text-textPrimary hidden text-sm font-semibold sm:inline">
+						<span className="text-textPrimary hidden text-[15px] font-semibold sm:inline">
 							AnimateIcons
 						</span>
 					</Link>
 
-					<nav className="flex items-center gap-5 text-sm">
-						<Link
-							href="/icons/lucide"
-							className="text-textSecondary hover:text-textPrimary transition-colors"
-						>
+					<nav className="flex items-center gap-1">
+						<Link href="/icons/lucide" className="pill-link">
 							Icons
 						</Link>
-						<Link href="/icons/docs" className="text-textPrimary font-medium">
+						<Link
+							href="/icons/docs"
+							className="pill-link bg-surfaceElevated text-textPrimary"
+						>
 							Docs
 						</Link>
 					</nav>
 				</div>
 
-				<div className="flex items-center gap-2 sm:gap-3">
+				<div className="flex items-center gap-1">
 					<NavbarActions stars={stars} />
 				</div>
 			</div>

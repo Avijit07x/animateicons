@@ -49,7 +49,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			return (
 				<h2
 					id={id}
-					className="text-textPrimary group border-border/40 relative mt-14 mb-4 scroll-mt-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0"
+					className="text-textPrimary group relative mt-14 mb-4 scroll-mt-20 text-2xl font-semibold tracking-tight first:mt-0"
 				>
 					<Anchor id={id} />
 					{children}
@@ -107,12 +107,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			<strong className="text-textPrimary font-semibold">{children}</strong>
 		),
 		code: ({ children }) => (
-			<code className="bg-surface border-border/60 text-textPrimary rounded border px-1.5 py-0.5 font-mono text-[0.8125rem]">
+			<code className="bg-surfaceElevated text-textPrimary rounded-lg px-1.5 py-0.5 font-mono text-[0.8125rem]">
 				{children}
 			</code>
 		),
 		pre: ({ children }) => (
-			<pre className="bg-surface border-border/60 my-6 overflow-x-auto rounded-lg border p-4 text-sm [&_code]:border-0 [&_code]:bg-transparent [&_code]:p-0">
+			<pre className="bg-surfaceElevated my-6 overflow-x-auto rounded-3xl p-5 text-sm [&_code]:bg-transparent [&_code]:p-0">
 				{children}
 			</pre>
 		),
@@ -128,26 +128,26 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		),
 		li: ({ children }) => <li className="pl-1">{children}</li>,
 		blockquote: ({ children }) => (
-			<blockquote className="border-primary/40 text-textSecondary my-6 border-l-2 pl-4 italic">
+			<blockquote className="bg-surface text-textSecondary my-6 rounded-3xl px-5 py-4">
 				{children}
 			</blockquote>
 		),
 		table: ({ children }) => (
-			<div className="border-border/60 my-6 overflow-x-auto rounded-lg border">
+			<div className="bg-surface my-6 overflow-x-auto rounded-3xl">
 				<table className="w-full border-collapse text-sm">{children}</table>
 			</div>
 		),
 		th: ({ children }) => (
-			<th className="border-border/50 bg-surface text-textPrimary border-b px-4 py-2 text-left font-semibold">
+			<th className="bg-surfaceElevated text-textPrimary px-4 py-2.5 text-left font-semibold">
 				{children}
 			</th>
 		),
 		td: ({ children }) => (
-			<td className="border-border/40 text-textSecondary border-b px-4 py-2">
+			<td className="text-textSecondary border-b border-white/5 px-4 py-2.5">
 				{children}
 			</td>
 		),
-		hr: () => <hr className="border-border/40 my-10" />,
+		hr: () => <hr className="my-10 border-white/8" />,
 		...components,
 	};
 }

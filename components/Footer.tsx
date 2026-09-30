@@ -1,135 +1,88 @@
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import Link from "next/link";
 import React from "react";
+import IconLink from "./IconLink";
+import FooterCta from "./home/FooterCta";
 
-const COLUMNS = [
+const LINKS = [
+	{ label: "Lucide", href: "/icons/lucide" },
+	{ label: "Huge", href: "/icons/huge" },
+	{ label: "Docs", href: "/icons/docs" },
+	{ label: "shadcn", href: "/icons/docs/shadcn" },
+	{ label: "CLI", href: "/icons/docs/cli" },
+	{ label: "MCP", href: "/icons/docs/mcp" },
+	{ label: "Supporters", href: "/sponsors" },
 	{
-		heading: "Library",
-		links: [
-			{ label: "All icons", href: "/icons/lucide" },
-			{ label: "Lucide", href: "/icons/lucide" },
-			{ label: "Huge", href: "/icons/huge" },
-			{ label: "Documentation", href: "/icons/docs" },
-		],
+		label: "GitHub",
+		href: "https://github.com/Avijit07x/animateicons",
+		external: true,
 	},
 	{
-		heading: "Project",
-		links: [
-			{ label: "GitHub", href: "https://github.com/Avijit07x/animateicons" },
-			{
-				label: "npm",
-				href: "https://www.npmjs.com/package/@animateicons/react",
-			},
-			{ label: "Supporters", href: "/sponsors" },
-			{ label: "Twitter", href: "https://twitter.com/avijit07x" },
-		],
+		label: "npm",
+		href: "https://www.npmjs.com/package/@animateicons/react",
+		external: true,
 	},
+	{ label: "Twitter", href: "https://twitter.com/avijit07x", external: true },
 ];
+
+const LINK_CLASS =
+	"text-textMuted hover:text-textPrimary inline-flex items-center gap-1 text-sm transition-colors";
 
 const Footer: React.FC = () => {
 	return (
-		<footer className="border-border/60 relative overflow-hidden border-t">
-			<div
-				aria-hidden="true"
-				className="bg-plus-grid pointer-events-none absolute inset-0"
-			/>
+		<footer className="relative overflow-hidden">
+			<FooterCta />
 
-			<div className="relative mx-auto max-w-7xl px-6 pt-20">
-				{/* Finale CTA */}
-				<div className="flex flex-col gap-8 pb-16 md:flex-row md:items-end md:justify-between">
-					<h2 className="text-[clamp(2rem,5vw,3.75rem)] leading-[0.95] font-semibold tracking-tight">
-						<span className="text-textPrimary">Make every icon </span>
-						<span className="text-primary">move.</span>
-					</h2>
-					<div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
-						<Link
-							href="/icons/lucide"
-							prefetch={false}
-							className="group btn btn-primary"
-						>
-							Browse {ICON_COUNTS.total} icons
-							<ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-						</Link>
-						<Link
-							href="https://www.npmjs.com/package/@animateicons/react"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="btn border-border text-textSecondary hover:text-textPrimary border px-4 py-2 font-mono text-xs"
-						>
-							npm i @animateicons/react
-						</Link>
-					</div>
-				</div>
+			<div className="relative mx-auto max-w-7xl px-6 text-center">
+				<nav
+					aria-label="Footer"
+					className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+				>
+					{LINKS.map((link) =>
+						link.external ? (
+							<IconLink
+								key={link.label}
+								href={link.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								icon={ArrowUpRight01Icon}
+								iconSize={14}
+								className={LINK_CLASS}
+							>
+								{link.label}
+							</IconLink>
+						) : (
+							<Link
+								key={link.label}
+								href={link.href}
+								prefetch={false}
+								className={LINK_CLASS}
+							>
+								{link.label}
+							</Link>
+						),
+					)}
+				</nav>
 
-				<div
-					aria-hidden="true"
-					className="border-border/60 ml-[calc(50%-50vw)] w-screen border-t"
-				/>
-
-				{/* Links */}
-				<div className="grid gap-10 pt-14 md:grid-cols-[2fr_1fr_1fr] md:gap-16">
-					<div>
-						<p className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase">
-							animateicons
-						</p>
-						<p className="text-textSecondary mt-4 max-w-sm text-sm leading-relaxed">
-							{ICON_COUNTS.total} open-source animated SVG icons for React. One
-							motion system, two libraries, built on Motion.
-						</p>
-					</div>
-
-					{COLUMNS.map((col) => (
-						<div key={col.heading}>
-							<p className="text-textMuted font-mono text-[10px] tracking-[0.2em] uppercase">
-								{col.heading}
-							</p>
-							<ul className="mt-4 space-y-2.5">
-								{col.links.map((l) => {
-									const external = l.href.startsWith("http");
-									return (
-										<li key={l.label}>
-											<Link
-												href={l.href}
-												prefetch={external ? undefined : false}
-												target={external ? "_blank" : undefined}
-												rel={external ? "noopener noreferrer" : undefined}
-												className="text-textSecondary hover:text-textPrimary inline-block text-sm transition-all duration-200 hover:translate-x-0.5"
-											>
-												{l.label}
-											</Link>
-										</li>
-									);
-								})}
-							</ul>
-						</div>
-					))}
-				</div>
-
-				<div
-					aria-hidden="true"
-					className="border-border/60 mt-14 ml-[calc(50%-50vw)] w-screen border-t"
-				/>
-				<div className="text-textMuted flex flex-col items-center justify-between gap-3 py-6 font-mono text-[10px] tracking-widest uppercase md:flex-row">
-					<span>Open source · MIT licensed</span>
-					<span>
-						Created by{" "}
-						<Link
-							target="_blank"
-							href="https://github.com/avijit07x"
-							className="text-textSecondary hover:text-textPrimary transition-colors"
-						>
-							Avijit Dey
-						</Link>
-					</span>
-				</div>
+				<p className="text-textMuted mt-6 text-sm">
+					Free and open source under the MIT license. Built by{" "}
+					<Link
+						href="https://github.com/avijit07x"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-textSecondary hover:text-primary transition-colors"
+					>
+						Avijit Dey
+					</Link>
+					.
+				</p>
 			</div>
 
 			<div
 				aria-hidden="true"
-				className="pointer-events-none relative px-2 pt-4 select-none"
+				className="pointer-events-none mt-10 px-2 select-none"
 			>
-				<span className="from-textPrimary/[0.18] to-textPrimary/[0.02] block bg-gradient-to-b bg-clip-text text-center text-[14vw] leading-[0.78] font-bold tracking-tighter whitespace-nowrap text-transparent">
+				<span className="from-textPrimary/22 to-textPrimary/2 block bg-linear-to-b bg-clip-text text-center text-[14vw] leading-[0.78] font-bold tracking-tighter whitespace-nowrap text-transparent">
 					AnimateIcons
 				</span>
 			</div>

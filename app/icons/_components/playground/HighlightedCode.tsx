@@ -171,7 +171,7 @@ const HighlightedCode: React.FC<Props> = ({
 	const tokens = lang === "bash" ? tokenizeBash(code) : tokenizeTsx(code);
 	return (
 		<pre
-			className={`overflow-x-auto px-4 py-3 font-mono text-xs leading-relaxed ${className ?? ""}`}
+			className={`px-4 py-3 font-mono text-xs leading-relaxed break-words whitespace-pre-wrap ${className ?? ""}`}
 		>
 			<code>
 				{tokens.map((tok, i) => (

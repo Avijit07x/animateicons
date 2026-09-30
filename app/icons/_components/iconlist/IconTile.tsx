@@ -13,28 +13,37 @@
 
 import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
+import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import handleHover from "@/utils/handleHover";
-import { ArrowUpRight } from "lucide-react";
+import { iconNameToComponent } from "@/utils/iconNameToComponent";
+import { AnimatePresence, motion } from "motion/react";
 import React from "react";
-import {
-	iconNameToComponent,
-	usePlayground,
-} from "../../_contexts/PlaygroundContext";
+import { usePlayground } from "../../_contexts/PlaygroundContext";
 import IconTileActions from "./IconTileActions";
 
 type Props = {
 	item: IconFilteredItem;
 	getIcon: (name: string) => React.ElementType;
+	alwaysShowActions?: boolean;
 };
 
-const IconTile: React.FC<Props> = ({ item, getIcon }) => {
+const POP = { type: "spring", stiffness: 520, damping: 28 } as const;
+
+const IconTile: React.FC<Props> = ({
+	item,
+	getIcon,
+	alwaysShowActions = false,
+}) => {
 	const { library, prefix } = useIconLibrary();
 	const { openPlayground } = usePlayground();
 	const iconRef = React.useRef<IconHandle>(null);
 	const tileRef = React.useRef<HTMLDivElement>(null);
 	const [inView, setInView] = React.useState(false);
+	const [hovered, setHovered] = React.useState(false);
+	const [focused, setFocused] = React.useState(false);
+	const revealed = hovered || focused || alwaysShowActions;
 
 	React.useEffect(() => {
 		const el = tileRef.current;
@@ -76,51 +85,90 @@ const IconTile: React.FC<Props> = ({ item, getIcon }) => {
 	return (
 		<div
 			ref={tileRef}
+			tabIndex={0}
+			role="group"
+			aria-label={item.name}
 			onClick={handleOpen}
-			onMouseEnter={(e) => handleHover(e, iconRef)}
-			onMouseLeave={(e) => handleHover(e, iconRef)}
-			className="group border-border/60 text-textPrimary hover:bg-surface/60 relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 overflow-hidden border-r border-b p-4 text-sm transition-colors"
-		>
-			{(item.isNew || item.isUpdated) && (
-				<span
-					className={cn(
-						"pointer-events-none absolute top-3 left-3 font-mono text-[9px] tracking-widest uppercase opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100",
-						item.isNew ? "text-primary" : "text-info",
-					)}
-				>
-					{item.isNew ? "New" : "Update"}
-				</span>
-			)}
-
-			<button
-				type="button"
-				aria-label={`Open ${item.name} in playground`}
-				onClick={(e) => {
-					e.stopPropagation();
+			onKeyDown={(e) => {
+				if (e.target !== e.currentTarget) return;
+				if (e.key === "Enter" || e.key === " ") {
+					e.preventDefault();
 					handleOpen();
-				}}
-				className="border-border/70 text-textMuted hover:border-primary/50 hover:text-primary focus-visible:border-primary/50 focus-visible:text-primary absolute top-0 right-0 inline-flex size-7 items-center justify-center border-b border-l opacity-0 transition-[opacity,color,border-color] group-focus-within:opacity-100 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none"
-			>
-				<ArrowUpRight className="size-3.5" />
-			</button>
+				}
+			}}
+			onMouseEnter={(e) => {
+				setHovered(true);
+				handleHover(e, iconRef);
+			}}
+			onMouseLeave={(e) => {
+				setHovered(false);
+				handleHover(e, iconRef);
+			}}
+			onFocus={() => setFocused(true)}
+			onBlur={(e) => {
+				if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
+			}}
+			className="group text-textPrimary bg-surface hover:bg-surfaceElevated focus-visible:bg-surfaceElevated relative flex h-38 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl p-3 text-sm transition-colors duration-300 outline-none pointer-coarse:h-46 pointer-coarse:pb-12"
+		>
+			<AnimatePresence>
+				{revealed && (item.isNew || item.isUpdated) && (
+					<motion.span
+						key="badge"
+						initial={{ opacity: 0, scale: 0.7 }}
+						animate={{ opacity: 1, scale: 1 }}
+						exit={{ opacity: 0, scale: 0.7, transition: { duration: 0.12 } }}
+						transition={POP}
+						className={cn(
+							"pointer-events-none absolute top-3 left-3 origin-left rounded-full px-2 py-0.5 font-mono text-[10px] font-semibold",
+							item.isNew
+								? "bg-primary/12 text-primary"
+								: "bg-info/12 text-info",
+						)}
+					>
+						{item.isNew ? "New" : "Update"}
+					</motion.span>
+				)}
 
-			<div className="group-hover:text-primary inline-flex size-12 items-center justify-center rounded-md p-3 transition-colors">
+				{revealed && (
+					<motion.button
+						key="open"
+						type="button"
+						aria-label={`Open ${item.name} in playground`}
+						initial={{ opacity: 0, scale: 0.5 }}
+						animate={{ opacity: 1, scale: 1 }}
+						exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.12 } }}
+						transition={POP}
+						onClick={(e) => {
+							e.stopPropagation();
+							handleOpen();
+						}}
+						className="text-textSecondary absolute top-3 right-3 grid size-7 place-items-center rounded-full bg-white/8 transition-colors hover:bg-white/15 hover:text-white focus-visible:outline-none"
+					>
+						<ArrowUpRight01Icon size={14} />
+					</motion.button>
+				)}
+
+				{revealed && (
+					<IconTileActions
+						key="actions"
+						tileId={tileId}
+						library={library}
+						prefix={prefix}
+						name={item.name}
+					/>
+				)}
+			</AnimatePresence>
+
+			<div className="group-hover:text-primary inline-flex size-12 items-center justify-center transition-[color,transform] duration-300 group-hover:-translate-y-0.5">
 				{inView ? (
 					<React.Suspense fallback={null}>
-						<IconComponent ref={iconRef} size={23} />
+						<IconComponent ref={iconRef} size={32} />
 					</React.Suspense>
 				) : null}
 			</div>
-			<p className="text-textSecondary line-clamp-1 font-mono text-xs">
+			<p className="text-textMuted line-clamp-1 font-mono text-[13px] transition-opacity duration-300 group-focus-within:opacity-0 group-focus-within:duration-150 group-hover:opacity-0 group-hover:duration-150 pointer-coarse:opacity-100!">
 				{item.name}
 			</p>
-
-			<IconTileActions
-				tileId={tileId}
-				library={library}
-				prefix={prefix}
-				name={item.name}
-			/>
 		</div>
 	);
 };

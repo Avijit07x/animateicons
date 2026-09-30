@@ -16,7 +16,7 @@ export const metadata = {
 
 export const buttonCode = `import { useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { DownloadIcon, type DownloadIconHandle } from "@animateicons/react/lucide"
+import { DownloadIcon, type DownloadIconHandle } from "@animateicons/react/huge"
 
 export function DownloadButton() {
 	const ref = useRef<DownloadIconHandle>(null)
@@ -40,22 +40,22 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Trash2Icon, type Trash2IconHandle } from "@animateicons/react/lucide"
+import { Delete02Icon, type Delete02IconHandle } from "@animateicons/react/huge"
 
 export function DeleteButton() {
-	const ref = useRef<Trash2IconHandle>(null)
+	const ref = useRef<Delete02IconHandle>(null)
 
     return (
     	<Tooltip>
     		<TooltipTrigger asChild>
     			<Button
-    				variant="outline"
+    				variant="secondary"
     				size="icon"
     				aria-label="Delete"
     				onMouseEnter={() => ref.current?.startAnimation()}
     				onMouseLeave={() => ref.current?.stopAnimation()}
     			>
-    				<Trash2Icon ref={ref} size={16} />
+    				<Delete02Icon ref={ref} size={16} />
     			</Button>
     		</TooltipTrigger>
     		<TooltipContent>Delete</TooltipContent>

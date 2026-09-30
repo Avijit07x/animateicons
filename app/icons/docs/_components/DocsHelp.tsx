@@ -1,14 +1,10 @@
-import { TwitterIcon } from "@/icons/lucide/twitter-icon";
-import { CircleDot } from "lucide-react";
-import Link from "next/link";
+import IconLink from "@/components/IconLink";
+import { Bug01Icon } from "@/icons/huge/bug-0-1-icon";
+import { TwitterIcon } from "@/icons/huge/twitter-icon";
 import { NEW_ISSUE_URL, TWITTER_URL } from "../_lib/links";
 
-/**
- * Footer help band below the pager: gives short pages a clear ending and a
- * path to support instead of trailing off into empty space.
- */
 const DocsHelp = () => (
-	<div className="border-border/60 bg-surface/40 mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border p-5 sm:flex-row sm:items-center">
+	<div className="bg-surface mt-3 flex flex-col items-start justify-between gap-4 rounded-3xl p-5 sm:flex-row sm:items-center">
 		<div>
 			<p className="text-textPrimary text-sm font-semibold">Need a hand?</p>
 			<p className="text-textMuted mt-1 text-sm">
@@ -17,20 +13,26 @@ const DocsHelp = () => (
 			</p>
 		</div>
 		<div className="flex shrink-0 gap-2">
-			<Link
+			<IconLink
 				href={NEW_ISSUE_URL}
 				target="_blank"
-				className="border-border/60 bg-bgDark text-textPrimary hover:border-primary/50 flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
+				rel="noopener noreferrer"
+				icon={Bug01Icon}
+				variant="secondary"
+				size="pill"
 			>
-				<CircleDot className="size-3.5" /> Open an issue
-			</Link>
-			<Link
+				Open an issue
+			</IconLink>
+			<IconLink
 				href={TWITTER_URL}
 				target="_blank"
-				className="border-border/60 bg-bgDark text-textPrimary hover:border-primary/50 flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
+				rel="noopener noreferrer"
+				icon={TwitterIcon}
+				variant="secondary"
+				size="pill"
 			>
-				<TwitterIcon size={14} /> Twitter
-			</Link>
+				Twitter
+			</IconLink>
 		</div>
 	</div>
 );

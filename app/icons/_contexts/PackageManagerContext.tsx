@@ -10,7 +10,7 @@
  * generated `shadcn add ...` command matches the user's tooling.
  *
  * Replaces the previous setup where:
- *  - PackageManagerToggle owned its own useState + localStorage R/W
+ *  - the old package-manager toggle owned its own useState + localStorage R/W
  *  - every IconTile subscribed independently via useSyncExternalStore
  *    to the "storage" event (~250 listeners on the Lucide gallery)
  *

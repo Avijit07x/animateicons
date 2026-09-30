@@ -7,7 +7,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDownIcon } from "@/icons/huge/chevron-down-icon";
 
 type Provider = "chatgpt" | "claude" | "v0" | "scira";
 
@@ -61,23 +61,24 @@ Explain usage, examples, and integration clearly.
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button
-					variant={"outline"}
-					className="border-border hover:bg-surfaceElevated text-textPrimary! bg-bgDark focus-visible:border-border flex items-center justify-center rounded-md border outline-none focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+					variant="secondary"
+					className="h-9 gap-2 rounded-full px-4 text-xs outline-none focus-visible:ring-0 focus-visible:outline-none"
 				>
 					<span>Open in AI</span>
-					<ChevronDown className="size-4" />
+					<ChevronDownIcon size={14} className="text-textMuted" />
 				</Button>
 			</DropdownMenuTrigger>
 
 			<DropdownMenuContent
 				align="end"
-				className="bg-surfaceElevated text-textPrimary w-48"
+				sideOffset={8}
+				className="bg-surfaceElevated text-textPrimary w-48 rounded-[14px] border-0 p-1.5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.9)]"
 			>
 				{Object.entries(providers).map(([key, p]) => (
 					<DropdownMenuItem
 						key={key}
 						onClick={() => handleOpen(key as Provider)}
-						className="hover:bg-surfaceHover! text-textPrimary! cursor-pointer"
+						className="text-textSecondary focus:text-textPrimary cursor-pointer rounded-full px-3 py-2 text-[13px] focus:bg-white/8"
 					>
 						{p.label}
 					</DropdownMenuItem>

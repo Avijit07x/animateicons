@@ -1,8 +1,8 @@
 import Footer from "../components/Footer";
 import HeroSection from "../components/Hero";
-import InstallSection from "../components/home/InstallSection";
-import KineticWall from "../components/home/KineticWall";
-import LibrariesEditorial from "../components/home/LibrariesEditorial";
+import IconSearch from "../components/home/IconSearch";
+import InUse from "../components/home/InUse";
+import Libraries from "../components/home/Libraries";
 import Playground from "../components/home/Playground";
 import Navbar from "../components/Navbar";
 import Sponsors from "../components/Sponsors";
@@ -14,10 +14,10 @@ const page = () => {
 			<main>
 				<div className="relative overflow-hidden">
 					<HeroSection />
-					<KineticWall />
+					<IconSearch />
 					<Playground />
-					<LibrariesEditorial />
-					<InstallSection />
+					<Libraries />
+					<InUse />
 					<Sponsors />
 				</div>
 			</main>

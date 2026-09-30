@@ -43,5 +43,10 @@ export const useIconConfig = (initial: Partial<IconConfig> = {}) => {
 		[initial],
 	);
 
-	return { config, update, reset };
+	const isDefault =
+		config.size === DEFAULT.size &&
+		config.color === DEFAULT.color &&
+		config.duration === DEFAULT.duration;
+
+	return { config, update, reset, isDefault };
 };

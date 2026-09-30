@@ -23,7 +23,7 @@ interface TocHeading {
 	level: number;
 }
 
-const indent: Record<number, string> = { 2: "pl-4", 3: "pl-8", 4: "pl-8" };
+const indent: Record<number, string> = { 2: "", 3: "pl-6", 4: "pl-6" };
 
 const TableOfContents: React.FC = () => {
 	const pathname = usePathname();
@@ -91,20 +91,21 @@ const TableOfContents: React.FC = () => {
 	if (headings.length === 0) return null;
 
 	return (
-		<nav aria-label="On this page" className="text-sm">
-			<p className="text-textPrimary mb-3 font-medium">On This Page</p>
-			<ul className="border-border/50 space-y-0.5 border-l">
+		<nav aria-label="On this page" className="text-[13px]">
+			<p className="text-textMuted mb-2 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+				On this page
+			</p>
+			<ul className="space-y-0.5">
 				{headings.map((h) => (
 					<li key={h.id}>
 						<a
 							href={`#${h.id}`}
 							className={cn(
-								"-ml-px block border-l py-1 transition-colors",
-								indent[h.level] ?? "pl-8",
-								h.level > 2 && "text-[0.8125rem]",
+								"block rounded-full px-3 py-1.5 transition-colors",
+								indent[h.level] ?? "pl-6",
 								activeId === h.id
-									? "border-primary text-primary"
-									: "text-textSecondary hover:text-textPrimary border-transparent",
+									? "bg-surfaceElevated text-textPrimary"
+									: "text-textSecondary hover:text-textPrimary",
 							)}
 						>
 							{h.text}

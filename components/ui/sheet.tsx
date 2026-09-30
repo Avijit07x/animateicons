@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { XIcon } from "lucide-react";
+import { Cancel01Icon } from "@/icons/huge/cancel-0-1-icon";
 import { Dialog as SheetPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
@@ -75,8 +75,8 @@ function SheetContent({
 			>
 				{children}
 				{showCloseButton && (
-					<SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
-						<XIcon className="size-4" />
+					<SheetPrimitive.Close className="ring-offset-background focus:ring-ring absolute top-4 right-4 grid size-8 place-items-center rounded-full opacity-70 transition-[opacity,background-color] hover:bg-white/10 hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+						<Cancel01Icon size={16} />
 						<span className="sr-only">Close</span>
 					</SheetPrimitive.Close>
 				)}

@@ -4,17 +4,16 @@ import { fetchStars } from "@/lib/github/stars";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import DistributionToggle from "./DistributionToggle";
-import PackageManagerToggle from "./PackageManagerToggle";
+import CopyAsMenu from "./CopyAsMenu";
 import SearchBar from "./SearchBar";
 
 const Navbar: React.FC = async () => {
 	const stars = await fetchStars();
 	return (
-		<div className="border-border/50 bg-bgDark sticky top-0 z-50 h-15 w-full border-b">
-			<div className="mx-auto flex h-full max-w-384 items-stretch">
-				<div className="flex items-center justify-center gap-2 px-4 md:hidden">
-					<SidebarTrigger className="bg-bgDark text-white hover:bg-transparent hover:text-white" />
+		<div className="bg-bgDark/85 border-border/60 sticky top-0 z-50 h-14 w-full border-b backdrop-blur-md">
+			<div className="mx-auto flex h-full max-w-384 items-center gap-4 px-4 lg:px-6">
+				<div className="flex items-center gap-2 md:hidden">
+					<SidebarTrigger className="hover:bg-surfaceElevated size-9 rounded-full bg-transparent text-white hover:text-white" />
 					<Link href="/" className="flex items-center gap-2">
 						<Image
 							src={"/logo.svg"}
@@ -22,24 +21,30 @@ const Navbar: React.FC = async () => {
 							width={40}
 							height={40}
 							loading="eager"
-							className="-ml-0.5 max-md:size-9"
+							className="max-md:size-9"
 						/>
 					</Link>
 				</div>
 
-				<div className="border-border/50 hidden w-80 items-center border-r pr-4 pl-3 md:flex">
+				<div className="hidden w-72 shrink-0 md:block">
 					<SearchBar />
 				</div>
 
-				<div className="border-border/50 hidden items-center gap-3 border-r px-5 lg:flex">
-					<span className="text-textMuted font-mono text-[10px] tracking-[0.18em] uppercase">
-						Copy as
-					</span>
-					<DistributionToggle />
-					<PackageManagerToggle />
+				<span
+					aria-hidden="true"
+					className="bg-border/60 hidden h-6 w-px lg:block"
+				/>
+
+				<div className="hidden lg:block">
+					<CopyAsMenu />
 				</div>
 
-				<div className="ml-auto flex items-center gap-2 px-4 text-sm lg:px-6">
+				<span
+					aria-hidden="true"
+					className="bg-border/60 ml-auto hidden h-6 w-px lg:block"
+				/>
+
+				<div className="flex items-center gap-1 text-sm max-lg:ml-auto">
 					<NavbarActions stars={stars} />
 				</div>
 			</div>

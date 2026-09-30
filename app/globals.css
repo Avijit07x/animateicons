@@ -131,6 +131,7 @@
 	--color-surface: #0b0b0b;
 	--color-surfaceElevated: #161616;
 	--color-surfaceHover: #111111;
+	--color-surfaceActive: #1d1d1d;
 
 	--color-textPrimary: #e5e7eb;
 	--color-textSecondary: #b0b3b8;
@@ -183,25 +184,19 @@
 	button {
 		@apply cursor-pointer text-inherit;
 	}
-	/* Engineered plus-mark grid backdrop (echoes the specimen crop-marks),
-	   radially masked so it fades to black at the edges. */
 	.bg-plus-grid {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cpath d='M17 13.5v7M13.5 17h7' stroke='rgba(148,163,184,0.16)' stroke-width='1'/%3E%3C/svg%3E");
-		-webkit-mask-image: radial-gradient(
-			ellipse 70% 60% at center,
-			#000 22%,
-			transparent 72%
+		-webkit-mask-image: var(
+			--plus-mask,
+			radial-gradient(ellipse 70% 60% at center, #000 22%, transparent 72%)
 		);
-		mask-image: radial-gradient(
-			ellipse 70% 60% at center,
-			#000 22%,
-			transparent 72%
+		mask-image: var(
+			--plus-mask,
+			radial-gradient(ellipse 70% 60% at center, #000 22%, transparent 72%)
 		);
 	}
 }
 @layer components {
-	/* Shared call-to-action button. Was duplicated across 8 files; one
-	   place now owns the shape, the press feedback and the focus ring. */
 	.btn {
 		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium;
 		transition:
@@ -226,6 +221,12 @@
 	.btn-secondary {
 		@apply border-border text-textPrimary hover:border-primary/50 hover:bg-surface border px-5 py-2.5;
 	}
+	.home-section {
+		@apply py-12 text-center lg:py-16;
+	}
+	.pill-link {
+		@apply text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors;
+	}
 	@media (prefers-reduced-motion: reduce) {
 		.btn:active {
 			transform: none;
@@ -242,7 +243,6 @@
 	}
 }
 
-/* App loader (boot splash + route loading.tsx). */
 @keyframes loaderSweep {
 	0% {
 		transform: translateX(-120%);
@@ -252,8 +252,6 @@
 	}
 }
 
-/* Logo: gentle float + a soft brand-colored glow, so it feels alive rather
-   than a generic pulse. */
 @keyframes loaderFloat {
 	0%,
 	100% {
@@ -274,6 +272,20 @@
 	}
 }
 
+@keyframes heroBob {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+.hero-bob {
+	animation: heroBob var(--bob, 6s) ease-in-out var(--bob-delay, 0s) infinite;
+}
+
 .loader-bar {
 	animation: loaderSweep 1.9s ease-in-out infinite;
 }
@@ -286,6 +298,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.hero-bob {
+		animation: none;
+	}
 	.loader-bar {
 		width: 100%;
 		animation: none;
