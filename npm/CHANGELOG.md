@@ -1,5 +1,20 @@
 # @animateicons/react
 
+## 0.8.0
+
+### Minor Changes
+
+- Added 87 animated Huge icons, bringing the `huge` subpath from 352 to 439 icons and the package to 1108. They arrive as whole families with their opposites and directional variants:
+  - Files and tasks: `FileAddIcon`, `FileBlockIcon`, `FileCheckIcon`, `FileDownIcon`, `FileRemoveIcon`, `FileUpIcon`, `TaskAdd01Icon`, `TaskRemove01Icon`, `Notebook01Icon`.
+  - Security and identity: `SecurityBlockIcon`, `SecurityCheckIcon`, `SecurityLockIcon`, `SecurityWarningIcon`, `LockKeyholeIcon`, `LockKeyholeOpenIcon`, `PassportIcon`, `PassportValidIcon`, `PassportExpiredIcon`, `IdVerifiedIcon`, `UserBlock01Icon`.
+  - Audio and media: the `Volume*` family (`VolumeHighIcon`, `VolumeUpIcon`, `VolumeMinusIcon`, `VolumeMute01Icon`, `VolumeMute02Icon`, `VolumeOffIcon`), `HeadphonesIcon`, `HeadphoneOffIcon`, `Playlist01Icon`, `PodcastIcon`, `RepeatIcon`, `RepeatOffIcon`, `RepeatOne01Icon`.
+  - Analytics and productivity: `AnalyticsUpIcon`, `AnalyticsDownIcon`, `ChartLineIcon`, `KanbanIcon`, `CalculatorIcon`, `Briefcase01Icon`, `Building01Icon`.
+  - Brands: Bluesky, Dribbble, Google, Mastodon, Pinterest, Reddit, Slack, Snapchat, Spotify, Telegram, Threads, Twitch and WhatsApp, for example `BlueskyIcon` and `WhatsappIcon`.
+  - Assistants: `BotIcon` (blinking eyes, a wiggling antenna and nudging ears) and its opposite `BotOffIcon`.
+- Reworked the hover animation of 33 existing Huge icons, among them `EyeIcon`, `HeartIcon`, `SearchIcon`, `DownloadIcon`, `CopyIcon`, `NotificationIcon`, `BookmarkIcon`, `CheckIcon`, `CompassIcon` and the `Dashboard`, `Menu`, `Loading`, `Settings` and social brand icons. As with the Lucide rework in 0.7.0, motion is a single eased pass that starts and ends at rest. Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+- Refined the `FigmaIcon` hover animation in the `lucide` subpath.
+- The `huge` barrel is now about 115 kB brotlied, and the size budget for both full barrels is 120 kB.
+
 ## 0.7.1
 
 ### Patch Changes
