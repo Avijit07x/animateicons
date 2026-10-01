@@ -84,31 +84,12 @@ const MoveDiagonal2Icon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const iconVariants: Variants = {
-   normal: { scale: 1 },
+  const slideVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    scale: [1, 1.05, 1],
-    transition: { duration: duration, ease: "easeInOut" },
-   },
-  };
-
-  const topLeftVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1 },
-   animate: {
-    x: [0, -1, -3, 0],
-    y: [0, -1, -3, 0],
-    opacity: [1, 1, 0.7, 1],
-    transition: { duration: duration, ease: "easeInOut" },
-   },
-  };
-
-  const bottomRightVariants: Variants = {
-   normal: { x: 0, y: 0, opacity: 1 },
-   animate: {
-    x: [0, 1, 3, 0],
-    y: [0, 1, 3, 0],
-    opacity: [1, 1, 0.7, 1],
-    transition: { duration: duration, ease: "easeInOut" },
+    x: [0, -1.8, 1.8, 0],
+    y: [0, -1.8, 1.8, 0],
+    transition: { duration, ease: "easeInOut", times: [0, 0.25, 0.6, 1] },
    },
   };
 
@@ -133,23 +114,13 @@ const MoveDiagonal2Icon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={iconVariants}
+      style={{ overflow: "visible" }}
      >
-      <path d="m5 5 14 14" />
-
-      <m.path
-       d="M5 11V5h6"
-       variants={topLeftVariants}
-       initial="normal"
-       animate={controls}
-      />
-
-      <m.path
-       d="M19 13v6h-6"
-       variants={bottomRightVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={slideVariants}>
+       <path d="m5 5 14 14" />
+       <path d="M5 11V5h6" />
+       <path d="M19 13v6h-6" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

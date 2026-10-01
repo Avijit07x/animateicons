@@ -38,6 +38,11 @@ interface FileClockIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileClockIcon = forwardRef<FileClockIconHandle, FileClockIconProps>(
  (
   {
@@ -82,23 +87,22 @@ const FileClockIcon = forwardRef<FileClockIconHandle, FileClockIconProps>(
    [controls, onMouseLeave],
   );
 
-  const foldVariants: Variants = {
-   normal: { x: 0, y: 0 },
-   animate: {
-    x: [0, 1, -0.3, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const minuteVariants: Variants = {
    normal: { rotate: 0, transition: { duration: 0 } },
    animate: {
     rotate: [0, 360],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
    },
   };
 
@@ -124,15 +128,20 @@ const FileClockIcon = forwardRef<FileClockIconHandle, FileClockIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M16 22h2a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.85" />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
-      <m.path
-       d="M8 14v2.2"
-       variants={minuteVariants}
-       style={{ transformBox: "view-box", originX: "8px", originY: "16.2px" }}
-      />
-      <path d="m8 16.2 1.6 1" />
-      <circle cx="8" cy="16" r="6" />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M16 22h2a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.85" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M8 14v2.2"
+        variants={minuteVariants}
+        style={{ transformBox: "view-box", originX: "8px", originY: "16.2px" }}
+       />
+       <path d="m8 16.2 1.6 1" />
+       <circle cx="8" cy="16" r="6" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

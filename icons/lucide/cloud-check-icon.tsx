@@ -92,7 +92,7 @@ const CloudCheckIcon = forwardRef<CloudCheckIconHandle, CloudCheckIconProps>(
   const tickVariants: Variants = {
    normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
-    strokeDashoffset: [12, 0],
+    strokeDashoffset: [-12, 0],
     opacity: [0, 1],
     transition: {
      strokeDashoffset: {

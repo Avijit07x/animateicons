@@ -84,7 +84,7 @@ const Layers01Icon = forwardRef<Layers01IconHandle, Layers01IconProps>(
   const topVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -1.5, 0],
+    y: [0, 3, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
@@ -95,7 +95,7 @@ const Layers01Icon = forwardRef<Layers01IconHandle, Layers01IconProps>(
   const bottomVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, 1.5, 0],
+    y: [0, -3, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",

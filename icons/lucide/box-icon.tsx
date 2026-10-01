@@ -82,12 +82,12 @@ const BoxIcon = forwardRef<BoxIconHandle, BoxIconProps>(
   );
 
   const boxVariants: Variants = {
-   normal: { y: 0, scaleY: 1 },
+   normal: { y: 0, rotate: 0 },
    animate: {
-    y: [0, -1, 0.4, 0],
-    scaleY: [1, 1.04, 0.94, 1],
+    y: [0, -1, 0.3, 0],
+    rotate: [0, -7, 5, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },

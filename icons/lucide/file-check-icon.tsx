@@ -38,6 +38,11 @@ interface FileCheckIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileCheckIcon = forwardRef<FileCheckIconHandle, FileCheckIconProps>(
  (
   {
@@ -82,17 +87,6 @@ const FileCheckIcon = forwardRef<FileCheckIconHandle, FileCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const pageVariants: Variants = {
-   normal: { y: 0 },
-   animate: {
-    y: [0, -1, 0.4, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const checkVariants: Variants = {
    normal: { strokeDashoffset: 0, opacity: 1 },
    animate: {
@@ -105,6 +99,17 @@ const FileCheckIcon = forwardRef<FileCheckIconHandle, FileCheckIconProps>(
       delay: 0.15 * duration,
      },
      opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+    },
+   },
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
     },
    },
   };
@@ -131,7 +136,10 @@ const FileCheckIcon = forwardRef<FileCheckIconHandle, FileCheckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g variants={pageVariants}>
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
        <m.path

@@ -95,21 +95,12 @@ const MessageCircleIcon = forwardRef<
   const popVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [0.5, 1.12, 0.96, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.55 * duration,
-     times: [0, 0.55, 0.78, 1],
-     ease: "easeOut",
+     duration: 0.65 * duration,
+     times: [0, 0.35, 0.75, 1],
+     ease: "easeInOut",
     },
-   },
-  };
-
-  const pathVariants: Variants = {
-   normal: { pathLength: 1, opacity: 1 },
-   animate: {
-    pathLength: [0.25, 1],
-    opacity: [0, 1],
-    transition: { duration: 0.5 * duration, ease: "easeOut" },
    },
   };
 
@@ -140,11 +131,10 @@ const MessageCircleIcon = forwardRef<
        variants={popVariants}
        style={{ transformBox: "view-box", originX: "4px", originY: "19px" }}
       >
-       <m.path
+       <path
         d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065
 	               3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2
 	               0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-        variants={pathVariants}
        />
       </m.g>
      </m.svg>

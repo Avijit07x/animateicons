@@ -1,5 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { sortIconsByFamily } from "./icon-order";
+
+type ManifestIcon = {
+	name: string;
+	addedAt?: string;
+	updatedAt?: string;
+	category?: string[];
+	keywords?: string[];
+};
 
 const ROOT = process.cwd();
 
@@ -19,7 +28,9 @@ function generateIndex(libraryName: string, jsonFile: string) {
 		return;
 	}
 
-	const icons = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+	const icons = sortIconsByFamily<ManifestIcon>(
+		JSON.parse(fs.readFileSync(jsonPath, "utf8")),
+	);
 
 	let out = "";
 
@@ -76,7 +87,9 @@ function generateMeta(libraryName: string, jsonFile: string) {
 		return;
 	}
 
-	const icons = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+	const icons = sortIconsByFamily<ManifestIcon>(
+		JSON.parse(fs.readFileSync(jsonPath, "utf8")),
+	);
 
 	let out = `import { lazy } from "react";\nimport type { ComponentType } from "react";\n\n`;
 

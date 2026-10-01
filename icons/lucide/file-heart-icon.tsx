@@ -38,6 +38,11 @@ interface FileHeartIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileHeartIcon = forwardRef<FileHeartIconHandle, FileHeartIconProps>(
  (
   {
@@ -90,6 +95,17 @@ const FileHeartIcon = forwardRef<FileHeartIconHandle, FileHeartIconProps>(
    },
   };
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -112,13 +128,18 @@ const FileHeartIcon = forwardRef<FileHeartIconHandle, FileHeartIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.path
-       d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"
-       variants={heartVariants}
-       style={{ transformBox: "view-box", originX: "7px", originY: "18.5px" }}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"
+        variants={heartVariants}
+        style={{ transformBox: "view-box", originX: "7px", originY: "18.5px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

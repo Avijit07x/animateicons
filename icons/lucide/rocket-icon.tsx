@@ -81,23 +81,23 @@ const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
    [controls, onMouseLeave],
   );
 
-  const rocketVariants: Variants = {
-   normal: { y: 0, x: 0 },
+  const launchVariants: Variants = {
+   normal: { x: 0, y: 0 },
    animate: {
-    y: [0, -3, 0],
-    x: [0, 3, 0],
+    x: [0, 24, -24, 0],
+    y: [0, -24, 24, 0],
     transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
+     duration: 0.9 * duration,
+     ease: ["easeIn", "linear", "easeOut"],
+     times: [0, 0.4, 0.4001, 1],
     },
    },
   };
 
-  const thrustVariants: Variants = {
-   normal: { opacity: 1, scale: 1 },
+  const flameVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    opacity: [1, 0.3, 1],
-    scale: [1, 1.4, 1],
+    scale: [1, 1.5, 0.9, 1.4, 1],
     transition: {
      duration: 0.4 * duration,
      ease: "easeInOut",
@@ -124,35 +124,23 @@ const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
      >
-      <m.path
-       d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"
-       variants={rocketVariants}
-       initial="normal"
-       animate={controls}
-       style={{
-        transformBox: "fill-box",
-        transformOrigin: "center",
-       }}
-      />
-      <m.path
-       d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"
-       variants={rocketVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"
-       variants={rocketVariants}
-       initial="normal"
-       animate={controls}
-      />
-      <m.path
-       d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
-       variants={thrustVariants}
-       initial="normal"
-       animate={controls}
-      />
+      <m.g variants={launchVariants}>
+       <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+       <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+       <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+       <m.path
+        d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
+        variants={flameVariants}
+        style={{
+         transformBox: "view-box",
+         originX: "5.5px",
+         originY: "18.5px",
+        }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

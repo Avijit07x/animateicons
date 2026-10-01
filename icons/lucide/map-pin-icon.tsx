@@ -44,7 +44,7 @@ const MapPinIcon = forwardRef<MapPinIconHandle, MapPinIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.2,
+   duration = 1,
    isAnimated = true,
    color,
    ...props

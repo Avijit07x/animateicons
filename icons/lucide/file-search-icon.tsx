@@ -38,6 +38,11 @@ interface FileSearchIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileSearchIcon = forwardRef<FileSearchIconHandle, FileSearchIconProps>(
  (
   {
@@ -95,6 +100,17 @@ const FileSearchIcon = forwardRef<FileSearchIconHandle, FileSearchIconProps>(
    },
   };
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -117,11 +133,16 @@ const FileSearchIcon = forwardRef<FileSearchIconHandle, FileSearchIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.g variants={lensVariants}>
-       <circle cx="11.5" cy="14.5" r="2.5" />
-       <path d="M13.3 16.3 15 18" />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.g variants={lensVariants}>
+        <circle cx="11.5" cy="14.5" r="2.5" />
+        <path d="M13.3 16.3 15 18" />
+       </m.g>
       </m.g>
      </m.svg>
     </m.div>

@@ -87,11 +87,11 @@ const MessageCircleXIcon = forwardRef<
   const bubbleVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.65 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
@@ -104,7 +104,7 @@ const MessageCircleXIcon = forwardRef<
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
+     delay: 0.3 * duration,
     },
    },
   };
@@ -131,17 +131,18 @@ const MessageCircleXIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-       variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
       <m.g
-       variants={popVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       variants={bubbleVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
       >
-       <path d="m15 9-6 6" />
-       <path d="m9 9 6 6" />
+       <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+       <m.g
+        variants={popVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       >
+        <path d="m15 9-6 6" />
+        <path d="m9 9 6 6" />
+       </m.g>
       </m.g>
      </m.svg>
     </m.div>

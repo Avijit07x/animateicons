@@ -38,6 +38,11 @@ interface FileTextIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
  (
   {
@@ -102,6 +107,17 @@ const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
    },
   });
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -124,26 +140,31 @@ const FileTextIcon = forwardRef<FileTextIconHandle, FileTextIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.path
-       d="M10 9H8"
-       strokeDasharray="3"
-       strokeDashoffset="0"
-       variants={lineVariants(0, 3)}
-      />
-      <m.path
-       d="M16 13H8"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={lineVariants(0.15, 9)}
-      />
-      <m.path
-       d="M16 17H8"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={lineVariants(0.3, 9)}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M10 9H8"
+        strokeDasharray="3"
+        strokeDashoffset="0"
+        variants={lineVariants(0, 3)}
+       />
+       <m.path
+        d="M16 13H8"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={lineVariants(0.15, 9)}
+       />
+       <m.path
+        d="M16 17H8"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={lineVariants(0.3, 9)}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>
