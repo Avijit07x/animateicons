@@ -31,7 +31,7 @@ const StatusPage: React.FC<Props> = ({
 	return (
 		<div
 			className={cn(
-				"relative flex items-center justify-center overflow-hidden px-6 py-16",
+				"relative flex w-full items-center justify-center overflow-hidden px-6 py-16",
 				fullScreen ? "min-h-dvh" : "min-h-[70dvh]",
 			)}
 		>

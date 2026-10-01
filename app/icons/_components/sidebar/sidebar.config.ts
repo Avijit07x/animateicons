@@ -2,7 +2,7 @@ import { BotIcon } from "@/icons/huge/bot-icon";
 import { DownloadIcon } from "@/icons/huge/download-icon";
 import { HeartIcon } from "@/icons/huge/heart-icon";
 import { Home02Icon } from "@/icons/huge/home-0-2-icon";
-import { Layout01Icon } from "@/icons/huge/layout-0-1-icon";
+import { LayoutTemplateIcon } from "@/icons/huge/layout-template-icon";
 import { SendIcon } from "@/icons/huge/send-icon";
 import { SidebarGroupConfig } from "./sidebar.types";
 
@@ -15,7 +15,7 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 			{
 				label: "Examples",
 				href: "/icons/docs/examples/buttons",
-				icon: Layout01Icon,
+				icon: LayoutTemplateIcon,
 			},
 			{ label: "MCP", href: "/icons/docs/mcp", icon: BotIcon },
 			{

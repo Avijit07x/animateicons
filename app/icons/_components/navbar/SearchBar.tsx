@@ -6,6 +6,7 @@ import { useIsMac } from "@/hooks/useIsMac";
 import { SearchIcon, type SearchIconHandle } from "@/icons/huge/search-icon";
 import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge/meta";
 import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide/meta";
+import { MotionConfig, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import {
 	MAX_SEARCH_LENGTH,
@@ -18,6 +19,42 @@ const ICON_LIST_COUNT = {
 } as const;
 
 const KBD = "h-5 rounded-full bg-white/10 px-2 text-[0.6rem]";
+
+const MotionKbd = motion.create(Kbd);
+
+const HintKey: React.FC<{
+	visible: boolean;
+	index?: number;
+	children: React.ReactNode;
+}> = ({ visible, index = 0, children }) => (
+	<MotionKbd
+		className={KBD}
+		initial={false}
+		animate={
+			visible
+				? {
+						opacity: 1,
+						scale: 1,
+						transition: {
+							duration: 0.2,
+							ease: "easeOut",
+							delay: 0.08 + index * 0.03,
+						},
+					}
+				: {
+						opacity: 0,
+						scale: 0.85,
+						transition: {
+							duration: 0.15,
+							ease: "easeIn",
+							delay: index * 0.03,
+						},
+					}
+		}
+	>
+		{children}
+	</MotionKbd>
+);
 
 const SearchBar: React.FC = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -65,16 +102,25 @@ const SearchBar: React.FC = () => {
 				onBlur={() => setFocused(false)}
 				className="placeholder:text-textMuted caret-primary min-w-0 flex-1 bg-transparent text-[13px] text-white outline-none"
 			/>
-			<span className="flex shrink-0 items-center gap-1">
-				{showEsc ? (
-					<Kbd className={KBD}>ESC</Kbd>
-				) : (
-					<>
-						<Kbd className={KBD}>{isMac ? "⌘" : "Ctrl"}</Kbd>
-						<Kbd className={KBD}>K</Kbd>
-					</>
-				)}
-			</span>
+			<MotionConfig reducedMotion="user">
+				<span className="grid shrink-0 items-center">
+					<span
+						aria-hidden={showEsc}
+						className="col-start-1 row-start-1 flex items-center gap-1"
+					>
+						<HintKey visible={!showEsc}>{isMac ? "⌘" : "Ctrl"}</HintKey>
+						<HintKey visible={!showEsc} index={1}>
+							K
+						</HintKey>
+					</span>
+					<span
+						aria-hidden={!showEsc}
+						className="col-start-1 row-start-1 flex items-center justify-self-end"
+					>
+						<HintKey visible={showEsc}>ESC</HintKey>
+					</span>
+				</span>
+			</MotionConfig>
 		</label>
 	);
 };

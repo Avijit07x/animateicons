@@ -14,6 +14,7 @@
  */
 
 import { Fragment } from "react";
+import ScrollFade from "./ScrollFade";
 
 type Lang = "tsx" | "bash";
 
@@ -142,7 +143,7 @@ const tokenizeBash = (src: string): Token[] => {
 			tokens.push({ type: "punct", value: part });
 			continue;
 		}
-		if (isFirst && /^(npm|pnpm|yarn|bun|npx)$/.test(part)) {
+		if (isFirst && /^(npm|pnpm|yarn|bun|bunx|npx)$/.test(part)) {
 			tokens.push({ type: "keyword", value: part });
 			isFirst = false;
 			continue;
@@ -161,25 +162,41 @@ type Props = {
 	code: string;
 	lang?: Lang;
 	className?: string;
+	wrap?: boolean;
 };
+
+const TEXT = "font-mono text-xs leading-relaxed";
 
 const HighlightedCode: React.FC<Props> = ({
 	code,
 	lang = "tsx",
 	className,
+	wrap = true,
 }) => {
 	const tokens = lang === "bash" ? tokenizeBash(code) : tokenizeTsx(code);
+	const body = (
+		<code>
+			{tokens.map((tok, i) => (
+				<Fragment key={i}>
+					<span style={{ color: COLORS[tok.type] }}>{tok.value}</span>
+				</Fragment>
+			))}
+		</code>
+	);
+
+	if (!wrap) {
+		return (
+			<ScrollFade className={`mx-4 my-3 ${className ?? ""}`}>
+				<pre className={`${TEXT} whitespace-pre`}>{body}</pre>
+			</ScrollFade>
+		);
+	}
+
 	return (
 		<pre
-			className={`px-4 py-3 font-mono text-xs leading-relaxed break-words whitespace-pre-wrap ${className ?? ""}`}
+			className={`px-4 py-3 ${TEXT} break-words whitespace-pre-wrap ${className ?? ""}`}
 		>
-			<code>
-				{tokens.map((tok, i) => (
-					<Fragment key={i}>
-						<span style={{ color: COLORS[tok.type] }}>{tok.value}</span>
-					</Fragment>
-				))}
-			</code>
+			{body}
 		</pre>
 	);
 };

@@ -39,35 +39,15 @@ const IconTile: React.FC<Props> = ({
 	const { library, prefix } = useIconLibrary();
 	const { openPlayground } = usePlayground();
 	const iconRef = React.useRef<IconHandle>(null);
-	const tileRef = React.useRef<HTMLDivElement>(null);
-	const [inView, setInView] = React.useState(false);
 	const [hovered, setHovered] = React.useState(false);
 	const [focused, setFocused] = React.useState(false);
 	const revealed = hovered || focused || alwaysShowActions;
-
-	React.useEffect(() => {
-		const el = tileRef.current;
-		if (!el || inView) return;
-		const io = new IntersectionObserver(
-			(entries) => {
-				if (entries[0]?.isIntersecting) {
-					setInView(true);
-					io.disconnect();
-				}
-			},
-			{ rootMargin: "800px 0px" },
-		);
-		io.observe(el);
-		return () => io.disconnect();
-	}, [inView]);
 
 	if (!library || !prefix) {
 		throw new Error("useIconLibrary used outside /icons route");
 	}
 
 	const tileId = `${library}-${item.name}`;
-	// getIcon returns a module-cached React.lazy component (stable per name),
-	// so this dynamic reference is safe.
 	const IconComponent = getIcon(item.name) as React.ComponentType<{
 		size?: number;
 		ref?: React.Ref<IconHandle>;
@@ -84,7 +64,6 @@ const IconTile: React.FC<Props> = ({
 
 	return (
 		<div
-			ref={tileRef}
 			tabIndex={0}
 			role="group"
 			aria-label={item.name}
@@ -100,6 +79,11 @@ const IconTile: React.FC<Props> = ({
 				setHovered(true);
 				handleHover(e, iconRef);
 			}}
+			onMouseMove={() => {
+				if (hovered) return;
+				setHovered(true);
+				iconRef.current?.startAnimation();
+			}}
 			onMouseLeave={(e) => {
 				setHovered(false);
 				handleHover(e, iconRef);
@@ -108,7 +92,7 @@ const IconTile: React.FC<Props> = ({
 			onBlur={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
 			}}
-			className="group text-textPrimary bg-surface hover:bg-surfaceElevated focus-visible:bg-surfaceElevated relative flex h-38 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl p-3 text-sm transition-colors duration-300 outline-none pointer-coarse:h-46 pointer-coarse:pb-12"
+			className="group text-textPrimary bg-surface hover:bg-surfaceElevated focus-visible:bg-surfaceElevated relative flex h-38 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl p-3 text-sm transition-colors duration-300 outline-none pointer-coarse:h-50 pointer-coarse:pb-16"
 		>
 			<AnimatePresence>
 				{revealed && (item.isNew || item.isUpdated) && (
@@ -159,14 +143,15 @@ const IconTile: React.FC<Props> = ({
 				)}
 			</AnimatePresence>
 
-			<div className="group-hover:text-primary inline-flex size-12 items-center justify-center transition-[color,transform] duration-300 group-hover:-translate-y-0.5">
-				{inView ? (
-					<React.Suspense fallback={null}>
-						<IconComponent ref={iconRef} size={32} />
-					</React.Suspense>
-				) : null}
+			<div className="group-hover:text-primary inline-flex size-12 items-center justify-center transition-colors duration-300 pointer-coarse:size-14 pointer-coarse:[&>*]:scale-[1.4]">
+				<IconComponent ref={iconRef} size={32} />
 			</div>
-			<p className="text-textMuted line-clamp-1 font-mono text-[13px] transition-opacity duration-300 group-focus-within:opacity-0 group-focus-within:duration-150 group-hover:opacity-0 group-hover:duration-150 pointer-coarse:opacity-100!">
+			<p
+				className={cn(
+					"text-textMuted line-clamp-1 font-mono text-[13px] transition-opacity duration-300 pointer-coarse:opacity-100!",
+					(hovered || focused) && "opacity-0 duration-150",
+				)}
+			>
 				{item.name}
 			</p>
 		</div>

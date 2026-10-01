@@ -1,19 +1,24 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { useIconHover } from "@/hooks/useIconHover";
+import { ArrowLeft02Icon } from "@/icons/huge/arrow-left-0-2-icon";
 import { useRouter } from "next/navigation";
 
 const BackButton = () => {
 	const router = useRouter();
+	const { ref, hoverProps } = useIconHover();
 
 	return (
 		<Button
-			variant="link"
+			type="button"
+			variant="secondary"
+			size="icon"
+			aria-label="Go back"
 			onClick={() => router.back()}
-			className="border-border hover:bg-surfaceElevated text-textPrimary! flex h-9 w-9 items-center justify-center rounded-md border transition"
+			{...hoverProps}
 		>
-			<ArrowLeft className="h-4 w-4" />
+			<ArrowLeft02Icon ref={ref} />
 		</Button>
 	);
 };

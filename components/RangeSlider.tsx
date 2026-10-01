@@ -26,7 +26,7 @@ const RangeSlider: React.FC<Props> = ({
 	onChange,
 }) => (
 	<label className="flex flex-col gap-1.5">
-		<span className="text-textMuted flex justify-between text-sm">
+		<span className="text-textMuted flex items-baseline justify-between text-sm">
 			{label}
 			<span className="text-textSecondary font-mono text-xs tabular-nums">
 				{display}

@@ -1,28 +1,10 @@
-/**
- * Per-icon detail page: /icons/[library]/[name]
- *
- * Generates a static page for every icon in both libraries (Lucide +
- * Huge). Each page is the canonical, shareable URL for one animated
- * icon - what Cmd+K search results, Google rich results, and social
- * shares all link to.
- *
- * Server component. Pre-renders shiki-highlighted code at build time
- * so we don't ship shiki to the browser. Reads from the same ICON_LIST
- * exports the gallery uses, so adding a new icon to the library
- * automatically gets a detail page on the next build with no
- * code changes here.
- */
-
 import JsonLd from "@/components/JsonLd";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { codeToHtml } from "shiki";
 import BackButton from "../../_components/docs/BackButton";
-import CopyButton from "./CopyButton";
 import IconDetailPlayground from "./IconDetailPlayground";
 import RelatedIconCard from "./RelatedIconCard";
 import { buildIconJsonLd, buildIconMetadata } from "./_seo";
@@ -37,48 +19,54 @@ const getList = (lib: LibraryKey) =>
 
 const getLibraryPrefix = (lib: LibraryKey) => (lib === "lucide" ? "lu" : "hu");
 
-/** Convert "bell-ring" → "BellRingIcon" - same convention every icon
- *  source file follows when it names its forwardRef export. */
 const componentNameFromSlug = (slug: string): string =>
 	slug
 		.split("-")
 		.map((p) => p.charAt(0).toUpperCase() + p.slice(1))
 		.join("") + "Icon";
 
-const titleCase = (s: string) =>
-	s
-		.split("-")
-		.map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-		.join(" ");
+const RELATED_LIMIT = 6;
 
-/** Sibling icons that share a name prefix (e.g. for "bell" → bell-ring,
- *  bell-minus, bell-plus, bell-off). Capped at 6 so the section stays
- *  scannable on small screens. */
+const nameTokens = (name: string) =>
+	name.split("-").filter((token) => !/^\d+$/.test(token));
+
 const findRelatedIcons = (
 	library: LibraryKey,
 	name: string,
 ): { name: string; icon: React.ElementType }[] => {
 	const list = getList(library);
-	const baseTokens = name.split("-");
-	const root = baseTokens[0];
+	const current = list.find((candidate) => candidate.name === name);
+	const root = name.split("-")[0];
+	const tokens = new Set(nameTokens(name));
+	const keywords = new Set(current?.keywords?.map((k) => k.toLowerCase()));
+	const categories = new Set(current?.category);
 
-	const scored: { item: (typeof list)[number]; score: number }[] = [];
+	const family: typeof list = [];
+	const others: { item: (typeof list)[number]; score: number }[] = [];
 	for (const candidate of list) {
 		if (candidate.name === name) continue;
-		if (!candidate.name.startsWith(`${root}-`) && candidate.name !== root)
+		if (candidate.name === root || candidate.name.startsWith(`${root}-`)) {
+			family.push(candidate);
 			continue;
-		// More shared tokens = higher relevance.
-		const candTokens = candidate.name.split("-");
-		const sharedTokens = candTokens.filter((t) =>
-			baseTokens.includes(t),
+		}
+		const sharedTokens = nameTokens(candidate.name).filter((t) =>
+			tokens.has(t),
 		).length;
-		scored.push({ item: candidate, score: sharedTokens });
+		const sharedKeywords =
+			candidate.keywords?.filter((k) => keywords.has(k.toLowerCase())).length ??
+			0;
+		if (sharedTokens + sharedKeywords === 0) continue;
+		const sharedCategory = candidate.category?.some((c) => categories.has(c));
+		others.push({
+			item: candidate,
+			score: sharedTokens * 5 + sharedKeywords * 2 + (sharedCategory ? 1 : 0),
+		});
 	}
-	scored.sort((a, b) => b.score - a.score);
-	return scored.slice(0, 6).map(({ item }) => ({
-		name: item.name,
-		icon: item.icon,
-	}));
+	others.sort((a, b) => b.score - a.score);
+
+	return [...family, ...others.map(({ item }) => item)]
+		.slice(0, RELATED_LIMIT)
+		.map((item) => ({ name: item.name, icon: item.icon }));
 };
 
 export function generateStaticParams() {
@@ -124,16 +112,6 @@ const Page = async ({ params }: Props) => {
 	const prefix = getLibraryPrefix(library);
 	const libDisplay = library === "lucide" ? "Lucide" : "Huge";
 
-	const shadcnCmd = `pnpm dlx shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
-	const npmCmd = `npm install @animateicons/react`;
-	const usageCode = `import { ${componentName} } from "@animateicons/react/${library}";\n\nexport default function Demo() {\n\treturn <${componentName} size={24} color="#f45b48" />;\n}`;
-
-	const [shadcnHtml, npmHtml, usageHtml] = await Promise.all([
-		codeToHtml(shadcnCmd, { lang: "bash", theme: "github-dark-default" }),
-		codeToHtml(npmCmd, { lang: "bash", theme: "github-dark-default" }),
-		codeToHtml(usageCode, { lang: "tsx", theme: "github-dark-default" }),
-	]);
-
 	const related = findRelatedIcons(library, name);
 	const jsonLd = buildIconJsonLd({
 		library,
@@ -142,63 +120,61 @@ const Page = async ({ params }: Props) => {
 		keywords: item.keywords,
 	});
 
-	const SHIKI_RESET = "[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!";
-	const GLASS_CARD = cn(
-		"relative overflow-hidden rounded-xl",
-		"border-border border",
-		"bg-surface/50",
-	);
-
 	return (
-		<div className="mx-auto w-full max-w-5xl px-4 py-10 lg:py-16">
+		<div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-6 lg:py-12">
 			<JsonLd data={jsonLd} />
 
-			<div className="mb-6 flex items-center gap-3">
+			<div className="mb-10 flex items-center gap-3">
 				<BackButton />
 				<nav
 					aria-label="Breadcrumb"
-					className="text-textSecondary flex flex-wrap items-center gap-1.5 text-xs"
+					className="text-textMuted flex flex-wrap items-center gap-2 text-sm"
 				>
 					<Link href="/" className="hover:text-textPrimary transition-colors">
 						Home
 					</Link>
-					<span>/</span>
+					<span aria-hidden="true">/</span>
 					<Link
 						href={`/icons/${library}`}
 						className="hover:text-textPrimary transition-colors"
 					>
 						{libDisplay}
 					</Link>
-					<span>/</span>
-					<span className="text-textPrimary font-mono">{name}</span>
+					<span aria-hidden="true">/</span>
+					<span className="text-textPrimary">{name}</span>
 				</nav>
 			</div>
 
-			<header className="mb-8">
-				<p className="text-textMuted font-mono text-[11px] tracking-[0.25em] uppercase">
-					<span className="text-primary">{libDisplay}</span> / Animated icon
-				</p>
-				<h1 className="text-textPrimary mt-3 text-3xl font-semibold sm:text-4xl">
-					{componentName}
-				</h1>
-				<p className="text-textSecondary mt-1.5 text-sm">
-					{titleCase(name)} · {libDisplay} library
-				</p>
+			<header className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+				<div>
+					<div className="flex flex-wrap items-center gap-3">
+						<h1 className="text-textPrimary text-3xl font-semibold tracking-tight sm:text-4xl">
+							{componentName}
+						</h1>
+						<span className="bg-surfaceElevated text-textSecondary rounded-full px-3 py-1 text-xs font-medium">
+							{libDisplay}
+						</span>
+					</div>
+					<p className="text-textSecondary mt-3 text-base">
+						Animated icon from the {libDisplay} library. Tweak it, then copy the
+						code.
+					</p>
+				</div>
 
 				{!!(item.category?.length || item.keywords?.length) && (
-					<div className="mt-4 flex flex-wrap items-center gap-2">
-						{item.category?.slice(0, 3).map((c) => (
+					<div className="flex flex-wrap items-center gap-2 lg:max-w-lg lg:justify-end">
+						{item.category?.slice(0, 2).map((c) => (
 							<span
 								key={c}
-								className="border-border/60 text-textMuted rounded-sm border px-2.5 py-1 font-mono text-[10px] tracking-wide uppercase"
+								className="bg-primary/12 text-primary rounded-full px-3 py-1 text-xs font-medium"
 							>
 								{c}
 							</span>
 						))}
-						{item.keywords?.slice(0, 6).map((k) => (
+						{item.keywords?.slice(0, 4).map((k) => (
 							<span
 								key={k}
-								className="text-textSecondary rounded-sm bg-white/4 px-2.5 py-1 text-[11px]"
+								className="text-textSecondary rounded-full bg-white/6 px-3 py-1 text-xs"
 							>
 								{k}
 							</span>
@@ -211,76 +187,14 @@ const Page = async ({ params }: Props) => {
 				Icon={item.icon}
 				componentName={componentName}
 				library={library}
+				prefix={prefix}
+				name={name}
 			/>
 
-			<div className="mt-10 grid gap-6 lg:grid-cols-2">
-				<section className="space-y-3">
-					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-						Install - shadcn CLI
-					</h2>
-					<div className={GLASS_CARD}>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
-							<span>Terminal</span>
-							<CopyButton value={shadcnCmd} label="Copy install command" />
-						</div>
-						<div
-							className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
-							dangerouslySetInnerHTML={{ __html: shadcnHtml }}
-						/>
-					</div>
-				</section>
-
-				<section className="space-y-3">
-					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-						Install - npm package
-					</h2>
-					<div className={GLASS_CARD}>
-						<span
-							aria-hidden="true"
-							className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-						/>
-						<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
-							<span>Terminal</span>
-							<CopyButton value={npmCmd} label="Copy install command" />
-						</div>
-						<div
-							className={`overflow-x-auto px-4 py-3 text-sm ${SHIKI_RESET}`}
-							dangerouslySetInnerHTML={{ __html: npmHtml }}
-						/>
-					</div>
-				</section>
-			</div>
-
-			<section className="mt-8 space-y-3">
-				<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-					Usage
-				</h2>
-				<div className={GLASS_CARD}>
-					<span
-						aria-hidden="true"
-						className="pointer-events-none absolute inset-x-4 top-px h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-					/>
-					<div className="border-border/60 text-textMuted flex items-center justify-between border-b px-4 py-2 font-mono text-[10px] tracking-widest uppercase">
-						<span>Demo.tsx</span>
-						<CopyButton value={usageCode} label="Copy usage code" />
-					</div>
-					<div
-						className={`overflow-x-auto px-4 py-3 text-xs leading-relaxed sm:text-sm ${SHIKI_RESET}`}
-						dangerouslySetInnerHTML={{ __html: usageHtml }}
-					/>
-				</div>
-			</section>
-
 			{related.length > 0 && (
-				<section className="mt-12 space-y-4">
-					<h2 className="text-textMuted font-mono text-[11px] tracking-[0.2em] uppercase">
-						Related icons
-					</h2>
-					<ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+				<section className="mt-14 space-y-4">
+					<h2 className="text-textMuted text-sm">Related icons</h2>
+					<ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
 						{related.map((rel) => (
 							<li key={rel.name}>
 								<RelatedIconCard

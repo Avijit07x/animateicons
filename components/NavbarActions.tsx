@@ -11,9 +11,10 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 type Props = {
 	stars: number | null;
+	separated?: boolean;
 };
 
-const NavbarActions: React.FC<Props> = ({ stars }) => {
+const NavbarActions: React.FC<Props> = ({ stars, separated = false }) => {
 	const heartRef = useRef<HeartIconHandle>(null);
 	const isMobile = useIsMobile();
 
@@ -55,6 +56,13 @@ const NavbarActions: React.FC<Props> = ({ stars }) => {
 					<TooltipTrigger asChild>{sponsorLink}</TooltipTrigger>
 					<TooltipContent>See supporters</TooltipContent>
 				</Tooltip>
+			)}
+
+			{separated && (
+				<span
+					aria-hidden="true"
+					className="bg-border/60 mx-1 hidden h-6 w-px lg:block"
+				/>
 			)}
 
 			{isMobile ? (

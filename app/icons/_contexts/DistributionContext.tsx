@@ -41,7 +41,7 @@ export const DistributionProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
 	const [distribution, setDistribution] = useStoredPreference<Distribution>(
 		STORAGE_KEY,
-		"shadcn",
+		"npm",
 		isValid,
 	);
 

@@ -8,6 +8,8 @@ import { describe, expect, it, beforeEach, vi } from "vitest";
 import { act, renderHook } from "@testing-library/react";
 import {
 	cliCommandFor,
+	installCommandFor,
+	shadcnAddCommand,
 	PackageManagerProvider,
 	usePackageManager,
 } from "@/app/icons/_contexts/PackageManagerContext";
@@ -58,5 +60,24 @@ describe("cliCommandFor", () => {
 		expect(cliCommandFor("npm")).toBe("npx");
 		expect(cliCommandFor("pnpm")).toBe("pnpm dlx");
 		expect(cliCommandFor("bun")).toBe("bunx --bun");
+	});
+});
+
+describe("installCommandFor", () => {
+	it("maps each manager to its package install verb", () => {
+		expect(installCommandFor("npm")).toBe("npm i");
+		expect(installCommandFor("pnpm")).toBe("pnpm add");
+		expect(installCommandFor("bun")).toBe("bun add");
+	});
+});
+
+describe("shadcnAddCommand", () => {
+	it("builds the registry URL for the icon with the manager's prefix", () => {
+		expect(shadcnAddCommand("bun", "lu", "bell")).toBe(
+			"bunx --bun shadcn@latest add https://animateicons.in/r/lu-bell.json",
+		);
+		expect(shadcnAddCommand("npm", "hu", "star")).toBe(
+			"npx shadcn@latest add https://animateicons.in/r/hu-star.json",
+		);
 	});
 });

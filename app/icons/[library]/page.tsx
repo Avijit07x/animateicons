@@ -1,4 +1,3 @@
-import AnnouncementBanner from "@/components/AnnouncementBanner";
 import JsonLd from "@/components/JsonLd";
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
@@ -46,7 +45,6 @@ const Page: React.FC<Props> = async ({ params }) => {
 			<JsonLd data={jsonLd} />
 
 			<Navbar />
-			<AnnouncementBanner />
 			<main className="min-h-[calc(100dvh-3.5rem)] pb-3">
 				<div className="mx-auto h-full w-full max-w-384">
 					<h1 className="sr-only">{displayName} Animated Icons for React</h1>
