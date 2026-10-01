@@ -38,6 +38,11 @@ interface FileImageIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileImageIcon = forwardRef<FileImageIconHandle, FileImageIconProps>(
  (
   {
@@ -82,18 +87,6 @@ const FileImageIcon = forwardRef<FileImageIconHandle, FileImageIconProps>(
    [controls, onMouseLeave],
   );
 
-  const foldVariants: Variants = {
-   normal: { x: 0, y: 0 },
-   animate: {
-    x: [0, 1, -0.3, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const sunVariants: Variants = {
    normal: { scale: 1 },
    animate: {
@@ -102,6 +95,17 @@ const FileImageIcon = forwardRef<FileImageIconHandle, FileImageIconProps>(
      duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
     },
    },
   };
@@ -128,16 +132,21 @@ const FileImageIcon = forwardRef<FileImageIconHandle, FileImageIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
-      <m.circle
-       cx="10"
-       cy="12"
-       r="2"
-       variants={sunVariants}
-       style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
-      />
-      <path d="m20 17-1.296-1.296a2.41 2.41 0 0 0-3.408 0L9 22" />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.circle
+        cx="10"
+        cy="12"
+        r="2"
+        variants={sunVariants}
+        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
+       />
+       <path d="m20 17-1.296-1.296a2.41 2.41 0 0 0-3.408 0L9 22" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

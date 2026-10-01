@@ -38,6 +38,11 @@ interface FileMusicIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
  (
   {
@@ -82,18 +87,6 @@ const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
    [controls, onMouseLeave],
   );
 
-  const foldVariants: Variants = {
-   normal: { x: 0, y: 0 },
-   animate: {
-    x: [0, 1, -0.3, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const noteVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
@@ -103,6 +96,17 @@ const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
      duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
     },
    },
   };
@@ -129,11 +133,16 @@ const FileMusicIcon = forwardRef<FileMusicIconHandle, FileMusicIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35" />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
-      <m.g variants={noteVariants}>
-       <path d="M8 20v-7l3 1.474" />
-       <circle cx="6" cy="20" r="2" />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.g variants={noteVariants}>
+        <path d="M8 20v-7l3 1.474" />
+        <circle cx="6" cy="20" r="2" />
+       </m.g>
       </m.g>
      </m.svg>
     </m.div>

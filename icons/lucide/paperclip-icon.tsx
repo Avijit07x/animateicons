@@ -84,8 +84,12 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
   const clipVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -10, 8, -4, 0],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    rotate: [0, 9, -8, 5, -3, 1.5, 0],
+    transition: {
+     duration: 1 * duration,
+     ease: "easeInOut",
+     times: [0, 0.18, 0.4, 0.58, 0.74, 0.88, 1],
+    },
    },
   };
 
@@ -114,7 +118,7 @@ const PaperclipIcon = forwardRef<PaperclipIconHandle, PaperclipIconProps>(
       <m.path
        d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"
        variants={clipVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       style={{ transformBox: "view-box", originX: "17px", originY: "4px" }}
       />
      </m.svg>
     </m.div>

@@ -27,13 +27,14 @@ The `.githooks/pre-push` hook runs `pnpm lint` and `pnpm check:readme`. Enable i
 
 ## Adding an icon
 
-Library-specific walkthroughs, including where the shapes come from: `docs/adding-lucide-icons.md` and `docs/adding-huge-icons.md`. What to add next, in order: `docs/icon-roadmap.md`. Always ship the whole family: if you add an icon, add its opposites and directional variants too (up/down, left/right, on/off, add/remove), because anyone who needs `thumbs-up` needs `thumbs-down`.
+Library-specific walkthroughs, including where the shapes come from: `docs/adding-lucide-icons.md` and `docs/adding-huge-icons.md`. What to add next, in order: `docs/huge-roadmap.md` for Huge and `docs/lucide-roadmap.md` for Lucide. Always ship the whole family: if you add an icon, add its opposites and directional variants too (up/down, left/right, on/off, add/remove), because anyone who needs `thumbs-up` needs `thumbs-down`.
 
 1. Copy the structure of an existing icon in the same folder. Do not invent a new component shape.
    - `"use client"`, `forwardRef`, `useImperativeHandle` exposing `startAnimation` and `stopAnimation`, `LazyMotion` with `domMin`, and `onMouseEnter` and `onMouseLeave`.
    - No comments in icon files. The lint rule rejects them.
    - Names must match: `foo-bar-icon.tsx` exports `FooBarIcon`, `FooBarIconHandle`, `FooBarIconProps`. `tests/icons/naming.test.ts` enforces this.
 2. Add an entry to the matching JSON manifest: `name` (filename without `-icon`), `addedAt` (`YYYY-MM-DD`), `category` and `keywords`. Reuse existing categories.
+   - Where the entry sits in the manifest does not matter. Gallery order is generated for both libraries: `pnpm gen:icons` groups icons into families (the shared first word of the name, plus the merges in `FAMILY_ALIASES` in `scripts/icon-order.ts`) with the base icon first, so `bell`, `bell-ring` and `notification` sit together. Do not reorder the manifests by hand. If a new family lands apart from its relatives, add the merge to `FAMILY_ALIASES`. `tests/scripts/icon-order.test.ts` fails when the generated order is stale.
 3. Run `pnpm exec prettier --write` on the new files and the manifest, then `pnpm gen:icons`. The registry embeds the source, so generating before formatting ships unformatted code.
 4. Update the icon counts in `README.md` and `npm/README.md` (`pnpm check:readme` tells you the expected numbers).
 5. Run `pnpm lint`, `pnpm typecheck` and `pnpm test`.

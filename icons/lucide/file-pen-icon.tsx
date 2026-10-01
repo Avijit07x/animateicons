@@ -38,6 +38,11 @@ interface FilePenIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
  (
   {
@@ -82,24 +87,23 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
    [controls, onMouseLeave],
   );
 
-  const foldVariants: Variants = {
-   normal: { x: 0, y: 0 },
-   animate: {
-    x: [0, 1, -0.3, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const penVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
     x: [0, 1.4, 0.3, 1.5, 0],
     y: [0, -0.6, 0, -0.6, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
+   },
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
    },
   };
 
@@ -125,12 +129,17 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34" />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
-      <m.path
-       d="M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"
-       variants={penVariants}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"
+        variants={penVariants}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

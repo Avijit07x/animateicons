@@ -81,27 +81,15 @@ const HeadphonesIcon = forwardRef<HeadphonesIconHandle, HeadphonesIconProps>(
    [controls, onMouseLeave],
   );
 
-  const cupVariants: Variants = {
-   normal: { scale: 1 },
+  const beatVariants: Variants = {
+   normal: { scale: 1, y: 0 },
    animate: {
-    scale: [1, 1.16, 0.95, 1],
+    scale: [1, 1.14, 1, 1.09, 1],
+    y: [0, -0.8, 0, -0.5, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
-
-  const bandVariants: Variants = {
-   normal: { scaleY: 1 },
-   animate: {
-    scaleY: [1, 1.09, 0.98, 1],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-     delay: 0.05 * duration,
+     times: [0, 0.22, 0.5, 0.75, 1],
     },
    },
   };
@@ -128,25 +116,14 @@ const HeadphonesIcon = forwardRef<HeadphonesIconHandle, HeadphonesIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M3 14H6A2 2 0 0 1 8 16V19A2 2 0 0 1 6 21H5A2 2 0 0 1 3 19V12"
-       variants={cupVariants}
-       style={{ transformBox: "view-box", originX: "5.5px", originY: "16.5px" }}
-      />
-      <m.path
-       d="M3 12A9 9 0 0 1 21 12"
-       variants={bandVariants}
+      <m.g
+       variants={beatVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M21 12V19A2 2 0 0 1 19 21H18A2 2 0 0 1 16 19V16A2 2 0 0 1 18 14H21"
-       variants={cupVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "18.5px",
-        originY: "16.5px",
-       }}
-      />
+      >
+       <path d="M3 14H6A2 2 0 0 1 8 16V19A2 2 0 0 1 6 21H5A2 2 0 0 1 3 19V12" />
+       <path d="M3 12A9 9 0 0 1 21 12" />
+       <path d="M21 12V19A2 2 0 0 1 19 21H18A2 2 0 0 1 16 19V16A2 2 0 0 1 18 14H21" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

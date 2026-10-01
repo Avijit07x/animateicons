@@ -100,15 +100,15 @@ const LaptopIcon = forwardRef<LaptopIconHandle, LaptopIconProps>(
    rest: {
     rotateX: 0,
     ...hinge,
-    transition: { duration: 0.5 * duration, ease: "easeOut" },
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
    open: {
-    rotateX: [72, -8, 3, 0],
+    rotateX: [0, 72, -6, 2, 0],
     ...hinge,
     transition: {
-     duration: 1.2 * duration,
-     ease: [0.16, 1, 0.3, 1],
-     times: [0, 0.6, 0.84, 1],
+     duration: 1.4 * duration,
+     ease: "easeInOut",
+     times: [0, 0.2, 0.7, 0.88, 1],
     },
    },
   };

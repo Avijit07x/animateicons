@@ -3553,5 +3553,156 @@
 			"assistant",
 			"mute"
 		]
+	},
+	{
+		"name": "layout-0-2",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "header", "sidebar", "right", "page", "wireframe"]
+	},
+	{
+		"name": "layout-0-3",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "header", "two column", "split", "page", "wireframe"]
+	},
+	{
+		"name": "layout-0-4",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "sidebar", "split", "panes", "page", "wireframe"]
+	},
+	{
+		"name": "layout-0-5",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": [
+			"layout",
+			"header",
+			"three column",
+			"columns",
+			"page",
+			"wireframe"
+		]
+	},
+	{
+		"name": "layout-0-6",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "sidebar", "rows", "stacked", "page", "wireframe"]
+	},
+	{
+		"name": "layout-0-7",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "header", "sidebar", "content", "page", "wireframe"]
+	},
+	{
+		"name": "layout-two-column",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "two column", "columns", "split", "half", "panes"]
+	},
+	{
+		"name": "layout-three-column",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "three column", "columns", "thirds", "panes"]
+	},
+	{
+		"name": "layout-two-row",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "two row", "rows", "split", "half", "panes"]
+	},
+	{
+		"name": "layout-three-row",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "three row", "rows", "thirds", "panes"]
+	},
+	{
+		"name": "layout-grid",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "grid", "quadrants", "four", "panes", "tiles"]
+	},
+	{
+		"name": "layout-list",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "list", "rows", "items", "cards", "feed"]
+	},
+	{
+		"name": "layout-dashboard",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "dashboard", "bento", "widgets", "tiles", "grid"]
+	},
+	{
+		"name": "layout-template",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "template", "hero", "blocks", "wireframe", "page"]
+	},
+	{
+		"name": "layout-panel-left",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "left", "sidebar", "blocks", "bento"]
+	},
+	{
+		"name": "layout-panel-top",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "top", "banner", "blocks", "bento"]
+	},
+	{
+		"name": "layout-align-left",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "align", "left", "start", "position", "snap"]
+	},
+	{
+		"name": "layout-align-right",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "align", "right", "end", "position", "snap"]
+	},
+	{
+		"name": "layout-align-top",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "align", "top", "start", "position", "snap"]
+	},
+	{
+		"name": "layout-align-bottom",
+		"addedAt": "2026-10-01",
+		"category": ["Layout"],
+		"keywords": ["layout", "align", "bottom", "end", "position", "snap"]
+	},
+	{
+		"name": "coffee-0-1",
+		"addedAt": "2026-10-01",
+		"category": ["Home"],
+		"keywords": ["coffee", "takeaway", "cup", "drink", "cafe", "latte", "to go"]
+	},
+	{
+		"name": "coffee-0-2",
+		"addedAt": "2026-10-01",
+		"category": ["Home"],
+		"keywords": ["coffee", "cup", "tea", "drink", "hot", "steam", "cafe"]
+	},
+	{
+		"name": "coffee-0-3",
+		"addedAt": "2026-10-01",
+		"category": ["Home"],
+		"keywords": ["coffee", "mug", "tea", "drink", "hot", "steam", "break"]
+	},
+	{
+		"name": "coffee-beans",
+		"addedAt": "2026-10-01",
+		"category": ["Home"],
+		"keywords": ["coffee", "beans", "bean", "roast", "cafe", "espresso"]
 	}
 ]

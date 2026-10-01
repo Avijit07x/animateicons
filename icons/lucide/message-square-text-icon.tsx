@@ -87,23 +87,23 @@ const MessageSquareTextIcon = forwardRef<
   const bubbleVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.65 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
 
-  const lineVariants = (delay: number): Variants => ({
+  const lineVariants = (index: number): Variants => ({
    normal: { scaleX: 1 },
    animate: {
     scaleX: [1, 0.5, 1],
     transition: {
      duration: 0.45 * duration,
      ease: "easeInOut",
-     delay: delay * duration,
+     delay: (0.25 + 0.07 * index) * duration,
     },
    },
   });
@@ -130,26 +130,27 @@ const MessageSquareTextIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
+      <m.g
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M7 7h8"
-       variants={lineVariants(0.05)}
-       style={{ transformBox: "view-box", originX: "7px", originY: "7px" }}
-      />
-      <m.path
-       d="M7 11h10"
-       variants={lineVariants(0.15)}
-       style={{ transformBox: "view-box", originX: "7px", originY: "11px" }}
-      />
-      <m.path
-       d="M7 15h6"
-       variants={lineVariants(0.25)}
-       style={{ transformBox: "view-box", originX: "7px", originY: "15px" }}
-      />
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+      >
+       <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+       <m.path
+        d="M7 7h8"
+        variants={lineVariants(0)}
+        style={{ transformBox: "view-box", originX: "7px", originY: "7px" }}
+       />
+       <m.path
+        d="M7 11h10"
+        variants={lineVariants(1)}
+        style={{ transformBox: "view-box", originX: "7px", originY: "11px" }}
+       />
+       <m.path
+        d="M7 15h6"
+        variants={lineVariants(2)}
+        style={{ transformBox: "view-box", originX: "7px", originY: "15px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

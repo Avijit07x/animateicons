@@ -82,14 +82,10 @@ const VideoIcon = forwardRef<VideoIconHandle, VideoIconProps>(
   );
 
   const lensVariants: Variants = {
-   normal: { x: 0 },
+   normal: { scaleY: 1 },
    animate: {
-    x: [0, 1, -0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
+    scaleY: [1, 0.1, 1, 0.1, 1],
+    transition: { duration: 0.7 * duration, ease: "easeInOut" },
    },
   };
 
@@ -118,6 +114,7 @@ const VideoIcon = forwardRef<VideoIconHandle, VideoIconProps>(
       <m.path
        d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"
        variants={lensVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "12px" }}
       />
       <rect x="2" y="6" width="14" height="12" rx="2" />
      </m.svg>

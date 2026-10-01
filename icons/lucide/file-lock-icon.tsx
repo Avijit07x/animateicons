@@ -38,6 +38,11 @@ interface FileLockIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
  (
   {
@@ -105,6 +110,17 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
    },
   };
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -127,17 +143,22 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.path d="M9 17v-2a2 2 0 0 0-4 0v2" variants={shackleVariants} />
-      <m.rect
-       width="8"
-       height="5"
-       x="3"
-       y="17"
-       rx="1"
-       variants={bodyVariants}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path d="M9 17v-2a2 2 0 0 0-4 0v2" variants={shackleVariants} />
+       <m.rect
+        width="8"
+        height="5"
+        x="3"
+        y="17"
+        rx="1"
+        variants={bodyVariants}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -38,6 +38,11 @@ interface FileScanIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileScanIcon = forwardRef<FileScanIconHandle, FileScanIconProps>(
  (
   {
@@ -82,18 +87,6 @@ const FileScanIcon = forwardRef<FileScanIconHandle, FileScanIconProps>(
    [controls, onMouseLeave],
   );
 
-  const foldVariants: Variants = {
-   normal: { x: 0, y: 0 },
-   animate: {
-    x: [0, 1, -0.3, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
-   },
-  };
   const cornerVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: ([dx, dy]: number[]) => ({
@@ -105,6 +98,17 @@ const FileScanIcon = forwardRef<FileScanIconHandle, FileScanIconProps>(
      times: [0, 0.35, 0.7, 1],
     },
    }),
+  };
+
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
   };
 
   return (
@@ -129,28 +133,33 @@ const FileScanIcon = forwardRef<FileScanIconHandle, FileScanIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35" />
-      <m.path d="M14 2v5a1 1 0 0 0 1 1h5" variants={foldVariants} />
-      <m.path
-       d="M16 14a2 2 0 0 0-2 2"
-       variants={cornerVariants}
-       custom={[1, 1]}
-      />
-      <m.path
-       d="M16 22a2 2 0 0 1-2-2"
-       variants={cornerVariants}
-       custom={[1, -1]}
-      />
-      <m.path
-       d="M20 14a2 2 0 0 1 2 2"
-       variants={cornerVariants}
-       custom={[-1, 1]}
-      />
-      <m.path
-       d="M20 22a2 2 0 0 0 2-2"
-       variants={cornerVariants}
-       custom={[-1, -1]}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M16 14a2 2 0 0 0-2 2"
+        variants={cornerVariants}
+        custom={[1, 1]}
+       />
+       <m.path
+        d="M16 22a2 2 0 0 1-2-2"
+        variants={cornerVariants}
+        custom={[1, -1]}
+       />
+       <m.path
+        d="M20 14a2 2 0 0 1 2 2"
+        variants={cornerVariants}
+        custom={[-1, 1]}
+       />
+       <m.path
+        d="M20 22a2 2 0 0 0 2-2"
+        variants={cornerVariants}
+        custom={[-1, -1]}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

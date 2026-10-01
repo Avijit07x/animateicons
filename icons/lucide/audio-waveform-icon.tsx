@@ -84,17 +84,18 @@ const AudioWaveformIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const waveVariants: Variants = {
+  const humpVariants = (index: number, peak: number): Variants => ({
    normal: { scaleY: 1 },
    animate: {
-    scaleY: [1, 0.55, 1.05, 1],
+    scaleY: [1, 0.4, peak, 1],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
+     delay: index * 0.09 * duration,
     },
    },
-  };
+  });
 
   return (
    <LazyMotion features={domMin} strict>
@@ -119,8 +120,23 @@ const AudioWaveformIcon = forwardRef<
       initial="normal"
      >
       <m.path
-       d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"
-       variants={waveVariants}
+       d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v5"
+       variants={humpVariants(0, 1.25)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M8 12v8a2 2 0 0 0 4 0v-8"
+       variants={humpVariants(1, 1.06)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M12 12V4a2 2 0 0 1 4 0v8"
+       variants={humpVariants(2, 1.06)}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
+      <m.path
+       d="M16 12v5a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"
+       variants={humpVariants(3, 1.4)}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>

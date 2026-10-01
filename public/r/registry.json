@@ -1444,6 +1444,70 @@
       ]
     },
     {
+      "name": "hu-coffee-0-1",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/coffee-0-1-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/coffee-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-coffee-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/coffee-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/coffee-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-coffee-0-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/coffee-0-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/coffee-0-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-coffee-beans",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/coffee-beans-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/coffee-beans.tsx"
+        }
+      ]
+    },
+    {
       "name": "hu-collapse",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -3296,6 +3360,326 @@
           "path": "icons/huge/layout-0-1-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/layout-0-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-4",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-4-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-5",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-5-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-6",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-6-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-0-7",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-0-7-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-0-7.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-align-bottom",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-align-bottom-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-align-bottom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-align-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-align-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-align-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-align-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-align-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-align-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-align-top",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-align-top-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-align-top.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-dashboard",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-dashboard-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-grid",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-grid-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-list",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-list-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-panel-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-panel-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-panel-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-panel-top",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-panel-top-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-panel-top.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-template",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-template-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-template.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-three-column",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-three-column-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-three-column.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-three-row",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-three-row-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-three-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-two-column",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-two-column-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-two-column.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hu-layout-two-row",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/huge/layout-two-row-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/layout-two-row.tsx"
         }
       ]
     },

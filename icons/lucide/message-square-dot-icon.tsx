@@ -84,15 +84,26 @@ const MessageSquareDotIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const dotVariants: Variants = {
-   normal: { scale: 1, y: 0 },
+  const bubbleVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scale: [1, 1.25, 0.92, 1],
-    y: [0, -1, 0.3, 0],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.65 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.35, 0.75, 1],
+    },
+   },
+  };
+
+  const dotVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.3, 1, 1.18, 1],
+    transition: {
+     duration: 0.55 * duration,
+     ease: "easeInOut",
+     delay: 0.3 * duration,
     },
    },
   };
@@ -119,14 +130,19 @@ const MessageSquareDotIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <path d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7" />
-      <m.circle
-       cx="19"
-       cy="6"
-       r="3"
-       variants={dotVariants}
-       style={{ transformBox: "view-box", originX: "19px", originY: "6px" }}
-      />
+      <m.g
+       variants={bubbleVariants}
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+      >
+       <path d="M12.7 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4.7" />
+       <m.circle
+        cx="19"
+        cy="6"
+        r="3"
+        variants={dotVariants}
+        style={{ transformBox: "view-box", originX: "19px", originY: "6px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -2,10 +2,10 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1108,
+  "total": 1132,
   "libraries": {
     "lucide": 669,
-    "huge": 439
+    "huge": 463
   },
   "icons": [
     {
@@ -1731,6 +1731,85 @@
         "slash"
       ],
       "url": "https://animateicons.in/r/hu-code-xml.json"
+    },
+    {
+      "name": "coffee-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-coffee-0-1",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "coffee",
+        "takeaway",
+        "cup",
+        "drink",
+        "cafe",
+        "latte",
+        "to go"
+      ],
+      "url": "https://animateicons.in/r/hu-coffee-0-1.json"
+    },
+    {
+      "name": "coffee-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-coffee-0-2",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "coffee",
+        "cup",
+        "tea",
+        "drink",
+        "hot",
+        "steam",
+        "cafe"
+      ],
+      "url": "https://animateicons.in/r/hu-coffee-0-2.json"
+    },
+    {
+      "name": "coffee-0-3",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-coffee-0-3",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "coffee",
+        "mug",
+        "tea",
+        "drink",
+        "hot",
+        "steam",
+        "break"
+      ],
+      "url": "https://animateicons.in/r/hu-coffee-0-3.json"
+    },
+    {
+      "name": "coffee-beans",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-coffee-beans",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Home"
+      ],
+      "keywords": [
+        "coffee",
+        "beans",
+        "bean",
+        "roast",
+        "cafe",
+        "espresso"
+      ],
+      "url": "https://animateicons.in/r/hu-coffee-beans.json"
     },
     {
       "name": "collapse",
@@ -3959,6 +4038,384 @@
         "wireframe"
       ],
       "url": "https://animateicons.in/r/hu-layout-0-1.json"
+    },
+    {
+      "name": "layout-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-2",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "header",
+        "sidebar",
+        "right",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-2.json"
+    },
+    {
+      "name": "layout-0-3",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-3",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "header",
+        "two column",
+        "split",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-3.json"
+    },
+    {
+      "name": "layout-0-4",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-4",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "sidebar",
+        "split",
+        "panes",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-4.json"
+    },
+    {
+      "name": "layout-0-5",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-5",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "header",
+        "three column",
+        "columns",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-5.json"
+    },
+    {
+      "name": "layout-0-6",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-6",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "sidebar",
+        "rows",
+        "stacked",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-6.json"
+    },
+    {
+      "name": "layout-0-7",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-0-7",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "header",
+        "sidebar",
+        "content",
+        "page",
+        "wireframe"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-0-7.json"
+    },
+    {
+      "name": "layout-align-bottom",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-align-bottom",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "align",
+        "bottom",
+        "end",
+        "position",
+        "snap"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-align-bottom.json"
+    },
+    {
+      "name": "layout-align-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-align-left",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "align",
+        "left",
+        "start",
+        "position",
+        "snap"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-align-left.json"
+    },
+    {
+      "name": "layout-align-right",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-align-right",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "align",
+        "right",
+        "end",
+        "position",
+        "snap"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-align-right.json"
+    },
+    {
+      "name": "layout-align-top",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-align-top",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "align",
+        "top",
+        "start",
+        "position",
+        "snap"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-align-top.json"
+    },
+    {
+      "name": "layout-dashboard",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-dashboard",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "dashboard",
+        "bento",
+        "widgets",
+        "tiles",
+        "grid"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-dashboard.json"
+    },
+    {
+      "name": "layout-grid",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-grid",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "grid",
+        "quadrants",
+        "four",
+        "panes",
+        "tiles"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-grid.json"
+    },
+    {
+      "name": "layout-list",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-list",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "list",
+        "rows",
+        "items",
+        "cards",
+        "feed"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-list.json"
+    },
+    {
+      "name": "layout-panel-left",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-panel-left",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "panel",
+        "left",
+        "sidebar",
+        "blocks",
+        "bento"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-panel-left.json"
+    },
+    {
+      "name": "layout-panel-top",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-panel-top",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "panel",
+        "top",
+        "banner",
+        "blocks",
+        "bento"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-panel-top.json"
+    },
+    {
+      "name": "layout-template",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-template",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "template",
+        "hero",
+        "blocks",
+        "wireframe",
+        "page"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-template.json"
+    },
+    {
+      "name": "layout-three-column",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-three-column",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "three column",
+        "columns",
+        "thirds",
+        "panes"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-three-column.json"
+    },
+    {
+      "name": "layout-three-row",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-three-row",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "three row",
+        "rows",
+        "thirds",
+        "panes"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-three-row.json"
+    },
+    {
+      "name": "layout-two-column",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-two-column",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "two column",
+        "columns",
+        "split",
+        "half",
+        "panes"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-two-column.json"
+    },
+    {
+      "name": "layout-two-row",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-layout-two-row",
+      "addedAt": "2026-10-01",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "two row",
+        "rows",
+        "split",
+        "half",
+        "panes"
+      ],
+      "url": "https://animateicons.in/r/hu-layout-two-row.json"
     },
     {
       "name": "left-to-right-list-bullet",

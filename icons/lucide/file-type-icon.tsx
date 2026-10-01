@@ -38,6 +38,11 @@ interface FileTypeIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileTypeIcon = forwardRef<FileTypeIconHandle, FileTypeIconProps>(
  (
   {
@@ -94,6 +99,17 @@ const FileTypeIcon = forwardRef<FileTypeIconHandle, FileTypeIconProps>(
    }),
   };
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -116,29 +132,34 @@ const FileTypeIcon = forwardRef<FileTypeIconHandle, FileTypeIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.path
-       d="M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={typeVariants}
-       custom={0}
-      />
-      <m.path
-       d="M12 12v6"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={typeVariants}
-       custom={0.2}
-      />
-      <m.path
-       d="M11 18h2"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={typeVariants}
-       custom={0.4}
-      />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path
+        d="M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={typeVariants}
+        custom={0}
+       />
+       <m.path
+        d="M12 12v6"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={typeVariants}
+        custom={0.2}
+       />
+       <m.path
+        d="M11 18h2"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={typeVariants}
+        custom={0.4}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

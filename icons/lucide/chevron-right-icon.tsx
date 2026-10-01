@@ -84,27 +84,14 @@ const ChevronRightIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const arrowVariants: Variants = {
-   normal: { x: 0, opacity: 1 },
+  const nudgeVariants: Variants = {
+   normal: { x: 0 },
    animate: {
-    x: [0, -1.5, 4, 0],
+    x: [0, 2.5, -0.625, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     times: [0, 0.2, 0.55, 1],
-    },
-   },
-  };
-
-  const trailVariants: Variants = {
-   normal: { x: 0, opacity: 0 },
-   animate: {
-    x: [0, 9],
-    opacity: [0, 0.45, 0],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeOut",
-     delay: 0.08 * duration,
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -131,12 +118,7 @@ const ChevronRightIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="m9 18 6-6-6-6"
-       variants={trailVariants}
-       stroke="currentColor"
-      />
-      <m.path d="m9 18 6-6-6-6" variants={arrowVariants} />
+      <m.path d="m9 18 6-6-6-6" variants={nudgeVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

@@ -87,24 +87,24 @@ const MessageCircleMoreIcon = forwardRef<
   const bubbleVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.65 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
 
-  const dotVariants = (delay: number): Variants => ({
+  const dotVariants = (index: number): Variants => ({
    normal: { y: 0 },
    animate: {
     y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
-     delay: delay * duration,
+     delay: (0.25 + 0.07 * index) * duration,
     },
    },
   });
@@ -131,14 +131,15 @@ const MessageCircleMoreIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+      <m.g
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path d="M8 12h.01" variants={dotVariants(0)} />
-      <m.path d="M12 12h.01" variants={dotVariants(0.1)} />
-      <m.path d="M16 12h.01" variants={dotVariants(0.2)} />
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+      >
+       <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+       <m.path d="M8 12h.01" variants={dotVariants(0)} />
+       <m.path d="M12 12h.01" variants={dotVariants(1)} />
+       <m.path d="M16 12h.01" variants={dotVariants(2)} />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

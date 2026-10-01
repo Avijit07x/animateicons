@@ -38,6 +38,11 @@ interface FileArchiveIconProps extends Omit<
  color?: string;
 }
 
+const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
+ const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
+ return Math.cos(2 * Math.PI * eased);
+});
+
 const FileArchiveIcon = forwardRef<FileArchiveIconHandle, FileArchiveIconProps>(
  (
   {
@@ -105,6 +110,17 @@ const FileArchiveIcon = forwardRef<FileArchiveIconHandle, FileArchiveIconProps>(
    },
   };
 
+  const flipVariants: Variants = {
+   normal: { scaleX: 1, transition: { duration: 0 } },
+   animate: {
+    scaleX: FLIP_FRAMES,
+    transition: {
+     duration: 0.9 * duration,
+     ease: "linear",
+    },
+   },
+  };
+
   return (
    <LazyMotion features={domMin} strict>
     <m.div
@@ -127,12 +143,17 @@ const FileArchiveIcon = forwardRef<FileArchiveIconHandle, FileArchiveIconProps>(
       animate={controls}
       initial="normal"
      >
-      <path d="M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5" />
-      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-      <m.path d="M8 7V6" variants={toothVariants} custom={0} />
-      <m.path d="M8 12v-1" variants={toothVariants} custom={1} />
-      <m.path d="M8 18v-2" variants={toothVariants} custom={2} />
-      <m.circle cx="8" cy="20" r="2" variants={pullVariants} />
+      <m.g
+       variants={flipVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
+       <path d="M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5" />
+       <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+       <m.path d="M8 7V6" variants={toothVariants} custom={0} />
+       <m.path d="M8 12v-1" variants={toothVariants} custom={1} />
+       <m.path d="M8 18v-2" variants={toothVariants} custom={2} />
+       <m.circle cx="8" cy="20" r="2" variants={pullVariants} />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>
