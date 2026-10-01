@@ -15,6 +15,7 @@ import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconListSkeleton from "./IconListSkeleton";
 import IconsNotFound from "./IconsNotFound";
 import IconTile from "./IconTile";
+import { useWindowedGrid } from "./useWindowedGrid";
 
 const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearchResult();
@@ -33,10 +34,21 @@ const IconList: React.FC = () => {
 		let alive = true;
 		const load =
 			library === "huge"
-				? import("@/icons/huge/meta")
-				: import("@/icons/lucide/meta");
-		load.then((m) => {
-			if (alive) setLoaded({ library, icons: m.ICON_META, getIcon: m.getIcon });
+				? Promise.all([import("@/icons/huge/meta"), import("@/icons/huge")])
+				: Promise.all([
+						import("@/icons/lucide/meta"),
+						import("@/icons/lucide"),
+					]);
+		load.then(([meta, all]) => {
+			if (!alive) return;
+			const byName = new Map<string, React.ElementType>(
+				all.ICON_LIST.map((entry) => [entry.name, entry.icon]),
+			);
+			setLoaded({
+				library,
+				icons: meta.ICON_META,
+				getIcon: (name) => byName.get(name) as React.ElementType,
+			});
 		});
 		return () => {
 			alive = false;
@@ -52,6 +64,15 @@ const IconList: React.FC = () => {
 		query: debouncedQuery,
 	});
 
+	const {
+		setGrid,
+		slice,
+		topSpacer,
+		bottomSpacer,
+		onFocusCapture,
+		onBlurCapture,
+	} = useWindowedGrid(filteredItems);
+
 	if (!library) {
 		return <IconLibraryEmptyState />;
 	}
@@ -66,8 +87,20 @@ const IconList: React.FC = () => {
 				<AnimatePresence>
 					{filteredItems.length > 0 ? (
 						<>
-							<div className={ICON_GRID_CLASS}>
-								{filteredItems.map((item) => (
+							<div
+								ref={setGrid}
+								className={ICON_GRID_CLASS}
+								onFocusCapture={onFocusCapture}
+								onBlurCapture={onBlurCapture}
+							>
+								{topSpacer > 0 && (
+									<div
+										aria-hidden="true"
+										className="col-span-full"
+										style={{ height: topSpacer }}
+									/>
+								)}
+								{slice.map((item) => (
 									<IconTile
 										key={item.name}
 										item={item}
@@ -75,6 +108,13 @@ const IconList: React.FC = () => {
 										alwaysShowActions={coarse}
 									/>
 								))}
+								{bottomSpacer > 0 && (
+									<div
+										aria-hidden="true"
+										className="col-span-full"
+										style={{ height: bottomSpacer }}
+									/>
+								)}
 							</div>
 
 							{!debouncedQuery && (

@@ -83,3 +83,22 @@ export const cliCommandFor = (pm: PackageManager): string => {
 			return "npx";
 	}
 };
+
+export const installCommandFor = (pm: PackageManager): string => {
+	switch (pm) {
+		case "bun":
+			return "bun add";
+		case "pnpm":
+			return "pnpm add";
+		case "npm":
+		default:
+			return "npm i";
+	}
+};
+
+export const shadcnAddCommand = (
+	pm: PackageManager,
+	prefix: string,
+	name: string,
+): string =>
+	`${cliCommandFor(pm)} shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 /**
  * The shared loader graphic: the AnimateIcons logo above a thin, sweeping
- * progress bar. Pure markup + CSS (see globals.css `loaderSweep`/`loaderPulse`)
+ * progress bar. Pure markup + CSS (see globals.css `loaderSweep`/`loaderFloat`)
  * so it works in a server component (app/loading.tsx) and inside the client
  * boot overlay alike. Reduced-motion users get a static bar.
  */

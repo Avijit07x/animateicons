@@ -262,16 +262,6 @@
 	}
 }
 
-@keyframes loaderGlow {
-	0%,
-	100% {
-		filter: drop-shadow(0 0 0 rgba(244, 91, 72, 0));
-	}
-	50% {
-		filter: drop-shadow(0 4px 16px rgba(244, 91, 72, 0.55));
-	}
-}
-
 @keyframes heroBob {
 	0%,
 	100% {
@@ -291,10 +281,8 @@
 }
 
 .loader-logo {
-	animation:
-		loaderFloat 2.6s ease-in-out infinite,
-		loaderGlow 2.6s ease-in-out infinite;
-	will-change: transform, filter;
+	animation: loaderFloat 2.6s ease-in-out infinite;
+	will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

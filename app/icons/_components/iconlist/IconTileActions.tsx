@@ -50,7 +50,7 @@ import {
 	useIsLoading,
 } from "../../_contexts/IconTileContext";
 import {
-	cliCommandFor,
+	shadcnAddCommand,
 	usePackageManager,
 } from "../../_contexts/PackageManagerContext";
 import IconAction from "./IconAction";
@@ -99,7 +99,7 @@ const IconTileActions: React.FC<Props> = ({
 		const payload =
 			distribution === "npm"
 				? npmImportLine(name, library as "lucide" | "huge")
-				: `${cliCommandFor(packageManager)} shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
+				: shadcnAddCommand(packageManager, prefix, name);
 
 		await navigator.clipboard.writeText(payload);
 		setCopiedCliId(tileId);
@@ -141,11 +141,11 @@ const IconTileActions: React.FC<Props> = ({
 			animate="show"
 			exit="hidden"
 			onClick={(e) => e.stopPropagation()}
-			className="absolute inset-x-0 bottom-4 flex justify-center"
+			className="absolute inset-x-0 bottom-4 flex justify-center pointer-coarse:bottom-3"
 		>
 			<motion.div
 				variants={pillVariants}
-				className="flex items-center gap-0.5 rounded-full p-0.5"
+				className="flex items-center gap-0.5 rounded-full p-0.5 pointer-coarse:gap-1 pointer-coarse:p-1"
 			>
 				<IconAction
 					tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}

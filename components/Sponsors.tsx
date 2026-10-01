@@ -1,13 +1,14 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useCopy } from "@/hooks/useCopy";
 import { useIconHover } from "@/hooks/useIconHover";
 import { Cancel01Icon } from "@/icons/huge/cancel-0-1-icon";
 import { CheckIcon } from "@/icons/huge/check-icon";
+import { Coffee02Icon } from "@/icons/huge/coffee-0-2-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
 import { CreditCardIcon } from "@/icons/huge/credit-card-icon";
 import { HeartIcon } from "@/icons/huge/heart-icon";
-import { MoneyBag01Icon } from "@/icons/huge/money-bag-0-1-icon";
 import type { IconHandle } from "@/types/icon";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -19,6 +20,8 @@ type SponsorIcon = ComponentType<{
 	color?: string;
 	ref?: Ref<IconHandle>;
 }>;
+
+const MotionButton = motion.create(Button);
 
 const SPRING = { type: "spring", stiffness: 260, damping: 28 } as const;
 const UPI_ID = "avijit07x@axl";
@@ -51,6 +54,7 @@ const Sponsors: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { copied, copy } = useCopy(1500);
 	const { ref: heartRef, hoverProps: heartHoverProps } = useIconHover();
+	const { ref: closeRef, hoverProps: closeHoverProps } = useIconHover();
 	const { ref: copyRef, hoverProps: copyHoverProps } = useIconHover();
 
 	const toggle = () => setIsOpen((open) => !open);
@@ -76,7 +80,7 @@ const Sponsors: React.FC = () => {
 					animate={{
 						y: 0,
 						width: isOpen ? 280 : 44,
-						height: isOpen ? 440 : 44,
+						height: isOpen ? "auto" : 44,
 						borderRadius: isOpen ? 22 : 999,
 					}}
 					transition={{
@@ -85,29 +89,28 @@ const Sponsors: React.FC = () => {
 						height: SPRING,
 						borderRadius: { duration: 0.08, ease: "linear" },
 					}}
-					className="bg-surfaceElevated relative flex flex-col overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)]"
+					className="bg-surfaceElevated relative flex max-h-[calc(100dvh-2.5rem)] flex-col overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)]"
 				>
-					<button
-						type="button"
-						onClick={toggle}
-						aria-label={isOpen ? "Close sponsor panel" : "Open sponsor options"}
-						aria-expanded={isOpen}
-						aria-controls="sponsor-panel"
-						{...heartHoverProps}
-						className={`${
-							isOpen ? "m-2 ml-auto size-7" : "size-11"
-						} text-textSecondary hover:text-textPrimary flex items-center justify-center rounded-full transition-colors`}
-					>
-						{isOpen ? (
-							<Cancel01Icon size={16} />
-						) : (
-							<HeartIcon
-								ref={heartRef}
-								size={18}
-								color="var(--color-primary)"
-							/>
+					<AnimatePresence initial={false}>
+						{!isOpen && (
+							<MotionButton
+								key="open"
+								type="button"
+								variant="ghost"
+								onClick={toggle}
+								aria-label="Open sponsor options"
+								aria-expanded={false}
+								aria-controls="sponsor-panel"
+								{...heartHoverProps}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0, transition: { duration: 0.1 } }}
+								className="text-textSecondary hover:text-textPrimary absolute inset-0 size-full rounded-full hover:bg-transparent dark:hover:bg-transparent [&_svg:not([class*='size-'])]:size-[18px]"
+							>
+								<HeartIcon ref={heartRef} color="var(--color-primary)" />
+							</MotionButton>
 						)}
-					</button>
+					</AnimatePresence>
 
 					<AnimatePresence>
 						{isOpen && (
@@ -117,13 +120,13 @@ const Sponsors: React.FC = () => {
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 6 }}
 								transition={{ duration: 0.25, ease: "easeOut" }}
-								className="flex w-full flex-col gap-2 px-3 pb-3"
+								className="flex min-h-0 w-[280px] [scrollbar-width:none] flex-col gap-2 overflow-y-auto overscroll-contain p-3 [&::-webkit-scrollbar]:hidden [&>*]:shrink-0"
 							>
 								<SponsorLink
 									href="https://buymeacoffee.com/avijit07x"
 									label="Buy Me Coffee"
 									ariaLabel="Support via Buy Me a Coffee"
-									icon={MoneyBag01Icon}
+									icon={Coffee02Icon}
 									color="var(--color-warning)"
 								/>
 								<SponsorLink
@@ -146,25 +149,27 @@ const Sponsors: React.FC = () => {
 										<span className="text-textPrimary text-sm font-medium">
 											UPI Payment
 										</span>
-										<button
+										<Button
 											type="button"
+											variant="ghost"
+											size="icon-sm"
 											onClick={() => copy(UPI_ID)}
 											aria-label="Copy UPI ID"
 											{...copyHoverProps}
-											className="text-textSecondary hover:text-textPrimary flex size-7 items-center justify-center rounded-full transition-colors hover:bg-white/10"
+											className="text-textSecondary hover:text-textPrimary size-7 hover:bg-white/10 dark:hover:bg-white/10 [&_svg:not([class*='size-'])]:size-3.5"
 										>
 											{copied ? (
-												<CheckIcon size={14} color="var(--color-success)" />
+												<CheckIcon color="var(--color-success)" />
 											) : (
-												<CopyIcon ref={copyRef} size={14} />
+												<CopyIcon ref={copyRef} />
 											)}
-										</button>
+										</Button>
 									</div>
 									<Image
-										src="qrcode.svg"
+										src="/qrcode.svg"
 										alt={`UPI QR code for ${UPI_ID} payment`}
 										width={150}
-										height={100}
+										height={150}
 										className="rounded-xl"
 									/>
 									<div className="text-textMuted text-center text-xs">
@@ -179,6 +184,32 @@ const Sponsors: React.FC = () => {
 						)}
 					</AnimatePresence>
 				</motion.div>
+
+				<AnimatePresence>
+					{isOpen && (
+						<MotionButton
+							key="close"
+							type="button"
+							variant="secondary"
+							size="icon-sm"
+							onClick={toggle}
+							aria-label="Close sponsor panel"
+							aria-expanded
+							aria-controls="sponsor-panel"
+							{...closeHoverProps}
+							initial={{ opacity: 0, scale: 0.6 }}
+							animate={{
+								opacity: 1,
+								scale: 1,
+								transition: { duration: 0.2, ease: "easeOut", delay: 0.12 },
+							}}
+							exit={{ opacity: 0, scale: 0.6, transition: { duration: 0.12 } }}
+							className="text-textSecondary hover:text-textPrimary absolute -top-3 -right-3 z-10 size-7 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.8)] ring-1 ring-white/10 [&_svg:not([class*='size-'])]:size-3.5"
+						>
+							<Cancel01Icon ref={closeRef} />
+						</MotionButton>
+					)}
+				</AnimatePresence>
 			</div>
 		</>
 	);

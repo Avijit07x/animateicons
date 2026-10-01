@@ -4,7 +4,7 @@ import { fetchStars } from "@/lib/github/stars";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import CopyAsMenu from "./CopyAsMenu";
+import InstallCommand from "./InstallCommand";
 import SearchBar from "./SearchBar";
 
 const Navbar: React.FC = async () => {
@@ -32,20 +32,15 @@ const Navbar: React.FC = async () => {
 
 				<span
 					aria-hidden="true"
-					className="bg-border/60 hidden h-6 w-px lg:block"
+					className="bg-border/60 hidden h-6 w-px xl:block"
 				/>
 
-				<div className="hidden lg:block">
-					<CopyAsMenu />
+				<div className="hidden xl:block">
+					<InstallCommand />
 				</div>
 
-				<span
-					aria-hidden="true"
-					className="bg-border/60 ml-auto hidden h-6 w-px lg:block"
-				/>
-
-				<div className="flex items-center gap-1 text-sm max-lg:ml-auto">
-					<NavbarActions stars={stars} />
+				<div className="ml-auto flex items-center gap-1 text-sm">
+					<NavbarActions stars={stars} separated />
 				</div>
 			</div>
 		</div>
