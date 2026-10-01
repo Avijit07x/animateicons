@@ -16,7 +16,7 @@ const InUse: React.FC = () => (
 			<h2 className="text-textPrimary text-3xl font-semibold tracking-tight sm:text-4xl">
 				Made for real interfaces<span className="text-primary">.</span>
 			</h2>
-			<p className="text-textSecondary mx-auto mt-3.5 max-w-xl leading-relaxed">
+			<p className="text-textSecondary mx-auto mt-3.5 max-w-xl leading-relaxed max-sm:text-[15px]">
 				Drop them into the toolbars, players and carts you already build.
 			</p>
 
@@ -24,7 +24,7 @@ const InUse: React.FC = () => (
 				{TILES.map(({ label, Demo }) => (
 					<div
 						key={label}
-						className="bg-surface flex h-64 flex-col items-center justify-between rounded-3xl p-6"
+						className="bg-surface flex h-56 flex-col items-center justify-between rounded-3xl p-5 sm:h-64 sm:p-6"
 					>
 						<div className="grid w-full flex-1 place-items-center">
 							<Demo />

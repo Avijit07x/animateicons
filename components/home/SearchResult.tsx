@@ -48,13 +48,13 @@ const SearchResult = memo(function SearchResult({ entry, index }: Props) {
 			prefetch={false}
 			title={entry.name}
 			style={{ animationDelay: `${index * STAGGER_MS}ms` } as CSSProperties}
-			className="group animate-in fade-in zoom-in-50 fill-mode-backwards flex w-24 flex-col items-center gap-2.5 duration-500"
+			className="group animate-in fade-in zoom-in-50 fill-mode-backwards flex w-22 flex-col items-center gap-2.5 duration-500 sm:w-24"
 		>
 			<HoverIcon
 				Icon={Icon}
 				size={34}
 				iconRef={playOnArrival}
-				className="bg-surfaceElevated hover:bg-primary size-23 rounded-full hover:text-white"
+				className="bg-surfaceElevated hover:bg-primary size-20 rounded-full hover:text-white sm:size-23 max-sm:[&_svg]:size-[30px]"
 			/>
 			<span className="text-textMuted group-hover:text-textPrimary w-full truncate text-xs transition-colors">
 				{entry.name}

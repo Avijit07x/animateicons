@@ -52,7 +52,7 @@ const PickerButton: React.FC<
 			aria-pressed={selected}
 			{...hoverProps}
 			className={cn(
-				"grid size-13 place-items-center rounded-full transition-colors",
+				"grid size-11 place-items-center rounded-full transition-colors sm:size-13",
 				selected
 					? "bg-primary/15 text-primary"
 					: "text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary",

@@ -20,23 +20,24 @@ const FooterCta: React.FC = () => (
 			/>
 		</div>
 
-		<div className="relative z-10 mx-auto flex min-h-[420px] max-w-7xl flex-col items-center justify-center px-6 py-16 text-center lg:py-24">
+		<div className="relative z-10 mx-auto flex min-h-[420px] max-w-7xl flex-col items-center justify-center px-6 py-16 text-center max-sm:min-h-0 lg:py-24">
 			<h2 className="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
 				<span className="text-textPrimary">Make every icon </span>
 				<span className="text-primary">move.</span>
 			</h2>
-			<p className="text-textSecondary mt-4 max-w-md text-sm leading-relaxed sm:text-base">
+			<p className="text-textSecondary mt-4 max-w-md text-sm leading-relaxed max-sm:text-[15px] sm:text-base">
 				{ICON_COUNTS.total} open-source animated SVG icons for React. One motion
 				system, two libraries.
 			</p>
 
-			<div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+			<div className="mt-9 flex flex-wrap items-center justify-center gap-3 max-sm:w-full max-sm:max-w-74 max-sm:flex-col">
 				<IconLink
 					href="/icons/lucide"
 					prefetch={false}
 					icon={ArrowRight02Icon}
 					variant="default"
 					size="pill"
+					className="max-sm:w-full"
 				>
 					Browse {ICON_COUNTS.total} icons
 				</IconLink>
@@ -47,6 +48,7 @@ const FooterCta: React.FC = () => (
 					icon={ArrowUpRight01Icon}
 					variant="secondary"
 					size="pill"
+					className="max-sm:w-full"
 				>
 					Star on GitHub
 				</IconLink>

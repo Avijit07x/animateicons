@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
 			<div className="relative mx-auto max-w-7xl px-6 text-center">
 				<nav
 					aria-label="Footer"
-					className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+					className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 sm:gap-x-8"
 				>
 					{LINKS.map((link) =>
 						link.external ? (

@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
 
 				<motion.p
 					variants={item}
-					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance sm:text-base"
+					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance max-sm:text-[15px] sm:text-base"
 				>
 					{ICON_COUNTS.total} open-source animated SVG icons for React, in
 					Lucide and Huge styles. Drop-in components that animate on hover,
@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
 					onMouseLeave={() => copyRef.current?.stopAnimation()}
 					variants={item}
 					aria-label="Copy install command"
-					className="group bg-surfaceElevated focus-visible:ring-primary/40 hover:bg-surfaceActive flex max-w-full cursor-pointer items-center gap-4 rounded-full py-2.5 pr-4 pl-5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 active:scale-[0.98]"
+					className="group bg-surfaceElevated focus-visible:ring-primary/40 hover:bg-surfaceActive flex max-w-full cursor-pointer items-center gap-4 rounded-full py-2.5 pr-4 pl-5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 active:scale-[0.98] max-sm:w-full max-sm:max-w-74 max-sm:justify-between"
 				>
 					<code className="text-textPrimary font-mono text-sm">
 						<span className="text-textMuted select-none">$ </span>
@@ -107,7 +107,7 @@ const HeroSection: React.FC = () => {
 
 				<motion.div
 					variants={item}
-					className="flex flex-wrap items-center justify-center gap-3"
+					className="flex flex-wrap items-center justify-center gap-3 max-sm:w-full max-sm:max-w-74 max-sm:flex-col"
 				>
 					<IconLink
 						href="/icons/lucide"
@@ -115,6 +115,7 @@ const HeroSection: React.FC = () => {
 						icon={ArrowRight02Icon}
 						variant="default"
 						size="pill"
+						className="max-sm:w-full"
 					>
 						Browse {ICON_COUNTS.total} icons
 					</IconLink>
@@ -123,6 +124,7 @@ const HeroSection: React.FC = () => {
 						icon={ArrowUpRight01Icon}
 						variant="secondary"
 						size="pill"
+						className="max-sm:w-full"
 					>
 						Documentation
 					</IconLink>
