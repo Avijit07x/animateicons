@@ -1,5 +1,22 @@
 # @animateicons/react
 
+## 0.9.0
+
+### Minor Changes
+
+- Added 24 animated Huge icons, bringing the `huge` subpath from 439 to 463 icons and the package to 1132. They arrive as whole families with their opposites and directional variants:
+  - Layout: `Layout02Icon` to `Layout07Icon`, `LayoutAlignBottomIcon`, `LayoutAlignLeftIcon`, `LayoutAlignRightIcon`, `LayoutAlignTopIcon`, `LayoutDashboardIcon`, `LayoutGridIcon`, `LayoutListIcon`, `LayoutPanelLeftIcon`, `LayoutPanelTopIcon`, `LayoutTemplateIcon`, `LayoutThreeColumnIcon`, `LayoutThreeRowIcon`, `LayoutTwoColumnIcon` and `LayoutTwoRowIcon`.
+  - Coffee: `Coffee01Icon`, `Coffee02Icon`, `Coffee03Icon` and `CoffeeBeansIcon`.
+- Reworked the hover animation of 52 Lucide icons. Motion is still a single eased pass that starts and ends at rest, now with larger and more readable movement:
+  - `ChevronUpIcon`, `ChevronDownIcon`, `ChevronLeftIcon` and `ChevronRightIcon` give one clear nudge in their direction.
+  - The `File*` family (22 icons, from `FileIcon` to `FileXIcon`) now moves as one: the page flips over once, and each icon's own mark keeps its meaning.
+  - The `MessageCircle*` and `MessageSquare*` icons (8 icons) squash and pop back, while the mark inside (plus, cross, dots or text) moves on its own.
+  - `MoveDiagonalIcon`, `MoveDiagonal2Icon`, `MoveHorizontalIcon` and `MoveVerticalIcon` slide out along their axis and back.
+  - `RocketIcon` launches off one corner and comes back in from the opposite one. `PaperclipIcon` swings from its clip, and `LayersIcon`, `VideoIcon`, `GamepadIcon`, `HeadphonesIcon`, `HeadsetIcon`, `LaptopIcon`, `MapPinIcon`, `ClipboardIcon`, `CloudCheckIcon`, `BoxIcon`, `BatteryFullIcon` and `AudioWaveformIcon` were refined the same way.
+- Reworked the hover animation of 4 Huge icons. `Layers01Icon` and `Rocket01Icon` now match their Lucide versions, `StarIcon` has a softer wiggle, and `ToggleOnIcon` keeps its track still while the knob moves.
+- Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+- The `huge` barrel is now about 119 kB brotlied, close to the 120 kB budget, and the `lucide` barrel is about 93 kB. Single icons and small sets are unaffected because every icon is its own module.
+
 ## 0.8.0
 
 ### Minor Changes
