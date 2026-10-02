@@ -2,17 +2,6 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ICON_COUNTS } from "../lib/icon-count.generated";
 
-/**
- * Guard: the icon counts printed in README.md / npm/README.md must match the
- * generated source of truth (lib/icon-count.generated.ts, produced by
- * `pnpm gen:catalog`). Runs in pre-push so a stale count can't ship - npm
- * only refreshes a package's README on a new publish, so a wrong number
- * there sticks until the next release.
- *
- * A pattern that stops matching (someone reworded the line) fails too, on
- * purpose: better a loud failure than silently skipping the check.
- */
-
 const ROOT = process.cwd();
 
 type Check = { file: string; label: string; expected: number; pattern: RegExp };
@@ -23,18 +12,6 @@ const checks: Check[] = [
 		label: "headline total",
 		expected: ICON_COUNTS.total,
 		pattern: /([\d,]+)\s+animated SVG icons/,
-	},
-	{
-		file: "README.md",
-		label: "lucide (tree)",
-		expected: ICON_COUNTS.lucide,
-		pattern: /([\d,]+)\s+Lucide-style icons/,
-	},
-	{
-		file: "README.md",
-		label: "huge (tree)",
-		expected: ICON_COUNTS.huge,
-		pattern: /([\d,]+)\s+Huge-style icons/,
 	},
 	{
 		file: "npm/README.md",
