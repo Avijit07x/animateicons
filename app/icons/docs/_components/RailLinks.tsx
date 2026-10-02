@@ -1,7 +1,7 @@
 "use client";
 
 import { GitHub } from "@/components/icons/Github";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { Bug01Icon } from "@/icons/huge/bug-0-1-icon";
 import { Edit02Icon } from "@/icons/huge/edit-0-2-icon";
 import { Linkedin01Icon } from "@/icons/huge/linkedin-0-1-icon";
@@ -26,14 +26,14 @@ const RailLink: React.FC<{
 	icon: RailIcon;
 	children: React.ReactNode;
 }> = ({ href, icon: Icon, children }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 
 	return (
 		<Link
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
-			{...hoverProps}
+			{...triggerProps}
 			className="text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary flex items-center gap-2.5 rounded-full px-3 py-2 transition-colors"
 		>
 			<Icon ref={ref} size={16} />
@@ -47,7 +47,7 @@ const SocialLink: React.FC<{
 	label: string;
 	icon: RailIcon;
 }> = ({ href, label, icon: Icon }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 
 	return (
 		<Link
@@ -55,7 +55,7 @@ const SocialLink: React.FC<{
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label={label}
-			{...hoverProps}
+			{...triggerProps}
 			className="text-textMuted hover:bg-surfaceElevated hover:text-textPrimary flex size-9 items-center justify-center rounded-full transition-colors"
 		>
 			<Icon ref={ref} size={16} />
@@ -65,7 +65,7 @@ const SocialLink: React.FC<{
 
 const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 	const pathname = usePathname();
-	const { ref: starRef, hoverProps: starHoverProps } = useIconHover();
+	const { ref: starRef, triggerProps: starHoverProps } = useIconHover();
 
 	return (
 		<div className="space-y-6 text-[13px]">

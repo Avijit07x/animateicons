@@ -8,8 +8,8 @@ import PreviewActions from "@/app/icons/_components/playground/PreviewActions";
 import { buildUsageSnippet } from "@/app/icons/_components/playground/snippet";
 import { useIconConfig } from "@/app/icons/_components/playground/useIconConfig";
 import { useDistribution } from "@/app/icons/_contexts/DistributionContext";
-import type { IconHandle } from "@/types/icon";
-import { useEffect, useMemo, useRef } from "react";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
+import { useEffect, useMemo } from "react";
 
 type Props = {
 	Icon: React.ElementType;
@@ -32,7 +32,7 @@ const IconDetailPlayground: React.FC<Props> = ({
 }) => {
 	const { config, update, reset, isDefault } = useIconConfig();
 	const { distribution } = useDistribution();
-	const iconRef = useRef<IconHandle | null>(null);
+	const { ref: iconRef, triggerProps } = useIconHover();
 
 	const snippet = useMemo(
 		() => buildUsageSnippet(distribution, library, name, componentName, config),
@@ -42,7 +42,7 @@ const IconDetailPlayground: React.FC<Props> = ({
 	useEffect(() => {
 		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
 		return () => window.clearTimeout(t);
-	}, []);
+	}, [iconRef]);
 
 	return (
 		<div className="grid gap-6 lg:grid-cols-2">
@@ -55,6 +55,7 @@ const IconDetailPlayground: React.FC<Props> = ({
 							componentName={componentName}
 							config={config}
 							iconRef={iconRef}
+							triggerProps={triggerProps}
 							hint={false}
 							className="min-h-60 flex-1"
 						/>

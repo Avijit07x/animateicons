@@ -20,7 +20,7 @@ const baseUrl = "https://animateicons.in";
  * canonical `description`, OG, and Twitter cards so we don't drift into
  * three slightly-different strings (the previous setup did exactly that).
  */
-const SITE_DESCRIPTION = `${ICON_COUNTS.total}+ free, open-source animated SVG icons for React, built on Lucide and Motion. Add them with the shadcn CLI or npm, and make them move on hover, focus, or with your code.`;
+const SITE_DESCRIPTION = `${ICON_COUNTS.total}+ free, open-source, hand-crafted animated SVG icons for React, built on Lucide and Motion. Add them with the shadcn CLI or npm, and make them move on hover, focus, or with your code.`;
 
 const SITE_TITLE = `AnimateIcons | ${ICON_COUNTS.total}+ Free Animated React Icons`;
 
@@ -54,6 +54,10 @@ export const metadata: Metadata = {
 		"animated icon library",
 		"animated svg icons",
 		"animated react icons",
+		"hand-crafted animated icons",
+		"handmade animated icons",
+		"free animated icons",
+		"animated hover icons",
 		"react icon library",
 		"motion react icons",
 		"shadcn icons",

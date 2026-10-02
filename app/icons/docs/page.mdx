@@ -20,6 +20,9 @@ export default function Example() {
 	return <EyeIcon size={24} color="#f45b48" />
 }`;
 
+export const nextImportCode = `import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon"
+import { HeartIcon } from "@animateicons/react/huge/heart-icon"`;
+
 # Installation
 
 Pick whichever path fits your setup. They all ship the same icons and the same API. The difference is whether you depend on the package or copy the source into your project.
@@ -51,6 +54,14 @@ Lucide and Huge are exposed as scoped subpaths because some icon names overlap (
 	Icons animate on hover out of the box, no extra wiring. Pass `size`, `color`,
 	or any prop to customize.
 </Callout>
+
+#### Next.js App Router
+
+Import each icon from its own file. Importing from the main package loads every icon: 918 kB of client JavaScript, compared with 71 kB for one icon.
+
+<CodeBlock code={nextImportCode} title="Example.tsx" />
+
+The path is the icon's file name, so `BellRingIcon` becomes `bell-ring-icon`. These paths only work with ESM imports. If you use `require()`, import from the main package.
 
 </section>
 

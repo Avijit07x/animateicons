@@ -5,8 +5,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
+import type { IconTriggerProps } from "@/npm/src/lib/use-icon-hover";
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -14,7 +13,7 @@ import Link from "next/link";
 type BaseProps = {
 	tooltip: string;
 	ariaLabel: string;
-	iconRef: React.RefObject<IconHandle | null>;
+	triggerProps: IconTriggerProps;
 	children: React.ReactNode;
 };
 
@@ -44,12 +43,7 @@ const actionItemVariants: Variants = {
 };
 
 const IconAction: React.FC<Props> = (props) => {
-	const { tooltip, ariaLabel, iconRef, children } = props;
-
-	const hoverHandlers = {
-		onMouseEnter: (e: React.MouseEvent) => handleHover(e, iconRef),
-		onMouseLeave: (e: React.MouseEvent) => handleHover(e, iconRef),
-	};
+	const { tooltip, ariaLabel, triggerProps, children } = props;
 
 	const trigger =
 		props.as === "link" ? (
@@ -59,7 +53,7 @@ const IconAction: React.FC<Props> = (props) => {
 				rel="noopener noreferrer"
 				aria-label={ariaLabel}
 				className={TRIGGER_CLASS}
-				{...hoverHandlers}
+				{...triggerProps}
 			>
 				{children}
 			</Link>
@@ -69,7 +63,7 @@ const IconAction: React.FC<Props> = (props) => {
 				onClick={props.onClick}
 				aria-label={ariaLabel}
 				className={TRIGGER_CLASS}
-				{...hoverHandlers}
+				{...triggerProps}
 			>
 				{children}
 			</button>

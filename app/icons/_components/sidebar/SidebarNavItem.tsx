@@ -1,7 +1,7 @@
 "use client";
 
 import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import type { ComponentType } from "react";
@@ -20,7 +20,7 @@ const SidebarNavItem: React.FC<Props> = ({
 	LibraryIcon,
 	newCount = 0,
 }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 	const Icon = item.icon;
 	const external = item.target === "_blank";
 
@@ -55,7 +55,7 @@ const SidebarNavItem: React.FC<Props> = ({
 				variant="dark"
 				isActive={isActive}
 				className="h-9 gap-2.5 px-3 text-[13px]"
-				{...hoverProps}
+				{...triggerProps}
 			>
 				<Link
 					href={item.href ?? "#"}

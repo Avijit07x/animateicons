@@ -1,6 +1,6 @@
 "use client";
 
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { ChevronLeftIcon } from "@/icons/huge/chevron-left-icon";
 import { ChevronRightIcon } from "@/icons/huge/chevron-right-icon";
 import { cn } from "@/lib/utils";
@@ -17,14 +17,14 @@ const PagerCard: React.FC<{
 	dir: Dir;
 	fallback?: boolean;
 }> = ({ page, dir, fallback }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 	const Chevron = dir === "prev" ? ChevronLeftIcon : ChevronRightIcon;
 	const caption = fallback ? "Explore" : dir === "prev" ? "Previous" : "Next";
 
 	return (
 		<Link
 			href={page.href}
-			{...hoverProps}
+			{...triggerProps}
 			className={cn(
 				"bg-surface hover:bg-surfaceElevated group flex flex-col gap-1 rounded-3xl px-5 py-4 transition-colors",
 				dir === "prev" ? "items-start" : "items-end text-right",

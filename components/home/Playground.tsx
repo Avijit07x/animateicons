@@ -3,7 +3,7 @@
 import ColorSwatches from "@/components/ColorSwatches";
 import IconButton from "@/components/IconButton";
 import RangeSlider, { type Bounds } from "@/components/RangeSlider";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { useIconLoop } from "@/hooks/useIconLoop";
 import { PlayIcon } from "@/icons/huge/play-icon";
 import { Refresh01Icon } from "@/icons/huge/refresh-0-1-icon";
@@ -42,7 +42,7 @@ type PlaygroundIcon = (typeof PLAYGROUND_ICONS)[number];
 const PickerButton: React.FC<
 	PlaygroundIcon & { selected: boolean; onSelect: () => void }
 > = ({ name, Icon, selected, onSelect }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 
 	return (
 		<button
@@ -50,7 +50,7 @@ const PickerButton: React.FC<
 			onClick={onSelect}
 			aria-label={name}
 			aria-pressed={selected}
-			{...hoverProps}
+			{...triggerProps}
 			className={cn(
 				"grid size-11 place-items-center rounded-full transition-colors sm:size-13",
 				selected

@@ -2,7 +2,6 @@
 
 import type { IconSearchEntry } from "@/lib/icon-search";
 import type { IconHandle } from "@/types/icon";
-import Link from "next/link";
 import {
 	memo,
 	useCallback,
@@ -43,9 +42,7 @@ const SearchResult = memo(function SearchResult({ entry, index }: Props) {
 	);
 
 	return (
-		<Link
-			href={`/icons/${entry.library}/${entry.name}`}
-			prefetch={false}
+		<div
 			title={entry.name}
 			style={{ animationDelay: `${index * STAGGER_MS}ms` } as CSSProperties}
 			className="group animate-in fade-in zoom-in-50 fill-mode-backwards flex w-22 flex-col items-center gap-2.5 duration-500 sm:w-24"
@@ -59,7 +56,7 @@ const SearchResult = memo(function SearchResult({ entry, index }: Props) {
 			<span className="text-textMuted group-hover:text-textPrimary w-full truncate text-xs transition-colors">
 				{entry.name}
 			</span>
-		</Link>
+		</div>
 	);
 });
 

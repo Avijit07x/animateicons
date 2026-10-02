@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { ArrowLeft02Icon } from "@/icons/huge/arrow-left-0-2-icon";
 import { useRouter } from "next/navigation";
 
 const BackButton = () => {
 	const router = useRouter();
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 
 	return (
 		<Button
@@ -16,7 +16,7 @@ const BackButton = () => {
 			size="icon"
 			aria-label="Go back"
 			onClick={() => router.back()}
-			{...hoverProps}
+			{...triggerProps}
 		>
 			<ArrowLeft02Icon ref={ref} />
 		</Button>

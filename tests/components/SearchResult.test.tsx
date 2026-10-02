@@ -30,14 +30,12 @@ describe("SearchResult", () => {
 		vi.useRealTimers();
 	});
 
-	it("links to the icon's page and shows its name", () => {
-		const { getByRole, getByText } = render(
+	it("shows the icon's name and is not a link", () => {
+		const { getByText, queryByRole } = render(
 			<SearchResult entry={entry} index={0} />,
 		);
-		expect(getByRole("link").getAttribute("href")).toBe(
-			"/icons/huge/fake-icon",
-		);
 		expect(getByText("fake-icon")).toBeTruthy();
+		expect(queryByRole("link")).toBeNull();
 	});
 
 	it("plays the icon once, shortly after it arrives", () => {
