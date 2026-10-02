@@ -46,53 +46,30 @@ export default function Demo() {
 
 The icon animates on hover by default.
 
-## Bundle size
+## Hover, click or both
 
-Each icon is published as its own module, so bundlers drop the ones you
-don't import. Importing from the barrel is enough for Vite, Rollup, esbuild
-and webpack.
-
-**Next.js App Router is the exception.** The `lucide` / `huge` barrels carry
-the `"use client"` directive, which makes them a client boundary Next cannot
-tree-shake through - a barrel import pulls in the whole set. Import the icon
-directly instead:
-
-```tsx
-import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon";
-import { HeartIcon } from "@animateicons/react/huge/heart-icon";
-```
-
-The subpath is the icon's file name: `BellRingIcon` -> `bell-ring-icon`.
-Measured in a Next 16 production build, for one icon: 918 kB -> 71 kB of
-client JS (91 kB -> 24 kB gzipped).
-
-Deep subpaths are ESM-only. `require()` consumers should use the barrel.
-
-## Imperative API
-
-Trigger animation from a parent via ref:
+Every icon has `startAnimation()` and `stopAnimation()`. `useIconHover` calls them for you when a user hovers or clicks:
 
 ```tsx
 "use client";
-import { useRef } from "react";
-import {
-	BellRingIcon,
-	type BellRingIconHandle,
-} from "@animateicons/react/lucide";
+import { useIconHover } from "@animateicons/react";
+import { BellRingIcon } from "@animateicons/react/lucide";
 
 export default function Bell() {
-	const ref = useRef<BellRingIconHandle>(null);
+	const { ref, triggerProps } = useIconHover(); // hover (default)
+	// const { ref, triggerProps } = useIconHover({ trigger: "click" }); // click only
+	// const { ref, triggerProps } = useIconHover({ trigger: "both" }); // hover and click
+	// const { icon: { bell, bookmark }, trigger } = useIconHover({ trigger: [{ icon: "bell", trigger: "click" }, { icon: "bookmark", trigger: "hover" }] }); // multiple icons: <Icon {...bell} />, <Icon {...bookmark} />
 
 	return (
-		<button
-			onMouseEnter={() => ref.current?.startAnimation()}
-			onMouseLeave={() => ref.current?.stopAnimation()}
-		>
+		<button {...triggerProps}>
 			<BellRingIcon ref={ref} size={28} />
 		</button>
 	);
 }
 ```
+
+More examples in the [hover helper docs](https://animateicons.in/icons/docs/examples/hover-helper).
 
 ## Props
 
@@ -107,3 +84,5 @@ export default function Bell() {
 ## License
 
 MIT © [Avijit Dey](https://github.com/Avijit07x)
+
+Icon shapes are based on [Lucide](https://lucide.dev) and [Hugeicons](https://hugeicons.com), see the [third-party notices](./THIRD_PARTY_NOTICES.md).

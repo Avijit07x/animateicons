@@ -1,20 +1,3 @@
-/**
- * Codegen integrity test.
- *
- * generate-exports.mjs uses regexes to find component / handle exports
- * inside each icon source file. If a future icon ever uses a non-matching
- * declaration shape (default export, unusual type annotation, etc.) it
- * gets silently dropped from the barrel. That's a class of bug the
- * smoke test (which only checks a handful of named exports) can't catch.
- *
- * This test asserts the count invariant directly:
- *   number of *-icon.tsx files in icons/<lib>/  ===
- *   number of `export { *Icon }` lines in src/<lib>.ts
- *
- * Run with:  node --test __tests__/generate-exports.test.mjs
- * Wired into `verify`.
- */
-
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
@@ -32,21 +15,17 @@ const ICONS_DIRS = {
 
 const SRC = path.join(PKG_ROOT, "src");
 
-/** Count `*-icon.tsx` files in a library directory. */
 const countIconFiles = async (dir) => {
 	const files = await fs.readdir(dir);
 	return files.filter((f) => f.endsWith("-icon.tsx")).length;
 };
 
-/** Count `export { XxxIcon } from "..."` lines in a generated barrel. */
 const countBarrelExports = async (file) => {
 	const source = await fs.readFile(file, "utf8");
 	const matches = source.match(/^export\s*\{\s*[A-Z][A-Za-z0-9]*Icon\s*\}/gm);
 	return matches ? matches.length : 0;
 };
 
-/** Count `// SKIP ...` markers - generate-exports emits these when the
- *  regex couldn't pick up a component name. Should always be zero. */
 const countSkippedIcons = async (file) => {
 	const source = await fs.readFile(file, "utf8");
 	const matches = source.match(/^\/\/ SKIP\s/gm);
@@ -102,4 +81,19 @@ test("top-level index re-exports IconHandle type", async () => {
 		/export\s+type\s*\{\s*IconHandle\s*\}/,
 		"src/index.ts must re-export IconHandle",
 	);
+});
+
+test("top-level index exports the useIconHover hook", async () => {
+	const source = await fs.readFile(path.join(SRC, "index.ts"), "utf8");
+	assert.match(
+		source,
+		/export\s*\{\s*useIconHover\s*\}\s*from\s*"\.\/lib\/use-icon-hover"/,
+		"src/index.ts must export useIconHover",
+	);
+	assert.match(
+		source,
+		/export\s+type\s*\{\s*IconConfig,\s*IconTrigger\s*\}\s*from\s*"\.\/lib\/use-icon-hover"/,
+		"src/index.ts must export the IconConfig and IconTrigger types",
+	);
+	await fs.access(path.join(SRC, "lib", "use-icon-hover.ts"));
 });

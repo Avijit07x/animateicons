@@ -1,17 +1,3 @@
-/**
- * Smoke test against the BUILT package output.
- *
- * Why a separate test from Vitest: this verifies the actual
- * publish artifact (`dist/`), not the source. Catches things
- * `tsc` won't, like:
- *   - tsup dropping an icon during tree-shaking analysis
- *   - "use client" banner stripping breaking React Server Components
- *   - dual-package hazard if ESM + CJS resolve to different copies
- *
- * Run with:  node --test __tests__/consume.test.mjs
- * Requires:  pnpm build  (i.e. dist/ must exist)
- */
-
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
@@ -118,13 +104,67 @@ test("expected icon counts: lucide ≥ 248, huge ≥ 33", async () => {
 	);
 });
 
-test("top-level types-only entry exports IconHandle type", async () => {
+test("top-level entry exports IconHandle type", async () => {
 	const dts = await fs.readFile(path.join(DIST, "index.d.ts"), "utf8");
 	assert.match(
 		dts,
 		/IconHandle/,
 		"index.d.ts should re-export IconHandle type",
 	);
+});
+
+test("top-level entry exports the useIconHover hook in ESM and CJS", async () => {
+	const esm = await import(path.join(DIST, "index.js"));
+	const cjs = require(path.join(DIST, "index.cjs"));
+	assert.equal(
+		typeof esm.useIconHover,
+		"function",
+		"dist/index.js is missing useIconHover",
+	);
+	assert.equal(
+		typeof cjs.useIconHover,
+		"function",
+		"dist/index.cjs is missing useIconHover",
+	);
+});
+
+test("third-party notices ship with the package and match the repo copy", async () => {
+	const pkg = JSON.parse(
+		await fs.readFile(path.join(PKG_ROOT, "package.json"), "utf8"),
+	);
+	assert.ok(
+		pkg.files.includes("THIRD_PARTY_NOTICES.md"),
+		"package.json files must list THIRD_PARTY_NOTICES.md",
+	);
+	const shipped = await fs.readFile(
+		path.join(PKG_ROOT, "THIRD_PARTY_NOTICES.md"),
+		"utf8",
+	);
+	const repo = await fs.readFile(
+		path.join(PKG_ROOT, "..", "THIRD_PARTY_NOTICES.md"),
+		"utf8",
+	);
+	assert.equal(
+		shipped,
+		repo,
+		"npm/THIRD_PARTY_NOTICES.md drifted from the root copy",
+	);
+	for (const holder of [
+		"Lucide Icons and Contributors",
+		"Cole Bemis",
+		"Hugeicons",
+	]) {
+		assert.match(shipped, new RegExp(`Copyright \\(c\\) .*${holder}`));
+	}
+});
+
+test("index.d.ts declares useIconHover, IconConfig and IconTrigger", async () => {
+	for (const file of ["index.d.ts", "index.d.cts"]) {
+		const dts = await fs.readFile(path.join(DIST, file), "utf8");
+		assert.match(dts, /useIconHover/, `${file} should declare useIconHover`);
+		assert.match(dts, /IconTrigger/, `${file} should declare IconTrigger`);
+		assert.match(dts, /IconConfig/, `${file} should declare IconConfig`);
+	}
 });
 
 test("subpath .d.ts files re-export their handle types", async () => {

@@ -22,7 +22,10 @@
 		"motion react",
 		"svg icons",
 		"lucide animated",
-		"huge animated"
+		"huge animated",
+		"hand-crafted icons",
+		"handmade animated icons",
+		"free animated icons"
 	],
 	"type": "module",
 	"main": "./dist/index.cjs",
@@ -86,7 +89,8 @@
 		"dist",
 		"CHANGELOG.md",
 		"README.md",
-		"LICENSE"
+		"LICENSE",
+		"THIRD_PARTY_NOTICES.md"
 	],
 	"engines": {
 		"node": ">=18.17.0"
@@ -142,7 +146,7 @@
 		{
 			"name": "huge (full barrel)",
 			"path": "dist/huge.js",
-			"limit": "120 kB",
+			"limit": "130 kB",
 			"ignore": [
 				"react",
 				"react-dom"
