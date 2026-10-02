@@ -1,5 +1,17 @@
 # @animateicons/react
 
+## 0.10.0
+
+### Minor Changes
+
+- Added the `useIconHover` hook. It plays an icon when a user hovers or clicks the button, link or card around it, so you no longer write the mouse handlers yourself:
+  - `const { ref, triggerProps } = useIconHover()` for one icon. Pass `{ trigger: "click" }` or `{ trigger: "both" }` to change when it plays. Put `ref` on the icon and spread `triggerProps` on the element.
+  - `const { icon, trigger } = useIconHover({ trigger: [{ icon: "bell", trigger: "click" }, ...] })` for several icons in one component. Spread `{...icon.bell}` on each icon and `{...trigger}` on each element. Each element plays only the icons inside it.
+  - `IconTrigger` and `IconConfig` are exported as types.
+- Stopped the Huge `BookmarkIcon`, `BookmarkCheckIcon`, `BookmarkMinusIcon` and `BookmarkRemoveIcon` from clipping their animation at the edge of the icon.
+- The package now ships `THIRD_PARTY_NOTICES.md` for the Lucide and Hugeicons shapes.
+- Component names, props and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+
 ## 0.9.0
 
 ### Minor Changes
