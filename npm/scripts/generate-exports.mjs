@@ -1,9 +1,3 @@
-/**
- * Plain-Node mirror of generate-exports.ts. Keep them in sync - the .ts
- * version is the canonical source. This exists only so the script can
- * run on hosts that don't have a working tsx/esbuild for this platform.
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -48,8 +42,6 @@ const isCanonical = (icon) => {
 	return icon.handleName === `${icon.componentName}Handle`;
 };
 
-// Icons renamed to match lucide's canonical names. Their previous export
-// names are re-exported as aliases so existing consumers don't break.
 const DEPRECATED_ALIASES = {
 	LogInIcon: "LoginIcon",
 	LogOutIcon: "LogoutIcon",
@@ -97,7 +89,7 @@ const buildBarrel = (library, icons) => {
 const buildIndex = (counts) =>
 	[
 		HEADER,
-		"// Top-level entry - types-only.",
+		"// Top-level entry - the IconHandle type and the useIconHover hook (with its IconConfig and IconTrigger types).",
 		"// Lucide and Huge libraries share several icon names",
 		"// (HeartIcon, CopyIcon, etc.), so per-icon imports must come",
 		"// from the scoped subpath:",
@@ -108,6 +100,8 @@ const buildIndex = (counts) =>
 		`// Lucide: ${counts.lucide} icons. Huge: ${counts.huge} icons.`,
 		"",
 		'export type { IconHandle } from "./lib/icon-handle";',
+		'export { useIconHover } from "./lib/use-icon-hover";',
+		'export type { IconConfig, IconTrigger } from "./lib/use-icon-hover";',
 		"",
 	].join("\n");
 
