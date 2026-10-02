@@ -1,10 +1,5 @@
 "use client";
 
-/**
- * Live recipes for the Examples page: AnimateIcons dropped into real shadcn/ui
- * components, played on interaction via the imperative ref API + handleHover.
- */
-
 import { Button } from "@/components/ui/button";
 import {
 	InputGroup,
@@ -27,15 +22,14 @@ import { Settings01Icon } from "@/icons/huge/settings-0-1-icon";
 import { SparklesIcon } from "@/icons/huge/sparkles-icon";
 import { UserIcon } from "@/icons/huge/user-icon";
 import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
 import { useRef } from "react";
 
 export function ButtonDemo() {
 	const ref = useRef<IconHandle>(null);
 	return (
 		<Button
-			onMouseEnter={(e) => handleHover(e, ref)}
-			onMouseLeave={(e) => handleHover(e, ref)}
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
 		>
 			<DownloadIcon ref={ref} size={16} />
 			Download
@@ -64,8 +58,8 @@ export function CardDemo() {
 	const ref = useRef<IconHandle>(null);
 	return (
 		<div
-			onMouseEnter={(e) => handleHover(e, ref)}
-			onMouseLeave={(e) => handleHover(e, ref)}
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
 			className="bg-surface w-full max-w-xs rounded-3xl p-5"
 		>
 			<div className="bg-primary/10 text-primary mb-3 flex size-11 items-center justify-center rounded-full">
@@ -92,8 +86,8 @@ export function TooltipDemo() {
 						variant="secondary"
 						size="icon"
 						aria-label="Delete"
-						onMouseEnter={(e) => handleHover(e, ref)}
-						onMouseLeave={(e) => handleHover(e, ref)}
+						onMouseEnter={() => ref.current?.startAnimation()}
+						onMouseLeave={() => ref.current?.stopAnimation()}
 					>
 						<Delete02Icon ref={ref} size={16} />
 					</Button>
@@ -117,8 +111,8 @@ export function MenuDemo() {
 			<button
 				type="button"
 				className={item}
-				onMouseEnter={(e) => handleHover(e, profile)}
-				onMouseLeave={(e) => handleHover(e, profile)}
+				onMouseEnter={() => profile.current?.startAnimation()}
+				onMouseLeave={() => profile.current?.stopAnimation()}
 			>
 				<UserIcon ref={profile} size={16} />
 				Profile
@@ -126,8 +120,8 @@ export function MenuDemo() {
 			<button
 				type="button"
 				className={item}
-				onMouseEnter={(e) => handleHover(e, settings)}
-				onMouseLeave={(e) => handleHover(e, settings)}
+				onMouseEnter={() => settings.current?.startAnimation()}
+				onMouseLeave={() => settings.current?.stopAnimation()}
 			>
 				<Settings01Icon ref={settings} size={16} />
 				Settings
@@ -135,8 +129,8 @@ export function MenuDemo() {
 			<button
 				type="button"
 				className={item}
-				onMouseEnter={(e) => handleHover(e, logout)}
-				onMouseLeave={(e) => handleHover(e, logout)}
+				onMouseEnter={() => logout.current?.startAnimation()}
+				onMouseLeave={() => logout.current?.stopAnimation()}
 			>
 				<Logout01Icon ref={logout} size={16} />
 				Log out
@@ -149,8 +143,8 @@ export function BannerDemo() {
 	const ref = useRef<IconHandle>(null);
 	return (
 		<div
-			onMouseEnter={(e) => handleHover(e, ref)}
-			onMouseLeave={(e) => handleHover(e, ref)}
+			onMouseEnter={() => ref.current?.startAnimation()}
+			onMouseLeave={() => ref.current?.stopAnimation()}
 			className="flex w-full max-w-sm items-center gap-3 rounded-3xl bg-emerald-500/10 px-4 py-3"
 		>
 			<CheckmarkCircle01Icon
@@ -176,8 +170,8 @@ export function NavbarDemo() {
 					variant="ghost"
 					size="icon"
 					aria-label="Notifications"
-					onMouseEnter={(e) => handleHover(e, bell)}
-					onMouseLeave={(e) => handleHover(e, bell)}
+					onMouseEnter={() => bell.current?.startAnimation()}
+					onMouseLeave={() => bell.current?.stopAnimation()}
 				>
 					<NotificationIcon ref={bell} size={18} />
 				</Button>
@@ -185,8 +179,8 @@ export function NavbarDemo() {
 					variant="ghost"
 					size="icon"
 					aria-label="Settings"
-					onMouseEnter={(e) => handleHover(e, settings)}
-					onMouseLeave={(e) => handleHover(e, settings)}
+					onMouseEnter={() => settings.current?.startAnimation()}
+					onMouseLeave={() => settings.current?.stopAnimation()}
 				>
 					<Settings01Icon ref={settings} size={18} />
 				</Button>
@@ -194,8 +188,8 @@ export function NavbarDemo() {
 					variant="ghost"
 					size="icon"
 					aria-label="Account"
-					onMouseEnter={(e) => handleHover(e, user)}
-					onMouseLeave={(e) => handleHover(e, user)}
+					onMouseEnter={() => user.current?.startAnimation()}
+					onMouseLeave={() => user.current?.stopAnimation()}
 				>
 					<UserIcon ref={user} size={18} />
 				</Button>

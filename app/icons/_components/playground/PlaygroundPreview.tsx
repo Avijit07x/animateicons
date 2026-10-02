@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import type { IconTriggerProps } from "@/npm/src/lib/use-icon-hover";
 import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
 import type { IconConfig } from "./useIconConfig";
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
 	componentName: string;
 	config: IconConfig;
 	iconRef: React.RefObject<IconHandle | null>;
+	triggerProps: IconTriggerProps;
 	className?: string;
 	hint?: boolean;
 };
@@ -19,6 +20,7 @@ const PlaygroundPreview: React.FC<Props> = ({
 	componentName,
 	config,
 	iconRef,
+	triggerProps,
 	className,
 	hint = true,
 }) => {
@@ -33,8 +35,7 @@ const PlaygroundPreview: React.FC<Props> = ({
 		<div
 			role="img"
 			aria-label={`${componentName} preview at ${config.size}px`}
-			onMouseEnter={(e) => handleHover(e, iconRef)}
-			onMouseLeave={(e) => handleHover(e, iconRef)}
+			{...triggerProps}
 			className={cn(
 				"bg-surface relative flex h-60 cursor-pointer items-center justify-center overflow-hidden rounded-3xl",
 				className,

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, type buttonVariants } from "@/components/ui/button";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { IconHandle } from "@/types/icon";
 import type { VariantProps } from "class-variance-authority";
 import type { ComponentProps, ComponentType, Ref } from "react";
@@ -27,7 +27,7 @@ const IconButton: React.FC<Props> = ({
 	children,
 	...props
 }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 	const content = (
 		<>
 			<Icon ref={ref} size={iconSize} color={iconColor} />
@@ -37,7 +37,7 @@ const IconButton: React.FC<Props> = ({
 
 	if (!variant) {
 		return (
-			<button type={type} {...hoverProps} {...props}>
+			<button type={type} {...triggerProps} {...props}>
 				{content}
 			</button>
 		);
@@ -48,7 +48,7 @@ const IconButton: React.FC<Props> = ({
 			type={type}
 			variant={variant}
 			size={size}
-			{...hoverProps}
+			{...triggerProps}
 			{...props}
 		>
 			{content}

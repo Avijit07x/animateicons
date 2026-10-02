@@ -2,8 +2,8 @@
 
 import type { IconSearchEntry } from "@/lib/icon-search";
 import { cn } from "@/lib/utils";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
 import { Suspense, useEffect, useRef } from "react";
 
 export type CommandSearchIcon = IconSearchEntry;
@@ -21,7 +21,7 @@ const CommandSearchItem: React.FC<Props> = ({
 	onSelect,
 	onHover,
 }) => {
-	const iconRef = useRef<IconHandle | null>(null);
+	const { ref: iconRef, triggerProps } = useIconHover();
 	const rowRef = useRef<HTMLButtonElement | null>(null);
 	const Icon = item.component as React.ComponentType<{
 		size?: number;
@@ -35,7 +35,7 @@ const CommandSearchItem: React.FC<Props> = ({
 		} else {
 			iconRef.current?.stopAnimation();
 		}
-	}, [isSelected]);
+	}, [isSelected, iconRef]);
 
 	return (
 		<button
@@ -45,9 +45,9 @@ const CommandSearchItem: React.FC<Props> = ({
 			aria-selected={isSelected}
 			onMouseEnter={(e) => {
 				onHover();
-				handleHover(e, iconRef);
+				triggerProps.onMouseEnter?.(e);
 			}}
-			onMouseLeave={(e) => handleHover(e, iconRef)}
+			onMouseLeave={triggerProps.onMouseLeave}
 			onClick={onSelect}
 			className={cn(
 				"text-textPrimary flex w-full items-center gap-3 rounded-full py-1 pr-3 pl-1 text-left transition-colors",

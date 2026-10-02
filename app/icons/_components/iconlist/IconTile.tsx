@@ -1,22 +1,11 @@
 "use client";
 
-/**
- * IconTile
- *
- * SRP: render one AnimateIcons tile in the gallery grid - the animated
- * icon, its name, and the action row. Clicking the cell opens the
- * playground sheet via PlaygroundContext, so users explore without
- * leaving the gallery. Per-icon detail pages still exist at
- * `/icons/<library>/<name>` for SEO / direct shares / OG images, but
- * the gallery itself doesn't link to them - they're crawler-only.
- */
-
 import type { IconFilteredItem } from "@/hooks/useIconFilter";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { cn } from "@/lib/utils";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
 import { iconNameToComponent } from "@/utils/iconNameToComponent";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
@@ -38,7 +27,7 @@ const IconTile: React.FC<Props> = ({
 }) => {
 	const { library, prefix } = useIconLibrary();
 	const { openPlayground } = usePlayground();
-	const iconRef = React.useRef<IconHandle>(null);
+	const { ref: iconRef, triggerProps } = useIconHover();
 	const [hovered, setHovered] = React.useState(false);
 	const [focused, setFocused] = React.useState(false);
 	const revealed = hovered || focused || alwaysShowActions;
@@ -77,7 +66,7 @@ const IconTile: React.FC<Props> = ({
 			}}
 			onMouseEnter={(e) => {
 				setHovered(true);
-				handleHover(e, iconRef);
+				triggerProps.onMouseEnter?.(e);
 			}}
 			onMouseMove={() => {
 				if (hovered) return;
@@ -86,7 +75,7 @@ const IconTile: React.FC<Props> = ({
 			}}
 			onMouseLeave={(e) => {
 				setHovered(false);
-				handleHover(e, iconRef);
+				triggerProps.onMouseLeave?.(e);
 			}}
 			onFocus={() => setFocused(true)}
 			onBlur={(e) => {

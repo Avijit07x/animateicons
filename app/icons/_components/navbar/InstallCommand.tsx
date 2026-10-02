@@ -10,7 +10,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useCopy } from "@/hooks/useCopy";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { CheckIcon } from "@/icons/huge/check-icon";
 import { ChevronDownIcon } from "@/icons/huge/chevron-down-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
@@ -30,7 +30,7 @@ const GHOST =
 const InstallCommand: React.FC = () => {
 	const { packageManager, setPackageManager } = usePackageManager();
 	const { copied, copy } = useCopy();
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 	const command = `${installCommandFor(packageManager)} @animateicons/react`;
 	const [tool, verb, pkg] = command.split(" ");
 	const Icon = copied ? CheckIcon : CopyIcon;
@@ -87,7 +87,7 @@ const InstallCommand: React.FC = () => {
 				variant="ghost"
 				onClick={() => copy(command)}
 				aria-label={`Copy ${command}`}
-				{...hoverProps}
+				{...triggerProps}
 				className={cn(
 					GHOST,
 					"group h-7 gap-2.5 px-2 py-0 font-mono text-[13px] [&_svg:not([class*='size-'])]:size-3.5",

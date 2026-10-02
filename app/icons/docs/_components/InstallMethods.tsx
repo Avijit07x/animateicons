@@ -4,18 +4,10 @@ import { BotIcon } from "@/icons/huge/bot-icon";
 import { Layout01Icon } from "@/icons/huge/layout-0-1-icon";
 import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
 import { TerminalIcon } from "@/icons/huge/terminal-icon";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { IconHandle } from "@/types/icon";
-import handleHover from "@/utils/handleHover";
 import Link from "next/link";
 import type { ComponentType, Ref } from "react";
-import { useRef } from "react";
-
-/**
- * Install-method chooser — a card grid at the top of the Installation page
- * that jumps to each method's section (or the MCP guide). Uses AnimateIcons'
- * own animated icons, played on card hover via the shared handleHover helper
- * (attaching a ref makes each icon "controlled", so the card drives it).
- */
 
 type AnimatedIcon = ComponentType<{ size?: number; ref?: Ref<IconHandle> }>;
 
@@ -57,12 +49,11 @@ const InstallMethodCard: React.FC<(typeof METHODS)[number]> = ({
 	href,
 	Icon,
 }) => {
-	const ref = useRef<IconHandle>(null);
+	const { ref, triggerProps } = useIconHover();
 	return (
 		<Link
 			href={href}
-			onMouseEnter={(e) => handleHover(e, ref)}
-			onMouseLeave={(e) => handleHover(e, ref)}
+			{...triggerProps}
 			className="group bg-surface hover:bg-surfaceElevated flex items-center gap-4 rounded-3xl p-4 transition-colors"
 		>
 			<span className="bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center rounded-full">

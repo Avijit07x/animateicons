@@ -7,7 +7,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 } from "@/components/ui/sheet";
-import type { IconHandle } from "@/types/icon";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { useEffect, useMemo, useRef } from "react";
 import { useDistribution } from "../../_contexts/DistributionContext";
 import { usePlayground } from "../../_contexts/PlaygroundContext";
@@ -29,7 +29,7 @@ const PlaygroundSheet: React.FC = () => {
 	const { icon, open, closePlayground } = usePlayground();
 	const { config, update, reset, isDefault } = useIconConfig();
 	const { distribution } = useDistribution();
-	const iconRef = useRef<IconHandle | null>(null);
+	const { ref: iconRef, triggerProps } = useIconHover();
 	const headerRef = useRef<HTMLDivElement>(null);
 
 	const snippet = useMemo(
@@ -54,7 +54,7 @@ const PlaygroundSheet: React.FC = () => {
 		if (!open || !icon) return;
 		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
 		return () => window.clearTimeout(t);
-	}, [open, icon]);
+	}, [open, icon, iconRef]);
 
 	if (!icon) return null;
 
@@ -97,6 +97,7 @@ const PlaygroundSheet: React.FC = () => {
 						componentName={icon.componentName}
 						config={config}
 						iconRef={iconRef}
+						triggerProps={triggerProps}
 					/>
 
 					<PreviewActions

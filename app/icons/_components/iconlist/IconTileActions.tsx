@@ -1,41 +1,13 @@
 "use client";
 
-/**
- * IconTileActions
- *
- * SRP: render the three action buttons (Copy CLI / Copy JSX code /
- * Open in v0.dev) under one AnimateIcons tile. Owns the side-effect
- * handlers (clipboard writes, fetch the icon's source via the
- * getIconCode server action) and subscribes to IconTileContext via
- * narrow selector hooks.
- *
- * Why this exists as its own component:
- *  - IconTile renders 248 instances on /icons/lucide. With React.memo
- *    on IconTile, parent re-renders don't propagate.
- *  - But useContext does propagate - any IconTile that calls
- *    useContext re-renders on context changes, busting the memo
- *    benefit and forcing all 248 AnimateIcons SVGs to re-render every
- *    time someone clicks "Copy code".
- *  - By isolating the context reads into THIS small component,
- *    IconTile stays fully memoized: only the tiny actions row
- *    re-renders when copy/load state changes, and the heavy
- *    AnimateIcons component (with its motion variants) stays
- *    untouched.
- */
-
 import { getIconCode } from "@/actions/getIconCode";
-import { V0Icon, type V0IconHandle } from "@/components/icons/V0Icon";
+import { V0Icon } from "@/components/icons/V0Icon";
 import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
-import { CopyIcon, type CopyIconHandle } from "@/icons/huge/copy-icon";
+import { CopyIcon } from "@/icons/huge/copy-icon";
 import { Loading01Icon } from "@/icons/huge/loading-0-1-icon";
-import {
-	PackageDeliveredIcon,
-	type PackageDeliveredIconHandle,
-} from "@/icons/huge/package-delivered-icon";
-import {
-	TerminalIcon,
-	type TerminalIconHandle,
-} from "@/icons/huge/terminal-icon";
+import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
+import { TerminalIcon } from "@/icons/huge/terminal-icon";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
@@ -75,6 +47,12 @@ const pillVariants: Variants = {
 	},
 };
 
+const triggerConfig = [
+	{ icon: "install", trigger: "hover" },
+	{ icon: "copyCode", trigger: "hover" },
+	{ icon: "v0", trigger: "hover" },
+] as const;
+
 const IconTileActions: React.FC<Props> = ({
 	tileId,
 	library,
@@ -89,11 +67,11 @@ const IconTileActions: React.FC<Props> = ({
 	const { packageManager } = usePackageManager();
 	const { distribution } = useDistribution();
 
-	const cliRef = useRef<TerminalIconHandle>(null);
-	const npmRef = useRef<PackageDeliveredIconHandle>(null);
+	const {
+		icon: { install, copyCode, v0 },
+		trigger,
+	} = useIconHover({ trigger: triggerConfig });
 	const checkRef = useRef<CheckIconHandle>(null);
-	const codeRef = useRef<CopyIconHandle>(null);
-	const v0Ref = useRef<V0IconHandle>(null);
 
 	const copyInstallSnippet = async () => {
 		const payload =
@@ -156,22 +134,22 @@ const IconTileActions: React.FC<Props> = ({
 								? "Copy npm import"
 								: "Copy CLI Command"
 					}
-					iconRef={isNpm ? npmRef : cliRef}
+					triggerProps={trigger}
 					onClick={copyInstallSnippet}
 				>
 					{isCopiedCli ? (
 						<CheckIcon size={14} ref={checkRef} />
 					) : isNpm ? (
-						<PackageDeliveredIcon size={14} ref={npmRef} />
+						<PackageDeliveredIcon size={14} {...install} />
 					) : (
-						<TerminalIcon size={14} ref={cliRef} />
+						<TerminalIcon size={14} {...install} />
 					)}
 				</IconAction>
 
 				<IconAction
 					tooltip="copy code"
 					ariaLabel={isCopied ? "Code Copied" : "Copy JSX Code"}
-					iconRef={codeRef}
+					triggerProps={trigger}
 					onClick={copyToClipboard}
 				>
 					{isCopied ? (
@@ -179,7 +157,7 @@ const IconTileActions: React.FC<Props> = ({
 					) : isLoading ? (
 						<Loading01Icon size={14} className="animate-spin" />
 					) : (
-						<CopyIcon size={14} ref={codeRef} />
+						<CopyIcon size={14} {...copyCode} />
 					)}
 				</IconAction>
 
@@ -187,10 +165,10 @@ const IconTileActions: React.FC<Props> = ({
 					as="link"
 					tooltip="open in v0.dev"
 					ariaLabel="Open in v0.dev"
-					iconRef={v0Ref}
+					triggerProps={trigger}
 					href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${name}.json`}
 				>
-					<V0Icon size={15} ref={v0Ref} />
+					<V0Icon size={15} {...v0} />
 				</IconAction>
 			</motion.div>
 		</motion.div>

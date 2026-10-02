@@ -1,10 +1,9 @@
 "use client";
 
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import Link from "next/link";
-import { useRef } from "react";
-import { HeartIcon, HeartIconHandle } from "../icons/huge/heart-icon";
-import handleHover from "../utils/handleHover";
+import { HeartIcon } from "../icons/huge/heart-icon";
 import { GitHub } from "./icons/Github";
 import { NumberTicker } from "./magicui/number-ticker";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
@@ -15,15 +14,14 @@ type Props = {
 };
 
 const NavbarActions: React.FC<Props> = ({ stars, separated = false }) => {
-	const heartRef = useRef<HeartIconHandle>(null);
+	const { ref: heartRef, triggerProps } = useIconHover();
 	const isMobile = useIsMobile();
 
 	const sponsorLink = (
 		<Link
 			href="/sponsors"
 			prefetch={false}
-			onMouseEnter={(e) => handleHover(e, heartRef)}
-			onMouseLeave={(e) => handleHover(e, heartRef)}
+			{...triggerProps}
 			className="pill-link"
 		>
 			<HeartIcon ref={heartRef} className="size-4.5 text-pink-500" />

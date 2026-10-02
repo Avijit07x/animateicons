@@ -1,6 +1,6 @@
 "use client";
 
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
 import { Suspense, useCallback, type ComponentType, type Ref } from "react";
@@ -18,7 +18,7 @@ const HoverIcon: React.FC<Props> = ({
 	className,
 	iconRef,
 }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 	const bind = useCallback(
 		(handle: IconHandle | null) => {
 			ref.current = handle;
@@ -29,7 +29,7 @@ const HoverIcon: React.FC<Props> = ({
 
 	return (
 		<div
-			{...hoverProps}
+			{...triggerProps}
 			className={cn(
 				"text-textSecondary hover:text-primary hover:bg-surface grid shrink-0 place-items-center transition-colors duration-200",
 				className,

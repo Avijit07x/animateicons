@@ -3,9 +3,10 @@
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
-import { CopyIcon, type CopyIconHandle } from "@/icons/huge/copy-icon";
+import { CopyIcon } from "@/icons/huge/copy-icon";
 import { useCopy } from "@/hooks/useCopy";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { motion, Variants } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import FloatingIcons from "./FloatingIcons";
@@ -33,7 +34,7 @@ const INSTALL = "npm i @animateicons/react";
 
 const HeroSection: React.FC = () => {
 	const { copied, copy } = useCopy();
-	const copyRef = useRef<CopyIconHandle | null>(null);
+	const { ref: copyRef, triggerProps } = useIconHover();
 	const checkRef = useRef<CheckIconHandle | null>(null);
 
 	useEffect(() => {
@@ -82,8 +83,7 @@ const HeroSection: React.FC = () => {
 				<motion.button
 					type="button"
 					onClick={() => copy(INSTALL)}
-					onMouseEnter={() => copyRef.current?.startAnimation()}
-					onMouseLeave={() => copyRef.current?.stopAnimation()}
+					{...triggerProps}
 					variants={item}
 					aria-label="Copy install command"
 					className="group bg-surfaceElevated focus-visible:ring-primary/40 hover:bg-surfaceActive flex max-w-full cursor-pointer items-center gap-4 rounded-full py-2.5 pr-4 pl-5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 active:scale-[0.98] max-sm:w-full max-sm:max-w-74 max-sm:justify-between"

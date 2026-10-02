@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useCopy } from "@/hooks/useCopy";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { Cancel01Icon } from "@/icons/huge/cancel-0-1-icon";
 import { CheckIcon } from "@/icons/huge/check-icon";
 import { Coffee02Icon } from "@/icons/huge/coffee-0-2-icon";
@@ -26,6 +26,12 @@ const MotionButton = motion.create(Button);
 const SPRING = { type: "spring", stiffness: 260, damping: 28 } as const;
 const UPI_ID = "avijit07x@axl";
 
+const triggerConfig = [
+	{ icon: "heart", trigger: "hover" },
+	{ icon: "close", trigger: "hover" },
+	{ icon: "copyUpi", trigger: "hover" },
+] as const;
+
 const SponsorLink: React.FC<{
 	href: string;
 	label: string;
@@ -33,7 +39,7 @@ const SponsorLink: React.FC<{
 	icon: SponsorIcon;
 	color: string;
 }> = ({ href, label, ariaLabel, icon: Icon, color }) => {
-	const { ref, hoverProps } = useIconHover();
+	const { ref, triggerProps } = useIconHover();
 
 	return (
 		<Link
@@ -41,7 +47,7 @@ const SponsorLink: React.FC<{
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label={ariaLabel}
-			{...hoverProps}
+			{...triggerProps}
 			className="text-textPrimary flex items-center gap-2.5 rounded-full bg-white/8 px-4 py-2.5 text-sm transition-colors hover:bg-white/12"
 		>
 			<Icon ref={ref} size={16} color={color} />
@@ -53,9 +59,10 @@ const SponsorLink: React.FC<{
 const Sponsors: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { copied, copy } = useCopy(1500);
-	const { ref: heartRef, hoverProps: heartHoverProps } = useIconHover();
-	const { ref: closeRef, hoverProps: closeHoverProps } = useIconHover();
-	const { ref: copyRef, hoverProps: copyHoverProps } = useIconHover();
+	const {
+		icon: { heart, close, copyUpi },
+		trigger,
+	} = useIconHover({ trigger: triggerConfig });
 
 	const toggle = () => setIsOpen((open) => !open);
 
@@ -101,13 +108,13 @@ const Sponsors: React.FC = () => {
 								aria-label="Open sponsor options"
 								aria-expanded={false}
 								aria-controls="sponsor-panel"
-								{...heartHoverProps}
+								{...trigger}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0, transition: { duration: 0.1 } }}
 								className="text-textSecondary hover:text-textPrimary absolute inset-0 size-full rounded-full hover:bg-transparent dark:hover:bg-transparent [&_svg:not([class*='size-'])]:size-[18px]"
 							>
-								<HeartIcon ref={heartRef} color="var(--color-primary)" />
+								<HeartIcon {...heart} color="var(--color-primary)" />
 							</MotionButton>
 						)}
 					</AnimatePresence>
@@ -155,13 +162,13 @@ const Sponsors: React.FC = () => {
 											size="icon-sm"
 											onClick={() => copy(UPI_ID)}
 											aria-label="Copy UPI ID"
-											{...copyHoverProps}
+											{...trigger}
 											className="text-textSecondary hover:text-textPrimary size-7 hover:bg-white/10 dark:hover:bg-white/10 [&_svg:not([class*='size-'])]:size-3.5"
 										>
 											{copied ? (
 												<CheckIcon color="var(--color-success)" />
 											) : (
-												<CopyIcon ref={copyRef} />
+												<CopyIcon {...copyUpi} />
 											)}
 										</Button>
 									</div>
@@ -196,7 +203,7 @@ const Sponsors: React.FC = () => {
 							aria-label="Close sponsor panel"
 							aria-expanded
 							aria-controls="sponsor-panel"
-							{...closeHoverProps}
+							{...trigger}
 							initial={{ opacity: 0, scale: 0.6 }}
 							animate={{
 								opacity: 1,
@@ -206,7 +213,7 @@ const Sponsors: React.FC = () => {
 							exit={{ opacity: 0, scale: 0.6, transition: { duration: 0.12 } }}
 							className="text-textSecondary hover:text-textPrimary absolute -top-3 -right-3 z-10 size-7 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.8)] ring-1 ring-white/10 [&_svg:not([class*='size-'])]:size-3.5"
 						>
-							<Cancel01Icon ref={closeRef} />
+							<Cancel01Icon {...close} />
 						</MotionButton>
 					)}
 				</AnimatePresence>

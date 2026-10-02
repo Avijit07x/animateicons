@@ -11,7 +11,7 @@ import {
 	useRef,
 } from "react";
 
-export interface V0IconHandle {
+interface V0IconHandle {
 	startAnimation: () => void;
 	stopAnimation: () => void;
 }

@@ -2,7 +2,7 @@
 
 import { MAX_SEARCH_LENGTH } from "@/app/icons/_contexts/IconSearchContext";
 import IconLink from "@/components/IconLink";
-import { useIconHover } from "@/hooks/useIconHover";
+import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { SearchIcon } from "@/icons/huge/search-icon";
@@ -22,7 +22,7 @@ const IconSearch: React.FC = () => {
 	const inView = useInView(sectionRef, { amount: 0.3 });
 	const [typed, setTyped] = useState<string | null>(null);
 	const auto = useTypewriter(WORDS, inView && typed === null && !reduced);
-	const { ref: searchRef, hoverProps } = useIconHover();
+	const { ref: searchRef, triggerProps } = useIconHover();
 
 	const query = typed ?? (reduced ? WORDS[0] : auto);
 	const results = useMemo(() => searchIcons(query, RESULT_COUNT), [query]);
@@ -53,7 +53,7 @@ const IconSearch: React.FC = () => {
 				</p>
 
 				<label
-					{...hoverProps}
+					{...triggerProps}
 					className="bg-surfaceElevated focus-within:ring-primary/50 mx-auto mt-11 flex h-16 w-full max-w-xl items-center gap-3.5 rounded-full px-6 text-left transition-shadow focus-within:ring-2 max-sm:h-14 max-sm:px-5"
 				>
 					<SearchIcon ref={searchRef} size={22} color="var(--color-primary)" />
