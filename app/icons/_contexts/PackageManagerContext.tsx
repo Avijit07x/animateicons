@@ -1,23 +1,5 @@
 "use client";
 
-/**
- * PackageManagerContext
- *
- * SRP: single source of truth for the AnimateIcons gallery user's
- * preferred package manager (npm / pnpm / bun). Hydrates from
- * localStorage once on mount and persists changes back. Drives the
- * "Copy CLI command" output on every AnimateIcons tile so the
- * generated `shadcn add ...` command matches the user's tooling.
- *
- * Replaces the previous setup where:
- *  - the old package-manager toggle owned its own useState + localStorage R/W
- *  - every IconTile subscribed independently via useSyncExternalStore
- *    to the "storage" event (~250 listeners on the Lucide gallery)
- *
- * Now: one localStorage read on mount, one writer, all AnimateIcons
- * tiles consume the same context value.
- */
-
 import { useStoredPreference } from "@/hooks/useStoredPreference";
 import { createContext, useContext, useMemo } from "react";
 
@@ -66,12 +48,6 @@ export const usePackageManager = (): PackageManagerContextValue => {
 	return ctx;
 };
 
-/**
- * Maps a PackageManager preference to its `shadcn add` invocation
- * prefix used by AnimateIcons install commands. Pure function, exported
- * so every AnimateIcons consumer (tile copy button, per-icon page,
- * docs) shares the same npx / pnpm dlx / bunx --bun mapping.
- */
 export const cliCommandFor = (pm: PackageManager): string => {
 	switch (pm) {
 		case "bun":
@@ -101,4 +77,4 @@ export const shadcnAddCommand = (
 	prefix: string,
 	name: string,
 ): string =>
-	`${cliCommandFor(pm)} shadcn@latest add https://animateicons.in/r/${prefix}-${name}.json`;
+	`${cliCommandFor(pm)} shadcn@latest add @animateicons/${prefix}-${name}`;

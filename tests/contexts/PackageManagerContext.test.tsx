@@ -1,9 +1,3 @@
-/**
- * Tests for PackageManagerContext - drives the AnimateIcons gallery's
- * "Copy CLI command" output (npm / pnpm / bun) and persists the
- * preference across reloads.
- */
-
 import { describe, expect, it, beforeEach, vi } from "vitest";
 import { act, renderHook } from "@testing-library/react";
 import {
@@ -48,7 +42,6 @@ describe("PackageManagerContext", () => {
 	});
 
 	it("throws if used outside the provider", () => {
-		// Suppress React's expected error log noise.
 		const spy = vi.spyOn(console, "error").mockImplementation(() => {});
 		expect(() => renderHook(() => usePackageManager())).toThrow();
 		spy.mockRestore();
@@ -72,12 +65,12 @@ describe("installCommandFor", () => {
 });
 
 describe("shadcnAddCommand", () => {
-	it("builds the registry URL for the icon with the manager's prefix", () => {
+	it("builds the registry name for the icon with the manager's prefix", () => {
 		expect(shadcnAddCommand("bun", "lu", "bell")).toBe(
-			"bunx --bun shadcn@latest add https://animateicons.in/r/lu-bell.json",
+			"bunx --bun shadcn@latest add @animateicons/lu-bell",
 		);
 		expect(shadcnAddCommand("npm", "hu", "star")).toBe(
-			"npx shadcn@latest add https://animateicons.in/r/hu-star.json",
+			"npx shadcn@latest add @animateicons/hu-star",
 		);
 	});
 });
