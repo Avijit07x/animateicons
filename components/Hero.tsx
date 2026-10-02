@@ -1,15 +1,18 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
 import { useCopy } from "@/hooks/useCopy";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { cn } from "@/lib/utils";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { motion, Variants } from "motion/react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FloatingIcons from "./FloatingIcons";
+import { PackageManagerLogo, ShadcnLogo } from "./icons/PackageLogos";
 import IconLink from "./IconLink";
 import { SHOWCASE } from "./home/showcase-icons";
 
@@ -30,9 +33,20 @@ const item: Variants = {
 	},
 };
 
-const INSTALL = "npm i @animateicons/react";
+const INSTALL = {
+	npm: "npm install @animateicons/react",
+	shadcn: "npx shadcn@latest add @animateicons/lu-x",
+} as const;
+
+type Method = keyof typeof INSTALL;
+
+const METHODS: { value: Method; logo: React.ReactNode }[] = [
+	{ value: "npm", logo: <PackageManagerLogo pm="npm" /> },
+	{ value: "shadcn", logo: <ShadcnLogo /> },
+];
 
 const HeroSection: React.FC = () => {
+	const [method, setMethod] = useState<Method>("npm");
 	const { copied, copy } = useCopy();
 	const { ref: copyRef, triggerProps } = useIconHover();
 	const checkRef = useRef<CheckIconHandle | null>(null);
@@ -54,7 +68,7 @@ const HeroSection: React.FC = () => {
 				variants={container}
 				initial="hidden"
 				animate="show"
-				className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-6 pt-12 text-center lg:pt-16"
+				className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-6 pt-12 text-center lg:pt-8"
 			>
 				<motion.h1
 					variants={item}
@@ -80,30 +94,82 @@ const HeroSection: React.FC = () => {
 					focus, or your own code.
 				</motion.p>
 
-				<motion.button
-					type="button"
-					onClick={() => copy(INSTALL)}
-					{...triggerProps}
+				<motion.div
 					variants={item}
-					aria-label="Copy install command"
-					className="group bg-surfaceElevated focus-visible:ring-primary/40 hover:bg-surfaceActive flex max-w-full cursor-pointer items-center gap-4 rounded-full py-2.5 pr-4 pl-5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 active:scale-[0.98] max-sm:w-full max-sm:max-w-74 max-sm:justify-between"
+					className="mt-3 grid max-w-full pt-[22px] select-none max-sm:w-full max-sm:max-w-74"
 				>
-					<code className="text-textPrimary font-mono text-sm">
-						<span className="text-textMuted select-none">$ </span>
-						{INSTALL}
-					</code>
-					<span className="text-textMuted group-hover:text-primary flex items-center transition-colors">
-						{copied ? (
-							<CheckIcon
-								ref={checkRef}
-								size={16}
-								color="var(--color-success)"
-							/>
-						) : (
-							<CopyIcon ref={copyRef} size={16} />
-						)}
-					</span>
-				</motion.button>
+					{METHODS.map(({ value, logo }) => {
+						const front = method === value;
+						return (
+							<motion.div
+								key={value}
+								animate={{ y: front ? 0 : -26, scale: front ? 1 : 0.9 }}
+								whileHover={front ? undefined : { y: -31 }}
+								transition={{ type: "spring", stiffness: 420, damping: 34 }}
+								style={{ originX: 0.5, originY: 1 }}
+								className={cn(
+									"relative col-start-1 row-start-1 min-w-0 rounded-full transition-colors duration-200",
+									front ? "bg-surfaceElevated z-10" : "bg-surfaceHover z-0",
+								)}
+							>
+								{front ? (
+									<Button
+										variant="secondary"
+										size="pill"
+										onClick={() => copy(INSTALL[value])}
+										{...triggerProps}
+										aria-label="Copy install command"
+										className="group w-full cursor-pointer justify-between gap-4 pr-4 font-normal active:scale-[0.98]"
+									>
+										<span className="flex min-w-0 items-center gap-3">
+											<span className="text-primary [&_svg]:size-3! [&_svg]:shrink-0">
+												{logo}
+											</span>
+											<code className="text-textPrimary min-w-0 truncate text-left font-mono text-sm">
+												<span className="text-textMuted select-none">$ </span>
+												{INSTALL[value]}
+											</code>
+										</span>
+										<span className="text-textMuted group-hover:text-primary flex items-center transition-colors">
+											{copied ? (
+												<CheckIcon
+													ref={checkRef}
+													size={16}
+													color="var(--color-success)"
+												/>
+											) : (
+												<CopyIcon ref={copyRef} size={16} />
+											)}
+										</span>
+									</Button>
+								) : (
+									<>
+										<div
+											aria-hidden="true"
+											className="invisible flex h-10 items-center justify-between gap-4 overflow-hidden pr-4 pl-5"
+										>
+											<span className="flex items-center gap-3 font-mono text-sm whitespace-nowrap">
+												<span className="size-3" />
+												{`$ ${INSTALL[value]}`}
+											</span>
+											<span className="size-4" />
+										</div>
+										<Button
+											variant="ghost"
+											size="xs"
+											onClick={() => setMethod(value)}
+											aria-label={`Show ${value} install command`}
+											className="text-textMuted hover:text-primary absolute inset-x-0 top-0 h-[22px] cursor-pointer gap-1.5 rounded-b-none font-mono text-[13px] font-normal hover:bg-transparent dark:hover:bg-transparent [&_svg:not([class*='size-'])]:size-[11px]"
+										>
+											{logo}
+											{value}
+										</Button>
+									</>
+								)}
+							</motion.div>
+						);
+					})}
+				</motion.div>
 
 				<motion.div
 					variants={item}
