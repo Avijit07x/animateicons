@@ -96,6 +96,16 @@ icons/
 
 Always add your icon to the appropriate library.
 
+The rest of the repository:
+
+- `data/`: the icon manifests, the source of truth for what exists
+- `app/`: the Next.js gallery and the MDX docs
+- `components/`, `hooks/`: site UI and hooks
+- `npm/`: the published `@animateicons/react` package
+- `core/`, `cli/`, `mcp/`: shared logic, the `animateicons` CLI and the `@animateicons/mcp` server
+- `scripts/`: registry, catalog and index codegen, plus the checks
+- `tests/`: Vitest and React Testing Library
+
 ---
 
 ## Adding a New Icon

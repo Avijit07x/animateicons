@@ -37,82 +37,52 @@ export function Notifications() {
 }
 ```
 
-Icons animate on hover by default, and `motion` is bundled. Don't want a dependency? Copy the source instead with `npx animateicons add bell-ring`, browse them interactively with `npx animateicons browse`, the shadcn CLI, or an AI agent via the MCP server.
+Icons animate on hover by default, and `motion` is bundled. Import from `@animateicons/react/lucide` or `@animateicons/react/huge`.
 
-> **Full documentation lives on the site** &nbsp;·&nbsp; [Install, CLI, styling & API](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP server](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Browse the gallery](https://animateicons.in/icons/lucide)
+Prefer to own the code? Copy one icon into your project with `npx animateicons add bell-ring`.
 
----
+## Props
 
-## Repository layout
+| Prop         | Type      | Default        |
+| ------------ | --------- | -------------- |
+| `size`       | `number`  | `24`           |
+| `color`      | `string`  | `currentColor` |
+| `duration`   | `number`  | `1`            |
+| `isAnimated` | `boolean` | `true`         |
+| `className`  | `string`  | -              |
 
-```
-animateicons/
-├── icons/
-│   ├── lucide/          669 Lucide-style icons
-│   └── huge/             463 Huge-style icons
-├── npm/                 @animateicons/react published package
-├── core/                shared catalog/search/write logic (bundled into cli + mcp)
-├── cli/                 animateicons CLI (npx animateicons add / browse)
-├── mcp/                 @animateicons/mcp server for AI agents
-├── app/
-│   ├── icons/[library]/ gallery routes
-│   └── icons/docs/      install + MCP guides (MDX)
-├── components/          shared UI (Hero, Section, etc.)
-├── hooks/               useIconFilter, useIconAnimation
-├── tests/               Vitest + React Testing Library
-└── scripts/             registry + catalog codegen, codemods
-```
+## Hover, click or both
 
----
+> [!TIP]
+> Use `useIconHover` to play an icon when a user hovers or clicks the button, link or card around it.
 
-## Local development
+```tsx
+"use client";
+import { useIconHover } from "@animateicons/react";
+import { BellRingIcon } from "@animateicons/react/lucide";
 
-```bash
-git clone https://github.com/Avijit07x/animateicons.git
-cd animateicons
-pnpm install
-pnpm dev
-```
+export default function Bell() {
+	const { ref, triggerProps } = useIconHover(); // hover (default)
+	// const { ref, triggerProps } = useIconHover({ trigger: "click" }); // click only
+	// const { ref, triggerProps } = useIconHover({ trigger: "both" }); // hover and click
+	// const { icon: { bell, bookmark }, trigger } = useIconHover({ trigger: [{ icon: "bell", trigger: "click" }, { icon: "bookmark", trigger: "hover" }] }); // multiple icons: <Icon {...bell} />, <Icon {...bookmark} />
 
-Common scripts:
-
-```bash
-pnpm dev          # gallery dev server (Turbopack)
-pnpm build        # production build
-pnpm test         # vitest run
-pnpm typecheck    # tsc --noEmit
-
-pnpm --filter @animateicons/react build       # build the npm package
-pnpm --filter @animateicons/react test:smoke  # smoke-test the built dist
+	return (
+		<button {...triggerProps}>
+			<BellRingIcon ref={ref} size={28} />
+		</button>
+	);
+}
 ```
 
----
+## Documentation
+
+Read the [documentation](https://animateicons.in/icons/docs) for the CLI, shadcn, MCP, styling and the full API.
 
 ## Contributing
 
-PRs adding icons are welcome. Each icon is a single React component file - copy any existing one as a template.
-
-1. Create `icons/<library>/<name>-icon.tsx` from an existing icon
-2. Register it in `data/<library>-icons.json`
-3. Run `pnpm gen:icons` to regenerate the registry + catalog
-4. Open a PR against `main`
-
-Full workflow in [CONTRIBUTING.md](./CONTRIBUTING.md).
-
----
+PRs adding icons are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
-[MIT](./LICENSE).
-
-If AnimateIcons saves you time, consider [sponsoring the project](https://github.com/sponsors/Avijit07x).
-
----
-
-<div align="center">
-
-Built with [Next.js](https://nextjs.org), [motion/react](https://motion.dev), and [shadcn/ui](https://ui.shadcn.com).
-
-**[animateicons.in](https://animateicons.in)** &nbsp;·&nbsp; [GitHub](https://github.com/Avijit07x/animateicons) &nbsp;·&nbsp; [@animateicons/react on npm](https://www.npmjs.com/package/@animateicons/react)
-
-</div>
+[MIT](./LICENSE). Icon shapes are based on [Lucide](https://lucide.dev) and [Hugeicons](https://hugeicons.com), see the [third-party notices](./THIRD_PARTY_NOTICES.md).
