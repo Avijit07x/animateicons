@@ -63,9 +63,6 @@ import { BellRingIcon } from "@animateicons/react/lucide";
 
 export default function Bell() {
 	const { ref, triggerProps } = useIconHover(); // hover (default)
-	// const { ref, triggerProps } = useIconHover({ trigger: "click" }); // click only
-	// const { ref, triggerProps } = useIconHover({ trigger: "both" }); // hover and click
-	// const { icon: { bell, bookmark }, trigger } = useIconHover({ trigger: [{ icon: "bell", trigger: "click" }, { icon: "bookmark", trigger: "hover" }] }); // multiple icons: <Icon {...bell} />, <Icon {...bookmark} />
 
 	return (
 		<button {...triggerProps}>
@@ -74,6 +71,8 @@ export default function Bell() {
 	);
 }
 ```
+
+See the [full docs](https://animateicons.in/icons/docs/examples/hover-helper) for click, both and multiple icons.
 
 ## Documentation
 
