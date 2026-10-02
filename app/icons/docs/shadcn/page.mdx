@@ -1,4 +1,5 @@
 import CodeBlock from "../../_components/docs/CodeBlock";
+import CommandBlock from "../../_components/docs/CommandBlock";
 
 export const metadata = {
 	title: "shadcn CLI",
@@ -9,9 +10,13 @@ export const metadata = {
 	},
 };
 
-export const installCode = `pnpm dlx shadcn@latest add https://animateicons.in/r/lu-eye.json`;
+export const installCommands = {
+	npm: "npx shadcn@latest add @animateicons/lu-eye",
+	pnpm: "pnpm dlx shadcn@latest add @animateicons/lu-eye",
+	bun: "bunx --bun shadcn@latest add @animateicons/lu-eye",
+};
 
-export const usageCode = `import { EyeIcon } from "@/components/ui/eye"
+export const usageCode = `import { EyeIcon } from "@/components/ui/eye-icon"
 
 export default function Example() {
 	return <EyeIcon size={24} color="#f45b48" />
@@ -29,9 +34,9 @@ If your project doesn't have shadcn yet, follow the [shadcn installation guide](
 
 Browse the [Lucide](/icons/lucide) or [Huge](/icons/huge) gallery, click any tile to copy its install command, or replace `lu-eye` below with the icon you want.
 
-<CodeBlock code={installCode} lang="bash" title="Terminal" />
+<CommandBlock commands={installCommands} />
 
-The icon lands at `components/ui/<name>.tsx`.
+The icon lands at `components/ui/<name>-icon.tsx`.
 
 #### 3. Import and use
 

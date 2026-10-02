@@ -33,9 +33,7 @@ describe("InstallBlock", () => {
 	it("shows the shadcn command for this icon when shadcn is chosen", () => {
 		setup();
 		fireEvent.click(screen.getByRole("button", { name: "shadcn" }));
-		expect(command()).toBe(
-			"npx shadcn@latest add https://animateicons.in/r/lu-bell.json",
-		);
+		expect(command()).toBe("npx shadcn@latest add @animateicons/lu-bell");
 	});
 
 	it("follows the package manager for shadcn", () => {
@@ -43,7 +41,7 @@ describe("InstallBlock", () => {
 		fireEvent.click(screen.getByRole("button", { name: "shadcn" }));
 		fireEvent.click(screen.getByRole("button", { name: "bun" }));
 		expect(command()).toBe(
-			"bunx --bun shadcn@latest add https://animateicons.in/r/lu-bell.json",
+			"bunx --bun shadcn@latest add @animateicons/lu-bell",
 		);
 	});
 
@@ -52,8 +50,6 @@ describe("InstallBlock", () => {
 		fireEvent.click(screen.getByRole("button", { name: "pnpm" }));
 		expect(command()).toBe("pnpm add @animateicons/react");
 		fireEvent.click(screen.getByRole("button", { name: "shadcn" }));
-		expect(command()).toBe(
-			"pnpm dlx shadcn@latest add https://animateicons.in/r/lu-bell.json",
-		);
+		expect(command()).toBe("pnpm dlx shadcn@latest add @animateicons/lu-bell");
 	});
 });
