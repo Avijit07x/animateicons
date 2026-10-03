@@ -104,7 +104,7 @@ const HeroSection: React.FC = () => {
 							<motion.div
 								key={value}
 								animate={{ y: front ? 0 : -26, scale: front ? 1 : 0.9 }}
-								whileHover={front ? undefined : { y: -31 }}
+								whileHover={{ y: front ? 0 : -31 }}
 								transition={{ type: "spring", stiffness: 420, damping: 34 }}
 								style={{ originX: 0.5, originY: 1 }}
 								className={cn(
