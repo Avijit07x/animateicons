@@ -70,6 +70,7 @@ const SearchBar: React.FC = () => {
 		const handleKeyDown = (e: KeyboardEvent) => {
 			if ((isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === "k") {
 				e.preventDefault();
+				e.stopPropagation();
 				inputRef.current?.focus();
 			}
 
@@ -80,8 +81,8 @@ const SearchBar: React.FC = () => {
 			}
 		};
 
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
+		window.addEventListener("keydown", handleKeyDown, true);
+		return () => window.removeEventListener("keydown", handleKeyDown, true);
 	}, [focused, isMac, query, setQuery]);
 
 	const showEsc = focused || query.length > 0;
