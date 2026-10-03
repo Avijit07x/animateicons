@@ -4,16 +4,8 @@ import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 
 const baseUrl = "https://animateicons.in";
 
-// Sitemap rebuilds at most once per day. Without this, every crawler
-// hit invokes the function and counts as an edge request. Daily is
-// fine - new icons surface within 24h, well under sitemap convention.
 export const revalidate = 86400;
 
-/**
- * Pick the most recent `addedAt` from an AnimateIcons ICON_LIST. Used
- * as the lastModified for the Lucide / Huge library landing pages so
- * search engines re-crawl when new AnimateIcons ship.
- */
 const latestAddedAt = (list: { addedAt: string }[]): Date => {
 	if (!list.length) return new Date();
 	const max = list.reduce(
@@ -24,9 +16,6 @@ const latestAddedAt = (list: { addedAt: string }[]): Date => {
 	return Number.isNaN(d.getTime()) ? new Date() : d;
 };
 
-/** Build a per-icon sitemap entry. Each detail page gets its own URL
- *  with `addedAt` driving lastModified so freshly-added icons signal
- *  themselves to crawlers. */
 const iconEntry = (
 	library: "lucide" | "huge",
 	item: { name: string; addedAt: string },
