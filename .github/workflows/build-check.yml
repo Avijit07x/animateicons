@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
@@ -37,24 +37,16 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Typecheck
-        run: pnpm typecheck
-
       - name: Find unused files, exports and dependencies (knip)
         run: pnpm knip
 
       - name: Test
         run: pnpm test
-        env:
-          CI: true
 
-      - name: Build project
+      - name: Build project (includes the type check)
         run: pnpm build
         env:
           NEXT_TELEMETRY_DISABLED: 1
-
-      - name: Check icon naming consistency
-        run: pnpm --filter @animateicons/react check:naming
 
       - name: Typecheck npm package
         run: pnpm --filter @animateicons/react typecheck
@@ -62,8 +54,13 @@ jobs:
       - name: Build npm package
         run: pnpm --filter @animateicons/react build
 
+      - name: Codegen integrity test
+        run: pnpm --filter @animateicons/react test:codegen
+
       - name: Validate package exports and types (publint + attw)
         run: pnpm exec publint npm && pnpm exec attw --pack npm --profile node16
+        env:
+          npm_config_ignore_scripts: "true"
 
       - name: Smoke-test npm package against built dist
         run: pnpm --filter @animateicons/react test:smoke
