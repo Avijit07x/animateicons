@@ -1,6 +1,6 @@
 {
 	"name": "animateicons",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Add animated AnimateIcons to your project from the command line: `npx animateicons add bell-ring`.",
 	"license": "MIT",
 	"author": "Avijit Dey",

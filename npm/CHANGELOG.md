@@ -1,5 +1,19 @@
 # @animateicons/react
 
+## 0.11.0
+
+### Minor Changes
+
+- Added 38 animated Huge brand and app icons, bringing the `huge` subpath from 463 to 501 icons and the package to 1170:
+  - Apple: `AppleIcon`, `Apple01Icon`, `AppleFinderIcon`, `AppleIntelligenceIcon`, `AppleMusicIcon`, `AppleNewsIcon`, `AppleReminderIcon`, `AppleStocksIcon`, `AppleVisionProIcon`, `SiriIcon` and `SiriNewIcon`.
+  - Google: `GoogleDocIcon`, `GoogleDriveIcon`, `GoogleGeminiIcon`, `GoogleHomeIcon`, `GoogleLensIcon`, `GoogleMapsIcon`, `GooglePhotosIcon` and `GoogleSheetIcon`.
+  - AI: `ChatGptIcon`, `ClaudeIcon`, `CopilotIcon`, `DeepseekIcon`, `GrokIcon`, `Grok02Icon`, `KimiAiIcon`, `MistralIcon`, `PerplexityAiIcon` and `QwenIcon`.
+  - Microsoft and others: `MicrosoftIcon`, `MicrosoftAdminIcon`, `Office365Icon`, `SkypeIcon`, `WazeIcon`, `WindowsNewIcon`, `WindowsOldIcon`, `WpsOfficeIcon` and `WpsOfficeRectangleIcon`.
+- Changed the hover animation of the 22 Lucide `File*` icons (from `FileIcon` to `FileXIcon`). The page now pops and settles instead of flipping over, and the mark inside each icon (plus, cross, check, lock and the rest) moves the way it does in the standalone icon.
+- Stopped the Huge `Home01Icon` from clipping its animation at the edge of the icon.
+- Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+- The `huge` barrel is now about 129 kB brotlied, close to the 130 kB budget. Single icons and small sets are unaffected because every icon is its own module.
+
 ## 0.10.0
 
 ### Minor Changes
