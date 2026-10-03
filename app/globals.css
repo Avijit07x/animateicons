@@ -182,7 +182,7 @@
 	}
 
 	button {
-		@apply cursor-pointer text-inherit;
+		@apply cursor-pointer text-inherit select-none;
 	}
 	.bg-plus-grid {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cpath d='M17 13.5v7M13.5 17h7' stroke='rgba(148,163,184,0.16)' stroke-width='1'/%3E%3C/svg%3E");
@@ -198,7 +198,7 @@
 }
 @layer components {
 	.btn {
-		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium;
+		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium select-none;
 		transition:
 			background-color 150ms ease-out,
 			border-color 150ms ease-out,
@@ -225,7 +225,7 @@
 		@apply py-12 text-center lg:py-16;
 	}
 	.pill-link {
-		@apply text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors;
+		@apply text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors select-none;
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.btn:active {
