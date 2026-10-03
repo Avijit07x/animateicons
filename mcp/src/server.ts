@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import {
 	addIconTool,
+	getDocsTool,
 	getIconTool,
 	listLibrariesTool,
 	searchIconsTool,
@@ -15,6 +16,9 @@ const VERSION: string = createRequire(import.meta.url)(
 	"../package.json",
 ).version;
 
+const INSTRUCTIONS =
+	"AnimateIcons is a library of animated React icons. Find and add icons with search_icons and add_icon. Before you wire an icon into a button, card, menu or input, or use props such as duration or the useIconHover hook, read the docs with get_docs.";
+
 const libraryEnum = z.enum(["lucide", "huge"]);
 
 function asJson(value: unknown) {
@@ -24,7 +28,10 @@ function asJson(value: unknown) {
 }
 
 export function createServer(ctx: ToolContext = {}): McpServer {
-	const server = new McpServer({ name: "animateicons", version: VERSION });
+	const server = new McpServer(
+		{ name: "animateicons", version: VERSION },
+		{ instructions: INSTRUCTIONS },
+	);
 
 	server.tool(
 		"search_icons",
@@ -60,6 +67,20 @@ export function createServer(ctx: ToolContext = {}): McpServer {
 			overwrite: z.boolean().optional(),
 		},
 		async (args) => asJson(await addIconTool(ctx, args)),
+	);
+
+	server.tool(
+		"get_docs",
+		"Read the AnimateIcons documentation: install, props, the ref handle, the useIconHover hook and usage examples. Call with no page to list the pages, or pass a page slug to read one.",
+		{
+			page: z
+				.string()
+				.optional()
+				.describe(
+					"Page slug or title, e.g. 'usage' or 'examples/hover-helper'. Leave out to list the pages",
+				),
+		},
+		async (args) => asJson(await getDocsTool(ctx, args)),
 	);
 
 	server.tool(

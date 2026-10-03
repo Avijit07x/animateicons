@@ -8,6 +8,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { createServer } from "../src/server";
 import {
 	addIconTool,
+	getDocsTool,
 	getIconTool,
 	listLibrariesTool,
 	searchIconsTool,
@@ -86,5 +87,33 @@ describe("tools", () => {
 		expect(out.added).toBe(true);
 		expect(out.file && fs.existsSync(out.file)).toBe(true);
 		expect(fs.readFileSync(out.file!, "utf8")).toContain("BellRingIcon");
+	});
+
+	it("get_docs lists the pages without their content", async () => {
+		const out = await getDocsTool(ctx, {});
+		const slugs = out.pages?.map((p) => p.slug);
+		expect(slugs).toContain("usage");
+		expect(slugs).toContain("examples/hover-helper");
+		expect(out.pages?.every((p) => !("content" in p))).toBe(true);
+	});
+
+	it("get_docs reads the hover helper page", async () => {
+		const out = await getDocsTool(ctx, { page: "hover helper" });
+		expect(out.found).toBe(true);
+		expect(out.slug).toBe("examples/hover-helper");
+		expect(out.content).toContain("useIconHover");
+		expect(out.content).toContain('trigger: "both"');
+	});
+
+	it("get_docs reads the usage page props", async () => {
+		const out = await getDocsTool(ctx, { page: "usage" });
+		expect(out.content).toContain("startAnimation");
+		expect(out.content).toContain("isAnimated");
+	});
+
+	it("get_docs reports an unknown page with the available slugs", async () => {
+		const out = await getDocsTool(ctx, { page: "nope" });
+		expect(out.found).toBe(false);
+		expect(out.message).toContain("usage");
 	});
 });

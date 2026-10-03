@@ -15,6 +15,14 @@ export {
 	type FetchItemOptions,
 } from "./catalog";
 
+export {
+	fetchDocs,
+	findDoc,
+	type DocPage,
+	type Docs,
+	type FetchDocsOptions,
+} from "./docs";
+
 export { searchIcons, type SearchOptions } from "./search";
 
 export { resolveIcon, type ResolveResult } from "./resolve";
