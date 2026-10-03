@@ -1,7 +1,7 @@
 import { fetchStars } from "@/lib/github/stars";
-import Image from "next/image";
 import Link from "next/link";
 import CommandSearchTrigger from "./command-search/CommandSearchTrigger";
+import LogoLink from "./logo/LogoLink";
 import NavbarActions from "./NavbarActions";
 
 const Navbar = async () => {
@@ -12,18 +12,11 @@ const Navbar = async () => {
 				<div className="mx-auto max-w-7xl px-6">
 					<div className="flex h-16 items-center justify-between">
 						<div className="flex items-center">
-							<Link href="/" className="flex items-center gap-2">
-								<Image
-									src="/logo.svg"
-									alt="logo"
-									width={40}
-									height={40}
-									priority
-								/>
+							<LogoLink size={40} className="flex items-center gap-2">
 								<span className="text-lg font-semibold text-white max-sm:hidden">
 									AnimateIcons
 								</span>
-							</Link>
+							</LogoLink>
 						</div>
 
 						<div className="flex items-center gap-2 text-sm">

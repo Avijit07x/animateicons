@@ -2,6 +2,7 @@
 
 import HugeIcon from "@/components/icons/HugeIcon";
 import LucideIcon from "@/components/icons/LucideIcon";
+import LogoLink from "@/components/logo/LogoLink";
 import {
 	Sidebar,
 	SidebarContent,
@@ -19,8 +20,6 @@ import { ICON_META as LUCIDE_ICON_META } from "@/icons/lucide/meta";
 import { cn } from "@/lib/utils";
 import { getCategories } from "@/utils/getCategories";
 import { isIconNew } from "@/utils/isIconNew";
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
@@ -98,19 +97,15 @@ const AppSidebar: React.FC = () => {
 	return (
 		<Sidebar className="bg-bgDark text-textPrimary border-border/60!">
 			<SidebarHeader className="bg-bgDark border-border/60 h-14 shrink-0 flex-row items-center gap-0 border-b px-4 py-0">
-				<Link href="/" className="flex items-center gap-2.5">
-					<Image
-						src="/logo.svg"
-						alt="logo"
-						width={30}
-						height={30}
-						loading="eager"
-						className="max-md:size-10"
-					/>
+				<LogoLink
+					size={30}
+					className="flex items-center gap-2.5"
+					logoClassName="max-md:size-10"
+				>
 					<span className="text-[15px] font-semibold text-white">
 						AnimateIcons
 					</span>
-				</Link>
+				</LogoLink>
 			</SidebarHeader>
 
 			<SidebarContent className="bg-bgDark gap-1 overscroll-contain px-2">
