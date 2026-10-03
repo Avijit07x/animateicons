@@ -4331,9 +4331,6 @@ const iconLoaders: Record<string, () => Promise<ComponentType<any>>> = {
 
 const cache = new Map<string, ComponentType<any>>();
 
-// Returns a cached React.lazy component for an icon name. Must be rendered
-// inside a <Suspense> boundary. Refs (the animation handle) attach once the
-// chunk resolves.
 function getIcon(name: string): ComponentType<any> {
  let comp = cache.get(name);
  if (!comp) {
