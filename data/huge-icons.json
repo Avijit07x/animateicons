@@ -3704,5 +3704,310 @@
 		"addedAt": "2026-10-01",
 		"category": ["Home"],
 		"keywords": ["coffee", "beans", "bean", "roast", "cafe", "espresso"]
+	},
+	{
+		"name": "claude",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["claude", "anthropic", "ai", "assistant", "chatbot", "llm"]
+	},
+	{
+		"name": "chat-gpt",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["chatgpt", "openai", "gpt", "ai", "chatbot", "llm"]
+	},
+	{
+		"name": "copilot",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["copilot", "github", "microsoft", "ai", "assistant", "code"]
+	},
+	{
+		"name": "deepseek",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["deepseek", "ai", "llm", "chatbot", "whale", "model"]
+	},
+	{
+		"name": "grok",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["grok", "xai", "ai", "chatbot", "llm", "x"]
+	},
+	{
+		"name": "grok-0-2",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["grok", "xai", "ai", "chatbot", "llm", "x"]
+	},
+	{
+		"name": "perplexity-ai",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["perplexity", "ai", "search", "answer", "llm", "chatbot"]
+	},
+	{
+		"name": "mistral",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["mistral", "ai", "llm", "model", "chatbot", "french"]
+	},
+	{
+		"name": "qwen",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["qwen", "alibaba", "ai", "llm", "model", "chatbot"]
+	},
+	{
+		"name": "kimi-ai",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["kimi", "moonshot", "ai", "llm", "chatbot", "model"]
+	},
+	{
+		"name": "google-gemini",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["gemini", "google", "ai", "llm", "bard", "chatbot"]
+	},
+	{
+		"name": "apple",
+		"addedAt": "2026-10-02",
+		"category": ["Brands"],
+		"keywords": ["apple", "ios", "macos", "iphone", "mac", "logo"]
+	},
+	{
+		"name": "apple-0-1",
+		"addedAt": "2026-10-02",
+		"category": ["Brands"],
+		"keywords": ["apple", "ios", "macos", "iphone", "mac", "logo"]
+	},
+	{
+		"name": "apple-music",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Multimedia"],
+		"keywords": [
+			"apple music",
+			"music",
+			"streaming",
+			"itunes",
+			"songs",
+			"audio"
+		]
+	},
+	{
+		"name": "apple-news",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Communication"],
+		"keywords": [
+			"apple news",
+			"news",
+			"articles",
+			"headlines",
+			"reader",
+			"feed"
+		]
+	},
+	{
+		"name": "apple-finder",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Tools"],
+		"keywords": ["finder", "apple", "mac", "macos", "files", "browser"]
+	},
+	{
+		"name": "apple-reminder",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Time & Date"],
+		"keywords": ["reminders", "apple", "todo", "tasks", "checklist", "list"]
+	},
+	{
+		"name": "apple-stocks",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Finance"],
+		"keywords": ["stocks", "apple", "finance", "market", "chart", "trading"]
+	},
+	{
+		"name": "apple-intelligence",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Coding & development"],
+		"keywords": ["apple intelligence", "ai", "apple", "assistant", "siri", "ml"]
+	},
+	{
+		"name": "apple-vision-pro",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Devices"],
+		"keywords": ["vision pro", "apple", "vr", "ar", "headset", "spatial"]
+	},
+	{
+		"name": "siri",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Multimedia"],
+		"keywords": ["siri", "apple", "voice", "assistant", "speech", "ios"]
+	},
+	{
+		"name": "siri-new",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Multimedia"],
+		"keywords": ["siri", "apple", "voice", "assistant", "speech", "ios"]
+	},
+	{
+		"name": "google-doc",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "File icons"],
+		"keywords": [
+			"google docs",
+			"document",
+			"doc",
+			"text",
+			"editor",
+			"workspace"
+		]
+	},
+	{
+		"name": "google-drive",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Tools"],
+		"keywords": ["google drive", "drive", "storage", "cloud", "files", "backup"]
+	},
+	{
+		"name": "google-sheet",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "File icons"],
+		"keywords": [
+			"google sheets",
+			"spreadsheet",
+			"sheet",
+			"table",
+			"excel",
+			"workspace"
+		]
+	},
+	{
+		"name": "google-photos",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Photography"],
+		"keywords": [
+			"google photos",
+			"photos",
+			"gallery",
+			"pinwheel",
+			"pictures",
+			"backup"
+		]
+	},
+	{
+		"name": "google-maps",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"google maps",
+			"maps",
+			"navigation",
+			"pin",
+			"location",
+			"directions"
+		]
+	},
+	{
+		"name": "google-lens",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Photography"],
+		"keywords": [
+			"google lens",
+			"lens",
+			"camera",
+			"visual search",
+			"scan",
+			"image search"
+		]
+	},
+	{
+		"name": "google-home",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Home"],
+		"keywords": [
+			"google home",
+			"nest",
+			"smart home",
+			"speaker",
+			"assistant",
+			"iot"
+		]
+	},
+	{
+		"name": "waze",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Navigation, Maps, and POIs"],
+		"keywords": ["waze", "navigation", "traffic", "maps", "gps", "driving"]
+	},
+	{
+		"name": "microsoft",
+		"addedAt": "2026-10-02",
+		"category": ["Brands"],
+		"keywords": ["microsoft", "windows", "logo", "azure", "office", "squares"]
+	},
+	{
+		"name": "microsoft-admin",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Security"],
+		"keywords": [
+			"microsoft admin",
+			"admin",
+			"security",
+			"shield",
+			"azure",
+			"entra"
+		]
+	},
+	{
+		"name": "windows-new",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Devices"],
+		"keywords": ["windows", "microsoft", "windows 11", "os", "logo", "panes"]
+	},
+	{
+		"name": "windows-old",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Devices"],
+		"keywords": ["windows", "microsoft", "windows xp", "classic", "os", "flag"]
+	},
+	{
+		"name": "office-3-6-5",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Tools"],
+		"keywords": [
+			"office 365",
+			"microsoft 365",
+			"office",
+			"microsoft",
+			"word",
+			"suite"
+		]
+	},
+	{
+		"name": "wps-office",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Tools"],
+		"keywords": [
+			"wps office",
+			"wps",
+			"office",
+			"kingsoft",
+			"documents",
+			"suite"
+		]
+	},
+	{
+		"name": "wps-office-rectangle",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Tools"],
+		"keywords": ["wps office", "wps", "office", "kingsoft", "square", "suite"]
+	},
+	{
+		"name": "skype",
+		"addedAt": "2026-10-02",
+		"category": ["Brands", "Communication"],
+		"keywords": ["skype", "microsoft", "call", "video call", "chat", "voip"]
 	}
 ]

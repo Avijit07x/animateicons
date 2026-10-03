@@ -24,7 +24,8 @@ Read [CONTRIBUTING.md](../CONTRIBUTING.md) first for the general flow, then the 
 
 Each roadmap lists the next batches in order. Pick the first batch that is not done, and ship every family in it whole.
 
-| Roadmap                                  | Library |
-| ---------------------------------------- | ------- |
-| [lucide-roadmap.md](./lucide-roadmap.md) | Lucide  |
-| [huge-roadmap.md](./huge-roadmap.md)     | Huge    |
+| Roadmap                                      | Library       |
+| -------------------------------------------- | ------------- |
+| [lucide-roadmap.md](./lucide-roadmap.md)     | Lucide        |
+| [huge-roadmap.md](./huge-roadmap.md)         | Huge          |
+| [huge-brand-icons.md](./huge-brand-icons.md) | Huge (brands) |
