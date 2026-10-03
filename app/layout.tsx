@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
+import Snow from "@/components/winter/Snow";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import "./globals.css";
 
@@ -15,11 +16,6 @@ const geistSans = Geist({
 
 const baseUrl = "https://animateicons.in";
 
-/**
- * Single source of truth for the global description. Reused across the
- * canonical `description`, OG, and Twitter cards so we don't drift into
- * three slightly-different strings (the previous setup did exactly that).
- */
 const SITE_DESCRIPTION = `${ICON_COUNTS.total}+ free, open-source, hand-crafted animated SVG icons for React, built on Lucide and Motion. Add them with the shadcn CLI or npm, and make them move on hover, focus, or with your code.`;
 
 const SITE_TITLE = `AnimateIcons | ${ICON_COUNTS.total}+ Free Animated React Icons`;
@@ -93,14 +89,6 @@ export const metadata: Metadata = {
 	},
 };
 
-/**
- * Global structured data: Organization + WebSite with SearchAction.
- * The SearchAction lets Google render a sitelinks search box in SERPs
- * pointing at `/icons/lucide?q=...`.
- *
- * Inline (not a component) so it ships as a single static <script> tag
- * with zero runtime cost.
- */
 const siteJsonLd = {
 	"@context": "https://schema.org",
 	"@graph": [
@@ -141,6 +129,7 @@ export default async function RootLayout({
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
+				<Snow />
 				<AppBootLoader />
 				<Analytics />
 				<ClarityAnalytics />

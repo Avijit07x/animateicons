@@ -11,7 +11,12 @@ import {
 	useReducedMotion,
 } from "motion/react";
 import { forwardRef, useImperativeHandle } from "react";
+import { useWinter } from "../winter/useWinter";
+import WinterHat from "../winter/WinterHat";
 import { LOGO_BLADES } from "./blades";
+
+const FLASH = "#ffffff";
+const WINTER_FLASH = "#bfe8ff";
 
 type Props = {
 	size?: number;
@@ -23,6 +28,7 @@ const Logo = forwardRef<IconHandle, Props>(
 	({ size = 40, duration = 1, className }, ref) => {
 		const controls = useAnimation();
 		const reduced = useReducedMotion();
+		const winter = useWinter();
 
 		useImperativeHandle(ref, () => ({
 			startAnimation: () =>
@@ -55,7 +61,7 @@ const Logo = forwardRef<IconHandle, Props>(
 					height={size}
 					viewBox="0 0 1024 1024"
 					aria-hidden="true"
-					className={cn("shrink-0", className)}
+					className={cn("shrink-0 overflow-visible", className)}
 					animate={controls}
 					initial="normal"
 				>
@@ -73,11 +79,12 @@ const Logo = forwardRef<IconHandle, Props>(
 							<m.path
 								d={blade.d}
 								transform={blade.transform}
-								fill="#ffffff"
+								fill={winter ? WINTER_FLASH : FLASH}
 								variants={flashVariants(blade.rank)}
 							/>
 						</m.g>
 					))}
+					{winter && <WinterHat duration={duration} />}
 				</m.svg>
 			</LazyMotion>
 		);
