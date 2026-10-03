@@ -106,7 +106,6 @@
 		"test:codegen": "node --test __tests__/generate-exports.test.mjs",
 		"test:smoke": "node --test __tests__/consume.test.mjs",
 		"size": "size-limit",
-		"pack:check": "npm pack --dry-run",
 		"verify": "pnpm run normalize && pnpm run check:naming && pnpm run typecheck && pnpm run build && pnpm run test:codegen && pnpm run test:smoke && pnpm run size",
 		"release:patch": "pnpm version patch",
 		"release:minor": "pnpm version minor",
