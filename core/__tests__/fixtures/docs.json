@@ -1,0 +1,30 @@
+{
+	"version": 1,
+	"total": 3,
+	"pages": [
+		{
+			"slug": "installation",
+			"title": "Installation",
+			"description": "Install the package.",
+			"group": "Getting Started",
+			"url": "https://animateicons.in/icons/docs",
+			"content": "# Installation\n"
+		},
+		{
+			"slug": "usage",
+			"title": "Usage",
+			"description": "Props and the ref handle.",
+			"group": "Getting Started",
+			"url": "https://animateicons.in/icons/docs/usage",
+			"content": "# Usage\n"
+		},
+		{
+			"slug": "examples/hover-helper",
+			"title": "Hover helper",
+			"description": "The useIconHover hook.",
+			"group": "Getting Started",
+			"url": "https://animateicons.in/icons/docs/examples/hover-helper",
+			"content": "# Hover helper\n"
+		}
+	]
+}

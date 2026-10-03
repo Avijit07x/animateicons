@@ -11,6 +11,7 @@ etc.) search the icon catalog and drop animated React icons straight into a proj
 | `search_icons`   | Fuzzy-search by name, keyword, or category.                                      |
 | `get_icon`       | Return an icon's component source + a ready-to-paste import snippet (read-only). |
 | `add_icon`       | Write an icon's component file into the project (default `components/icons/`).   |
+| `get_docs`       | Read the docs (props, ref handle, `useIconHover`, examples), or list the pages.  |
 | `list_libraries` | List the libraries and their icon counts.                                        |
 
 Icons require the [`motion`](https://motion.dev) package and import `cn` from

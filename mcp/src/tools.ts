@@ -1,17 +1,19 @@
 import {
 	fetchCatalog,
+	fetchDocs,
 	fetchRegistryItem,
+	findDoc,
 	renderIconContent,
 	resolveIcon,
 	searchIcons,
 	writeIcon,
 	type CatalogIcon,
+	type DocPage,
 	type IconLibrary,
 } from "@animateicons/core";
 
 export interface ToolContext {
 	registryBase?: string;
-	/** Base directory used by `add_icon`. Defaults to process.cwd(). */
 	cwd?: string;
 }
 
@@ -140,5 +142,45 @@ export async function addIconTool(
 		message: written.skipped
 			? `${written.file} already exists (pass overwrite: true to replace).`
 			: `Wrote ${res.match.registryName} to ${written.file}. Requires the \`motion\` package.`,
+	};
+}
+
+export interface GetDocsResult {
+	found: boolean;
+	message?: string;
+	pages?: Omit<DocPage, "content">[];
+	slug?: string;
+	title?: string;
+	url?: string;
+	content?: string;
+}
+
+export async function getDocsTool(
+	ctx: ToolContext,
+	args: { page?: string },
+): Promise<GetDocsResult> {
+	const docs = await fetchDocs({ registryBase: ctx.registryBase });
+
+	if (!args.page?.trim()) {
+		return {
+			found: true,
+			pages: docs.pages.map(({ content: _content, ...page }) => page),
+		};
+	}
+
+	const page = findDoc(docs, args.page);
+	if (!page) {
+		return {
+			found: false,
+			message: `"${args.page}" not found. Available pages: ${docs.pages.map((p) => p.slug).join(", ")}.`,
+		};
+	}
+
+	return {
+		found: true,
+		slug: page.slug,
+		title: page.title,
+		url: page.url,
+		content: page.content,
 	};
 }
