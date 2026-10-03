@@ -107,7 +107,7 @@ const IconList: React.FC = () => {
 										key={item.name}
 										item={item}
 										getIcon={active.getIcon}
-										alwaysShowActions={coarse}
+										coarse={coarse}
 									/>
 								))}
 								{bottomSpacer > 0 && (

@@ -15,22 +15,18 @@ import IconTileActions from "./IconTileActions";
 type Props = {
 	item: IconFilteredItem;
 	getIcon: (name: string) => React.ElementType;
-	alwaysShowActions?: boolean;
+	coarse?: boolean;
 };
 
 const POP = { type: "spring", stiffness: 520, damping: 28 } as const;
 
-const IconTile: React.FC<Props> = ({
-	item,
-	getIcon,
-	alwaysShowActions = false,
-}) => {
+const IconTile: React.FC<Props> = ({ item, getIcon, coarse = false }) => {
 	const { library, prefix } = useIconLibrary();
 	const { openPlayground } = usePlayground();
 	const { ref: iconRef, triggerProps } = useIconHover();
 	const [hovered, setHovered] = React.useState(false);
 	const [focused, setFocused] = React.useState(false);
-	const revealed = hovered || focused || alwaysShowActions;
+	const revealed = hovered || focused || coarse;
 
 	if (!library || !prefix) {
 		throw new Error("useIconLibrary used outside /icons route");
@@ -51,12 +47,17 @@ const IconTile: React.FC<Props> = ({
 			componentName: iconNameToComponent(item.name),
 		});
 
+	const handleClick = () => {
+		if (coarse) iconRef.current?.startAnimation();
+		else handleOpen();
+	};
+
 	return (
 		<div
 			tabIndex={0}
 			role="group"
 			aria-label={item.name}
-			onClick={handleOpen}
+			onClick={handleClick}
 			onKeyDown={(e) => {
 				if (e.target !== e.currentTarget) return;
 				if (e.key === "Enter" || e.key === " ") {
@@ -65,15 +66,17 @@ const IconTile: React.FC<Props> = ({
 				}
 			}}
 			onMouseEnter={(e) => {
+				if (coarse) return;
 				setHovered(true);
 				triggerProps.onMouseEnter?.(e);
 			}}
 			onMouseMove={() => {
-				if (hovered) return;
+				if (coarse || hovered) return;
 				setHovered(true);
 				iconRef.current?.startAnimation();
 			}}
 			onMouseLeave={(e) => {
+				if (coarse) return;
 				setHovered(false);
 				triggerProps.onMouseLeave?.(e);
 			}}
