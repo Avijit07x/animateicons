@@ -1,9 +1,3 @@
-# Workspace declaration for the AnimateIcons repo.
-# Root: the Next.js gallery + icon source files.
-# `npm/`: the @animateicons/react publishable package.
-# `core/`: shared catalog/search/write primitives (bundled into cli + mcp).
-# `cli/`: the `animateicons` CLI (`npx animateicons add`).
-# `mcp/`: the @animateicons/mcp server for AI coding agents.
 packages:
   - "npm"
   - "core"
@@ -13,6 +7,7 @@ nodeLinker: hoisted
 strictPeerDependencies: false
 autoInstallPeers: true
 sharedWorkspaceLockfile: false
+pmOnFail: ignore
 overrides:
   picomatch@^4: 4.0.7
 allowBuilds:
