@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 
 import { MINIMAL_CN_SOURCE, type IconLibrary } from "@animateicons/core";
@@ -14,8 +15,9 @@ import {
 	resolveUtilsImport,
 } from "./util/project";
 
-// Kept in sync with package.json by the release scripts.
-const VERSION = "0.1.0";
+const VERSION: string = createRequire(import.meta.url)(
+	"../package.json",
+).version;
 
 interface GlobalOptions {
 	registry?: string;
@@ -107,7 +109,6 @@ cli
 
 			const wroteSomething = outcome.added.some((a) => !a.skipped);
 
-			// `cn` dependency notice (we only warn - never mutate an unknown setup).
 			if (wroteSomething && !hasUtils) {
 				if ((options as { withUtils?: boolean }).withUtils) {
 					const utilsPath = path.join(cwd, "lib", "utils.ts");
@@ -127,7 +128,6 @@ cli
 				}
 			}
 
-			// motion dependency notice.
 			if (wroteSomething && !hasMotionDependency(cwd)) {
 				const pm = detectPackageManager(cwd);
 				console.log(
@@ -240,7 +240,6 @@ cli
 		const cwd = getCwd(options);
 		const { utilsImport, hasUtils } = resolveUtilsImport(cwd);
 
-		// Lazy: Ink + React are evaluated only here, never for add/search/list.
 		const { runBrowse } = await import("./commands/browse.js");
 		const { added } = await runBrowse({
 			cwd,

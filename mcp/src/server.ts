@@ -1,3 +1,5 @@
+import { createRequire } from "node:module";
+
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -9,7 +11,9 @@ import {
 	type ToolContext,
 } from "./tools";
 
-const VERSION = "0.1.0";
+const VERSION: string = createRequire(import.meta.url)(
+	"../package.json",
+).version;
 
 const libraryEnum = z.enum(["lucide", "huge"]);
 
@@ -19,10 +23,6 @@ function asJson(value: unknown) {
 	};
 }
 
-/**
- * Build the AnimateIcons MCP server. The transport is attached by the caller
- * so this factory can be exercised directly in tests.
- */
 export function createServer(ctx: ToolContext = {}): McpServer {
 	const server = new McpServer({ name: "animateicons", version: VERSION });
 
