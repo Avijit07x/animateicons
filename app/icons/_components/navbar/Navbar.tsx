@@ -1,8 +1,7 @@
+import LogoLink from "@/components/logo/LogoLink";
 import NavbarActions from "@/components/NavbarActions";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { fetchStars } from "@/lib/github/stars";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import InstallCommand from "./InstallCommand";
 import SearchBar from "./SearchBar";
@@ -14,16 +13,11 @@ const Navbar: React.FC = async () => {
 			<div className="mx-auto flex h-full max-w-384 items-center gap-4 px-4 lg:px-6">
 				<div className="flex items-center gap-2 md:hidden">
 					<SidebarTrigger className="hover:bg-surfaceElevated size-9 rounded-full bg-transparent text-white hover:text-white" />
-					<Link href="/" className="flex items-center gap-2">
-						<Image
-							src={"/logo.svg"}
-							alt="logo"
-							width={40}
-							height={40}
-							loading="eager"
-							className="max-md:size-9"
-						/>
-					</Link>
+					<LogoLink
+						size={40}
+						className="flex items-center gap-2"
+						logoClassName="max-md:size-9"
+					/>
 				</div>
 
 				<div className="hidden w-72 shrink-0 md:block">
