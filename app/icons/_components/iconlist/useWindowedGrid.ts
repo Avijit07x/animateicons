@@ -29,7 +29,9 @@ const sameView = (a: View, b: View) =>
 	a.firstRow === b.firstRow &&
 	a.lastRow === b.lastRow;
 
-export const useWindowedGrid = <T extends { name: string }>(items: T[]) => {
+export const useWindowedGrid = <T extends { name: string }>(
+	items: readonly T[],
+) => {
 	const [grid, setGrid] = useState<HTMLDivElement | null>(null);
 	const [view, setView] = useState<View>(INITIAL_VIEW);
 	const [focusRow, setFocusRow] = useState<number | null>(null);

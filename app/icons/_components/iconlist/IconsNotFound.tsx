@@ -7,7 +7,7 @@ const IconsNotFound: React.FC = () => {
 			initial={{ opacity: 0, y: 16 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.4, ease: "easeOut" }}
-			className="flex w-full flex-col items-center px-4 pt-24 text-center"
+			className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center"
 		>
 			<h2 className="text-textPrimary text-xl font-semibold tracking-tight">
 				No icons found<span className="text-primary">.</span>

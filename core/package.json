@@ -14,7 +14,9 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
-		}
+		},
+		"./icon-search-engine": "./src/icon-search-engine.ts",
+		"./search-support": "./src/search-support.ts"
 	},
 	"files": [
 		"dist/**/*.{js,cjs,d.ts}"
@@ -28,9 +30,6 @@
 		"typecheck": "tsc --noEmit",
 		"test": "vitest run",
 		"verify": "pnpm run typecheck && pnpm run build && pnpm run test"
-	},
-	"dependencies": {
-		"fuse.js": "^7.3.0"
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.1",

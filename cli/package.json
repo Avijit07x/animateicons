@@ -43,7 +43,6 @@
 		"@types/node": "^25.9.1",
 		"@types/react": "^19.2.15",
 		"cac": "^6.7.14",
-		"fuse.js": "^7.3.0",
 		"ink-testing-library": "^4.0.0",
 		"picocolors": "^1.1.1",
 		"tsup": "^8.3.0",

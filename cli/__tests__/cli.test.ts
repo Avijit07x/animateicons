@@ -8,7 +8,6 @@ import { afterAll, describe, expect, it } from "vitest";
 import { runAdd } from "../src/commands/add";
 import { runInfo, runList, runSearch } from "../src/commands/query";
 
-// Run against the repo's real generated registry - no network needed.
 const PUBLIC_R = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
 	"../../public/r",
@@ -31,6 +30,34 @@ describe("search / list / info", () => {
 			await runSearch("notification", { registryBase: PUBLIC_R })
 		).map((i) => i.registryName);
 		expect(names).toContain("lu-bell-ring");
+	});
+
+	it("searches plurals, typos and names typed without hyphens", async () => {
+		const names = async (query: string) =>
+			(await runSearch(query, { registryBase: PUBLIC_R })).map(
+				(i) => i.registryName,
+			);
+		expect(await names("files")).toContain("lu-file");
+		expect(await names("calender")).toContain("hu-calendar-0-1");
+		expect(await names("bellring")).toContain("lu-bell-ring");
+	});
+
+	it("rejects a --limit that is not a whole number of 1 or more", async () => {
+		for (const bad of [NaN, 0, -2, 1.5, Infinity]) {
+			await expect(
+				runSearch("bell", { registryBase: PUBLIC_R, limit: bad }),
+			).rejects.toThrow(
+				`searchIcons: limit must be a whole number of 1 or more, received ${String(bad)}.`,
+			);
+		}
+	});
+
+	it("honours --limit", async () => {
+		const results = await runSearch("arrow", {
+			registryBase: PUBLIC_R,
+			limit: 3,
+		});
+		expect(results).toHaveLength(3);
 	});
 
 	it("lists a single library", async () => {

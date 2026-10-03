@@ -9,3 +9,12 @@ packages:
   - "core"
   - "cli"
   - "mcp"
+nodeLinker: hoisted
+strictPeerDependencies: false
+autoInstallPeers: true
+sharedWorkspaceLockfile: false
+overrides:
+  picomatch@^4: 4.0.7
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true

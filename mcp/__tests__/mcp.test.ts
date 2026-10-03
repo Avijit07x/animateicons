@@ -43,6 +43,23 @@ describe("tools", () => {
 		expect(out.results.map((r) => r.registryName)).toContain("lu-bell-ring");
 	});
 
+	it("search_icons ranks real matches first and drops look-alikes", async () => {
+		const files = await searchIconsTool(ctx, { query: "files" });
+		expect(files.results.slice(0, 2).map((r) => r.registryName)).toContain(
+			"lu-files",
+		);
+		const cart = await searchIconsTool(ctx, { query: "cart", limit: 50 });
+		const names = cart.results.map((r) => r.registryName);
+		expect(names).toContain("lu-shopping-cart");
+		expect(names.some((n) => n.includes("chart"))).toBe(false);
+	});
+
+	it("search_icons reports the count it returns", async () => {
+		const out = await searchIconsTool(ctx, { query: "arrow", limit: 5 });
+		expect(out.count).toBe(5);
+		expect(out.results).toHaveLength(5);
+	});
+
 	it("list_libraries reports counts", async () => {
 		const out = await listLibrariesTool(ctx);
 		expect(out.total).toBeGreaterThan(0);

@@ -45,8 +45,8 @@ const Page: React.FC<Props> = async ({ params }) => {
 			<JsonLd data={jsonLd} />
 
 			<Navbar />
-			<main className="min-h-[calc(100dvh-3.5rem)] pb-3">
-				<div className="mx-auto h-full w-full max-w-384">
+			<main className="flex min-h-[calc(100dvh-3.5rem)] flex-col pb-3">
+				<div className="mx-auto flex w-full max-w-384 flex-1 flex-col">
 					<h1 className="sr-only">{displayName} Animated Icons for React</h1>
 
 					<IconListClient />

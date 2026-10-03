@@ -1,22 +1,19 @@
 "use client";
 
-/**
- * useIconSearchFilter
- *
- * Filter + rank hook powering the AnimateIcons gallery search. Combines
- * a custom prefix/contains scorer (so "bell" puts "bell" before
- * "bell-ring" before "doorbell") with a Fuse.js fuzzy fallback for
- * typos. Also flags icons added in the last three days as `isNew` so
- * the gallery can decorate them.
- *
- * Queries longer than the longest matchable name or keyword bail out
- * before reaching Fuse, whose cost scales with pattern length - that
- * search is what froze the page on a large paste (#45).
- */
-
+import {
+	createIconSearchIndex,
+	MIN_QUERY_LENGTH,
+	normalizeQuery,
+	type IconSearchIndex,
+} from "@animateicons/core/icon-search-engine";
+import {
+	assertOptions,
+	assertString,
+	createBoundedCache,
+	describeValue,
+	type BoundedCache,
+} from "@animateicons/core/search-support";
 import { isIconNew } from "@/utils/isIconNew";
-import Fuse from "fuse.js";
-import { useMemo } from "react";
 
 type Params = {
 	icons: IconMeta[];
@@ -29,108 +26,93 @@ export type IconFilteredItem = IconMeta & {
 	isUpdated: boolean;
 };
 
+type Bucket = {
+	icons: IconFilteredItem[];
+	ordered: readonly IconFilteredItem[];
+	index?: IconSearchIndex<IconFilteredItem>;
+	results: BoundedCache<readonly IconFilteredItem[]>;
+};
+
+type Source = {
+	decorated: IconFilteredItem[];
+	buckets: Map<string, Bucket>;
+};
+
+const PARAM_KEYS: readonly string[] = ["icons", "category", "query"];
+const MAX_CACHED_QUERIES = 32;
+
 const rank = (icon: { isNew: boolean; isUpdated: boolean }) =>
 	icon.isNew ? 2 : icon.isUpdated ? 1 : 0;
 
-export const useIconSearchFilter = ({
-	icons,
-	category,
-	query,
-}: Params): IconFilteredItem[] => {
-	const categoryIcons = useMemo(() => {
-		if (!icons.length) return [];
-		if (category === "all") return icons;
+const byFreshness = (a: IconFilteredItem, b: IconFilteredItem) =>
+	rank(b) - rank(a);
 
-		return icons.filter((icon) => icon.category?.includes(category));
-	}, [icons, category]);
+const decorate = (icon: IconMeta): IconFilteredItem => {
+	const isNew = isIconNew(icon.addedAt);
+	return { ...icon, isNew, isUpdated: !isNew && isIconNew(icon.updatedAt) };
+};
 
-	const maxMatchableLength = useMemo(() => {
-		let max = 0;
-		for (const icon of icons) {
-			max = Math.max(max, icon.name.length);
-			for (const keyword of icon.keywords ?? []) {
-				max = Math.max(max, keyword.length);
-			}
-		}
-		return max;
-	}, [icons]);
+const SOURCES = new WeakMap<IconMeta[], Source>();
 
-	const fuse = useMemo(() => {
-		if (!icons.length) return null;
+const getBucket = (icons: IconMeta[], category: string): Bucket => {
+	let source = SOURCES.get(icons);
+	if (!source) {
+		source = { decorated: icons.map(decorate), buckets: new Map() };
+		SOURCES.set(icons, source);
+	}
+	let bucket = source.buckets.get(category);
+	if (!bucket) {
+		const list =
+			category === "all"
+				? source.decorated
+				: source.decorated.filter((icon) => icon.category?.includes(category));
+		bucket = {
+			icons: list,
+			ordered: Object.freeze([...list].sort(byFreshness)),
+			results: createBoundedCache(MAX_CACHED_QUERIES),
+		};
+		source.buckets.set(category, bucket);
+	}
+	return bucket;
+};
 
-		return new Fuse(icons, {
-			keys: [
-				{ name: "name", weight: 0.9 },
-				{ name: "keywords", weight: 0.1 },
-			],
-			threshold: 0.25,
-			ignoreLocation: true,
-			minMatchCharLength: 2,
-			includeScore: true,
-		});
-	}, [icons]);
+const searchBucket = (
+	bucket: Bucket,
+	key: string,
+): readonly IconFilteredItem[] => {
+	const cached = bucket.results.get(key);
+	if (cached) return cached;
 
-	const filteredItems = useMemo(() => {
-		if (!categoryIcons.length) return [];
+	bucket.index ??= createIconSearchIndex(bucket.icons);
+	return bucket.results.set(
+		key,
+		Object.freeze(bucket.index.search(key, { tieBreak: byFreshness })),
+	);
+};
 
-		const q = query.trim().toLowerCase();
-		if (q.length > maxMatchableLength) return [];
+const validate = (params: unknown): Params => {
+	const { icons, category, query } = assertOptions(
+		params,
+		"useIconSearchFilter",
+		"{ icons, category, query }",
+		PARAM_KEYS,
+	);
+	if (!Array.isArray(icons)) {
+		throw new TypeError(
+			`useIconSearchFilter: icons must be an array of icon metadata, received ${describeValue(icons)}.`,
+		);
+	}
+	assertString(category, "useIconSearchFilter", "category");
+	assertString(query, "useIconSearchFilter", "query");
+	return { icons, category, query } as Params;
+};
 
-		let items = categoryIcons;
+export const useIconSearchFilter = (
+	params: Params,
+): readonly IconFilteredItem[] => {
+	const { icons, category, query } = validate(params);
+	const bucket = getBucket(icons, category);
 
-		if (q.length >= 2) {
-			const exact: IconMeta[] = [];
-			const startsWith: IconMeta[] = [];
-			const contains: IconMeta[] = [];
-
-			for (const icon of categoryIcons) {
-				const name = icon.name.toLowerCase();
-				if (name === q) {
-					exact.push(icon);
-				} else if (name.startsWith(q)) {
-					startsWith.push(icon);
-				} else if (name.includes(q)) {
-					contains.push(icon);
-				}
-			}
-
-			const customMatches = [...exact, ...startsWith, ...contains];
-			let fuseMatches: IconMeta[] = [];
-
-			if (fuse) {
-				const isAll = category === "all";
-				fuseMatches = fuse
-					.search(q)
-					.filter(
-						(r) =>
-							(r.score ?? 1) < 0.4 &&
-							(isAll || categoryIcons.some((ci) => ci.name === r.item.name)),
-					)
-					.map((r) => r.item);
-			}
-
-			const uniqueItems = new Map<string, IconMeta>();
-
-			for (const icon of [...customMatches, ...fuseMatches]) {
-				if (!uniqueItems.has(icon.name)) {
-					uniqueItems.set(icon.name, icon);
-				}
-			}
-
-			items = Array.from(uniqueItems.values());
-		}
-
-		return items
-			.map((item) => {
-				const isNew = isIconNew(item.addedAt);
-				return {
-					...item,
-					isNew,
-					isUpdated: !isNew && isIconNew(item.updatedAt),
-				};
-			})
-			.sort((a, b) => rank(b) - rank(a));
-	}, [query, fuse, categoryIcons, category, maxMatchableLength]);
-
-	return filteredItems;
+	if (query.trim().length < MIN_QUERY_LENGTH) return bucket.ordered;
+	return searchBucket(bucket, normalizeQuery(query));
 };
