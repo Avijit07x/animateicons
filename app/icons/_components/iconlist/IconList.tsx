@@ -17,6 +17,8 @@ import IconsNotFound from "./IconsNotFound";
 import IconTile from "./IconTile";
 import { useWindowedGrid } from "./useWindowedGrid";
 
+const NO_ICONS: IconMeta[] = [];
+
 const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearchResult();
 	const { library } = useIconLibrary();
@@ -59,7 +61,7 @@ const IconList: React.FC = () => {
 	const baseIcons = active ? active.icons : null;
 
 	const filteredItems = useIconSearchFilter({
-		icons: baseIcons ?? [],
+		icons: baseIcons ?? NO_ICONS,
 		category,
 		query: debouncedQuery,
 	});
@@ -118,7 +120,7 @@ const IconList: React.FC = () => {
 							</div>
 
 							{!debouncedQuery && (
-								<div className="py-4 text-center">
+								<div className="mt-auto py-4 text-center">
 									<p className="text-textPrimary text-sm font-medium">
 										The collection is continuously expanding
 									</p>

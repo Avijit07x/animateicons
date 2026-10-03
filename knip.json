@@ -26,11 +26,11 @@
 		},
 		"cli": {
 			"entry": ["__tests__/*.{ts,tsx}"],
-			"ignoreDependencies": ["@animateicons/core", "fuse.js"]
+			"ignoreDependencies": ["@animateicons/core"]
 		},
 		"mcp": {
 			"entry": ["__tests__/*.ts"],
-			"ignoreDependencies": ["@animateicons/core", "fuse.js"]
+			"ignoreDependencies": ["@animateicons/core"]
 		}
 	}
 }

@@ -12,7 +12,6 @@ export interface QueryOptions {
 	limit?: number;
 }
 
-/** Fuzzy-search the catalog. */
 export async function runSearch(
 	query: string,
 	opts: QueryOptions = {},
@@ -24,7 +23,6 @@ export async function runSearch(
 	});
 }
 
-/** List the full catalog, optionally filtered by library. */
 export async function runList(opts: QueryOptions = {}): Promise<CatalogIcon[]> {
 	const catalog = await fetchCatalog({ registryBase: opts.registryBase });
 	const icons = opts.library
@@ -35,11 +33,9 @@ export async function runList(opts: QueryOptions = {}): Promise<CatalogIcon[]> {
 
 export interface InfoResult {
 	icon: CatalogIcon | null;
-	/** Disambiguation / near-miss candidates when there is no exact match. */
 	candidates: string[];
 }
 
-/** Look up a single icon's metadata. */
 export async function runInfo(
 	name: string,
 	opts: QueryOptions = {},

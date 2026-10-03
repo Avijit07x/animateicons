@@ -24,7 +24,7 @@ const CommandSearch: React.FC<Props> = ({ isOpen, onClose }) => {
 	const router = useRouter();
 
 	const searching = query.trim().length >= 2;
-	const results = useMemo<CommandSearchIcon[]>(() => {
+	const results = useMemo<readonly CommandSearchIcon[]>(() => {
 		const q = query.trim().toLowerCase();
 		if (q.length < 2) return POPULAR_ICONS;
 		return searchIcons(q, MAX_RESULTS);

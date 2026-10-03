@@ -1,46 +1,136 @@
-import Fuse from "fuse.js";
-
+import {
+	createIconSearchIndex,
+	normalizeQuery,
+	type IconSearchIndex,
+} from "./icon-search-engine";
+import {
+	assertLimit,
+	assertOptions,
+	assertString,
+	describeValue,
+	isObject,
+} from "./search-support";
 import type { Catalog, CatalogIcon, IconLibrary } from "./types";
 
 export interface SearchOptions {
-	/** Restrict results to a single library. */
 	library?: IconLibrary;
-	/** Max results to return. Defaults to 20. */
 	limit?: number;
 }
 
-/**
- * Fuzzy-search the catalog over name, keywords, and category. Mirrors the
- * weighting used by the showcase site's Cmd+K palette so CLI/MCP results feel
- * consistent with the website. An empty query returns the (optionally
- * library-filtered) catalog head.
- */
+type Entry = {
+	name: string;
+	keywords: string[];
+	icon: CatalogIcon;
+};
+
+type Pool = {
+	size: number;
+	icons: CatalogIcon[];
+	index?: IconSearchIndex<Entry>;
+};
+
+const DEFAULT_LIMIT = 20;
+const OPTION_KEYS: readonly string[] = ["library", "limit"];
+const POOLS = new WeakMap<CatalogIcon[], Map<string, Pool>>();
+const FILE_EXTENSION = /\.(?:tsx|ts|jsx|js|json)$/i;
+const CAMEL_BOUNDARY = /([a-z0-9])([A-Z])/g;
+const ICON_SUFFIX = /[\s_-]+icons?$/i;
+
+const textList = (value: unknown): string[] => {
+	if (typeof value === "string") return [value];
+	if (!Array.isArray(value)) return [];
+	return value.filter((item): item is string => typeof item === "string");
+};
+
+const getPool = (icons: CatalogIcon[], library?: string): Pool => {
+	let pools = POOLS.get(icons);
+	if (!pools) {
+		pools = new Map();
+		POOLS.set(icons, pools);
+	}
+	const key = library ?? "";
+	let pool = pools.get(key);
+	if (!pool || pool.size !== icons.length) {
+		pool = {
+			size: icons.length,
+			icons: library
+				? icons.filter((icon) => icon?.library === library)
+				: icons.slice(),
+		};
+		pools.set(key, pool);
+	}
+	return pool;
+};
+
+const getIndex = (pool: Pool): IconSearchIndex<Entry> => {
+	if (!pool.index) {
+		const entries: Entry[] = [];
+		for (const icon of pool.icons) {
+			if (typeof icon?.name !== "string" || normalizeQuery(icon.name) === "") {
+				continue;
+			}
+			entries.push({
+				name: icon.name,
+				keywords: [...textList(icon.keywords), ...textList(icon.category)],
+				icon,
+			});
+		}
+		pool.index = createIconSearchIndex(entries);
+	}
+	return pool.index;
+};
+
+const cleanQuery = (query: string): string => {
+	const cleaned = query
+		.replace(FILE_EXTENSION, "")
+		.replace(CAMEL_BOUNDARY, "$1 $2")
+		.replace(ICON_SUFFIX, "");
+	return cleaned.trim() === "" ? query : cleaned;
+};
+
+const matchLetter = (pool: Pool, key: string, limit: number) => {
+	const exact: CatalogIcon[] = [];
+	const starts: CatalogIcon[] = [];
+	const words: CatalogIcon[] = [];
+	for (const icon of pool.icons) {
+		const name = typeof icon?.name === "string" ? icon.name.toLowerCase() : "";
+		if (!name) continue;
+		if (name === key) exact.push(icon);
+		else if (name.startsWith(key)) starts.push(icon);
+		else if (name.split(/[^a-z0-9]+/).includes(key)) words.push(icon);
+	}
+	return [...exact, ...starts, ...words].slice(0, limit);
+};
+
 export function searchIcons(
 	catalog: Catalog,
 	query: string,
 	opts: SearchOptions = {},
 ): CatalogIcon[] {
-	const { library, limit = 20 } = opts;
+	if (!isObject(catalog) || !Array.isArray(catalog.icons)) {
+		throw new TypeError(
+			`searchIcons: catalog must be an object with an "icons" array, received ${describeValue(catalog)}.`,
+		);
+	}
+	assertString(query, "searchIcons", "query");
+	assertOptions(opts, "searchIcons", "{ limit: 20 }", OPTION_KEYS);
+	const { library, limit = DEFAULT_LIMIT } = opts;
+	if (library !== undefined && typeof library !== "string") {
+		throw new TypeError(
+			`searchIcons: library must be "lucide" or "huge", received ${describeValue(library)}.`,
+		);
+	}
+	assertLimit(limit, "searchIcons");
 
-	let pool = catalog.icons;
-	if (library) pool = pool.filter((i) => i.library === library);
+	const pool = getPool(catalog.icons, library);
+	const trimmed = query.trim();
+	if (!trimmed) return pool.icons.slice(0, limit);
 
-	const q = query.trim();
-	if (!q) return pool.slice(0, limit);
+	const key = normalizeQuery(cleanQuery(trimmed));
+	if (key === "") return [];
+	if (key.length === 1) return matchLetter(pool, key, limit);
 
-	const fuse = new Fuse(pool, {
-		keys: [
-			{ name: "name", weight: 0.5 },
-			{ name: "keywords", weight: 0.3 },
-			{ name: "category", weight: 0.2 },
-		],
-		threshold: 0.4,
-		ignoreLocation: true,
-		includeScore: true,
-	});
-
-	return fuse
-		.search(q)
-		.slice(0, limit)
-		.map((r) => r.item);
+	return getIndex(pool)
+		.search(key, { limit })
+		.map((entry) => entry.icon);
 }
