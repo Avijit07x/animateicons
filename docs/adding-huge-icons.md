@@ -81,11 +81,11 @@ It prints, for each icon we ship, the related Hugeicons names we don't have yet.
 
 ## 2. Name it
 
-| Hugeicons name      | File                       | Component               | JSON `name`          |
-| ------------------- | -------------------------- | ----------------------- | -------------------- |
-| `Clock01`           | `clock-0-1-icon.tsx`       | `Clock01Icon`           | `clock-0-1`          |
-| `Edit02`            | `edit-0-2-icon.tsx`        | `Edit02Icon`            | `edit-0-2`           |
-| `Filter`            | `filter-icon.tsx`          | `FilterIcon`            | `filter`             |
+| Hugeicons name      | File                          | Component               | JSON `name`          |
+| ------------------- | ----------------------------- | ----------------------- | -------------------- |
+| `Clock01`           | `clock-0-1-icon.tsx`          | `Clock01Icon`           | `clock-0-1`          |
+| `Edit02`            | `edit-0-2-icon.tsx`           | `Edit02Icon`            | `edit-0-2`           |
+| `Filter`            | `filter-icon.tsx`             | `FilterIcon`            | `filter`             |
 | `InformationCircle` | `information-circle-icon.tsx` | `InformationCircleIcon` | `information-circle` |
 
 Names without a number become plain kebab-case. A trailing number `NN` becomes `-0-N` (`01` is `-0-1`, `02` is `-0-2`). The component must be `XxxIcon` with `XxxIconHandle` and `XxxIconProps`. `tests/icons/naming.test.ts` fails otherwise.

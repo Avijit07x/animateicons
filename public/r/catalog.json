@@ -2,10 +2,10 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1132,
+  "total": 1170,
   "libraries": {
     "lucide": 669,
-    "huge": 463
+    "huge": 501
   },
   "icons": [
     {
@@ -257,6 +257,184 @@
         "service"
       ],
       "url": "https://animateicons.in/r/hu-api.json"
+    },
+    {
+      "name": "apple",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "apple",
+        "ios",
+        "macos",
+        "iphone",
+        "mac",
+        "logo"
+      ],
+      "url": "https://animateicons.in/r/hu-apple.json"
+    },
+    {
+      "name": "apple-0-1",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-0-1",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "apple",
+        "ios",
+        "macos",
+        "iphone",
+        "mac",
+        "logo"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-0-1.json"
+    },
+    {
+      "name": "apple-finder",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-finder",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Tools"
+      ],
+      "keywords": [
+        "finder",
+        "apple",
+        "mac",
+        "macos",
+        "files",
+        "browser"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-finder.json"
+    },
+    {
+      "name": "apple-intelligence",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-intelligence",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "apple intelligence",
+        "ai",
+        "apple",
+        "assistant",
+        "siri",
+        "ml"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-intelligence.json"
+    },
+    {
+      "name": "apple-music",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-music",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Multimedia"
+      ],
+      "keywords": [
+        "apple music",
+        "music",
+        "streaming",
+        "itunes",
+        "songs",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-music.json"
+    },
+    {
+      "name": "apple-news",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-news",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Communication"
+      ],
+      "keywords": [
+        "apple news",
+        "news",
+        "articles",
+        "headlines",
+        "reader",
+        "feed"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-news.json"
+    },
+    {
+      "name": "apple-reminder",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-reminder",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Time & Date"
+      ],
+      "keywords": [
+        "reminders",
+        "apple",
+        "todo",
+        "tasks",
+        "checklist",
+        "list"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-reminder.json"
+    },
+    {
+      "name": "apple-stocks",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-stocks",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Finance"
+      ],
+      "keywords": [
+        "stocks",
+        "apple",
+        "finance",
+        "market",
+        "chart",
+        "trading"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-stocks.json"
+    },
+    {
+      "name": "apple-vision-pro",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-apple-vision-pro",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Devices"
+      ],
+      "keywords": [
+        "vision pro",
+        "apple",
+        "vr",
+        "ar",
+        "headset",
+        "spatial"
+      ],
+      "url": "https://animateicons.in/r/hu-apple-vision-pro.json"
     },
     {
       "name": "arrow-all-direction",
@@ -1504,6 +1682,26 @@
       "url": "https://animateicons.in/r/hu-chat-0-1.json"
     },
     {
+      "name": "chat-gpt",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-chat-gpt",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "chatgpt",
+        "openai",
+        "gpt",
+        "ai",
+        "chatbot",
+        "llm"
+      ],
+      "url": "https://animateicons.in/r/hu-chat-gpt.json"
+    },
+    {
       "name": "check",
       "library": "huge",
       "prefix": "hu",
@@ -1674,6 +1872,26 @@
         "arrow"
       ],
       "url": "https://animateicons.in/r/hu-chevron-up.json"
+    },
+    {
+      "name": "claude",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-claude",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "claude",
+        "anthropic",
+        "ai",
+        "assistant",
+        "chatbot",
+        "llm"
+      ],
+      "url": "https://animateicons.in/r/hu-claude.json"
     },
     {
       "name": "clock-0-1",
@@ -1963,6 +2181,26 @@
         "policy"
       ],
       "url": "https://animateicons.in/r/hu-cookie.json"
+    },
+    {
+      "name": "copilot",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-copilot",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "copilot",
+        "github",
+        "microsoft",
+        "ai",
+        "assistant",
+        "code"
+      ],
+      "url": "https://animateicons.in/r/hu-copilot.json"
     },
     {
       "name": "copy",
@@ -2319,6 +2557,26 @@
         "records"
       ],
       "url": "https://animateicons.in/r/hu-database-0-1.json"
+    },
+    {
+      "name": "deepseek",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-deepseek",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "deepseek",
+        "ai",
+        "llm",
+        "chatbot",
+        "whale",
+        "model"
+      ],
+      "url": "https://animateicons.in/r/hu-deepseek.json"
     },
     {
       "name": "delete-0-2",
@@ -3337,6 +3595,166 @@
       "url": "https://animateicons.in/r/hu-google.json"
     },
     {
+      "name": "google-doc",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-doc",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "File icons"
+      ],
+      "keywords": [
+        "google docs",
+        "document",
+        "doc",
+        "text",
+        "editor",
+        "workspace"
+      ],
+      "url": "https://animateicons.in/r/hu-google-doc.json"
+    },
+    {
+      "name": "google-drive",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-drive",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Tools"
+      ],
+      "keywords": [
+        "google drive",
+        "drive",
+        "storage",
+        "cloud",
+        "files",
+        "backup"
+      ],
+      "url": "https://animateicons.in/r/hu-google-drive.json"
+    },
+    {
+      "name": "google-gemini",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-gemini",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "gemini",
+        "google",
+        "ai",
+        "llm",
+        "bard",
+        "chatbot"
+      ],
+      "url": "https://animateicons.in/r/hu-google-gemini.json"
+    },
+    {
+      "name": "google-home",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-home",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Home"
+      ],
+      "keywords": [
+        "google home",
+        "nest",
+        "smart home",
+        "speaker",
+        "assistant",
+        "iot"
+      ],
+      "url": "https://animateicons.in/r/hu-google-home.json"
+    },
+    {
+      "name": "google-lens",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-lens",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Photography"
+      ],
+      "keywords": [
+        "google lens",
+        "lens",
+        "camera",
+        "visual search",
+        "scan",
+        "image search"
+      ],
+      "url": "https://animateicons.in/r/hu-google-lens.json"
+    },
+    {
+      "name": "google-maps",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-maps",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "google maps",
+        "maps",
+        "navigation",
+        "pin",
+        "location",
+        "directions"
+      ],
+      "url": "https://animateicons.in/r/hu-google-maps.json"
+    },
+    {
+      "name": "google-photos",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-photos",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Photography"
+      ],
+      "keywords": [
+        "google photos",
+        "photos",
+        "gallery",
+        "pinwheel",
+        "pictures",
+        "backup"
+      ],
+      "url": "https://animateicons.in/r/hu-google-photos.json"
+    },
+    {
+      "name": "google-sheet",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-google-sheet",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "File icons"
+      ],
+      "keywords": [
+        "google sheets",
+        "spreadsheet",
+        "sheet",
+        "table",
+        "excel",
+        "workspace"
+      ],
+      "url": "https://animateicons.in/r/hu-google-sheet.json"
+    },
+    {
       "name": "grid-view",
       "library": "huge",
       "prefix": "hu",
@@ -3354,6 +3772,46 @@
         "cards"
       ],
       "url": "https://animateicons.in/r/hu-grid-view.json"
+    },
+    {
+      "name": "grok",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-grok",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "grok",
+        "xai",
+        "ai",
+        "chatbot",
+        "llm",
+        "x"
+      ],
+      "url": "https://animateicons.in/r/hu-grok.json"
+    },
+    {
+      "name": "grok-0-2",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-grok-0-2",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "grok",
+        "xai",
+        "ai",
+        "chatbot",
+        "llm",
+        "x"
+      ],
+      "url": "https://animateicons.in/r/hu-grok-0-2.json"
     },
     {
       "name": "handshake",
@@ -3981,6 +4439,26 @@
         "blocked"
       ],
       "url": "https://animateicons.in/r/hu-keyboard-off.json"
+    },
+    {
+      "name": "kimi-ai",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-kimi-ai",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "kimi",
+        "moonshot",
+        "ai",
+        "llm",
+        "chatbot",
+        "model"
+      ],
+      "url": "https://animateicons.in/r/hu-kimi-ai.json"
     },
     {
       "name": "laugh",
@@ -5117,6 +5595,45 @@
       "url": "https://animateicons.in/r/hu-mic-off-0-1.json"
     },
     {
+      "name": "microsoft",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-microsoft",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands"
+      ],
+      "keywords": [
+        "microsoft",
+        "windows",
+        "logo",
+        "azure",
+        "office",
+        "squares"
+      ],
+      "url": "https://animateicons.in/r/hu-microsoft.json"
+    },
+    {
+      "name": "microsoft-admin",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-microsoft-admin",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Security"
+      ],
+      "keywords": [
+        "microsoft admin",
+        "admin",
+        "security",
+        "shield",
+        "azure",
+        "entra"
+      ],
+      "url": "https://animateicons.in/r/hu-microsoft-admin.json"
+    },
+    {
       "name": "minimize-screen",
       "library": "huge",
       "prefix": "hu",
@@ -5191,6 +5708,26 @@
         "less"
       ],
       "url": "https://animateicons.in/r/hu-minus-sign-square.json"
+    },
+    {
+      "name": "mistral",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-mistral",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "mistral",
+        "ai",
+        "llm",
+        "model",
+        "chatbot",
+        "french"
+      ],
+      "url": "https://animateicons.in/r/hu-mistral.json"
     },
     {
       "name": "money-bag-0-1",
@@ -5492,6 +6029,26 @@
         "bell"
       ],
       "url": "https://animateicons.in/r/hu-notification-off-0-2.json"
+    },
+    {
+      "name": "office-3-6-5",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-office-3-6-5",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Tools"
+      ],
+      "keywords": [
+        "office 365",
+        "microsoft 365",
+        "office",
+        "microsoft",
+        "word",
+        "suite"
+      ],
+      "url": "https://animateicons.in/r/hu-office-3-6-5.json"
     },
     {
       "name": "package-delivered",
@@ -5979,6 +6536,26 @@
       "url": "https://animateicons.in/r/hu-percent.json"
     },
     {
+      "name": "perplexity-ai",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-perplexity-ai",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "perplexity",
+        "ai",
+        "search",
+        "answer",
+        "llm",
+        "chatbot"
+      ],
+      "url": "https://animateicons.in/r/hu-perplexity-ai.json"
+    },
+    {
       "name": "phone",
       "library": "huge",
       "prefix": "hu",
@@ -6246,6 +6823,26 @@
         "review"
       ],
       "url": "https://animateicons.in/r/hu-quote.json"
+    },
+    {
+      "name": "qwen",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-qwen",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Coding & development"
+      ],
+      "keywords": [
+        "qwen",
+        "alibaba",
+        "ai",
+        "llm",
+        "model",
+        "chatbot"
+      ],
+      "url": "https://animateicons.in/r/hu-qwen.json"
     },
     {
       "name": "receipt",
@@ -7231,6 +7828,66 @@
         "toolbar"
       ],
       "url": "https://animateicons.in/r/hu-sidebar-top.json"
+    },
+    {
+      "name": "siri",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-siri",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Multimedia"
+      ],
+      "keywords": [
+        "siri",
+        "apple",
+        "voice",
+        "assistant",
+        "speech",
+        "ios"
+      ],
+      "url": "https://animateicons.in/r/hu-siri.json"
+    },
+    {
+      "name": "siri-new",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-siri-new",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Multimedia"
+      ],
+      "keywords": [
+        "siri",
+        "apple",
+        "voice",
+        "assistant",
+        "speech",
+        "ios"
+      ],
+      "url": "https://animateicons.in/r/hu-siri-new.json"
+    },
+    {
+      "name": "skype",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-skype",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Communication"
+      ],
+      "keywords": [
+        "skype",
+        "microsoft",
+        "call",
+        "video call",
+        "chat",
+        "voip"
+      ],
+      "url": "https://animateicons.in/r/hu-skype.json"
     },
     {
       "name": "slack",
@@ -8738,6 +9395,26 @@
       "url": "https://animateicons.in/r/hu-wallet-remove-0-1.json"
     },
     {
+      "name": "waze",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-waze",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "waze",
+        "navigation",
+        "traffic",
+        "maps",
+        "gps",
+        "driving"
+      ],
+      "url": "https://animateicons.in/r/hu-waze.json"
+    },
+    {
       "name": "webhook",
       "library": "huge",
       "prefix": "hu",
@@ -8836,6 +9513,46 @@
       "url": "https://animateicons.in/r/hu-wifi-off-0-1.json"
     },
     {
+      "name": "windows-new",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-windows-new",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Devices"
+      ],
+      "keywords": [
+        "windows",
+        "microsoft",
+        "windows 11",
+        "os",
+        "logo",
+        "panes"
+      ],
+      "url": "https://animateicons.in/r/hu-windows-new.json"
+    },
+    {
+      "name": "windows-old",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-windows-old",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Devices"
+      ],
+      "keywords": [
+        "windows",
+        "microsoft",
+        "windows xp",
+        "classic",
+        "os",
+        "flag"
+      ],
+      "url": "https://animateicons.in/r/hu-windows-old.json"
+    },
+    {
       "name": "workflow",
       "library": "huge",
       "prefix": "hu",
@@ -8854,6 +9571,46 @@
         "diagram"
       ],
       "url": "https://animateicons.in/r/hu-workflow.json"
+    },
+    {
+      "name": "wps-office",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wps-office",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Tools"
+      ],
+      "keywords": [
+        "wps office",
+        "wps",
+        "office",
+        "kingsoft",
+        "documents",
+        "suite"
+      ],
+      "url": "https://animateicons.in/r/hu-wps-office.json"
+    },
+    {
+      "name": "wps-office-rectangle",
+      "library": "huge",
+      "prefix": "hu",
+      "registryName": "hu-wps-office-rectangle",
+      "addedAt": "2026-10-02",
+      "category": [
+        "Brands",
+        "Tools"
+      ],
+      "keywords": [
+        "wps office",
+        "wps",
+        "office",
+        "kingsoft",
+        "square",
+        "suite"
+      ],
+      "url": "https://animateicons.in/r/hu-wps-office-rectangle.json"
     },
     {
       "name": "youtube",

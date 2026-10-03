@@ -435,6 +435,7 @@ import { Megaphone01Icon } from "./megaphone-0-1-icon";
 import { MegaphoneOffIcon } from "./megaphone-off-icon";
 import { BlocksIcon } from "./blocks-icon";
 import { Chat01Icon } from "./chat-0-1-icon";
+import { ChatGptIcon } from "./chat-gpt-icon";
 import { Notebook01Icon } from "./notebook-0-1-icon";
 import { File01Icon } from "./file-0-1-icon";
 import { FileAddIcon } from "./file-add-icon";
@@ -451,6 +452,14 @@ import { TwitchIcon } from "./twitch-icon";
 import { SpotifyIcon } from "./spotify-icon";
 import { SlackIcon } from "./slack-icon";
 import { GoogleIcon } from "./google-icon";
+import { GoogleDocIcon } from "./google-doc-icon";
+import { GoogleDriveIcon } from "./google-drive-icon";
+import { GoogleGeminiIcon } from "./google-gemini-icon";
+import { GoogleHomeIcon } from "./google-home-icon";
+import { GoogleLensIcon } from "./google-lens-icon";
+import { GoogleMapsIcon } from "./google-maps-icon";
+import { GooglePhotosIcon } from "./google-photos-icon";
+import { GoogleSheetIcon } from "./google-sheet-icon";
 import { MastodonIcon } from "./mastodon-icon";
 import { SnapchatIcon } from "./snapchat-icon";
 import { DribbbleIcon } from "./dribbble-icon";
@@ -461,6 +470,35 @@ import { Coffee01Icon } from "./coffee-0-1-icon";
 import { Coffee02Icon } from "./coffee-0-2-icon";
 import { Coffee03Icon } from "./coffee-0-3-icon";
 import { CoffeeBeansIcon } from "./coffee-beans-icon";
+import { ClaudeIcon } from "./claude-icon";
+import { CopilotIcon } from "./copilot-icon";
+import { DeepseekIcon } from "./deepseek-icon";
+import { GrokIcon } from "./grok-icon";
+import { Grok02Icon } from "./grok-0-2-icon";
+import { PerplexityAiIcon } from "./perplexity-ai-icon";
+import { MistralIcon } from "./mistral-icon";
+import { QwenIcon } from "./qwen-icon";
+import { KimiAiIcon } from "./kimi-ai-icon";
+import { AppleIcon } from "./apple-icon";
+import { Apple01Icon } from "./apple-0-1-icon";
+import { AppleFinderIcon } from "./apple-finder-icon";
+import { AppleIntelligenceIcon } from "./apple-intelligence-icon";
+import { AppleMusicIcon } from "./apple-music-icon";
+import { AppleNewsIcon } from "./apple-news-icon";
+import { AppleReminderIcon } from "./apple-reminder-icon";
+import { AppleStocksIcon } from "./apple-stocks-icon";
+import { AppleVisionProIcon } from "./apple-vision-pro-icon";
+import { SiriIcon } from "./siri-icon";
+import { SiriNewIcon } from "./siri-new-icon";
+import { WazeIcon } from "./waze-icon";
+import { MicrosoftIcon } from "./microsoft-icon";
+import { MicrosoftAdminIcon } from "./microsoft-admin-icon";
+import { WindowsNewIcon } from "./windows-new-icon";
+import { WindowsOldIcon } from "./windows-old-icon";
+import { Office365Icon } from "./office-3-6-5-icon";
+import { WpsOfficeIcon } from "./wps-office-icon";
+import { WpsOfficeRectangleIcon } from "./wps-office-rectangle-icon";
+import { SkypeIcon } from "./skype-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -3523,6 +3561,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["chat", "message", "conversation", "comment", "bubble", "support"],
   },
   {
+    name: "chat-gpt",
+    icon: ChatGptIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["chatgpt", "openai", "gpt", "ai", "chatbot", "llm"],
+  },
+  {
     name: "notebook-0-1",
     icon: Notebook01Icon,
     addedAt: "2026-09-30",
@@ -3635,6 +3680,62 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["google", "search", "sign in", "account", "oauth", "login"],
   },
   {
+    name: "google-doc",
+    icon: GoogleDocIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","File icons"],
+    keywords: ["google docs", "document", "doc", "text", "editor", "workspace"],
+  },
+  {
+    name: "google-drive",
+    icon: GoogleDriveIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Tools"],
+    keywords: ["google drive", "drive", "storage", "cloud", "files", "backup"],
+  },
+  {
+    name: "google-gemini",
+    icon: GoogleGeminiIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["gemini", "google", "ai", "llm", "bard", "chatbot"],
+  },
+  {
+    name: "google-home",
+    icon: GoogleHomeIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Home"],
+    keywords: ["google home", "nest", "smart home", "speaker", "assistant", "iot"],
+  },
+  {
+    name: "google-lens",
+    icon: GoogleLensIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Photography"],
+    keywords: ["google lens", "lens", "camera", "visual search", "scan", "image search"],
+  },
+  {
+    name: "google-maps",
+    icon: GoogleMapsIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Navigation, Maps, and POIs"],
+    keywords: ["google maps", "maps", "navigation", "pin", "location", "directions"],
+  },
+  {
+    name: "google-photos",
+    icon: GooglePhotosIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Photography"],
+    keywords: ["google photos", "photos", "gallery", "pinwheel", "pictures", "backup"],
+  },
+  {
+    name: "google-sheet",
+    icon: GoogleSheetIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","File icons"],
+    keywords: ["google sheets", "spreadsheet", "sheet", "table", "excel", "workspace"],
+  },
+  {
     name: "mastodon",
     icon: MastodonIcon,
     addedAt: "2026-09-30",
@@ -3703,6 +3804,209 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-01",
     category: ["Home"],
     keywords: ["coffee", "beans", "bean", "roast", "cafe", "espresso"],
+  },
+  {
+    name: "claude",
+    icon: ClaudeIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["claude", "anthropic", "ai", "assistant", "chatbot", "llm"],
+  },
+  {
+    name: "copilot",
+    icon: CopilotIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["copilot", "github", "microsoft", "ai", "assistant", "code"],
+  },
+  {
+    name: "deepseek",
+    icon: DeepseekIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["deepseek", "ai", "llm", "chatbot", "whale", "model"],
+  },
+  {
+    name: "grok",
+    icon: GrokIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["grok", "xai", "ai", "chatbot", "llm", "x"],
+  },
+  {
+    name: "grok-0-2",
+    icon: Grok02Icon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["grok", "xai", "ai", "chatbot", "llm", "x"],
+  },
+  {
+    name: "perplexity-ai",
+    icon: PerplexityAiIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["perplexity", "ai", "search", "answer", "llm", "chatbot"],
+  },
+  {
+    name: "mistral",
+    icon: MistralIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["mistral", "ai", "llm", "model", "chatbot", "french"],
+  },
+  {
+    name: "qwen",
+    icon: QwenIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["qwen", "alibaba", "ai", "llm", "model", "chatbot"],
+  },
+  {
+    name: "kimi-ai",
+    icon: KimiAiIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["kimi", "moonshot", "ai", "llm", "chatbot", "model"],
+  },
+  {
+    name: "apple",
+    icon: AppleIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands"],
+    keywords: ["apple", "ios", "macos", "iphone", "mac", "logo"],
+  },
+  {
+    name: "apple-0-1",
+    icon: Apple01Icon,
+    addedAt: "2026-10-02",
+    category: ["Brands"],
+    keywords: ["apple", "ios", "macos", "iphone", "mac", "logo"],
+  },
+  {
+    name: "apple-finder",
+    icon: AppleFinderIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Tools"],
+    keywords: ["finder", "apple", "mac", "macos", "files", "browser"],
+  },
+  {
+    name: "apple-intelligence",
+    icon: AppleIntelligenceIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Coding & development"],
+    keywords: ["apple intelligence", "ai", "apple", "assistant", "siri", "ml"],
+  },
+  {
+    name: "apple-music",
+    icon: AppleMusicIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Multimedia"],
+    keywords: ["apple music", "music", "streaming", "itunes", "songs", "audio"],
+  },
+  {
+    name: "apple-news",
+    icon: AppleNewsIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Communication"],
+    keywords: ["apple news", "news", "articles", "headlines", "reader", "feed"],
+  },
+  {
+    name: "apple-reminder",
+    icon: AppleReminderIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Time & Date"],
+    keywords: ["reminders", "apple", "todo", "tasks", "checklist", "list"],
+  },
+  {
+    name: "apple-stocks",
+    icon: AppleStocksIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Finance"],
+    keywords: ["stocks", "apple", "finance", "market", "chart", "trading"],
+  },
+  {
+    name: "apple-vision-pro",
+    icon: AppleVisionProIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Devices"],
+    keywords: ["vision pro", "apple", "vr", "ar", "headset", "spatial"],
+  },
+  {
+    name: "siri",
+    icon: SiriIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Multimedia"],
+    keywords: ["siri", "apple", "voice", "assistant", "speech", "ios"],
+  },
+  {
+    name: "siri-new",
+    icon: SiriNewIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Multimedia"],
+    keywords: ["siri", "apple", "voice", "assistant", "speech", "ios"],
+  },
+  {
+    name: "waze",
+    icon: WazeIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Navigation, Maps, and POIs"],
+    keywords: ["waze", "navigation", "traffic", "maps", "gps", "driving"],
+  },
+  {
+    name: "microsoft",
+    icon: MicrosoftIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands"],
+    keywords: ["microsoft", "windows", "logo", "azure", "office", "squares"],
+  },
+  {
+    name: "microsoft-admin",
+    icon: MicrosoftAdminIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Security"],
+    keywords: ["microsoft admin", "admin", "security", "shield", "azure", "entra"],
+  },
+  {
+    name: "windows-new",
+    icon: WindowsNewIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Devices"],
+    keywords: ["windows", "microsoft", "windows 11", "os", "logo", "panes"],
+  },
+  {
+    name: "windows-old",
+    icon: WindowsOldIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Devices"],
+    keywords: ["windows", "microsoft", "windows xp", "classic", "os", "flag"],
+  },
+  {
+    name: "office-3-6-5",
+    icon: Office365Icon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Tools"],
+    keywords: ["office 365", "microsoft 365", "office", "microsoft", "word", "suite"],
+  },
+  {
+    name: "wps-office",
+    icon: WpsOfficeIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Tools"],
+    keywords: ["wps office", "wps", "office", "kingsoft", "documents", "suite"],
+  },
+  {
+    name: "wps-office-rectangle",
+    icon: WpsOfficeRectangleIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Tools"],
+    keywords: ["wps office", "wps", "office", "kingsoft", "square", "suite"],
+  },
+  {
+    name: "skype",
+    icon: SkypeIcon,
+    addedAt: "2026-10-02",
+    category: ["Brands","Communication"],
+    keywords: ["skype", "microsoft", "call", "video call", "chat", "voip"],
   },
 ];
 

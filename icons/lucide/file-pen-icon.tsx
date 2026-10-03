@@ -38,11 +38,6 @@ interface FilePenIconProps extends Omit<
  color?: string;
 }
 
-const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
- const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
- return Math.cos(2 * Math.PI * eased);
-});
-
 const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
  (
   {
@@ -96,13 +91,14 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
    },
   };
 
-  const flipVariants: Variants = {
-   normal: { scaleX: 1, transition: { duration: 0 } },
+  const popVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scaleX: FLIP_FRAMES,
+    scale: [1, 1.08, 0.98, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "linear",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -130,7 +126,7 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
       initial="normal"
      >
       <m.g
-       variants={flipVariants}
+       variants={popVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
        <path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34" />

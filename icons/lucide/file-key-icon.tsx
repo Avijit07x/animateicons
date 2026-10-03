@@ -38,11 +38,6 @@ interface FileKeyIconProps extends Omit<
  color?: string;
 }
 
-const FLIP_FRAMES = Array.from({ length: 49 }, (_, i) => {
- const eased = (1 - Math.cos(Math.PI * (i / 48))) / 2;
- return Math.cos(2 * Math.PI * eased);
-});
-
 const FileKeyIcon = forwardRef<FileKeyIconHandle, FileKeyIconProps>(
  (
   {
@@ -99,13 +94,14 @@ const FileKeyIcon = forwardRef<FileKeyIconHandle, FileKeyIconProps>(
    },
   };
 
-  const flipVariants: Variants = {
-   normal: { scaleX: 1, transition: { duration: 0 } },
+  const popVariants: Variants = {
+   normal: { scale: 1 },
    animate: {
-    scaleX: FLIP_FRAMES,
+    scale: [1, 1.08, 0.98, 1],
     transition: {
-     duration: 0.9 * duration,
-     ease: "linear",
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -133,7 +129,7 @@ const FileKeyIcon = forwardRef<FileKeyIconHandle, FileKeyIconProps>(
       initial="normal"
      >
       <m.g
-       variants={flipVariants}
+       variants={popVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       >
        <path d="M14 2v5a1 1 0 0 0 1 1h5" />

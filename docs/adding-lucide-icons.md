@@ -91,11 +91,11 @@ Copy the attributes verbatim into JSX (`rect`, `circle`, `line`, `path` and so o
 
 The Lucide name is the JSON `name`. The file adds `-icon`, and the component is PascalCase with `Icon` on the end.
 
-| Lucide name        | File                     | Component             |
-| ------------------ | ------------------------ | --------------------- |
-| `dumbbell`         | `dumbbell-icon.tsx`      | `DumbbellIcon`        |
+| Lucide name        | File                        | Component           |
+| ------------------ | --------------------------- | ------------------- |
+| `dumbbell`         | `dumbbell-icon.tsx`         | `DumbbellIcon`      |
 | `arrow-up-to-line` | `arrow-up-to-line-icon.tsx` | `ArrowUpToLineIcon` |
-| `dice-5`           | `dice-5-icon.tsx`        | `Dice5Icon`           |
+| `dice-5`           | `dice-5-icon.tsx`           | `Dice5Icon`         |
 
 The component must be `XxxIcon`, with `XxxIconHandle` and `XxxIconProps` next to it. `tests/icons/naming.test.ts` fails otherwise.
 
