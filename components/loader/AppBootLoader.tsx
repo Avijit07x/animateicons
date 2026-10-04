@@ -4,15 +4,6 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { LoaderVisual } from "./LoaderVisual";
 
-/**
- * Full-screen boot splash shown on every full page load / refresh. It is
- * server-rendered into the initial HTML (so it paints before hydration, with
- * no flash of unstyled content), then fades out once the document has finished
- * loading - with a short minimum on-screen time so it never flickers.
- *
- * Client-side route changes are covered separately by app/loading.tsx; this
- * overlay lives in the root layout and does not remount on navigation.
- */
 const MIN_VISIBLE_MS = 650;
 const SAFETY_MS = 4000;
 const FADE_MS = 500;
@@ -60,7 +51,7 @@ export function AppBootLoader() {
 		<div
 			aria-hidden="true"
 			className={cn(
-				"bg-bgDark fixed inset-0 z-100 flex items-center justify-center transition-opacity ease-out",
+				"boot-loader bg-bgDark fixed inset-0 z-100 flex items-center justify-center transition-opacity ease-out",
 				fading ? "pointer-events-none opacity-0" : "opacity-100",
 			)}
 			style={{ transitionDuration: `${FADE_MS}ms` }}
