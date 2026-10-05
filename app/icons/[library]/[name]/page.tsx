@@ -1,4 +1,5 @@
 import JsonLd from "@/components/JsonLd";
+import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import type { Metadata } from "next";
@@ -121,7 +122,10 @@ const Page = async ({ params }: Props) => {
 	});
 
 	return (
-		<div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-6 lg:py-12">
+		<main
+			id={MAIN_CONTENT_ID}
+			className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-6 lg:py-12"
+		>
 			<JsonLd data={jsonLd} />
 
 			<div className="mb-10 flex items-center gap-3">
@@ -207,7 +211,7 @@ const Page = async ({ params }: Props) => {
 					</ul>
 				</section>
 			)}
-		</div>
+		</main>
 	);
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { useIconLoop } from "@/hooks/useIconLoop";
 import { cn } from "@/lib/utils";
 import type { IconHandle } from "@/types/icon";
@@ -29,7 +30,8 @@ const StatusPage: React.FC<Props> = ({
 	const iconRef = useIconLoop(LOOP_MS);
 
 	return (
-		<div
+		<main
+			id={MAIN_CONTENT_ID}
 			className={cn(
 				"relative flex w-full items-center justify-center overflow-hidden px-6 py-16",
 				fullScreen ? "min-h-dvh" : "min-h-[70dvh]",
@@ -64,7 +66,7 @@ const StatusPage: React.FC<Props> = ({
 
 				{children}
 			</div>
-		</div>
+		</main>
 	);
 };
 

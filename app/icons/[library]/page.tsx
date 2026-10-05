@@ -1,5 +1,6 @@
 import JsonLd from "@/components/JsonLd";
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
+import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
 import type { Metadata } from "next";
@@ -45,7 +46,10 @@ const Page: React.FC<Props> = async ({ params }) => {
 			<JsonLd data={jsonLd} />
 
 			<Navbar />
-			<main className="flex min-h-[calc(100dvh-3.5rem)] flex-col pb-3">
+			<main
+				id={MAIN_CONTENT_ID}
+				className="flex min-h-[calc(100dvh-3.5rem)] flex-col pb-3"
+			>
 				<div className="mx-auto flex w-full max-w-384 flex-1 flex-col">
 					<h1 className="sr-only">{displayName} Animated Icons for React</h1>
 

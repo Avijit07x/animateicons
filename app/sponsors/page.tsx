@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Footer from "@/components/Footer";
 import IconLink from "@/components/IconLink";
 import Navbar from "@/components/Navbar";
+import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import SponsorsHeader from "@/components/sponsors/SponsorsHeader";
 import SupporterWall from "@/components/sponsors/SupporterWall";
@@ -25,7 +26,7 @@ const SponsorsPage = () => {
 	return (
 		<>
 			<Navbar />
-			<main className="relative min-h-dvh overflow-hidden">
+			<main id={MAIN_CONTENT_ID} className="relative min-h-dvh overflow-hidden">
 				<div
 					aria-hidden="true"
 					className="bg-plus-grid pointer-events-none absolute inset-0"

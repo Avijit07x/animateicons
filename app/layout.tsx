@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 import { CommandSearchProvider } from "@/components/command-search/CommandSearchProvider";
 import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
+import SkipLink from "@/components/SkipLink";
 import Snow from "@/components/winter/Snow";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import "./globals.css";
@@ -127,6 +128,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en" className="dark">
 			<body className={`${geistSans.variable} bg-bgDark antialiased`}>
+				<SkipLink />
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
 				<Snow />
