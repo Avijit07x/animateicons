@@ -1,3 +1,4 @@
+import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import type React from "react";
 import DocsContentHeader from "./_components/DocsContentHeader";
 import DocsHelp from "./_components/DocsHelp";
@@ -16,7 +17,7 @@ const DocsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					<DocsSidebar />
 				</aside>
 
-				<main className="min-w-0 flex-1 py-8 lg:py-10">
+				<main id={MAIN_CONTENT_ID} className="min-w-0 flex-1 py-8 lg:py-10">
 					<details className="bg-surface mb-6 rounded-3xl lg:hidden">
 						<summary className="text-textPrimary cursor-pointer px-4 py-3 text-sm font-medium">
 							Menu

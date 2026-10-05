@@ -84,7 +84,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon, coarse = false }) => {
 			onBlur={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
 			}}
-			className="group text-textPrimary bg-surface hover:bg-surfaceElevated focus-visible:bg-surfaceElevated relative flex h-38 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl p-3 text-sm transition-colors duration-300 outline-none pointer-coarse:h-50 pointer-coarse:pb-16"
+			className="group text-textPrimary bg-surface hover:bg-surfaceElevated focus-visible:bg-surfaceElevated focus-visible:ring-primary/60 relative flex h-38 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl p-3 text-sm transition-colors duration-300 outline-none focus-visible:ring-2 pointer-coarse:h-50 pointer-coarse:pb-16"
 		>
 			<AnimatePresence>
 				{revealed && (item.isNew || item.isUpdated) && (
@@ -118,7 +118,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon, coarse = false }) => {
 							e.stopPropagation();
 							handleOpen();
 						}}
-						className="text-textSecondary absolute top-3 right-3 grid size-7 place-items-center rounded-full bg-white/8 transition-colors hover:bg-white/15 hover:text-white focus-visible:outline-none"
+						className="text-textSecondary focus-visible:ring-primary/60 absolute top-3 right-3 grid size-7 place-items-center rounded-full bg-white/8 transition-colors hover:bg-white/15 hover:text-white focus-visible:ring-2 focus-visible:outline-none"
 					>
 						<ArrowUpRight01Icon size={14} />
 					</motion.button>

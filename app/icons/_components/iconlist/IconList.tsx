@@ -91,6 +91,8 @@ const IconList: React.FC = () => {
 						<>
 							<div
 								ref={setGrid}
+								role="group"
+								aria-label="Icons"
 								className={ICON_GRID_CLASS}
 								onFocusCapture={onFocusCapture}
 								onBlurCapture={onBlurCapture}
