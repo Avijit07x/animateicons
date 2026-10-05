@@ -94,9 +94,10 @@ const ZoomOutIcon = forwardRef<ZoomOutIconHandle, ZoomOutIconProps>(
   };
 
   const minusVariants: Variants = {
-   normal: { scaleX: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scaleX: [1, 0.3, 1],
+    rotate: [0, 180],
+    scale: [1, 0.7, 1],
     transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };

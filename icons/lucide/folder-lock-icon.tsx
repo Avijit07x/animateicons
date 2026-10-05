@@ -96,7 +96,7 @@ const FolderLockIcon = forwardRef<FolderLockIconHandle, FolderLockIconProps>(
   const shackleVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -2.2, 0.5, 0],
+    y: [0, -2, 0.5, 0],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",

@@ -92,11 +92,11 @@ const StarOffIcon = forwardRef<StarOffIconHandle, StarOffIconProps>(
   const slashVariants: Variants = {
    normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDashoffset: [0, 30, 0],
+    strokeDashoffset: [30, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     times: [0, 0.3, 1],
+     delay: 0.1 * duration,
     },
    },
   };

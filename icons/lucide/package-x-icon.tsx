@@ -82,11 +82,12 @@ const PackageXIcon = forwardRef<PackageXIconHandle, PackageXIconProps>(
   );
 
   const boxVariants: Variants = {
-   normal: { y: 0 },
+   normal: { y: 0, rotate: 0 },
    animate: {
     y: [0, -1, 0.3, 0],
+    rotate: [0, -6, 4, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },
@@ -97,12 +98,8 @@ const PackageXIcon = forwardRef<PackageXIconHandle, PackageXIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 90],
-    scale: [1, 1.25, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.15 * duration,
-    },
+    scale: [1, 1.2, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -128,7 +125,10 @@ const PackageXIcon = forwardRef<PackageXIconHandle, PackageXIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.g variants={boxVariants}>
+      <m.g
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
        <path d="M12 22V12" />
        <path d="M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.13-.074" />
        <path d="M3.29 7 12 12l8.71-5" />

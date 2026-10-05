@@ -90,8 +90,12 @@ const CloudDrizzleIcon = forwardRef<
   const cloudVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, 1, -1, 0],
-    transition: { duration: 1 * duration, ease: "easeInOut" },
+    x: [0, 1, -0.5, 0],
+    transition: {
+     duration: 0.7 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 

@@ -84,9 +84,9 @@ const MoveRightIcon = forwardRef<MoveRightIconHandle, MoveRightIconProps>(
   const arrowVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -2, 2, 0],
+    x: [0, -2.5, 2.5, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.25, 0.6, 1],
     },
@@ -114,6 +114,7 @@ const MoveRightIcon = forwardRef<MoveRightIconHandle, MoveRightIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      style={{ overflow: "visible" }}
      >
       <m.path d="M18 8L22 12L18 16" variants={arrowVariants} />
       <m.path d="M2 12H22" variants={arrowVariants} />

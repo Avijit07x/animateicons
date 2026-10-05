@@ -44,7 +44,7 @@ const GitlabIcon = forwardRef<GitlabIconHandle, GitlabIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.7,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -90,7 +90,7 @@ const GitlabIcon = forwardRef<GitlabIconHandle, GitlabIconProps>(
     scale: [1, 0.9, 1.08, 1],
     opacity: [1, 0.85, 1],
     transition: {
-     duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
     },
    },

@@ -82,10 +82,18 @@ const MapPinnedIcon = forwardRef<MapPinnedIconHandle, MapPinnedIconProps>(
   );
 
   const pinVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { y: 0, rotate: 0 },
    animate: {
-    rotate: [0, -8, 6, -3, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut" },
+    y: [0, 1, 0.3, 0],
+    rotate: [0, -9, 7, -3, 0],
+    transition: {
+     y: {
+      duration: 0.5 * duration,
+      ease: "easeInOut",
+      times: [0, 0.3, 0.6, 1],
+     },
+     rotate: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
    },
   };
 

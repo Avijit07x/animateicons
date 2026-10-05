@@ -97,17 +97,24 @@ const CalendarCheckIcon = forwardRef<
   };
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [10, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.2 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -143,6 +150,7 @@ const CalendarCheckIcon = forwardRef<
        strokeDasharray="10"
        strokeDashoffset="0"
        variants={tickVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "15px" }}
       />
      </m.svg>
     </m.div>

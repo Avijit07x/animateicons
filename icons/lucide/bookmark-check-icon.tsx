@@ -84,30 +84,35 @@ const BookmarkCheckIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const hopVariants: Variants = {
-   normal: { y: 0 },
+  const bookmarkVariants: Variants = {
+   normal: { y: 0, scaleX: 1, scaleY: 1 },
    animate: {
-    y: [0, -1.6, 0.4, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
+    y: [0, -4, 0],
+    scaleY: [1, 1.1, 0.95, 1],
+    scaleX: [1, 0.97, 1.02, 1],
+    transition: { duration: 0.55 * duration, ease: "easeOut" },
    },
   };
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [10, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.2 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -133,16 +138,16 @@ const BookmarkCheckIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      variants={bookmarkVariants}
      >
-      <m.g variants={hopVariants}>
-       <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
-       <m.path
-        d="m9 10 2 2 4-4"
-        strokeDasharray="10"
-        strokeDashoffset="0"
-        variants={tickVariants}
-       />
-      </m.g>
+      <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+      <m.path
+       d="m9 10 2 2 4-4"
+       strokeDasharray="10"
+       strokeDashoffset="0"
+       variants={tickVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

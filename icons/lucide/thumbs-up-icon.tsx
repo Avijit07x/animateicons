@@ -44,7 +44,7 @@ const ThumbsUpIcon = forwardRef<ThumbsUpIconHandle, ThumbsUpIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.9,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -87,7 +87,7 @@ const ThumbsUpIcon = forwardRef<ThumbsUpIconHandle, ThumbsUpIconProps>(
     scale: [1, 1.08, 0.98, 1.03, 1],
     rotate: [0, -8, 6, -4, 0],
     transition: {
-     duration: 0.95 * duration,
+     duration: 0.855 * duration,
      ease: "easeInOut",
     },
    },
@@ -99,9 +99,9 @@ const ThumbsUpIcon = forwardRef<ThumbsUpIconHandle, ThumbsUpIconProps>(
     scaleY: [1, 0.92, 1.04, 1],
     opacity: [1, 0.85, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.63 * duration,
      ease: "easeInOut",
-     delay: 0.08 * duration,
+     delay: 0.072 * duration,
     },
    },
   };
@@ -113,9 +113,9 @@ const ThumbsUpIcon = forwardRef<ThumbsUpIconHandle, ThumbsUpIconProps>(
     y: [0, -4, -8, -4, 0],
     scale: [1, 1.05, 1.1, 1.04, 1],
     transition: {
-     duration: 0.95 * duration,
+     duration: 0.855 * duration,
      ease: "easeInOut",
-     delay: 0.05 * duration,
+     delay: 0.045 * duration,
     },
    },
   };

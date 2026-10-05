@@ -85,11 +85,12 @@ const PackageSearchIcon = forwardRef<
   );
 
   const boxVariants: Variants = {
-   normal: { y: 0 },
+   normal: { y: 0, rotate: 0 },
    animate: {
     y: [0, -1, 0.3, 0],
+    rotate: [0, -6, 4, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },
@@ -97,14 +98,11 @@ const PackageSearchIcon = forwardRef<
   };
 
   const lensVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { x: 0, y: 0 },
    animate: {
-    rotate: [0, -14, 10, -5, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     delay: 0.1 * duration,
-    },
+    x: [0, -1.4, -0.4, 0.7, 0],
+    y: [0, 0.3, -1.3, -0.4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -130,16 +128,16 @@ const PackageSearchIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.g variants={boxVariants}>
+      <m.g
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
        <path d="M12 22V12" />
        <path d="M21 10.498V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l.98-.559" />
        <path d="M3.29 7 12 12l8.71-5" />
        <path d="m7.5 4.27 8.997 5.148" />
       </m.g>
-      <m.g
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "22px", originY: "20px" }}
-      >
+      <m.g variants={lensVariants}>
        <path d="M20.27 18.27 22 20" />
        <circle cx="18.5" cy="16.5" r="2.5" />
       </m.g>

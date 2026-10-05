@@ -87,10 +87,11 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
   const svgVariant: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: 12,
+    rotate: [0, 14, -6, 0],
     transition: {
-     duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
+     times: [0, 0.4, 0.75, 1],
     },
    },
   };
@@ -100,7 +101,7 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
    animate: {
     scale: [1, 1.18, 1],
     transition: {
-     duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
     },
    },
@@ -111,7 +112,7 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
    animate: {
     opacity: [1, 0.7, 1],
     transition: {
-     duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
     },
    },

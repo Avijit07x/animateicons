@@ -99,11 +99,11 @@ const MessageSquareDotIcon = forwardRef<
   const dotVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.3, 1, 1.18, 1],
+    scale: [1, 1.25, 1],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.3 * duration,
+     delay: 0.1 * duration,
     },
    },
   };

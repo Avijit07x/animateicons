@@ -88,12 +88,14 @@ const FolderIcon = forwardRef<FolderIconHandle, FolderIconProps>(
   );
 
   const folderVariants: Variants = {
-   normal: { scale: 1, rotate: 0, y: 0 },
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
-    rotate: [0, -2, 2, 0],
-    y: [0, -2, 1, 0],
-    transition: { duration: 0.9 * duration, ease: "easeInOut" },
+    y: [0, -1.2, 0.4, 0],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -118,12 +120,9 @@ const FolderIcon = forwardRef<FolderIconHandle, FolderIconProps>(
       strokeLinejoin="round"
       animate={folderControls}
       initial="normal"
-      variants={folderVariants}
      >
       <m.path
        d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"
-       initial="normal"
-       animate={folderControls}
        variants={folderVariants}
       />
      </m.svg>

@@ -93,18 +93,14 @@ const MailXIcon = forwardRef<MailXIconHandle, MailXIconProps>(
    },
   };
 
-  const popVariants = (turn: number, peak: number): Variants => ({
+  const popVariants: Variants = {
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: [0, turn],
-    scale: [1, peak, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.15 * duration,
-    },
+    rotate: [0, 90],
+    scale: [1, 1.2, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
-  });
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -136,7 +132,7 @@ const MailXIcon = forwardRef<MailXIconHandle, MailXIconProps>(
       />
       <m.path
        d="M17 17l4 4M21 17l-4 4"
-       variants={popVariants(90, 1.3)}
+       variants={popVariants}
        style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
      </m.svg>

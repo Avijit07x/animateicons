@@ -100,7 +100,7 @@ const PhoneOffIcon = forwardRef<PhoneOffIconHandle, PhoneOffIconProps>(
     transition: {
      duration: 0.45 * duration,
      ease: "easeInOut",
-     delay: 0.15 * duration,
+     delay: 0.1 * duration,
     },
    },
   };

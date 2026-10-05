@@ -47,7 +47,7 @@ const MoveVerticalIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.6,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -88,7 +88,11 @@ const MoveVerticalIcon = forwardRef<
    normal: { y: 0 },
    animate: {
     y: [0, -2.5, 2.5, 0],
-    transition: { duration, ease: "easeInOut", times: [0, 0.25, 0.6, 1] },
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.25, 0.6, 1],
+    },
    },
   };
 

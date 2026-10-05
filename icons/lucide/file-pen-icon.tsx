@@ -83,10 +83,11 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
   );
 
   const penVariants: Variants = {
-   normal: { x: 0, y: 0 },
+   normal: { x: 0, y: 0, rotate: 0 },
    animate: {
-    x: [0, 1.4, 0.3, 1.5, 0],
-    y: [0, -0.6, 0, -0.6, 0],
+    x: [0, -1.5, 1, -1, 0],
+    y: [0, 1, -0.5, 0.8, 0],
+    rotate: [0, -8, 4, -4, 0],
     transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
@@ -134,6 +135,11 @@ const FilePenIcon = forwardRef<FilePenIconHandle, FilePenIconProps>(
        <m.path
         d="M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"
         variants={penVariants}
+        style={{
+         transformBox: "view-box",
+         originX: "4.8px",
+         originY: "21.6px",
+        }}
        />
       </m.g>
      </m.svg>

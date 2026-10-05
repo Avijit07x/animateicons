@@ -95,18 +95,18 @@ const BookmarkMinusIcon = forwardRef<
     scaleY: [1, 1.1, 0.95, 1],
     scaleX: [1, 0.97, 1.02, 1],
     transition: {
-     duration: 0.45 * duration,
+     duration: 0.55 * duration,
      ease: "easeOut",
     },
    },
   };
 
   const minusVariants: Variants = {
-   normal: { scaleX: 1, opacity: 1 },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scaleX: [1, 0.7, 1.2, 1],
-    opacity: [1, 0.6, 1],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    rotate: [0, 180],
+    scale: [1, 0.7, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -133,8 +133,15 @@ const BookmarkMinusIcon = forwardRef<
       initial="normal"
       variants={bookmarkVariants}
      >
-      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-      <m.line x1="15" x2="9" y1="10" y2="10" variants={minusVariants} />
+      <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+      <m.line
+       x1="15"
+       x2="9"
+       y1="10"
+       y2="10"
+       variants={minusVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

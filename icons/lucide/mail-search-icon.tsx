@@ -94,14 +94,11 @@ const MailSearchIcon = forwardRef<MailSearchIconHandle, MailSearchIconProps>(
   };
 
   const lensVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { x: 0, y: 0 },
    animate: {
-    rotate: [0, 12, -10, 5, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     delay: 0.1 * duration,
-    },
+    x: [0, -1.4, -0.4, 0.7, 0],
+    y: [0, 0.3, -1.3, -0.4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -133,10 +130,7 @@ const MailSearchIcon = forwardRef<MailSearchIconHandle, MailSearchIconProps>(
        variants={flapVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "7px" }}
       />
-      <m.g
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "18px", originY: "18px" }}
-      >
+      <m.g variants={lensVariants}>
        <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
        <circle cx="18" cy="18" r="3" />
        <path d="m22 22-1.5-1.5" />

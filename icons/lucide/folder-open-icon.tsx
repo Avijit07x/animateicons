@@ -82,14 +82,13 @@ const FolderOpenIcon = forwardRef<FolderOpenIconHandle, FolderOpenIconProps>(
   );
 
   const folderVariants: Variants = {
-   normal: { y: 0, skewX: 0 },
+   normal: { y: 0 },
    animate: {
-    y: [0, -2, 0.6, 0],
-    skewX: [0, -9, 4, 0],
+    y: [0, -1.2, 0.4, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };

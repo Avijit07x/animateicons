@@ -92,11 +92,11 @@ const CloudOffIcon = forwardRef<CloudOffIconHandle, CloudOffIconProps>(
   const slashVariants: Variants = {
    normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDashoffset: [0, 30, 0],
+    strokeDashoffset: [31, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     times: [0, 0.3, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -129,7 +129,7 @@ const CloudOffIcon = forwardRef<CloudOffIconHandle, CloudOffIconProps>(
       </m.g>
       <m.path
        d="m2 2 20 20"
-       strokeDasharray="30"
+       strokeDasharray="30 200"
        strokeDashoffset="0"
        variants={slashVariants}
       />

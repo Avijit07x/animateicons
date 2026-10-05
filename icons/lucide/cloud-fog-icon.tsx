@@ -82,11 +82,11 @@ const CloudFogIcon = forwardRef<CloudFogIconHandle, CloudFogIconProps>(
   );
 
   const cloudVariants: Variants = {
-   normal: { scale: 1 },
+   normal: { x: 0 },
    animate: {
-    scale: [1, 1.05, 0.98, 1],
+    x: [0, 1, -0.5, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },
@@ -138,7 +138,6 @@ const CloudFogIcon = forwardRef<CloudFogIconHandle, CloudFogIconProps>(
       <m.path
        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
        variants={cloudVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
       />
       <m.path
        d="M16 17H7"

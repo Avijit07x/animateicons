@@ -93,12 +93,13 @@ const UserSettings01Icon = forwardRef<
   };
 
   const headVariants: Variants = {
-   normal: { scale: 1 },
+   normal: { y: 0 },
    animate: {
-    scale: [1, 1.15, 1],
+    y: [0, -1.5, 0.5, 0],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -135,13 +136,7 @@ const UserSettings01Icon = forwardRef<
         originY: "17.5px",
        }}
       />
-      <m.circle
-       cx="11"
-       cy="6.5"
-       r="4"
-       variants={headVariants}
-       style={{ transformBox: "view-box", originX: "11px", originY: "6.5px" }}
-      />
+      <m.circle cx="11" cy="6.5" r="4" variants={headVariants} />
      </m.svg>
     </m.div>
    </LazyMotion>

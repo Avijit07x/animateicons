@@ -97,14 +97,27 @@ const BatteryChargingIcon = forwardRef<
    },
   };
 
-  const nubVariants: Variants = {
-   normal: { scaleY: 1 },
+  const bodyVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    scaleY: [1, 1.6, 1],
+    scaleX: [1, 0.92, 1.02, 1],
     transition: {
-     duration: 0.4 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     delay: 0.35 * duration,
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const capVariants: Variants = {
+   normal: { x: 0, scaleY: 1 },
+   animate: {
+    x: [0, -1.3, 0.3, 0],
+    scaleY: [1, 1.5, 1, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -131,18 +144,23 @@ const BatteryChargingIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="m11 7-3 5h4l-3 5"
-       variants={boltVariants}
-       style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
-      />
-      <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+      <m.g
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "2px", originY: "12px" }}
+      >
+       <m.path
+        d="m11 7-3 5h4l-3 5"
+        variants={boltVariants}
+        style={{ transformBox: "view-box", originX: "10px", originY: "12px" }}
+       />
+       <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" />
+       <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
+      </m.g>
       <m.path
        d="M22 14v-4"
-       variants={nubVariants}
+       variants={capVariants}
        style={{ transformBox: "view-box", originX: "22px", originY: "12px" }}
       />
-      <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" />
      </m.svg>
     </m.div>
    </LazyMotion>

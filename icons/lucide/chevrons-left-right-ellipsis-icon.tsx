@@ -89,7 +89,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
    animate: {
     x: [0, -0.9, 0.2, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
     },
@@ -101,7 +101,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
    animate: {
     x: [0, 0.9, -0.2, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
     },
@@ -113,7 +113,7 @@ const ChevronsLeftRightEllipsisIcon = forwardRef<
    animate: {
     y: [0, -2, 0.6, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
      delay: delay * duration,

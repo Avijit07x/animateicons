@@ -97,17 +97,24 @@ const BookOpenCheckIcon = forwardRef<
   };
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [10, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.35 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.35 * duration },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -144,6 +151,7 @@ const BookOpenCheckIcon = forwardRef<
         strokeDasharray="10"
         strokeDashoffset="0"
         variants={tickVariants}
+        style={{ transformBox: "view-box", originX: "19px", originY: "12px" }}
        />
        <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" />
       </m.g>

@@ -82,17 +82,11 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
   );
 
   const iconVariants: Variants = {
-   normal: {
-    scaleX: 1,
-    y: 0,
-   },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    scaleX: [1, 0.55, 1],
-    y: [0, -1, 0],
-    transition: {
-     duration: 0.55 * duration,
-     ease: "easeOut",
-    },
+    rotate: [0, 180],
+    scale: [1, 0.7, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 
@@ -118,7 +112,11 @@ const MinusIcon = forwardRef<MinusIconHandle, MinusIconProps>(
       initial="normal"
       animate={controls}
      >
-      <m.path d="M5 12h14" variants={iconVariants} />
+      <m.path
+       d="M5 12h14"
+       variants={iconVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

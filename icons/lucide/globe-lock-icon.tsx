@@ -84,11 +84,12 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
   const shackleVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -1.5, 0.5, 0],
+    y: [0, -2, 0.5, 0],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -101,6 +102,7 @@ const GlobeLockIcon = forwardRef<GlobeLockIconHandle, GlobeLockIconProps>(
      duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };

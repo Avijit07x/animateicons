@@ -97,7 +97,7 @@ const UserMinusIcon = forwardRef<UserMinusIconHandle, UserMinusIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 180],
-    scale: [1, 0.75, 1],
+    scale: [1, 0.7, 1],
     transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };

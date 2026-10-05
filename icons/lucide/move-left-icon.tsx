@@ -84,9 +84,9 @@ const MoveLeftIcon = forwardRef<MoveLeftIconHandle, MoveLeftIconProps>(
   const arrowVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, 2, -2, 0],
+    x: [0, 2.5, -2.5, 0],
     transition: {
-     duration: 1 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.25, 0.6, 1],
     },
@@ -114,6 +114,7 @@ const MoveLeftIcon = forwardRef<MoveLeftIconHandle, MoveLeftIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      style={{ overflow: "visible" }}
      >
       <m.path
        d="M6 8L2 12L6 16"

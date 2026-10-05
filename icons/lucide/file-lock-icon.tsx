@@ -89,18 +89,20 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };
   const bodyVariants: Variants = {
-   normal: { y: 0 },
+   normal: { scaleY: 1 },
    animate: {
-    y: [0, 0, 0.6, 0],
+    scaleY: [1, 1, 0.88, 1],
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
+     times: [0, 0.45, 0.72, 1],
+     delay: 0.1 * duration,
     },
    },
   };
@@ -153,6 +155,7 @@ const FileLockIcon = forwardRef<FileLockIconHandle, FileLockIconProps>(
         y="17"
         rx="1"
         variants={bodyVariants}
+        style={{ transformBox: "view-box", originX: "7px", originY: "22px" }}
        />
       </m.g>
      </m.svg>

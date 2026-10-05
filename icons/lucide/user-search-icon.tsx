@@ -94,17 +94,11 @@ const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
   };
 
   const lensVariants: Variants = {
-   normal: { x: 0, y: 0, rotate: 0 },
+   normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -1.5, 1, 0],
-    y: [0, -1.5, 0.5, 0],
-    rotate: [0, -14, 10, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-     delay: 0.05 * duration,
-    },
+    x: [0, -1.4, -0.4, 0.7, 0],
+    y: [0, 0.3, -1.3, -0.4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 
@@ -132,10 +126,7 @@ const UserSearchIcon = forwardRef<UserSearchIconHandle, UserSearchIconProps>(
      >
       <m.circle cx="10" cy="7" r="4" variants={headVariants} />
       <path d="M10.3 15H7a4 4 0 0 0-4 4v2" />
-      <m.g
-       variants={lensVariants}
-       style={{ transformBox: "view-box", originX: "17px", originY: "17px" }}
-      >
+      <m.g variants={lensVariants}>
        <circle cx="17" cy="17" r="3" />
        <path d="m21 21-1.9-1.9" />
       </m.g>

@@ -85,14 +85,13 @@ const CloudIcon = forwardRef<CloudIconHandle, CloudIconProps>(
   );
 
   const cloudVariants: Variants = {
-   normal: { y: 0, rotate: 0 },
+   normal: { x: 0 },
    animate: {
-    y: [0, -2, 0.8, 0],
-    rotate: [0, -3, 2, 0],
+    x: [0, 1, -0.5, 0],
     transition: {
-     duration: 0.9 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 0.75, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -122,7 +121,6 @@ const CloudIcon = forwardRef<CloudIconHandle, CloudIconProps>(
       <m.path
        d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
        variants={cloudVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
       />
      </m.svg>
     </m.div>

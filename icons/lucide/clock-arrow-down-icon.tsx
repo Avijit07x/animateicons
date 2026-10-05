@@ -95,12 +95,11 @@ const ClockArrowDownIcon = forwardRef<
   const arrowVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -1.5, 1, 0],
+    y: [0, 1.5, -0.4, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.3, 0.7, 1],
-     delay: 0.1 * duration,
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };

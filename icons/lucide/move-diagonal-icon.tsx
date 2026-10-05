@@ -47,7 +47,7 @@ const MoveDiagonalIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.6,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -89,7 +89,11 @@ const MoveDiagonalIcon = forwardRef<
    animate: {
     x: [0, 1.8, -1.8, 0],
     y: [0, -1.8, 1.8, 0],
-    transition: { duration, ease: "easeInOut", times: [0, 0.25, 0.6, 1] },
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.25, 0.6, 1],
+    },
    },
   };
 
