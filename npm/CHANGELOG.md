@@ -1,5 +1,21 @@
 # @animateicons/react
 
+## 0.12.0
+
+### Minor Changes
+
+- Made icons in the same family move alike, in both the `lucide` and `huge` subpaths. 175 icons changed (146 Lucide and 29 Huge). There are no new icons:
+  - A mark inside a bigger icon now moves like the standalone icon, and every mark in a family starts at the same moment. The plus turns 90 degrees and grows like `PlusIcon`, the minus and the cross move like `MinusIcon` and `XIcon`, and check ticks draw on and pop. This covers icons such as `UserPlusIcon`, `FolderXIcon`, `MailMinusIcon` and `CalendarCheckIcon`.
+  - Pairs move the same way with the direction reversed. `UploadIcon` and `DownloadIcon` (and Huge `Upload01Icon` and `DownloadIcon`) now share one motion, all `Chevron*` and `Chevrons*` icons take 0.6s, and `MoveLeftIcon` and `MoveRightIcon` slide like `MoveHorizontalIcon`.
+  - Off icons draw the slash on and fade the body the same way, for example `BellOffIcon`, `StarOffIcon`, `EyeOffIcon`, `ImageOffIcon` and `AlarmClockOffIcon`. Each keeps its own family motion on top, such as the bell swing or the alarm clock rock. Huge `NotificationOffIcon` and `NotificationOff02Icon` now swing, fade and draw the slash.
+  - Bells swing more slowly, in 1.1s instead of 0.8s, in both libraries: `BellIcon`, `BellRingIcon`, `BellPlusIcon`, `BellMinusIcon`, `BellDotIcon`, `NotificationIcon`, `Notification02Icon` and `NotificationOff02Icon`.
+  - The `Battery*`, `Bookmark*`, `Cloud*`, `Folder*`, `Package*`, `MapPin*`, `Sun*`, `User*` and `Shield*` icons, and Huge `Location01Icon`, `Shield02Icon`, `Alert02Icon` and `BadgeCheckIcon`, now match the rest of their family.
+- `MailOpenIcon` and Huge `MailOpen01Icon` keep the envelope still and drop a small sheet of paper into it.
+- Three Lucide `Bookmark*` icons now use the current Lucide shape.
+- Stopped the Huge `BellDotIcon` from clipping its dot while it grows.
+- `MoveVerticalIcon`, `MoveHorizontalIcon`, `MoveDiagonalIcon`, `MoveDiagonal2Icon`, `BoxesIcon`, `GitlabIcon`, `LayoutDashboardIcon`, `ThumbsUpIcon` and `VenusIcon` now default `duration` to 1 like every other icon. Their timings were scaled so the default look is unchanged, and `duration={1}` now means normal speed for all icons.
+- Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+
 ## 0.11.0
 
 ### Minor Changes
