@@ -204,6 +204,10 @@ html {
 html:has(.boot-loader) {
 	overflow: hidden;
 }
+
+html:has(body[data-scroll-locked]) {
+	scrollbar-gutter: auto;
+}
 @layer components {
 	.btn {
 		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium select-none;
