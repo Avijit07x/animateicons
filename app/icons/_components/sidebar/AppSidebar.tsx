@@ -31,10 +31,21 @@ const libraryIconMap: Record<string, React.FC<{ className?: string }>> = {
 	"Huge Icons": HugeIcon,
 };
 
-const NEW_COUNT_BY_LIBRARY: Record<string, number> = {
-	lucide: LUCIDE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
-	huge: HUGE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+const NO_NEW_ICONS: Record<string, number> = {};
+
+let newCountByLibrary: Record<string, number> | null = null;
+
+const subscribeNever = () => () => {};
+
+const getNewCountByLibrary = () => {
+	newCountByLibrary ??= {
+		lucide: LUCIDE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+		huge: HUGE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+	};
+	return newCountByLibrary;
 };
+
+const getServerNewCountByLibrary = () => NO_NEW_ICONS;
 
 const GROUP_LABEL =
 	"text-textMuted h-7 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase";
@@ -80,6 +91,11 @@ const AppSidebar: React.FC = () => {
 	const icons = library === "huge" ? HUGE_ICON_META : LUCIDE_ICON_META;
 
 	const categories = React.useMemo(() => getCategories(icons), [icons]);
+	const newCounts = React.useSyncExternalStore(
+		subscribeNever,
+		getNewCountByLibrary,
+		getServerNewCountByLibrary,
+	);
 
 	if (pathname?.startsWith("/icons/docs")) return null;
 
@@ -121,7 +137,7 @@ const AppSidebar: React.FC = () => {
 										key={item.label}
 										item={item}
 										LibraryIcon={libraryIconMap[item.label]}
-										newCount={item.name ? NEW_COUNT_BY_LIBRARY[item.name] : 0}
+										newCount={item.name ? newCounts[item.name] : 0}
 										isActive={
 											group.label === "Navigation"
 												? !!item.href && item.href === activeNavHref
