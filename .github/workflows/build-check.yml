@@ -40,8 +40,8 @@ jobs:
       - name: Find unused files, exports and dependencies (knip)
         run: pnpm knip
 
-      - name: Test
-        run: pnpm test
+      - name: Test with coverage thresholds
+        run: pnpm test:coverage
 
       - name: Build project (includes the type check)
         run: pnpm build
