@@ -51,6 +51,17 @@ Before picking icons from `lucide-react`, check they are not duplicates. Compare
 - Draw-on effects use `strokeDasharray` plus a `strokeDashoffset` variant.
 - Keep the shape identical to the Lucide source at rest.
 
+### Family consistency
+
+Icons in the same family must move alike, in both libraries. `docs/motion-consistency.md` tracks what is done. A mix of start delays or durations inside a family counts as inconsistent, not only a different motion.
+
+- When a family exists in Lucide and Huge, both copy one motion. Compare both libraries before changing either.
+- A glyph inside a bigger icon copies the standalone icon, including its start time and duration. Plus spins 90 and grows 1.2 in 0.5s. Minus copies the Huge `minus-sign` (spin 180, shrink 0.7, 0.5s). X copies `x`. Check ticks draw and pop. Heart copies `heart`.
+- Pairs mirror each other: up and down, left and right, `upload` and `download`. Same motion, same timing, only the direction reverses.
+- Off icons do two things: the slash draws on (`strokeDashoffset [L, 0]`, 0.45s, `easeInOut`, 0.1s wait) and the body fades to 0.4 over 0.7s. Keep the family's own motion on top of that (the bell swing, the alarm clock rock). Do not remove it.
+- Rocking and swinging icons stay at or below about 100 degrees per second at their fastest point. The bell family takes 1.1s for its 12 degree swing. When someone says a motion is too fast or slow, measure it in a browser first and compare it with the other icons.
+- Add `style={{ overflow: "visible" }}` to the `m.svg` only on icons that are really cut at the box edge, and only on icons the owner names. Never add it in bulk.
+
 ## Publishing the npm package
 
 - Add a `## x.y.z` entry to `npm/CHANGELOG.md` and bump `npm/package.json`.
