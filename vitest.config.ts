@@ -16,13 +16,27 @@ export default defineConfig({
 		setupFiles: ["./tests/setup.ts"],
 		include: ["tests/**/*.{test,spec}.{ts,tsx}"],
 		css: false,
+		testTimeout: 20_000,
 		clearMocks: true,
 		restoreMocks: true,
 		coverage: {
 			provider: "v8",
 			reporter: ["text-summary", "html"],
-			include: ["lib/**", "utils/**", "scripts/**"],
+			include: [
+				"lib/**",
+				"utils/**",
+				"scripts/**",
+				"hooks/**",
+				"components/**/*.{ts,tsx}",
+				"app/**/*.{ts,tsx}",
+			],
 			exclude: ["**/*.d.ts", "**/*.generated.ts"],
+			thresholds: {
+				statements: 45,
+				branches: 44,
+				functions: 43,
+				lines: 46,
+			},
 		},
 	},
 });
