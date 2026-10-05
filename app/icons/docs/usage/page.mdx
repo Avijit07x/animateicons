@@ -91,8 +91,10 @@ Need to trigger an animation from a parent, on click, on focus, or programmatica
 <CodeBlock code={apiCode} title="Demo.tsx" />
 
 <Callout type="note">
-	The ref handle only works in Client Components. Add `"use client"` to the file
-	that calls `startAnimation()`.
+	Icons render fine inside Server Components. Pass plain props such as `size`,
+	`color` and `duration`. The ref handle only works in Client Components, so add
+	`"use client"` to the file that calls `startAnimation()` or passes event
+	handlers.
 </Callout>
 
 <Callout type="tip">
