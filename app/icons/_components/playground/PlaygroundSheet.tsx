@@ -68,7 +68,7 @@ const PlaygroundSheet: React.FC = () => {
 			<SheetContent className="bg-bgDark border-border/60 w-full overflow-hidden p-0 sm:max-w-md">
 				<SheetHeader
 					ref={headerRef}
-					className="data-[scrolled=true]:border-border/60 shrink-0 gap-1.5 border-b border-transparent px-6 pt-6 pb-4 transition-colors"
+					className="data-[scrolled=true]:border-border/60 shrink-0 gap-1.5 border-b border-transparent px-7 pt-6 pb-4 transition-colors"
 				>
 					<div className="flex items-center gap-2.5">
 						<SheetTitle className="text-textPrimary text-xl font-semibold">
@@ -90,7 +90,7 @@ const PlaygroundSheet: React.FC = () => {
 							String(e.currentTarget.scrollTop > 0),
 						);
 					}}
-					className="min-h-0 flex-1 space-y-6 overflow-y-auto px-6 pt-4 pb-8"
+					className="min-h-0 flex-1 scrollbar-none space-y-6 overflow-y-auto px-7 pt-4 pb-8 [&::-webkit-scrollbar]:hidden"
 				>
 					<PlaygroundPreview
 						Icon={icon.Component}
