@@ -266,6 +266,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 4.1.10
         version: 4.1.10(vitest@4.1.10)
+      axe-core:
+        specifier: ^4.13.0
+        version: 4.13.0
       baseline-browser-mapping:
         specifier: ^2.11.26
         version: 2.11.26
