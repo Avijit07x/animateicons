@@ -94,10 +94,11 @@ const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
   };
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [9, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
@@ -105,6 +106,12 @@ const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
       delay: 0.15 * duration,
      },
      opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -136,6 +143,7 @@ const UserCheckIcon = forwardRef<UserCheckIconHandle, UserCheckIconProps>(
        strokeDasharray="9"
        strokeDashoffset="0"
        variants={tickVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "11px" }}
       />
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
       <m.circle cx="9" cy="7" r="4" variants={headVariants} />

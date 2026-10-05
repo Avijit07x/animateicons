@@ -85,7 +85,7 @@ const CloudUploadIcon = forwardRef<CloudUploadIconHandle, CloudUploadIconProps>(
    normal: { x: 0, y: 0 },
    animate: {
     x: [0, 0, 0, 0],
-    y: [0, -2, 0.5, 0],
+    y: [0, -1.5, 0.4, 0],
     transition: {
      duration: 0.6 * duration,
      ease: "easeInOut",

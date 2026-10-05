@@ -84,14 +84,6 @@ const MessageCircleIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const svgVariants: Variants = {
-   normal: { rotate: 0 },
-   animate: {
-    rotate: [0, -3, 2, 0],
-    transition: { duration: 0.6 * duration, ease: "easeInOut" },
-   },
-  };
-
   const popVariants: Variants = {
    normal: { scale: 1 },
    animate: {
@@ -125,11 +117,10 @@ const MessageCircleIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
-      variants={svgVariants}
      >
       <m.g
        variants={popVariants}
-       style={{ transformBox: "view-box", originX: "4px", originY: "19px" }}
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
       >
        <path
         d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065

@@ -99,12 +99,11 @@ const MessageSquarePlusIcon = forwardRef<
   const popVariants: Variants = {
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: [0, 180],
-    scale: [1, 1.3, 1],
+    rotate: [0, 90],
+    scale: [1, 1.2, 1],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.3 * duration,
     },
    },
   };

@@ -47,7 +47,7 @@ const LayoutDashboardIcon = forwardRef<
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.6,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -89,10 +89,10 @@ const LayoutDashboardIcon = forwardRef<
    animate: (i: number) => ({
     scale: [1, 0.78, 1.1, 1],
     transition: {
-     duration: 0.85 * duration,
+     duration: 0.51 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.75, 1],
-     delay: i * 0.08 * duration,
+     delay: i * 0.048 * duration,
     },
    }),
   };

@@ -82,11 +82,14 @@ const BadgeCheckIcon = forwardRef<BadgeCheckIconHandle, BadgeCheckIconProps>(
   );
 
   const badgeVariants: Variants = {
-   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
+   normal: { scale: 1 },
    animate: {
-    rotate: [0, 360],
-    scale: [1, 1.12, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    scale: [1, 1.1, 0.96, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -99,9 +102,9 @@ const BadgeCheckIcon = forwardRef<BadgeCheckIconHandle, BadgeCheckIconProps>(
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.45 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.1 * duration, delay: 0.45 * duration },
+     opacity: { duration: 0.1 * duration, delay: 0.15 * duration },
     },
    },
   };

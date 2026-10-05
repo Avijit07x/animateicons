@@ -101,7 +101,6 @@ const MailPlusIcon = forwardRef<MailPlusIconHandle, MailPlusIconProps>(
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.15 * duration,
     },
    },
   });

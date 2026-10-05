@@ -84,11 +84,31 @@ const NotificationOff02Icon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const bodyVariants: Variants = {
-   normal: { opacity: 1 },
+  const bellVariants: Variants = {
+   normal: { rotate: 0, opacity: 1 },
    animate: {
+    rotate: [0, -12, 10.2, -6, 3, 0],
     opacity: [1, 0.4, 1],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    transition: {
+     rotate: { duration: 1.1 * duration, ease: "easeInOut" },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
+   },
+  };
+
+  const clapperVariants: Variants = {
+   normal: { rotate: 0, opacity: 1 },
+   animate: {
+    rotate: [0, -7, 6, -3.5, 1.8, 0],
+    opacity: [1, 0.4, 1],
+    transition: {
+     rotate: {
+      duration: 1.1 * duration,
+      ease: "easeInOut",
+      delay: 0.07 * duration,
+     },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
    },
   };
 
@@ -126,11 +146,18 @@ const NotificationOff02Icon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.g variants={bodyVariants}>
+      <m.g
+       variants={bellVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
+      >
        <path d="M18 18H3.5" />
-       <path d="M13.5 20C13.5 20.8284 12.8284 21.5 12 21.5M10.5 20C10.5 20.8284 11.1716 21.5 12 21.5M12 21.5V20" />
        <path d="M5 18V9.5C5 8.20839 5.34981 6.99849 5.95987 5.95987M19 15V9.5C19 5.63401 15.866 2.5 12 2.5C10.4497 2.5 9.01706 3.00399 7.85707 3.85707" />
       </m.g>
+      <m.path
+       d="M13.5 20C13.5 20.8284 12.8284 21.5 12 21.5M10.5 20C10.5 20.8284 11.1716 21.5 12 21.5M12 21.5V20"
+       variants={clapperVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "3px" }}
+      />
       <m.path
        d="M2 2L22 22"
        strokeDasharray="30"

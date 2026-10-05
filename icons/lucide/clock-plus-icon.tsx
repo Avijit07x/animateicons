@@ -97,7 +97,6 @@ const ClockPlusIcon = forwardRef<ClockPlusIconHandle, ClockPlusIconProps>(
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
     },
    },
   };

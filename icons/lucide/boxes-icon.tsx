@@ -44,7 +44,7 @@ const BoxesIcon = forwardRef<BoxesIconHandle, BoxesIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.6,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -86,7 +86,7 @@ const BoxesIcon = forwardRef<BoxesIconHandle, BoxesIconProps>(
    animate: {
     scale: [1, 1.04, 1],
     transition: {
-     duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
     },
    },
@@ -97,8 +97,8 @@ const BoxesIcon = forwardRef<BoxesIconHandle, BoxesIconProps>(
    animate: (i: number) => ({
     y: [0, -2 - i, 0],
     transition: {
-     duration: duration * 0.9,
-     delay: i * 0.08,
+     duration: 0.54 * duration,
+     delay: i * 0.08 * duration,
      ease: "easeInOut",
     },
    }),

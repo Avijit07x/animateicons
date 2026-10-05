@@ -82,10 +82,11 @@ const CloudSyncIcon = forwardRef<CloudSyncIconHandle, CloudSyncIconProps>(
   );
 
   const syncVariants: Variants = {
-   normal: { rotate: 0, transition: { duration: 0 } },
+   normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 180],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    scale: [1, 0.92, 1],
+    transition: { duration: 0.9 * duration, ease: "easeInOut" },
    },
   };
 

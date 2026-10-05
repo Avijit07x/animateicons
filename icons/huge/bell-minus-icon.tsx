@@ -86,7 +86,7 @@ const BellMinusIcon = forwardRef<BellMinusIconHandle, BellMinusIconProps>(
    animate: {
     rotate: [0, -12, 10.2, -6.0, 3.0, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.1 * duration,
      ease: "easeInOut",
     },
    },

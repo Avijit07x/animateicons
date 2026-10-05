@@ -108,13 +108,13 @@ const AlarmClockCheckIcon = forwardRef<
     transition: {
      pathLength: {
       duration: 0.4 * duration,
-      delay: 0.28 * duration,
+      delay: 0.15 * duration,
       ease: "easeOut",
      },
-     opacity: { duration: 0.16 * duration, delay: 0.28 * duration },
+     opacity: { duration: 0.16 * duration, delay: 0.15 * duration },
      scale: {
       duration: 0.45 * duration,
-      delay: 0.32 * duration,
+      delay: 0.19 * duration,
       times: [0, 0.6, 1],
       ease: "easeInOut",
      },

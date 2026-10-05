@@ -44,7 +44,7 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
    onMouseLeave,
    className,
    size = 24,
-   duration = 0.8,
+   duration = 1,
    isAnimated = true,
    color,
    ...props
@@ -88,9 +88,9 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
     opacity: [0, 1],
     scale: [0.9, 1.04, 1],
     transition: {
-     strokeDashoffset: { duration: 0.55 * duration, ease: "easeOut" },
-     opacity: { duration: 0.25 * duration },
-     scale: { duration: 0.55 * duration, ease: "easeInOut" },
+     strokeDashoffset: { duration: 0.44 * duration, ease: "easeOut" },
+     opacity: { duration: 0.2 * duration },
+     scale: { duration: 0.44 * duration, ease: "easeInOut" },
     },
    },
   };
@@ -102,11 +102,11 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
     opacity: [0, 1],
     transition: {
      strokeDashoffset: {
-      duration: 0.4 * duration,
+      duration: 0.32 * duration,
       ease: "easeOut",
-      delay: 0.2 * duration,
+      delay: 0.16 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+     opacity: { duration: 0.2 * duration, delay: 0.16 * duration },
     },
    },
   };
@@ -118,11 +118,11 @@ const VenusIcon = forwardRef<VenusIconHandle, VenusIconProps>(
     opacity: [0, 1],
     transition: {
      strokeDashoffset: {
-      duration: 0.4 * duration,
+      duration: 0.32 * duration,
       ease: "easeOut",
-      delay: 0.45 * duration,
+      delay: 0.36 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.45 * duration },
+     opacity: { duration: 0.2 * duration, delay: 0.36 * duration },
     },
    },
   };

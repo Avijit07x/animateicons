@@ -84,13 +84,9 @@ const TextSearchIcon = forwardRef<TextSearchIconHandle, TextSearchIconProps>(
   const lensVariants: Variants = {
    normal: { x: 0, y: 0 },
    animate: {
-    x: [0, -4, 0.5, 0],
-    y: [0, -1, 0.3, 0],
-    transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     times: [0, 0.45, 0.8, 1],
-    },
+    x: [0, -1.4, -0.4, 0.7, 0],
+    y: [0, 0.3, -1.3, -0.4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 

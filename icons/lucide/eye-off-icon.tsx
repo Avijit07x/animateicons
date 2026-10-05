@@ -92,10 +92,10 @@ const EyeOffIcon = forwardRef<EyeOffIconHandle, EyeOffIconProps>(
   const slashVariants: Variants = {
    normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDashoffset: [24, 0],
+    strokeDashoffset: [29, 0],
     transition: {
      duration: 0.45 * duration,
-     ease: "easeOut",
+     ease: "easeInOut",
      delay: 0.1 * duration,
     },
    },

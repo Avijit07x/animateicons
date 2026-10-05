@@ -85,21 +85,29 @@ const NotificationOffIcon = forwardRef<
   );
 
   const bellVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { rotate: 0, opacity: 1 },
    animate: {
     rotate: [0, -12, 10.2, -6, 3, 0],
-    transition: { duration: 0.8 * duration, ease: "easeInOut" },
+    opacity: [1, 0.4, 1],
+    transition: {
+     rotate: { duration: 1.1 * duration, ease: "easeInOut" },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
    },
   };
 
   const clapperVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { rotate: 0, opacity: 1 },
    animate: {
     rotate: [0, -7, 6, -3.5, 1.8, 0],
+    opacity: [1, 0.4, 1],
     transition: {
-     duration: 0.8 * duration,
-     ease: "easeInOut",
-     delay: 0.05 * duration,
+     rotate: {
+      duration: 1.1 * duration,
+      ease: "easeInOut",
+      delay: 0.07 * duration,
+     },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
     },
    },
   };

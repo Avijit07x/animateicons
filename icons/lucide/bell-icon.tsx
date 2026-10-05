@@ -87,25 +87,16 @@ const BellIcon = forwardRef<BellIconHandle, BellIconProps>(
   const bellVariants: Variants = {
    normal: { rotate: 0 },
    animate: {
-    rotate: [0, -18, 14, -9, 0],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeInOut",
-     times: [0, 0.25, 0.5, 0.75, 1],
-    },
+    rotate: [0, -12, 10.2, -6, 3, 0],
+    transition: { duration: 1.1 * duration, ease: "easeInOut" },
    },
   };
 
   const clapperVariants: Variants = {
    normal: { x: 0 },
    animate: {
-    x: [0, -5, 4, -2.5, 0],
-    transition: {
-     duration: 1 * duration,
-     ease: "easeInOut",
-     times: [0, 0.25, 0.5, 0.75, 1],
-     delay: 0.04 * duration,
-    },
+    x: [0, 1.7, -1.4, 0.8, -0.4, 0],
+    transition: { duration: 1.1 * duration, ease: "easeInOut" },
    },
   };
 

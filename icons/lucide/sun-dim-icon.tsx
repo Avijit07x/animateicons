@@ -86,7 +86,7 @@ const SunDimIcon = forwardRef<SunDimIconHandle, SunDimIconProps>(
    animate: {
     scale: [1, 0.86, 1.08, 1],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
      times: [0, 0.3, 0.7, 1],
     },

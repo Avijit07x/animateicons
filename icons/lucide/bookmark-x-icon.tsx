@@ -81,15 +81,13 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
    [controls, onMouseLeave],
   );
 
-  const hopVariants: Variants = {
-   normal: { y: 0 },
+  const bookmarkVariants: Variants = {
+   normal: { y: 0, scaleX: 1, scaleY: 1 },
    animate: {
-    y: [0, -1.6, 0.4, 0],
-    transition: {
-     duration: 0.6 * duration,
-     ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
-    },
+    y: [0, -4, 0],
+    scaleY: [1, 1.1, 0.95, 1],
+    scaleX: [1, 0.97, 1.02, 1],
+    transition: { duration: 0.55 * duration, ease: "easeOut" },
    },
   };
 
@@ -97,11 +95,10 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 90],
-    scale: [1, 1.3, 1],
+    scale: [1, 1.2, 1],
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.1 * duration,
     },
    },
   };
@@ -127,15 +124,14 @@ const BookmarkXIcon = forwardRef<BookmarkXIconHandle, BookmarkXIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      variants={bookmarkVariants}
      >
-      <m.g variants={hopVariants}>
-       <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
-       <m.path
-        d="m14.5 7.5-5 5M9.5 7.5l5 5"
-        variants={crossVariants}
-        style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
-       />
-      </m.g>
+      <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+      <m.path
+       d="m14.5 7.5-5 5M9.5 7.5l5 5"
+       variants={crossVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "10px" }}
+      />
      </m.svg>
     </m.div>
    </LazyMotion>

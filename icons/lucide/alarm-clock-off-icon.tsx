@@ -84,14 +84,18 @@ const AlarmClockOffIcon = forwardRef<
    [controls, onMouseLeave],
   );
 
-  const clockVariants: Variants = {
-   normal: { rotate: 0 },
+  const bodyVariants: Variants = {
+   normal: { rotate: 0, opacity: 1 },
    animate: {
     rotate: [0, -6, 6, -4, 0],
+    opacity: [1, 0.4, 1],
     transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     times: [0, 0.25, 0.5, 0.75, 1],
+     rotate: {
+      duration: 0.7 * duration,
+      ease: "easeInOut",
+      times: [0, 0.25, 0.5, 0.75, 1],
+     },
+     opacity: { duration: 0.7 * duration, ease: "easeInOut" },
     },
    },
   };
@@ -99,8 +103,12 @@ const AlarmClockOffIcon = forwardRef<
   const slashVariants: Variants = {
    normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDashoffset: [0, 9, 0],
-    transition: { duration: 0.7 * duration, ease: "easeInOut" },
+    strokeDashoffset: [31, 0],
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
+    },
    },
   };
 
@@ -127,7 +135,7 @@ const AlarmClockOffIcon = forwardRef<
       initial="normal"
      >
       <m.g
-       variants={clockVariants}
+       variants={bodyVariants}
        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
       >
        <path d="M6.87 6.87A8 8 0 1 0 18.13 18.13" />
@@ -138,7 +146,7 @@ const AlarmClockOffIcon = forwardRef<
       </m.g>
       <m.path
        d="m2 2 20 20"
-       strokeDasharray="29"
+       strokeDasharray="30 200"
        strokeDashoffset="0"
        variants={slashVariants}
       />

@@ -89,7 +89,7 @@ const Notification02Icon = forwardRef<
    animate: {
     rotate: [0, -12, 10.2, -6.0, 3.0, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.1 * duration,
      ease: "easeInOut",
     },
    },
@@ -100,9 +100,9 @@ const Notification02Icon = forwardRef<
    animate: {
     rotate: [0, -7, 6.0, -3.5, 1.8, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.1 * duration,
      ease: "easeInOut",
-     delay: 0.05 * duration,
+     delay: 0.07 * duration,
     },
    },
   };

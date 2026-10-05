@@ -90,11 +90,28 @@ const BatteryLowIcon = forwardRef<BatteryLowIconHandle, BatteryLowIconProps>(
    },
   };
 
-  const nubVariants: Variants = {
-   normal: { x: 0 },
+  const bodyVariants: Variants = {
+   normal: { scaleX: 1 },
    animate: {
-    x: [0, 0.8, 0],
-    transition: { duration: 0.5 * duration, ease: "easeInOut" },
+    scaleX: [1, 0.92, 1.02, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
+   },
+  };
+
+  const capVariants: Variants = {
+   normal: { x: 0, scaleY: 1 },
+   animate: {
+    x: [0, -1.3, 0.3, 0],
+    scaleY: [1, 1.5, 1, 1],
+    transition: {
+     duration: 0.6 * duration,
+     ease: "easeInOut",
+     times: [0, 0.35, 0.7, 1],
+    },
    },
   };
 
@@ -120,13 +137,22 @@ const BatteryLowIcon = forwardRef<BatteryLowIconHandle, BatteryLowIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path d="M22 14v-4" variants={nubVariants} />
       <m.path
-       d="M6 14v-4"
-       variants={barVariants}
-       style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
+       d="M22 14v-4"
+       variants={capVariants}
+       style={{ transformBox: "view-box", originX: "22px", originY: "12px" }}
       />
-      <rect x="2" y="6" width="16" height="12" rx="2" />
+      <m.g
+       variants={bodyVariants}
+       style={{ transformBox: "view-box", originX: "2px", originY: "12px" }}
+      >
+       <m.path
+        d="M6 14v-4"
+        variants={barVariants}
+        style={{ transformBox: "view-box", originX: "6px", originY: "12px" }}
+       />
+       <rect x="2" y="6" width="16" height="12" rx="2" />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

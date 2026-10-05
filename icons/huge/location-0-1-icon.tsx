@@ -84,7 +84,7 @@ const Location01Icon = forwardRef<Location01IconHandle, Location01IconProps>(
   const pinVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, -3, 0, -1, 0],
+    y: [0, -1.5, 0, -0.5, 0],
     transition: {
      duration: 0.8 * duration,
      ease: "easeInOut",

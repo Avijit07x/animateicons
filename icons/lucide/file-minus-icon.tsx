@@ -86,7 +86,7 @@ const FileMinusIcon = forwardRef<FileMinusIconHandle, FileMinusIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 180],
-    scale: [1, 1.3, 1],
+    scale: [1, 0.7, 1],
     transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };

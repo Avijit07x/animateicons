@@ -86,7 +86,7 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
    animate: {
     rotate: [0, -12, 10.2, -6.0, 3.0, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.1 * duration,
      ease: "easeInOut",
     },
    },
@@ -97,7 +97,7 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
    animate: {
     opacity: [1, 0.15, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
     },
    },
@@ -108,9 +108,9 @@ const BellRingIcon = forwardRef<BellRingIconHandle, BellRingIconProps>(
    animate: {
     opacity: [1, 0.15, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     delay: 0.12 * duration,
+     delay: 0.16 * duration,
     },
    },
   };

@@ -82,25 +82,40 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
   );
 
   const pinVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { y: 0, rotate: 0 },
    animate: {
-    rotate: [0, -8, 6, -3, 0],
-    transition: { duration: 1.1 * duration, ease: "easeInOut" },
+    y: [0, 1, 0.3, 0],
+    rotate: [0, -9, 7, -3, 0],
+    transition: {
+     y: {
+      duration: 0.5 * duration,
+      ease: "easeInOut",
+      times: [0, 0.3, 0.6, 1],
+     },
+     rotate: { duration: 0.7 * duration, ease: "easeInOut" },
+    },
    },
   };
 
   const checkVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [9, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.2 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -139,6 +154,7 @@ const MapPinCheckIcon = forwardRef<MapPinCheckIconHandle, MapPinCheckIconProps>(
        strokeDasharray="9"
        strokeDashoffset="0"
        variants={checkVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "18px" }}
       />
      </m.svg>
     </m.div>

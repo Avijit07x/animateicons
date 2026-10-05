@@ -101,7 +101,7 @@ const Upload01Icon = forwardRef<Upload01IconHandle, Upload01IconProps>(
     transition: {
      duration: 0.8 * duration,
      ease: "easeInOut",
-     times: [0, 0.6, 0.8, 1],
+     times: [0, 0.75, 0.9, 1],
     },
    },
   };

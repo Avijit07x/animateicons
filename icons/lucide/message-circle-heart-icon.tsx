@@ -102,11 +102,11 @@ const MessageCircleHeartIcon = forwardRef<
   const heartVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.3, 1, 1.18, 1],
+    scale: [1, 1.13, 0.97, 1.07, 1],
     transition: {
-     duration: 0.55 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     delay: 0.3 * duration,
+     times: [0, 0.25, 0.5, 0.75, 1],
     },
    },
   };

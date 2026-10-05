@@ -13,6 +13,7 @@ import {
  forwardRef,
  useCallback,
  useImperativeHandle,
+ useId,
  useRef,
  type HTMLAttributes,
 } from "react";
@@ -51,6 +52,7 @@ const MailOpenIcon = forwardRef<MailOpenIconHandle, MailOpenIconProps>(
   },
   ref,
  ) => {
+  const clipId = useId().replace(/:/g, "");
   const controls = useAnimation();
   const reduced = useReducedMotion();
   const isControlled = useRef(false);
@@ -84,14 +86,18 @@ const MailOpenIcon = forwardRef<MailOpenIconHandle, MailOpenIconProps>(
    [controls, onMouseLeave],
   );
 
-  const flapVariants: Variants = {
-   normal: { scaleY: 1 },
+  const paperVariants: Variants = {
+   normal: { y: 14, opacity: 0, transition: { duration: 0 } },
    animate: {
-    scaleY: [1, 1.35, 1],
+    y: [-9, 0, 14],
+    opacity: [0, 1, 1],
     transition: {
-     duration: 0.6 * duration,
-     times: [0, 0.5, 1],
-     ease: "easeInOut",
+     y: { duration: 0.8 * duration, ease: "easeInOut", times: [0, 0.4, 1] },
+     opacity: {
+      duration: 0.8 * duration,
+      ease: "easeOut",
+      times: [0, 0.25, 1],
+     },
     },
    },
   };
@@ -118,13 +124,21 @@ const MailOpenIcon = forwardRef<MailOpenIconHandle, MailOpenIconProps>(
       animate={controls}
       initial="normal"
      >
+      <defs>
+       <clipPath id={clipId}>
+        <path d="M-2 -20H26V10H22l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10H-2Z" />
+       </clipPath>
+      </defs>
+      <g clipPath={`url(#${clipId})`}>
+       <m.g variants={paperVariants} strokeWidth="1.5">
+        <rect x="7" y="4" width="10" height="9.5" rx="1" />
+        <path d="M9.5 7.3h5" />
+        <path d="M9.5 10.3h3" />
+       </m.g>
+      </g>
       <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6" />
       <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
-      <m.path
-       d="M2.8 8.4 10.8 2.4a2 2 0 0 1 2.4 0L21.2 8.4"
-       variants={flapVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "8.4px" }}
-      />
+      <path d="M2.8 8.4 10.8 2.4a2 2 0 0 1 2.4 0L21.2 8.4" />
      </m.svg>
     </m.div>
    </LazyMotion>

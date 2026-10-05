@@ -85,14 +85,13 @@ const HardDriveUploadIcon = forwardRef<
   );
 
   const arrowVariants: Variants = {
-   normal: { y: 0, opacity: 1 },
+   normal: { y: 0 },
    animate: {
-    y: [0, -4, 4, 0],
-    opacity: [1, 0, 0, 1],
+    y: [0, -1.8, 0.4, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.55, 1],
+     times: [0, 0.35, 0.7, 1],
     },
    },
   };
@@ -130,6 +129,7 @@ const HardDriveUploadIcon = forwardRef<
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      style={{ overflow: "visible" }}
      >
       <m.g variants={arrowVariants}>
        <path d="m16 6-4-4-4 4" />

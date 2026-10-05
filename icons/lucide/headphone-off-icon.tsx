@@ -98,11 +98,11 @@ const HeadphoneOffIcon = forwardRef<
   const slashVariants: Variants = {
    normal: { strokeDashoffset: 0 },
    animate: {
-    strokeDashoffset: [0, 24, 0],
+    strokeDashoffset: [29, 0],
     transition: {
-     duration: 0.7 * duration,
+     duration: 0.45 * duration,
      ease: "easeInOut",
-     times: [0, 0.4, 1],
+     delay: 0.1 * duration,
     },
    },
   };

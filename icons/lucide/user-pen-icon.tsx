@@ -94,14 +94,12 @@ const UserPenIcon = forwardRef<UserPenIconHandle, UserPenIconProps>(
   };
 
   const penVariants: Variants = {
-   normal: { rotate: 0 },
+   normal: { x: 0, y: 0, rotate: 0 },
    animate: {
-    rotate: [0, 10, -6, 3, 0],
-    transition: {
-     duration: 0.7 * duration,
-     ease: "easeInOut",
-     delay: 0.05 * duration,
-    },
+    x: [0, -1.5, 1, -1, 0],
+    y: [0, 1, -0.5, 0.8, 0],
+    rotate: [0, -8, 4, -4, 0],
+    transition: { duration: 0.8 * duration, ease: "easeInOut" },
    },
   };
 

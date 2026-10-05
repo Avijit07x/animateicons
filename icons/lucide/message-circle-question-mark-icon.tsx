@@ -87,11 +87,11 @@ const MessageCircleQuestionMarkIcon = forwardRef<
   const bubbleVariants: Variants = {
    normal: { scale: 1 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
+    scale: [1, 0.7, 1.05, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.65 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.35, 0.75, 1],
     },
    },
   };
@@ -139,17 +139,18 @@ const MessageCircleQuestionMarkIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+      <m.g
        variants={bubbleVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
-       variants={curlVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
-      />
-      <m.path d="M12 17h.01" variants={dotVariants} />
+       style={{ transformBox: "view-box", originX: "4px", originY: "20px" }}
+      >
+       <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+       <m.path
+        d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+        variants={curlVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "13px" }}
+       />
+       <m.path d="M12 17h.01" variants={dotVariants} />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

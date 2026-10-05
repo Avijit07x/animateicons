@@ -95,7 +95,7 @@ const VideoOffIcon = forwardRef<VideoOffIconHandle, VideoOffIconProps>(
     strokeDashoffset: [32, 0],
     transition: {
      duration: 0.45 * duration,
-     ease: "easeOut",
+     ease: "easeInOut",
      delay: 0.1 * duration,
     },
    },

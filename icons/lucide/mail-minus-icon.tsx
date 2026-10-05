@@ -93,18 +93,14 @@ const MailMinusIcon = forwardRef<MailMinusIconHandle, MailMinusIconProps>(
    },
   };
 
-  const popVariants = (turn: number, peak: number): Variants => ({
+  const minusVariants: Variants = {
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
-    rotate: [0, turn],
-    scale: [1, peak, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.15 * duration,
-    },
+    rotate: [0, 180],
+    scale: [1, 0.7, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
-  });
+  };
 
   return (
    <LazyMotion features={domMin} strict>
@@ -136,7 +132,7 @@ const MailMinusIcon = forwardRef<MailMinusIconHandle, MailMinusIconProps>(
       />
       <m.path
        d="M16 19h6"
-       variants={popVariants(180, 1.15)}
+       variants={minusVariants}
        style={{ transformBox: "view-box", originX: "19px", originY: "19px" }}
       />
      </m.svg>

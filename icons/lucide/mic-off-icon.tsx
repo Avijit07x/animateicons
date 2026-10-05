@@ -95,7 +95,7 @@ const MicOffIcon = forwardRef<MicOffIconHandle, MicOffIconProps>(
     strokeDashoffset: [29, 0],
     transition: {
      duration: 0.45 * duration,
-     ease: "easeOut",
+     ease: "easeInOut",
      delay: 0.1 * duration,
     },
    },

@@ -85,11 +85,12 @@ const PackageCheckIcon = forwardRef<
   );
 
   const boxVariants: Variants = {
-   normal: { y: 0 },
+   normal: { y: 0, rotate: 0 },
    animate: {
     y: [0, -1, 0.3, 0],
+    rotate: [0, -6, 4, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
      times: [0, 0.35, 0.7, 1],
     },
@@ -97,17 +98,24 @@ const PackageCheckIcon = forwardRef<
   };
 
   const tickVariants: Variants = {
-   normal: { strokeDashoffset: 0, opacity: 1 },
+   normal: { strokeDashoffset: 0, opacity: 1, scale: 1 },
    animate: {
     strokeDashoffset: [9, 0],
     opacity: [0, 1],
+    scale: [0.8, 1.12, 1],
     transition: {
      strokeDashoffset: {
       duration: 0.45 * duration,
       ease: "easeOut",
-      delay: 0.2 * duration,
+      delay: 0.15 * duration,
      },
-     opacity: { duration: 0.25 * duration, delay: 0.2 * duration },
+     opacity: { duration: 0.25 * duration, delay: 0.15 * duration },
+     scale: {
+      duration: 0.45 * duration,
+      delay: 0.19 * duration,
+      times: [0, 0.6, 1],
+      ease: "easeInOut",
+     },
     },
    },
   };
@@ -134,7 +142,10 @@ const PackageCheckIcon = forwardRef<
       animate={controls}
       initial="normal"
      >
-      <m.g variants={boxVariants}>
+      <m.g
+       variants={boxVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+      >
        <path d="M12 22V12" />
        <path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753" />
        <path d="M3.29 7 12 12l8.71-5" />
@@ -145,6 +156,7 @@ const PackageCheckIcon = forwardRef<
        strokeDasharray="9"
        strokeDashoffset="0"
        variants={tickVariants}
+       style={{ transformBox: "view-box", originX: "19px", originY: "17px" }}
       />
      </m.svg>
     </m.div>

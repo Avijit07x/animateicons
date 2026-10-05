@@ -97,12 +97,8 @@ const FolderXIcon = forwardRef<FolderXIconHandle, FolderXIconProps>(
    normal: { rotate: 0, scale: 1, transition: { duration: 0 } },
    animate: {
     rotate: [0, 90],
-    scale: [1, 1.3, 1],
-    transition: {
-     duration: 0.5 * duration,
-     ease: "easeInOut",
-     delay: 0.1 * duration,
-    },
+    scale: [1, 1.2, 1],
+    transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
   };
 

@@ -89,7 +89,7 @@ const ChevronsRightLeftIcon = forwardRef<
    animate: {
     x: [0, 1.5, -0.4, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
     },
@@ -101,7 +101,7 @@ const ChevronsRightLeftIcon = forwardRef<
    animate: {
     x: [0, -1.5, 0.4, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      times: [0, 0.4, 0.75, 1],
     },

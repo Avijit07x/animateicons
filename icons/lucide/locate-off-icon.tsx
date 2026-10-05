@@ -93,7 +93,11 @@ const LocateOffIcon = forwardRef<LocateOffIconHandle, LocateOffIconProps>(
    normal: { strokeDashoffset: 0 },
    animate: {
     strokeDashoffset: [31, 0],
-    transition: { duration: 0.6 * duration, ease: "easeOut" },
+    transition: {
+     duration: 0.45 * duration,
+     ease: "easeInOut",
+     delay: 0.1 * duration,
+    },
    },
   };
 

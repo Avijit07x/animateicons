@@ -86,7 +86,7 @@ const BellDotIcon = forwardRef<BellDotIconHandle, BellDotIconProps>(
    animate: {
     rotate: [0, -12, 10.2, -6.0, 3.0, 0],
     transition: {
-     duration: 0.8 * duration,
+     duration: 1.1 * duration,
      ease: "easeInOut",
     },
    },
@@ -125,6 +125,7 @@ const BellDotIcon = forwardRef<BellDotIconHandle, BellDotIconProps>(
       strokeLinejoin="round"
       animate={controls}
       initial="normal"
+      style={{ overflow: "visible" }}
      >
       <m.g
        variants={bellVariants}

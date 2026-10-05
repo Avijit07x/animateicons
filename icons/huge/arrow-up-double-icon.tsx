@@ -89,7 +89,7 @@ const ArrowUpDoubleIcon = forwardRef<
    animate: {
     y: [0, -2, 0.5, 0],
     transition: {
-     duration: 0.5 * duration,
+     duration: 0.6 * duration,
      ease: "easeInOut",
      delay: delay * duration,
      times: [0, 0.4, 0.75, 1],
@@ -125,7 +125,7 @@ const ArrowUpDoubleIcon = forwardRef<
       />
       <m.path
        d="M18 18.5C18 18.5 13.5811 12.5 12 12.5C10.4188 12.5 6 18.5 6 18.5"
-       variants={legVariants(0.12)}
+       variants={legVariants(0.15)}
       />
      </m.svg>
     </m.div>

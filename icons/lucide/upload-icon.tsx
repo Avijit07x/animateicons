@@ -82,13 +82,14 @@ const UploadIcon = forwardRef<UploadIconHandle, UploadIconProps>(
   );
 
   const arrowVariants: Variants = {
-   normal: { y: 0 },
+   normal: { y: 0, opacity: 1 },
    animate: {
-    y: [0, -1.5, 0.4, 0],
+    y: [0, -4, 4, 0],
+    opacity: [1, 0, 0, 1],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.4, 0.5, 1],
     },
    },
   };
@@ -96,11 +97,11 @@ const UploadIcon = forwardRef<UploadIconHandle, UploadIconProps>(
   const trayVariants: Variants = {
    normal: { y: 0 },
    animate: {
-    y: [0, 0.7, -0.2, 0],
+    y: [0, 0, 1, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.8 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.75, 0.9, 1],
     },
    },
   };
