@@ -70,6 +70,8 @@ const findRelatedIcons = (
 		.map((item) => ({ name: item.name, icon: item.icon }));
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
 	const params: { library: string; name: string }[] = [];
 	for (const item of LUCIDE_ICON_LIST) {
