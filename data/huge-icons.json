@@ -32,7 +32,7 @@
 	{
 		"name": "eye",
 		"addedAt": "2026-02-16",
-		"category": ["Design"],
+		"category": ["Security"],
 		"keywords": ["eye", "show", "visible", "view", "watch", "preview", "open"]
 	},
 	{
@@ -122,7 +122,7 @@
 	{
 		"name": "chevron-right",
 		"addedAt": "2026-02-16",
-		"category": ["Arrows", "Navigation, Maps, and POIs"],
+		"category": ["Arrows"],
 		"keywords": ["next", "carat", "right", "forward", "continue"]
 	},
 	{
@@ -383,7 +383,7 @@
 	{
 		"name": "shopping-cart-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["cart", "shopping", "basket", "buy", "checkout", "store"]
 	},
 	{
@@ -445,7 +445,7 @@
 	{
 		"name": "tag-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["tag", "label", "price", "sale", "category", "badge"]
 	},
 	{
@@ -463,7 +463,7 @@
 	{
 		"name": "gift",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["gift", "present", "box", "reward", "birthday", "surprise"]
 	},
 	{
@@ -475,31 +475,31 @@
 	{
 		"name": "shopping-bag-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["shopping", "bag", "purchase", "retail", "store", "buy"]
 	},
 	{
 		"name": "shopping-basket-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["shopping", "basket", "grocery", "cart", "buy", "store"]
 	},
 	{
 		"name": "shopping-cart-add-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["cart", "add", "add to cart", "shopping", "plus", "buy"]
 	},
 	{
 		"name": "shopping-cart-check-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["cart", "checkout", "confirmed", "shopping", "check", "done"]
 	},
 	{
 		"name": "shopping-cart-remove-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["cart", "remove", "delete", "shopping", "cancel", "clear"]
 	},
 	{
@@ -524,13 +524,13 @@
 	{
 		"name": "store-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["store", "shop", "market", "retail", "storefront", "merchant"]
 	},
 	{
 		"name": "delivery-truck-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping", "Transportation"],
+		"category": ["Shopping", "Transportation", "Logistics"],
 		"keywords": [
 			"delivery",
 			"truck",
@@ -543,13 +543,13 @@
 	{
 		"name": "delivery-box-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "Logistics"],
 		"keywords": ["delivery", "box", "parcel", "package", "shipping", "order"]
 	},
 	{
 		"name": "delivery-tracking-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "Logistics"],
 		"keywords": [
 			"tracking",
 			"delivery",
@@ -562,7 +562,7 @@
 	{
 		"name": "invoice-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Finance", "Shopping"],
+		"category": ["Finance", "Shopping", "E-commerce"],
 		"keywords": [
 			"invoice",
 			"bill",
@@ -575,7 +575,7 @@
 	{
 		"name": "receipt",
 		"addedAt": "2026-09-29",
-		"category": ["Finance", "Shopping"],
+		"category": ["Finance", "Shopping", "E-commerce"],
 		"keywords": [
 			"receipt",
 			"bill",
@@ -588,19 +588,19 @@
 	{
 		"name": "discount-tag-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["discount", "tag", "sale", "offer", "percent", "price"]
 	},
 	{
 		"name": "coupon-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["coupon", "voucher", "discount", "promo", "deal", "offer"]
 	},
 	{
 		"name": "barcode",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["barcode", "scan", "product", "sku", "inventory", "checkout"]
 	},
 	{
@@ -618,13 +618,13 @@
 	{
 		"name": "return-request",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "Logistics"],
 		"keywords": ["return", "refund", "exchange", "package", "order", "request"]
 	},
 	{
 		"name": "package-delivered",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "Logistics"],
 		"keywords": [
 			"package",
 			"delivered",
@@ -1274,7 +1274,7 @@
 	{
 		"name": "eye-off",
 		"addedAt": "2026-09-29",
-		"category": ["Design"],
+		"category": ["Security"],
 		"keywords": ["eye", "hide", "hidden", "invisible", "password", "private"]
 	},
 	{
@@ -1646,13 +1646,13 @@
 	{
 		"name": "shopping-bag-add",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["shopping bag", "add", "add to bag", "plus", "buy", "purchase"]
 	},
 	{
 		"name": "shopping-bag-remove",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": [
 			"shopping bag",
 			"remove",
@@ -1665,7 +1665,7 @@
 	{
 		"name": "shopping-bag-check",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": [
 			"shopping bag",
 			"check",
@@ -1678,13 +1678,13 @@
 	{
 		"name": "store-add-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["store", "add", "new store", "open shop", "plus", "merchant"]
 	},
 	{
 		"name": "store-remove-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": [
 			"store",
 			"remove",
@@ -1729,13 +1729,13 @@
 	{
 		"name": "shopping-basket-add-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["basket", "add", "add to basket", "plus", "grocery", "buy"]
 	},
 	{
 		"name": "shopping-basket-remove-0-1",
 		"addedAt": "2026-09-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": [
 			"basket",
 			"remove",
@@ -2341,7 +2341,7 @@
 	{
 		"name": "fire",
 		"addedAt": "2026-09-29",
-		"category": ["Weather"],
+		"category": ["Weather", "Tools"],
 		"keywords": ["fire", "flame", "hot", "trending", "popular", "burn"]
 	},
 	{
@@ -3146,7 +3146,7 @@
 	{
 		"name": "analytics-0-1",
 		"addedAt": "2026-09-30",
-		"category": ["Tools", "Finance"],
+		"category": ["Tools", "Finance", "Charts"],
 		"keywords": [
 			"analytics",
 			"chart",
@@ -3159,7 +3159,7 @@
 	{
 		"name": "analytics-up",
 		"addedAt": "2026-09-30",
-		"category": ["Tools", "Finance"],
+		"category": ["Tools", "Finance", "Charts"],
 		"keywords": [
 			"analytics",
 			"growth",
@@ -3172,7 +3172,7 @@
 	{
 		"name": "analytics-down",
 		"addedAt": "2026-09-30",
-		"category": ["Tools", "Finance"],
+		"category": ["Tools", "Finance", "Charts"],
 		"keywords": [
 			"analytics",
 			"decline",
@@ -3185,7 +3185,7 @@
 	{
 		"name": "chart-line",
 		"addedAt": "2026-09-30",
-		"category": ["Tools", "Finance"],
+		"category": ["Tools", "Finance", "Charts"],
 		"keywords": ["chart", "line chart", "graph", "trend", "stats", "growth"]
 	},
 	{

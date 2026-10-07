@@ -35,13 +35,13 @@ const ICON_META: IconMeta[] = [
   {
     name: "eye",
     addedAt: "2026-02-16",
-    category: ["Design"],
+    category: ["Security"],
     keywords: ["eye", "show", "visible", "view", "watch", "preview", "open"],
   },
   {
     name: "eye-off",
     addedAt: "2026-09-29",
-    category: ["Design"],
+    category: ["Security"],
     keywords: ["eye", "hide", "hidden", "invisible", "password", "private"],
   },
   {
@@ -239,7 +239,7 @@ const ICON_META: IconMeta[] = [
   {
     name: "chevron-right",
     addedAt: "2026-02-16",
-    category: ["Arrows","Navigation, Maps, and POIs"],
+    category: ["Arrows"],
     keywords: ["next", "carat", "right", "forward", "continue"],
   },
   {
@@ -815,67 +815,67 @@ const ICON_META: IconMeta[] = [
   {
     name: "shopping-bag-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["shopping", "bag", "purchase", "retail", "store", "buy"],
   },
   {
     name: "shopping-bag-add",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["shopping bag", "add", "add to bag", "plus", "buy", "purchase"],
   },
   {
     name: "shopping-bag-check",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["shopping bag", "check", "purchased", "order confirmed", "done", "in bag"],
   },
   {
     name: "shopping-bag-remove",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["shopping bag", "remove", "remove from bag", "delete", "cancel", "purchase"],
   },
   {
     name: "shopping-basket-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["shopping", "basket", "grocery", "cart", "buy", "store"],
   },
   {
     name: "shopping-basket-add-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["basket", "add", "add to basket", "plus", "grocery", "buy"],
   },
   {
     name: "shopping-basket-remove-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["basket", "remove", "remove from basket", "delete", "grocery", "cancel"],
   },
   {
     name: "shopping-cart-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["cart", "shopping", "basket", "buy", "checkout", "store"],
   },
   {
     name: "shopping-cart-add-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["cart", "add", "add to cart", "shopping", "plus", "buy"],
   },
   {
     name: "shopping-cart-check-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["cart", "checkout", "confirmed", "shopping", "check", "done"],
   },
   {
     name: "shopping-cart-remove-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["cart", "remove", "delete", "shopping", "cancel", "clear"],
   },
   {
@@ -971,7 +971,7 @@ const ICON_META: IconMeta[] = [
   {
     name: "tag-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["tag", "label", "price", "sale", "category", "badge"],
   },
   {
@@ -995,7 +995,7 @@ const ICON_META: IconMeta[] = [
   {
     name: "gift",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["gift", "present", "box", "reward", "birthday", "surprise"],
   },
   {
@@ -1025,67 +1025,67 @@ const ICON_META: IconMeta[] = [
   {
     name: "store-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["store", "shop", "market", "retail", "storefront", "merchant"],
   },
   {
     name: "store-add-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["store", "add", "new store", "open shop", "plus", "merchant"],
   },
   {
     name: "store-remove-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["store", "remove", "close shop", "delete store", "cancel", "merchant"],
   },
   {
     name: "delivery-box-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","Logistics"],
     keywords: ["delivery", "box", "parcel", "package", "shipping", "order"],
   },
   {
     name: "delivery-tracking-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","Logistics"],
     keywords: ["tracking", "delivery", "parcel", "location", "shipment", "order status"],
   },
   {
     name: "delivery-truck-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping","Transportation"],
+    category: ["Shopping","Transportation","Logistics"],
     keywords: ["delivery", "truck", "shipping", "logistics", "courier", "fast"],
   },
   {
     name: "invoice-0-1",
     addedAt: "2026-09-29",
-    category: ["Finance","Shopping"],
+    category: ["Finance","Shopping","E-commerce"],
     keywords: ["invoice", "bill", "document", "billing", "payment", "statement"],
   },
   {
     name: "receipt",
     addedAt: "2026-09-29",
-    category: ["Finance","Shopping"],
+    category: ["Finance","Shopping","E-commerce"],
     keywords: ["receipt", "bill", "purchase", "transaction", "payment", "proof"],
   },
   {
     name: "discount-tag-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["discount", "tag", "sale", "offer", "percent", "price"],
   },
   {
     name: "coupon-0-1",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["coupon", "voucher", "discount", "promo", "deal", "offer"],
   },
   {
     name: "barcode",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["barcode", "scan", "product", "sku", "inventory", "checkout"],
   },
   {
@@ -1103,13 +1103,13 @@ const ICON_META: IconMeta[] = [
   {
     name: "return-request",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","Logistics"],
     keywords: ["return", "refund", "exchange", "package", "order", "request"],
   },
   {
     name: "package-delivered",
     addedAt: "2026-09-29",
-    category: ["Shopping"],
+    category: ["Shopping","Logistics"],
     keywords: ["package", "delivered", "delivery", "received", "shipment", "complete"],
   },
   {
@@ -1889,7 +1889,7 @@ const ICON_META: IconMeta[] = [
   {
     name: "fire",
     addedAt: "2026-09-29",
-    category: ["Weather"],
+    category: ["Weather","Tools"],
     keywords: ["fire", "flame", "hot", "trending", "popular", "burn"],
   },
   {
@@ -2319,16 +2319,16 @@ const ICON_META: IconMeta[] = [
     keywords: ["music", "notes", "song", "melody", "audio", "tune"],
   },
   {
-    name: "headphones",
-    addedAt: "2026-09-30",
-    category: ["Multimedia","Devices"],
-    keywords: ["headphones", "headset", "audio", "music", "listen", "podcast"],
-  },
-  {
     name: "headphone-off",
     addedAt: "2026-09-30",
     category: ["Multimedia","Devices"],
     keywords: ["headphones", "headset", "off", "muted", "no audio", "disabled"],
+  },
+  {
+    name: "headphones",
+    addedAt: "2026-09-30",
+    category: ["Multimedia","Devices"],
+    keywords: ["headphones", "headset", "audio", "music", "listen", "podcast"],
   },
   {
     name: "volume-0-1",
@@ -2519,25 +2519,25 @@ const ICON_META: IconMeta[] = [
   {
     name: "analytics-0-1",
     addedAt: "2026-09-30",
-    category: ["Tools","Finance"],
+    category: ["Tools","Finance","Charts"],
     keywords: ["analytics", "chart", "bar chart", "stats", "report", "metrics"],
   },
   {
     name: "analytics-down",
     addedAt: "2026-09-30",
-    category: ["Tools","Finance"],
+    category: ["Tools","Finance","Charts"],
     keywords: ["analytics", "decline", "trend down", "decrease", "loss", "falling"],
   },
   {
     name: "analytics-up",
     addedAt: "2026-09-30",
-    category: ["Tools","Finance"],
+    category: ["Tools","Finance","Charts"],
     keywords: ["analytics", "growth", "trend up", "increase", "profit", "rising"],
   },
   {
     name: "chart-line",
     addedAt: "2026-09-30",
-    category: ["Tools","Finance"],
+    category: ["Tools","Finance","Charts"],
     keywords: ["chart", "line chart", "graph", "trend", "stats", "growth"],
   },
   {
@@ -3399,8 +3399,8 @@ const iconLoaders: Record<string, () => Promise<ComponentType<any>>> = {
   "scroll-0-1": () => import("./scroll-0-1-icon").then((m) => m.Scroll01Icon),
   "music-0-1": () => import("./music-0-1-icon").then((m) => m.Music01Icon),
   "music-note-0-1": () => import("./music-note-0-1-icon").then((m) => m.MusicNote01Icon),
-  "headphones": () => import("./headphones-icon").then((m) => m.HeadphonesIcon),
   "headphone-off": () => import("./headphone-off-icon").then((m) => m.HeadphoneOffIcon),
+  "headphones": () => import("./headphones-icon").then((m) => m.HeadphonesIcon),
   "volume-0-1": () => import("./volume-0-1-icon").then((m) => m.Volume01Icon),
   "volume-high": () => import("./volume-high-icon").then((m) => m.VolumeHighIcon),
   "volume-minus": () => import("./volume-minus-icon").then((m) => m.VolumeMinusIcon),

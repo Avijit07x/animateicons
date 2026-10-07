@@ -276,7 +276,7 @@
 	{
 		"name": "phone-forwarded",
 		"addedAt": "2026-01-22",
-		"category": ["Communication"],
+		"category": ["Communication", "Devices"],
 		"keywords": ["forward", "redirect", "transfer", "call", "route"]
 	},
 	{
@@ -288,7 +288,7 @@
 	{
 		"name": "phone-missed",
 		"addedAt": "2026-01-22",
-		"category": ["Devices", "Notification"],
+		"category": ["Devices", "Notification", "Communication"],
 		"keywords": ["missed", "declined", "unanswered", "call", "alert"]
 	},
 	{
@@ -306,7 +306,7 @@
 	{
 		"name": "house",
 		"addedAt": "2025-07-31",
-		"category": ["Home"],
+		"category": ["Home", "Architecture"],
 		"keywords": ["home", "main", "dashboard", "start", "root"]
 	},
 	{
@@ -756,7 +756,7 @@
 	{
 		"name": "mails",
 		"addedAt": "2025-08-27",
-		"category": ["Mail"],
+		"category": ["Mail", "Communication"],
 		"keywords": ["email", "messages", "inbox", "conversation", "letters"]
 	},
 	{
@@ -849,19 +849,19 @@
 	{
 		"name": "baggage-claim",
 		"addedAt": "2026-01-23",
-		"category": ["Travel"],
+		"category": ["Travel", "Logistics"],
 		"keywords": ["baggage", "luggage", "airport", "travel", "suitcase", "claim"]
 	},
 	{
 		"name": "shopping-cart",
 		"addedAt": "2025-10-29",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["buy", "purchase", "store", "checkout", "ecommerce"]
 	},
 	{
 		"name": "shopping-bag",
 		"addedAt": "2025-08-30",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["buy", "purchase", "store", "mall", "retail"]
 	},
 	{
@@ -927,13 +927,13 @@
 	{
 		"name": "battery-full",
 		"addedAt": "2025-12-01",
-		"category": ["Tools"],
+		"category": ["Devices"],
 		"keywords": ["power", "charge", "energy", "full", "status"]
 	},
 	{
 		"name": "battery",
 		"addedAt": "2025-07-27",
-		"category": ["Tools"],
+		"category": ["Devices"],
 		"keywords": ["power", "charge", "energy", "status", "level"]
 	},
 	{
@@ -993,7 +993,7 @@
 	{
 		"name": "compass",
 		"addedAt": "2025-11-20",
-		"category": ["Navigation, Maps, and POIs"],
+		"category": ["Navigation, Maps, and POIs", "Travel"],
 		"keywords": ["direction", "navigation", "explore", "travel", "map"]
 	},
 	{
@@ -1155,13 +1155,13 @@
 	{
 		"name": "credit-card",
 		"addedAt": "2025-11-29",
-		"category": ["Finance", "Tools"],
+		"category": ["Finance", "Tools", "E-commerce"],
 		"keywords": ["payment", "card", "debit", "credit", "money", "finance"]
 	},
 	{
 		"name": "brain",
 		"addedAt": "2025-12-13",
-		"category": ["Weather"],
+		"category": ["Medical"],
 		"keywords": ["mind", "thinking", "learning", "memory", "idea", "smart"]
 	},
 	{
@@ -1460,7 +1460,7 @@
 	{
 		"name": "flame",
 		"addedAt": "2025-10-07",
-		"category": ["Tools"],
+		"category": ["Tools", "Weather"],
 		"keywords": ["fire", "flame", "hot", "burn", "heat", "glow"]
 	},
 	{
@@ -1544,7 +1544,7 @@
 	{
 		"name": "boxes",
 		"addedAt": "2026-02-26",
-		"category": ["Logistics", "E-commerce", "Warehouse"],
+		"category": ["Logistics", "E-commerce"],
 		"keywords": [
 			"box",
 			"packages",
@@ -1558,7 +1558,7 @@
 	{
 		"name": "package-open",
 		"addedAt": "2026-02-26",
-		"category": ["Logistics", "E-commerce", "Fulfillment"],
+		"category": ["Logistics", "E-commerce"],
 		"keywords": ["package", "unbox", "delivery", "received", "fulfillment"]
 	},
 	{
@@ -1720,7 +1720,7 @@
 	{
 		"name": "gift",
 		"addedAt": "2026-07-26",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["gift", "present", "birthday", "reward", "surprise"]
 	},
 	{
@@ -1852,31 +1852,31 @@
 	{
 		"name": "alarm-clock",
 		"addedAt": "2026-08-01",
-		"category": ["Notification"],
+		"category": ["Notification", "Time & Date"],
 		"keywords": ["alarm", "clock", "time", "wake", "reminder", "notification"]
 	},
 	{
 		"name": "alarm-clock-check",
 		"addedAt": "2026-08-01",
-		"category": ["Notification"],
+		"category": ["Notification", "Time & Date"],
 		"keywords": ["alarm", "clock", "check", "done", "confirm", "reminder"]
 	},
 	{
 		"name": "alarm-clock-plus",
 		"addedAt": "2026-08-01",
-		"category": ["Notification"],
+		"category": ["Notification", "Time & Date"],
 		"keywords": ["alarm", "clock", "plus", "add", "reminder", "new"]
 	},
 	{
 		"name": "alarm-clock-minus",
 		"addedAt": "2026-08-01",
-		"category": ["Notification"],
+		"category": ["Notification", "Time & Date"],
 		"keywords": ["alarm", "clock", "minus", "remove", "reminder", "delete"]
 	},
 	{
 		"name": "alarm-clock-off",
 		"addedAt": "2026-08-01",
-		"category": ["Notification"],
+		"category": ["Notification", "Time & Date"],
 		"keywords": ["alarm", "clock", "off", "disable", "mute", "silence"]
 	},
 	{
@@ -2738,25 +2738,25 @@
 	{
 		"name": "shopping-basket",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["basket", "cart", "shop", "buy", "ecommerce", "groceries"]
 	},
 	{
 		"name": "store",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["store", "shop", "market", "retail", "storefront", "business"]
 	},
 	{
 		"name": "package",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics"],
 		"keywords": ["package", "box", "parcel", "delivery", "shipping", "product"]
 	},
 	{
 		"name": "package-check",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics"],
 		"keywords": [
 			"package",
 			"delivered",
@@ -2769,25 +2769,25 @@
 	{
 		"name": "package-plus",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics"],
 		"keywords": ["package", "add", "new", "plus", "create", "shipment"]
 	},
 	{
 		"name": "package-x",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics"],
 		"keywords": ["package", "remove", "cancel", "delete", "return", "x"]
 	},
 	{
 		"name": "package-search",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics"],
 		"keywords": ["package", "search", "track", "find", "lookup", "parcel"]
 	},
 	{
 		"name": "receipt",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": [
 			"receipt",
 			"bill",
@@ -2800,19 +2800,19 @@
 	{
 		"name": "receipt-text",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["receipt", "invoice", "bill", "itemized", "purchase", "order"]
 	},
 	{
 		"name": "tag",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["tag", "label", "price", "sale", "discount", "product"]
 	},
 	{
 		"name": "tags",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["tags", "labels", "price", "sale", "categories", "discount"]
 	},
 	{
@@ -2824,13 +2824,13 @@
 	{
 		"name": "ticket-percent",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["ticket", "coupon", "discount", "percent", "sale", "voucher"]
 	},
 	{
 		"name": "wallet-cards",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["wallet", "cards", "payment", "money", "cash", "finance"]
 	},
 	{
@@ -2848,13 +2848,13 @@
 	{
 		"name": "badge-percent",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["badge", "percent", "discount", "sale", "offer", "promo"]
 	},
 	{
 		"name": "truck",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce", "Logistics", "Transportation"],
 		"keywords": [
 			"truck",
 			"delivery",
@@ -2873,13 +2873,13 @@
 	{
 		"name": "barcode",
 		"addedAt": "2026-08-02",
-		"category": ["Shopping"],
+		"category": ["Shopping", "E-commerce"],
 		"keywords": ["barcode", "scan", "product", "code", "inventory", "price"]
 	},
 	{
 		"name": "map",
 		"addedAt": "2026-08-02",
-		"category": ["Navigation, Maps, and POIs"],
+		"category": ["Navigation, Maps, and POIs", "Travel"],
 		"keywords": [
 			"map",
 			"location",
@@ -2979,7 +2979,7 @@
 	{
 		"name": "tent",
 		"addedAt": "2026-08-02",
-		"category": ["Navigation, Maps, and POIs"],
+		"category": ["Navigation, Maps, and POIs", "Travel"],
 		"keywords": ["tent", "camp", "camping", "outdoor", "shelter", "travel"]
 	},
 	{
@@ -3021,7 +3021,7 @@
 	{
 		"name": "mountain",
 		"addedAt": "2026-08-02",
-		"category": ["Navigation, Maps, and POIs"],
+		"category": ["Navigation, Maps, and POIs", "Travel"],
 		"keywords": ["mountain", "peak", "hiking", "terrain", "summit", "outdoor"]
 	},
 	{
@@ -3078,7 +3078,7 @@
 	{
 		"name": "mouse",
 		"addedAt": "2026-08-02",
-		"category": ["Devices"],
+		"category": ["Devices", "Cursors"],
 		"keywords": ["mouse", "cursor", "click", "pointer", "device", "scroll"]
 	},
 	{
@@ -3103,7 +3103,7 @@
 	{
 		"name": "hard-drive",
 		"addedAt": "2026-08-02",
-		"category": ["Devices"],
+		"category": ["Devices", "Storage"],
 		"keywords": ["hard-drive", "storage", "disk", "hdd", "memory", "hardware"]
 	},
 	{
@@ -3115,7 +3115,7 @@
 	{
 		"name": "memory-stick",
 		"addedAt": "2026-08-02",
-		"category": ["Devices"],
+		"category": ["Devices", "Storage"],
 		"keywords": ["memory", "ram", "stick", "module", "hardware", "storage"]
 	},
 	{
@@ -3169,7 +3169,7 @@
 	{
 		"name": "hard-drive-download",
 		"addedAt": "2026-08-02",
-		"category": ["Devices"],
+		"category": ["Devices", "Storage"],
 		"keywords": ["download", "storage", "drive", "save", "disk", "import"]
 	},
 	{
@@ -3676,13 +3676,13 @@
 	{
 		"name": "move",
 		"addedAt": "2026-09-27",
-		"category": ["Arrows"],
+		"category": ["Arrows", "Cursors"],
 		"keywords": ["move", "drag", "arrows", "pan", "position", "reposition"]
 	},
 	{
 		"name": "archive",
 		"addedAt": "2026-09-27",
-		"category": ["File icons"],
+		"category": ["File icons", "Storage"],
 		"keywords": ["archive", "box", "storage", "store", "backup", "save"]
 	},
 	{
@@ -3806,7 +3806,7 @@
 	{
 		"name": "text-cursor",
 		"addedAt": "2026-09-27",
-		"category": ["Text formatting"],
+		"category": ["Text formatting", "Cursors"],
 		"keywords": ["cursor", "text", "caret", "type", "input", "i-beam"]
 	},
 	{
@@ -4290,13 +4290,13 @@
 	{
 		"name": "door-open",
 		"addedAt": "2026-09-27",
-		"category": ["Home", "Accounts & access"],
+		"category": ["Home", "Accounts & access", "Architecture"],
 		"keywords": ["door", "exit", "leave", "enter", "open", "logout"]
 	},
 	{
 		"name": "vault",
 		"addedAt": "2026-09-27",
-		"category": ["Security", "Finance"],
+		"category": ["Security", "Finance", "Storage"],
 		"keywords": ["vault", "safe", "secure", "storage", "bank", "locker"]
 	},
 	{
@@ -4632,7 +4632,7 @@
 	{
 		"name": "hard-drive-upload",
 		"addedAt": "2026-09-29",
-		"category": ["Devices"],
+		"category": ["Devices", "Storage"],
 		"keywords": [
 			"hard-drive-upload",
 			"upload",
