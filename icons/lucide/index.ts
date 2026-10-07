@@ -85,6 +85,7 @@ import { CloudSunIcon } from "./cloud-sun-icon";
 import { CloudSunRainIcon } from "./cloud-sun-rain-icon";
 import { CloudSyncIcon } from "./cloud-sync-icon";
 import { CloudUploadIcon } from "./cloud-upload-icon";
+import { CloudyIcon } from "./cloudy-icon";
 import { CircleAlertIcon } from "./circle-alert-icon";
 import { CircleCheckIcon } from "./circle-check-icon";
 import { CircleCheckBigIcon } from "./circle-check-big-icon";
@@ -191,9 +192,9 @@ import { MailXIcon } from "./mail-x-icon";
 import { MailsIcon } from "./mails-icon";
 import { MicIcon } from "./mic-icon";
 import { MicOffIcon } from "./mic-off-icon";
+import { HeadphoneOffIcon } from "./headphone-off-icon";
 import { HeadphonesIcon } from "./headphones-icon";
 import { HeadsetIcon } from "./headset-icon";
-import { HeadphoneOffIcon } from "./headphone-off-icon";
 import { MusicIcon } from "./music-icon";
 import { AudioLinesIcon } from "./audio-lines-icon";
 import { AudioWaveformIcon } from "./audio-waveform-icon";
@@ -363,6 +364,8 @@ import { SunDimIcon } from "./sun-dim-icon";
 import { SunMediumIcon } from "./sun-medium-icon";
 import { SunMoonIcon } from "./sun-moon-icon";
 import { SunSnowIcon } from "./sun-snow-icon";
+import { SunriseIcon } from "./sunrise-icon";
+import { SunsetIcon } from "./sunset-icon";
 import { MoonIcon } from "./moon-icon";
 import { MoonStarIcon } from "./moon-star-icon";
 import { WebhookIcon } from "./webhook-icon";
@@ -552,9 +555,6 @@ import { Plug2Icon } from "./plug-2-icon";
 import { PlugZapIcon } from "./plug-zap-icon";
 import { UsbIcon } from "./usb-icon";
 import { RouterIcon } from "./router-icon";
-import { SunriseIcon } from "./sunrise-icon";
-import { SunsetIcon } from "./sunset-icon";
-import { CloudyIcon } from "./cloudy-icon";
 import { DropletIcon } from "./droplet-icon";
 import { DropletsIcon } from "./droplets-icon";
 import { RainbowIcon } from "./rainbow-icon";
@@ -629,6 +629,7 @@ import { CropIcon } from "./crop-icon";
 import { PipetteIcon } from "./pipette-icon";
 import { EraserIcon } from "./eraser-icon";
 import { HighlighterIcon } from "./highlighter-icon";
+import { PaintBucketIcon } from "./paint-bucket-icon";
 import { PaintbrushIcon } from "./paintbrush-icon";
 import { RulerIcon } from "./ruler-icon";
 import { ComponentIcon } from "./component-icon";
@@ -656,7 +657,6 @@ import { SigmaIcon } from "./sigma-icon";
 import { DoorOpenIcon } from "./door-open-icon";
 import { VaultIcon } from "./vault-icon";
 import { NetworkIcon } from "./network-icon";
-import { PaintBucketIcon } from "./paint-bucket-icon";
 import { ShapesIcon } from "./shapes-icon";
 import { StethoscopeIcon } from "./stethoscope-icon";
 import { PillIcon } from "./pill-icon";
@@ -988,7 +988,7 @@ const ICON_LIST: IconListItem[] = [
     name: "phone-forwarded",
     icon: PhoneForwardedIcon,
     addedAt: "2026-01-22",
-    category: ["Communication"],
+    category: ["Communication","Devices"],
     keywords: ["forward", "redirect", "transfer", "call", "route"],
   },
   {
@@ -1002,7 +1002,7 @@ const ICON_LIST: IconListItem[] = [
     name: "phone-missed",
     icon: PhoneMissedIcon,
     addedAt: "2026-01-22",
-    category: ["Devices","Notification"],
+    category: ["Devices","Notification","Communication"],
     keywords: ["missed", "declined", "unanswered", "call", "alert"],
   },
   {
@@ -1044,7 +1044,7 @@ const ICON_LIST: IconListItem[] = [
     name: "house",
     icon: HouseIcon,
     addedAt: "2025-07-31",
-    category: ["Home"],
+    category: ["Home","Architecture"],
     keywords: ["home", "main", "dashboard", "start", "root"],
   },
   {
@@ -1279,6 +1279,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["import", "file", "cloud", "server", "publish"],
   },
   {
+    name: "cloudy",
+    icon: CloudyIcon,
+    addedAt: "2026-08-02",
+    category: ["Weather"],
+    keywords: ["cloudy", "clouds", "overcast", "weather", "sky", "gray"],
+  },
+  {
     name: "circle-alert",
     icon: CircleAlertIcon,
     addedAt: "2026-09-27",
@@ -1499,7 +1506,7 @@ const ICON_LIST: IconListItem[] = [
     name: "move",
     icon: MoveIcon,
     addedAt: "2026-09-27",
-    category: ["Arrows"],
+    category: ["Arrows","Cursors"],
     keywords: ["move", "drag", "arrows", "pan", "position", "reposition"],
   },
   {
@@ -2003,7 +2010,7 @@ const ICON_LIST: IconListItem[] = [
     name: "mails",
     icon: MailsIcon,
     addedAt: "2025-08-27",
-    category: ["Mail"],
+    category: ["Mail","Communication"],
     keywords: ["email", "messages", "inbox", "conversation", "letters"],
   },
   {
@@ -2021,6 +2028,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["mute", "silent", "disable", "quiet", "no sound"],
   },
   {
+    name: "headphone-off",
+    icon: HeadphoneOffIcon,
+    addedAt: "2026-01-02",
+    category: ["Multimedia"],
+    keywords: ["mute", "silent", "no audio", "disabled", "quiet"],
+  },
+  {
     name: "headphones",
     icon: HeadphonesIcon,
     addedAt: "2026-01-16",
@@ -2033,13 +2047,6 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-10-07",
     category: ["Communication","Multimedia"],
     keywords: ["support", "call", "agent", "operator", "audio", "headset"],
-  },
-  {
-    name: "headphone-off",
-    icon: HeadphoneOffIcon,
-    addedAt: "2026-01-02",
-    category: ["Multimedia"],
-    keywords: ["mute", "silent", "no audio", "disabled", "quiet"],
   },
   {
     name: "music",
@@ -2136,28 +2143,28 @@ const ICON_LIST: IconListItem[] = [
     name: "baggage-claim",
     icon: BaggageClaimIcon,
     addedAt: "2026-01-23",
-    category: ["Travel"],
+    category: ["Travel","Logistics"],
     keywords: ["baggage", "luggage", "airport", "travel", "suitcase", "claim"],
   },
   {
     name: "shopping-bag",
     icon: ShoppingBagIcon,
     addedAt: "2025-08-30",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["buy", "purchase", "store", "mall", "retail"],
   },
   {
     name: "shopping-basket",
     icon: ShoppingBasketIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["basket", "cart", "shop", "buy", "ecommerce", "groceries"],
   },
   {
     name: "shopping-cart",
     icon: ShoppingCartIcon,
     addedAt: "2025-10-29",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["buy", "purchase", "store", "checkout", "ecommerce"],
   },
   {
@@ -2234,7 +2241,7 @@ const ICON_LIST: IconListItem[] = [
     name: "battery",
     icon: BatteryIcon,
     addedAt: "2025-07-27",
-    category: ["Tools"],
+    category: ["Devices"],
     keywords: ["power", "charge", "energy", "status", "level"],
   },
   {
@@ -2248,7 +2255,7 @@ const ICON_LIST: IconListItem[] = [
     name: "battery-full",
     icon: BatteryFullIcon,
     addedAt: "2025-12-01",
-    category: ["Tools"],
+    category: ["Devices"],
     keywords: ["power", "charge", "energy", "full", "status"],
   },
   {
@@ -2332,7 +2339,7 @@ const ICON_LIST: IconListItem[] = [
     name: "compass",
     icon: CompassIcon,
     addedAt: "2025-11-20",
-    category: ["Navigation, Maps, and POIs"],
+    category: ["Navigation, Maps, and POIs","Travel"],
     keywords: ["direction", "navigation", "explore", "travel", "map"],
   },
   {
@@ -2416,7 +2423,7 @@ const ICON_LIST: IconListItem[] = [
     name: "map",
     icon: MapIcon,
     addedAt: "2026-08-02",
-    category: ["Navigation, Maps, and POIs"],
+    category: ["Navigation, Maps, and POIs","Travel"],
     keywords: ["map", "location", "navigate", "atlas", "geography", "directions"],
   },
   {
@@ -2535,7 +2542,7 @@ const ICON_LIST: IconListItem[] = [
     name: "wallet-cards",
     icon: WalletCardsIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["wallet", "cards", "payment", "money", "cash", "finance"],
   },
   {
@@ -2598,14 +2605,14 @@ const ICON_LIST: IconListItem[] = [
     name: "credit-card",
     icon: CreditCardIcon,
     addedAt: "2025-11-29",
-    category: ["Finance","Tools"],
+    category: ["Finance","Tools","E-commerce"],
     keywords: ["payment", "card", "debit", "credit", "money", "finance"],
   },
   {
     name: "brain",
     icon: BrainIcon,
     addedAt: "2025-12-13",
-    category: ["Weather"],
+    category: ["Medical"],
     keywords: ["mind", "thinking", "learning", "memory", "idea", "smart"],
   },
   {
@@ -2647,7 +2654,7 @@ const ICON_LIST: IconListItem[] = [
     name: "badge-percent",
     icon: BadgePercentIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["badge", "percent", "discount", "sale", "offer", "promo"],
   },
   {
@@ -3172,7 +3179,7 @@ const ICON_LIST: IconListItem[] = [
     name: "flame",
     icon: FlameIcon,
     addedAt: "2025-10-07",
-    category: ["Tools"],
+    category: ["Tools","Weather"],
     keywords: ["fire", "flame", "hot", "burn", "heat", "glow"],
   },
   {
@@ -3225,6 +3232,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["sun", "snow", "weather", "temperature", "hot", "cold"],
   },
   {
+    name: "sunrise",
+    icon: SunriseIcon,
+    addedAt: "2026-08-02",
+    category: ["Weather"],
+    keywords: ["sunrise", "dawn", "morning", "sun", "weather", "horizon"],
+  },
+  {
+    name: "sunset",
+    icon: SunsetIcon,
+    addedAt: "2026-08-02",
+    category: ["Weather"],
+    keywords: ["sunset", "dusk", "evening", "sun", "weather", "horizon"],
+  },
+  {
     name: "moon",
     icon: MoonIcon,
     addedAt: "2025-12-08",
@@ -3270,7 +3291,7 @@ const ICON_LIST: IconListItem[] = [
     name: "mouse",
     icon: MouseIcon,
     addedAt: "2026-08-02",
-    category: ["Devices"],
+    category: ["Devices","Cursors"],
     keywords: ["mouse", "cursor", "click", "pointer", "device", "scroll"],
   },
   {
@@ -3312,49 +3333,49 @@ const ICON_LIST: IconListItem[] = [
     name: "boxes",
     icon: BoxesIcon,
     addedAt: "2026-02-26",
-    category: ["Logistics","E-commerce","Warehouse"],
+    category: ["Logistics","E-commerce"],
     keywords: ["box", "packages", "inventory", "storage", "warehouse", "shipment", "delivery"],
   },
   {
     name: "package",
     icon: PackageIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics"],
     keywords: ["package", "box", "parcel", "delivery", "shipping", "product"],
   },
   {
     name: "package-check",
     icon: PackageCheckIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics"],
     keywords: ["package", "delivered", "check", "confirmed", "shipped", "done"],
   },
   {
     name: "package-open",
     icon: PackageOpenIcon,
     addedAt: "2026-02-26",
-    category: ["Logistics","E-commerce","Fulfillment"],
+    category: ["Logistics","E-commerce"],
     keywords: ["package", "unbox", "delivery", "received", "fulfillment"],
   },
   {
     name: "package-plus",
     icon: PackagePlusIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics"],
     keywords: ["package", "add", "new", "plus", "create", "shipment"],
   },
   {
     name: "package-search",
     icon: PackageSearchIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics"],
     keywords: ["package", "search", "track", "find", "lookup", "parcel"],
   },
   {
     name: "package-x",
     icon: PackageXIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics"],
     keywords: ["package", "remove", "cancel", "delete", "return", "x"],
   },
   {
@@ -3522,35 +3543,35 @@ const ICON_LIST: IconListItem[] = [
     name: "alarm-clock",
     icon: AlarmClockIcon,
     addedAt: "2026-08-01",
-    category: ["Notification"],
+    category: ["Notification","Time & Date"],
     keywords: ["alarm", "clock", "time", "wake", "reminder", "notification"],
   },
   {
     name: "alarm-clock-check",
     icon: AlarmClockCheckIcon,
     addedAt: "2026-08-01",
-    category: ["Notification"],
+    category: ["Notification","Time & Date"],
     keywords: ["alarm", "clock", "check", "done", "confirm", "reminder"],
   },
   {
     name: "alarm-clock-minus",
     icon: AlarmClockMinusIcon,
     addedAt: "2026-08-01",
-    category: ["Notification"],
+    category: ["Notification","Time & Date"],
     keywords: ["alarm", "clock", "minus", "remove", "reminder", "delete"],
   },
   {
     name: "alarm-clock-off",
     icon: AlarmClockOffIcon,
     addedAt: "2026-08-01",
-    category: ["Notification"],
+    category: ["Notification","Time & Date"],
     keywords: ["alarm", "clock", "off", "disable", "mute", "silence"],
   },
   {
     name: "alarm-clock-plus",
     icon: AlarmClockPlusIcon,
     addedAt: "2026-08-01",
-    category: ["Notification"],
+    category: ["Notification","Time & Date"],
     keywords: ["alarm", "clock", "plus", "add", "reminder", "new"],
   },
   {
@@ -3921,7 +3942,7 @@ const ICON_LIST: IconListItem[] = [
     name: "gift",
     icon: GiftIcon,
     addedAt: "2026-07-26",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["gift", "present", "birthday", "reward", "surprise"],
   },
   {
@@ -4236,35 +4257,35 @@ const ICON_LIST: IconListItem[] = [
     name: "store",
     icon: StoreIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["store", "shop", "market", "retail", "storefront", "business"],
   },
   {
     name: "receipt",
     icon: ReceiptIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["receipt", "bill", "invoice", "payment", "purchase", "transaction"],
   },
   {
     name: "receipt-text",
     icon: ReceiptTextIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["receipt", "invoice", "bill", "itemized", "purchase", "order"],
   },
   {
     name: "tag",
     icon: TagIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["tag", "label", "price", "sale", "discount", "product"],
   },
   {
     name: "tags",
     icon: TagsIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["tags", "labels", "price", "sale", "categories", "discount"],
   },
   {
@@ -4278,7 +4299,7 @@ const ICON_LIST: IconListItem[] = [
     name: "ticket-percent",
     icon: TicketPercentIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["ticket", "coupon", "discount", "percent", "sale", "voucher"],
   },
   {
@@ -4299,7 +4320,7 @@ const ICON_LIST: IconListItem[] = [
     name: "truck",
     icon: TruckIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce","Logistics","Transportation"],
     keywords: ["truck", "delivery", "shipping", "transport", "logistics", "freight"],
   },
   {
@@ -4313,7 +4334,7 @@ const ICON_LIST: IconListItem[] = [
     name: "barcode",
     icon: BarcodeIcon,
     addedAt: "2026-08-02",
-    category: ["Shopping"],
+    category: ["Shopping","E-commerce"],
     keywords: ["barcode", "scan", "product", "code", "inventory", "price"],
   },
   {
@@ -4397,7 +4418,7 @@ const ICON_LIST: IconListItem[] = [
     name: "tent",
     icon: TentIcon,
     addedAt: "2026-08-02",
-    category: ["Navigation, Maps, and POIs"],
+    category: ["Navigation, Maps, and POIs","Travel"],
     keywords: ["tent", "camp", "camping", "outdoor", "shelter", "travel"],
   },
   {
@@ -4432,7 +4453,7 @@ const ICON_LIST: IconListItem[] = [
     name: "mountain",
     icon: MountainIcon,
     addedAt: "2026-08-02",
-    category: ["Navigation, Maps, and POIs"],
+    category: ["Navigation, Maps, and POIs","Travel"],
     keywords: ["mountain", "peak", "hiking", "terrain", "summit", "outdoor"],
   },
   {
@@ -4474,21 +4495,21 @@ const ICON_LIST: IconListItem[] = [
     name: "hard-drive",
     icon: HardDriveIcon,
     addedAt: "2026-08-02",
-    category: ["Devices"],
+    category: ["Devices","Storage"],
     keywords: ["hard-drive", "storage", "disk", "hdd", "memory", "hardware"],
   },
   {
     name: "hard-drive-download",
     icon: HardDriveDownloadIcon,
     addedAt: "2026-08-02",
-    category: ["Devices"],
+    category: ["Devices","Storage"],
     keywords: ["download", "storage", "drive", "save", "disk", "import"],
   },
   {
     name: "hard-drive-upload",
     icon: HardDriveUploadIcon,
     addedAt: "2026-09-29",
-    category: ["Devices"],
+    category: ["Devices","Storage"],
     keywords: ["hard-drive-upload", "upload", "storage", "drive", "backup", "disk", "export"],
   },
   {
@@ -4502,7 +4523,7 @@ const ICON_LIST: IconListItem[] = [
     name: "memory-stick",
     icon: MemoryStickIcon,
     addedAt: "2026-08-02",
-    category: ["Devices"],
+    category: ["Devices","Storage"],
     keywords: ["memory", "ram", "stick", "module", "hardware", "storage"],
   },
   {
@@ -4546,27 +4567,6 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["router", "wifi", "network", "internet", "modem", "signal"],
-  },
-  {
-    name: "sunrise",
-    icon: SunriseIcon,
-    addedAt: "2026-08-02",
-    category: ["Weather"],
-    keywords: ["sunrise", "dawn", "morning", "sun", "weather", "horizon"],
-  },
-  {
-    name: "sunset",
-    icon: SunsetIcon,
-    addedAt: "2026-08-02",
-    category: ["Weather"],
-    keywords: ["sunset", "dusk", "evening", "sun", "weather", "horizon"],
-  },
-  {
-    name: "cloudy",
-    icon: CloudyIcon,
-    addedAt: "2026-08-02",
-    category: ["Weather"],
-    keywords: ["cloudy", "clouds", "overcast", "weather", "sky", "gray"],
   },
   {
     name: "droplet",
@@ -4943,7 +4943,7 @@ const ICON_LIST: IconListItem[] = [
     name: "archive",
     icon: ArchiveIcon,
     addedAt: "2026-09-27",
-    category: ["File icons"],
+    category: ["File icons","Storage"],
     keywords: ["archive", "box", "storage", "store", "backup", "save"],
   },
   {
@@ -5027,7 +5027,7 @@ const ICON_LIST: IconListItem[] = [
     name: "text-cursor",
     icon: TextCursorIcon,
     addedAt: "2026-09-27",
-    category: ["Text formatting"],
+    category: ["Text formatting","Cursors"],
     keywords: ["cursor", "text", "caret", "type", "input", "i-beam"],
   },
   {
@@ -5085,6 +5085,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-27",
     category: ["Design","Text formatting"],
     keywords: ["highlight", "marker", "emphasis", "annotate", "text", "pen"],
+  },
+  {
+    name: "paint-bucket",
+    icon: PaintBucketIcon,
+    addedAt: "2026-09-27",
+    category: ["Design","Tools"],
+    keywords: ["fill", "paint", "bucket", "color", "pour", "design"],
   },
   {
     name: "paintbrush",
@@ -5258,14 +5265,14 @@ const ICON_LIST: IconListItem[] = [
     name: "door-open",
     icon: DoorOpenIcon,
     addedAt: "2026-09-27",
-    category: ["Home","Accounts & access"],
+    category: ["Home","Accounts & access","Architecture"],
     keywords: ["door", "exit", "leave", "enter", "open", "logout"],
   },
   {
     name: "vault",
     icon: VaultIcon,
     addedAt: "2026-09-27",
-    category: ["Security","Finance"],
+    category: ["Security","Finance","Storage"],
     keywords: ["vault", "safe", "secure", "storage", "bank", "locker"],
   },
   {
@@ -5274,13 +5281,6 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-27",
     category: ["Connectivity","Coding & development"],
     keywords: ["network", "topology", "infrastructure", "nodes", "hierarchy", "servers"],
-  },
-  {
-    name: "paint-bucket",
-    icon: PaintBucketIcon,
-    addedAt: "2026-09-27",
-    category: ["Design","Tools"],
-    keywords: ["fill", "paint", "bucket", "color", "pour", "design"],
   },
   {
     name: "shapes",

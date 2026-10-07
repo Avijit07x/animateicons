@@ -167,7 +167,8 @@
       "addedAt": "2026-09-30",
       "category": [
         "Tools",
-        "Finance"
+        "Finance",
+        "Charts"
       ],
       "keywords": [
         "analytics",
@@ -187,7 +188,8 @@
       "addedAt": "2026-09-30",
       "category": [
         "Tools",
-        "Finance"
+        "Finance",
+        "Charts"
       ],
       "keywords": [
         "analytics",
@@ -207,7 +209,8 @@
       "addedAt": "2026-09-30",
       "category": [
         "Tools",
-        "Finance"
+        "Finance",
+        "Charts"
       ],
       "keywords": [
         "analytics",
@@ -995,7 +998,8 @@
       "registryName": "hu-barcode",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "barcode",
@@ -1650,7 +1654,8 @@
       "addedAt": "2026-09-30",
       "category": [
         "Tools",
-        "Finance"
+        "Finance",
+        "Charts"
       ],
       "keywords": [
         "chart",
@@ -1842,8 +1847,7 @@
       "registryName": "hu-chevron-right",
       "addedAt": "2026-02-16",
       "category": [
-        "Arrows",
-        "Navigation, Maps, and POIs"
+        "Arrows"
       ],
       "keywords": [
         "next",
@@ -2395,7 +2399,8 @@
       "registryName": "hu-coupon-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "coupon",
@@ -2604,7 +2609,8 @@
       "registryName": "hu-delivery-box-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "Logistics"
       ],
       "keywords": [
         "delivery",
@@ -2623,7 +2629,8 @@
       "registryName": "hu-delivery-tracking-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "Logistics"
       ],
       "keywords": [
         "tracking",
@@ -2643,7 +2650,8 @@
       "addedAt": "2026-09-29",
       "category": [
         "Shopping",
-        "Transportation"
+        "Transportation",
+        "Logistics"
       ],
       "keywords": [
         "delivery",
@@ -2681,7 +2689,8 @@
       "registryName": "hu-discount-tag-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "discount",
@@ -2776,7 +2785,7 @@
       "registryName": "hu-eye",
       "addedAt": "2026-02-16",
       "category": [
-        "Design"
+        "Security"
       ],
       "keywords": [
         "eye",
@@ -2796,7 +2805,7 @@
       "registryName": "hu-eye-off",
       "addedAt": "2026-09-29",
       "category": [
-        "Design"
+        "Security"
       ],
       "keywords": [
         "eye",
@@ -3182,7 +3191,8 @@
       "registryName": "hu-fire",
       "addedAt": "2026-09-29",
       "category": [
-        "Weather"
+        "Weather",
+        "Tools"
       ],
       "keywords": [
         "fire",
@@ -3429,7 +3439,8 @@
       "registryName": "hu-gift",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "gift",
@@ -4330,7 +4341,8 @@
       "addedAt": "2026-09-29",
       "category": [
         "Finance",
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "invoice",
@@ -6057,7 +6069,8 @@
       "registryName": "hu-package-delivered",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -6852,7 +6865,8 @@
       "addedAt": "2026-09-29",
       "category": [
         "Finance",
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "receipt",
@@ -7009,7 +7023,8 @@
       "registryName": "hu-return-request",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "Logistics"
       ],
       "keywords": [
         "return",
@@ -7531,7 +7546,8 @@
       "registryName": "hu-shopping-bag-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "shopping",
@@ -7550,7 +7566,8 @@
       "registryName": "hu-shopping-bag-add",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "shopping bag",
@@ -7569,7 +7586,8 @@
       "registryName": "hu-shopping-bag-check",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "shopping bag",
@@ -7588,7 +7606,8 @@
       "registryName": "hu-shopping-bag-remove",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "shopping bag",
@@ -7607,7 +7626,8 @@
       "registryName": "hu-shopping-basket-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "shopping",
@@ -7626,7 +7646,8 @@
       "registryName": "hu-shopping-basket-add-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "basket",
@@ -7645,7 +7666,8 @@
       "registryName": "hu-shopping-basket-remove-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "basket",
@@ -7664,7 +7686,8 @@
       "registryName": "hu-shopping-cart-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "cart",
@@ -7683,7 +7706,8 @@
       "registryName": "hu-shopping-cart-add-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "cart",
@@ -7702,7 +7726,8 @@
       "registryName": "hu-shopping-cart-check-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "cart",
@@ -7721,7 +7746,8 @@
       "registryName": "hu-shopping-cart-remove-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "cart",
@@ -8189,7 +8215,8 @@
       "registryName": "hu-store-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "store",
@@ -8208,7 +8235,8 @@
       "registryName": "hu-store-add-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "store",
@@ -8227,7 +8255,8 @@
       "registryName": "hu-store-remove-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "store",
@@ -8284,7 +8313,8 @@
       "registryName": "hu-tag-0-1",
       "addedAt": "2026-09-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "tag",
@@ -9750,7 +9780,8 @@
       "registryName": "lu-alarm-clock",
       "addedAt": "2026-08-01",
       "category": [
-        "Notification"
+        "Notification",
+        "Time & Date"
       ],
       "keywords": [
         "alarm",
@@ -9769,7 +9800,8 @@
       "registryName": "lu-alarm-clock-check",
       "addedAt": "2026-08-01",
       "category": [
-        "Notification"
+        "Notification",
+        "Time & Date"
       ],
       "keywords": [
         "alarm",
@@ -9788,7 +9820,8 @@
       "registryName": "lu-alarm-clock-minus",
       "addedAt": "2026-08-01",
       "category": [
-        "Notification"
+        "Notification",
+        "Time & Date"
       ],
       "keywords": [
         "alarm",
@@ -9807,7 +9840,8 @@
       "registryName": "lu-alarm-clock-off",
       "addedAt": "2026-08-01",
       "category": [
-        "Notification"
+        "Notification",
+        "Time & Date"
       ],
       "keywords": [
         "alarm",
@@ -9826,7 +9860,8 @@
       "registryName": "lu-alarm-clock-plus",
       "addedAt": "2026-08-01",
       "category": [
-        "Notification"
+        "Notification",
+        "Time & Date"
       ],
       "keywords": [
         "alarm",
@@ -9993,7 +10028,8 @@
       "registryName": "lu-archive",
       "addedAt": "2026-09-27",
       "category": [
-        "File icons"
+        "File icons",
+        "Storage"
       ],
       "keywords": [
         "archive",
@@ -10498,7 +10534,8 @@
       "registryName": "lu-badge-percent",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "badge",
@@ -10517,7 +10554,8 @@
       "registryName": "lu-baggage-claim",
       "addedAt": "2026-01-23",
       "category": [
-        "Travel"
+        "Travel",
+        "Logistics"
       ],
       "keywords": [
         "baggage",
@@ -10575,7 +10613,8 @@
       "registryName": "lu-barcode",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "barcode",
@@ -10594,7 +10633,7 @@
       "registryName": "lu-battery",
       "addedAt": "2025-07-27",
       "category": [
-        "Tools"
+        "Devices"
       ],
       "keywords": [
         "power",
@@ -10631,7 +10670,7 @@
       "registryName": "lu-battery-full",
       "addedAt": "2025-12-01",
       "category": [
-        "Tools"
+        "Devices"
       ],
       "keywords": [
         "power",
@@ -11136,8 +11175,7 @@
       "addedAt": "2026-02-26",
       "category": [
         "Logistics",
-        "E-commerce",
-        "Warehouse"
+        "E-commerce"
       ],
       "keywords": [
         "box",
@@ -11157,7 +11195,7 @@
       "registryName": "lu-brain",
       "addedAt": "2025-12-13",
       "category": [
-        "Weather"
+        "Medical"
       ],
       "keywords": [
         "mind",
@@ -13203,7 +13241,8 @@
       "registryName": "lu-compass",
       "addedAt": "2025-11-20",
       "category": [
-        "Navigation, Maps, and POIs"
+        "Navigation, Maps, and POIs",
+        "Travel"
       ],
       "keywords": [
         "direction",
@@ -13537,7 +13576,8 @@
       "addedAt": "2025-11-29",
       "category": [
         "Finance",
-        "Tools"
+        "Tools",
+        "E-commerce"
       ],
       "keywords": [
         "payment",
@@ -13770,7 +13810,8 @@
       "addedAt": "2026-09-27",
       "category": [
         "Home",
-        "Accounts & access"
+        "Accounts & access",
+        "Architecture"
       ],
       "keywords": [
         "door",
@@ -14664,7 +14705,8 @@
       "registryName": "lu-flame",
       "addedAt": "2025-10-07",
       "category": [
-        "Tools"
+        "Tools",
+        "Weather"
       ],
       "keywords": [
         "fire",
@@ -15137,7 +15179,8 @@
       "registryName": "lu-gift",
       "addedAt": "2026-07-26",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "gift",
@@ -15555,7 +15598,8 @@
       "registryName": "lu-hard-drive",
       "addedAt": "2026-08-02",
       "category": [
-        "Devices"
+        "Devices",
+        "Storage"
       ],
       "keywords": [
         "hard-drive",
@@ -15574,7 +15618,8 @@
       "registryName": "lu-hard-drive-download",
       "addedAt": "2026-08-02",
       "category": [
-        "Devices"
+        "Devices",
+        "Storage"
       ],
       "keywords": [
         "download",
@@ -15593,7 +15638,8 @@
       "registryName": "lu-hard-drive-upload",
       "addedAt": "2026-09-29",
       "category": [
-        "Devices"
+        "Devices",
+        "Storage"
       ],
       "keywords": [
         "hard-drive-upload",
@@ -15860,7 +15906,8 @@
       "registryName": "lu-house",
       "addedAt": "2025-07-31",
       "category": [
-        "Home"
+        "Home",
+        "Architecture"
       ],
       "keywords": [
         "home",
@@ -16962,7 +17009,8 @@
       "registryName": "lu-mails",
       "addedAt": "2025-08-27",
       "category": [
-        "Mail"
+        "Mail",
+        "Communication"
       ],
       "keywords": [
         "email",
@@ -16980,7 +17028,8 @@
       "registryName": "lu-map",
       "addedAt": "2026-08-02",
       "category": [
-        "Navigation, Maps, and POIs"
+        "Navigation, Maps, and POIs",
+        "Travel"
       ],
       "keywords": [
         "map",
@@ -17132,7 +17181,8 @@
       "registryName": "lu-memory-stick",
       "addedAt": "2026-08-02",
       "category": [
-        "Devices"
+        "Devices",
+        "Storage"
       ],
       "keywords": [
         "memory",
@@ -17559,7 +17609,8 @@
       "registryName": "lu-mountain",
       "addedAt": "2026-08-02",
       "category": [
-        "Navigation, Maps, and POIs"
+        "Navigation, Maps, and POIs",
+        "Travel"
       ],
       "keywords": [
         "mountain",
@@ -17578,7 +17629,8 @@
       "registryName": "lu-mouse",
       "addedAt": "2026-08-02",
       "category": [
-        "Devices"
+        "Devices",
+        "Cursors"
       ],
       "keywords": [
         "mouse",
@@ -17632,7 +17684,8 @@
       "registryName": "lu-move",
       "addedAt": "2026-09-27",
       "category": [
-        "Arrows"
+        "Arrows",
+        "Cursors"
       ],
       "keywords": [
         "move",
@@ -17911,7 +17964,9 @@
       "registryName": "lu-package",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -17930,7 +17985,9 @@
       "registryName": "lu-package-check",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -17950,8 +18007,7 @@
       "addedAt": "2026-02-26",
       "category": [
         "Logistics",
-        "E-commerce",
-        "Fulfillment"
+        "E-commerce"
       ],
       "keywords": [
         "package",
@@ -17969,7 +18025,9 @@
       "registryName": "lu-package-plus",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -17988,7 +18046,9 @@
       "registryName": "lu-package-search",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -18007,7 +18067,9 @@
       "registryName": "lu-package-x",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics"
       ],
       "keywords": [
         "package",
@@ -18336,7 +18398,8 @@
       "registryName": "lu-phone-forwarded",
       "addedAt": "2026-01-22",
       "category": [
-        "Communication"
+        "Communication",
+        "Devices"
       ],
       "keywords": [
         "forward",
@@ -18374,7 +18437,8 @@
       "addedAt": "2026-01-22",
       "category": [
         "Devices",
-        "Notification"
+        "Notification",
+        "Communication"
       ],
       "keywords": [
         "missed",
@@ -18906,7 +18970,8 @@
       "registryName": "lu-receipt",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "receipt",
@@ -18925,7 +18990,8 @@
       "registryName": "lu-receipt-text",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "receipt",
@@ -19682,7 +19748,8 @@
       "registryName": "lu-shopping-bag",
       "addedAt": "2025-08-30",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "buy",
@@ -19700,7 +19767,8 @@
       "registryName": "lu-shopping-basket",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "basket",
@@ -19719,7 +19787,8 @@
       "registryName": "lu-shopping-cart",
       "addedAt": "2025-10-29",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "buy",
@@ -20328,7 +20397,8 @@
       "registryName": "lu-store",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "store",
@@ -20575,7 +20645,8 @@
       "registryName": "lu-tag",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "tag",
@@ -20594,7 +20665,8 @@
       "registryName": "lu-tags",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "tags",
@@ -20651,7 +20723,8 @@
       "registryName": "lu-tent",
       "addedAt": "2026-08-02",
       "category": [
-        "Navigation, Maps, and POIs"
+        "Navigation, Maps, and POIs",
+        "Travel"
       ],
       "keywords": [
         "tent",
@@ -20688,7 +20761,8 @@
       "registryName": "lu-text-cursor",
       "addedAt": "2026-09-27",
       "category": [
-        "Text formatting"
+        "Text formatting",
+        "Cursors"
       ],
       "keywords": [
         "cursor",
@@ -20821,7 +20895,8 @@
       "registryName": "lu-ticket-percent",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "ticket",
@@ -21106,7 +21181,10 @@
       "registryName": "lu-truck",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce",
+        "Logistics",
+        "Transportation"
       ],
       "keywords": [
         "truck",
@@ -21731,7 +21809,8 @@
       "addedAt": "2026-09-27",
       "category": [
         "Security",
-        "Finance"
+        "Finance",
+        "Storage"
       ],
       "keywords": [
         "vault",
@@ -21914,7 +21993,8 @@
       "registryName": "lu-wallet-cards",
       "addedAt": "2026-08-02",
       "category": [
-        "Shopping"
+        "Shopping",
+        "E-commerce"
       ],
       "keywords": [
         "wallet",
