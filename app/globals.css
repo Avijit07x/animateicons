@@ -209,40 +209,11 @@ html:has(body[data-scroll-locked]) {
 	scrollbar-gutter: auto;
 }
 @layer components {
-	.btn {
-		@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium select-none;
-		transition:
-			background-color 150ms ease-out,
-			border-color 150ms ease-out,
-			color 150ms ease-out,
-			transform 150ms ease-out;
-	}
-	.btn:active {
-		transform: scale(0.98);
-	}
-	.btn:focus-visible {
-		outline: none;
-		box-shadow:
-			0 0 0 2px var(--color-bgDark),
-			0 0 0 4px color-mix(in oklab, var(--color-primary) 55%, transparent);
-	}
-	.btn-primary {
-		@apply bg-primary hover:bg-primaryHover px-5 py-2.5 font-semibold;
-		color: var(--cta-text);
-	}
-	.btn-secondary {
-		@apply border-border text-textPrimary hover:border-primary/50 hover:bg-surface border px-5 py-2.5;
-	}
 	.home-section {
 		@apply py-12 text-center lg:py-16;
 	}
 	.pill-link {
 		@apply text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors select-none;
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.btn:active {
-			transform: none;
-		}
 	}
 }
 

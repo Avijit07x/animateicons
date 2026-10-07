@@ -1,20 +1,11 @@
 "use client";
 
-import SpecimenFrame from "@/components/home/SpecimenFrame";
-import { CirclePause } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { PauseIcon } from "@/icons/huge/pause-icon";
 import { useReducedMotion } from "motion/react";
 import { Dialog } from "radix-ui";
 import { useRef, useState, useSyncExternalStore } from "react";
 
-/**
- * ReducedMotionNotice - a centered dialog shown when the visitor's device has
- * Reduce Motion on, explaining why every icon is at rest and how to turn the
- * setting off on their platform. "Got it" hides it for this visit; "Don't
- * show again" hides it for good. It only fades, since everyone who sees it
- * has asked for less motion.
- */
-
-// Same key the old toast used, so anyone who already dismissed it stays clear.
 const DISMISSED_KEY = "reduced-motion-dismissed";
 const SESSION_KEY = "reduced-motion-seen";
 
@@ -78,8 +69,6 @@ const ReducedMotionNotice: React.FC = () => {
 	const [closed, setClosed] = useState(false);
 	const gotItRef = useRef<HTMLButtonElement | null>(null);
 
-	// Read the stored dismissals SSR-safely (the server assumes dismissed so
-	// the dialog never flashes during hydration).
 	const hidden = useSyncExternalStore(
 		() => () => {},
 		() => readFlag("local", DISMISSED_KEY) || readFlag("session", SESSION_KEY),
@@ -92,9 +81,7 @@ const ReducedMotionNotice: React.FC = () => {
 		try {
 			if (forever) localStorage.setItem(DISMISSED_KEY, "true");
 			else sessionStorage.setItem(SESSION_KEY, "true");
-		} catch {
-			// Storage can be blocked; the dialog still closes for this page.
-		}
+		} catch {}
 		setClosed(true);
 	};
 
@@ -116,73 +103,64 @@ const ReducedMotionNotice: React.FC = () => {
 						e.preventDefault();
 						gotItRef.current?.focus();
 					}}
-					className="data-[state=open]:animate-in data-[state=open]:fade-in-0 fixed top-1/2 left-1/2 z-101 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 focus:outline-none"
+					className="bg-surface border-border/60 data-[state=open]:animate-in data-[state=open]:fade-in-0 fixed top-1/2 left-1/2 z-101 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-2xl border px-6 pt-8 pb-6 text-center focus:outline-none sm:px-8"
 				>
-					<SpecimenFrame className="w-full">
-						<div className="bg-bgDark">
-							<div className="border-border/60 flex items-center justify-between border-b px-5 py-3 font-mono text-[10px] tracking-widest uppercase">
-								<span className="text-textMuted">Motion</span>
-								<span className="text-warning">Reduced</span>
-							</div>
+					<span className="bg-warning/10 text-warning ring-warning/5 grid size-20 place-items-center rounded-full ring-8">
+						<PauseIcon size={36} />
+					</span>
 
-							<div className="px-5 pt-7 pb-6 sm:px-7">
-								<span className="border-warning/40 bg-warning/10 text-warning flex size-12 items-center justify-center border">
-									<CirclePause className="size-6" />
+					<Dialog.Title className="text-textPrimary mt-6 text-2xl font-semibold tracking-tight">
+						Animations are paused
+						<span className="text-primary">.</span>
+					</Dialog.Title>
+					<Dialog.Description className="text-textSecondary mt-3 text-sm leading-relaxed">
+						Your device has Reduce Motion turned on, so every icon here is shown
+						at rest instead of animating. That&apos;s AnimateIcons respecting
+						your setting. Visitors who use Reduce Motion see the same thing in
+						your app.
+					</Dialog.Description>
+
+					<div className="bg-surfaceElevated mt-6 w-full rounded-xl p-4 text-left">
+						<p className="text-textMuted text-xs font-medium">
+							To see the animations on {how.os}
+						</p>
+						<p className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2">
+							{how.path.map((step, k) => (
+								<span key={step} className="flex items-center gap-1.5">
+									{k > 0 && (
+										<span className="text-textMuted text-xs" aria-hidden="true">
+											›
+										</span>
+									)}
+									<span className="bg-surface text-textPrimary rounded-full px-2.5 py-1 text-xs font-medium">
+										{step}
+									</span>
 								</span>
+							))}
+						</p>
+						<p className="text-textSecondary mt-3 text-sm">
+							{how.action}, then reload this page.
+						</p>
+					</div>
 
-								<Dialog.Title className="text-textPrimary mt-5 text-2xl font-semibold tracking-tight">
-									Animations are paused
-								</Dialog.Title>
-								<Dialog.Description className="text-textSecondary mt-3 text-sm leading-relaxed">
-									Your device has Reduce Motion turned on, so every icon here is
-									shown at rest instead of animating. That&apos;s AnimateIcons
-									respecting your setting. Visitors who use Reduce Motion see
-									the same thing in your app.
-								</Dialog.Description>
-
-								<div className="border-border/60 mt-6 border">
-									<p className="border-border/60 text-textMuted border-b px-4 py-2.5 font-mono text-[10px] tracking-widest uppercase">
-										To see the animations on {how.os}
-									</p>
-									<div className="px-4 py-3.5">
-										<p className="text-textPrimary flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
-											{how.path.map((step, k) => (
-												<span key={step} className="flex items-center gap-2">
-													{k > 0 && (
-														<span className="text-textMuted" aria-hidden="true">
-															›
-														</span>
-													)}
-													{step}
-												</span>
-											))}
-										</p>
-										<p className="text-textSecondary mt-2 text-sm">
-											{how.action}, then reload this page.
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<div className="border-border/60 flex flex-col-reverse gap-3 border-t px-5 py-4 sm:flex-row sm:justify-end sm:px-7">
-								<button
-									type="button"
-									onClick={() => close(true)}
-									className="btn btn-secondary"
-								>
-									Don&apos;t show again
-								</button>
-								<button
-									type="button"
-									onClick={() => close(false)}
-									ref={gotItRef}
-									className="btn btn-primary"
-								>
-									Got it
-								</button>
-							</div>
-						</div>
-					</SpecimenFrame>
+					<div className="mt-6 flex w-full flex-col-reverse gap-3 sm:flex-row sm:justify-center">
+						<Button
+							type="button"
+							variant="secondary"
+							size="pill"
+							onClick={() => close(true)}
+						>
+							Don&apos;t show again
+						</Button>
+						<Button
+							type="button"
+							size="pill"
+							onClick={() => close(false)}
+							ref={gotItRef}
+						>
+							Got it
+						</Button>
+					</div>
 				</Dialog.Content>
 			</Dialog.Portal>
 		</Dialog.Root>

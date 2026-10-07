@@ -9,7 +9,7 @@ Animated SVG icon library for React, built on `motion/react`. Two icon libraries
 - `icons/lucide/`, `icons/huge/`: one `<name>-icon.tsx` per icon, plus generated `index.ts` and `meta.ts`.
 - `data/lucide-icons.json`, `data/huge-icons.json`: the manifests. Source of truth for what exists.
 - `app/`: Next.js 16 App Router (gallery at `app/icons/[library]`, docs as MDX under `app/icons/docs`).
-- `components/`: site UI. The homepage sections in `components/home/` share `SpecimenFrame` (crop marks and hairline borders).
+- `components/`: site UI.
 - `npm/`, `core/`, `cli/`, `mcp/`: pnpm workspace packages. `npm/` is the published `@animateicons/react`.
 - `scripts/`: registry, catalog and index codegen plus the checks. `eslint-rules/icon-structure.mjs`: the icon lint rule.
 
@@ -70,7 +70,7 @@ Icons in the same family must move alike, in both libraries. `docs/motion-consis
 
 ## Site conventions
 
-- The homepage and gallery use the "hairline specimen" look: mono uppercase labels, thin `border-border/60` rules, crop-marked frames via `SpecimenFrame`, no rounded card chrome. Match it when adding UI.
+- The site uses soft-filled rounded cards (`bg-surface`, `bg-surfaceElevated`), round pills and the shared `Button` from `components/ui/button.tsx`. No crop marks, no hairline boxes, no mono uppercase labels. Match it when adding UI.
 - Tailwind v4 with project tokens (`text-textMuted`, `bg-bgDark`, `border-border`, `text-primary`). Prefer tokens over raw colors.
 - Write user-facing copy without em dashes. Use a full stop or a comma.
 - When a change leaves code, styles or components unused, delete them in the same change.
