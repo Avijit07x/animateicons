@@ -4,7 +4,7 @@ How to add icons to the Lucide library (`icons/lucide/`). The shapes come from [
 
 ## Where the shapes come from
 
-The project already depends on `lucide-react` (it is used by the site UI), so the icon data is in your own `node_modules`. No extra install is needed.
+The project already depends on `lucide-react` (kept only as the source of Lucide shapes, the site itself no longer imports it), so the icon data is in your own `node_modules`. No extra install is needed.
 
 Each icon is one file, `node_modules/lucide-react/dist/esm/icons/<name>.mjs`, with a list called `__iconNode` holding `[tag, attributes]` pairs. File names are the Lucide icon names in kebab-case, and they are the names we use too.
 

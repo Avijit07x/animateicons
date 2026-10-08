@@ -4,7 +4,8 @@
 		"server-only",
 		"baseline-browser-mapping",
 		"lint-staged",
-		"@commitlint/cli"
+		"@commitlint/cli",
+		"lucide-react"
 	],
 	"ignoreIssues": {
 		"components/ui/**": ["exports", "types"],
