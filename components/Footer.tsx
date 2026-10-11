@@ -65,14 +65,14 @@ const Footer: React.FC = () => {
 				</nav>
 
 				<p className="text-textMuted mt-6 text-sm text-balance">
-					Free and open source under the MIT license. Built by{" "}
+					Designed & built by{" "}
 					<Link
 						href="https://github.com/avijit07x"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-textSecondary hover:text-primary whitespace-nowrap transition-colors"
+						className="text-primary whitespace-nowrap underline-offset-4 hover:underline"
 					>
-						Avijit Dey
+						@avijit07x
 					</Link>
 					.
 				</p>
