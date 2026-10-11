@@ -44,13 +44,11 @@ describe("Footer", () => {
 		).toBe("/icons/lucide");
 	});
 
-	it("credits the author and the license", () => {
+	it("credits the author", () => {
 		render(<Footer />);
+		expect(screen.getByText(/designed & built by/i)).toBeTruthy();
 		expect(
-			screen.getByText(/free and open source under the mit license/i),
-		).toBeTruthy();
-		expect(
-			screen.getByRole("link", { name: "Avijit Dey" }).getAttribute("href"),
+			screen.getByRole("link", { name: "@avijit07x" }).getAttribute("href"),
 		).toBe("https://github.com/avijit07x");
 	});
 

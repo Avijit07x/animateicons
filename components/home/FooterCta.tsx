@@ -26,8 +26,8 @@ const FooterCta: React.FC = () => (
 				<span className="text-primary">move.</span>
 			</h2>
 			<p className="text-textSecondary mt-4 max-w-md text-sm leading-relaxed max-sm:text-[15px] sm:text-base">
-				{ICON_COUNTS.total} open-source animated SVG icons for React. One motion
-				system, two libraries.
+				{ICON_COUNTS.total} free and open source animated icons for React. One
+				motion system, two libraries.
 			</p>
 
 			<div className="mt-9 flex flex-wrap items-center justify-center gap-3 max-sm:w-full max-sm:max-w-74 max-sm:flex-col">
