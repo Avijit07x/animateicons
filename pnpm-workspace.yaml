@@ -3,6 +3,7 @@ packages:
   - "core"
   - "cli"
   - "mcp"
+  - "vanilla"
 nodeLinker: hoisted
 strictPeerDependencies: false
 autoInstallPeers: true
