@@ -1,5 +1,11 @@
 # @animateicons/mcp
 
+## 0.4.1
+
+### Patch Changes
+
+- `get_docs` now describes the docs as a guide per framework, and its page hint names `react` and `vue`. The React guide moved from `usage` to `react`.
+
 ## 0.4.0
 
 ### Minor Changes
