@@ -64,10 +64,10 @@ This will run the docs playground where you can preview and test icons.
 Run these before opening a pull request:
 
 ```bash
-pnpm verify        # everything CI runs
-pnpm knip          # unused files, exports and dependencies
-pnpm lint:package  # validates the published package exports and types
-pnpm test:coverage # test coverage report
+pnpm verify         # everything CI runs
+pnpm knip           # unused files, exports and dependencies
+pnpm lint:packages  # validates the exports and types of every published package
+pnpm test:coverage  # test coverage report
 ```
 
 Enable the git hooks once with `pnpm hooks:install`. The hooks format and lint

@@ -7,8 +7,8 @@ pnpm lint || {
 	exit 1
 }
 
-echo "› pre-push: checking README icon counts"
-pnpm check:readme || {
-	echo "✗ README icon counts are stale — push aborted. Update the READMEs or bypass with --no-verify."
+echo "› pre-push: checking icon names, the registry and README icon counts"
+pnpm check || {
+	echo "✗ icon checks failed — push aborted. Fix what the check reports or bypass with --no-verify."
 	exit 1
 }

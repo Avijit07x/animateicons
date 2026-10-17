@@ -13,7 +13,7 @@ What does this change and why?
 ## Checklist
 
 - [ ] `pnpm verify` passes
-- [ ] Icon counts updated in `README.md` and `npm/README.md` (`pnpm check:readme`)
+- [ ] Icon counts updated in `README.md` and `npm/README.md` (`pnpm check`)
 - [ ] `pnpm gen:icons` was run after the last icon edit and the generated files are included
 - [ ] Commit messages follow `feat:`, `fix:`, `perf:` or `chore:`
 - [ ] Screenshots or a short recording for visual changes

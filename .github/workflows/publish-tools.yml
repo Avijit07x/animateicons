@@ -55,7 +55,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Verify core + CLI + MCP packages
-        run: pnpm run verify:packages
+        run: pnpm --filter @animateicons/core --filter animateicons --filter @animateicons/mcp run verify
 
       - name: Publish animateicons (CLI)
         if: ${{ inputs.package == 'animateicons' || inputs.package == 'both' }}
