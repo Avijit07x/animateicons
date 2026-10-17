@@ -49,9 +49,11 @@ next-env.d.ts
 /cli/dist
 /mcp/dist
 /vanilla/dist
+/vue/dist
 
 # icon data and framework wrappers generated from the React icons
 /vanilla/src/generated/
+/vue/src/generated/
 
 # packed tarballs - `npm pack` / `pnpm pack` output. Real publish artifacts
 # are built fresh by CI; never commit these.

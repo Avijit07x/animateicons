@@ -44,7 +44,7 @@ const config = [
 	},
 
 	{
-		files: ["vanilla/**"],
+		files: ["vanilla/**", "vue/**"],
 		rules: { "react-hooks/rules-of-hooks": "off" },
 	},
 

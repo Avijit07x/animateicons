@@ -44,6 +44,9 @@
 				"scripts/*.mjs",
 				"__tests__/*.ts"
 			]
+		},
+		"vue": {
+			"entry": ["src/index.ts", "scripts/*.mjs", "__tests__/*.ts"]
 		}
 	}
 }
