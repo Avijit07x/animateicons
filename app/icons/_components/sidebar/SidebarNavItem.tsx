@@ -5,6 +5,7 @@ import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import type { ComponentType } from "react";
+import { useRequest } from "../../_contexts/RequestContext";
 import type { SidebarGroupConfig } from "./sidebar.types";
 
 type Props = {
@@ -21,6 +22,7 @@ const SidebarNavItem: React.FC<Props> = ({
 	newCount = 0,
 }) => {
 	const { ref, triggerProps } = useIconHover();
+	const { openRequest } = useRequest();
 	const Icon = item.icon;
 	const external = item.target === "_blank";
 
@@ -47,6 +49,22 @@ const SidebarNavItem: React.FC<Props> = ({
 			)}
 		</>
 	);
+
+	const request = item.request;
+	if (request) {
+		return (
+			<SidebarMenuItem>
+				<SidebarMenuButton
+					variant="dark"
+					className="h-9 gap-2.5 px-3 text-[13px]"
+					onClick={() => openRequest({ type: request })}
+					{...triggerProps}
+				>
+					{content}
+				</SidebarMenuButton>
+			</SidebarMenuItem>
+		);
+	}
 
 	return (
 		<SidebarMenuItem>

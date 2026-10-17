@@ -23,7 +23,6 @@ import { isIconNew } from "@/utils/isIconNew";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useCategory } from "../../_contexts/CategoryContext";
-import HireCard from "./HireCard";
 import SidebarNavItem from "./SidebarNavItem";
 import { sidebarConfig } from "./sidebar.config";
 
@@ -176,8 +175,6 @@ const AppSidebar: React.FC = () => {
 					</SidebarGroupContent>
 				</SidebarGroup>
 			</SidebarContent>
-
-			<HireCard />
 		</Sidebar>
 	);
 };
