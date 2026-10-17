@@ -9,7 +9,7 @@ on:
         default: "latest"
   push:
     tags:
-      - "v*"
+      - "v[0-9]*"
 
 permissions:
   contents: read
