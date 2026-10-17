@@ -4,6 +4,7 @@ packages:
   - "cli"
   - "mcp"
   - "vanilla"
+  - "vue"
 nodeLinker: hoisted
 strictPeerDependencies: false
 autoInstallPeers: true
