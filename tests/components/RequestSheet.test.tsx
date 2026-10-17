@@ -138,7 +138,9 @@ describe("RequestSheet", () => {
 		type("What's on your mind?", "Svelte please");
 		send();
 
-		expect(await screen.findByRole("status")).toHaveTextContent(message);
+		await waitFor(() =>
+			expect(screen.getByRole("status")).toHaveTextContent(message),
+		);
 		expect(screen.getByLabelText("Name")).toHaveValue("Riya");
 		expect(screen.getByLabelText("What's on your mind?")).toHaveValue(
 			"Svelte please",
