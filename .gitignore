@@ -51,11 +51,14 @@ next-env.d.ts
 /vanilla/dist
 /vue/dist
 /angular/dist
+/test-zone/dist
 
 # icon data and framework wrappers generated from the React icons
 /vanilla/src/generated/
 /vue/src/generated/
 /angular/.angular/
+/test-zone/test-results/
+/test-zone/playwright-report/
 
 # packed tarballs - `npm pack` / `pnpm pack` output. Real publish artifacts
 # are built fresh by CI; never commit these.

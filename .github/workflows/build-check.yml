@@ -55,3 +55,29 @@ jobs:
         run: pnpm lint:packages
         env:
           npm_config_ignore_scripts: "true"
+
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium for the test zone
+        run: pnpm --filter @animateicons/test-zone exec playwright install --with-deps chromium
+
+      - name: Compare every icon in every framework with React, frame by frame
+        run: pnpm test:frames

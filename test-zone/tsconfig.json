@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": ["vite/client", "node"],
+		"jsx": "react-jsx",
+		"strict": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"forceConsistentCasingInFileNames": true,
+		"paths": {
+			"@animateicons/angular": [
+				"../angular/dist/types/animateicons-angular.d.ts"
+			],
+			"@animateicons/angular/lucide": [
+				"../angular/dist/types/animateicons-angular-lucide.d.ts"
+			],
+			"@animateicons/angular/huge": [
+				"../angular/dist/types/animateicons-angular-huge.d.ts"
+			]
+		}
+	},
+	"include": ["src", "e2e", "vite.config.ts", "playwright.config.ts"]
+}
