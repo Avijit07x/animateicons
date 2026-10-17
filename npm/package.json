@@ -117,7 +117,7 @@
 			"name": "single icon (tree-shaken)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon }",
-			"limit": "25 kB",
+			"limit": "28.5 kB",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -127,7 +127,7 @@
 			"name": "5 icons (tree-shaken)",
 			"path": "dist/lucide.js",
 			"import": "{ BellRingIcon, HeartIcon, CopyIcon, BellIcon, ActivityIcon }",
-			"limit": "26 kB",
+			"limit": "29 kB",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -145,7 +145,7 @@
 		{
 			"name": "huge (full barrel)",
 			"path": "dist/huge.js",
-			"limit": "130 kB",
+			"limit": "138 kB",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -160,7 +160,7 @@
 		"@size-limit/preset-small-lib": "^11.1.6",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
-		"motion": "^12.0.0",
+		"motion": "^14.3.0",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
 		"size-limit": "^11.1.6",

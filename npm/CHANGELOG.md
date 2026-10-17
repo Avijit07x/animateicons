@@ -4,6 +4,7 @@
 
 ### Patch Changes
 
+- Bundles motion 14.3, the same version the shadcn registry and the CLI install, so every way of getting an icon plays the same animation.
 - `duration` now scales every delay too. `BaggageClaimIcon`, `BitcoinIcon`, `EllipsisIcon`, `EllipsisVerticalIcon`, `ScanQrCodeIcon` and `SlidersHorizontalIcon` kept some delays fixed, so at `duration={2}` their parts no longer start too early. At the default `duration` nothing changes.
 - `GuitarIcon`, `LaptopIcon` and `PianoIcon` now return to rest when `startAnimation()` is called with reduced motion turned on, like every other icon, instead of doing nothing.
 
