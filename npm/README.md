@@ -78,6 +78,10 @@ See the [full docs](https://animateicons.in/icons/docs/examples/hover-helper) fo
 | `isAnimated` | `boolean` | `true`         |
 | `className`  | `string`  | -              |
 
+## Other frameworks
+
+Not using React? The same icons and the same motion ship as [`@animateicons/vanilla`](https://www.npmjs.com/package/@animateicons/vanilla) for plain JS and web components, [`@animateicons/vue`](https://www.npmjs.com/package/@animateicons/vue) for Vue 3 and Nuxt, and [`@animateicons/angular`](https://www.npmjs.com/package/@animateicons/angular) for Angular. Docs: [Plain JS](https://animateicons.in/icons/docs/vanilla), [Vue](https://animateicons.in/icons/docs/vue) and [Angular](https://animateicons.in/icons/docs/angular).
+
 ## License
 
 MIT © [Avijit Dey](https://github.com/Avijit07x)

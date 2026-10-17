@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { docsPages } from "./icons/docs/_lib/nav";
 
 const baseUrl = "https://animateicons.in";
 
@@ -54,12 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "weekly",
 			priority: 0.9,
 		},
-		{
-			url: `${baseUrl}/icons/docs`,
+		...docsPages.map((page): MetadataRoute.Sitemap[number] => ({
+			url: `${baseUrl}${page.href}`,
 			lastModified: now,
 			changeFrequency: "monthly",
 			priority: 0.7,
-		},
+		})),
 		...lucideIconEntries,
 		...hugeIconEntries,
 	];

@@ -2,7 +2,7 @@
 
 # AnimateIcons
 
-**1170 animated SVG icons for React.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion/react`.
+**1170 animated SVG icons for React, Vue, Angular and plain JavaScript.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion`.
 
 [Browse icons](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [Docs](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/Avijit07x)
 
@@ -40,6 +40,16 @@ export function Notifications() {
 Icons animate on hover by default, and `motion` is bundled. Import from `@animateicons/react/lucide` or `@animateicons/react/huge`.
 
 Prefer to own the code? Copy one icon into your project with `npx animateicons add bell-ring`.
+
+## Other frameworks
+
+The same icons and the same motion ship for more than React:
+
+| Framework                                      | Package                                                                        | Docs                                                   |
+| ---------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| Plain JS, web components, Svelte, Solid, Astro | [`@animateicons/vanilla`](https://www.npmjs.com/package/@animateicons/vanilla) | [Plain JS](https://animateicons.in/icons/docs/vanilla) |
+| Vue 3 and Nuxt                                 | [`@animateicons/vue`](https://www.npmjs.com/package/@animateicons/vue)         | [Vue](https://animateicons.in/icons/docs/vue)          |
+| Angular 20, 21 and 22                          | [`@animateicons/angular`](https://www.npmjs.com/package/@animateicons/angular) | [Angular](https://animateicons.in/icons/docs/angular)  |
 
 ## Props
 

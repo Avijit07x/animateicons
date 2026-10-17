@@ -23,6 +23,14 @@ export const docsNav: DocGroup[] = [
 		],
 	},
 	{
+		title: "Frameworks",
+		items: [
+			{ title: "Plain JS", href: "/icons/docs/vanilla" },
+			{ title: "Vue", href: "/icons/docs/vue" },
+			{ title: "Angular", href: "/icons/docs/angular" },
+		],
+	},
+	{
 		title: "Examples",
 		items: [
 			{ title: "Buttons & tooltips", href: "/icons/docs/examples/buttons" },

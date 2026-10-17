@@ -1,0 +1,129 @@
+import CodeBlock from "../../_components/docs/CodeBlock";
+import CommandBlock from "../../_components/docs/CommandBlock";
+import { Callout } from "../_components/Callout";
+
+export const metadata = {
+	title: "Animated Vue Icons",
+	description:
+		"Use AnimateIcons in Vue 3 and Nuxt with @animateicons/vue. Typed icon components, a ref to play animations yourself, and server rendering that shows the icon at rest.",
+	alternates: {
+		canonical: "/icons/docs/vue",
+	},
+};
+
+export const usageCode = `<script setup lang="ts">
+import { BellRingIcon } from "@animateicons/vue/lucide";
+</script>
+\n<template>
+	<BellRingIcon :size="32" color="tomato" />
+</template>`;
+
+export const propsCode = `<BellRingIcon
+	:size="32"
+	color="tomato"
+	:duration="1.5"
+	:is-animated="true"
+/>`;
+
+export const manualCode = `<script setup lang="ts">
+import { ref } from "vue";
+import { BellIcon } from "@animateicons/vue/lucide";
+\nconst bell = ref<InstanceType<typeof BellIcon>>();
+</script>
+\n<template>
+	<button @click="bell?.startAnimation()">
+		<BellIcon ref="bell" :is-animated="false" />
+	</button>
+</template>`;
+
+export const genericCode = `<script setup lang="ts">
+import { AnimateIcons } from "@animateicons/vue";
+import { Bell } from "@animateicons/vue/lucide";
+</script>
+\n<template>
+	<AnimateIcons :icon="Bell" :size="32" />
+</template>`;
+
+# Vue
+
+`@animateicons/vue` plays the same animations as the React package, as Vue components. It needs Vue 3.5 or newer and works in Nuxt 3 and 4.
+
+<div className="space-y-14">
+
+<section className="space-y-6">
+
+## Installation
+
+<CommandBlock pkg="@animateicons/vue" />
+
+`motion` comes with it, so this is the only install.
+
+</section>
+
+<section className="space-y-4">
+
+## Usage
+
+Import any icon component from the `lucide` or `huge` subpath. The name is the icon name in PascalCase plus `Icon`: `bell-ring` is `BellRingIcon`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01Icon`.
+
+<CodeBlock code={usageCode} lang="vue" title="Example.vue" />
+
+The icon plays on hover and resets when the pointer leaves.
+
+</section>
+
+<section className="space-y-4">
+
+## Props
+
+<CodeBlock code={propsCode} lang="vue" title="Example.vue" />
+
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `is-animated`: play on hover. `false` turns hover off, while `startAnimation()` still works. Default `true`.
+
+</section>
+
+<section className="space-y-4">
+
+## Playing it yourself
+
+Every icon exposes `startAnimation()` and `stopAnimation()` on its ref, with types.
+
+<CodeBlock code={manualCode} lang="vue" title="RingButton.vue" />
+
+<Callout type="note">
+	In React, passing a `ref` switches an icon to manual mode on its own. Vue
+	cannot detect that, so manual mode means `:is-animated="false"` plus your own
+	`startAnimation()` calls.
+</Callout>
+
+</section>
+
+<section className="space-y-4">
+
+## One component for any icon
+
+The `lucide` and `huge` subpaths also export the icon data, named without the `Icon` suffix. Pass it to the generic `AnimateIcons` component, for example when the icon comes from a prop or a list.
+
+<CodeBlock code={genericCode} lang="vue" title="Example.vue" />
+
+`AnimateIcons` takes the same props as the icon components, plus `icon`.
+
+</section>
+
+<section className="space-y-4">
+
+## Nuxt and server rendering
+
+On the server the component renders the whole icon at rest, so pages show it before hydration with no flash. The animation attaches after the component mounts in the browser.
+
+<Callout type="note">
+	Animations respect the **Reduce Motion** setting. With it turned on, hover
+	does nothing and `startAnimation()` keeps the icon at rest.
+</Callout>
+
+</section>
+
+</div>
