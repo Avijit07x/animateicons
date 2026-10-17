@@ -13,7 +13,11 @@
 	},
 	"workspaces": {
 		".": {
-			"entry": ["scripts/*.ts", "eslint-rules/*.mjs"]
+			"entry": [
+				"scripts/*.ts",
+				"eslint-rules/*.mjs",
+				"scripts/icon-data/recorder.tsx"
+			]
 		},
 		"npm": {
 			"entry": ["scripts/*.mjs", "src/lib/*.ts", "__tests__/*.mjs"],
