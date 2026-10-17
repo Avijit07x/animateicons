@@ -1,79 +1,81 @@
 import CodeBlock from "../_components/docs/CodeBlock";
-import CommandBlock from "../_components/docs/CommandBlock";
-import Badge from "./_components/Badge";
 import { Callout } from "./_components/Callout";
-import InstallMethods from "./_components/InstallMethods";
+import FrameworkCards from "./_components/FrameworkCards";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
 
 export const metadata = {
-	title: "Install AnimateIcons",
+	title: "Get started with AnimateIcons",
 	description:
-		"Install AnimateIcons via the @animateicons/react npm package, the animateicons CLI, the shadcn CLI, or the MCP server for AI agents.",
+		"AnimateIcons ships the same animated icons for React, Vue, Angular and plain JavaScript. Pick the package for your framework and follow its guide.",
 	alternates: {
 		canonical: "/icons/docs",
 	},
 };
 
-export const npmUsageCode = `import { EyeIcon } from "@animateicons/react/huge"
+export const namesCode = `// React
+import { BellRingIcon } from "@animateicons/react/lucide"
 
-export default function Example() {
-	return <EyeIcon size={24} color="#f45b48" />
-}`;
+// Vue
+import { BellRingIcon } from "@animateicons/vue/lucide"
 
-export const nextImportCode = `import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon"
-import { HeartIcon } from "@animateicons/react/huge/heart-icon"`;
+// Angular
+import { BellRing } from "@animateicons/angular/lucide"
 
-# Installation
+// Plain JS
+import { BellRing } from "@animateicons/vanilla/lucide"`;
 
-Pick whichever path fits your setup. They all ship the same icons and the same API. The difference is whether you depend on the package or copy the source into your project.
+# Introduction
 
-Not using React? The same icons ship for [plain JS and web components](/icons/docs/vanilla), [Vue](/icons/docs/vue) and [Angular](/icons/docs/angular).
-
-<InstallMethods />
+AnimateIcons is {ICON_COUNTS.total} free animated SVG icons in two styles, Lucide and Huge. Every icon ships for React, Vue, Angular and plain JavaScript, and moves the same way in each.
 
 <div className="space-y-14">
 
-<section id="install-npm" className="scroll-mt-20 space-y-6">
+<section className="space-y-4">
 
-## npm package
+## Pick your framework
 
-<Badge>Recommended</Badge> Best for most apps. One install, all
-{ICON_COUNTS.total} icons available.
+Each framework has its own package. Install the one for your app, then follow its guide.
 
-#### 1. Install the package
-
-Use any package manager. `motion` is bundled.
-
-<CommandBlock pkg="@animateicons/react" />
-
-#### 2. Import an icon
-
-Lucide and Huge are exposed as scoped subpaths because some icon names overlap (`HeartIcon`, `CopyIcon`, etc.).
-
-<CodeBlock code={npmUsageCode} title="Example.tsx" />
+<FrameworkCards />
 
 <Callout type="tip">
-	Icons animate on hover out of the box, no extra wiring. Pass `size`, `color`,
-	or any prop to customize.
+	Using Svelte, Solid, Astro or a plain HTML page? Use the [Plain
+	JS](/icons/docs/vanilla) package. It works on any web page.
 </Callout>
-
-#### Next.js App Router
-
-Import each icon from its own file. Importing from the main package loads every icon: 918 kB of client JavaScript, compared with 71 kB for one icon.
-
-<CodeBlock code={nextImportCode} title="Example.tsx" />
-
-The path is the icon's file name, so `BellRingIcon` becomes `bell-ring-icon`. These paths only work with ESM imports. If you use `require()`, import from the main package.
 
 </section>
 
-<section id="other-methods" className="scroll-mt-20 space-y-4">
+<section className="space-y-4">
 
-## Prefer to copy the source?
+## What every package shares
 
-If you'd rather own the icon files instead of depending on the package, use the [shadcn CLI](/icons/docs/shadcn) or the first-party [animateicons CLI](/icons/docs/cli). Using an AI coding agent? The [MCP server](/icons/docs/mcp) lets it add icons for you.
+- The same {ICON_COUNTS.total} icons. Their motion is checked frame by frame against React in every framework.
+- Icons play on hover out of the box and reset when the pointer leaves.
+- The same options: `size`, `color`, `duration` (a speed multiplier) and `isAnimated`.
+- `startAnimation()` and `stopAnimation()` to play an icon from your own code.
+- The **Reduce Motion** setting is respected with no setup.
+- `motion` comes inside every package, so there is nothing else to install.
 
-Once icons are in your project, head to [Usage](/icons/docs/usage) for styling, the imperative API, and full types.
+</section>
+
+<section className="space-y-4">
+
+## Icon names
+
+Every icon has a name such as `bell-ring`, shown in the [gallery](/icons/lucide). React and Vue export a component named after it in PascalCase with `Icon` at the end. Angular and plain JS export the icon itself, without `Icon`.
+
+<CodeBlock code={namesCode} lang="ts" title="Imports" />
+
+Lucide icons come from the `lucide` subpath and Huge icons from `huge`, because a few names exist in both, such as `heart` and `copy`.
+
+</section>
+
+<section className="space-y-4">
+
+## Other ways to add icons
+
+- The [shadcn CLI](/icons/docs/shadcn) and the [animateicons CLI](/icons/docs/cli) copy a React icon into your project as an editable file, instead of installing the package.
+- The [MCP server](/icons/docs/mcp) lets an AI coding agent such as Claude Code or Cursor find icons and write the code for any of the four frameworks.
 
 </section>
 

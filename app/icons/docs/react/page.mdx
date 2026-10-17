@@ -1,0 +1,168 @@
+import CodeBlock from "../../_components/docs/CodeBlock";
+import CommandBlock from "../../_components/docs/CommandBlock";
+import { Callout } from "../_components/Callout";
+
+export const metadata = {
+	title: "AnimateIcons for React",
+	description:
+		"Install @animateicons/react, import animated icons as React components, style them with props, and play them from your own code with a ref. Works with Next.js.",
+	alternates: {
+		canonical: "/icons/docs/react",
+	},
+};
+
+export const usageCode = `import { BellRingIcon } from "@animateicons/react/lucide"
+
+export default function Example() {
+	return <BellRingIcon size={32} color="tomato" />
+}`;
+
+export const nextImportCode = `import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon"
+import { HeartIcon } from "@animateicons/react/huge/heart-icon"`;
+
+export const propsCode = `<BellRingIcon
+	size={32}
+	color="tomato"
+	className="text-primary"
+	duration={1.5}
+	isAnimated={true}
+/>`;
+
+export const manualCode = `"use client"
+
+import { useRef } from "react"
+import { BellIcon, type BellIconHandle } from "@animateicons/react/lucide"
+
+export function RingButton() {
+	const bell = useRef<BellIconHandle>(null)
+
+    return (
+    	<button
+    		onMouseEnter={() => bell.current?.startAnimation()}
+    		onMouseLeave={() => bell.current?.stopAnimation()}
+    	>
+    		<BellIcon ref={bell} />
+    		Notifications
+    	</button>
+    )
+
+}`;
+
+export const typesCode = `interface IconProps {
+	size?: number
+	color?: string
+	className?: string
+	duration?: number
+	isAnimated?: boolean
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
+	style?: React.CSSProperties
+}
+
+interface IconHandle {
+startAnimation: () => void
+stopAnimation: () => void
+}`;
+
+# React
+
+`@animateicons/react` gives you every icon as a React component. It works with React 18 and 19, including Next.js.
+
+<div className="space-y-14">
+
+<section className="space-y-6">
+
+## Installation
+
+<CommandBlock pkg="@animateicons/react" />
+
+`motion` is bundled, so this is the only install.
+
+</section>
+
+<section className="space-y-4">
+
+## Usage
+
+Import any icon component from the `lucide` or `huge` subpath. The name is the icon name in PascalCase plus `Icon`: `bell-ring` is `BellRingIcon`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01Icon`.
+
+<CodeBlock code={usageCode} title="Example.tsx" />
+
+The icon plays on hover and resets when the pointer leaves.
+
+</section>
+
+<section className="space-y-4">
+
+## Next.js
+
+In the App Router, import each icon from its own file. Importing from the main package loads every icon: 918 kB of client JavaScript, compared with 71 kB for one icon.
+
+<CodeBlock code={nextImportCode} title="Example.tsx" />
+
+The path is the icon's file name, so `BellRingIcon` becomes `bell-ring-icon`. These paths only work with ESM imports. If you use `require()`, import from the main package.
+
+</section>
+
+<section className="space-y-4">
+
+## Props
+
+<CodeBlock code={propsCode} title="Example.tsx" />
+
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `className`: classes for the icon wrapper, such as a Tailwind `text-*` color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `isAnimated`: play on hover. `false` turns hover off. Default `true`.
+
+</section>
+
+<section className="space-y-4">
+
+## Playing it yourself
+
+Pass a ref to play an icon from your own code, for example when its button is hovered, clicked or focused. Every icon exports a `*Handle` type for its ref.
+
+<CodeBlock code={manualCode} title="RingButton.tsx" />
+
+Once an icon has a ref, it no longer plays on its own hover, so you decide when it moves. Its `onMouseEnter` and `onMouseLeave` props still fire.
+
+<Callout type="tip">
+	Use the `useIconHover` hook to play icons on hover or click without writing
+	the handlers yourself. See the [Hover
+	helper](/icons/docs/examples/hover-helper).
+</Callout>
+
+</section>
+
+<section className="space-y-4">
+
+## Server Components
+
+Icons render inside Server Components when you pass plain props such as `size`, `color` and `duration`. A ref or an event handler needs a Client Component, so add `"use client"` to the file that uses one.
+
+</section>
+
+<section className="space-y-4">
+
+## Types
+
+<CodeBlock code={typesCode} lang="ts" title="Types" />
+
+<Callout type="note">
+	Animations respect the **Reduce Motion** setting. With it turned on, hover
+	does nothing and `startAnimation()` keeps the icon at rest.
+</Callout>
+
+</section>
+
+<section className="space-y-4">
+
+## Copy the source instead
+
+Prefer to own the icon files? The [shadcn CLI](/icons/docs/shadcn) and the [animateicons CLI](/icons/docs/cli) copy an icon into your project as one editable file. Copied icons take the same props and ref, so everything on this page still applies.
+
+</section>
+
+</div>

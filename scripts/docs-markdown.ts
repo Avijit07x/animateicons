@@ -6,6 +6,7 @@ import {
 	MANAGERS,
 	installCmd,
 } from "../app/icons/_components/docs/install-commands";
+import { FRAMEWORK_GUIDES } from "../app/icons/docs/_lib/frameworks";
 import { docsNav } from "../app/icons/docs/_lib/nav";
 import type { Docs } from "../core/src/docs";
 
@@ -133,7 +134,12 @@ function capitalize(word: string): string {
 function convertBody(body: string, scope: Scope): string {
 	const text = body
 		.replace(/^[ \t]*<\/?(?:section|div)\b[^>]*>[ \t]*\n/gm, "")
-		.replace(/^[ \t]*<InstallMethods\s*\/>[ \t]*\n/gm, "")
+		.replace(/^[ \t]*<FrameworkCards\s*\/>[ \t]*$/gm, () =>
+			FRAMEWORK_GUIDES.map(
+				({ name, pkg, href, summary }) =>
+					`- [${name}](${href}): \`${pkg}\`. ${summary}`,
+			).join("\n"),
+		)
 		.replace(/(?<!=)\{([A-Za-z_]\w*(?:\.\w+)*)\}/g, (whole, expression) => {
 			const [root, ...rest] = (expression as string).split(".");
 			if (!(root in scope)) return whole;
@@ -166,7 +172,6 @@ function convertBody(body: string, scope: Scope): string {
 			(_, type: string = "note", inner: string) =>
 				`> **${capitalize(type)}:** ${inner.trim().replace(/\s+/g, " ")}`,
 		)
-		.replace(/<Badge>([\s\S]*?)<\/Badge>/g, "**$1**")
 		.replace(/<a\s+href="([^"]+)">([\s\S]*?)<\/a>/g, "[$2]($1)")
 		.replace(/\]\(\//g, `](${SITE_URL}/`)
 		.replace(/[ \t]+$/gm, "")
