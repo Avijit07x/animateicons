@@ -24,6 +24,93 @@ function pascalCase(name: string): string {
 		.join("");
 }
 
+export const FRAMEWORKS = ["react", "vanilla", "vue", "angular"] as const;
+export type Framework = (typeof FRAMEWORKS)[number];
+
+export interface FrameworkUsage {
+	exportName: string;
+	install: string;
+	usage: string;
+	customElement?: string;
+	cdn?: string;
+}
+
+export function frameworkUsage(
+	framework: Exclude<Framework, "react">,
+	name: string,
+	library: IconLibrary,
+): FrameworkUsage {
+	const dataName = pascalCase(name);
+	const pkg = `@animateicons/${framework}`;
+	const install = `npm i ${pkg}`;
+	const importIcon = (exportName: string) =>
+		`import { ${exportName} } from "${pkg}/${library}";`;
+
+	if (framework === "vue") {
+		const exportName = `${dataName}Icon`;
+		return {
+			exportName,
+			install,
+			usage: [
+				'<script setup lang="ts">',
+				importIcon(exportName),
+				"</script>",
+				"",
+				"<template>",
+				`  <${exportName} :size="24" />`,
+				"</template>",
+			].join("\n"),
+		};
+	}
+
+	if (framework === "angular") {
+		const field = dataName.charAt(0).toLowerCase() + dataName.slice(1);
+		return {
+			exportName: dataName,
+			install,
+			usage: [
+				'import { Component } from "@angular/core";',
+				`import { AnimateIcons } from "${pkg}";`,
+				importIcon(dataName),
+				"",
+				"@Component({",
+				'  selector: "app-example",',
+				"  imports: [AnimateIcons],",
+				`  template: \`<animate-icons [icon]="${field}" [size]="24" />\`,`,
+				"})",
+				"export class Example {",
+				`  ${field} = ${dataName};`,
+				"}",
+			].join("\n"),
+		};
+	}
+
+	const element = `<animate-icons name="${name}"></animate-icons>`;
+	return {
+		exportName: dataName,
+		install,
+		usage: [
+			`import { createIcon } from "${pkg}";`,
+			importIcon(dataName),
+			"",
+			`const icon = createIcon(${dataName}, { size: 24 });`,
+			"document.body.append(icon);",
+		].join("\n"),
+		customElement: [
+			'<script type="module">',
+			`  import { defineIcons } from "${pkg}";`,
+			`  ${importIcon(dataName)}`,
+			`  defineIcons({ ${dataName} });`,
+			"</script>",
+			element,
+		].join("\n"),
+		cdn: [
+			`<script src="https://cdn.jsdelivr.net/npm/${pkg}/dist/cdn/${library}.js"></script>`,
+			element,
+		].join("\n"),
+	};
+}
+
 function publicIcon(icon: CatalogIcon) {
 	return {
 		name: icon.name,
@@ -62,11 +149,17 @@ export interface GetIconResult {
 	componentName?: string;
 	importSnippet?: string;
 	source?: string;
+	framework?: Exclude<Framework, "react">;
+	exportName?: string;
+	install?: string;
+	usage?: string;
+	customElement?: string;
+	cdn?: string;
 }
 
 export async function getIconTool(
 	ctx: ToolContext,
-	args: { name: string },
+	args: { name: string; framework?: Framework },
 ): Promise<GetIconResult> {
 	const catalog = await fetchCatalog({ registryBase: ctx.registryBase });
 	const res = resolveIcon(catalog, args.name);
@@ -82,6 +175,17 @@ export async function getIconTool(
 				: candidates.length
 					? `"${args.name}" not found. Did you mean: ${candidates.join(", ")}?`
 					: `"${args.name}" not found.`,
+		};
+	}
+
+	if (args.framework && args.framework !== "react") {
+		return {
+			found: true,
+			name: res.match.name,
+			registryName: res.match.registryName,
+			library: res.match.library,
+			framework: args.framework,
+			...frameworkUsage(args.framework, res.match.name, res.match.library),
 		};
 	}
 
