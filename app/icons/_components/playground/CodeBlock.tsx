@@ -1,7 +1,7 @@
 "use client";
 
-import CopyButton from "@/components/home/CopyButton";
 import { cn } from "@/lib/utils";
+import CopyIconButton from "./CopyIconButton";
 import HighlightedCode from "./HighlightedCode";
 
 type Props = {
@@ -19,20 +19,26 @@ const CodeBlock: React.FC<Props> = ({
 	footer,
 	className,
 }) => (
-	<div
-		className={cn(
-			"bg-surfaceElevated flex flex-col overflow-hidden rounded-3xl",
-			className,
-		)}
-	>
-		<div className="flex items-center justify-between gap-3 px-4 pt-3">
-			<p className="text-textMuted text-sm">{label}</p>
-			<CopyButton text={code} className="w-24 py-1 text-xs" />
+	<div className={cn("flex flex-col", className)}>
+		<p className="text-textMuted mb-2 text-sm">{label}</p>
+		<div className="bg-surface flex min-h-0 flex-1 flex-col rounded-[22px] p-2">
+			<div className="bg-bgDark relative flex min-h-0 flex-1 flex-col rounded-[14px]">
+				<HighlightedCode
+					code={code}
+					lang={lang}
+					wrap={false}
+					className="my-4 mr-12 ml-4"
+				/>
+				<CopyIconButton
+					text={code}
+					label="Copy code"
+					className="absolute top-2 right-2"
+				/>
+			</div>
+			{footer && (
+				<p className="text-textMuted px-2.5 pt-2.5 pb-1 text-xs">{footer}</p>
+			)}
 		</div>
-		<HighlightedCode code={code} lang={lang} />
-		{footer && (
-			<p className="text-textMuted mt-auto px-4 pb-3.5 text-xs">{footer}</p>
-		)}
 	</div>
 );
 
