@@ -20,7 +20,7 @@ const Navbar: React.FC = async () => {
 					/>
 				</div>
 
-				<div className="hidden w-72 shrink-0 md:block">
+				<div className="hidden max-w-72 min-w-0 flex-1 md:block">
 					<SearchBar />
 				</div>
 

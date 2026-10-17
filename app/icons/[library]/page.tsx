@@ -46,7 +46,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 	const displayName = library === "lucide" ? "Lucide" : "Huge";
 
 	return (
-		<div className="flex w-full flex-col">
+		<div className="flex w-full min-w-0 flex-col">
 			<JsonLd data={jsonLd} />
 
 			<Suspense fallback={null}>

@@ -4,7 +4,7 @@ import React from "react";
 
 const IconLibraryEmptyState: React.FC = () => {
 	return (
-		<div className="flex w-full flex-col">
+		<div className="flex w-full min-w-0 flex-col">
 			<main className="flex min-h-[calc(100dvh-3.5rem)] items-center justify-center px-6">
 				<div className="flex max-w-md flex-col items-center gap-4 text-center">
 					<h2 className="text-textPrimary text-3xl font-semibold tracking-tight sm:text-4xl">
