@@ -5,9 +5,12 @@ import { fileURLToPath } from "node:url";
 
 import { afterAll, describe, expect, it } from "vitest";
 
+import { fetchRegistryItem, renderIconContent } from "@animateicons/core";
+
 import { createServer } from "../src/server";
 import {
 	addIconTool,
+	frameworkUsage,
 	getDocsTool,
 	getIconTool,
 	listLibrariesTool,
@@ -115,5 +118,178 @@ describe("tools", () => {
 		const out = await getDocsTool(ctx, { page: "nope" });
 		expect(out.found).toBe(false);
 		expect(out.message).toContain("usage");
+	});
+});
+
+describe("get_icon frameworks", () => {
+	it("keeps the React output unchanged by default and for framework react", async () => {
+		const item = await fetchRegistryItem("lu-bell-ring", {
+			registryBase: PUBLIC_R,
+		});
+		const expected = {
+			found: true,
+			name: "bell-ring",
+			registryName: "lu-bell-ring",
+			library: "lucide",
+			fileName: "bell-ring.tsx",
+			componentName: "BellRingIcon",
+			importSnippet:
+				'import { BellRingIcon } from "@/components/icons/bell-ring";',
+			source: renderIconContent(item),
+		};
+		const byDefault = await getIconTool(ctx, { name: "lu-bell-ring" });
+		const explicit = await getIconTool(ctx, {
+			name: "lu-bell-ring",
+			framework: "react",
+		});
+		expect(JSON.stringify(byDefault)).toBe(JSON.stringify(expected));
+		expect(JSON.stringify(explicit)).toBe(JSON.stringify(expected));
+	});
+
+	it("returns vanilla code for a Lucide icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "lu-bell-ring",
+			framework: "vanilla",
+		});
+		expect(out).toEqual({
+			found: true,
+			name: "bell-ring",
+			registryName: "lu-bell-ring",
+			library: "lucide",
+			framework: "vanilla",
+			exportName: "BellRing",
+			install: "npm i @animateicons/vanilla",
+			usage: [
+				'import { createIcon } from "@animateicons/vanilla";',
+				'import { BellRing } from "@animateicons/vanilla/lucide";',
+				"",
+				"const icon = createIcon(BellRing, { size: 24 });",
+				"document.body.append(icon);",
+			].join("\n"),
+			customElement: [
+				'<script type="module">',
+				'  import { defineIcons } from "@animateicons/vanilla";',
+				'  import { BellRing } from "@animateicons/vanilla/lucide";',
+				"  defineIcons({ BellRing });",
+				"</script>",
+				'<animate-icons name="bell-ring"></animate-icons>',
+			].join("\n"),
+			cdn: [
+				'<script src="https://cdn.jsdelivr.net/npm/@animateicons/vanilla/dist/cdn/lucide.js"></script>',
+				'<animate-icons name="bell-ring"></animate-icons>',
+			].join("\n"),
+		});
+		expect(out.source).toBeUndefined();
+	});
+
+	it("returns vanilla code for a Huge icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "hu-arrow-up-right-0-1",
+			framework: "vanilla",
+		});
+		expect(out.library).toBe("huge");
+		expect(out.exportName).toBe("ArrowUpRight01");
+		expect(out.usage).toContain(
+			'import { ArrowUpRight01 } from "@animateicons/vanilla/huge";',
+		);
+		expect(out.usage).toContain("createIcon(ArrowUpRight01, { size: 24 })");
+		expect(out.customElement).toContain("defineIcons({ ArrowUpRight01 });");
+		expect(out.customElement).toContain(
+			'<animate-icons name="arrow-up-right-0-1"></animate-icons>',
+		);
+		expect(out.cdn).toContain(
+			"https://cdn.jsdelivr.net/npm/@animateicons/vanilla/dist/cdn/huge.js",
+		);
+	});
+
+	it("returns Vue code for a Lucide icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "lu-bell-ring",
+			framework: "vue",
+		});
+		expect(out).toEqual({
+			found: true,
+			name: "bell-ring",
+			registryName: "lu-bell-ring",
+			library: "lucide",
+			framework: "vue",
+			exportName: "BellRingIcon",
+			install: "npm i @animateicons/vue",
+			usage: [
+				'<script setup lang="ts">',
+				'import { BellRingIcon } from "@animateicons/vue/lucide";',
+				"</script>",
+				"",
+				"<template>",
+				'  <BellRingIcon :size="24" />',
+				"</template>",
+			].join("\n"),
+		});
+	});
+
+	it("returns Vue code for a Huge icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "hu-arrow-up-right-0-1",
+			framework: "vue",
+		});
+		expect(out.exportName).toBe("ArrowUpRight01Icon");
+		expect(out.install).toBe("npm i @animateicons/vue");
+		expect(out.usage).toContain(
+			'import { ArrowUpRight01Icon } from "@animateicons/vue/huge";',
+		);
+		expect(out.usage).toContain('<ArrowUpRight01Icon :size="24" />');
+	});
+
+	it("returns Angular code for a Lucide icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "lu-bell-ring",
+			framework: "angular",
+		});
+		expect(out.exportName).toBe("BellRing");
+		expect(out.install).toBe("npm i @animateicons/angular");
+		expect(out.usage).toBe(
+			[
+				'import { Component } from "@angular/core";',
+				'import { AnimateIcons } from "@animateicons/angular";',
+				'import { BellRing } from "@animateicons/angular/lucide";',
+				"",
+				"@Component({",
+				'  selector: "app-example",',
+				"  imports: [AnimateIcons],",
+				'  template: `<animate-icons [icon]="bellRing" [size]="24" />`,',
+				"})",
+				"export class Example {",
+				"  bellRing = BellRing;",
+				"}",
+			].join("\n"),
+		);
+	});
+
+	it("returns Angular code for a Huge icon", async () => {
+		const out = await getIconTool(ctx, {
+			name: "hu-arrow-up-right-0-1",
+			framework: "angular",
+		});
+		expect(out.usage).toContain(
+			'import { ArrowUpRight01 } from "@animateicons/angular/huge";',
+		);
+		expect(out.usage).toContain('[icon]="arrowUpRight01"');
+		expect(out.usage).toContain("arrowUpRight01 = ArrowUpRight01;");
+	});
+
+	it("frameworkUsage only adds the custom element and CDN for vanilla", () => {
+		expect(frameworkUsage("vanilla", "bell", "lucide").cdn).toBeTruthy();
+		expect(frameworkUsage("vue", "bell", "lucide").cdn).toBeUndefined();
+		expect(
+			frameworkUsage("angular", "bell", "huge").customElement,
+		).toBeUndefined();
+	});
+
+	it("reports not found for any framework", async () => {
+		const out = await getIconTool(ctx, {
+			name: "bell-rng",
+			framework: "vue",
+		});
+		expect(out.found).toBe(false);
 	});
 });

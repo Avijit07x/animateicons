@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import {
 	addIconTool,
+	FRAMEWORKS,
 	getDocsTool,
 	getIconTool,
 	listLibrariesTool,
@@ -17,7 +18,7 @@ const VERSION: string = createRequire(import.meta.url)(
 ).version;
 
 const INSTRUCTIONS =
-	"AnimateIcons is a library of animated React icons. Find and add icons with search_icons and add_icon. Before you wire an icon into a button, card, menu or input, or use props such as duration or the useIconHover hook, read the docs with get_docs.";
+	"AnimateIcons is a library of animated icons for React, Vue, Angular and plain JavaScript. Find icons with search_icons and add React icons with add_icon. Before you wire an icon into a button, card, menu or input, or use props such as duration or the useIconHover hook, read the docs with get_docs. For Vue, Angular or plain JavaScript, call get_icon with the framework argument instead of add_icon.";
 
 const libraryEnum = z.enum(["lucide", "huge"]);
 
@@ -46,11 +47,17 @@ export function createServer(ctx: ToolContext = {}): McpServer {
 
 	server.tool(
 		"get_icon",
-		"Get an icon's React component source plus a ready-to-paste import snippet. Read-only - use this to write the file yourself.",
+		"Get an icon's React component source plus a ready-to-paste import snippet. Read-only - use this to write the file yourself. Pass framework 'vanilla', 'vue' or 'angular' to get that package's install command and usage code instead.",
 		{
 			name: z
 				.string()
 				.describe("Icon name ('bell-ring') or registry id ('lu-bell-ring')"),
+			framework: z
+				.enum(FRAMEWORKS)
+				.optional()
+				.describe(
+					"Framework to return code for. Defaults to 'react', which returns the component source. 'vanilla', 'vue' and 'angular' return the npm install command and usage code for @animateicons/vanilla, @animateicons/vue or @animateicons/angular",
+				),
 		},
 		async (args) => asJson(await getIconTool(ctx, args)),
 	);

@@ -1,5 +1,11 @@
 # @animateicons/mcp
 
+## Unreleased
+
+### Minor Changes
+
+- `get_icon` takes an optional `framework` argument: `react` (the default), `vanilla`, `vue` or `angular`. For the last three it returns the install command and usage code for `@animateicons/vanilla`, `@animateicons/vue` or `@animateicons/angular`, and for plain JavaScript also the custom element and CDN snippets. Calls without `framework` return exactly what they did before.
+
 ## 0.3.0
 
 ### Minor Changes
