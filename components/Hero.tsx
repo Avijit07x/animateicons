@@ -89,9 +89,9 @@ const HeroSection: React.FC = () => {
 					variants={item}
 					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance max-sm:text-[15px] sm:text-base"
 				>
-					{ICON_COUNTS.total} free and open source animated icons for React,
-					Vue, Angular and plain JavaScript, in Lucide and Huge styles. Drop
-					them in and they move on hover, focus, or from your own code.
+					{ICON_COUNTS.total} free, open source and hand-crafted animated icons,
+					built to move. Install them or copy the code, then customize, extend,
+					and make them your own.
 				</motion.p>
 
 				<motion.div
