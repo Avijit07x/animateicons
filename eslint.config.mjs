@@ -13,6 +13,7 @@ const config = [
 			"coverage/**",
 			"**/*.generated.ts",
 			"**/src/generated/**",
+			"angular/.angular/**",
 			"public/**",
 			// Local, gitignored agent tooling - never committed, so not ours to lint.
 			".claude/**",
@@ -44,7 +45,7 @@ const config = [
 	},
 
 	{
-		files: ["vanilla/**", "vue/**"],
+		files: ["vanilla/**", "vue/**", "angular/**"],
 		rules: { "react-hooks/rules-of-hooks": "off" },
 	},
 

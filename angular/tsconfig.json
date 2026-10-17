@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ES2022",
+		"moduleResolution": "Bundler",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"strict": true,
+		"skipLibCheck": true,
+		"declaration": true,
+		"declarationMap": false,
+		"sourceMap": false,
+		"inlineSources": false,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"isolatedModules": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"types": []
+	},
+	"angularCompilerOptions": {
+		"compilationMode": "partial",
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	},
+	"include": ["src", "lucide", "huge"]
+}

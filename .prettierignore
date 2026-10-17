@@ -6,6 +6,7 @@ build
 coverage
 public
 **/src/generated
+.angular
 
 pnpm-lock.yaml
 **/pnpm-lock.yaml
