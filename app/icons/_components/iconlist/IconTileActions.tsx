@@ -12,7 +12,9 @@ import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
 import {
-	npmImportLine,
+	FRAMEWORK_LABELS,
+	frameworkOf,
+	importLine,
 	useDistribution,
 } from "../../_contexts/DistributionContext";
 import {
@@ -73,11 +75,16 @@ const IconTileActions: React.FC<Props> = ({
 	} = useIconHover({ trigger: triggerConfig });
 	const checkRef = useRef<CheckIconHandle>(null);
 
+	const isShadcn = distribution === "shadcn";
+	const importLabel =
+		distribution === "npm"
+			? "npm"
+			: FRAMEWORK_LABELS[frameworkOf(distribution)];
+
 	const copyInstallSnippet = async () => {
-		const payload =
-			distribution === "npm"
-				? npmImportLine(name, library as "lucide" | "huge")
-				: shadcnAddCommand(packageManager, prefix, name);
+		const payload = isShadcn
+			? shadcnAddCommand(packageManager, prefix, name)
+			: importLine(distribution, name, library as "lucide" | "huge");
 
 		await navigator.clipboard.writeText(payload);
 		setCopiedCliId(tileId);
@@ -104,7 +111,6 @@ const IconTileActions: React.FC<Props> = ({
 		}
 	};
 
-	const isNpm = distribution === "npm";
 	const justCopied = isCopied || isCopiedCli;
 
 	useEffect(() => {
@@ -126,23 +132,25 @@ const IconTileActions: React.FC<Props> = ({
 				className="flex items-center gap-0.5 rounded-full p-0.5 pointer-coarse:gap-1 pointer-coarse:p-1"
 			>
 				<IconAction
-					tooltip={isNpm ? "copy npm import" : "copy shadcn/cli command"}
+					tooltip={
+						isShadcn ? "copy shadcn/cli command" : `copy ${importLabel} import`
+					}
 					ariaLabel={
 						isCopiedCli
 							? "Copied"
-							: isNpm
-								? "Copy npm import"
-								: "Copy CLI Command"
+							: isShadcn
+								? "Copy CLI Command"
+								: `Copy ${importLabel} import`
 					}
 					triggerProps={trigger}
 					onClick={copyInstallSnippet}
 				>
 					{isCopiedCli ? (
 						<CheckIcon size={14} ref={checkRef} />
-					) : isNpm ? (
-						<PackageDeliveredIcon size={14} {...install} />
-					) : (
+					) : isShadcn ? (
 						<TerminalIcon size={14} {...install} />
+					) : (
+						<PackageDeliveredIcon size={14} {...install} />
 					)}
 				</IconAction>
 

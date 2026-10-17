@@ -45,6 +45,38 @@ describe("InstallBlock", () => {
 		);
 	});
 
+	it("installs the package of the chosen framework", () => {
+		setup();
+		fireEvent.click(screen.getByRole("button", { name: "Vue" }));
+		expect(command()).toBe("npm i @animateicons/vue");
+		fireEvent.click(screen.getByRole("button", { name: "Angular" }));
+		expect(command()).toBe("npm i @animateicons/angular");
+		fireEvent.click(screen.getByRole("button", { name: "pnpm" }));
+		fireEvent.click(screen.getByRole("button", { name: "Plain JS" }));
+		expect(command()).toBe("pnpm add @animateicons/vanilla");
+		expect(localStorage.getItem("distribution")).toBe("vanilla");
+	});
+
+	it("only offers npm and shadcn for React", () => {
+		setup();
+		fireEvent.click(screen.getByRole("button", { name: "Vue" }));
+		expect(screen.queryByRole("button", { name: "shadcn" })).toBeNull();
+		fireEvent.click(screen.getByRole("button", { name: "React" }));
+		expect(command()).toBe("npm i @animateicons/react");
+		expect(
+			screen
+				.getByRole("button", { name: "npm package" })
+				.getAttribute("aria-pressed"),
+		).toBe("true");
+	});
+
+	it("keeps shadcn when React is picked again", () => {
+		setup();
+		fireEvent.click(screen.getByRole("button", { name: "shadcn" }));
+		fireEvent.click(screen.getByRole("button", { name: "React" }));
+		expect(command()).toBe("npx shadcn@latest add @animateicons/lu-bell");
+	});
+
 	it("keeps the chosen manager when switching between methods", () => {
 		setup();
 		fireEvent.click(screen.getByRole("button", { name: "pnpm" }));
