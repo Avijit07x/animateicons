@@ -38,12 +38,13 @@ const PlaygroundControls: React.FC<Props> = ({ config, update }) => (
 			value={config.duration}
 			onChange={(duration) => update("duration", duration)}
 		/>
-		<div className="flex items-center justify-between gap-4">
+		<div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
 			<span className="text-textMuted text-sm">Color</span>
 			<ColorSwatches
 				value={config.color}
 				onChange={(color) => update("color", color)}
 				swatches={SWATCHES}
+				className="flex-wrap"
 			/>
 		</div>
 	</div>

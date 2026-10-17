@@ -137,7 +137,7 @@ const InstallBlock: React.FC<Props> = ({ prefix, name }) => {
 			</div>
 
 			<div className="bg-surface rounded-[22px] p-2">
-				<div className="flex items-center justify-between gap-2 pb-2">
+				<div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 pb-2">
 					<Segmented
 						label="Package manager"
 						value={packageManager}

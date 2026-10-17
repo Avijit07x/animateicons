@@ -93,9 +93,9 @@ const PlaygroundSheet: React.FC = () => {
 							String(e.currentTarget.scrollTop > 0),
 						);
 					}}
-					className="grid min-h-0 flex-1 scrollbar-none gap-5 overflow-y-auto px-6 pt-3 pb-6 md:grid-cols-2 md:grid-rows-1 [&::-webkit-scrollbar]:hidden"
+					className="grid min-h-0 flex-1 scrollbar-none grid-cols-1 gap-5 overflow-y-auto px-6 pt-3 pb-6 md:grid-cols-2 md:grid-rows-1 [&::-webkit-scrollbar]:hidden"
 				>
-					<div className="flex min-h-0 flex-col gap-5">
+					<div className="flex flex-col gap-5 md:min-h-0">
 						<div className="relative flex flex-1 flex-col">
 							<PlaygroundPreview
 								Icon={icon.Component}
@@ -118,7 +118,7 @@ const PlaygroundSheet: React.FC = () => {
 						<PlaygroundControls config={config} update={update} />
 					</div>
 
-					<div className="flex min-h-0 flex-col gap-5">
+					<div className="flex flex-col gap-5 md:min-h-0">
 						<InstallBlock prefix={icon.prefix} name={icon.name} />
 						<CodeBlock
 							label="Import & usage"
