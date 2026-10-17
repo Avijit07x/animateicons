@@ -17,7 +17,7 @@ const geistSans = Geist({
 
 const baseUrl = "https://animateicons.in";
 
-const SITE_DESCRIPTION = `${ICON_COUNTS.total}+ free, open-source, hand-crafted animated SVG icons for React, Vue, Angular and plain JavaScript, built on Lucide and Motion. Add them with npm or the shadcn CLI, and make them move on hover, focus, or with your code.`;
+const SITE_DESCRIPTION = `${ICON_COUNTS.total} free, open source and hand-crafted animated icons for React, Vue, Angular and plain JavaScript. Install them or copy the code, and make them your own.`;
 
 const SITE_TITLE = `AnimateIcons | ${ICON_COUNTS.total}+ Free Animated React Icons`;
 
