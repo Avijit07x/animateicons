@@ -140,7 +140,7 @@ pnpm exec prettier --write data/lucide-icons.json icons/lucide/<name>-icon.tsx
 pnpm gen:icons
 ```
 
-Update the icon counts in `README.md` (the headline and the `lucide/` line in the layout tree) and `npm/README.md`. `pnpm check:readme` prints the numbers it expects.
+Update the icon counts in `README.md` (the headline and the `lucide/` line in the layout tree) and `npm/README.md`. `pnpm check` prints the numbers it expects.
 
 Then run:
 

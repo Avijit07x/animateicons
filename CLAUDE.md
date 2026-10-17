@@ -17,14 +17,14 @@ Animated SVG icon library for React, built on `motion/react`. Two icon libraries
 
 Use pnpm, never npm or yarn.
 
-- `pnpm dev`: runs `gen:icons` and `check:all` first (which includes `prettier --write .`), then starts Next with Turbopack. It also writes `AGENTS.md` and `CLAUDE.md` stubs.
+- `pnpm dev`: runs `gen:icons`, `format` (`prettier --write .`) and `check` first, then starts Next with Turbopack. It also writes `AGENTS.md` and `CLAUDE.md` stubs.
 - `pnpm lint`, `pnpm typecheck`, `pnpm test`: run all three before calling work done.
 - `pnpm gen:icons`: regenerates barrels, `registry.json`, `public/r/*.json`, `public/r/catalog.json`, `public/r/docs.json` and `lib/icon-count.generated.ts`. Never edit these by hand.
 - `pnpm gen:docs`: rebuilds `public/r/docs.json` from the docs MDX pages, which is what the MCP `get_docs` tool reads. Run it after editing a docs page (`tests/scripts/docs-markdown.test.ts` fails when it is stale). A new MDX component in a docs page needs a rule in `scripts/docs-markdown.ts`, or the build fails and says which tag.
-- `pnpm check:icons`, `pnpm check:registry`, `pnpm check:readme`: duplicate names, registry sync, README counts.
+- `pnpm check`: duplicate names, registry sync and README counts.
 - `pnpm verify`: everything CI runs, including the npm package size budget.
 
-The `.githooks/pre-push` hook runs `pnpm lint` and `pnpm check:readme`. Enable it with `pnpm hooks:install`.
+The `.githooks/pre-push` hook runs `pnpm lint` and `pnpm check`. Enable it with `pnpm hooks:install`.
 
 ## Adding an icon
 
@@ -37,7 +37,7 @@ Library-specific walkthroughs, including where the shapes come from: `docs/addin
 2. Add an entry to the matching JSON manifest: `name` (filename without `-icon`), `addedAt` (`YYYY-MM-DD`), `category` and `keywords`. Reuse existing categories.
    - Where the entry sits in the manifest does not matter. Gallery order is generated for both libraries: `pnpm gen:icons` groups icons into families (the shared first word of the name, plus the merges in `FAMILY_ALIASES` in `scripts/icon-order.ts`) with the base icon first, so `bell`, `bell-ring` and `notification` sit together. Do not reorder the manifests by hand. If a new family lands apart from its relatives, add the merge to `FAMILY_ALIASES`. `tests/scripts/icon-order.test.ts` fails when the generated order is stale.
 3. Run `pnpm exec prettier --write` on the new files and the manifest, then `pnpm gen:icons`. The registry embeds the source, so generating before formatting ships unformatted code.
-4. Update the icon counts in `README.md` and `npm/README.md` (`pnpm check:readme` tells you the expected numbers).
+4. Update the icon counts in `README.md` and `npm/README.md` (`pnpm check` tells you the expected numbers).
 5. Run `pnpm lint`, `pnpm typecheck` and `pnpm test`.
 
 Before picking icons from `lucide-react`, check they are not duplicates. Compare geometry against existing icons, not just names, because Lucide has aliases (for example `fingerprint` is `fingerprint-pattern`) and near twins (`gamepad-2` is `gamepad`, `share-2` is `share`). Skip look-alikes.

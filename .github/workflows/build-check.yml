@@ -16,7 +16,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
@@ -48,25 +48,10 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Typecheck npm package
-        run: pnpm --filter @animateicons/react typecheck
-
-      - name: Build npm package
-        run: pnpm --filter @animateicons/react build
-
-      - name: Codegen integrity test
-        run: pnpm --filter @animateicons/react test:codegen
+      - name: Verify every package (types, tests, build and size budgets)
+        run: pnpm verify:packages
 
       - name: Validate package exports and types (publint + attw)
-        run: pnpm exec publint npm && pnpm exec attw --pack npm --profile node16
+        run: pnpm lint:packages
         env:
           npm_config_ignore_scripts: "true"
-
-      - name: Smoke-test npm package against built dist
-        run: pnpm --filter @animateicons/react test:smoke
-
-      - name: Enforce npm bundle size budget
-        run: pnpm --filter @animateicons/react size
-
-      - name: Verify core + CLI + MCP packages
-        run: pnpm run verify:packages
