@@ -1,0 +1,125 @@
+import CodeBlock from "../../_components/docs/CodeBlock";
+import CommandBlock from "../../_components/docs/CommandBlock";
+import { Callout } from "../_components/Callout";
+
+export const metadata = {
+	title: "Animated Angular Icons",
+	description:
+		"Use AnimateIcons in Angular 20, 21 and 22 with @animateicons/angular. One standalone component with signal inputs, zoneless support and server rendering that shows the icon at rest.",
+	alternates: {
+		canonical: "/icons/docs/angular",
+	},
+};
+
+export const usageCode = `import { Component } from "@angular/core";
+import { AnimateIcons } from "@animateicons/angular";
+import { BellRing } from "@animateicons/angular/lucide";
+\n@Component({
+	selector: "app-example",
+	imports: [AnimateIcons],
+	template: \`<animate-icons [icon]="bellRing" [size]="32" color="tomato" />\`,
+})
+export class Example {
+	bellRing = BellRing;
+}`;
+
+export const inputsCode = `<animate-icons
+	[icon]="bellRing"
+	[size]="32"
+	color="tomato"
+	[duration]="1.5"
+	[isAnimated]="true"
+/>`;
+
+export const manualCode = `import { Component, viewChild } from "@angular/core";
+import { AnimateIcons } from "@animateicons/angular";
+import { Bell } from "@animateicons/angular/lucide";
+\n@Component({
+	selector: "app-bell-button",
+	imports: [AnimateIcons],
+	template: \`
+		<animate-icons [icon]="bell" [size]="32" [isAnimated]="false" />
+		<button (click)="icon()?.startAnimation()">Ring</button>
+	\`,
+})
+export class BellButton {
+	bell = Bell;
+	icon = viewChild(AnimateIcons);
+}`;
+
+# Angular
+
+`@animateicons/angular` plays the same animations as the React package, as one standalone component. It works with Angular 20, 21 and 22, with or without zone.js.
+
+<div className="space-y-14">
+
+<section className="space-y-6">
+
+## Installation
+
+<CommandBlock pkg="@animateicons/angular" />
+
+`motion` comes with it, so this is the only install.
+
+</section>
+
+<section className="space-y-4">
+
+## Usage
+
+Add `AnimateIcons` to your component's `imports` and pass it an icon. Icons are data from the `lucide` or `huge` subpath, named after the icon in PascalCase: `bell-ring` is `BellRing`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01`.
+
+<CodeBlock code={usageCode} lang="ts" title="example.ts" />
+
+The icon plays on hover and resets when the pointer leaves.
+
+</section>
+
+<section className="space-y-4">
+
+## Inputs
+
+Every input is a signal input.
+
+<CodeBlock code={inputsCode} lang="html" title="example.html" />
+
+- `icon`: the icon data. Required.
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `isAnimated`: play on hover. `false` turns hover off, while `startAnimation()` still works. Default `true`.
+
+</section>
+
+<section className="space-y-4">
+
+## Playing it yourself
+
+Get the component with `viewChild` and call `startAnimation()` or `stopAnimation()`.
+
+<CodeBlock code={manualCode} lang="ts" title="bell-button.ts" />
+
+<Callout type="note">
+	In React, passing a `ref` switches an icon to manual mode on its own. Angular
+	cannot detect that, so manual mode means `[isAnimated]="false"` plus your own
+	`startAnimation()` calls.
+</Callout>
+
+</section>
+
+<section className="space-y-4">
+
+## Server rendering and change detection
+
+With server rendering, the component outputs the whole icon at rest, so the page shows it before hydration. The animation only starts in the browser.
+
+The animation runs outside Angular's change detection, so hovering an icon never triggers a change detection run in your app. Zoneless apps need no extra setup.
+
+<Callout type="note">
+	Animations respect the **Reduce Motion** setting. With it turned on, hover
+	does nothing and `startAnimation()` keeps the icon at rest.
+</Callout>
+
+</section>
+
+</div>

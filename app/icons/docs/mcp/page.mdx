@@ -4,7 +4,7 @@ import { Callout } from "../_components/Callout";
 export const metadata = {
 	title: "AnimateIcons MCP Server",
 	description:
-		"Connect the @animateicons/mcp Model Context Protocol server so AI coding agents like Claude Code and Cursor can search and add animated React icons for you.",
+		"Connect the @animateicons/mcp Model Context Protocol server so AI coding agents like Claude Code and Cursor can search and add animated icons for you.",
 	alternates: {
 		canonical: "/icons/docs/mcp",
 	},
@@ -40,8 +40,8 @@ export const mcpUsageCode = `// Then just ask your agent in plain language:
 Once connected, your agent gets five tools:
 
 - `search_icons`: fuzzy-search the catalog by name, keyword, or category.
-- `get_icon`: return an icon's component source plus a ready-to-paste import (read-only).
-- `add_icon`: write an icon's component file into your project (default `components/icons/`).
+- `get_icon`: return an icon's component source plus a ready-to-paste import (read-only). Pass the optional `framework` argument (`react`, `vanilla`, `vue` or `angular`, default `react`) to get the install command and usage code for that framework.
+- `add_icon`: write an icon's React component file into your project (default `components/icons/`).
 - `get_docs`: read these docs, including the props, the ref handle, the `useIconHover` hook and the examples. Without a page it lists them.
 - `list_libraries`: list the libraries and how many icons each has.
 
