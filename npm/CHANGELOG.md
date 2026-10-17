@@ -1,6 +1,6 @@
 # @animateicons/react
 
-## Unreleased
+## 0.12.1
 
 ### Patch Changes
 
