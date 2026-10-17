@@ -5,6 +5,7 @@ dist
 build
 coverage
 public
+**/src/generated
 
 pnpm-lock.yaml
 **/pnpm-lock.yaml
