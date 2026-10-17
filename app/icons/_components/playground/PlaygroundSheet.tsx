@@ -65,13 +65,16 @@ const PlaygroundSheet: React.FC = () => {
 				if (!next) closePlayground();
 			}}
 		>
-			<SheetContent className="bg-bgDark border-border/60 w-full overflow-hidden p-0 sm:max-w-md">
+			<SheetContent
+				side="bottom"
+				className="bg-bgDark border-border/60 inset-x-3 bottom-3 mx-auto max-h-[85dvh] max-w-4xl gap-0 overflow-hidden rounded-3xl border p-0 md:h-[32rem]"
+			>
 				<SheetHeader
 					ref={headerRef}
-					className="data-[scrolled=true]:border-border/60 shrink-0 gap-1.5 border-b border-transparent px-7 pt-6 pb-4 transition-colors"
+					className="data-[scrolled=true]:border-border/60 shrink-0 gap-1 border-b border-transparent px-6 pt-5 pb-3 transition-colors"
 				>
 					<div className="flex items-center gap-2.5">
-						<SheetTitle className="text-textPrimary text-xl font-semibold">
+						<SheetTitle className="text-textPrimary text-lg font-semibold">
 							{formatLabel(icon.name)}
 						</SheetTitle>
 						<span className="bg-surfaceElevated text-textSecondary rounded-full px-2.5 py-0.5 text-xs font-medium capitalize">
@@ -90,26 +93,40 @@ const PlaygroundSheet: React.FC = () => {
 							String(e.currentTarget.scrollTop > 0),
 						);
 					}}
-					className="min-h-0 flex-1 scrollbar-none space-y-6 overflow-y-auto px-7 pt-4 pb-8 [&::-webkit-scrollbar]:hidden"
+					className="grid min-h-0 flex-1 scrollbar-none gap-5 overflow-y-auto px-6 pt-3 pb-6 md:grid-cols-2 md:grid-rows-1 [&::-webkit-scrollbar]:hidden"
 				>
-					<PlaygroundPreview
-						Icon={icon.Component}
-						componentName={icon.componentName}
-						config={config}
-						iconRef={iconRef}
-						triggerProps={triggerProps}
-					/>
+					<div className="flex min-h-0 flex-col gap-5">
+						<div className="relative flex flex-1 flex-col">
+							<PlaygroundPreview
+								Icon={icon.Component}
+								componentName={icon.componentName}
+								config={config}
+								iconRef={iconRef}
+								triggerProps={triggerProps}
+								hint={false}
+								className="h-auto min-h-44 flex-1"
+							/>
+							<div className="absolute inset-x-0 bottom-3">
+								<PreviewActions
+									iconRef={iconRef}
+									onReset={reset}
+									resetDisabled={isDefault}
+								/>
+							</div>
+						</div>
 
-					<PreviewActions
-						iconRef={iconRef}
-						onReset={reset}
-						resetDisabled={isDefault}
-					/>
+						<PlaygroundControls config={config} update={update} />
+					</div>
 
-					<PlaygroundControls config={config} update={update} />
-
-					<InstallBlock prefix={icon.prefix} name={icon.name} />
-					<CodeBlock label="Import & usage" code={snippet} lang="tsx" />
+					<div className="flex min-h-0 flex-col gap-5">
+						<InstallBlock prefix={icon.prefix} name={icon.name} />
+						<CodeBlock
+							label="Import & usage"
+							code={snippet}
+							lang="tsx"
+							className="min-h-0 flex-1"
+						/>
+					</div>
 				</div>
 			</SheetContent>
 		</Sheet>
