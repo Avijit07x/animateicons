@@ -38,7 +38,7 @@ export const buildIconMetadata = ({
 	const url = `${BASE_URL}/icons/${library}/${name}`;
 
 	const title = `${componentName} - Animated ${libDisplay} icon for React`;
-	const description = `${display} animated icon for React. Drop-in component with hover and imperative animation triggers, configurable size, color, and duration. Available via @animateicons/react and the shadcn CLI.`;
+	const description = `${display} animated icon for React, Vue, Angular and plain JavaScript. Hover and imperative animation triggers, with configurable size, color, and duration. Install it with npm or the shadcn CLI.`;
 
 	return {
 		title,
@@ -89,13 +89,13 @@ export const buildIconJsonLd = ({
 				"@id": `${url}#webpage`,
 				url,
 				name: `${componentName} animated icon`,
-				description: `${display} animated icon for React, part of the AnimateIcons library.`,
+				description: `${display} animated icon for React, Vue, Angular and plain JavaScript, part of the AnimateIcons library.`,
 				isPartOf: { "@id": `${BASE_URL}#website` },
 			},
 			{
 				"@type": "CreativeWork",
 				name: componentName,
-				description: `${display} animated icon for React.`,
+				description: `${display} animated icon for React, Vue, Angular and plain JavaScript.`,
 				url,
 				keywords: keywords.join(", "),
 				license: "https://opensource.org/licenses/MIT",
