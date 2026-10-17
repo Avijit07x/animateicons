@@ -1,3 +1,4 @@
+import type { RequestType } from "@/lib/request";
 import type { IconHandle } from "@/types/icon";
 import type { ComponentType, Ref } from "react";
 
@@ -13,6 +14,7 @@ type SidebarItem = {
 	target?: string;
 	isActive?: boolean;
 	highlight?: boolean;
+	request?: RequestType;
 };
 
 export type SidebarGroupConfig = {

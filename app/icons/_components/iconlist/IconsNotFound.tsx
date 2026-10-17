@@ -1,10 +1,16 @@
-import IconLink from "@/components/IconLink";
-import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
+import { Button } from "@/components/ui/button";
+import { toIconSlug } from "@/lib/request";
 import { motion } from "motion/react";
 import React from "react";
-import { HIRE_URL } from "../../docs/_lib/links";
+import { useRequest } from "../../_contexts/RequestContext";
 
-const IconsNotFound: React.FC = () => {
+type Props = {
+	query: string;
+};
+
+const IconsNotFound: React.FC<Props> = ({ query }) => {
+	const { openRequest } = useRequest();
+
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 16 }}
@@ -28,18 +34,13 @@ const IconsNotFound: React.FC = () => {
 						Custom animated icons, in the same style.
 					</p>
 				</div>
-				<IconLink
-					href={HIRE_URL}
-					target="_blank"
-					rel="noopener noreferrer"
-					icon={ArrowUpRight01Icon}
-					iconSize={14}
-					variant="default"
+				<Button
 					size="sm"
 					className="shrink-0"
+					onClick={() => openRequest({ type: "icon", icon: toIconSlug(query) })}
 				>
-					Hire me
-				</IconLink>
+					Request it
+				</Button>
 			</div>
 		</motion.div>
 	);

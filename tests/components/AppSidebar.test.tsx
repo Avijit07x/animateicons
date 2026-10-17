@@ -1,5 +1,6 @@
 import AppSidebar from "@/app/icons/_components/sidebar/AppSidebar";
 import CategoryContextProvider from "@/app/icons/_contexts/CategoryContext";
+import { RequestProvider } from "@/app/icons/_contexts/RequestContext";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { act } from "@testing-library/react";
 import { hydrateRoot } from "react-dom/client";
@@ -30,7 +31,9 @@ vi.mock("@/icons/huge/meta", () => ({ ICON_META: mocks.huge }));
 const tree = (
 	<SidebarProvider>
 		<CategoryContextProvider>
-			<AppSidebar />
+			<RequestProvider>
+				<AppSidebar />
+			</RequestProvider>
 		</CategoryContextProvider>
 	</SidebarProvider>
 );
