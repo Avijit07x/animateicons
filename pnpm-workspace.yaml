@@ -5,6 +5,7 @@ packages:
   - "mcp"
   - "vanilla"
   - "vue"
+  - "angular"
 nodeLinker: hoisted
 strictPeerDependencies: false
 autoInstallPeers: true
@@ -14,4 +15,5 @@ overrides:
   picomatch@^4: 4.0.7
 allowBuilds:
   esbuild: true
+  "@parcel/watcher": false
   unrs-resolver: true

@@ -47,6 +47,15 @@
 		},
 		"vue": {
 			"entry": ["src/index.ts", "scripts/*.mjs", "__tests__/*.ts"]
+		},
+		"angular": {
+			"entry": [
+				"src/public-api.ts",
+				"lucide/index.ts",
+				"huge/index.ts",
+				"scripts/*.mjs",
+				"__tests__/*.ts"
+			]
 		}
 	}
 }

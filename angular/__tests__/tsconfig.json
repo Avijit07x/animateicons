@@ -1,0 +1,17 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"types": ["node"],
+		"paths": {
+			"@animateicons/angular": ["../dist/types/animateicons-angular.d.ts"],
+			"@animateicons/angular/lucide": [
+				"../dist/types/animateicons-angular-lucide.d.ts"
+			],
+			"@animateicons/angular/huge": [
+				"../dist/types/animateicons-angular-huge.d.ts"
+			]
+		}
+	},
+	"include": [".", "../vitest.config.ts"]
+}

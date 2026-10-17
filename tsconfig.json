@@ -29,5 +29,14 @@
 		".next/types/**/*.ts",
 		".next/dev/types/**/*.ts"
 	],
-	"exclude": ["node_modules", "npm", "core", "cli", "mcp", "vanilla", "vue"]
+	"exclude": [
+		"node_modules",
+		"npm",
+		"core",
+		"cli",
+		"mcp",
+		"vanilla",
+		"vue",
+		"angular"
+	]
 }
