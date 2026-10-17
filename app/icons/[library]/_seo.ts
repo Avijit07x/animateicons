@@ -32,9 +32,9 @@ const CONTENT: Record<LibraryKey, LibraryContent> = {
 	lucide: {
 		displayName: "Lucide",
 		tagline:
-			"Animated Lucide icons for React with smooth motion-driven micro-interactions.",
+			"Animated Lucide icons for React, Vue, Angular and plain JS with smooth motion-driven micro-interactions.",
 		description:
-			"Animated Lucide icons for React. Drop-in components built on motion/react with hover and imperative triggers, configurable size, color, and duration.",
+			"Animated Lucide icons for React, Vue, Angular and plain JavaScript. Hover and imperative triggers, with configurable size, color, and duration.",
 		keywords: [
 			"lucide animated icons",
 			"animated lucide react",
@@ -45,9 +45,9 @@ const CONTENT: Record<LibraryKey, LibraryContent> = {
 	huge: {
 		displayName: "Huge",
 		tagline:
-			"Animated Huge icons for React - bold, expressive SVG micro-interactions.",
+			"Animated Huge icons for React, Vue, Angular and plain JS. Bold, expressive SVG micro-interactions.",
 		description:
-			"Animated Huge icons for React. Bold, expressive SVG icons with hover and imperative animation triggers, fully customizable size, color, and timing.",
+			"Animated Huge icons for React, Vue, Angular and plain JavaScript. Bold, expressive SVG icons with hover and imperative triggers, fully customizable size, color, and timing.",
 		keywords: [
 			"huge animated icons",
 			"animated huge react",
