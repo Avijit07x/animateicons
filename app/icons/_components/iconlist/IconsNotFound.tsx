@@ -1,5 +1,8 @@
+import IconLink from "@/components/IconLink";
+import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { motion } from "motion/react";
 import React from "react";
+import { HIRE_URL } from "../../docs/_lib/links";
 
 const IconsNotFound: React.FC = () => {
 	return (
@@ -15,6 +18,29 @@ const IconsNotFound: React.FC = () => {
 			<p className="text-textSecondary mt-2 max-w-xs text-sm leading-relaxed">
 				Nothing matches your search. Try a different or simpler keyword.
 			</p>
+
+			<div className="bg-surface mt-7 flex w-full max-w-sm items-center gap-3 rounded-[22px] bg-[radial-gradient(90%_140%_at_100%_0%,rgb(244_91_72/0.14),transparent_65%)] py-2 pr-2 pl-5 text-left">
+				<div className="min-w-0 flex-1">
+					<p className="text-textPrimary text-sm font-medium">
+						Can&apos;t find it? I&apos;ll make it.
+					</p>
+					<p className="text-textSecondary text-xs">
+						Custom animated icons, in the same style.
+					</p>
+				</div>
+				<IconLink
+					href={HIRE_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					icon={ArrowUpRight01Icon}
+					iconSize={14}
+					variant="default"
+					size="sm"
+					className="shrink-0"
+				>
+					Hire me
+				</IconLink>
+			</div>
 		</motion.div>
 	);
 };
