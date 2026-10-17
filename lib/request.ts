@@ -1,12 +1,12 @@
-export const REQUEST_TYPES = ["icon", "work", "feedback", "other"] as const;
-export const REQUEST_LIBRARIES = ["lucide", "huge", "either"] as const;
+const REQUEST_TYPES = ["icon", "work", "feedback", "other"] as const;
+const REQUEST_LIBRARIES = ["lucide", "huge", "either"] as const;
 
 export type RequestType = (typeof REQUEST_TYPES)[number];
 export type RequestLibrary = (typeof REQUEST_LIBRARIES)[number];
 export type RequestField = "type" | "name" | "email" | "icon" | "message";
 export type RequestErrors = Partial<Record<RequestField, string>>;
 
-export type RequestData = {
+type RequestData = {
 	type: RequestType;
 	name: string;
 	email: string;
