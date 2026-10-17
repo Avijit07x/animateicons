@@ -100,7 +100,7 @@ const ScanQrCodeIcon = forwardRef<ScanQrCodeIconHandle, ScanQrCodeIconProps>(
     transition: {
      duration: 0.48 * duration,
      ease: "easeOut",
-     delay,
+     delay: delay * duration,
     },
    },
   });

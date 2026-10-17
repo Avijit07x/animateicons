@@ -113,7 +113,7 @@ const BaggageClaimIcon = forwardRef<
     transition: {
      duration: 0.5 * duration,
      ease: "easeInOut",
-     delay: 0.1,
+     delay: 0.1 * duration,
     },
    },
   };

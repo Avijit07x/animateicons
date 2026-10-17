@@ -57,12 +57,11 @@ const LaptopIcon = forwardRef<LaptopIconHandle, LaptopIconProps>(
   const isControlled = useRef(false);
 
   const start = useCallback(() => {
-   if (reduced) return;
-   lidControls.start("open");
+   lidControls.start(reduced ? "normal" : "animate");
   }, [lidControls, reduced]);
 
   const stop = useCallback(() => {
-   lidControls.start("rest");
+   lidControls.start("normal");
   }, [lidControls]);
 
   useImperativeHandle(ref, () => {
@@ -97,12 +96,12 @@ const LaptopIcon = forwardRef<LaptopIconHandle, LaptopIconProps>(
   };
 
   const lidVariants: Variants = {
-   rest: {
+   normal: {
     rotateX: 0,
     ...hinge,
     transition: { duration: 0.5 * duration, ease: "easeInOut" },
    },
-   open: {
+   animate: {
     rotateX: [0, 72, -6, 2, 0],
     ...hinge,
     transition: {
@@ -136,7 +135,7 @@ const LaptopIcon = forwardRef<LaptopIconHandle, LaptopIconProps>(
       <m.path
        d="M4 15.526V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8.526"
        animate={lidControls}
-       initial="rest"
+       initial="normal"
        variants={lidVariants}
        style={{ transformBox: "view-box" }}
       />

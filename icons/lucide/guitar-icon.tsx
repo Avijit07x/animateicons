@@ -57,12 +57,11 @@ const GuitarIcon = forwardRef<GuitarIconHandle, GuitarIconProps>(
   const isControlled = useRef(false);
 
   const start = useCallback(() => {
-   if (reduced) return;
-   stringControls.start("strum");
+   stringControls.start(reduced ? "normal" : "animate");
   }, [stringControls, reduced]);
 
   const stop = useCallback(() => {
-   stringControls.start("rest");
+   stringControls.start("normal");
   }, [stringControls]);
 
   useImperativeHandle(ref, () => {
@@ -91,8 +90,8 @@ const GuitarIcon = forwardRef<GuitarIconHandle, GuitarIconProps>(
   );
 
   const stringVariants = (i: number): Variants => ({
-   rest: { x: 0, y: 0 },
-   strum: {
+   normal: { x: 0, y: 0 },
+   animate: {
     x: [0, 0.5, -0.4, 0.25, 0],
     y: [0, -0.5, 0.4, -0.25, 0],
     transition: {
@@ -127,7 +126,7 @@ const GuitarIcon = forwardRef<GuitarIconHandle, GuitarIconProps>(
       <m.path
        d="m11.9 12.1 4.514-4.514"
        animate={stringControls}
-       initial="rest"
+       initial="normal"
        variants={stringVariants(0)}
        style={{ transformBox: "fill-box" }}
       />
@@ -135,7 +134,7 @@ const GuitarIcon = forwardRef<GuitarIconHandle, GuitarIconProps>(
       <m.path
        d="m6 16 2 2"
        animate={stringControls}
-       initial="rest"
+       initial="normal"
        variants={stringVariants(1)}
        style={{ transformBox: "fill-box" }}
       />

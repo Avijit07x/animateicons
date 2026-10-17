@@ -102,7 +102,7 @@ const SlidersHorizontalIcon = forwardRef<
     transition: {
      duration: 0.7 * duration,
      ease: "easeInOut",
-     delay: i * 0.05,
+     delay: i * 0.05 * duration,
     },
    }),
   };
