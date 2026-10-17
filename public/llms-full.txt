@@ -1,0 +1,1345 @@
+# Introduction
+
+AnimateIcons is 1170 free animated SVG icons in two styles, Lucide and Huge. Every icon ships for React, Vue, Angular and plain JavaScript, and moves the same way in each.
+
+## Pick your framework
+
+Each framework has its own package. Install the one for your app, then follow its guide.
+
+- [React](https://animateicons.in/icons/docs/react): `@animateicons/react`. Icon components for React 18 and 19, including Next.js.
+- [Vue](https://animateicons.in/icons/docs/vue): `@animateicons/vue`. Icon components for Vue 3.5 and newer, including Nuxt.
+- [Angular](https://animateicons.in/icons/docs/angular): `@animateicons/angular`. One standalone component for Angular 20, 21 and 22.
+- [Plain JS](https://animateicons.in/icons/docs/vanilla): `@animateicons/vanilla`. A function, a custom element and a CDN script for any page.
+
+> **Tip:** Using Svelte, Solid, Astro or a plain HTML page? Use the [Plain JS](https://animateicons.in/icons/docs/vanilla) package. It works on any web page.
+
+## What every package shares
+
+- The same 1170 icons. Their motion is checked frame by frame against React in every framework.
+- Icons play on hover out of the box and reset when the pointer leaves.
+- The same options: `size`, `color`, `duration` (a speed multiplier) and `isAnimated`.
+- `startAnimation()` and `stopAnimation()` to play an icon from your own code.
+- The **Reduce Motion** setting is respected with no setup.
+- `motion` comes inside every package, so there is nothing else to install.
+
+## Icon names
+
+Every icon has a name such as `bell-ring`, shown in the [gallery](https://animateicons.in/icons/lucide). React and Vue export a component named after it in PascalCase with `Icon` at the end. Angular and plain JS export the icon itself, without `Icon`.
+
+```ts title="Imports"
+// React
+import { BellRingIcon } from "@animateicons/react/lucide"
+
+// Vue
+import { BellRingIcon } from "@animateicons/vue/lucide"
+
+// Angular
+import { BellRing } from "@animateicons/angular/lucide"
+
+// Plain JS
+import { BellRing } from "@animateicons/vanilla/lucide"
+```
+
+Lucide icons come from the `lucide` subpath and Huge icons from `huge`, because a few names exist in both, such as `heart` and `copy`.
+
+## Other ways to add icons
+
+- The [shadcn CLI](https://animateicons.in/icons/docs/shadcn) and the [animateicons CLI](https://animateicons.in/icons/docs/cli) copy a React icon into your project as an editable file, instead of installing the package.
+- The [MCP server](https://animateicons.in/icons/docs/mcp) lets an AI coding agent such as Claude Code or Cursor find icons and write the code for any of the four frameworks.
+
+---
+
+Source: https://animateicons.in/icons/docs
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# React
+
+`@animateicons/react` gives you every icon as a React component. It works with React 18 and 19, including Next.js.
+
+## Installation
+
+- `npm install @animateicons/react`
+- `pnpm add @animateicons/react`
+- `yarn add @animateicons/react`
+- `bun add @animateicons/react`
+
+`motion` is bundled, so this is the only install.
+
+## Usage
+
+Import any icon component from the `lucide` or `huge` subpath. The name is the icon name in PascalCase plus `Icon`: `bell-ring` is `BellRingIcon`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01Icon`.
+
+```tsx title="Example.tsx"
+import { BellRingIcon } from "@animateicons/react/lucide"
+
+export default function Example() {
+	return <BellRingIcon size={32} color="tomato" />
+}
+```
+
+The icon plays on hover and resets when the pointer leaves.
+
+## Next.js
+
+In the App Router, import each icon from its own file. Importing from the main package loads every icon: 918 kB of client JavaScript, compared with 71 kB for one icon.
+
+```tsx title="Example.tsx"
+import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon"
+import { HeartIcon } from "@animateicons/react/huge/heart-icon"
+```
+
+The path is the icon's file name, so `BellRingIcon` becomes `bell-ring-icon`. These paths only work with ESM imports. If you use `require()`, import from the main package.
+
+## Props
+
+```tsx title="Example.tsx"
+<BellRingIcon
+	size={32}
+	color="tomato"
+	className="text-primary"
+	duration={1.5}
+	isAnimated={true}
+/>
+```
+
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `className`: classes for the icon wrapper, such as a Tailwind `text-*` color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `isAnimated`: play on hover. `false` turns hover off. Default `true`.
+
+## Playing it yourself
+
+Pass a ref to play an icon from your own code, for example when its button is hovered, clicked or focused. Every icon exports a `*Handle` type for its ref.
+
+```tsx title="RingButton.tsx"
+"use client"
+
+import { useRef } from "react"
+import { BellIcon, type BellIconHandle } from "@animateicons/react/lucide"
+
+export function RingButton() {
+	const bell = useRef<BellIconHandle>(null)
+
+    return (
+    	<button
+    		onMouseEnter={() => bell.current?.startAnimation()}
+    		onMouseLeave={() => bell.current?.stopAnimation()}
+    	>
+    		<BellIcon ref={bell} />
+    		Notifications
+    	</button>
+    )
+
+}
+```
+
+Once an icon has a ref, it no longer plays on its own hover, so you decide when it moves. Its `onMouseEnter` and `onMouseLeave` props still fire.
+
+> **Tip:** Use the `useIconHover` hook to play icons on hover or click without writing the handlers yourself. See the [Hover helper](https://animateicons.in/icons/docs/examples/hover-helper).
+
+## Server Components
+
+Icons render inside Server Components when you pass plain props such as `size`, `color` and `duration`. A ref or an event handler needs a Client Component, so add `"use client"` to the file that uses one.
+
+## Types
+
+```ts title="Types"
+interface IconProps {
+	size?: number
+	color?: string
+	className?: string
+	duration?: number
+	isAnimated?: boolean
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void
+	style?: React.CSSProperties
+}
+
+interface IconHandle {
+startAnimation: () => void
+stopAnimation: () => void
+}
+```
+
+> **Note:** Animations respect the **Reduce Motion** setting. With it turned on, hover does nothing and `startAnimation()` keeps the icon at rest.
+
+## Copy the source instead
+
+Prefer to own the icon files? The [shadcn CLI](https://animateicons.in/icons/docs/shadcn) and the [animateicons CLI](https://animateicons.in/icons/docs/cli) copy an icon into your project as one editable file. Copied icons take the same props and ref, so everything on this page still applies.
+
+---
+
+Source: https://animateicons.in/icons/docs/react
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Vue
+
+`@animateicons/vue` plays the same animations as the React package, as Vue components. It needs Vue 3.5 or newer and works in Nuxt 3 and 4.
+
+## Installation
+
+- `npm install @animateicons/vue`
+- `pnpm add @animateicons/vue`
+- `yarn add @animateicons/vue`
+- `bun add @animateicons/vue`
+
+`motion` comes with it, so this is the only install.
+
+## Usage
+
+Import any icon component from the `lucide` or `huge` subpath. The name is the icon name in PascalCase plus `Icon`: `bell-ring` is `BellRingIcon`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01Icon`.
+
+```vue title="Example.vue"
+<script setup lang="ts">
+import { BellRingIcon } from "@animateicons/vue/lucide";
+</script>
+
+<template>
+	<BellRingIcon :size="32" color="tomato" />
+</template>
+```
+
+The icon plays on hover and resets when the pointer leaves.
+
+## Props
+
+```vue title="Example.vue"
+<BellRingIcon
+	:size="32"
+	color="tomato"
+	:duration="1.5"
+	:is-animated="true"
+/>
+```
+
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `is-animated`: play on hover. `false` turns hover off, while `startAnimation()` still works. Default `true`.
+
+## Playing it yourself
+
+Every icon exposes `startAnimation()` and `stopAnimation()` on its ref, with types.
+
+```vue title="RingButton.vue"
+<script setup lang="ts">
+import { ref } from "vue";
+import { BellIcon } from "@animateicons/vue/lucide";
+
+const bell = ref<InstanceType<typeof BellIcon>>();
+</script>
+
+<template>
+	<button @click="bell?.startAnimation()">
+		<BellIcon ref="bell" :is-animated="false" />
+	</button>
+</template>
+```
+
+> **Note:** In React, passing a `ref` switches an icon to manual mode on its own. Vue cannot detect that, so manual mode means `:is-animated="false"` plus your own `startAnimation()` calls.
+
+## One component for any icon
+
+The `lucide` and `huge` subpaths also export the icon data, named without the `Icon` suffix. Pass it to the generic `AnimateIcons` component, for example when the icon comes from a prop or a list.
+
+```vue title="Example.vue"
+<script setup lang="ts">
+import { AnimateIcons } from "@animateicons/vue";
+import { Bell } from "@animateicons/vue/lucide";
+</script>
+
+<template>
+	<AnimateIcons :icon="Bell" :size="32" />
+</template>
+```
+
+`AnimateIcons` takes the same props as the icon components, plus `icon`.
+
+## Nuxt and server rendering
+
+On the server the component renders the whole icon at rest, so pages show it before hydration with no flash. The animation attaches after the component mounts in the browser.
+
+> **Note:** Animations respect the **Reduce Motion** setting. With it turned on, hover does nothing and `startAnimation()` keeps the icon at rest.
+
+---
+
+Source: https://animateicons.in/icons/docs/vue
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Angular
+
+`@animateicons/angular` plays the same animations as the React package, as one standalone component. It works with Angular 20, 21 and 22, with or without zone.js.
+
+## Installation
+
+- `npm install @animateicons/angular`
+- `pnpm add @animateicons/angular`
+- `yarn add @animateicons/angular`
+- `bun add @animateicons/angular`
+
+`motion` comes with it, so this is the only install.
+
+## Usage
+
+Add `AnimateIcons` to your component's `imports` and pass it an icon. Icons are data from the `lucide` or `huge` subpath, named after the icon in PascalCase: `bell-ring` is `BellRing`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01`.
+
+```ts title="example.ts"
+import { Component } from "@angular/core";
+import { AnimateIcons } from "@animateicons/angular";
+import { BellRing } from "@animateicons/angular/lucide";
+
+@Component({
+	selector: "app-example",
+	imports: [AnimateIcons],
+	template: `<animate-icons [icon]="bellRing" [size]="32" color="tomato" />`,
+})
+export class Example {
+	bellRing = BellRing;
+}
+```
+
+The icon plays on hover and resets when the pointer leaves.
+
+## Inputs
+
+Every input is a signal input.
+
+```html title="example.html"
+<animate-icons
+	[icon]="bellRing"
+	[size]="32"
+	color="tomato"
+	[duration]="1.5"
+	[isAnimated]="true"
+/>
+```
+
+- `icon`: the icon data. Required.
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `isAnimated`: play on hover. `false` turns hover off, while `startAnimation()` still works. Default `true`.
+
+## Playing it yourself
+
+Get the component with `viewChild` and call `startAnimation()` or `stopAnimation()`.
+
+```ts title="bell-button.ts"
+import { Component, viewChild } from "@angular/core";
+import { AnimateIcons } from "@animateicons/angular";
+import { Bell } from "@animateicons/angular/lucide";
+
+@Component({
+	selector: "app-bell-button",
+	imports: [AnimateIcons],
+	template: `
+		<animate-icons [icon]="bell" [size]="32" [isAnimated]="false" />
+		<button (click)="icon()?.startAnimation()">Ring</button>
+	`,
+})
+export class BellButton {
+	bell = Bell;
+	icon = viewChild(AnimateIcons);
+}
+```
+
+> **Note:** In React, passing a `ref` switches an icon to manual mode on its own. Angular cannot detect that, so manual mode means `[isAnimated]="false"` plus your own `startAnimation()` calls.
+
+## Server rendering and change detection
+
+With server rendering, the component outputs the whole icon at rest, so the page shows it before hydration. The animation only starts in the browser.
+
+The animation runs outside Angular's change detection, so hovering an icon never triggers a change detection run in your app. Zoneless apps need no extra setup.
+
+> **Note:** Animations respect the **Reduce Motion** setting. With it turned on, hover does nothing and `startAnimation()` keeps the icon at rest.
+
+---
+
+Source: https://animateicons.in/icons/docs/angular
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Plain JS and web components
+
+`@animateicons/vanilla` plays the same animations as the React package, with no framework needed. Use it in plain HTML, Svelte, Solid, Astro, server templates or any framework that has no package of its own.
+
+## Installation
+
+- `npm install @animateicons/vanilla`
+- `pnpm add @animateicons/vanilla`
+- `yarn add @animateicons/vanilla`
+- `bun add @animateicons/vanilla`
+
+`motion` is bundled, so this is the only install. No build step? Skip to the [CDN script](#cdn).
+
+## Usage
+
+Every icon is plain data, imported from the `lucide` or `huge` subpath. The export name is the icon name in PascalCase: `bell-ring` is `BellRing`, and the Huge `arrow-up-right-0-1` is `ArrowUpRight01`.
+
+```js title="main.js"
+import { createIcon } from "@animateicons/vanilla";
+import { Bell } from "@animateicons/vanilla/lucide";
+
+const icon = createIcon(Bell, { size: 32, color: "tomato" });
+document.querySelector("#bell").append(icon);
+```
+
+`createIcon` returns a `span` element with the icon inside. It plays on hover and resets when the pointer leaves.
+
+Each icon also has its own entry. Import from it to load only that icon, even without tree shaking:
+
+```js title="main.js"
+import { Bell } from "@animateicons/vanilla/lucide/bell";
+```
+
+## Custom element
+
+Register the icons you use once with `defineIcons`, then write the `animate-icons` tag anywhere in your HTML, including Svelte, Solid and Astro templates.
+
+```html title="index.html"
+<script type="module">
+	import { defineIcons } from "@animateicons/vanilla";
+	import { Bell, Heart } from "@animateicons/vanilla/lucide";
+
+	defineIcons({ Bell, Heart });
+</script>
+
+<animate-icons name="bell" size="32" color="tomato"></animate-icons>
+<animate-icons name="heart"></animate-icons>
+```
+
+The `name` attribute is the icon's file name, such as `bell` or `bell-ring`. When Lucide and Huge both have an icon with that name, add `library="lucide"` or `library="huge"` to pick one.
+
+The tag takes `size`, `color`, `duration` and `is-animated="false"` as attributes.
+
+## CDN
+
+For a page with no build step, one script registers the `animate-icons` tag and every icon of a library.
+
+```html title="index.html"
+<script src="https://cdn.jsdelivr.net/npm/@animateicons/vanilla/dist/cdn/lucide.js"></script>
+
+<animate-icons name="bell"></animate-icons>
+```
+
+Use `dist/cdn/huge.js` for Huge icons. The script also exposes a global `AnimateIcons` object with `createIcon`, `defineIcons` and `icons`:
+
+```js title="main.js"
+const icon = AnimateIcons.createIcon(AnimateIcons.icons.Bell, { size: 32 });
+document.body.append(icon);
+```
+
+> **Note:** The CDN script holds every icon of its library, about 69 kB for Lucide and 113 kB for Huge after compression. Prefer imports when you have a bundler.
+
+## Options
+
+`createIcon` takes the icon data and an options object:
+
+```js title="main.js"
+createIcon(Bell, {
+	size: 32,
+	color: "tomato",
+	duration: 1.5,
+	isAnimated: true,
+});
+```
+
+- `size`: width and height in pixels. Default `24`.
+- `color`: the icon color. Default `currentColor`, so the icon follows the text color.
+- `duration`: a speed multiplier for every duration and delay. `2` plays at half speed. Default `1`.
+- `isAnimated`: play on hover. `false` turns hover off, while `startAnimation()` still works. Default `true`. On the tag, write `is-animated="false"`.
+
+## Playing it yourself
+
+The element from `createIcon` has `startAnimation()`, `stopAnimation()` and `destroy()`. Call `destroy()` when you remove the icon, so its listeners go with it.
+
+```js title="main.js"
+const icon = createIcon(Bell, { isAnimated: false });
+document.querySelector("#bell").append(icon);
+
+document.querySelector("#ring").addEventListener("click", () => {
+	icon.startAnimation();
+});
+```
+
+The `animate-icons` tag has `startAnimation()` and `stopAnimation()` too, and cleans up on its own when it leaves the page:
+
+```html title="index.html"
+<button id="ring">Ring</button>
+<animate-icons id="bell" name="bell" is-animated="false"></animate-icons>
+
+<script type="module">
+	document.querySelector("#ring").addEventListener("click", () => {
+		document.querySelector("#bell").startAnimation();
+	});
+</script>
+```
+
+> **Note:** In React, passing a `ref` switches an icon to manual mode on its own. Plain JS cannot detect that, so manual mode means `isAnimated: false` (or `is-animated="false"` on the tag) plus your own `startAnimation()` calls.
+
+## Reduced motion and server rendering
+
+Animations respect the **Reduce Motion** setting. With it turned on, hover does nothing and `startAnimation()` keeps the icon at rest.
+
+`createIcon` and the custom element draw the icon in the browser. In a server-rendered page, such as Astro or SvelteKit, the `animate-icons` tag stays empty until its script runs. Using Vue or Angular? Their packages render the icon on the server, see [Vue](https://animateicons.in/icons/docs/vue) and [Angular](https://animateicons.in/icons/docs/angular).
+
+---
+
+Source: https://animateicons.in/icons/docs/vanilla
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Hover helper
+
+Play an icon animation when a user hovers or clicks a button.
+
+## Hover
+
+```tsx title="Example.tsx"
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { NotificationIcon } from "@animateicons/react/huge"
+import { useIconHover } from "@animateicons/react"
+
+export function NotificationBell() {
+	const { ref, triggerProps } = useIconHover()
+
+	return (
+		<Button variant="secondary" {...triggerProps}>
+			<NotificationIcon ref={ref} size={18} />
+			Notifications
+		</Button>
+	)
+}
+```
+
+## Click
+
+```tsx title="Example.tsx"
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { CopyIcon } from "@animateicons/react/huge"
+import { useIconHover } from "@animateicons/react"
+
+export function CopyButton() {
+	const { ref, triggerProps } = useIconHover({ trigger: "click" })
+
+	return (
+		<Button variant="secondary" {...triggerProps}>
+			<CopyIcon ref={ref} size={18} />
+			Copy
+		</Button>
+	)
+}
+```
+
+## Hover and click
+
+```tsx title="Example.tsx"
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { BookmarkIcon } from "@animateicons/react/huge"
+import { useIconHover } from "@animateicons/react"
+
+export function SaveButton() {
+	const { ref, triggerProps } = useIconHover({ trigger: "both" })
+
+	return (
+		<Button variant="secondary" {...triggerProps}>
+			<BookmarkIcon ref={ref} size={18} />
+			Save
+		</Button>
+	)
+}
+```
+
+## Multiple icons
+
+Use the `useIconHover` hook to manage the animation of multiple icons. Each button plays only the icons inside it.
+
+```tsx title="Example.tsx"
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { BookmarkIcon, NotificationIcon } from "@animateicons/react/huge"
+import { useIconHover } from "@animateicons/react"
+
+const triggerConfig = [
+	{ icon: "bell", trigger: "click" },
+	{ icon: "bookmark", trigger: "hover" },
+] as const
+
+export function Actions() {
+	const {
+		icon: { bell, bookmark },
+		trigger,
+	} = useIconHover({ trigger: triggerConfig })
+
+	return (
+		<>
+			<Button variant="secondary" {...trigger}>
+				<BookmarkIcon {...bookmark} size={18} />
+				Save
+			</Button>
+
+			<Button variant="secondary" {...trigger}>
+				<NotificationIcon {...bell} size={18} />
+				Notify
+			</Button>
+		</>
+	)
+}
+```
+
+## Wrapper
+
+Hooks cannot be used inside a loop. Put each button in its own small component instead.
+
+```tsx title="Example.tsx"
+"use client";
+import { useIconHover, type IconHandle, type IconTrigger } from "@animateicons/react";
+import { BookmarkIcon, NotificationIcon, StarIcon } from "@animateicons/react/huge";
+import type { ComponentType, Ref } from "react";
+
+type IconProps = { size?: number; ref?: Ref<IconHandle> };
+
+function ActionButton({
+	icon: Icon,
+	label,
+	trigger,
+}: {
+	icon: ComponentType<IconProps>;
+	label: string;
+	trigger: IconTrigger;
+}) {
+	const { ref, triggerProps } = useIconHover({ trigger });
+
+	return (
+		<button {...triggerProps}>
+			<Icon ref={ref} size={18} />
+			{label}
+		</button>
+	);
+}
+
+export default function Toolbar() {
+	return (
+		<div>
+			<ActionButton icon={NotificationIcon} label="Notify" trigger="hover" />
+			<ActionButton icon={BookmarkIcon} label="Save" trigger="click" />
+			<ActionButton icon={StarIcon} label="Favorite" trigger="both" />
+		</div>
+	);
+}
+```
+
+## Without the npm package
+
+Not using the npm package? Copy this hook into your project.
+
+```tsx title="hooks/use-icon-hover.ts"
+import { useId, useMemo, type RefObject, type SyntheticEvent } from "react";
+type IconHandle = {
+	startAnimation: () => void;
+	stopAnimation: () => void;
+};
+
+export type IconTrigger = "hover" | "click" | "both";
+
+export type IconConfig = {
+	icon: string;
+	trigger: IconTrigger;
+};
+
+export type IconTriggerProps = {
+	onMouseEnter?: (event?: SyntheticEvent<HTMLElement>) => void;
+	onMouseLeave?: (event?: SyntheticEvent<HTMLElement>) => void;
+	onClick?: (event?: SyntheticEvent<HTMLElement>) => void;
+};
+
+type IconRef = RefObject<IconHandle | null>;
+
+export type IconRefProps = {
+	ref: IconRef;
+	"data-animateicon": string;
+};
+
+type SingleOptions = {
+	trigger?: IconTrigger;
+};
+
+type ConfigOptions<C extends readonly IconConfig[]> = {
+	trigger: C;
+};
+
+type SingleResult = {
+	ref: IconRef;
+	triggerProps: IconTriggerProps;
+};
+
+type ConfigResult<C extends readonly IconConfig[]> = {
+	icon: { [K in C[number]["icon"]]: IconRefProps };
+	trigger: IconTriggerProps;
+};
+
+const MARKER = "data-animateicon";
+const TRIGGERS: readonly string[] = ["hover", "click", "both"];
+const OPTION_KEYS: readonly string[] = ["trigger"];
+const ENTRY_KEYS: readonly string[] = ["icon", "trigger"];
+
+const isTrigger = (value: unknown): value is IconTrigger =>
+	typeof value === "string" && TRIGGERS.includes(value);
+
+const isObject = (value: unknown): value is Record<string, unknown> =>
+	typeof value === "object" && value !== null && !Array.isArray(value);
+
+const show = (value: unknown) => {
+	if (typeof value === "string") return JSON.stringify(value);
+	try {
+		return String(value);
+	} catch {
+		return Object.prototype.toString.call(value);
+	}
+};
+
+const resolve = (options: unknown) => {
+	if (!isObject(options)) {
+		throw new TypeError(
+			`useIconHover: options must be an object like { trigger: "click" }, received ${show(options)}.`,
+		);
+	}
+
+	const unknownOption = Object.keys(options).find(
+		(key) => !OPTION_KEYS.includes(key),
+	);
+	if (unknownOption !== undefined) {
+		throw new TypeError(
+			`useIconHover: unknown option "${unknownOption}". The only option is "trigger".`,
+		);
+	}
+
+	const { trigger = "hover" } = options;
+
+	if (isTrigger(trigger)) {
+		return { list: false, entries: [{ icon: "", trigger }] as IconConfig[] };
+	}
+
+	if (!Array.isArray(trigger)) {
+		throw new TypeError(
+			`useIconHover: "trigger" must be "hover", "click", "both" or a list like [{ icon: "bell", trigger: "click" }], received ${show(trigger)}.`,
+		);
+	}
+
+	if (trigger.length === 0) {
+		throw new RangeError('useIconHover: "trigger" must not be an empty list.');
+	}
+
+	const seen = new Set<string>();
+
+	const entries = trigger.map((entry: unknown, index: number): IconConfig => {
+		const label = `trigger[${index}]`;
+
+		if (!isObject(entry)) {
+			throw new TypeError(
+				`useIconHover: ${label} must be an object like { icon: "bell", trigger: "click" }, received ${show(entry)}.`,
+			);
+		}
+
+		const unknownKey = Object.keys(entry).find(
+			(key) => !ENTRY_KEYS.includes(key),
+		);
+		if (unknownKey !== undefined) {
+			throw new TypeError(
+				`useIconHover: ${label} has an unknown key "${unknownKey}". Valid keys are "icon" and "trigger".`,
+			);
+		}
+
+		if (typeof entry.icon !== "string" || entry.icon === "") {
+			throw new TypeError(
+				`useIconHover: ${label}.icon must be a non-empty string, received ${show(entry.icon)}.`,
+			);
+		}
+
+		if (!isTrigger(entry.trigger)) {
+			throw new TypeError(
+				`useIconHover: ${label}.trigger must be "hover", "click" or "both", received ${show(entry.trigger)}.`,
+			);
+		}
+
+		if (seen.has(entry.icon)) {
+			throw new TypeError(
+				`useIconHover: the icon ${show(entry.icon)} appears more than once in "trigger". Each icon name must be unique.`,
+			);
+		}
+		seen.add(entry.icon);
+
+		return { icon: entry.icon, trigger: entry.trigger };
+	});
+
+	return { list: true, entries };
+};
+
+const schedule = (callback: () => void) => {
+	if (typeof requestAnimationFrame === "function") {
+		requestAnimationFrame(callback);
+	} else {
+		setTimeout(callback, 0);
+	}
+};
+
+const scopeOf = (event?: SyntheticEvent<HTMLElement>) => {
+	const element = event?.currentTarget;
+	return element && typeof element.querySelectorAll === "function"
+		? element
+		: undefined;
+};
+
+const markersIn = (scope: HTMLElement) => {
+	const found = new Set<string>();
+	const own = scope.getAttribute(MARKER);
+	if (own) found.add(own);
+	scope.querySelectorAll(`[${MARKER}]`).forEach((element) => {
+		const value = element.getAttribute(MARKER);
+		if (value) found.add(value);
+	});
+	return found;
+};
+
+const onHover = (mode: IconTrigger) => mode !== "click";
+const onClick = (mode: IconTrigger) => mode !== "hover";
+
+export function useIconHover(options?: SingleOptions): SingleResult;
+export function useIconHover<const C extends readonly IconConfig[]>(
+	options: ConfigOptions<C>,
+): ConfigResult<C>;
+export function useIconHover(options: unknown = {}): unknown {
+	const { list, entries } = resolve(options);
+	const id = useId();
+	const key = JSON.stringify(entries);
+
+	return useMemo(() => {
+		const targets = (JSON.parse(key) as IconConfig[]).map((entry) => ({
+			...entry,
+			marker: `${id}:${entry.icon}`,
+			ref: { current: null } as IconRef,
+		}));
+
+		const play = (
+			plays: (mode: IconTrigger) => boolean,
+			action: (handle: IconHandle) => void,
+			scope?: HTMLElement,
+		) => {
+			const inside = scope ? markersIn(scope) : undefined;
+			targets.forEach(({ icon, marker, trigger, ref }) => {
+				const handle = ref.current;
+				if (!handle || !plays(trigger)) return;
+				if (inside && !inside.has(marker)) return;
+				if (
+					typeof handle.startAnimation !== "function" ||
+					typeof handle.stopAnimation !== "function"
+				) {
+					throw new TypeError(
+						`useIconHover: ${list ? `icon.${icon}` : "ref"} is attached to something that is not an AnimateIcons icon. Pass it to an icon component.`,
+					);
+				}
+				action(handle);
+			});
+		};
+
+		const scoped = (event?: SyntheticEvent<HTMLElement>) =>
+			list ? scopeOf(event) : undefined;
+
+		const props: IconTriggerProps = {};
+
+		if (targets.some(({ trigger }) => onHover(trigger))) {
+			props.onMouseEnter = (event) =>
+				play(onHover, (handle) => handle.startAnimation(), scoped(event));
+			props.onMouseLeave = (event) =>
+				play(onHover, (handle) => handle.stopAnimation(), scoped(event));
+		}
+
+		if (targets.some(({ trigger }) => onClick(trigger))) {
+			props.onClick = (event) => {
+				const scope = scoped(event);
+				schedule(() =>
+					play(onClick, (handle) => handle.startAnimation(), scope),
+				);
+			};
+		}
+
+		if (!list) return { ref: targets[0].ref, triggerProps: props };
+
+		return {
+			icon: Object.fromEntries(
+				targets.map(({ icon, marker, ref }) => [
+					icon,
+					{ ref, [MARKER]: marker },
+				]),
+			),
+			trigger: props,
+		};
+	}, [key, list, id]);
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/examples/hover-helper
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Buttons & tooltips
+
+Attach a ref to the icon and drive it from the control's hover, so the whole button or tooltip trigger is what plays the animation. This is the same ref API covered in the [React guide](https://animateicons.in/icons/docs/react#playing-it-yourself).
+
+## Button
+
+The button owns the hover, the icon just follows.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { DownloadIcon, type DownloadIconHandle } from "@animateicons/react/huge"
+
+export function DownloadButton() {
+	const ref = useRef<DownloadIconHandle>(null)
+
+    return (
+    	<Button
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    	>
+    		<DownloadIcon ref={ref} size={16} />
+    		Download
+    	</Button>
+    )
+
+}
+```
+
+## Tooltip
+
+An icon-only button with a tooltip. Hovering plays the icon and reveals the label at once.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Delete02Icon, type Delete02IconHandle } from "@animateicons/react/huge"
+
+export function DeleteButton() {
+	const ref = useRef<Delete02IconHandle>(null)
+
+    return (
+    	<Tooltip>
+    		<TooltipTrigger asChild>
+    			<Button
+    				variant="secondary"
+    				size="icon"
+    				aria-label="Delete"
+    				onMouseEnter={() => ref.current?.startAnimation()}
+    				onMouseLeave={() => ref.current?.stopAnimation()}
+    			>
+    				<Delete02Icon ref={ref} size={16} />
+    			</Button>
+    		</TooltipTrigger>
+    		<TooltipContent>Delete</TooltipContent>
+    	</Tooltip>
+    )
+
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/examples/buttons
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Inputs
+
+Put an icon in the field's addon and play it on focus, so the icon reacts as the user starts typing. Here the trigger is `onFocus` / `onBlur` rather than hover.
+
+## Search input
+
+A leading icon in an `InputGroup` that plays when the field gains focus.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group"
+import { SearchIcon, type SearchIconHandle } from "@animateicons/react/huge"
+
+export function SearchField() {
+	const ref = useRef<SearchIconHandle>(null)
+
+    return (
+    	<InputGroup>
+    		<InputGroupAddon>
+    			<SearchIcon ref={ref} size={16} />
+    		</InputGroupAddon>
+    		<InputGroupInput
+    			placeholder="Search icons..."
+    			onFocus={() => ref.current?.startAnimation()}
+    			onBlur={() => ref.current?.stopAnimation()}
+    		/>
+    	</InputGroup>
+    )
+
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/examples/inputs
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Cards & feedback
+
+Play the icon on the container's hover so the whole surface is the trigger. Good for feature tiles and status messages where the icon carries the meaning.
+
+## Feature card
+
+Put the icon in a rounded tile and play it on card hover to draw attention.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { SparklesIcon, type SparklesIconHandle } from "@animateicons/react/huge"
+
+export function FeatureCard() {
+	const ref = useRef<SparklesIconHandle>(null)
+
+    return (
+    	<div
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    		className="rounded-3xl bg-zinc-900 p-5"
+    	>
+    		<div className="bg-primary/10 text-primary mb-3 flex size-11 items-center justify-center rounded-full">
+    			<SparklesIcon ref={ref} size={20} />
+    		</div>
+    		<p className="font-semibold">Smart suggestions</p>
+    		<p className="text-muted-foreground mt-1 text-sm">
+    			Get AI-powered icon recommendations as you type.
+    		</p>
+    		<Button size="sm" variant="secondary" className="mt-4">
+    			Learn more
+    		</Button>
+    	</div>
+    )
+
+}
+```
+
+## Status banner
+
+A success banner whose check plays on hover, reinforcing the confirmation.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import {
+	CheckmarkCircle01Icon,
+	type CheckmarkCircle01IconHandle,
+} from "@animateicons/react/huge"
+
+export function SavedBanner() {
+	const ref = useRef<CheckmarkCircle01IconHandle>(null)
+
+    return (
+    	<div
+    		onMouseEnter={() => ref.current?.startAnimation()}
+    		onMouseLeave={() => ref.current?.stopAnimation()}
+    		className="flex items-center gap-3 rounded-3xl bg-emerald-500/10 px-4 py-3"
+    	>
+    		<CheckmarkCircle01Icon ref={ref} size={18} className="text-emerald-400" />
+    		<p className="text-sm">Your changes have been saved.</p>
+    	</div>
+    )
+
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/examples/cards
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# Menus & navigation
+
+Give each action its own ref so items animate independently on hover.
+
+## Navbar
+
+Three nav actions, one ref each, animating on their own hover.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import {
+	NotificationIcon,
+	Settings01Icon,
+	UserIcon,
+} from "@animateicons/react/huge"
+import type { IconHandle } from "@animateicons/react"
+
+export function Navbar() {
+	// One shared type for every icon, no per-icon *IconHandle needed.
+	const bell = useRef<IconHandle>(null)
+	const settings = useRef<IconHandle>(null)
+	const user = useRef<IconHandle>(null)
+
+    return (
+    	<nav className="flex items-center justify-between rounded-full bg-zinc-900 py-1.5 pr-2 pl-5">
+    		<span className="text-sm font-semibold">Dashboard</span>
+    		<div className="flex items-center gap-0.5">
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => bell.current?.startAnimation()}
+    				onMouseLeave={() => bell.current?.stopAnimation()}
+    			>
+    				<NotificationIcon ref={bell} size={18} />
+    			</Button>
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => settings.current?.startAnimation()}
+    				onMouseLeave={() => settings.current?.stopAnimation()}
+    			>
+    				<Settings01Icon ref={settings} size={18} />
+    			</Button>
+    			<Button
+    				variant="ghost"
+    				size="icon"
+    				onMouseEnter={() => user.current?.startAnimation()}
+    				onMouseLeave={() => user.current?.stopAnimation()}
+    			>
+    				<UserIcon ref={user} size={18} />
+    			</Button>
+    		</div>
+    	</nav>
+    )
+
+}
+```
+
+## Menu
+
+The same per-item pattern in a vertical menu.
+
+```tsx title="Example.tsx"
+import { useRef } from "react"
+import {
+	UserIcon,
+	Settings01Icon,
+	Logout01Icon,
+} from "@animateicons/react/huge"
+import type { IconHandle } from "@animateicons/react"
+
+export function AccountMenu() {
+	const profile = useRef<IconHandle>(null)
+	const settings = useRef<IconHandle>(null)
+	const logout = useRef<IconHandle>(null)
+
+    const item =
+    	"flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-sm"
+
+    return (
+    	<div className="w-56 rounded-3xl bg-zinc-900 p-1.5">
+    		<button
+    			className={item}
+    			onMouseEnter={() => profile.current?.startAnimation()}
+    			onMouseLeave={() => profile.current?.stopAnimation()}
+    		>
+    			<UserIcon ref={profile} size={16} />
+    			Profile
+    		</button>
+    		<button
+    			className={item}
+    			onMouseEnter={() => settings.current?.startAnimation()}
+    			onMouseLeave={() => settings.current?.stopAnimation()}
+    		>
+    			<Settings01Icon ref={settings} size={16} />
+    			Settings
+    		</button>
+    		<button
+    			className={item}
+    			onMouseEnter={() => logout.current?.startAnimation()}
+    			onMouseLeave={() => logout.current?.stopAnimation()}
+    		>
+    			<Logout01Icon ref={logout} size={16} />
+    			Log out
+    		</button>
+    	</div>
+    )
+
+}
+```
+
+Repeating those two hover handlers on every item adds up. The [Hover helper](https://animateicons.in/icons/docs/examples/hover-helper) shows how to fold them into one reusable hook.
+
+---
+
+Source: https://animateicons.in/icons/docs/examples/navigation
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# shadcn CLI
+
+Use this if you want each React icon copied into your codebase as a single file you can edit.
+
+> **Note:** The shadcn CLI copies React components. For Vue, Angular or plain JS, install the package for your framework from the [Introduction](https://animateicons.in/icons/docs).
+
+#### 1. Set up shadcn
+
+If your project doesn't have shadcn yet, follow the [shadcn installation guide](https://ui.shadcn.com/docs/installation) first.
+
+#### 2. Add an icon
+
+Browse the [Lucide](https://animateicons.in/icons/lucide) or [Huge](https://animateicons.in/icons/huge) gallery, click any tile to copy its install command, or replace `lu-eye` below with the icon you want.
+
+- `npx shadcn@latest add @animateicons/lu-eye`
+- `pnpm dlx shadcn@latest add @animateicons/lu-eye`
+- `bunx --bun shadcn@latest add @animateicons/lu-eye`
+
+The icon lands at `components/ui/<name>-icon.tsx`.
+
+#### 3. Import and use
+
+```tsx title="Example.tsx"
+import { EyeIcon } from "@/components/ui/eye-icon"
+
+export default function Example() {
+	return <EyeIcon size={24} color="#f45b48" />
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/shadcn
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# animateicons CLI
+
+The fastest way to copy React icons into your project. Same result as the shadcn CLI, but a first-party command instead of a registry URL.
+
+> **Note:** The animateicons CLI copies React components. For Vue, Angular or plain JS, install the package for your framework from the [Introduction](https://animateicons.in/icons/docs).
+
+#### 1. Add an icon
+
+```bash title="Terminal"
+npx animateicons add eye
+
+# add several at once, or use the lu-/hu- prefixed id
+
+npx animateicons add eye bell-ring user
+```
+
+Prefer a short command? Install the CLI globally and an `animateicons` binary is added to your PATH:
+
+```bash title="Terminal"
+npm i -g animateicons
+animateicons add eye
+```
+
+Icons land at `components/icons/<name>.tsx` (override with `--dir`). The CLI also prints the `motion` install command for your package manager.
+
+> **Note:** Copied icons import `cn` from `@/lib/utils`. If your project isn't shadcn-based, pass `--with-utils` and the CLI scaffolds a minimal helper for you.
+
+#### 2. Browse without leaving the terminal
+
+```bash title="Terminal"
+npx animateicons search notification
+npx animateicons list --library huge
+npx animateicons info eye
+```
+
+Or open the interactive dashboard to search, multi-select, and add icons live in your terminal:
+
+```bash title="Terminal"
+npx animateicons browse
+```
+
+#### 3. Import and use
+
+```tsx title="Example.tsx"
+import { EyeIcon } from "@/components/icons/eye"
+
+export default function Example() {
+	return <EyeIcon size={24} color="#f45b48" />
+}
+```
+
+---
+
+Source: https://animateicons.in/icons/docs/cli
+All AnimateIcons docs: https://animateicons.in/llms.txt
+
+# MCP server
+
+`@animateicons/mcp` is a [Model Context Protocol](https://modelcontextprotocol.io) server. Connect it to an AI coding agent (Claude Code, Cursor, and others), and the agent can search the AnimateIcons catalog and drop animated icons straight into your project, no copy-pasting.
+
+## What it can do
+
+Once connected, your agent gets five tools:
+
+- `search_icons`: fuzzy-search the catalog by name, keyword, or category.
+- `get_icon`: return an icon's component source plus a ready-to-paste import (read-only). Pass the optional `framework` argument (`react`, `vanilla`, `vue` or `angular`, default `react`) to get the install command and usage code for that framework.
+- `add_icon`: write an icon's React component file into your project (default `components/icons/`).
+- `get_docs`: read these docs, including the props, the ref handle, the `useIconHover` hook and the examples. Without a page it lists them.
+- `list_libraries`: list the libraries and how many icons each has.
+
+Working in Vue, Angular or plain JS? Name your framework when you ask, and the agent gets the right package and code from `get_icon`.
+
+## Claude Code
+
+Register the server in one command:
+
+```bash title="Terminal"
+claude mcp add animateicons -- npx -y @animateicons/mcp
+```
+
+> **Tip:** Restart Claude Code (or reload your editor window) after adding the server so it registers the new tools.
+
+Then just ask, and the agent picks the right tool:
+
+```tsx title="In your editor"
+// Then just ask your agent in plain language:
+//   "add a notification bell icon"
+//
+// → it calls search_icons, picks bell-ring, then add_icon
+//   and writes components/icons/bell-ring.tsx for you.
+```
+
+## Cursor & other clients
+
+Add the server to your MCP config (e.g. `.cursor/mcp.json` or `.mcp.json`):
+
+```json title=".mcp.json"
+{
+	"mcpServers": {
+		"animateicons": {
+			"command": "npx",
+			"args": ["-y", "@animateicons/mcp"]
+		}
+	}
+}
+```
+
+## Requirements
+
+> **Note:** Icons written by `add_icon` import `cn` from `@/lib/utils` (the shadcn convention) and require the [motion](https://motion.dev) package at runtime.
+
+Prefer the terminal? The [CLI](https://animateicons.in/icons/docs/cli) does the same thing with `npx animateicons add`.
+
+---
+
+Source: https://animateicons.in/icons/docs/mcp
+All AnimateIcons docs: https://animateicons.in/llms.txt

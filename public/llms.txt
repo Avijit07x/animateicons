@@ -1,0 +1,38 @@
+# AnimateIcons
+
+> 1170 free, open source animated SVG icons for React, Vue, Angular and plain JavaScript, in Lucide and Huge styles.
+
+Each framework has its own package: @animateicons/react (React), @animateicons/vue (Vue), @animateicons/angular (Angular), @animateicons/vanilla (Plain JS). Plain JS also covers web components, Svelte, Solid and Astro. Use the package for the user's framework. Every link below is a plain markdown page.
+
+## Getting Started
+
+- [Introduction](https://animateicons.in/r/docs/installation.md): AnimateIcons ships the same animated icons for React, Vue, Angular and plain JavaScript. Pick the package for your framework and follow its guide.
+
+## Frameworks
+
+- [React](https://animateicons.in/r/docs/react.md): Install @animateicons/react, import animated icons as React components, style them with props, and play them from your own code with a ref. Works with Next.js.
+- [Vue](https://animateicons.in/r/docs/vue.md): Use AnimateIcons in Vue 3 and Nuxt with @animateicons/vue. Typed icon components, a ref to play animations yourself, and server rendering that shows the icon at rest.
+- [Angular](https://animateicons.in/r/docs/angular.md): Use AnimateIcons in Angular 20, 21 and 22 with @animateicons/angular. One standalone component with signal inputs, zoneless support and server rendering that shows the icon at rest.
+- [Plain JS](https://animateicons.in/r/docs/vanilla.md): Use AnimateIcons without React. The @animateicons/vanilla package gives you a createIcon function, a custom element and a CDN script for plain HTML, Svelte, Solid, Astro and any other framework.
+
+## React guides
+
+- [Hover helper](https://animateicons.in/r/docs/examples/hover-helper.md): Use the useIconHover hook to play an icon animation on hover, on click, or on both.
+- [Buttons & tooltips](https://animateicons.in/r/docs/examples/buttons.md): Drive AnimateIcons from a shadcn/ui Button or Tooltip trigger, so the whole control plays the icon on hover.
+- [Inputs](https://animateicons.in/r/docs/examples/inputs.md): A leading animated icon inside a shadcn/ui InputGroup that plays when the field gains focus.
+- [Cards & feedback](https://animateicons.in/r/docs/examples/cards.md): Wrap an animated icon in a card or status banner and play it on hover to draw attention.
+- [Menus & navigation](https://animateicons.in/r/docs/examples/navigation.md): Give each nav action or menu item its own ref so AnimateIcons play independently on hover.
+
+## Copy the source
+
+- [shadcn CLI](https://animateicons.in/r/docs/shadcn.md): Add AnimateIcons to your project with the shadcn CLI. Each icon is copied into your codebase as a single editable file from the AnimateIcons registry.
+- [animateicons CLI](https://animateicons.in/r/docs/cli.md): Copy AnimateIcons into your project with the first-party animateicons CLI. Add, search, and browse icons without leaving the terminal.
+
+## AI agents
+
+- [MCP Server](https://animateicons.in/r/docs/mcp.md): Connect the @animateicons/mcp Model Context Protocol server so AI coding agents like Claude Code and Cursor can search and add animated icons for you.
+
+## Optional
+
+- [All docs in one file](https://animateicons.in/llms-full.txt): every page above in one markdown file.
+- [Icon catalog](https://animateicons.in/r/catalog.json): every icon with its name, library, category and keywords.
