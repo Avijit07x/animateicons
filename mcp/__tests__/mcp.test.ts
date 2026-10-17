@@ -95,7 +95,7 @@ describe("tools", () => {
 	it("get_docs lists the pages without their content", async () => {
 		const out = await getDocsTool(ctx, {});
 		const slugs = out.pages?.map((p) => p.slug);
-		expect(slugs).toContain("usage");
+		expect(slugs).toContain("react");
 		expect(slugs).toContain("examples/hover-helper");
 		expect(out.pages?.every((p) => !("content" in p))).toBe(true);
 	});
@@ -108,8 +108,8 @@ describe("tools", () => {
 		expect(out.content).toContain('trigger: "both"');
 	});
 
-	it("get_docs reads the usage page props", async () => {
-		const out = await getDocsTool(ctx, { page: "usage" });
+	it("get_docs reads the React page props", async () => {
+		const out = await getDocsTool(ctx, { page: "react" });
 		expect(out.content).toContain("startAnimation");
 		expect(out.content).toContain("isAnimated");
 	});
@@ -117,7 +117,7 @@ describe("tools", () => {
 	it("get_docs reports an unknown page with the available slugs", async () => {
 		const out = await getDocsTool(ctx, { page: "nope" });
 		expect(out.found).toBe(false);
-		expect(out.message).toContain("usage");
+		expect(out.message).toContain("react");
 	});
 });
 

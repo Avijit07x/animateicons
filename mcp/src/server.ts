@@ -78,13 +78,13 @@ export function createServer(ctx: ToolContext = {}): McpServer {
 
 	server.tool(
 		"get_docs",
-		"Read the AnimateIcons documentation: install, props, the ref handle, the useIconHover hook and usage examples. Call with no page to list the pages, or pass a page slug to read one.",
+		"Read the AnimateIcons documentation: a guide for each framework (React, Vue, Angular and plain JS) with install, props and playing icons from code, plus the React useIconHover hook and examples. Call with no page to list the pages, or pass a page slug to read one.",
 		{
 			page: z
 				.string()
 				.optional()
 				.describe(
-					"Page slug or title, e.g. 'usage' or 'examples/hover-helper'. Leave out to list the pages",
+					"Page slug or title, e.g. 'react', 'vue' or 'examples/hover-helper'. Leave out to list the pages",
 				),
 		},
 		async (args) => asJson(await getDocsTool(ctx, args)),
