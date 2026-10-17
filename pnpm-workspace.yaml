@@ -6,6 +6,7 @@ packages:
   - "vanilla"
   - "vue"
   - "angular"
+  - "test-zone"
 nodeLinker: hoisted
 strictPeerDependencies: false
 autoInstallPeers: true

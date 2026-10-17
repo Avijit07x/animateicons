@@ -68,6 +68,7 @@ pnpm verify         # everything CI runs
 pnpm knip           # unused files, exports and dependencies
 pnpm lint:packages  # validates the exports and types of every published package
 pnpm test:coverage  # test coverage report
+pnpm test:frames    # every icon in every framework, compared with React frame by frame
 ```
 
 Enable the git hooks once with `pnpm hooks:install`. The hooks format and lint

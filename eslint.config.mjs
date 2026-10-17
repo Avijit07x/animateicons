@@ -14,6 +14,8 @@ const config = [
 			"**/*.generated.ts",
 			"**/src/generated/**",
 			"angular/.angular/**",
+			"test-zone/test-results/**",
+			"test-zone/playwright-report/**",
 			"public/**",
 			// Local, gitignored agent tooling - never committed, so not ours to lint.
 			".claude/**",

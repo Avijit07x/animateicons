@@ -56,6 +56,9 @@
 				"scripts/*.mjs",
 				"__tests__/*.ts"
 			]
+		},
+		"test-zone": {
+			"entry": ["e2e/*.ts"]
 		}
 	}
 }

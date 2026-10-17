@@ -19,6 +19,8 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:coverage": "vitest run --coverage",
+		"test:frames": "pnpm --filter \"@animateicons/test-zone^...\" run build && pnpm --filter @animateicons/test-zone test:e2e",
+		"test-zone": "pnpm --filter \"@animateicons/test-zone^...\" run build && pnpm --filter @animateicons/test-zone dev",
 		"build:packages": "pnpm -r run build",
 		"verify:packages": "pnpm -r run verify",
 		"lint:packages": "publint npm && attw --pack npm --profile node16 && publint vanilla && attw --pack vanilla --profile esm-only && publint vue && attw --pack vue --profile esm-only && publint angular/dist",

@@ -1,0 +1,37 @@
+{
+	"name": "@animateicons/test-zone",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Plays every icon in React, plain JS, Vue and Angular side by side and checks that every frame matches.",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"verify": "tsc --noEmit",
+		"test:e2e": "playwright test"
+	},
+	"dependencies": {
+		"@angular/common": "^22.2.3",
+		"@angular/compiler": "^22.2.3",
+		"@angular/core": "^22.2.3",
+		"@angular/platform-browser": "^22.2.3",
+		"@animateicons/angular": "workspace:*",
+		"@animateicons/vanilla": "workspace:*",
+		"@animateicons/vue": "workspace:*",
+		"motion": "^14.3.0",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
+		"rxjs": "^7.8.2",
+		"vue": "^3.5.44"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.64.1",
+		"@types/node": "^25.9.1",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"@vitejs/plugin-react": "^5.2.0",
+		"typescript": "~6.0.3",
+		"vite": "^7.3.6"
+	}
+}

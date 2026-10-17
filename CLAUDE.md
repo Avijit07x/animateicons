@@ -22,6 +22,7 @@ Use pnpm, never npm or yarn.
 - `pnpm gen:icons`: regenerates barrels, `registry.json`, `public/r/*.json`, `public/r/catalog.json`, `public/r/docs.json` and `lib/icon-count.generated.ts`. Never edit these by hand.
 - `pnpm gen:docs`: rebuilds `public/r/docs.json` from the docs MDX pages, which is what the MCP `get_docs` tool reads. Run it after editing a docs page (`tests/scripts/docs-markdown.test.ts` fails when it is stale). A new MDX component in a docs page needs a rule in `scripts/docs-markdown.ts`, or the build fails and says which tag.
 - `pnpm check`: duplicate names, registry sync and README counts.
+- `pnpm test:frames`: plays every icon in React, plain JS, Vue and Angular on one shared clock and fails if any frame differs from React. `pnpm test-zone` opens the same check in a browser.
 - `pnpm verify`: everything CI runs, including the npm package size budget.
 
 The `.githooks/pre-push` hook runs `pnpm lint` and `pnpm check`. Enable it with `pnpm hooks:install`.
