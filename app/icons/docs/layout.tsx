@@ -13,7 +13,7 @@ const DocsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 			<DocsNavbar />
 
 			<div className="mx-auto flex w-full max-w-360 items-start gap-6 px-4 sm:px-6 lg:gap-10 lg:px-8">
-				<aside className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] w-56 shrink-0 overflow-y-auto py-10 lg:block">
+				<aside className="sticky top-20 mt-6 hidden h-[calc(100dvh-6.5rem)] w-56 shrink-0 [scrollbar-width:none] overflow-y-auto border-r py-4 pr-4 [border-image:linear-gradient(to_bottom,transparent,rgb(255_255_255/0.11)_12%,rgb(255_255_255/0.11)_88%,transparent)_1] lg:block [&::-webkit-scrollbar]:hidden">
 					<DocsSidebar />
 				</aside>
 
