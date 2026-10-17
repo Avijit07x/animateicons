@@ -17,7 +17,7 @@ const providers: Record<
 > = {
 	chatgpt: {
 		label: "Open in ChatGPT",
-		url: (q) => `https://chat.openai.com/?prompt=${q}`,
+		url: (q) => `https://chatgpt.com/?hints=search&q=${q}`,
 	},
 	claude: {
 		label: "Open in Claude",
@@ -35,21 +35,19 @@ const providers: Record<
 
 interface Props {
 	pageUrl: string;
-	title?: string;
+	markdownUrl: string;
+	title: string;
 }
 
-export default function OpenInAI({ pageUrl, title }: Props) {
-	const buildPrompt = () => {
-		const text = `
-Analyze this documentation page:
-${pageUrl}
-
-${title ? `Title: ${title}` : ""}
-
-Explain usage, examples, and integration clearly.
-`;
-		return encodeURIComponent(text.trim());
-	};
+export default function OpenInAI({ pageUrl, markdownUrl, title }: Props) {
+	const buildPrompt = () =>
+		encodeURIComponent(
+			[
+				`Read ${markdownUrl}`,
+				`It is the "${title}" page of the AnimateIcons docs as plain markdown. The same page on the web: ${pageUrl}`,
+				"Answer my questions using only that page and the pages it links to. Use the exact package names, imports and props it shows, and tell me when something is not covered instead of guessing.",
+			].join("\n\n"),
+		);
 
 	const handleOpen = (provider: Provider) => {
 		const prompt = buildPrompt();

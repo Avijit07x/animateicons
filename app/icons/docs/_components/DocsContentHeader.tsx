@@ -5,7 +5,7 @@ import { ChevronRightIcon } from "@/icons/huge/chevron-right-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import OpenInAI from "../../_components/docs/OpenInAI";
-import { findDocPage } from "../_lib/nav";
+import { docMarkdownPath, findDocPage } from "../_lib/nav";
 
 const DocsContentHeader: React.FC = () => {
 	const pathname = usePathname();
@@ -35,7 +35,8 @@ const DocsContentHeader: React.FC = () => {
 
 			<OpenInAI
 				pageUrl={`https://animateicons.in${pathname}`}
-				title={`AnimateIcons - ${title}`}
+				markdownUrl={`https://animateicons.in${docMarkdownPath(page?.href ?? "/icons/docs")}`}
+				title={title}
 			/>
 		</div>
 	);

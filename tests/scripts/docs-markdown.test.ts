@@ -2,7 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { docsNav } from "@/app/icons/docs/_lib/nav";
-import { buildDocs } from "../../scripts/docs-markdown";
+import {
+	buildDocs,
+	llmsFull,
+	llmsIndex,
+	pageMarkdown,
+} from "../../scripts/docs-markdown";
 
 const committed = () =>
 	JSON.parse(
@@ -57,5 +62,26 @@ describe("docs.json", () => {
 
 	it("matches the committed public/r/docs.json (run pnpm gen:docs)", async () => {
 		expect(committed()).toEqual(await buildDocs());
+	});
+
+	it("matches the committed markdown pages and llms files (run pnpm gen:docs)", async () => {
+		const docs = await buildDocs();
+		const read = (file: string) =>
+			fs.readFileSync(path.join(process.cwd(), "public", file), "utf8");
+
+		for (const page of docs.pages) {
+			expect(read(`r/docs/${page.slug}.md`)).toBe(pageMarkdown(page));
+		}
+		expect(read("llms.txt")).toBe(llmsIndex(docs));
+		expect(read("llms-full.txt")).toBe(llmsFull(docs));
+	});
+
+	it("links every page from llms.txt to its markdown file", async () => {
+		const docs = await buildDocs();
+		const index = llmsIndex(docs);
+
+		for (const page of docs.pages) {
+			expect(index).toContain(`https://animateicons.in/r/docs/${page.slug}.md`);
+		}
 	});
 });

@@ -7,8 +7,9 @@ import {
 	installCmd,
 } from "../app/icons/_components/docs/install-commands";
 import { FRAMEWORK_GUIDES } from "../app/icons/docs/_lib/frameworks";
-import { docsNav } from "../app/icons/docs/_lib/nav";
-import type { Docs } from "../core/src/docs";
+import { docMarkdownPath, docSlug, docsNav } from "../app/icons/docs/_lib/nav";
+import type { DocPage, Docs } from "../core/src/docs";
+import { ICON_COUNTS } from "../lib/icon-count.generated";
 
 const ROOT = process.cwd();
 const SITE_URL = "https://animateicons.in";
@@ -217,7 +218,7 @@ export async function buildDocs(): Promise<Docs> {
 			);
 
 			pages.push({
-				slug: item.href.replace(/^\/icons\/docs\/?/, "") || "installation",
+				slug: docSlug(item.href),
 				title: item.title,
 				description,
 				group: group.title,
@@ -228,4 +229,44 @@ export async function buildDocs(): Promise<Docs> {
 	}
 
 	return { version: 1, total: pages.length, pages };
+}
+
+const markdownUrl = (page: DocPage) =>
+	`${SITE_URL}${docMarkdownPath(page.url.slice(SITE_URL.length))}`;
+
+export function pageMarkdown(page: DocPage): string {
+	return `${page.content}\n---\n\nSource: ${page.url}\nAll AnimateIcons docs: ${SITE_URL}/llms.txt\n`;
+}
+
+export function llmsIndex(docs: Docs): string {
+	const groups = [...new Set(docs.pages.map((page) => page.group))];
+	const packages = FRAMEWORK_GUIDES.map(({ name, pkg }) => `${pkg} (${name})`);
+
+	return `${[
+		"# AnimateIcons",
+		"",
+		`> ${ICON_COUNTS.total} free, open source animated SVG icons for React, Vue, Angular and plain JavaScript, in Lucide and Huge styles.`,
+		"",
+		`Each framework has its own package: ${packages.join(", ")}. Plain JS also covers web components, Svelte, Solid and Astro. Use the package for the user's framework. Every link below is a plain markdown page.`,
+		...groups.flatMap((group) => [
+			"",
+			`## ${group}`,
+			"",
+			...docs.pages
+				.filter((page) => page.group === group)
+				.map(
+					(page) =>
+						`- [${page.title}](${markdownUrl(page)}): ${page.description}`,
+				),
+		]),
+		"",
+		"## Optional",
+		"",
+		`- [All docs in one file](${SITE_URL}/llms-full.txt): every page above in one markdown file.`,
+		`- [Icon catalog](${SITE_URL}/r/catalog.json): every icon with its name, library, category and keywords.`,
+	].join("\n")}\n`;
+}
+
+export function llmsFull(docs: Docs): string {
+	return docs.pages.map(pageMarkdown).join("\n");
 }

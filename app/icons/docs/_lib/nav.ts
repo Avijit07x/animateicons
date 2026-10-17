@@ -57,3 +57,9 @@ export const docsPages: DocLink[] = docsNav.flatMap((g) => g.items);
 
 export const findDocPage = (pathname: string): DocLink | undefined =>
 	docsPages.find((p) => p.href === pathname);
+
+export const docSlug = (href: string): string =>
+	href.replace(/^\/icons\/docs\/?/, "") || "installation";
+
+export const docMarkdownPath = (href: string): string =>
+	`/r/docs/${docSlug(href)}.md`;
