@@ -48,6 +48,7 @@ next-env.d.ts
 /core/dist
 /cli/dist
 /mcp/dist
+/vanilla/dist
 
 # icon data and framework wrappers generated from the React icons
 /vanilla/src/generated/

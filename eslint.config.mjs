@@ -43,6 +43,11 @@ const config = [
 		},
 	},
 
+	{
+		files: ["vanilla/**"],
+		rules: { "react-hooks/rules-of-hooks": "off" },
+	},
+
 	// Every icon must follow the shared structure + animation flow.
 	{
 		files: ["icons/**/*.tsx"],

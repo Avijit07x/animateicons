@@ -21,7 +21,7 @@
 		"test:coverage": "vitest run --coverage",
 		"build:packages": "pnpm -r run build",
 		"verify:packages": "pnpm -r run verify",
-		"lint:packages": "publint npm && attw --pack npm --profile node16",
+		"lint:packages": "publint npm && attw --pack npm --profile node16 && publint vanilla && attw --pack vanilla --profile esm-only",
 		"verify": "pnpm format && pnpm check && pnpm typecheck && pnpm test && pnpm verify:packages",
 		"ship": "pnpm verify && pnpm build",
 		"release:npm:patch": "pnpm --filter @animateicons/react release:patch && git push --follow-tags",

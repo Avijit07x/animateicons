@@ -1,0 +1,130 @@
+{
+	"name": "@animateicons/vanilla",
+	"version": "0.1.0",
+	"description": "Animated SVG icons for plain JavaScript, web components and every framework. The same motion as @animateicons/react, with no framework needed.",
+	"license": "MIT",
+	"author": "Avijit Dey",
+	"homepage": "https://animateicons.in",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Avijit07x/animateicons.git",
+		"directory": "vanilla"
+	},
+	"bugs": {
+		"url": "https://github.com/Avijit07x/animateicons/issues"
+	},
+	"keywords": [
+		"icons",
+		"animated icons",
+		"animated svg",
+		"web components",
+		"custom elements",
+		"vanilla js",
+		"svelte icons",
+		"motion icons",
+		"svg icons",
+		"lucide animated",
+		"huge animated",
+		"free animated icons"
+	],
+	"type": "module",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./lucide": {
+			"types": "./dist/lucide.d.ts",
+			"default": "./dist/lucide.js"
+		},
+		"./lucide/*": {
+			"types": "./dist/lucide/*.d.ts",
+			"default": "./dist/lucide/*.js"
+		},
+		"./huge": {
+			"types": "./dist/huge.d.ts",
+			"default": "./dist/huge.js"
+		},
+		"./huge/*": {
+			"types": "./dist/huge/*.d.ts",
+			"default": "./dist/huge/*.js"
+		},
+		"./cdn/*": "./dist/cdn/*",
+		"./package.json": "./package.json"
+	},
+	"unpkg": "./dist/cdn/lucide.js",
+	"jsdelivr": "./dist/cdn/lucide.js",
+	"sideEffects": [
+		"./dist/cdn/*"
+	],
+	"files": [
+		"dist",
+		"CHANGELOG.md",
+		"README.md",
+		"LICENSE",
+		"THIRD_PARTY_NOTICES.md"
+	],
+	"engines": {
+		"node": ">=18.17.0"
+	},
+	"scripts": {
+		"gen": "pnpm --dir .. exec tsx scripts/generate-icon-data.ts",
+		"build": "pnpm run gen && tsup && node scripts/generate-icon-dts.mjs",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"size": "size-limit",
+		"verify": "pnpm run build && pnpm run typecheck && pnpm run test && pnpm run size",
+		"prepack": "pnpm run verify"
+	},
+	"size-limit": [
+		{
+			"name": "createIcon + one icon",
+			"path": [
+				"dist/index.js",
+				"dist/lucide.js"
+			],
+			"import": {
+				"dist/index.js": "{ createIcon }",
+				"dist/lucide.js": "{ Bell }"
+			},
+			"limit": "24.5 kB"
+		},
+		{
+			"name": "custom element + five icons",
+			"path": [
+				"dist/index.js",
+				"dist/lucide.js"
+			],
+			"import": {
+				"dist/index.js": "{ defineIcons }",
+				"dist/lucide.js": "{ Bell, BellRing, Heart, Copy, Activity }"
+			},
+			"limit": "25.5 kB"
+		},
+		{
+			"name": "CDN lucide (every icon)",
+			"path": "dist/cdn/lucide.js",
+			"limit": "76 kB"
+		},
+		{
+			"name": "CDN huge (every icon)",
+			"path": "dist/cdn/huge.js",
+			"limit": "124 kB"
+		}
+	],
+	"devDependencies": {
+		"@size-limit/preset-small-lib": "^11.1.6",
+		"@types/node": "^25.9.1",
+		"jsdom": "^30.1.1",
+		"motion": "^14.3.0",
+		"size-limit": "^11.1.6",
+		"tsup": "^8.3.0",
+		"typescript": "^5.9.3",
+		"vitest": "^4.1.10"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
