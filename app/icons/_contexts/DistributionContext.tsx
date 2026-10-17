@@ -26,6 +26,13 @@ export type Distribution = "shadcn" | "npm" | "vanilla" | "vue" | "angular";
 
 export type Framework = "react" | "vanilla" | "vue" | "angular";
 
+export const FRAMEWORKS: ReadonlyArray<Framework> = [
+	"react",
+	"vue",
+	"angular",
+	"vanilla",
+];
+
 export const FRAMEWORK_LABELS: Record<Framework, string> = {
 	react: "React",
 	vanilla: "Plain JS",
@@ -87,6 +94,14 @@ export const useDistribution = (): DistributionContextValue => {
 
 export const frameworkOf = (distribution: Distribution): Framework =>
 	distribution === "shadcn" || distribution === "npm" ? "react" : distribution;
+
+export const withFramework = (
+	distribution: Distribution,
+	framework: Framework,
+): Distribution => {
+	if (frameworkOf(distribution) === framework) return distribution;
+	return framework === "react" ? "npm" : framework;
+};
 
 export const packageFor = (distribution: Distribution): string =>
 	`@animateicons/${frameworkOf(distribution)}`;

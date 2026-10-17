@@ -1,19 +1,18 @@
 "use client";
 
-import CopyButton from "@/components/home/CopyButton";
-import {
-	PackageManagerLogo,
-	ShadcnLogo,
-} from "@/components/icons/PackageLogos";
+import { FrameworkLogo } from "@/components/icons/FrameworkLogos";
+import { ShadcnLogo } from "@/components/icons/PackageLogos";
 import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
 import { cn } from "@/lib/utils";
 import {
 	type Distribution,
 	FRAMEWORK_LABELS,
+	FRAMEWORKS,
 	type Framework,
 	frameworkOf,
 	packageFor,
 	useDistribution,
+	withFramework,
 } from "../../_contexts/DistributionContext";
 import {
 	installCommandFor,
@@ -21,6 +20,7 @@ import {
 	shadcnAddCommand,
 	usePackageManager,
 } from "../../_contexts/PackageManagerContext";
+import CopyIconButton from "./CopyIconButton";
 import HighlightedCode from "./HighlightedCode";
 
 type Option<T extends string> = {
@@ -29,9 +29,11 @@ type Option<T extends string> = {
 	icon?: React.ReactNode;
 };
 
-const FRAMEWORKS: Option<Framework>[] = (
-	["react", "vanilla", "vue", "angular"] as const
-).map((value) => ({ value, label: FRAMEWORK_LABELS[value] }));
+const FRAMEWORK_OPTIONS: Option<Framework>[] = FRAMEWORKS.map((value) => ({
+	value,
+	label: FRAMEWORK_LABELS[value],
+	icon: <FrameworkLogo framework={value} />,
+}));
 
 const METHODS: Option<Distribution>[] = [
 	{
@@ -42,51 +44,65 @@ const METHODS: Option<Distribution>[] = [
 	{ value: "shadcn", label: "shadcn", icon: <ShadcnLogo /> },
 ];
 
-const MANAGERS: Option<PackageManager>[] = [
-	{ value: "npm", label: "npm", icon: <PackageManagerLogo pm="npm" /> },
-	{ value: "pnpm", label: "pnpm", icon: <PackageManagerLogo pm="pnpm" /> },
-	{ value: "bun", label: "bun", icon: <PackageManagerLogo pm="bun" /> },
-];
+const MANAGERS: Option<PackageManager>[] = (
+	["npm", "pnpm", "bun"] as const
+).map((value) => ({ value, label: value }));
 
-const OPTION =
-	"inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4";
-
-type ToggleProps<T extends string> = {
+type SegmentedProps<T extends string> = {
 	label: string;
 	value: T;
 	options: Option<T>[];
 	onChange: (value: T) => void;
-	className?: string;
-	optionClassName?: string;
+	compact?: boolean;
 };
 
-const Toggle = <T extends string>({
+const Segmented = <T extends string>({
 	label,
 	value,
 	options,
 	onChange,
-	className,
-	optionClassName,
-}: ToggleProps<T>) => (
-	<div role="group" aria-label={label} className={cn("flex gap-1", className)}>
-		{options.map((option) => (
-			<button
-				key={option.value}
-				type="button"
-				aria-pressed={value === option.value}
-				onClick={() => onChange(option.value)}
-				className={cn(
-					OPTION,
-					value === option.value
-						? "text-textPrimary bg-white/10"
-						: "text-textMuted hover:text-textPrimary",
-					optionClassName,
-				)}
-			>
-				{option.icon}
-				{option.label}
-			</button>
-		))}
+	compact = false,
+}: SegmentedProps<T>) => (
+	<div role="group" aria-label={label} className="flex items-center">
+		{options.map((option) => {
+			const active = value === option.value;
+			return (
+				<button
+					key={option.value}
+					type="button"
+					aria-pressed={active}
+					aria-label={compact ? option.label : undefined}
+					title={compact && !active ? option.label : undefined}
+					onClick={() => onChange(option.value)}
+					className={cn(
+						"inline-flex h-7 cursor-pointer items-center justify-center rounded-full text-xs font-medium whitespace-nowrap transition-colors [&_svg]:size-3.5 [&_svg]:shrink-0",
+						compact ? "px-1.75" : "gap-1.5 px-2.5",
+						active
+							? "bg-surfaceElevated text-textPrimary"
+							: "text-textMuted hover:text-textSecondary",
+					)}
+				>
+					{option.icon}
+					{compact ? (
+						<span
+							aria-hidden="true"
+							className={cn(
+								"grid transition-[grid-template-columns,opacity] duration-300 ease-out motion-reduce:transition-none",
+								active
+									? "grid-cols-[1fr] opacity-100"
+									: "grid-cols-[0fr] opacity-0",
+							)}
+						>
+							<span className="overflow-hidden">
+								<span className="pr-1 pl-1.5">{option.label}</span>
+							</span>
+						</span>
+					) : (
+						option.label
+					)}
+				</button>
+			);
+		})}
 	</div>
 );
 
@@ -105,54 +121,55 @@ const InstallBlock: React.FC<Props> = ({ prefix, name }) => {
 			? shadcnAddCommand(packageManager, prefix, name)
 			: `${installCommandFor(packageManager)} ${packageFor(distribution)}`;
 
-	const pickFramework = (next: Framework) => {
-		if (next !== framework) setDistribution(next === "react" ? "npm" : next);
-	};
-
 	return (
 		<div>
-			<p className="text-textMuted mb-2 text-sm">Install</p>
-
-			<Toggle
-				label="Framework"
-				value={framework}
-				options={FRAMEWORKS}
-				onChange={pickFramework}
-				className="bg-surfaceElevated mb-3 rounded-full p-1"
-				optionClassName="flex-1 px-3 py-1.5 text-sm"
-			/>
-
-			{framework === "react" && (
-				<Toggle
-					label="Install with"
-					value={distribution}
-					options={METHODS}
-					onChange={setDistribution}
-					className="mb-3"
-					optionClassName="px-3 py-1 text-xs [&_svg:not([class*='size-'])]:size-3.5"
+			<div className="mb-2 flex items-center justify-between gap-2">
+				<p className="text-textMuted text-sm">Install</p>
+				<Segmented
+					label="Framework"
+					value={framework}
+					options={FRAMEWORK_OPTIONS}
+					onChange={(next) =>
+						setDistribution(withFramework(distribution, next))
+					}
+					compact
 				/>
-			)}
+			</div>
 
-			<div className="bg-surfaceElevated overflow-hidden rounded-3xl">
-				<div className="flex flex-wrap items-center justify-between gap-2 px-3 pt-3">
-					<Toggle
+			<div className="bg-surface rounded-[22px] p-2">
+				<div className="flex items-center justify-between gap-2 pb-2">
+					<Segmented
 						label="Package manager"
 						value={packageManager}
 						options={MANAGERS}
 						onChange={setPackageManager}
-						optionClassName="px-2.5 py-1 text-xs [&_svg:not([class*='size-'])]:size-3.5"
 					/>
-					<CopyButton text={command} className="w-24 py-1 text-xs" />
+					{framework === "react" && (
+						<Segmented
+							label="Install with"
+							value={distribution}
+							options={METHODS}
+							onChange={setDistribution}
+						/>
+					)}
 				</div>
-				<HighlightedCode
-					key={command}
-					code={command}
-					lang="bash"
-					wrap={false}
-				/>
-				<p className="text-textMuted px-4 pb-3.5 text-xs">
-					The copy button on each icon card follows this choice.
-				</p>
+
+				<div className="bg-bgDark flex items-center rounded-[14px] pr-1.5 pl-4">
+					<span
+						aria-hidden="true"
+						className="text-textMuted font-mono text-xs select-none"
+					>
+						$
+					</span>
+					<HighlightedCode
+						key={command}
+						code={command}
+						lang="bash"
+						wrap={false}
+						className="my-3 mr-2 ml-2 min-w-0 flex-1"
+					/>
+					<CopyIconButton text={command} label="Copy install command" />
+				</div>
 			</div>
 		</div>
 	);

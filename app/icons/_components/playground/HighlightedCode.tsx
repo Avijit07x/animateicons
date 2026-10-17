@@ -13,6 +13,7 @@
  * sheet looks consistent with the home page's server-rendered code.
  */
 
+import { cn } from "@/lib/utils";
 import { Fragment } from "react";
 import ScrollFade from "./ScrollFade";
 
@@ -186,7 +187,7 @@ const HighlightedCode: React.FC<Props> = ({
 
 	if (!wrap) {
 		return (
-			<ScrollFade className={`mx-4 my-3 ${className ?? ""}`}>
+			<ScrollFade className={cn("mx-4 my-3", className)}>
 				<pre className={`${TEXT} whitespace-pre`}>{body}</pre>
 			</ScrollFade>
 		);
