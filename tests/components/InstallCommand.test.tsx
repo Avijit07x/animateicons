@@ -33,58 +33,68 @@ describe("InstallCommand", () => {
 		});
 	});
 
-	it("shows the npm install command by default", () => {
-		setup();
-		expect(
-			screen.getByRole("button", { name: "Copy npm i @animateicons/react" }),
-		).toBeTruthy();
-	});
+	const open = () =>
+		fireEvent.click(screen.getByRole("button", { name: /^Install/ }));
 
-	it("follows the saved package manager", () => {
-		localStorage.setItem("tab", "bun");
+	it("shows the React package by default", () => {
 		setup();
 		expect(
-			screen.getByRole("button", { name: "Copy bun add @animateicons/react" }),
+			screen.getByRole("button", { name: "Install @animateicons/react" }),
 		).toBeTruthy();
 	});
 
 	it("follows the chosen framework", () => {
 		localStorage.setItem("distribution", "angular");
-		localStorage.setItem("tab", "pnpm");
 		setup();
 		expect(
-			screen.getByRole("button", {
-				name: "Copy pnpm add @animateicons/angular",
-			}),
+			screen.getByRole("button", { name: "Install @animateicons/angular" }),
 		).toBeTruthy();
+	});
+
+	it("opens a panel with the command for the saved package manager", () => {
+		localStorage.setItem("tab", "bun");
+		setup();
+		open();
+		expect(screen.getByText("bun add @animateicons/react")).toBeTruthy();
+		expect(
+			screen
+				.getByRole("button", { name: "React" })
+				.getAttribute("aria-pressed"),
+		).toBe("true");
+	});
+
+	it("switches the framework from the tabs", () => {
+		setup();
+		open();
+		fireEvent.click(screen.getByRole("button", { name: "Vue" }));
+		expect(screen.getByText("npm i @animateicons/vue")).toBeTruthy();
+		expect(localStorage.getItem("distribution")).toBe("vue");
+	});
+
+	it("switches the package manager", () => {
+		setup();
+		open();
+		fireEvent.click(screen.getByRole("button", { name: "pnpm" }));
+		expect(screen.getByText("pnpm add @animateicons/react")).toBeTruthy();
+		expect(localStorage.getItem("tab")).toBe("pnpm");
 	});
 
 	it("copies the command", async () => {
 		setup();
+		open();
 		fireEvent.click(
-			screen.getByRole("button", { name: "Copy npm i @animateicons/react" }),
+			screen.getByRole("button", { name: "Copy install command" }),
 		);
 		await waitFor(() =>
 			expect(writeText).toHaveBeenCalledWith("npm i @animateicons/react"),
 		);
 	});
 
-	it("lets the visitor pick a package manager from a menu", () => {
+	it("keeps shadcn when React is picked again", () => {
+		localStorage.setItem("distribution", "shadcn");
 		setup();
-		fireEvent.keyDown(
-			screen.getByRole("button", { name: "Package manager, npm" }),
-			{ key: "Enter" },
-		);
-		expect(
-			screen.getAllByRole("menuitemradio").map((item) => item.textContent),
-		).toEqual(["npm", "pnpm", "bun"]);
-		fireEvent.click(screen.getByRole("menuitemradio", { name: "pnpm" }));
-		expect(
-			screen.getByRole("button", {
-				name: "Copy pnpm add @animateicons/react",
-				hidden: true,
-			}),
-		).toBeTruthy();
-		expect(localStorage.getItem("tab")).toBe("pnpm");
+		open();
+		fireEvent.click(screen.getByRole("button", { name: "React" }));
+		expect(localStorage.getItem("distribution")).toBe("shadcn");
 	});
 });
