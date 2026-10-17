@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
 				destination: "https://animateicons.in/:path*",
 				permanent: true,
 			},
+			{
+				source: "/icons/docs/usage",
+				destination: "/icons/docs/react",
+				permanent: true,
+			},
 		];
 	},
 

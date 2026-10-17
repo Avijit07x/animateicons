@@ -1,5 +1,6 @@
 "use client";
 
+import { FrameworkLogo } from "@/components/icons/FrameworkLogos";
 import { ChevronRightIcon } from "@/icons/huge/chevron-right-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,8 @@ import { findDocPage } from "../_lib/nav";
 
 const DocsContentHeader: React.FC = () => {
 	const pathname = usePathname();
-	const title = findDocPage(pathname)?.title ?? "Docs";
+	const page = findDocPage(pathname);
+	const title = page?.title ?? "Docs";
 
 	return (
 		<div className="mb-8 flex flex-wrap items-center justify-between gap-3">
@@ -23,7 +25,12 @@ const DocsContentHeader: React.FC = () => {
 					Docs
 				</Link>
 				<ChevronRightIcon size={14} className="text-textMuted" />
-				<span className="text-textPrimary font-medium">{title}</span>
+				<span className="text-textPrimary flex items-center gap-1.5 font-medium">
+					{page?.framework && (
+						<FrameworkLogo framework={page.framework} className="size-3.5" />
+					)}
+					{title}
+				</span>
 			</nav>
 
 			<OpenInAI

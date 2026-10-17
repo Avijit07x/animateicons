@@ -1,5 +1,6 @@
 "use client";
 
+import { FrameworkLogo } from "@/components/icons/FrameworkLogos";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,6 +35,12 @@ const DocsSidebar: React.FC<Props> = ({ onNavigate }) => {
 												: "text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary",
 										)}
 									>
+										{item.framework && (
+											<FrameworkLogo
+												framework={item.framework}
+												className="size-4 shrink-0"
+											/>
+										)}
 										{item.title}
 										{item.label && (
 											<span className="bg-primary/12 text-primary rounded-full px-2 py-0.5 text-[10px] leading-none font-semibold">

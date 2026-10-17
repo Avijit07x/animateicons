@@ -1,5 +1,6 @@
 import CodeBlock from "../../_components/docs/CodeBlock";
 import CommandBlock from "../../_components/docs/CommandBlock";
+import { Callout } from "../_components/Callout";
 
 export const metadata = {
 	title: "shadcn CLI",
@@ -24,7 +25,12 @@ export default function Example() {
 
 # shadcn CLI
 
-Use this if you want each icon copied into your codebase as a single file you can edit.
+Use this if you want each React icon copied into your codebase as a single file you can edit.
+
+<Callout type="note">
+	The shadcn CLI copies React components. For Vue, Angular or plain JS, install
+	the package for your framework from the [Introduction](/icons/docs).
+</Callout>
 
 #### 1. Set up shadcn
 

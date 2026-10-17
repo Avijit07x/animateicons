@@ -14,7 +14,7 @@ const CodeBlock = async ({ code, lang = "tsx", title }: Props) => {
 	});
 
 	return (
-		<div className="group/code bg-surfaceElevated relative my-6 overflow-hidden rounded-3xl">
+		<div className="group/code bg-surface relative my-6 overflow-hidden rounded-3xl">
 			{title ? (
 				<div className="flex items-center justify-between border-b border-white/8 py-2 pr-2 pl-5">
 					<span className="text-textMuted font-mono text-xs">{title}</span>

@@ -49,8 +49,10 @@ describe("docs.json", () => {
 		expect(page("examples/hover-helper")).toContain(
 			"export function useIconHover",
 		);
-		expect(page("usage")).toContain("startAnimation");
-		expect(page("usage")).toContain("isAnimated");
+		expect(page("react")).toContain("startAnimation");
+		expect(page("react")).toContain("isAnimated");
+		expect(page("vue")).toContain("@animateicons/vue");
+		expect(page("installation")).toContain("@animateicons/angular");
 	});
 
 	it("matches the committed public/r/docs.json (run pnpm gen:docs)", async () => {

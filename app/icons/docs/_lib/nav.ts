@@ -1,7 +1,11 @@
+import type { Framework } from "@/app/icons/_contexts/DistributionContext";
+import { FRAMEWORK_GUIDES } from "./frameworks";
+
 export interface DocLink {
 	title: string;
 	href: string;
 	label?: string;
+	framework?: Framework;
 }
 
 export interface DocGroup {
@@ -12,27 +16,24 @@ export interface DocGroup {
 export const docsNav: DocGroup[] = [
 	{
 		title: "Getting Started",
+		items: [{ title: "Introduction", href: "/icons/docs" }],
+	},
+	{
+		title: "Frameworks",
+		items: FRAMEWORK_GUIDES.map(({ name, href, framework }) => ({
+			title: name,
+			href,
+			framework,
+		})),
+	},
+	{
+		title: "React guides",
 		items: [
-			{ title: "Installation", href: "/icons/docs" },
-			{ title: "Usage", href: "/icons/docs/usage" },
 			{
 				title: "Hover helper",
 				href: "/icons/docs/examples/hover-helper",
 				label: "Hook",
 			},
-		],
-	},
-	{
-		title: "Frameworks",
-		items: [
-			{ title: "Plain JS", href: "/icons/docs/vanilla" },
-			{ title: "Vue", href: "/icons/docs/vue" },
-			{ title: "Angular", href: "/icons/docs/angular" },
-		],
-	},
-	{
-		title: "Examples",
-		items: [
 			{ title: "Buttons & tooltips", href: "/icons/docs/examples/buttons" },
 			{ title: "Inputs", href: "/icons/docs/examples/inputs" },
 			{ title: "Cards & feedback", href: "/icons/docs/examples/cards" },
@@ -40,12 +41,15 @@ export const docsNav: DocGroup[] = [
 		],
 	},
 	{
-		title: "Installation methods",
+		title: "Copy the source",
 		items: [
-			{ title: "shadcn CLI", href: "/icons/docs/shadcn" },
-			{ title: "animateicons CLI", href: "/icons/docs/cli" },
-			{ title: "MCP Server", href: "/icons/docs/mcp", label: "AI" },
+			{ title: "shadcn CLI", href: "/icons/docs/shadcn", label: "React" },
+			{ title: "animateicons CLI", href: "/icons/docs/cli", label: "React" },
 		],
+	},
+	{
+		title: "AI agents",
+		items: [{ title: "MCP Server", href: "/icons/docs/mcp", label: "AI" }],
 	},
 ];
 
