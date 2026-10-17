@@ -24,20 +24,22 @@ const PlaygroundPreview: React.FC<Props> = ({
 	className,
 	hint = true,
 }) => {
-	const IconComponent = Icon as React.ComponentType<{
-		size?: number;
-		duration?: number;
-		color?: string;
-		ref?: React.Ref<IconHandle>;
-	}>;
+	const IconComponent = Icon as React.ComponentType<
+		IconTriggerProps & {
+			className?: string;
+			size?: number;
+			duration?: number;
+			color?: string;
+			ref?: React.Ref<IconHandle>;
+		}
+	>;
 
 	return (
 		<div
 			role="img"
 			aria-label={`${componentName} preview at ${config.size}px`}
-			{...triggerProps}
 			className={cn(
-				"bg-surface relative flex h-60 cursor-pointer items-center justify-center overflow-hidden rounded-3xl",
+				"bg-surface relative flex h-60 items-center justify-center overflow-hidden rounded-3xl",
 				className,
 			)}
 		>
@@ -47,6 +49,8 @@ const PlaygroundPreview: React.FC<Props> = ({
 			/>
 			<IconComponent
 				ref={iconRef}
+				{...triggerProps}
+				className="relative cursor-pointer"
 				size={config.size}
 				duration={config.duration}
 				color={config.color}
