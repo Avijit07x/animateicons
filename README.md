@@ -1,10 +1,6 @@
 <div align="center">
 
-# <img src="public/logo.svg" alt="" width="44" height="44" align="absmiddle" /> AnimateIcons
-
-**1170 animated SVG icons for React, Vue, Angular and plain JavaScript.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion`.
-
-[Browse icons](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [Docs](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/Avijit07x)
+<img src="public/readme-banner.svg" alt="AnimateIcons. Make every icon move. 1,170 animated icons for React, Vue, Angular and plain JavaScript." width="100%" />
 
 <p>
   <a href="https://www.npmjs.com/package/@animateicons/react"><img alt="npm" src="https://shieldcn.dev/npm/v/@animateicons/react.svg?variant=secondary&size=xs&theme=zinc" /></a>
@@ -15,13 +11,13 @@
   <a href="https://vercel.com/open-source-program"><img alt="Vercel OSS Program" src="https://shieldcn.dev/badge/Vercel_OSS_Program_Member.svg?variant=branded&size=xs&theme=zinc&logo=vercel" /></a>
 </p>
 
-<br />
-
-![AnimateIcons preview](./public/og.png)
+[Browse icons](https://animateicons.in/icons/lucide) &nbsp;·&nbsp; [Docs](https://animateicons.in/icons/docs) &nbsp;·&nbsp; [MCP](https://animateicons.in/icons/docs/mcp) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/Avijit07x)
 
 </div>
 
 ---
+
+1,170 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
 
 ## Quick start
 
