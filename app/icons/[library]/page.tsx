@@ -1,4 +1,5 @@
 import JsonLd from "@/components/JsonLd";
+import LaunchBanner from "@/components/LaunchBanner";
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
@@ -48,6 +49,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 	return (
 		<div className="flex w-full min-w-0 flex-col">
 			<JsonLd data={jsonLd} />
+			<LaunchBanner className="max-w-384 px-4 lg:px-6" />
 
 			<Suspense fallback={null}>
 				<IconSearchProvider>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Footer from "@/components/Footer";
 import IconLink from "@/components/IconLink";
+import LaunchBanner from "@/components/LaunchBanner";
 import Navbar from "@/components/Navbar";
 import { MAIN_CONTENT_ID } from "@/components/SkipLink";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 const SponsorsPage = () => {
 	return (
 		<>
+			<LaunchBanner className="max-w-7xl px-6" />
 			<Navbar />
 			<main id={MAIN_CONTENT_ID} className="relative min-h-dvh overflow-hidden">
 				<div

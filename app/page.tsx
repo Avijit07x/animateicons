@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import HeroSection from "../components/Hero";
 import IconSearch from "../components/home/IconSearch";
 import InUse from "../components/home/InUse";
+import LaunchBanner from "../components/LaunchBanner";
 import Libraries from "../components/home/Libraries";
 import Playground from "../components/home/Playground";
 import Navbar from "../components/Navbar";
@@ -11,6 +12,7 @@ import Sponsors from "../components/Sponsors";
 const page = () => {
 	return (
 		<>
+			<LaunchBanner className="max-w-7xl px-6" />
 			<Navbar />
 			<main id={MAIN_CONTENT_ID}>
 				<div className="relative overflow-hidden">
