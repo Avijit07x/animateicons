@@ -19,8 +19,8 @@ Use pnpm, never npm or yarn.
 
 - `pnpm dev`: runs `gen:icons`, `format` (`prettier --write .`) and `check` first, then starts Next with Turbopack. It also writes `AGENTS.md` and `CLAUDE.md` stubs.
 - `pnpm lint`, `pnpm typecheck`, `pnpm test`: run all three before calling work done.
-- `pnpm gen:icons`: regenerates barrels, `registry.json`, `public/r/*.json`, `public/r/catalog.json`, `public/r/docs.json` and `lib/icon-count.generated.ts`. Never edit these by hand.
-- `pnpm gen:docs`: rebuilds `public/r/docs.json` from the docs MDX pages, which is what the MCP `get_docs` tool reads. Run it after editing a docs page (`tests/scripts/docs-markdown.test.ts` fails when it is stale). A new MDX component in a docs page needs a rule in `scripts/docs-markdown.ts`, or the build fails and says which tag.
+- `pnpm gen:icons`: regenerates barrels, `registry.json`, `public/r/*.json`, `public/r/catalog.json`, the docs files below and `lib/icon-count.generated.ts`. Never edit these by hand.
+- `pnpm gen:docs`: rebuilds `public/r/docs.json` (what the MCP `get_docs` tool reads), one markdown file per page in `public/r/docs/` (what the docs "Open in AI" button sends), `public/llms.txt` and `public/llms-full.txt` from the docs MDX pages. Run it after editing a docs page (`tests/scripts/docs-markdown.test.ts` fails when it is stale). A new MDX component in a docs page needs a rule in `scripts/docs-markdown.ts`, or the build fails and says which tag.
 - `pnpm check`: duplicate names, registry sync and README counts.
 - `pnpm test:frames`: plays every icon in React, plain JS, Vue and Angular on one shared clock and fails if any frame differs from React. `pnpm test-zone` opens the same check in a browser.
 - `pnpm verify`: everything CI runs, including the npm package size budget.
@@ -63,11 +63,13 @@ Icons in the same family must move alike, in both libraries. `docs/motion-consis
 - Rocking and swinging icons stay at or below about 100 degrees per second at their fastest point. The bell family takes 1.1s for its 12 degree swing. When someone says a motion is too fast or slow, measure it in a browser first and compare it with the other icons.
 - Add `style={{ overflow: "visible" }}` to the `m.svg` only on icons that are really cut at the box edge, and only on icons the owner names. Never add it in bulk.
 
-## Publishing the npm package
+## Publishing the packages
 
-- Add a `## x.y.z` entry to `npm/CHANGELOG.md` and bump `npm/package.json`.
-- Pushing a `v*` tag runs `.github/workflows/npm-publish.yml` (uses the `NPM_TOKEN` secret, with provenance).
-- Bundle size budgets live under `size-limit` in `npm/package.json` and CI enforces them.
+- Add a `## x.y.z` entry to the package's `CHANGELOG.md` and bump its `package.json`.
+- Each package publishes from its own tag: `v0.12.1` for `@animateicons/react` (`npm-publish.yml`), `vanilla-v0.1.0`, `vue-v0.1.0` and `angular-v0.1.0` for the others. The CLI and MCP publish from the "Publish CLI + MCP" workflow, started by hand.
+- Publish `@animateicons/vanilla` first when it changes, because the Vue and Angular packages depend on it.
+- npm stages every publish. Approve it under Staged Packages on npmjs.com with 2FA before it goes live.
+- Bundle size budgets live under `size-limit` in each package's `package.json` and CI enforces them.
 
 ## Site conventions
 
