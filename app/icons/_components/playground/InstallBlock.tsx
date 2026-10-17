@@ -9,6 +9,10 @@ import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
 import { cn } from "@/lib/utils";
 import {
 	type Distribution,
+	FRAMEWORK_LABELS,
+	type Framework,
+	frameworkOf,
+	packageFor,
 	useDistribution,
 } from "../../_contexts/DistributionContext";
 import {
@@ -22,8 +26,12 @@ import HighlightedCode from "./HighlightedCode";
 type Option<T extends string> = {
 	value: T;
 	label: string;
-	icon: React.ReactNode;
+	icon?: React.ReactNode;
 };
+
+const FRAMEWORKS: Option<Framework>[] = (
+	["react", "vanilla", "vue", "angular"] as const
+).map((value) => ({ value, label: FRAMEWORK_LABELS[value] }));
 
 const METHODS: Option<Distribution>[] = [
 	{
@@ -90,24 +98,40 @@ type Props = {
 const InstallBlock: React.FC<Props> = ({ prefix, name }) => {
 	const { distribution, setDistribution } = useDistribution();
 	const { packageManager, setPackageManager } = usePackageManager();
+	const framework = frameworkOf(distribution);
 
 	const command =
 		distribution === "shadcn"
 			? shadcnAddCommand(packageManager, prefix, name)
-			: `${installCommandFor(packageManager)} @animateicons/react`;
+			: `${installCommandFor(packageManager)} ${packageFor(distribution)}`;
+
+	const pickFramework = (next: Framework) => {
+		if (next !== framework) setDistribution(next === "react" ? "npm" : next);
+	};
 
 	return (
 		<div>
 			<p className="text-textMuted mb-2 text-sm">Install</p>
 
 			<Toggle
-				label="Install with"
-				value={distribution}
-				options={METHODS}
-				onChange={setDistribution}
+				label="Framework"
+				value={framework}
+				options={FRAMEWORKS}
+				onChange={pickFramework}
 				className="bg-surfaceElevated mb-3 rounded-full p-1"
-				optionClassName="flex-1 px-3 py-1.5 text-sm [&_svg:not([class*='size-'])]:size-3.5"
+				optionClassName="flex-1 px-3 py-1.5 text-sm"
 			/>
+
+			{framework === "react" && (
+				<Toggle
+					label="Install with"
+					value={distribution}
+					options={METHODS}
+					onChange={setDistribution}
+					className="mb-3"
+					optionClassName="px-3 py-1 text-xs [&_svg:not([class*='size-'])]:size-3.5"
+				/>
+			)}
 
 			<div className="bg-surfaceElevated overflow-hidden rounded-3xl">
 				<div className="flex flex-wrap items-center justify-between gap-2 px-3 pt-3">

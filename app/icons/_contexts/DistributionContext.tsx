@@ -3,12 +3,14 @@
 /**
  * DistributionContext
  *
- * SRP: single source of truth for which distribution method the
- * AnimateIcons gallery user prefers - `shadcn` (CLI copy) or `npm`
- * (`@animateicons/react` import). Drives the "Copy" button text and
- * payload on every IconTile so a user who prefers npm sees and copies
- * `import { BellRingIcon } from "@animateicons/react/lucide"`, and a
- * user who prefers shadcn keeps copying the install URL command.
+ * SRP: single source of truth for how the AnimateIcons gallery user
+ * installs icons: React via `shadcn` (CLI copy) or `npm`
+ * (`@animateicons/react`), or the `vanilla`, `vue` and `angular`
+ * packages. Drives the "Copy" button text and payload on every IconTile,
+ * the playground snippets and the install commands, so a user who
+ * prefers Vue sees and copies
+ * `import { BellRingIcon } from "@animateicons/vue/lucide"`, and a user
+ * who prefers shadcn keeps copying the install URL command.
  *
  * Mirrors the shape of PackageManagerContext so the wiring is familiar:
  *   - hydrate from localStorage on mount
@@ -17,12 +19,28 @@
  */
 
 import { useStoredPreference } from "@/hooks/useStoredPreference";
+import { iconNameToComponent } from "@/utils/iconNameToComponent";
 import { createContext, useContext, useMemo } from "react";
 
-export type Distribution = "shadcn" | "npm";
+export type Distribution = "shadcn" | "npm" | "vanilla" | "vue" | "angular";
+
+export type Framework = "react" | "vanilla" | "vue" | "angular";
+
+export const FRAMEWORK_LABELS: Record<Framework, string> = {
+	react: "React",
+	vanilla: "Plain JS",
+	vue: "Vue",
+	angular: "Angular",
+};
 
 const STORAGE_KEY = "distribution";
-const VALID: ReadonlyArray<Distribution> = ["shadcn", "npm"];
+const VALID: ReadonlyArray<Distribution> = [
+	"shadcn",
+	"npm",
+	"vanilla",
+	"vue",
+	"angular",
+];
 
 const isValid = (v: string | null): v is Distribution =>
 	v !== null && (VALID as ReadonlyArray<string>).includes(v);
@@ -67,24 +85,25 @@ export const useDistribution = (): DistributionContextValue => {
 	return ctx;
 };
 
-/**
- * Convert a kebab-case icon stem ("bell-ring") into its npm export
- * name ("BellRingIcon").
- */
-const npmComponentName = (stem: string): string =>
-	`${stem
-		.split("-")
-		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-		.join("")}Icon`;
+export const frameworkOf = (distribution: Distribution): Framework =>
+	distribution === "shadcn" || distribution === "npm" ? "react" : distribution;
 
-/**
- * Build the import line a consumer should paste when using the
- * @animateicons/react npm package.
- *
- *   import { BellRingIcon } from "@animateicons/react/lucide";
- */
-export const npmImportLine = (
+export const packageFor = (distribution: Distribution): string =>
+	`@animateicons/${frameworkOf(distribution)}`;
+
+export const iconDataName = (stem: string): string =>
+	iconNameToComponent(stem).slice(0, -"Icon".length);
+
+const exportName = (distribution: Distribution, stem: string): string => {
+	const framework = frameworkOf(distribution);
+	return framework === "vanilla" || framework === "angular"
+		? iconDataName(stem)
+		: iconNameToComponent(stem);
+};
+
+export const importLine = (
+	distribution: Distribution,
 	stem: string,
 	library: "lucide" | "huge",
 ): string =>
-	`import { ${npmComponentName(stem)} } from "@animateicons/react/${library}";`;
+	`import { ${exportName(distribution, stem)} } from "${packageFor(distribution)}/${library}";`;

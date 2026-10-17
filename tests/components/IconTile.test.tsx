@@ -3,7 +3,7 @@ import { DistributionProvider } from "@/app/icons/_contexts/DistributionContext"
 import { IconTileProvider } from "@/app/icons/_contexts/IconTileContext";
 import { PackageManagerProvider } from "@/app/icons/_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "@/app/icons/_contexts/PlaygroundContext";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("next/navigation", () => ({ usePathname: () => "/icons/huge" }));
@@ -55,6 +55,24 @@ describe("IconTile", () => {
 		expect(
 			screen.getByRole("button", { name: /open heart-add/i }),
 		).toBeTruthy();
+	});
+
+	it("copies the import for the chosen framework", async () => {
+		const writeText = vi.fn(() => Promise.resolve());
+		Object.defineProperty(navigator, "clipboard", {
+			value: { writeText },
+			configurable: true,
+		});
+		localStorage.setItem("distribution", "vue");
+		setup();
+		fireEvent.mouseEnter(screen.getByRole("group", { name: "heart-add" }));
+		fireEvent.click(screen.getByRole("button", { name: "Copy Vue import" }));
+		await waitFor(() =>
+			expect(writeText).toHaveBeenCalledWith(
+				'import { HeartAddIcon } from "@animateicons/vue/huge";',
+			),
+		);
+		localStorage.clear();
 	});
 
 	it("hides the actions again when the pointer leaves", async () => {

@@ -5,9 +5,15 @@ import InstallBlock from "@/app/icons/_components/playground/InstallBlock";
 import PlaygroundControls from "@/app/icons/_components/playground/PlaygroundControls";
 import PlaygroundPreview from "@/app/icons/_components/playground/PlaygroundPreview";
 import PreviewActions from "@/app/icons/_components/playground/PreviewActions";
-import { buildUsageSnippet } from "@/app/icons/_components/playground/snippet";
+import {
+	buildUsageSnippet,
+	MANUAL_CONTROL_HINT,
+} from "@/app/icons/_components/playground/snippet";
 import { useIconConfig } from "@/app/icons/_components/playground/useIconConfig";
-import { useDistribution } from "@/app/icons/_contexts/DistributionContext";
+import {
+	frameworkOf,
+	useDistribution,
+} from "@/app/icons/_contexts/DistributionContext";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { useEffect, useMemo } from "react";
 
@@ -83,7 +89,7 @@ const IconDetailPlayground: React.FC<Props> = ({
 					label="Import & usage"
 					code={snippet}
 					lang="tsx"
-					footer="Attach a ref to call startAnimation() and stopAnimation()."
+					footer={MANUAL_CONTROL_HINT[frameworkOf(distribution)]}
 					className="flex-1"
 				/>
 			</div>

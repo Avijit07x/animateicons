@@ -16,6 +16,10 @@ import { ChevronDownIcon } from "@/icons/huge/chevron-down-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
 import { cn } from "@/lib/utils";
 import {
+	packageFor,
+	useDistribution,
+} from "../../_contexts/DistributionContext";
+import {
 	installCommandFor,
 	type PackageManager,
 	usePackageManager,
@@ -29,9 +33,10 @@ const GHOST =
 
 const InstallCommand: React.FC = () => {
 	const { packageManager, setPackageManager } = usePackageManager();
+	const { distribution } = useDistribution();
 	const { copied, copy } = useCopy();
 	const { ref, triggerProps } = useIconHover();
-	const command = `${installCommandFor(packageManager)} @animateicons/react`;
+	const command = `${installCommandFor(packageManager)} ${packageFor(distribution)}`;
 	const [tool, verb, pkg] = command.split(" ");
 	const Icon = copied ? CheckIcon : CopyIcon;
 

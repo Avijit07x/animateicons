@@ -1,13 +1,16 @@
 import InstallCommand from "@/app/icons/_components/navbar/InstallCommand";
+import { DistributionProvider } from "@/app/icons/_contexts/DistributionContext";
 import { PackageManagerProvider } from "@/app/icons/_contexts/PackageManagerContext";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 
 const setup = () =>
 	render(
-		<PackageManagerProvider>
-			<InstallCommand />
-		</PackageManagerProvider>,
+		<DistributionProvider>
+			<PackageManagerProvider>
+				<InstallCommand />
+			</PackageManagerProvider>
+		</DistributionProvider>,
 	);
 
 describe("InstallCommand", () => {
@@ -42,6 +45,17 @@ describe("InstallCommand", () => {
 		setup();
 		expect(
 			screen.getByRole("button", { name: "Copy bun add @animateicons/react" }),
+		).toBeTruthy();
+	});
+
+	it("follows the chosen framework", () => {
+		localStorage.setItem("distribution", "angular");
+		localStorage.setItem("tab", "pnpm");
+		setup();
+		expect(
+			screen.getByRole("button", {
+				name: "Copy pnpm add @animateicons/angular",
+			}),
 		).toBeTruthy();
 	});
 
