@@ -1,6 +1,6 @@
 <div align="center">
 
-# AnimateIcons
+# <img src="public/logo.svg" alt="" width="44" height="44" align="absmiddle" /> AnimateIcons
 
 **1170 animated SVG icons for React, Vue, Angular and plain JavaScript.** Hover & imperative triggers, configurable size, color, and duration. Built on `motion`.
 
