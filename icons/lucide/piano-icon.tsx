@@ -57,12 +57,11 @@ const PianoIcon = forwardRef<PianoIconHandle, PianoIconProps>(
   const isControlled = useRef(false);
 
   const start = useCallback(() => {
-   if (reduced) return;
-   keyControls.start("play");
+   keyControls.start(reduced ? "normal" : "animate");
   }, [keyControls, reduced]);
 
   const stop = useCallback(() => {
-   keyControls.start("rest");
+   keyControls.start("normal");
   }, [keyControls]);
 
   useImperativeHandle(ref, () => {
@@ -91,8 +90,8 @@ const PianoIcon = forwardRef<PianoIconHandle, PianoIconProps>(
   );
 
   const keyVariants = (i: number): Variants => ({
-   rest: { scaleY: 1 },
-   play: {
+   normal: { scaleY: 1 },
+   animate: {
     scaleY: [1, 1.22, 1],
     transition: {
      duration: 0.8 * duration,
@@ -127,28 +126,28 @@ const PianoIcon = forwardRef<PianoIconHandle, PianoIconProps>(
       <m.path
        d="M6 14v4"
        animate={keyControls}
-       initial="rest"
+       initial="normal"
        variants={keyVariants(0)}
        style={{ transformBox: "fill-box", originX: "50%", originY: "0%" }}
       />
       <m.path
        d="M10 14v4"
        animate={keyControls}
-       initial="rest"
+       initial="normal"
        variants={keyVariants(1)}
        style={{ transformBox: "fill-box", originX: "50%", originY: "0%" }}
       />
       <m.path
        d="M14 14v4"
        animate={keyControls}
-       initial="rest"
+       initial="normal"
        variants={keyVariants(2)}
        style={{ transformBox: "fill-box", originX: "50%", originY: "0%" }}
       />
       <m.path
        d="M18 14v4"
        animate={keyControls}
-       initial="rest"
+       initial="normal"
        variants={keyVariants(3)}
        style={{ transformBox: "fill-box", originX: "50%", originY: "0%" }}
       />
