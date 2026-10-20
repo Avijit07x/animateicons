@@ -7,7 +7,7 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { SearchIcon } from "@/icons/huge/search-icon";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
-import { searchIcons } from "@/lib/icon-search";
+import type { searchIcons } from "@/lib/icon-search";
 import { useInView, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import SearchResult from "./SearchResult";
@@ -25,9 +25,28 @@ const IconSearch: React.FC = () => {
 	const { ref: searchRef, triggerProps } = useIconHover();
 
 	const query = typed ?? (reduced ? WORDS[0] : auto);
-	const results = useMemo(() => searchIcons(query, RESULT_COUNT), [query]);
+	const [search, setSearch] = useState<typeof searchIcons | null>(null);
+
+	const wantsSearch = inView || typed !== null;
+
+	useEffect(() => {
+		if (!wantsSearch || search) return;
+		let alive = true;
+		import("@/lib/icon-search").then((mod) => {
+			if (alive) setSearch(() => mod.searchIcons);
+		});
+		return () => {
+			alive = false;
+		};
+	}, [wantsSearch, search]);
+
+	const results = useMemo(
+		() => (search ? search(query, RESULT_COUNT) : []),
+		[search, query],
+	);
 	const trimmed = query.trim();
-	const noMatch = trimmed.length >= 2 && results.length === 0;
+	const noMatch =
+		search !== null && trimmed.length >= 2 && results.length === 0;
 
 	useEffect(() => {
 		if (typed === null && auto.length === 1)

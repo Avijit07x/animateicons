@@ -1,20 +1,6 @@
 "use client";
 
-/**
- * CommandSearchProvider
- *
- * Owns the open/close state of the global Cmd+K palette and binds the
- * keyboard shortcut so any component on the site can trigger search via
- * `useCommandSearch().open()`. Mounts the CommandSearch modal once at
- * the root so the palette is portal-free and there's only ever one in
- * the tree no matter how deeply nested the consumer is.
- *
- * Shortcuts:
- *   - Cmd+K / Ctrl+K - toggle the palette
- *   - "/" (when no input is focused) - open the palette
- *   - Esc - handled by the modal itself
- */
-
+import dynamic from "next/dynamic";
 import {
 	createContext,
 	useCallback,
@@ -22,7 +8,8 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import CommandSearch from "./CommandSearch";
+
+const CommandSearch = dynamic(() => import("./CommandSearch"), { ssr: false });
 
 type Ctx = {
 	isOpen: boolean;
@@ -47,19 +34,23 @@ export const CommandSearchProvider: React.FC<{
 	children: React.ReactNode;
 }> = ({ children }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [hasOpened, setHasOpened] = useState(false);
+	if (isOpen && !hasOpened) setHasOpened(true);
 
 	const open = useCallback(() => setIsOpen(true), []);
 	const close = useCallback(() => setIsOpen(false), []);
 
 	useEffect(() => {
 		const onKey = (e: KeyboardEvent) => {
-			// Cmd+K / Ctrl+K - toggle from anywhere
 			if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
 				e.preventDefault();
 				setIsOpen((prev) => !prev);
 				return;
 			}
-			// "/" - open only when not typing into another input
+			if (e.key === "Escape" && isOpen) {
+				setIsOpen(false);
+				return;
+			}
 			if (e.key === "/" && !isEditableTarget(e.target) && !isOpen) {
 				e.preventDefault();
 				setIsOpen(true);
@@ -72,7 +63,7 @@ export const CommandSearchProvider: React.FC<{
 	return (
 		<CommandSearchContext.Provider value={{ isOpen, open, close }}>
 			{children}
-			<CommandSearch isOpen={isOpen} onClose={close} />
+			{hasOpened && <CommandSearch isOpen={isOpen} onClose={close} />}
 		</CommandSearchContext.Provider>
 	);
 };
