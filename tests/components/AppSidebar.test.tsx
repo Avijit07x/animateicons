@@ -9,15 +9,13 @@ import { describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => {
 	const today = new Date().toISOString().slice(0, 10);
-	const icon = (name: string, addedAt: string) => ({
-		name,
-		keywords: [name],
-		category: ["Social"],
-		addedAt,
+	const summary = (addedAt: string[]) => ({
+		ICON_ADDED_AT: addedAt,
+		ICON_CATEGORIES: [{ name: "Social", count: addedAt.length }],
 	});
 	return {
-		lucide: [icon("heart", today), icon("bell", "2020-01-01")],
-		huge: [icon("star", today), icon("moon", today), icon("sun", "2020-01-01")],
+		lucide: summary([today, "2020-01-01"]),
+		huge: summary([today, today, "2020-01-01"]),
 	};
 });
 
@@ -25,8 +23,8 @@ vi.mock("next/navigation", () => ({
 	usePathname: () => "/icons/lucide",
 	useRouter: () => ({ replace: vi.fn() }),
 }));
-vi.mock("@/icons/lucide/meta", () => ({ ICON_META: mocks.lucide }));
-vi.mock("@/icons/huge/meta", () => ({ ICON_META: mocks.huge }));
+vi.mock("@/icons/lucide/summary", () => mocks.lucide);
+vi.mock("@/icons/huge/summary", () => mocks.huge);
 
 const tree = (
 	<SidebarProvider>

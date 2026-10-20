@@ -1,5 +1,5 @@
-import { getIcon } from "@/icons/huge/meta";
-import { getIcon as getLucideIcon } from "@/icons/lucide/meta";
+import { getIcon } from "@/icons/huge/loaders";
+import { getIcon as getLucideIcon } from "@/icons/lucide/loaders";
 
 export const SHOWCASE_NAMES = [
 	"notification",

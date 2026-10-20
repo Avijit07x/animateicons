@@ -1,11 +1,7 @@
-import {
-	getIcon as getHugeIcon,
-	ICON_META as HUGE_META,
-} from "@/icons/huge/meta";
-import {
-	getIcon as getLucideIcon,
-	ICON_META as LUCIDE_META,
-} from "@/icons/lucide/meta";
+import { getIcon as getHugeIcon } from "@/icons/huge/loaders";
+import { ICON_META as HUGE_META } from "@/icons/huge/meta";
+import { getIcon as getLucideIcon } from "@/icons/lucide/loaders";
+import { ICON_META as LUCIDE_META } from "@/icons/lucide/meta";
 import {
 	createIconSearchIndex,
 	MIN_QUERY_LENGTH,

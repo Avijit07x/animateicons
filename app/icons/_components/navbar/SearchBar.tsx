@@ -4,19 +4,13 @@ import { Kbd } from "@/components/ui/kbd";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useIsMac } from "@/hooks/useIsMac";
 import { SearchIcon, type SearchIconHandle } from "@/icons/huge/search-icon";
-import { ICON_COUNT as HUGE_ICON_COUNT } from "@/icons/huge/meta";
-import { ICON_COUNT as LUCIDE_ICON_COUNT } from "@/icons/lucide/meta";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import { MotionConfig, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import {
 	MAX_SEARCH_LENGTH,
 	useIconSearch,
 } from "../../_contexts/IconSearchContext";
-
-const ICON_LIST_COUNT = {
-	lucide: LUCIDE_ICON_COUNT,
-	huge: HUGE_ICON_COUNT,
-} as const;
 
 const KBD = "h-5 rounded-full bg-white/10 px-2 text-[0.6rem]";
 
@@ -64,7 +58,7 @@ const SearchBar: React.FC = () => {
 	const { library } = useIconLibrary();
 	const isMac = useIsMac();
 
-	const iconCount = library ? ICON_LIST_COUNT[library] : "";
+	const iconCount = library ? ICON_COUNTS[library] : "";
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {

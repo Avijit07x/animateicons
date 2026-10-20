@@ -15,10 +15,16 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { ICON_META as HUGE_ICON_META } from "@/icons/huge/meta";
-import { ICON_META as LUCIDE_ICON_META } from "@/icons/lucide/meta";
+import {
+	ICON_ADDED_AT as HUGE_ADDED_AT,
+	ICON_CATEGORIES as HUGE_CATEGORIES,
+} from "@/icons/huge/summary";
+import {
+	ICON_ADDED_AT as LUCIDE_ADDED_AT,
+	ICON_CATEGORIES as LUCIDE_CATEGORIES,
+} from "@/icons/lucide/summary";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import { cn } from "@/lib/utils";
-import { getCategories } from "@/utils/getCategories";
 import { isIconNew } from "@/utils/isIconNew";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
@@ -31,6 +37,8 @@ const libraryIconMap: Record<string, React.FC<{ className?: string }>> = {
 	"Huge Icons": HugeIcon,
 };
 
+const CATEGORIES = { lucide: LUCIDE_CATEGORIES, huge: HUGE_CATEGORIES };
+
 const NO_NEW_ICONS: Record<string, number> = {};
 
 let newCountByLibrary: Record<string, number> | null = null;
@@ -39,8 +47,8 @@ const subscribeNever = () => () => {};
 
 const getNewCountByLibrary = () => {
 	newCountByLibrary ??= {
-		lucide: LUCIDE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
-		huge: HUGE_ICON_META.filter((icon) => isIconNew(icon.addedAt)).length,
+		lucide: LUCIDE_ADDED_AT.filter(isIconNew).length,
+		huge: HUGE_ADDED_AT.filter(isIconNew).length,
 	};
 	return newCountByLibrary;
 };
@@ -88,9 +96,8 @@ const AppSidebar: React.FC = () => {
 	const { category, setCategory } = useCategory();
 	const router = useRouter();
 	const pathname = usePathname();
-	const icons = library === "huge" ? HUGE_ICON_META : LUCIDE_ICON_META;
-
-	const categories = React.useMemo(() => getCategories(icons), [icons]);
+	const libraryKey = library === "huge" ? "huge" : "lucide";
+	const categories = CATEGORIES[libraryKey];
 	const newCounts = React.useSyncExternalStore(
 		subscribeNever,
 		getNewCountByLibrary,
@@ -158,7 +165,7 @@ const AppSidebar: React.FC = () => {
 						<SidebarMenu className="gap-0.5">
 							<CategoryButton
 								label="All"
-								count={icons.length}
+								count={ICON_COUNTS[libraryKey]}
 								isActive={category === "all"}
 								onSelect={() => handleCategory("all")}
 							/>
