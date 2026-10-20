@@ -1,7 +1,7 @@
 import JsonLd from "@/components/JsonLd";
 import { MAIN_CONTENT_ID } from "@/components/SkipLink";
-import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
-import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { ICON_META as HUGE_ICON_META } from "@/icons/huge/meta";
+import { ICON_META as LUCIDE_ICON_META } from "@/icons/lucide/meta";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,7 +16,7 @@ const isLibrary = (v: string): v is LibraryKey =>
 	v === "lucide" || v === "huge";
 
 const getList = (lib: LibraryKey) =>
-	lib === "lucide" ? LUCIDE_ICON_LIST : HUGE_ICON_LIST;
+	lib === "lucide" ? LUCIDE_ICON_META : HUGE_ICON_META;
 
 const getLibraryPrefix = (lib: LibraryKey) => (lib === "lucide" ? "lu" : "hu");
 
@@ -31,10 +31,7 @@ const RELATED_LIMIT = 6;
 const nameTokens = (name: string) =>
 	name.split("-").filter((token) => !/^\d+$/.test(token));
 
-const findRelatedIcons = (
-	library: LibraryKey,
-	name: string,
-): { name: string; icon: React.ElementType }[] => {
+const findRelatedIcons = (library: LibraryKey, name: string): string[] => {
 	const list = getList(library);
 	const current = list.find((candidate) => candidate.name === name);
 	const root = name.split("-")[0];
@@ -67,17 +64,17 @@ const findRelatedIcons = (
 
 	return [...family, ...others.map(({ item }) => item)]
 		.slice(0, RELATED_LIMIT)
-		.map((item) => ({ name: item.name, icon: item.icon }));
+		.map((item) => item.name);
 };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
 	const params: { library: string; name: string }[] = [];
-	for (const item of LUCIDE_ICON_LIST) {
+	for (const item of LUCIDE_ICON_META) {
 		params.push({ library: "lucide", name: item.name });
 	}
-	for (const item of HUGE_ICON_LIST) {
+	for (const item of HUGE_ICON_META) {
 		params.push({ library: "huge", name: item.name });
 	}
 	return params;
@@ -190,7 +187,6 @@ const Page = async ({ params }: Props) => {
 			</header>
 
 			<IconDetailPlayground
-				Icon={item.icon}
 				componentName={componentName}
 				library={library}
 				prefix={prefix}
@@ -201,13 +197,9 @@ const Page = async ({ params }: Props) => {
 				<section className="mt-14 space-y-4">
 					<h2 className="text-textMuted text-sm">Related icons</h2>
 					<ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
-						{related.map((rel) => (
-							<li key={rel.name}>
-								<RelatedIconCard
-									href={`/icons/${library}/${rel.name}`}
-									name={rel.name}
-									Icon={rel.icon}
-								/>
+						{related.map((relName) => (
+							<li key={relName}>
+								<RelatedIconCard library={library} name={relName} />
 							</li>
 						))}
 					</ul>

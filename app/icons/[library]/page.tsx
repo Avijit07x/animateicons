@@ -2,8 +2,7 @@ import JsonLd from "@/components/JsonLd";
 import LaunchBanner from "@/components/LaunchBanner";
 import ReducedMotionNotice from "@/components/ReducedMotionNotice";
 import { MAIN_CONTENT_ID } from "@/components/SkipLink";
-import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
-import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -11,11 +10,6 @@ import IconListClient from "../_components/iconlist/IconListClient";
 import Navbar from "../_components/navbar/Navbar";
 import { IconSearchProvider } from "../_contexts/IconSearchContext";
 import { buildLibraryJsonLd, buildLibraryMetadata, isLibrary } from "./_seo";
-
-const ICON_COUNTS = {
-	lucide: LUCIDE_ICON_LIST.length,
-	huge: HUGE_ICON_LIST.length,
-} as const;
 
 export const dynamicParams = false;
 
