@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 1024, height: 1024 };
+export const size = { width: 96, height: 96 };
 
 export default async function Icon() {
 	return new ImageResponse(
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="1024"
-			height="1024"
+			width={size.width}
+			height={size.height}
 			viewBox="0 0 1024 1024"
 		>
 			<path
