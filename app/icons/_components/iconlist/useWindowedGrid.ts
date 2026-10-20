@@ -19,7 +19,7 @@ const INITIAL_VIEW: View = {
 	rowHeight: 152,
 	gap: FALLBACK_GAP,
 	firstRow: 0,
-	lastRow: 8,
+	lastRow: 2,
 };
 
 const sameView = (a: View, b: View) =>
