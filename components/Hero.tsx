@@ -17,9 +17,8 @@ import IconLink from "./IconLink";
 import { SHOWCASE } from "./home/showcase-icons";
 
 const container: Variants = {
-	hidden: { opacity: 0 },
+	hidden: {},
 	show: {
-		opacity: 1,
 		transition: { staggerChildren: 0.08, delayChildren: 0.05 },
 	},
 };
@@ -28,6 +27,14 @@ const item: Variants = {
 	hidden: { opacity: 0, y: 18 },
 	show: {
 		opacity: 1,
+		y: 0,
+		transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+	},
+};
+
+const heading: Variants = {
+	hidden: { y: 18 },
+	show: {
 		y: 0,
 		transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
 	},
@@ -71,7 +78,7 @@ const HeroSection: React.FC = () => {
 				className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-6 pt-12 text-center lg:pt-8"
 			>
 				<motion.h1
-					variants={item}
+					variants={heading}
 					className="text-[clamp(2.25rem,9.3vw,2.75rem)] leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
 				>
 					<span className="text-textPrimary">
