@@ -1,33 +1,9 @@
 "use client";
 
-/**
- * IconSearchContext
- *
- * SRP: owns the AnimateIcons gallery search query state, exposes a
- * debounced version to consumers, and keeps the browser URL `?q=` in
- * sync - so:
- *   - users land on /icons/lucide?q=bell with the AnimateIcons search
- *     field pre-filled and results filtered
- *   - the URL updates while typing (debounced, history-safe via replace)
- *   - back/forward buttons restore the AnimateIcons filter
- *   - the SearchAction JSON-LD in app/layout.tsx actually deep-links
- *     into the AnimateIcons gallery for sitelinks search
- *
- * Two-way binding rules (avoid loops):
- *   state → URL fires only when debounced value differs from the
- *           current ?q=
- *   URL → state fires only when the URL drifts from the debounced
- *         value (i.e. only on real navigation, not on our own
- *         router.replace)
- *
- * Every path into `query` - hydration, setQuery, and inbound URL drift -
- * is clamped to MAX_SEARCH_LENGTH so a pasted wall of text can't reach
- * the URL and stall the page (#45).
- */
-
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, {
 	createContext,
+	Suspense,
 	useCallback,
 	useContext,
 	useEffect,
@@ -54,21 +30,41 @@ const IconSearchResultContext =
 
 export const MAX_SEARCH_LENGTH = 100;
 
-export const IconSearchProvider: React.FC<{
-	children: React.ReactNode;
-}> = ({ children }) => {
+type ProviderProps = { children: React.ReactNode };
+
+const EMPTY_INPUT: IconSearchInputContextValue = {
+	query: "",
+	setQuery: () => {},
+};
+
+const EMPTY_RESULT: IconSearchResultContextValue = { debouncedQuery: "" };
+
+const StaticIconSearchProvider: React.FC<ProviderProps> = ({ children }) => (
+	<IconSearchInputContext.Provider value={EMPTY_INPUT}>
+		<IconSearchResultContext.Provider value={EMPTY_RESULT}>
+			{children}
+		</IconSearchResultContext.Provider>
+	</IconSearchInputContext.Provider>
+);
+
+export const IconSearchProvider: React.FC<ProviderProps> = ({ children }) => (
+	<Suspense
+		fallback={<StaticIconSearchProvider>{children}</StaticIconSearchProvider>}
+	>
+		<UrlIconSearchProvider>{children}</UrlIconSearchProvider>
+	</Suspense>
+);
+
+const UrlIconSearchProvider: React.FC<ProviderProps> = ({ children }) => {
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
 
-	// Hydrate from `?q=` on first render. Lazy init so we don't read
-	// searchParams on every render - and so SSR/CSR start matches.
 	const [query, setQuery] = useState(
 		() => searchParams?.get(QUERY_PARAM)?.slice(0, MAX_SEARCH_LENGTH) ?? "",
 	);
 	const [debouncedQuery] = useDebounce(query, 300);
 
-	// state → URL: replace (not push) so we don't pollute history.
 	useEffect(() => {
 		if (!searchParams) return;
 		const current = searchParams.get(QUERY_PARAM) ?? "";
@@ -86,11 +82,6 @@ export const IconSearchProvider: React.FC<{
 		router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
 	}, [debouncedQuery, searchParams, pathname, router]);
 
-	// URL → state: handles back/forward and external links. Only writes
-	// when the URL drifts from the debounced value (i.e. someone else
-	// changed it), preventing a feedback loop with the effect above.
-	// Keyed on the serialized URL so typing (which only moves `query`)
-	// never re-triggers it; adjusted during render instead of in an effect.
 	const searchParamsKey = searchParams?.toString() ?? "";
 	const [prevKey, setPrevKey] = useState(searchParamsKey);
 	if (searchParamsKey !== prevKey) {

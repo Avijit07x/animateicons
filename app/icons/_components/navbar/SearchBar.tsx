@@ -62,6 +62,7 @@ const SearchBar: React.FC = () => {
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
+			if (inputRef.current?.checkVisibility?.() === false) return;
 			if ((isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === "k") {
 				e.preventDefault();
 				e.stopPropagation();
