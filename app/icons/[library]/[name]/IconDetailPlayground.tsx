@@ -14,11 +14,12 @@ import {
 	frameworkOf,
 	useDistribution,
 } from "@/app/icons/_contexts/DistributionContext";
+import { getLibraryIcon } from "@/lib/library-icons";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
-import { useEffect, useMemo } from "react";
+import type { IconHandle } from "@/types/icon";
+import { Suspense, useEffect, useMemo } from "react";
 
 type Props = {
-	Icon: React.ElementType;
 	componentName: string;
 	library: "lucide" | "huge";
 	prefix: IconLibraryPrefix;
@@ -29,8 +30,17 @@ const SectionLabel: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => <p className="text-textMuted mb-2 text-sm">{children}</p>;
 
+const PlayOnMount: React.FC<{
+	iconRef: React.RefObject<IconHandle | null>;
+}> = ({ iconRef }) => {
+	useEffect(() => {
+		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
+		return () => window.clearTimeout(t);
+	}, [iconRef]);
+	return null;
+};
+
 const IconDetailPlayground: React.FC<Props> = ({
-	Icon,
 	componentName,
 	library,
 	prefix,
@@ -45,10 +55,7 @@ const IconDetailPlayground: React.FC<Props> = ({
 		[distribution, library, name, componentName, config],
 	);
 
-	useEffect(() => {
-		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
-		return () => window.clearTimeout(t);
-	}, [iconRef]);
+	const Icon = getLibraryIcon(library, name);
 
 	return (
 		<div className="grid gap-6 lg:grid-cols-2">
@@ -56,15 +63,22 @@ const IconDetailPlayground: React.FC<Props> = ({
 				<div className="flex flex-1 flex-col">
 					<SectionLabel>Preview</SectionLabel>
 					<div className="relative flex flex-1 flex-col">
-						<PlaygroundPreview
-							Icon={Icon}
-							componentName={componentName}
-							config={config}
-							iconRef={iconRef}
-							triggerProps={triggerProps}
-							hint={false}
-							className="min-h-60 flex-1"
-						/>
+						<Suspense
+							fallback={
+								<div className="bg-surface h-60 min-h-60 flex-1 rounded-3xl" />
+							}
+						>
+							<PlaygroundPreview
+								Icon={Icon}
+								componentName={componentName}
+								config={config}
+								iconRef={iconRef}
+								triggerProps={triggerProps}
+								hint={false}
+								className="min-h-60 flex-1"
+							/>
+							<PlayOnMount iconRef={iconRef} />
+						</Suspense>
 						<div className="absolute inset-x-0 bottom-4">
 							<PreviewActions
 								iconRef={iconRef}
