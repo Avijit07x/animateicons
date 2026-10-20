@@ -16,11 +16,10 @@ const CommandSearchTrigger: React.FC = () => {
 			type="button"
 			onClick={open}
 			{...triggerProps}
-			aria-label="Search icons"
 			className="pill-link bg-surfaceElevated hover:bg-surfaceActive px-4 py-2 text-xs"
 		>
 			<SearchIcon ref={ref} className="size-3.5" />
-			<span className="hidden sm:inline">Search icons</span>
+			<span className="max-sm:sr-only">Search icons</span>
 			<Kbd className="hidden rounded-full bg-white/10 px-2 sm:inline-flex">
 				{isMac ? "⌘K" : "Ctrl K"}
 			</Kbd>

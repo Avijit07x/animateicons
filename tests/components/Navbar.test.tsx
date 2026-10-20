@@ -37,7 +37,7 @@ describe("Navbar", () => {
 
 	it("has a search button and a sponsor link", async () => {
 		await setup(null);
-		expect(screen.getByRole("button", { name: "Search icons" })).toBeTruthy();
+		expect(screen.getByRole("button", { name: /^Search icons/ })).toBeTruthy();
 		expect(
 			screen.getByRole("link", { name: /sponsor/i }).getAttribute("href"),
 		).toBe("/sponsors");
@@ -45,16 +45,16 @@ describe("Navbar", () => {
 
 	it("shows the star counter when the star count is known", async () => {
 		await setup(1280);
-		expect(screen.getByRole("link", { name: "GitHub" }).textContent).not.toBe(
-			"",
+		expect(screen.getByRole("link", { name: /^GitHub/ }).textContent).not.toBe(
+			"GitHub",
 		);
 	});
 
 	it("leaves the star counter out when the star count is unavailable", async () => {
 		await setup(null);
-		const github = screen.getByRole("link", { name: "GitHub" });
+		const github = screen.getByRole("link", { name: /^GitHub/ });
 		expect(github.getAttribute("href")).toContain("github.com");
-		expect(github.textContent).toBe("");
+		expect(github.textContent).toBe("GitHub");
 	});
 
 	it.each([1280, null])(

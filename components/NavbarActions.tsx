@@ -34,10 +34,10 @@ const NavbarActions: React.FC<Props> = ({ stars, separated = false }) => {
 		<Link
 			href="https://github.com/Avijit07x/animateicons"
 			target="_blank"
-			aria-label="GitHub"
 			className="pill-link"
 		>
 			<GitHub className="size-4.5" />
+			<span className="sr-only">GitHub</span>
 			{stars !== null && (
 				<NumberTicker
 					value={stars}

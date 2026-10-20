@@ -80,7 +80,7 @@
 	--sidebar-ring: oklch(0.708 0 0);
 	--cta-bg: #e3260d;
 	--cta-bg-hover: #c83227;
-	--cta-text: #ffffff;
+	--cta-text: #0b0b0b;
 }
 
 .dark {
@@ -135,7 +135,7 @@
 
 	--color-textPrimary: #e5e7eb;
 	--color-textSecondary: #b0b3b8;
-	--color-textMuted: #7c7c7c;
+	--color-textMuted: #909090;
 	--color-textDisabled: #575757;
 
 	--color-border: #1f2933;

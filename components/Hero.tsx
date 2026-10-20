@@ -125,9 +125,9 @@ const HeroSection: React.FC = () => {
 										size="pill"
 										onClick={() => copy(INSTALL[value])}
 										{...triggerProps}
-										aria-label="Copy install command"
 										className="group w-full cursor-pointer justify-between gap-4 pr-4 font-normal active:scale-[0.98]"
 									>
+										<span className="sr-only">Copy install command: </span>
 										<span className="flex min-w-0 items-center gap-3">
 											<span className="text-primary [&_svg]:size-3! [&_svg]:shrink-0">
 												{logo}

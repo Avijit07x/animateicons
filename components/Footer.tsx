@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
 						href="https://github.com/avijit07x"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-primary whitespace-nowrap underline-offset-4 hover:underline"
+						className="text-primary whitespace-nowrap underline underline-offset-4"
 					>
 						@avijit07x
 					</Link>

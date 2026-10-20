@@ -30,7 +30,7 @@ describe("Hero", () => {
 	it("copies the npm install command", async () => {
 		render(<HeroSection />);
 		fireEvent.click(
-			screen.getByRole("button", { name: "Copy install command" }),
+			screen.getByRole("button", { name: /^Copy install command/ }),
 		);
 		await waitFor(() => expect(writeText).toHaveBeenCalledWith(NPM));
 	});
@@ -42,7 +42,7 @@ describe("Hero", () => {
 		);
 		expect(screen.getByRole("code").textContent).toContain(SHADCN);
 		fireEvent.click(
-			screen.getByRole("button", { name: "Copy install command" }),
+			screen.getByRole("button", { name: /^Copy install command/ }),
 		);
 		await waitFor(() => expect(writeText).toHaveBeenCalledWith(SHADCN));
 	});
