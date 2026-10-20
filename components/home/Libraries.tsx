@@ -3,7 +3,7 @@
 import FloatingIcons from "@/components/FloatingIcons";
 import IconLink from "@/components/IconLink";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
-import { LIBRARIES } from "./libraries";
+import { LIBRARIES } from "./library-data";
 
 const Libraries: React.FC = () => (
 	<section aria-label="Icon libraries" className="home-section">
