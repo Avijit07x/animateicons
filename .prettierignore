@@ -9,6 +9,8 @@ public
 .angular
 icons/*/index.ts
 icons/*/meta.ts
+icons/*/loaders.ts
+icons/*/summary.ts
 registry.json
 
 pnpm-lock.yaml

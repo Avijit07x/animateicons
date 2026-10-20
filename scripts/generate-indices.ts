@@ -73,14 +73,9 @@ function generateIndex(libraryName: string, jsonFile: string) {
 	);
 }
 
-// Emits a metadata-only + lazy-loader module (`meta.ts`) per library. This is
-// what CLIENT code imports (sidebar counts, search, command palette, gallery
-// grid) so the client bundle no longer pulls all animated components. The
-// eager `index.ts` above stays for SERVER sites (OG images, detail/SEO pages,
-// sitemap) that render an icon component during the build.
 function generateMeta(libraryName: string, jsonFile: string) {
 	const jsonPath = path.join(ROOT, jsonFile);
-	const outputPath = path.join(ROOT, "icons", libraryName, "meta.ts");
+	const libraryDir = path.join(ROOT, "icons", libraryName);
 
 	if (!fs.existsSync(jsonPath)) {
 		console.error(`❌ Could not find JSON input at ${jsonPath}`);
@@ -91,56 +86,62 @@ function generateMeta(libraryName: string, jsonFile: string) {
 		JSON.parse(fs.readFileSync(jsonPath, "utf8")),
 	);
 
-	let out = `import { lazy } from "react";\nimport type { ComponentType } from "react";\n\n`;
-
-	out += `const ICON_META: IconMeta[] = [\n`;
+	let meta = `const ICON_META: IconMeta[] = [\n`;
 	for (const icon of icons) {
-		out += `  {\n`;
-		out += `    name: "${icon.name}",\n`;
-		if (icon.addedAt) out += `    addedAt: "${icon.addedAt}",\n`;
-		if (icon.updatedAt) out += `    updatedAt: "${icon.updatedAt}",\n`;
+		meta += `  {\n`;
+		meta += `    name: "${icon.name}",\n`;
+		if (icon.addedAt) meta += `    addedAt: "${icon.addedAt}",\n`;
+		if (icon.updatedAt) meta += `    updatedAt: "${icon.updatedAt}",\n`;
 		if (icon.category && icon.category.length > 0) {
-			out += `    category: ${JSON.stringify(icon.category)},\n`;
+			meta += `    category: ${JSON.stringify(icon.category)},\n`;
 		}
 		if (icon.keywords && icon.keywords.length > 0) {
-			out += `    keywords: ${JSON.stringify(icon.keywords).replace(/","/g, '", "')},\n`;
+			meta += `    keywords: ${JSON.stringify(icon.keywords).replace(/","/g, '", "')},\n`;
 		} else {
-			out += `    keywords: [],\n`;
+			meta += `    keywords: [],\n`;
 		}
-		out += `  },\n`;
+		meta += `  },\n`;
 	}
-	out += `];\n\n`;
+	meta += `];\n\nexport { ICON_META };\n`;
+	fs.writeFileSync(path.join(libraryDir, "meta.ts"), meta);
 
-	out += `const ICON_COUNT = ICON_META.length;\n\n`;
-
-	// Per-icon lazy loaders - each `() => import(...)` is its own code-split
-	// chunk, so nothing loads until a tile is actually rendered.
-	out += `const iconLoaders: Record<string, () => Promise<ComponentType<any>>> = {\n`;
+	let loaders = `import { lazy } from "react";\nimport type { ComponentType } from "react";\n\n`;
+	loaders += `const iconLoaders: Record<string, () => Promise<ComponentType<any>>> = {\n`;
 	for (const icon of icons) {
 		const componentName = `${toPascalCase(icon.name)}Icon`;
-		out += `  "${icon.name}": () => import("./${icon.name}-icon").then((m) => m.${componentName}),\n`;
+		loaders += `  "${icon.name}": () => import("./${icon.name}-icon").then((m) => m.${componentName}),\n`;
 	}
-	out += `};\n\n`;
+	loaders += `};\n\n`;
+	loaders += `const cache = new Map<string, ComponentType<any>>();\n\n`;
+	loaders += `function getIcon(name: string): ComponentType<any> {\n`;
+	loaders += `  let comp = cache.get(name);\n`;
+	loaders += `  if (!comp) {\n`;
+	loaders += `    const loader = iconLoaders[name];\n`;
+	loaders += `    comp = lazy(() => loader().then((C) => ({ default: C })));\n`;
+	loaders += `    cache.set(name, comp);\n`;
+	loaders += `  }\n`;
+	loaders += `  return comp;\n`;
+	loaders += `}\n\n`;
+	loaders += `export { getIcon };\n`;
+	fs.writeFileSync(path.join(libraryDir, "loaders.ts"), loaders);
 
-	out += `const cache = new Map<string, ComponentType<any>>();\n\n`;
-	out += `// Returns a cached React.lazy component for an icon name. Must be rendered\n`;
-	out += `// inside a <Suspense> boundary. Refs (the animation handle) attach once the\n`;
-	out += `// chunk resolves.\n`;
-	out += `function getIcon(name: string): ComponentType<any> {\n`;
-	out += `  let comp = cache.get(name);\n`;
-	out += `  if (!comp) {\n`;
-	out += `    const loader = iconLoaders[name];\n`;
-	out += `    comp = lazy(() => loader().then((C) => ({ default: C })));\n`;
-	out += `    cache.set(name, comp);\n`;
-	out += `  }\n`;
-	out += `  return comp;\n`;
-	out += `}\n\n`;
+	const categoryCounts = new Map<string, number>();
+	for (const icon of icons) {
+		for (const cat of icon.category ?? []) {
+			categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
+		}
+	}
+	const categories = [...categoryCounts]
+		.map(([name, count]) => ({ name, count }))
+		.sort((a, b) => b.count - a.count);
+	const addedAt = icons.flatMap((icon) => icon.addedAt ?? []);
 
-	out += `export { ICON_COUNT, ICON_META, iconLoaders, getIcon };\n`;
+	let summary = `export const ICON_CATEGORIES = ${JSON.stringify(categories)};\n\n`;
+	summary += `export const ICON_ADDED_AT = ${JSON.stringify(addedAt)};\n`;
+	fs.writeFileSync(path.join(libraryDir, "summary.ts"), summary);
 
-	fs.writeFileSync(outputPath, out);
 	console.log(
-		`✅ Generated ${libraryName}/meta.ts with ${icons.length} icons.`,
+		`✅ Generated ${libraryName}/meta.ts, loaders.ts and summary.ts with ${icons.length} icons.`,
 	);
 }
 
