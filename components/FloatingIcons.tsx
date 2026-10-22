@@ -79,7 +79,7 @@ const FloatingIcons: React.FC<Props> = ({
 						>
 							<div
 								style={{ width: iconSize, height: iconSize }}
-								className="text-textMuted/60 group-data-lit:text-primary flex items-center justify-center transition-colors duration-300 max-sm:scale-90"
+								className="text-textMuted group-data-lit:text-primary flex items-center justify-center opacity-60 transition-[color,opacity] duration-300 group-data-lit:opacity-100 max-sm:scale-90"
 							>
 								<Suspense fallback={null}>
 									<Icon ref={setIcon(i)} size={iconSize} />
