@@ -426,6 +426,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["smartphone", "phone", "mobile", "device", "cell"],
   },
   {
+    name: "smartphone-charging",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["smartphone", "phone", "charging", "battery", "power", "mobile"],
+  },
+  {
+    name: "smartphone-nfc",
+    addedAt: "2026-10-24",
+    category: ["Devices","Connectivity"],
+    keywords: ["smartphone", "nfc", "contactless", "tap", "pay", "wireless"],
+  },
+  {
     name: "search",
     addedAt: "2025-12-08",
     category: ["Tools"],
@@ -1902,6 +1914,24 @@ const ICON_META: IconMeta[] = [
     keywords: ["battery", "low", "power", "empty", "energy", "warning"],
   },
   {
+    name: "battery-medium",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "half", "medium", "power", "energy", "level"],
+  },
+  {
+    name: "battery-plus",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "saver", "add", "power", "energy", "charge"],
+  },
+  {
+    name: "battery-warning",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "warning", "alert", "power", "energy", "low"],
+  },
+  {
     name: "heart",
     addedAt: "2025-12-30",
     category: ["Emoji","Medical"],
@@ -2004,6 +2034,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["settings", "network", "wifi", "config", "setup"],
   },
   {
+    name: "wifi-high",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "strong signal", "network", "internet", "connection"],
+  },
+  {
+    name: "wifi-low",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "weak signal", "network", "internet", "connection"],
+  },
+  {
     name: "wifi-off",
     addedAt: "2025-10-25",
     category: ["Connectivity"],
@@ -2020,6 +2062,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-10-25",
     category: ["Connectivity"],
     keywords: ["sync", "network", "wifi", "refresh", "reload"],
+  },
+  {
+    name: "wifi-zero",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "no signal", "network", "searching", "disconnected"],
   },
   {
     name: "globe",
@@ -2410,6 +2458,30 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-08-28",
     category: ["Connectivity"],
     keywords: ["wifi", "connection", "network", "signal", "data", "internet"],
+  },
+  {
+    name: "signal-high",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "strong", "network", "reception"],
+  },
+  {
+    name: "signal-low",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "weak", "network", "reception"],
+  },
+  {
+    name: "signal-medium",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "medium", "network", "reception"],
+  },
+  {
+    name: "signal-zero",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "no service", "no bars", "network", "reception"],
   },
   {
     name: "badge-cent",
@@ -3684,6 +3756,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["laptop", "notebook", "computer", "device", "macbook", "screen"],
   },
   {
+    name: "laptop-minimal-check",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["laptop", "computer", "check", "success", "done", "verified"],
+  },
+  {
     name: "tv",
     addedAt: "2026-07-26",
     category: ["Devices","Multimedia"],
@@ -4266,10 +4344,88 @@ const ICON_META: IconMeta[] = [
     keywords: ["monitor", "screen", "display", "computer", "desktop", "device"],
   },
   {
+    name: "monitor-check",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "success", "done", "verified"],
+  },
+  {
+    name: "monitor-cloud",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "cloud", "remote", "sync", "virtual desktop"],
+  },
+  {
+    name: "monitor-cog",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "settings", "preferences", "configure", "gear"],
+  },
+  {
+    name: "monitor-dot",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "notification", "badge", "unread", "alert"],
+  },
+  {
+    name: "monitor-down",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "download", "receive", "install", "save"],
+  },
+  {
+    name: "monitor-off",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "off", "disabled", "no signal"],
+  },
+  {
+    name: "monitor-pause",
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "pause", "video", "stream", "hold"],
+  },
+  {
+    name: "monitor-pc",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "pc", "computer", "tower", "desktop", "workstation"],
+  },
+  {
+    name: "monitor-play",
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "play", "video", "stream", "watch"],
+  },
+  {
     name: "monitor-smartphone",
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["monitor", "smartphone", "responsive", "devices", "sync", "screens"],
+  },
+  {
+    name: "monitor-speaker",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "speaker", "audio", "sound", "desktop", "setup"],
+  },
+  {
+    name: "monitor-stop",
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "stop", "video", "stream", "end"],
+  },
+  {
+    name: "monitor-up",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "upload", "share", "cast", "send"],
+  },
+  {
+    name: "monitor-x",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "error", "close", "failed"],
   },
   {
     name: "keyboard",
