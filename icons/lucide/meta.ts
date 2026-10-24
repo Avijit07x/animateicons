@@ -138,6 +138,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["settings", "account", "options", "admin", "preferences", "config"],
   },
   {
+    name: "user-group",
+    addedAt: "2026-10-24",
+    category: ["People","Social"],
+    keywords: ["group", "team", "people", "community", "members", "users"],
+  },
+  {
+    name: "user-key",
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["key", "access", "credentials", "password", "login", "user"],
+  },
+  {
     name: "user-lock",
     addedAt: "2025-10-15",
     category: ["Accounts & access","People","Security"],
@@ -168,6 +180,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["user", "round", "person", "profile", "account", "avatar"],
   },
   {
+    name: "user-round-arrow-left",
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["leave", "exit", "back", "user", "sign out", "previous"],
+  },
+  {
     name: "user-round-check",
     addedAt: "2025-08-25",
     category: ["People"],
@@ -180,6 +198,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["settings", "account", "options", "admin", "preferences", "config"],
   },
   {
+    name: "user-round-group",
+    addedAt: "2026-10-24",
+    category: ["People","Social"],
+    keywords: ["group", "team", "people", "community", "members", "users"],
+  },
+  {
+    name: "user-round-key",
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["key", "access", "credentials", "password", "login", "user"],
+  },
+  {
     name: "user-round-minus",
     addedAt: "2025-07-28",
     category: ["People"],
@@ -190,6 +220,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-08-24",
     category: ["People"],
     keywords: ["edit", "update", "profile", "modify", "account", "change"],
+  },
+  {
+    name: "user-round-plus",
+    addedAt: "2026-10-24",
+    category: ["People"],
+    keywords: ["new", "add", "create", "invite", "join", "user"],
   },
   {
     name: "user-round-search",
@@ -208,6 +244,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-10-03",
     category: ["People"],
     keywords: ["search", "user", "find", "magnifier", "lookup", "explore"],
+  },
+  {
+    name: "user-shield",
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["admin", "security", "protected", "moderator", "verified", "user"],
   },
   {
     name: "user-star",
@@ -724,6 +766,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-01",
     category: ["Multimedia"],
     keywords: ["stop", "circle", "media", "square", "button"],
+  },
+  {
+    name: "circle-user",
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "circle"],
   },
   {
     name: "circle-user-round",
@@ -1888,6 +1936,18 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Multimedia"],
     keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-user",
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "square"],
+  },
+  {
+    name: "square-user-round",
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "square"],
   },
   {
     name: "square-x",

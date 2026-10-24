@@ -11092,6 +11092,22 @@
       ]
     },
     {
+      "name": "lu-circle-user",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-user-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-user.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-circle-user-round",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18852,6 +18868,38 @@
       ]
     },
     {
+      "name": "lu-square-user",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-user-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-user.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-user-round",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-user-round-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-user-round.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-square-x",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -19924,6 +19972,22 @@
       ]
     },
     {
+      "name": "lu-user-group",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-group-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-user",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -19936,6 +20000,22 @@
           "path": "icons/lucide/user-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/user.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-user-key",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-key-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-key.tsx"
         }
       ]
     },
@@ -20004,6 +20084,22 @@
       ]
     },
     {
+      "name": "lu-user-round-arrow-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-round-arrow-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-arrow-left.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-user-round-check",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20036,6 +20132,22 @@
       ]
     },
     {
+      "name": "lu-user-round-group",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-round-group-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-user-round",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20048,6 +20160,22 @@
           "path": "icons/lucide/user-round-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/user-round.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-user-round-key",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-round-key-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-key.tsx"
         }
       ]
     },
@@ -20080,6 +20208,22 @@
           "path": "icons/lucide/user-round-pen-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/user-round-pen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-user-round-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-round-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-round-plus.tsx"
         }
       ]
     },
@@ -20128,6 +20272,22 @@
           "path": "icons/lucide/user-search-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/user-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-user-shield",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/user-shield-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/user-shield.tsx"
         }
       ]
     },
