@@ -1,4 +1,4 @@
-<img src="public/readme-banner.svg" alt="AnimateIcons. Make every icon move. 1,170 animated icons for React, Vue, Angular and plain JavaScript." width="100%" />
+<img src="public/readme-banner.svg" alt="AnimateIcons. Make every icon move. 1,500+ animated icons for React, Vue, Angular and plain JavaScript." width="100%" />
 
 **[Browse icons](https://animateicons.in/icons/lucide)** &nbsp;&nbsp;·&nbsp;&nbsp; **[Docs](https://animateicons.in/icons/docs)** &nbsp;&nbsp;·&nbsp;&nbsp; **[MCP](https://animateicons.in/icons/docs/mcp)** &nbsp;&nbsp;·&nbsp;&nbsp; **[Sponsor](https://github.com/sponsors/Avijit07x)**
 
