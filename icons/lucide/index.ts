@@ -224,6 +224,7 @@ import { CopyCheckIcon } from "./copy-check-icon";
 import { CopyPlusIcon } from "./copy-plus-icon";
 import { ClipboardIcon } from "./clipboard-icon";
 import { ClipboardCheckIcon } from "./clipboard-check-icon";
+import { ClipboardClockIcon } from "./clipboard-clock-icon";
 import { ClipboardListIcon } from "./clipboard-list-icon";
 import { ClipboardPasteIcon } from "./clipboard-paste-icon";
 import { SendIcon } from "./send-icon";
@@ -273,6 +274,7 @@ import { MessagesCircleIcon } from "./messages-circle-icon";
 import { MessagesSquareIcon } from "./messages-square-icon";
 import { MailIcon } from "./mail-icon";
 import { MailCheckIcon } from "./mail-check-icon";
+import { MailClockIcon } from "./mail-clock-icon";
 import { MailMinusIcon } from "./mail-minus-icon";
 import { MailOpenIcon } from "./mail-open-icon";
 import { MailPlusIcon } from "./mail-plus-icon";
@@ -579,20 +581,30 @@ import { DogIcon } from "./dog-icon";
 import { FishIcon } from "./fish-icon";
 import { RabbitIcon } from "./rabbit-icon";
 import { CalendarIcon } from "./calendar-icon";
+import { CalendarArrowDownIcon } from "./calendar-arrow-down-icon";
+import { CalendarArrowUpIcon } from "./calendar-arrow-up-icon";
 import { CalendarCheckIcon } from "./calendar-check-icon";
+import { CalendarChevronsRightIcon } from "./calendar-chevrons-right-icon";
 import { CalendarClockIcon } from "./calendar-clock-icon";
+import { CalendarCogIcon } from "./calendar-cog-icon";
 import { CalendarDaysIcon } from "./calendar-days-icon";
 import { CalendarFoldIcon } from "./calendar-fold-icon";
 import { CalendarHeartIcon } from "./calendar-heart-icon";
 import { CalendarMinusIcon } from "./calendar-minus-icon";
+import { CalendarOffIcon } from "./calendar-off-icon";
 import { CalendarPlusIcon } from "./calendar-plus-icon";
 import { CalendarRangeIcon } from "./calendar-range-icon";
 import { CalendarSearchIcon } from "./calendar-search-icon";
+import { CalendarSyncIcon } from "./calendar-sync-icon";
 import { CalendarXIcon } from "./calendar-x-icon";
 import { ClockIcon } from "./clock-icon";
 import { ClockAlertIcon } from "./clock-alert-icon";
 import { ClockArrowDownIcon } from "./clock-arrow-down-icon";
+import { ClockArrowLeftIcon } from "./clock-arrow-left-icon";
+import { ClockArrowRightIcon } from "./clock-arrow-right-icon";
 import { ClockArrowUpIcon } from "./clock-arrow-up-icon";
+import { ClockCheckIcon } from "./clock-check-icon";
+import { ClockFadingIcon } from "./clock-fading-icon";
 import { ClockPlusIcon } from "./clock-plus-icon";
 import { AlarmClockIcon } from "./alarm-clock-icon";
 import { AlarmClockCheckIcon } from "./alarm-clock-check-icon";
@@ -972,6 +984,7 @@ import { SchoolIcon } from "./school-icon";
 import { UniversityIcon } from "./university-icon";
 import { FactoryIcon } from "./factory-icon";
 import { WarehouseIcon } from "./warehouse-icon";
+import { CalendarsIcon } from "./calendars-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -2557,6 +2570,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["clipboard", "check", "done", "complete", "task", "approved"],
   },
   {
+    name: "clipboard-clock",
+    icon: ClipboardClockIcon,
+    addedAt: "2026-10-24",
+    category: ["File icons","Time & Date"],
+    keywords: ["clipboard", "history", "pending", "timesheet", "schedule", "time"],
+  },
+  {
     name: "clipboard-list",
     icon: ClipboardListIcon,
     addedAt: "2026-09-27",
@@ -2898,6 +2918,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-01",
     category: ["Mail","Communication"],
     keywords: ["mail", "check", "email", "sent", "verified", "done"],
+  },
+  {
+    name: "mail-clock",
+    icon: MailClockIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication","Mail"],
+    keywords: ["mail", "scheduled", "send later", "snooze", "email", "time"],
   },
   {
     name: "mail-minus",
@@ -5042,6 +5069,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["calendar", "date", "schedule", "event", "month"],
   },
   {
+    name: "calendar-arrow-down",
+    icon: CalendarArrowDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "download", "import", "sort descending", "date", "schedule"],
+  },
+  {
+    name: "calendar-arrow-up",
+    icon: CalendarArrowUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "upload", "export", "sort ascending", "date", "schedule"],
+  },
+  {
     name: "calendar-check",
     icon: CalendarCheckIcon,
     addedAt: "2026-08-02",
@@ -5049,11 +5090,25 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["calendar", "check", "done", "confirmed", "booked", "date"],
   },
   {
+    name: "calendar-chevrons-right",
+    icon: CalendarChevronsRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "next", "skip", "forward", "postpone", "schedule"],
+  },
+  {
     name: "calendar-clock",
     icon: CalendarClockIcon,
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["calendar", "clock", "time", "schedule", "deadline", "date"],
+  },
+  {
+    name: "calendar-cog",
+    icon: CalendarCogIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "settings", "preferences", "configure", "schedule", "gear"],
   },
   {
     name: "calendar-days",
@@ -5084,6 +5139,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["calendar", "minus", "remove", "cancel event", "date"],
   },
   {
+    name: "calendar-off",
+    icon: CalendarOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "off", "unavailable", "no events", "disabled", "date"],
+  },
+  {
     name: "calendar-plus",
     icon: CalendarPlusIcon,
     addedAt: "2026-08-02",
@@ -5103,6 +5165,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["calendar", "search", "find", "lookup", "date", "event"],
+  },
+  {
+    name: "calendar-sync",
+    icon: CalendarSyncIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "sync", "recurring", "repeat", "refresh", "schedule"],
   },
   {
     name: "calendar-x",
@@ -5133,11 +5202,39 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["clock", "arrow", "down", "later", "download time", "time"],
   },
   {
+    name: "clock-arrow-left",
+    icon: ClockArrowLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "back", "rewind", "earlier", "history"],
+  },
+  {
+    name: "clock-arrow-right",
+    icon: ClockArrowRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "forward", "later", "next", "schedule"],
+  },
+  {
     name: "clock-arrow-up",
     icon: ClockArrowUpIcon,
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["clock", "arrow", "up", "recent", "upload time", "time"],
+  },
+  {
+    name: "clock-check",
+    icon: ClockCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "done", "on time", "completed", "check"],
+  },
+  {
+    name: "clock-fading",
+    icon: ClockFadingIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "expiring", "fading", "countdown", "loading"],
   },
   {
     name: "clock-plus",
@@ -7791,6 +7888,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Architecture","Navigation, Maps, and POIs"],
     keywords: ["warehouse", "storage", "depot", "logistics", "inventory", "garage"],
+  },
+  {
+    name: "calendars",
+    icon: CalendarsIcon,
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendars", "multiple", "shared calendars", "schedules", "dates", "events"],
   },
 ];
 

@@ -1356,6 +1356,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["clipboard", "check", "done", "complete", "task", "approved"],
   },
   {
+    name: "clipboard-clock",
+    addedAt: "2026-10-24",
+    category: ["File icons","Time & Date"],
+    keywords: ["clipboard", "history", "pending", "timesheet", "schedule", "time"],
+  },
+  {
     name: "clipboard-list",
     addedAt: "2026-09-27",
     category: ["File icons","Tools"],
@@ -1648,6 +1654,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-01",
     category: ["Mail","Communication"],
     keywords: ["mail", "check", "email", "sent", "verified", "done"],
+  },
+  {
+    name: "mail-clock",
+    addedAt: "2026-10-24",
+    category: ["Communication","Mail"],
+    keywords: ["mail", "scheduled", "send later", "snooze", "email", "time"],
   },
   {
     name: "mail-minus",
@@ -3486,16 +3498,40 @@ const ICON_META: IconMeta[] = [
     keywords: ["calendar", "date", "schedule", "event", "month"],
   },
   {
+    name: "calendar-arrow-down",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "download", "import", "sort descending", "date", "schedule"],
+  },
+  {
+    name: "calendar-arrow-up",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "upload", "export", "sort ascending", "date", "schedule"],
+  },
+  {
     name: "calendar-check",
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["calendar", "check", "done", "confirmed", "booked", "date"],
   },
   {
+    name: "calendar-chevrons-right",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "next", "skip", "forward", "postpone", "schedule"],
+  },
+  {
     name: "calendar-clock",
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["calendar", "clock", "time", "schedule", "deadline", "date"],
+  },
+  {
+    name: "calendar-cog",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "settings", "preferences", "configure", "schedule", "gear"],
   },
   {
     name: "calendar-days",
@@ -3522,6 +3558,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["calendar", "minus", "remove", "cancel event", "date"],
   },
   {
+    name: "calendar-off",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "off", "unavailable", "no events", "disabled", "date"],
+  },
+  {
     name: "calendar-plus",
     addedAt: "2026-08-02",
     category: ["Time & Date"],
@@ -3538,6 +3580,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["calendar", "search", "find", "lookup", "date", "event"],
+  },
+  {
+    name: "calendar-sync",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendar", "sync", "recurring", "repeat", "refresh", "schedule"],
   },
   {
     name: "calendar-x",
@@ -3564,10 +3612,34 @@ const ICON_META: IconMeta[] = [
     keywords: ["clock", "arrow", "down", "later", "download time", "time"],
   },
   {
+    name: "clock-arrow-left",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "back", "rewind", "earlier", "history"],
+  },
+  {
+    name: "clock-arrow-right",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "forward", "later", "next", "schedule"],
+  },
+  {
     name: "clock-arrow-up",
     addedAt: "2026-08-02",
     category: ["Time & Date"],
     keywords: ["clock", "arrow", "up", "recent", "upload time", "time"],
+  },
+  {
+    name: "clock-check",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "done", "on time", "completed", "check"],
+  },
+  {
+    name: "clock-fading",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["clock", "time", "expiring", "fading", "countdown", "loading"],
   },
   {
     name: "clock-plus",
@@ -5842,6 +5914,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Architecture","Navigation, Maps, and POIs"],
     keywords: ["warehouse", "storage", "depot", "logistics", "inventory", "garage"],
+  },
+  {
+    name: "calendars",
+    addedAt: "2026-10-24",
+    category: ["Time & Date"],
+    keywords: ["calendars", "multiple", "shared calendars", "schedules", "dates", "events"],
   },
 ];
 

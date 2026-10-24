@@ -7133,5 +7133,132 @@
 			"inventory",
 			"garage"
 		]
+	},
+	{
+		"name": "calendar-off",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"off",
+			"unavailable",
+			"no events",
+			"disabled",
+			"date"
+		]
+	},
+	{
+		"name": "calendar-sync",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"sync",
+			"recurring",
+			"repeat",
+			"refresh",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"upload",
+			"export",
+			"sort ascending",
+			"date",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"download",
+			"import",
+			"sort descending",
+			"date",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"settings",
+			"preferences",
+			"configure",
+			"schedule",
+			"gear"
+		]
+	},
+	{
+		"name": "calendar-chevrons-right",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "next", "skip", "forward", "postpone", "schedule"]
+	},
+	{
+		"name": "calendars",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendars",
+			"multiple",
+			"shared calendars",
+			"schedules",
+			"dates",
+			"events"
+		]
+	},
+	{
+		"name": "clock-check",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "done", "on time", "completed", "check"]
+	},
+	{
+		"name": "clock-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "back", "rewind", "earlier", "history"]
+	},
+	{
+		"name": "clock-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "forward", "later", "next", "schedule"]
+	},
+	{
+		"name": "clock-fading",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "expiring", "fading", "countdown", "loading"]
+	},
+	{
+		"name": "mail-clock",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Mail"],
+		"keywords": ["mail", "scheduled", "send later", "snooze", "email", "time"]
+	},
+	{
+		"name": "clipboard-clock",
+		"addedAt": "2026-10-24",
+		"category": ["File icons", "Time & Date"],
+		"keywords": [
+			"clipboard",
+			"history",
+			"pending",
+			"timesheet",
+			"schedule",
+			"time"
+		]
 	}
 ]

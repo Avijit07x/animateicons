@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1475,
+  "total": 1488,
   "libraries": {
-    "lucide": 974,
+    "lucide": 987,
     "huge": 501
   },
   "icons": [
@@ -12059,6 +12059,44 @@
       "url": "https://animateicons.in/r/lu-calendar.json"
     },
     {
+      "name": "calendar-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-arrow-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "download",
+        "import",
+        "sort descending",
+        "date",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-arrow-down.json"
+    },
+    {
+      "name": "calendar-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-arrow-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "upload",
+        "export",
+        "sort ascending",
+        "date",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-arrow-up.json"
+    },
+    {
       "name": "calendar-check",
       "library": "lucide",
       "prefix": "lu",
@@ -12078,6 +12116,25 @@
       "url": "https://animateicons.in/r/lu-calendar-check.json"
     },
     {
+      "name": "calendar-chevrons-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-chevrons-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "next",
+        "skip",
+        "forward",
+        "postpone",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-chevrons-right.json"
+    },
+    {
       "name": "calendar-clock",
       "library": "lucide",
       "prefix": "lu",
@@ -12095,6 +12152,25 @@
         "date"
       ],
       "url": "https://animateicons.in/r/lu-calendar-clock.json"
+    },
+    {
+      "name": "calendar-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-cog",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "settings",
+        "preferences",
+        "configure",
+        "schedule",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-cog.json"
     },
     {
       "name": "calendar-days",
@@ -12171,6 +12247,25 @@
       "url": "https://animateicons.in/r/lu-calendar-minus.json"
     },
     {
+      "name": "calendar-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "off",
+        "unavailable",
+        "no events",
+        "disabled",
+        "date"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-off.json"
+    },
+    {
       "name": "calendar-plus",
       "library": "lucide",
       "prefix": "lu",
@@ -12228,6 +12323,25 @@
       "url": "https://animateicons.in/r/lu-calendar-search.json"
     },
     {
+      "name": "calendar-sync",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendar-sync",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendar",
+        "sync",
+        "recurring",
+        "repeat",
+        "refresh",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-calendar-sync.json"
+    },
+    {
       "name": "calendar-x",
       "library": "lucide",
       "prefix": "lu",
@@ -12245,6 +12359,25 @@
         "date"
       ],
       "url": "https://animateicons.in/r/lu-calendar-x.json"
+    },
+    {
+      "name": "calendars",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-calendars",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "calendars",
+        "multiple",
+        "shared calendars",
+        "schedules",
+        "dates",
+        "events"
+      ],
+      "url": "https://animateicons.in/r/lu-calendars.json"
     },
     {
       "name": "camera",
@@ -13904,6 +14037,26 @@
       "url": "https://animateicons.in/r/lu-clipboard-check.json"
     },
     {
+      "name": "clipboard-clock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clipboard-clock",
+      "addedAt": "2026-10-24",
+      "category": [
+        "File icons",
+        "Time & Date"
+      ],
+      "keywords": [
+        "clipboard",
+        "history",
+        "pending",
+        "timesheet",
+        "schedule",
+        "time"
+      ],
+      "url": "https://animateicons.in/r/lu-clipboard-clock.json"
+    },
+    {
       "name": "clipboard-list",
       "library": "lucide",
       "prefix": "lu",
@@ -14000,6 +14153,44 @@
       "url": "https://animateicons.in/r/lu-clock-arrow-down.json"
     },
     {
+      "name": "clock-arrow-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clock-arrow-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "back",
+        "rewind",
+        "earlier",
+        "history"
+      ],
+      "url": "https://animateicons.in/r/lu-clock-arrow-left.json"
+    },
+    {
+      "name": "clock-arrow-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clock-arrow-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "forward",
+        "later",
+        "next",
+        "schedule"
+      ],
+      "url": "https://animateicons.in/r/lu-clock-arrow-right.json"
+    },
+    {
       "name": "clock-arrow-up",
       "library": "lucide",
       "prefix": "lu",
@@ -14017,6 +14208,44 @@
         "time"
       ],
       "url": "https://animateicons.in/r/lu-clock-arrow-up.json"
+    },
+    {
+      "name": "clock-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clock-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "done",
+        "on time",
+        "completed",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-clock-check.json"
+    },
+    {
+      "name": "clock-fading",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-clock-fading",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Time & Date"
+      ],
+      "keywords": [
+        "clock",
+        "time",
+        "expiring",
+        "fading",
+        "countdown",
+        "loading"
+      ],
+      "url": "https://animateicons.in/r/lu-clock-fading.json"
     },
     {
       "name": "clock-plus",
@@ -19339,6 +19568,26 @@
         "done"
       ],
       "url": "https://animateicons.in/r/lu-mail-check.json"
+    },
+    {
+      "name": "mail-clock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mail-clock",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication",
+        "Mail"
+      ],
+      "keywords": [
+        "mail",
+        "scheduled",
+        "send later",
+        "snooze",
+        "email",
+        "time"
+      ],
+      "url": "https://animateicons.in/r/lu-mail-clock.json"
     },
     {
       "name": "mail-minus",

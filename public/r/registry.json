@@ -9988,6 +9988,38 @@
       ]
     },
     {
+      "name": "lu-calendar-arrow-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-arrow-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-calendar-arrow-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-arrow-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-arrow-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-calendar-check",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10004,6 +10036,22 @@
       ]
     },
     {
+      "name": "lu-calendar-chevrons-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-chevrons-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-chevrons-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-calendar-clock",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10016,6 +10064,22 @@
           "path": "icons/lucide/calendar-clock-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/calendar-clock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-calendar-cog",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-cog.tsx"
         }
       ]
     },
@@ -10100,6 +10164,22 @@
       ]
     },
     {
+      "name": "lu-calendar-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-calendar-plus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10148,6 +10228,22 @@
       ]
     },
     {
+      "name": "lu-calendar-sync",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendar-sync-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendar-sync.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-calendar-x",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10160,6 +10256,22 @@
           "path": "icons/lucide/calendar-x-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/calendar-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-calendars",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/calendars-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/calendars.tsx"
         }
       ]
     },
@@ -11540,6 +11652,22 @@
       ]
     },
     {
+      "name": "lu-clipboard-clock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clipboard-clock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clipboard-clock.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-clipboard",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -11620,6 +11748,38 @@
       ]
     },
     {
+      "name": "lu-clock-arrow-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clock-arrow-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clock-arrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-clock-arrow-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clock-arrow-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clock-arrow-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-clock-arrow-up",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -11632,6 +11792,38 @@
           "path": "icons/lucide/clock-arrow-up-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/clock-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-clock-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clock-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clock-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-clock-fading",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/clock-fading-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/clock-fading.tsx"
         }
       ]
     },
@@ -16128,6 +16320,22 @@
           "path": "icons/lucide/mail-check-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/mail-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-mail-clock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/mail-clock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mail-clock.tsx"
         }
       ]
     },
