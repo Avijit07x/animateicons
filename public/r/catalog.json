@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1198,
+  "total": 1226,
   "libraries": {
-    "lucide": 697,
+    "lucide": 725,
     "huge": 501
   },
   "icons": [
@@ -10042,6 +10042,128 @@
       "url": "https://animateicons.in/r/lu-archive.json"
     },
     {
+      "name": "arrow-big-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "down",
+        "south",
+        "bottom",
+        "direction",
+        "bold"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-down.json"
+    },
+    {
+      "name": "arrow-big-down-dash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-down-dash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "down",
+        "south",
+        "bottom",
+        "dash",
+        "shift"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-down-dash.json"
+    },
+    {
+      "name": "arrow-big-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "left",
+        "west",
+        "back",
+        "previous",
+        "direction",
+        "bold"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-left.json"
+    },
+    {
+      "name": "arrow-big-left-dash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-left-dash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "left",
+        "west",
+        "back",
+        "previous",
+        "dash"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-left-dash.json"
+    },
+    {
+      "name": "arrow-big-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "right",
+        "east",
+        "forward",
+        "next",
+        "direction",
+        "bold"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-right.json"
+    },
+    {
+      "name": "arrow-big-right-dash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-right-dash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "right",
+        "east",
+        "forward",
+        "next",
+        "dash"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-right-dash.json"
+    },
+    {
       "name": "arrow-big-up",
       "library": "lucide",
       "prefix": "lu",
@@ -10060,6 +10182,26 @@
         "increase"
       ],
       "url": "https://animateicons.in/r/lu-arrow-big-up.json"
+    },
+    {
+      "name": "arrow-big-up-dash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-big-up-dash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "big",
+        "up",
+        "north",
+        "top",
+        "dash",
+        "shift"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-big-up-dash.json"
     },
     {
       "name": "arrow-down",
@@ -12321,6 +12463,164 @@
         "caution"
       ],
       "url": "https://animateicons.in/r/lu-circle-alert.json"
+    },
+    {
+      "name": "circle-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down",
+        "south",
+        "bottom",
+        "circle",
+        "button",
+        "round"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-down.json"
+    },
+    {
+      "name": "circle-arrow-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left",
+        "west",
+        "back",
+        "previous",
+        "circle",
+        "button",
+        "round"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-left.json"
+    },
+    {
+      "name": "circle-arrow-out-down-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-out-down-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "out",
+        "exit",
+        "export",
+        "circle",
+        "down left"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-out-down-left.json"
+    },
+    {
+      "name": "circle-arrow-out-down-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-out-down-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "out",
+        "exit",
+        "export",
+        "circle",
+        "down right"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-out-down-right.json"
+    },
+    {
+      "name": "circle-arrow-out-up-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-out-up-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "out",
+        "exit",
+        "export",
+        "circle",
+        "up left"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-out-up-left.json"
+    },
+    {
+      "name": "circle-arrow-out-up-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-out-up-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "out",
+        "exit",
+        "export",
+        "circle",
+        "up right"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-out-up-right.json"
+    },
+    {
+      "name": "circle-arrow-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "right",
+        "east",
+        "forward",
+        "next",
+        "circle",
+        "button",
+        "round"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-right.json"
+    },
+    {
+      "name": "circle-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-arrow-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up",
+        "north",
+        "top",
+        "circle",
+        "button",
+        "round"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-arrow-up.json"
     },
     {
       "name": "circle-check",
@@ -20486,6 +20786,145 @@
       "url": "https://animateicons.in/r/lu-square.json"
     },
     {
+      "name": "square-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "down",
+        "south",
+        "bottom",
+        "square",
+        "button",
+        "box"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-down.json"
+    },
+    {
+      "name": "square-arrow-down-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-down-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "diagonal",
+        "down",
+        "left",
+        "square",
+        "corner"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-down-left.json"
+    },
+    {
+      "name": "square-arrow-down-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-down-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "diagonal",
+        "down",
+        "right",
+        "square",
+        "corner"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-down-right.json"
+    },
+    {
+      "name": "square-arrow-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "left",
+        "west",
+        "back",
+        "previous",
+        "square",
+        "button",
+        "box"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-left.json"
+    },
+    {
+      "name": "square-arrow-out-down-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-out-down-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "open",
+        "link",
+        "out",
+        "export",
+        "new window",
+        "down left"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-out-down-left.json"
+    },
+    {
+      "name": "square-arrow-out-down-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-out-down-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "open",
+        "link",
+        "out",
+        "export",
+        "new window",
+        "down right"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-out-down-right.json"
+    },
+    {
+      "name": "square-arrow-out-up-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-out-up-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "external",
+        "open",
+        "link",
+        "out",
+        "export",
+        "new window",
+        "up left"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-out-up-left.json"
+    },
+    {
       "name": "square-arrow-out-up-right",
       "library": "lucide",
       "prefix": "lu",
@@ -20502,6 +20941,125 @@
         "out"
       ],
       "url": "https://animateicons.in/r/lu-square-arrow-out-up-right.json"
+    },
+    {
+      "name": "square-arrow-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "right",
+        "east",
+        "forward",
+        "next",
+        "square",
+        "button",
+        "box"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-right.json"
+    },
+    {
+      "name": "square-arrow-right-enter",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-right-enter",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "enter",
+        "login",
+        "sign in",
+        "import",
+        "arrow",
+        "door"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-right-enter.json"
+    },
+    {
+      "name": "square-arrow-right-exit",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-right-exit",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "exit",
+        "logout",
+        "sign out",
+        "export",
+        "arrow",
+        "door"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-right-exit.json"
+    },
+    {
+      "name": "square-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "up",
+        "north",
+        "top",
+        "square",
+        "button",
+        "box"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-up.json"
+    },
+    {
+      "name": "square-arrow-up-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-up-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "diagonal",
+        "up",
+        "left",
+        "square",
+        "corner"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-up-left.json"
+    },
+    {
+      "name": "square-arrow-up-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-arrow-up-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "diagonal",
+        "up",
+        "right",
+        "square",
+        "corner"
+      ],
+      "url": "https://animateicons.in/r/lu-square-arrow-up-right.json"
     },
     {
       "name": "square-check",

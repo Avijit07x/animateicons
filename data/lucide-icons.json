@@ -4810,5 +4810,259 @@
 		"addedAt": "2026-10-24",
 		"category": ["Emoji", "Shapes"],
 		"keywords": ["favorite", "star", "rating", "featured", "badge", "circle"]
+	},
+	{
+		"name": "arrow-big-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "down", "south", "bottom", "direction", "bold"]
+	},
+	{
+		"name": "arrow-big-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"big",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"direction",
+			"bold"
+		]
+	},
+	{
+		"name": "arrow-big-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"big",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"direction",
+			"bold"
+		]
+	},
+	{
+		"name": "arrow-big-up-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "up", "north", "top", "dash", "shift"]
+	},
+	{
+		"name": "arrow-big-down-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "down", "south", "bottom", "dash", "shift"]
+	},
+	{
+		"name": "arrow-big-left-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "left", "west", "back", "previous", "dash"]
+	},
+	{
+		"name": "arrow-big-right-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "right", "east", "forward", "next", "dash"]
+	},
+	{
+		"name": "square-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up", "north", "top", "square", "button", "box"]
+	},
+	{
+		"name": "circle-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up", "north", "top", "circle", "button", "round"]
+	},
+	{
+		"name": "square-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "down", "south", "bottom", "square", "button", "box"]
+	},
+	{
+		"name": "circle-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"down",
+			"south",
+			"bottom",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"square",
+			"button",
+			"box"
+		]
+	},
+	{
+		"name": "circle-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"square",
+			"button",
+			"box"
+		]
+	},
+	{
+		"name": "circle-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "up", "left", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-up-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "up", "right", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "down", "left", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "down", "right", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-out-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"up left"
+		]
+	},
+	{
+		"name": "square-arrow-out-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"down left"
+		]
+	},
+	{
+		"name": "square-arrow-out-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"down right"
+		]
+	},
+	{
+		"name": "circle-arrow-out-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "up left"]
+	},
+	{
+		"name": "circle-arrow-out-up-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "up right"]
+	},
+	{
+		"name": "circle-arrow-out-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "down left"]
+	},
+	{
+		"name": "circle-arrow-out-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "down right"]
+	},
+	{
+		"name": "square-arrow-right-enter",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Accounts & access"],
+		"keywords": ["enter", "login", "sign in", "import", "arrow", "door"]
+	},
+	{
+		"name": "square-arrow-right-exit",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Accounts & access"],
+		"keywords": ["exit", "logout", "sign out", "export", "arrow", "door"]
 	}
 ]

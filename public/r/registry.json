@@ -8308,6 +8308,118 @@
       ]
     },
     {
+      "name": "lu-arrow-big-down-dash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-down-dash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-down-dash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-left-dash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-left-dash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-left-dash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-right-dash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-right-dash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-right-dash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-arrow-big-up-dash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/arrow-big-up-dash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/arrow-big-up-dash.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-arrow-big-up",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10224,6 +10336,134 @@
           "path": "icons/lucide/circle-alert-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/circle-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-out-down-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-out-down-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-out-down-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-out-down-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-out-down-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-out-down-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-out-up-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-out-up-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-out-up-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-out-up-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-out-up-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-out-up-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-arrow-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-arrow-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-arrow-up.tsx"
         }
       ]
     },
@@ -17124,6 +17364,118 @@
       ]
     },
     {
+      "name": "lu-square-arrow-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-down-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-down-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-down-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-down-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-down-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-down-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-out-down-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-out-down-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-out-down-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-out-down-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-out-down-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-out-down-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-out-up-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-out-up-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-out-up-left.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-square-arrow-out-up-right",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -17136,6 +17488,102 @@
           "path": "icons/lucide/square-arrow-out-up-right-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/square-arrow-out-up-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-right-enter",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-right-enter-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-right-enter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-right-exit",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-right-exit-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-right-exit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-up-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-up-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-up-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-arrow-up-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-arrow-up-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-arrow-up-right.tsx"
         }
       ]
     },
