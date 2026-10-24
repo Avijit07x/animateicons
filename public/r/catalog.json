@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1432,
+  "total": 1449,
   "libraries": {
-    "lucide": 931,
+    "lucide": 948,
     "huge": 501
   },
   "icons": [
@@ -10893,6 +10893,44 @@
       "url": "https://animateicons.in/r/lu-audio-lines.json"
     },
     {
+      "name": "audio-lines-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-audio-lines-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "audio",
+        "sound",
+        "waveform",
+        "mute",
+        "off",
+        "silent"
+      ],
+      "url": "https://animateicons.in/r/lu-audio-lines-off.json"
+    },
+    {
+      "name": "audio-lines-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-audio-lines-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "audio",
+        "sound",
+        "waveform",
+        "mute",
+        "error",
+        "remove"
+      ],
+      "url": "https://animateicons.in/r/lu-audio-lines-x.json"
+    },
+    {
       "name": "audio-waveform",
       "library": "lucide",
       "prefix": "lu",
@@ -12318,6 +12356,44 @@
         "animal"
       ],
       "url": "https://animateicons.in/r/lu-cat.json"
+    },
+    {
+      "name": "cctv",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cctv",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "cctv",
+        "security camera",
+        "surveillance",
+        "monitoring",
+        "recording",
+        "camera"
+      ],
+      "url": "https://animateicons.in/r/lu-cctv.json"
+    },
+    {
+      "name": "cctv-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-cctv-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "cctv",
+        "security camera",
+        "surveillance",
+        "off",
+        "privacy",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/lu-cctv-off.json"
     },
     {
       "name": "chart-area",
@@ -15228,6 +15304,25 @@
       "url": "https://animateicons.in/r/lu-diff.json"
     },
     {
+      "name": "disc",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-disc",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "disc",
+        "cd",
+        "dvd",
+        "record",
+        "album",
+        "media"
+      ],
+      "url": "https://animateicons.in/r/lu-disc.json"
+    },
+    {
       "name": "disc-2",
       "library": "lucide",
       "prefix": "lu",
@@ -15263,6 +15358,25 @@
         "dj"
       ],
       "url": "https://animateicons.in/r/lu-disc-3.json"
+    },
+    {
+      "name": "disc-album",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-disc-album",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "album",
+        "record",
+        "vinyl",
+        "sleeve",
+        "music",
+        "cover"
+      ],
+      "url": "https://animateicons.in/r/lu-disc-album.json"
     },
     {
       "name": "dog",
@@ -16083,6 +16197,25 @@
         "multiple"
       ],
       "url": "https://animateicons.in/r/lu-files.json"
+    },
+    {
+      "name": "film",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-film",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "film",
+        "movie",
+        "cinema",
+        "video",
+        "reel",
+        "strip"
+      ],
+      "url": "https://animateicons.in/r/lu-film.json"
     },
     {
       "name": "filter",
@@ -20011,6 +20144,25 @@
       "url": "https://animateicons.in/r/lu-mic.json"
     },
     {
+      "name": "mic-audio-lines",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mic-audio-lines",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "microphone",
+        "recording",
+        "voice",
+        "audio",
+        "waveform",
+        "speaking"
+      ],
+      "url": "https://animateicons.in/r/lu-mic-audio-lines.json"
+    },
+    {
       "name": "mic-off",
       "library": "lucide",
       "prefix": "lu",
@@ -20027,6 +20179,44 @@
         "no sound"
       ],
       "url": "https://animateicons.in/r/lu-mic-off.json"
+    },
+    {
+      "name": "mic-signal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mic-signal",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "microphone",
+        "broadcast",
+        "live",
+        "on air",
+        "voice",
+        "signal"
+      ],
+      "url": "https://animateicons.in/r/lu-mic-signal.json"
+    },
+    {
+      "name": "mic-vocal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-mic-vocal",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "microphone",
+        "vocal",
+        "singer",
+        "karaoke",
+        "podcast",
+        "stage"
+      ],
+      "url": "https://animateicons.in/r/lu-mic-vocal.json"
     },
     {
       "name": "microchip",
@@ -20778,6 +20968,63 @@
         "play"
       ],
       "url": "https://animateicons.in/r/lu-music.json"
+    },
+    {
+      "name": "music-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-music-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "note",
+        "eighth note",
+        "song",
+        "melody",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/lu-music-2.json"
+    },
+    {
+      "name": "music-3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-music-3",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "note",
+        "quarter note",
+        "song",
+        "melody",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/lu-music-3.json"
+    },
+    {
+      "name": "music-4",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-music-4",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "music",
+        "notes",
+        "sixteenth notes",
+        "song",
+        "melody",
+        "audio"
+      ],
+      "url": "https://animateicons.in/r/lu-music-4.json"
     },
     {
       "name": "navigation",
@@ -22035,6 +22282,25 @@
       "url": "https://animateicons.in/r/lu-play.json"
     },
     {
+      "name": "play-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-play-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "play",
+        "disabled",
+        "unavailable",
+        "video",
+        "media",
+        "off"
+      ],
+      "url": "https://animateicons.in/r/lu-play-off.json"
+    },
+    {
       "name": "plug",
       "library": "lucide",
       "prefix": "lu",
@@ -22337,6 +22603,46 @@
         "station"
       ],
       "url": "https://animateicons.in/r/lu-radio.json"
+    },
+    {
+      "name": "radio-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-radio-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "radio",
+        "broadcast",
+        "off",
+        "no signal",
+        "fm",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/lu-radio-off.json"
+    },
+    {
+      "name": "radio-receiver",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-radio-receiver",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "radio",
+        "receiver",
+        "tuner",
+        "fm",
+        "stereo",
+        "device"
+      ],
+      "url": "https://animateicons.in/r/lu-radio-receiver.json"
     },
     {
       "name": "rainbow",
@@ -27085,6 +27391,25 @@
         "device"
       ],
       "url": "https://animateicons.in/r/lu-webcam.json"
+    },
+    {
+      "name": "webcam-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-webcam-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "webcam",
+        "camera",
+        "off",
+        "privacy",
+        "video",
+        "disabled"
+      ],
+      "url": "https://animateicons.in/r/lu-webcam-off.json"
     },
     {
       "name": "webhook",
