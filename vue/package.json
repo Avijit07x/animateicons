@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/vue",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Animated SVG icons for Vue 3 and Nuxt. The same motion as @animateicons/react, with server rendering and typed refs.",
 	"license": "MIT",
 	"author": "Avijit Dey",

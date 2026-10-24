@@ -1,5 +1,27 @@
 # @animateicons/react
 
+## 0.13.0
+
+### Minor Changes
+
+- Added 330 Lucide icons to the `lucide` subpath, so the package now has 1500 icons (999 Lucide and 501 Huge). Each one moves like its family, and a mark inside it moves like the standalone icon. They include:
+  - Shapes and status marks such as `CircleIcon`, `SquareIcon`, `TriangleIcon`, `HexagonIcon` and `OctagonXIcon`.
+  - Big, circled and boxed arrows such as `ArrowBigDownIcon`, `CircleArrowUpIcon` and `SquareArrowRightIcon`, and sort, line and move arrows such as `ArrowDownAZIcon`, `ArrowLeftToLineIcon` and `MoveUpRightIcon`.
+  - Window controls and chevron boxes such as `MaximizeIcon`, `MinimizeIcon`, `FullscreenIcon` and `SquareChevronDownIcon`.
+  - Layout and panels such as `Columns2Icon`, `Grid3x3Icon`, `PanelRightIcon` and `Rows3Icon`.
+  - People, messages and security such as `CircleUserIcon`, `UserKeyIcon`, `MessageSquareCodeIcon`, `MessageCircleReplyIcon`, `LockKeyholeIcon` and `ShieldHalfIcon`.
+  - Developer tools and data such as `GitPullRequestIcon`, `DatabaseZapIcon`, `ServerCrashIcon`, `RegexIcon` and `WebhookOffIcon`.
+  - Commerce such as `BanknoteArrowUpIcon`, `CircleDollarSignIcon`, `CreditCardCheckIcon` and `TicketPlusIcon`.
+  - Text and lists such as `Heading3Icon` to `Heading6Icon`, `ListTodoIcon`, `CaseSensitiveIcon` and `SuperscriptIcon`.
+  - Devices and signal such as `MonitorCheckIcon`, `WifiHighIcon`, `SignalLowIcon`, `BatteryMediumIcon` and `SmartphoneNfcIcon`.
+  - Media such as `FilmIcon`, `MicVocalIcon`, `Music2Icon`, `DiscIcon`, `CctvIcon` and `RadioReceiverIcon`.
+  - Places such as `MapPinPlusIcon`, `HouseHeartIcon`, `BuildingIcon`, `HospitalIcon`, `SchoolIcon` and `WarehouseIcon`.
+  - Calendar and time such as `CalendarSyncIcon`, `CalendarsIcon`, `ClockCheckIcon` and `MailClockIcon`.
+  - Favourites such as `StarHalfIcon`, `HeartPlusIcon`, `HeartCrackIcon` and `BookmarkOffIcon`.
+- Shields now tilt on their bottom tip like they took a hit, instead of only scaling. This covers Lucide `ShieldIcon`, `ShieldCheckIcon`, `ShieldAlertIcon`, `ShieldXIcon` and `ShieldUserIcon`, and Huge `Shield01Icon`, `Shield02Icon`, `ShieldCheckIcon`, `ShieldAlertIcon`, `ShieldXIcon`, `ShieldPlusIcon`, `ShieldMinusIcon`, `ShieldOffIcon`, `SecurityCheckIcon`, `SecurityBlockIcon`, `SecurityLockIcon`, `SecurityWarningIcon` and `MicrosoftAdminIcon`. The mark inside keeps its own motion.
+- `DatabaseIcon` and `DatabaseBackupIcon` now drop a small record into the open top.
+- Component names, props (`size`, `color`, `duration`, `isAnimated`) and the `startAnimation` and `stopAnimation` handle are unchanged, so no code changes are needed.
+
 ## 0.12.1
 
 ### Patch Changes
