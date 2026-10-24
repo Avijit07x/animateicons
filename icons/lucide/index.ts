@@ -2,6 +2,9 @@ import { MenuIcon } from "./menu-icon";
 import { LayoutDashboardIcon } from "./layout-dashboard-icon";
 import { LayoutGridIcon } from "./layout-grid-icon";
 import { LayoutListIcon } from "./layout-list-icon";
+import { LayoutPanelLeftIcon } from "./layout-panel-left-icon";
+import { LayoutPanelTopIcon } from "./layout-panel-top-icon";
+import { LayoutTemplateIcon } from "./layout-template-icon";
 import { LayersIcon } from "./layers-icon";
 import { BlocksIcon } from "./blocks-icon";
 import { BringToFrontIcon } from "./bring-to-front-icon";
@@ -678,9 +681,24 @@ import { PawPrintIcon } from "./paw-print-icon";
 import { HandshakeIcon } from "./handshake-icon";
 import { ZoomInIcon } from "./zoom-in-icon";
 import { ZoomOutIcon } from "./zoom-out-icon";
+import { PanelBottomIcon } from "./panel-bottom-icon";
+import { PanelBottomCloseIcon } from "./panel-bottom-close-icon";
+import { PanelBottomDashedIcon } from "./panel-bottom-dashed-icon";
+import { PanelBottomOpenIcon } from "./panel-bottom-open-icon";
 import { PanelLeftIcon } from "./panel-left-icon";
 import { PanelLeftCloseIcon } from "./panel-left-close-icon";
+import { PanelLeftDashedIcon } from "./panel-left-dashed-icon";
 import { PanelLeftOpenIcon } from "./panel-left-open-icon";
+import { PanelLeftRightDashedIcon } from "./panel-left-right-dashed-icon";
+import { PanelRightIcon } from "./panel-right-icon";
+import { PanelRightCloseIcon } from "./panel-right-close-icon";
+import { PanelRightDashedIcon } from "./panel-right-dashed-icon";
+import { PanelRightOpenIcon } from "./panel-right-open-icon";
+import { PanelTopIcon } from "./panel-top-icon";
+import { PanelTopBottomDashedIcon } from "./panel-top-bottom-dashed-icon";
+import { PanelTopCloseIcon } from "./panel-top-close-icon";
+import { PanelTopDashedIcon } from "./panel-top-dashed-icon";
+import { PanelTopOpenIcon } from "./panel-top-open-icon";
 import { ToggleLeftIcon } from "./toggle-left-icon";
 import { ToggleRightIcon } from "./toggle-right-icon";
 import { UndoIcon } from "./undo-icon";
@@ -760,6 +778,18 @@ import { DiamondMinusIcon } from "./diamond-minus-icon";
 import { DiamondPercentIcon } from "./diamond-percent-icon";
 import { DiamondPlusIcon } from "./diamond-plus-icon";
 import { PentagonIcon } from "./pentagon-icon";
+import { Columns2Icon } from "./columns-2-icon";
+import { Columns3Icon } from "./columns-3-icon";
+import { Columns4Icon } from "./columns-4-icon";
+import { Rows2Icon } from "./rows-2-icon";
+import { Rows3Icon } from "./rows-3-icon";
+import { Rows4Icon } from "./rows-4-icon";
+import { Grid2x2Icon } from "./grid-2x2-icon";
+import { Grid2x2CheckIcon } from "./grid-2x2-check-icon";
+import { Grid2x2PlusIcon } from "./grid-2x2-plus-icon";
+import { Grid2x2XIcon } from "./grid-2x2-x-icon";
+import { Grid3x2Icon } from "./grid-3x2-icon";
+import { Grid3x3Icon } from "./grid-3x3-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -789,6 +819,27 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-20",
     category: ["Layout"],
     keywords: ["layout", "list", "organize", "items", "rows"],
+  },
+  {
+    name: "layout-panel-left",
+    icon: LayoutPanelLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["layout", "panel", "left", "sidebar", "template", "dashboard"],
+  },
+  {
+    name: "layout-panel-top",
+    icon: LayoutPanelTopIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["layout", "panel", "top", "header", "template", "dashboard"],
+  },
+  {
+    name: "layout-template",
+    icon: LayoutTemplateIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["layout", "template", "wireframe", "page", "dashboard", "blocks"],
   },
   {
     name: "layers",
@@ -5523,6 +5574,34 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["zoom", "out", "magnify", "shrink", "minus", "scale"],
   },
   {
+    name: "panel-bottom",
+    icon: PanelBottomIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "bottom", "footer", "sidebar", "layout", "drawer"],
+  },
+  {
+    name: "panel-bottom-close",
+    icon: PanelBottomCloseIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "close", "collapse", "hide", "drawer", "bottom"],
+  },
+  {
+    name: "panel-bottom-dashed",
+    icon: PanelBottomDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "dashed", "inactive", "hidden", "drawer", "bottom"],
+  },
+  {
+    name: "panel-bottom-open",
+    icon: PanelBottomOpenIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "open", "expand", "show", "drawer", "bottom"],
+  },
+  {
     name: "panel-left",
     icon: PanelLeftIcon,
     addedAt: "2026-09-27",
@@ -5537,11 +5616,88 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["panel-left-close", "sidebar", "panel", "close", "collapse", "drawer", "hide"],
   },
   {
+    name: "panel-left-dashed",
+    icon: PanelLeftDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "dashed", "inactive", "hidden", "drawer", "left"],
+  },
+  {
     name: "panel-left-open",
     icon: PanelLeftOpenIcon,
     addedAt: "2026-09-29",
     category: ["Layout"],
     keywords: ["panel-left-open", "sidebar", "panel", "open", "expand", "drawer", "show"],
+  },
+  {
+    name: "panel-left-right-dashed",
+    icon: PanelLeftRightDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panels", "dashed", "sidebars", "inactive", "split", "columns"],
+  },
+  {
+    name: "panel-right",
+    icon: PanelRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "right", "sidebar", "layout", "drawer"],
+  },
+  {
+    name: "panel-right-close",
+    icon: PanelRightCloseIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "close", "collapse", "hide", "drawer", "right"],
+  },
+  {
+    name: "panel-right-dashed",
+    icon: PanelRightDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "dashed", "inactive", "hidden", "drawer", "right"],
+  },
+  {
+    name: "panel-right-open",
+    icon: PanelRightOpenIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "open", "expand", "show", "drawer", "right"],
+  },
+  {
+    name: "panel-top",
+    icon: PanelTopIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "top", "header", "sidebar", "layout", "drawer"],
+  },
+  {
+    name: "panel-top-bottom-dashed",
+    icon: PanelTopBottomDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panels", "dashed", "header", "footer", "inactive", "split"],
+  },
+  {
+    name: "panel-top-close",
+    icon: PanelTopCloseIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "close", "collapse", "hide", "drawer", "top"],
+  },
+  {
+    name: "panel-top-dashed",
+    icon: PanelTopDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "dashed", "inactive", "hidden", "drawer", "top"],
+  },
+  {
+    name: "panel-top-open",
+    icon: PanelTopOpenIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["panel", "open", "expand", "show", "drawer", "top"],
   },
   {
     name: "toggle-left",
@@ -6095,6 +6251,90 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Shapes"],
     keywords: ["pentagon", "shape", "polygon", "badge"],
+  },
+  {
+    name: "columns-2",
+    icon: Columns2Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout","Text formatting"],
+    keywords: ["columns", "2 columns", "layout", "split", "vertical", "grid"],
+  },
+  {
+    name: "columns-3",
+    icon: Columns3Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout","Text formatting"],
+    keywords: ["columns", "3 columns", "layout", "split", "vertical", "grid"],
+  },
+  {
+    name: "columns-4",
+    icon: Columns4Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout","Text formatting"],
+    keywords: ["columns", "4 columns", "layout", "split", "vertical", "grid"],
+  },
+  {
+    name: "rows-2",
+    icon: Rows2Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["rows", "2 rows", "layout", "split", "horizontal", "table"],
+  },
+  {
+    name: "rows-3",
+    icon: Rows3Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["rows", "3 rows", "layout", "split", "horizontal", "table"],
+  },
+  {
+    name: "rows-4",
+    icon: Rows4Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["rows", "4 rows", "layout", "split", "horizontal", "table"],
+  },
+  {
+    name: "grid-2x2",
+    icon: Grid2x2Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "table", "2x2", "cells", "layout", "quadrant"],
+  },
+  {
+    name: "grid-2x2-check",
+    icon: Grid2x2CheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "done", "complete", "cell", "widget", "check"],
+  },
+  {
+    name: "grid-2x2-plus",
+    icon: Grid2x2PlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "add", "new", "cell", "widget", "plus"],
+  },
+  {
+    name: "grid-2x2-x",
+    icon: Grid2x2XIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "remove", "delete", "cell", "widget", "x"],
+  },
+  {
+    name: "grid-3x2",
+    icon: Grid3x2Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "table", "3x2", "cells", "layout", "spreadsheet"],
+  },
+  {
+    name: "grid-3x3",
+    icon: Grid3x3Icon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["grid", "table", "3x3", "cells", "layout", "spreadsheet"],
   },
 ];
 

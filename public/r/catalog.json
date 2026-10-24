@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1263,
+  "total": 1293,
   "libraries": {
-    "lucide": 762,
+    "lucide": 792,
     "huge": 501
   },
   "icons": [
@@ -13990,6 +13990,66 @@
       "url": "https://animateicons.in/r/lu-coins.json"
     },
     {
+      "name": "columns-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-columns-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout",
+        "Text formatting"
+      ],
+      "keywords": [
+        "columns",
+        "2 columns",
+        "layout",
+        "split",
+        "vertical",
+        "grid"
+      ],
+      "url": "https://animateicons.in/r/lu-columns-2.json"
+    },
+    {
+      "name": "columns-3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-columns-3",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout",
+        "Text formatting"
+      ],
+      "keywords": [
+        "columns",
+        "3 columns",
+        "layout",
+        "split",
+        "vertical",
+        "grid"
+      ],
+      "url": "https://animateicons.in/r/lu-columns-3.json"
+    },
+    {
+      "name": "columns-4",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-columns-4",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout",
+        "Text formatting"
+      ],
+      "keywords": [
+        "columns",
+        "4 columns",
+        "layout",
+        "split",
+        "vertical",
+        "grid"
+      ],
+      "url": "https://animateicons.in/r/lu-columns-4.json"
+    },
+    {
       "name": "command",
       "library": "lucide",
       "prefix": "lu",
@@ -16326,6 +16386,120 @@
       "url": "https://animateicons.in/r/lu-graduation-cap.json"
     },
     {
+      "name": "grid-2x2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-2x2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "table",
+        "2x2",
+        "cells",
+        "layout",
+        "quadrant"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-2x2.json"
+    },
+    {
+      "name": "grid-2x2-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-2x2-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "done",
+        "complete",
+        "cell",
+        "widget",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-2x2-check.json"
+    },
+    {
+      "name": "grid-2x2-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-2x2-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "add",
+        "new",
+        "cell",
+        "widget",
+        "plus"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-2x2-plus.json"
+    },
+    {
+      "name": "grid-2x2-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-2x2-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "remove",
+        "delete",
+        "cell",
+        "widget",
+        "x"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-2x2-x.json"
+    },
+    {
+      "name": "grid-3x2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-3x2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "table",
+        "3x2",
+        "cells",
+        "layout",
+        "spreadsheet"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-3x2.json"
+    },
+    {
+      "name": "grid-3x3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-grid-3x3",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "grid",
+        "table",
+        "3x3",
+        "cells",
+        "layout",
+        "spreadsheet"
+      ],
+      "url": "https://animateicons.in/r/lu-grid-3x3.json"
+    },
+    {
       "name": "grip-vertical",
       "library": "lucide",
       "prefix": "lu",
@@ -17278,6 +17452,63 @@
         "rows"
       ],
       "url": "https://animateicons.in/r/lu-layout-list.json"
+    },
+    {
+      "name": "layout-panel-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-panel-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "panel",
+        "left",
+        "sidebar",
+        "template",
+        "dashboard"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-panel-left.json"
+    },
+    {
+      "name": "layout-panel-top",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-panel-top",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "panel",
+        "top",
+        "header",
+        "template",
+        "dashboard"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-panel-top.json"
+    },
+    {
+      "name": "layout-template",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-layout-template",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "layout",
+        "template",
+        "wireframe",
+        "page",
+        "dashboard",
+        "blocks"
+      ],
+      "url": "https://animateicons.in/r/lu-layout-template.json"
     },
     {
       "name": "leaf",
@@ -19297,6 +19528,82 @@
       "url": "https://animateicons.in/r/lu-palette.json"
     },
     {
+      "name": "panel-bottom",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-bottom",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "bottom",
+        "footer",
+        "sidebar",
+        "layout",
+        "drawer"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-bottom.json"
+    },
+    {
+      "name": "panel-bottom-close",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-bottom-close",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "close",
+        "collapse",
+        "hide",
+        "drawer",
+        "bottom"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-bottom-close.json"
+    },
+    {
+      "name": "panel-bottom-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-bottom-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "dashed",
+        "inactive",
+        "hidden",
+        "drawer",
+        "bottom"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-bottom-dashed.json"
+    },
+    {
+      "name": "panel-bottom-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-bottom-open",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "open",
+        "expand",
+        "show",
+        "drawer",
+        "bottom"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-bottom-open.json"
+    },
+    {
       "name": "panel-left",
       "library": "lucide",
       "prefix": "lu",
@@ -19336,6 +19643,25 @@
       "url": "https://animateicons.in/r/lu-panel-left-close.json"
     },
     {
+      "name": "panel-left-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-left-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "dashed",
+        "inactive",
+        "hidden",
+        "drawer",
+        "left"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-left-dashed.json"
+    },
+    {
       "name": "panel-left-open",
       "library": "lucide",
       "prefix": "lu",
@@ -19354,6 +19680,195 @@
         "show"
       ],
       "url": "https://animateicons.in/r/lu-panel-left-open.json"
+    },
+    {
+      "name": "panel-left-right-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-left-right-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panels",
+        "dashed",
+        "sidebars",
+        "inactive",
+        "split",
+        "columns"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-left-right-dashed.json"
+    },
+    {
+      "name": "panel-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "right",
+        "sidebar",
+        "layout",
+        "drawer"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-right.json"
+    },
+    {
+      "name": "panel-right-close",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-right-close",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "close",
+        "collapse",
+        "hide",
+        "drawer",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-right-close.json"
+    },
+    {
+      "name": "panel-right-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-right-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "dashed",
+        "inactive",
+        "hidden",
+        "drawer",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-right-dashed.json"
+    },
+    {
+      "name": "panel-right-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-right-open",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "open",
+        "expand",
+        "show",
+        "drawer",
+        "right"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-right-open.json"
+    },
+    {
+      "name": "panel-top",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-top",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "top",
+        "header",
+        "sidebar",
+        "layout",
+        "drawer"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-top.json"
+    },
+    {
+      "name": "panel-top-bottom-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-top-bottom-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panels",
+        "dashed",
+        "header",
+        "footer",
+        "inactive",
+        "split"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-top-bottom-dashed.json"
+    },
+    {
+      "name": "panel-top-close",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-top-close",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "close",
+        "collapse",
+        "hide",
+        "drawer",
+        "top"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-top-close.json"
+    },
+    {
+      "name": "panel-top-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-top-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "dashed",
+        "inactive",
+        "hidden",
+        "drawer",
+        "top"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-top-dashed.json"
+    },
+    {
+      "name": "panel-top-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-panel-top-open",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "panel",
+        "open",
+        "expand",
+        "show",
+        "drawer",
+        "top"
+      ],
+      "url": "https://animateicons.in/r/lu-panel-top-open.json"
     },
     {
       "name": "paperclip",
@@ -20534,6 +21049,63 @@
         "signal"
       ],
       "url": "https://animateicons.in/r/lu-router.json"
+    },
+    {
+      "name": "rows-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rows-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "rows",
+        "2 rows",
+        "layout",
+        "split",
+        "horizontal",
+        "table"
+      ],
+      "url": "https://animateicons.in/r/lu-rows-2.json"
+    },
+    {
+      "name": "rows-3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rows-3",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "rows",
+        "3 rows",
+        "layout",
+        "split",
+        "horizontal",
+        "table"
+      ],
+      "url": "https://animateicons.in/r/lu-rows-3.json"
+    },
+    {
+      "name": "rows-4",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-rows-4",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "rows",
+        "4 rows",
+        "layout",
+        "split",
+        "horizontal",
+        "table"
+      ],
+      "url": "https://animateicons.in/r/lu-rows-4.json"
     },
     {
       "name": "rss",
