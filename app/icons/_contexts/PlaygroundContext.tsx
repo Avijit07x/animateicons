@@ -1,14 +1,5 @@
 "use client";
 
-/**
- * PlaygroundContext
- *
- * Holds the "which icon is currently open in the playground sheet"
- * state. IconTile dispatches `openPlayground(item)` on click; the
- * sheet listens via `usePlayground()` and renders accordingly. Lives
- * inside the /icons gallery layout - no other route mounts the sheet.
- */
-
 import {
 	createContext,
 	useCallback,
@@ -17,7 +8,7 @@ import {
 	useState,
 } from "react";
 
-type PlaygroundIcon = {
+export type PlaygroundIcon = {
 	name: string;
 	library: "lucide" | "huge";
 	prefix: "lu" | "hu";
