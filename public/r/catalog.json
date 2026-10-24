@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1226,
+  "total": 1249,
   "libraries": {
-    "lucide": 725,
+    "lucide": 748,
     "huge": 501
   },
   "icons": [
@@ -10222,6 +10222,81 @@
       "url": "https://animateicons.in/r/lu-arrow-down.json"
     },
     {
+      "name": "arrow-down-0-1",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-0-1",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "numerical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-0-1.json"
+    },
+    {
+      "name": "arrow-down-1-0",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-1-0",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "reverse numerical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-1-0.json"
+    },
+    {
+      "name": "arrow-down-a-z",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-a-z",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "alphabetical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-a-z.json"
+    },
+    {
+      "name": "arrow-down-from-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-from-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "down",
+        "pull",
+        "drop",
+        "arrow",
+        "from line"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-from-line.json"
+    },
+    {
       "name": "arrow-down-left",
       "library": "lucide",
       "prefix": "lu",
@@ -10239,6 +10314,25 @@
       "url": "https://animateicons.in/r/lu-arrow-down-left.json"
     },
     {
+      "name": "arrow-down-narrow-wide",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-narrow-wide",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "descending",
+        "size",
+        "small to large",
+        "order",
+        "filter"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-narrow-wide.json"
+    },
+    {
       "name": "arrow-down-right",
       "library": "lucide",
       "prefix": "lu",
@@ -10254,6 +10348,25 @@
         "direction"
       ],
       "url": "https://animateicons.in/r/lu-arrow-down-right.json"
+    },
+    {
+      "name": "arrow-down-to-dot",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-to-dot",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "down",
+        "point",
+        "target",
+        "location",
+        "arrow",
+        "dot"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-to-dot.json"
     },
     {
       "name": "arrow-down-to-line",
@@ -10295,6 +10408,44 @@
       "url": "https://animateicons.in/r/lu-arrow-down-up.json"
     },
     {
+      "name": "arrow-down-wide-narrow",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-wide-narrow",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "descending",
+        "size",
+        "large to small",
+        "order",
+        "filter"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-wide-narrow.json"
+    },
+    {
+      "name": "arrow-down-z-a",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-down-z-a",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "filter",
+        "sort",
+        "descending",
+        "reverse alphabetical",
+        "order",
+        "rank"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-down-z-a.json"
+    },
+    {
       "name": "arrow-left",
       "library": "lucide",
       "prefix": "lu",
@@ -10311,6 +10462,24 @@
         "back"
       ],
       "url": "https://animateicons.in/r/lu-arrow-left.json"
+    },
+    {
+      "name": "arrow-left-from-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-left-from-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "left",
+        "back",
+        "exit",
+        "arrow",
+        "from line"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-left-from-line.json"
     },
     {
       "name": "arrow-left-right",
@@ -10331,6 +10500,25 @@
       "url": "https://animateicons.in/r/lu-arrow-left-right.json"
     },
     {
+      "name": "arrow-left-to-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-left-to-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "left",
+        "start",
+        "beginning",
+        "first",
+        "align left",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-left-to-line.json"
+    },
+    {
       "name": "arrow-right",
       "library": "lucide",
       "prefix": "lu",
@@ -10348,6 +10536,61 @@
         "forward"
       ],
       "url": "https://animateicons.in/r/lu-arrow-right.json"
+    },
+    {
+      "name": "arrow-right-from-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-right-from-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "right",
+        "forward",
+        "exit",
+        "arrow",
+        "from line"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-right-from-line.json"
+    },
+    {
+      "name": "arrow-right-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-right-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "arrow",
+        "right left",
+        "horizontal",
+        "swap",
+        "exchange",
+        "transfer"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-right-left.json"
+    },
+    {
+      "name": "arrow-right-to-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-right-to-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "right",
+        "end",
+        "last",
+        "align right",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-right-to-line.json"
     },
     {
       "name": "arrow-up",
@@ -10443,6 +10686,44 @@
       "url": "https://animateicons.in/r/lu-arrow-up-down.json"
     },
     {
+      "name": "arrow-up-from-dot",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-from-dot",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "up",
+        "launch",
+        "origin",
+        "start",
+        "arrow",
+        "dot"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-from-dot.json"
+    },
+    {
+      "name": "arrow-up-from-line",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-from-line",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "upload",
+        "export",
+        "share",
+        "up",
+        "arrow",
+        "from line"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-from-line.json"
+    },
+    {
       "name": "arrow-up-left",
       "library": "lucide",
       "prefix": "lu",
@@ -10458,6 +10739,25 @@
         "direction"
       ],
       "url": "https://animateicons.in/r/lu-arrow-up-left.json"
+    },
+    {
+      "name": "arrow-up-narrow-wide",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-narrow-wide",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "ascending",
+        "size",
+        "small to large",
+        "order",
+        "filter"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-narrow-wide.json"
     },
     {
       "name": "arrow-up-right",
@@ -10496,6 +10796,25 @@
         "raise"
       ],
       "url": "https://animateicons.in/r/lu-arrow-up-to-line.json"
+    },
+    {
+      "name": "arrow-up-wide-narrow",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-arrow-up-wide-narrow",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "sort",
+        "ascending",
+        "size",
+        "large to small",
+        "order",
+        "filter"
+      ],
+      "url": "https://animateicons.in/r/lu-arrow-up-wide-narrow.json"
     },
     {
       "name": "arrow-up-z-a",
@@ -18263,6 +18582,60 @@
       "url": "https://animateicons.in/r/lu-move-diagonal-2.json"
     },
     {
+      "name": "move-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "down",
+        "move",
+        "south",
+        "bottom",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-down.json"
+    },
+    {
+      "name": "move-down-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-down-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "down left",
+        "southwest",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-down-left.json"
+    },
+    {
+      "name": "move-down-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-down-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "down right",
+        "southeast",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-down-right.json"
+    },
+    {
       "name": "move-horizontal",
       "library": "lucide",
       "prefix": "lu",
@@ -18315,6 +18688,60 @@
         "forward"
       ],
       "url": "https://animateicons.in/r/lu-move-right.json"
+    },
+    {
+      "name": "move-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "up",
+        "move",
+        "north",
+        "top",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-up.json"
+    },
+    {
+      "name": "move-up-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-up-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "up left",
+        "northwest",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-up-left.json"
+    },
+    {
+      "name": "move-up-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-move-up-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "move",
+        "diagonal",
+        "up right",
+        "northeast",
+        "arrow"
+      ],
+      "url": "https://animateicons.in/r/lu-move-up-right.json"
     },
     {
       "name": "move-vertical",
