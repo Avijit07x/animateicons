@@ -5,8 +5,9 @@ import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { HeartIcon } from "@/icons/huge/heart-icon";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
-import { useId } from "react";
+import { Suspense, useId } from "react";
 import { PANEL_W } from "./geometry";
+import StarProof from "./StarProof";
 import TipChip from "./TipChip";
 import { GITHUB_SPONSORS_URL, TIPS } from "./tips";
 import UpiQr from "./UpiQr";
@@ -24,6 +25,7 @@ type Props = {
 	landed: boolean;
 	qrOpen: boolean;
 	onToggleQr: () => void;
+	stars: Promise<number | null>;
 };
 
 const SponsorPanel: React.FC<Props> = ({
@@ -32,6 +34,7 @@ const SponsorPanel: React.FC<Props> = ({
 	landed,
 	qrOpen,
 	onToggleQr,
+	stars,
 }) => {
 	const titleId = useId();
 	const { icon, trigger } = useIconHover({ trigger: PRIMARY_ICONS });
@@ -47,6 +50,9 @@ const SponsorPanel: React.FC<Props> = ({
 			className="absolute top-0 left-0 opacity-0 [filter:blur(0px)]"
 		>
 			<div className="px-4.5 pt-4.5 pb-4">
+				<Suspense fallback={null}>
+					<StarProof stars={stars} />
+				</Suspense>
 				<h2
 					data-item
 					id={titleId}

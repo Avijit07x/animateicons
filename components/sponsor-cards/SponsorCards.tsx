@@ -20,7 +20,11 @@ const ANCHOR_STYLE = {
 	bottom: `calc(66dvh - ${CARD_H}px)`,
 };
 
-const SponsorCards: React.FC = () => {
+type Props = {
+	stars: Promise<number | null>;
+};
+
+const SponsorCards: React.FC<Props> = ({ stars }) => {
 	const {
 		scope,
 		stage,
@@ -74,6 +78,7 @@ const SponsorCards: React.FC = () => {
 							landed={landed}
 							qrOpen={qrShift > 0}
 							onToggleQr={toggleQr}
+							stars={stars}
 						/>
 					</StackCard>
 
