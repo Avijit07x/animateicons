@@ -112,6 +112,11 @@ describe("real lucide catalog results", () => {
 	it("finds several words in any order", () => {
 		expect(names("arrow up")).toContain("arrow-up");
 		expect(names("up arrow")).toContain("arrow-up");
-		expect(names("a z")).toEqual(["arrow-up-a-z", "arrow-up-z-a"]);
+		expect(names("a z")).toEqual([
+			"arrow-down-a-z",
+			"arrow-down-z-a",
+			"arrow-up-a-z",
+			"arrow-up-z-a",
+		]);
 	});
 });

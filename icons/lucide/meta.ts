@@ -822,6 +822,24 @@ const ICON_META: IconMeta[] = [
     keywords: ["move", "diagonal", "arrows", "resize"],
   },
   {
+    name: "move-down",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "move", "south", "bottom", "arrow"],
+  },
+  {
+    name: "move-down-left",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "down left", "southwest", "arrow"],
+  },
+  {
+    name: "move-down-right",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "down right", "southeast", "arrow"],
+  },
+  {
     name: "move-horizontal",
     addedAt: "2026-03-29",
     category: ["Arrows"],
@@ -838,6 +856,24 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-11-30",
     category: ["Arrows"],
     keywords: ["right", "next", "move", "east", "forward"],
+  },
+  {
+    name: "move-up",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["up", "move", "north", "top", "arrow"],
+  },
+  {
+    name: "move-up-left",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "up left", "northwest", "arrow"],
+  },
+  {
+    name: "move-up-right",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "up right", "northeast", "arrow"],
   },
   {
     name: "move-vertical",
@@ -2226,16 +2262,52 @@ const ICON_META: IconMeta[] = [
     keywords: ["arrow", "down", "direction", "navigation", "decrease"],
   },
   {
+    name: "arrow-down-0-1",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "numerical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-1-0",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "reverse numerical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-a-z",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "alphabetical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-from-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "pull", "drop", "arrow", "from line"],
+  },
+  {
     name: "arrow-down-left",
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "down left", "diagonal", "direction"],
   },
   {
+    name: "arrow-down-narrow-wide",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "descending", "size", "small to large", "order", "filter"],
+  },
+  {
     name: "arrow-down-right",
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "down right", "diagonal", "direction"],
+  },
+  {
+    name: "arrow-down-to-dot",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "point", "target", "location", "arrow", "dot"],
   },
   {
     name: "arrow-down-to-line",
@@ -2250,10 +2322,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["sort", "filter", "swap", "order", "switch", "move"],
   },
   {
+    name: "arrow-down-wide-narrow",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "descending", "size", "large to small", "order", "filter"],
+  },
+  {
+    name: "arrow-down-z-a",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "reverse alphabetical", "order", "rank"],
+  },
+  {
     name: "arrow-left",
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "left", "direction", "navigation", "back"],
+  },
+  {
+    name: "arrow-left-from-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["left", "back", "exit", "arrow", "from line"],
   },
   {
     name: "arrow-left-right",
@@ -2262,10 +2352,34 @@ const ICON_META: IconMeta[] = [
     keywords: ["arrow", "left right", "horizontal", "swap", "bidirectional"],
   },
   {
+    name: "arrow-left-to-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["left", "start", "beginning", "first", "align left", "arrow"],
+  },
+  {
     name: "arrow-right",
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "right", "direction", "navigation", "next", "forward"],
+  },
+  {
+    name: "arrow-right-from-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["right", "forward", "exit", "arrow", "from line"],
+  },
+  {
+    name: "arrow-right-left",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "right left", "horizontal", "swap", "exchange", "transfer"],
+  },
+  {
+    name: "arrow-right-to-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["right", "end", "last", "align right", "arrow"],
   },
   {
     name: "arrow-up",
@@ -2298,10 +2412,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["arrow", "up down", "vertical", "sort", "bidirectional"],
   },
   {
+    name: "arrow-up-from-dot",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["up", "launch", "origin", "start", "arrow", "dot"],
+  },
+  {
+    name: "arrow-up-from-line",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["upload", "export", "share", "up", "arrow", "from line"],
+  },
+  {
     name: "arrow-up-left",
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "up left", "diagonal", "direction"],
+  },
+  {
+    name: "arrow-up-narrow-wide",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "ascending", "size", "small to large", "order", "filter"],
   },
   {
     name: "arrow-up-right",
@@ -2314,6 +2446,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-09-29",
     category: ["Arrows"],
     keywords: ["arrow-up-to-line", "top", "scroll", "up", "back to top", "upload", "raise"],
+  },
+  {
+    name: "arrow-up-wide-narrow",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "ascending", "size", "large to small", "order", "filter"],
   },
   {
     name: "arrow-up-z-a",

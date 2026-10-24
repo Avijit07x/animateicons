@@ -135,9 +135,15 @@ import { ChevronsUpDownIcon } from "./chevrons-up-down-icon";
 import { MoveIcon } from "./move-icon";
 import { MoveDiagonalIcon } from "./move-diagonal-icon";
 import { MoveDiagonal2Icon } from "./move-diagonal-2-icon";
+import { MoveDownIcon } from "./move-down-icon";
+import { MoveDownLeftIcon } from "./move-down-left-icon";
+import { MoveDownRightIcon } from "./move-down-right-icon";
 import { MoveHorizontalIcon } from "./move-horizontal-icon";
 import { MoveLeftIcon } from "./move-left-icon";
 import { MoveRightIcon } from "./move-right-icon";
+import { MoveUpIcon } from "./move-up-icon";
+import { MoveUpLeftIcon } from "./move-up-left-icon";
+import { MoveUpRightIcon } from "./move-up-right-icon";
 import { MoveVerticalIcon } from "./move-vertical-icon";
 import { CornerDownLeftIcon } from "./corner-down-left-icon";
 import { CornerDownRightIcon } from "./corner-down-right-icon";
@@ -369,21 +375,38 @@ import { ArrowBigRightDashIcon } from "./arrow-big-right-dash-icon";
 import { ArrowBigUpIcon } from "./arrow-big-up-icon";
 import { ArrowBigUpDashIcon } from "./arrow-big-up-dash-icon";
 import { ArrowDownIcon } from "./arrow-down-icon";
+import { ArrowDown01Icon } from "./arrow-down-0-1-icon";
+import { ArrowDown10Icon } from "./arrow-down-1-0-icon";
+import { ArrowDownAZIcon } from "./arrow-down-a-z-icon";
+import { ArrowDownFromLineIcon } from "./arrow-down-from-line-icon";
 import { ArrowDownLeftIcon } from "./arrow-down-left-icon";
+import { ArrowDownNarrowWideIcon } from "./arrow-down-narrow-wide-icon";
 import { ArrowDownRightIcon } from "./arrow-down-right-icon";
+import { ArrowDownToDotIcon } from "./arrow-down-to-dot-icon";
 import { ArrowDownToLineIcon } from "./arrow-down-to-line-icon";
 import { ArrowDownUpIcon } from "./arrow-down-up-icon";
+import { ArrowDownWideNarrowIcon } from "./arrow-down-wide-narrow-icon";
+import { ArrowDownZAIcon } from "./arrow-down-z-a-icon";
 import { ArrowLeftIcon } from "./arrow-left-icon";
+import { ArrowLeftFromLineIcon } from "./arrow-left-from-line-icon";
 import { ArrowLeftRightIcon } from "./arrow-left-right-icon";
+import { ArrowLeftToLineIcon } from "./arrow-left-to-line-icon";
 import { ArrowRightIcon } from "./arrow-right-icon";
+import { ArrowRightFromLineIcon } from "./arrow-right-from-line-icon";
+import { ArrowRightLeftIcon } from "./arrow-right-left-icon";
+import { ArrowRightToLineIcon } from "./arrow-right-to-line-icon";
 import { ArrowUpIcon } from "./arrow-up-icon";
 import { ArrowUp01Icon } from "./arrow-up-0-1-icon";
 import { ArrowUp10Icon } from "./arrow-up-1-0-icon";
 import { ArrowUpAZIcon } from "./arrow-up-a-z-icon";
 import { ArrowUpDownIcon } from "./arrow-up-down-icon";
+import { ArrowUpFromDotIcon } from "./arrow-up-from-dot-icon";
+import { ArrowUpFromLineIcon } from "./arrow-up-from-line-icon";
 import { ArrowUpLeftIcon } from "./arrow-up-left-icon";
+import { ArrowUpNarrowWideIcon } from "./arrow-up-narrow-wide-icon";
 import { ArrowUpRightIcon } from "./arrow-up-right-icon";
 import { ArrowUpToLineIcon } from "./arrow-up-to-line-icon";
+import { ArrowUpWideNarrowIcon } from "./arrow-up-wide-narrow-icon";
 import { ArrowUpZAIcon } from "./arrow-up-z-a-icon";
 import { AArrowDownIcon } from "./a-arrow-down-icon";
 import { AArrowUpIcon } from "./a-arrow-up-icon";
@@ -1685,6 +1708,27 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["move", "diagonal", "arrows", "resize"],
   },
   {
+    name: "move-down",
+    icon: MoveDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "move", "south", "bottom", "arrow"],
+  },
+  {
+    name: "move-down-left",
+    icon: MoveDownLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "down left", "southwest", "arrow"],
+  },
+  {
+    name: "move-down-right",
+    icon: MoveDownRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "down right", "southeast", "arrow"],
+  },
+  {
     name: "move-horizontal",
     icon: MoveHorizontalIcon,
     addedAt: "2026-03-29",
@@ -1704,6 +1748,27 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-30",
     category: ["Arrows"],
     keywords: ["right", "next", "move", "east", "forward"],
+  },
+  {
+    name: "move-up",
+    icon: MoveUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["up", "move", "north", "top", "arrow"],
+  },
+  {
+    name: "move-up-left",
+    icon: MoveUpLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "up left", "northwest", "arrow"],
+  },
+  {
+    name: "move-up-right",
+    icon: MoveUpRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["move", "diagonal", "up right", "northeast", "arrow"],
   },
   {
     name: "move-vertical",
@@ -3323,6 +3388,34 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["arrow", "down", "direction", "navigation", "decrease"],
   },
   {
+    name: "arrow-down-0-1",
+    icon: ArrowDown01Icon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "numerical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-1-0",
+    icon: ArrowDown10Icon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "reverse numerical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-a-z",
+    icon: ArrowDownAZIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "alphabetical", "order", "rank"],
+  },
+  {
+    name: "arrow-down-from-line",
+    icon: ArrowDownFromLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "pull", "drop", "arrow", "from line"],
+  },
+  {
     name: "arrow-down-left",
     icon: ArrowDownLeftIcon,
     addedAt: "2026-08-01",
@@ -3330,11 +3423,25 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["arrow", "down left", "diagonal", "direction"],
   },
   {
+    name: "arrow-down-narrow-wide",
+    icon: ArrowDownNarrowWideIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "descending", "size", "small to large", "order", "filter"],
+  },
+  {
     name: "arrow-down-right",
     icon: ArrowDownRightIcon,
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "down right", "diagonal", "direction"],
+  },
+  {
+    name: "arrow-down-to-dot",
+    icon: ArrowDownToDotIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["down", "point", "target", "location", "arrow", "dot"],
   },
   {
     name: "arrow-down-to-line",
@@ -3351,11 +3458,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["sort", "filter", "swap", "order", "switch", "move"],
   },
   {
+    name: "arrow-down-wide-narrow",
+    icon: ArrowDownWideNarrowIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "descending", "size", "large to small", "order", "filter"],
+  },
+  {
+    name: "arrow-down-z-a",
+    icon: ArrowDownZAIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["filter", "sort", "descending", "reverse alphabetical", "order", "rank"],
+  },
+  {
     name: "arrow-left",
     icon: ArrowLeftIcon,
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "left", "direction", "navigation", "back"],
+  },
+  {
+    name: "arrow-left-from-line",
+    icon: ArrowLeftFromLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["left", "back", "exit", "arrow", "from line"],
   },
   {
     name: "arrow-left-right",
@@ -3365,11 +3493,39 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["arrow", "left right", "horizontal", "swap", "bidirectional"],
   },
   {
+    name: "arrow-left-to-line",
+    icon: ArrowLeftToLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["left", "start", "beginning", "first", "align left", "arrow"],
+  },
+  {
     name: "arrow-right",
     icon: ArrowRightIcon,
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "right", "direction", "navigation", "next", "forward"],
+  },
+  {
+    name: "arrow-right-from-line",
+    icon: ArrowRightFromLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["right", "forward", "exit", "arrow", "from line"],
+  },
+  {
+    name: "arrow-right-left",
+    icon: ArrowRightLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "right left", "horizontal", "swap", "exchange", "transfer"],
+  },
+  {
+    name: "arrow-right-to-line",
+    icon: ArrowRightToLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["right", "end", "last", "align right", "arrow"],
   },
   {
     name: "arrow-up",
@@ -3407,11 +3563,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["arrow", "up down", "vertical", "sort", "bidirectional"],
   },
   {
+    name: "arrow-up-from-dot",
+    icon: ArrowUpFromDotIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["up", "launch", "origin", "start", "arrow", "dot"],
+  },
+  {
+    name: "arrow-up-from-line",
+    icon: ArrowUpFromLineIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["upload", "export", "share", "up", "arrow", "from line"],
+  },
+  {
     name: "arrow-up-left",
     icon: ArrowUpLeftIcon,
     addedAt: "2026-08-01",
     category: ["Arrows"],
     keywords: ["arrow", "up left", "diagonal", "direction"],
+  },
+  {
+    name: "arrow-up-narrow-wide",
+    icon: ArrowUpNarrowWideIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "ascending", "size", "small to large", "order", "filter"],
   },
   {
     name: "arrow-up-right",
@@ -3426,6 +3603,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-29",
     category: ["Arrows"],
     keywords: ["arrow-up-to-line", "top", "scroll", "up", "back to top", "upload", "raise"],
+  },
+  {
+    name: "arrow-up-wide-narrow",
+    icon: ArrowUpWideNarrowIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["sort", "ascending", "size", "large to small", "order", "filter"],
   },
   {
     name: "arrow-up-z-a",
