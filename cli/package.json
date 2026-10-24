@@ -40,20 +40,20 @@
 		"verify": "pnpm run typecheck && pnpm run build && pnpm run test"
 	},
 	"devDependencies": {
-		"@types/node": "^25.9.1",
-		"@types/react": "^19.2.15",
+		"@types/node": "^25.9.9",
+		"@types/react": "^19.3.0",
 		"cac": "^6.7.14",
 		"ink-testing-library": "^4.0.0",
 		"picocolors": "^1.1.1",
-		"tsup": "^8.3.0",
+		"tsup": "^8.5.1",
 		"typescript": "^5.9.3",
-		"vitest": "^3.2.4"
+		"vitest": "^3.2.7"
 	},
 	"publishConfig": {
 		"access": "public"
 	},
 	"dependencies": {
 		"ink": "^6.8.0",
-		"react": "^19.2.6"
+		"react": "^19.3.1"
 	}
 }
