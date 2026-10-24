@@ -9732,6 +9732,22 @@
       ]
     },
     {
+      "name": "lu-bookmark-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/bookmark-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/bookmark-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-bookmark-plus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15092,6 +15108,38 @@
       ]
     },
     {
+      "name": "lu-heart-crack",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-crack-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-crack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heart-handshake",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-handshake-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-handshake.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-heart",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15108,6 +15156,54 @@
       ]
     },
     {
+      "name": "lu-heart-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heart-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heart-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-heart-pulse",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15120,6 +15216,22 @@
           "path": "icons/lucide/heart-pulse-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/heart-pulse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heart-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heart-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heart-x.tsx"
         }
       ]
     },
@@ -21588,6 +21700,38 @@
       ]
     },
     {
+      "name": "lu-star-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/star-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-star-half",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/star-half-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star-half.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-star",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -21604,6 +21748,22 @@
       ]
     },
     {
+      "name": "lu-star-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/star-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star-minus.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-star-off",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -21616,6 +21776,38 @@
           "path": "icons/lucide/star-off-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/star-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-star-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/star-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-star-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/star-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/star-x.tsx"
         }
       ]
     },
