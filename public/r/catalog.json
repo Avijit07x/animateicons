@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1322,
+  "total": 1335,
   "libraries": {
-    "lucide": 821,
+    "lucide": 834,
     "huge": 501
   },
   "icons": [
@@ -17889,6 +17889,44 @@
       "url": "https://animateicons.in/r/lu-lock.json"
     },
     {
+      "name": "lock-keyhole",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-lock-keyhole",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "lock",
+        "keyhole",
+        "padlock",
+        "secure",
+        "private",
+        "locked"
+      ],
+      "url": "https://animateicons.in/r/lu-lock-keyhole.json"
+    },
+    {
+      "name": "lock-keyhole-open",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-lock-keyhole-open",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "unlock",
+        "keyhole",
+        "padlock",
+        "open",
+        "access",
+        "unlocked"
+      ],
+      "url": "https://animateicons.in/r/lu-lock-keyhole-open.json"
+    },
+    {
       "name": "lock-open",
       "library": "lucide",
       "prefix": "lu",
@@ -21903,6 +21941,25 @@
       "url": "https://animateicons.in/r/lu-shield-alert.json"
     },
     {
+      "name": "shield-ban",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-ban",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "ban",
+        "blocked",
+        "forbidden",
+        "denied",
+        "security"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-ban.json"
+    },
+    {
       "name": "shield-check",
       "library": "lucide",
       "prefix": "lu",
@@ -21919,6 +21976,198 @@
         "guardian"
       ],
       "url": "https://animateicons.in/r/lu-shield-check.json"
+    },
+    {
+      "name": "shield-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-cog",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security",
+        "Tools"
+      ],
+      "keywords": [
+        "shield",
+        "settings",
+        "security settings",
+        "config",
+        "admin",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-cog.json"
+    },
+    {
+      "name": "shield-cog-corner",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-cog-corner",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security",
+        "Tools"
+      ],
+      "keywords": [
+        "shield",
+        "settings",
+        "security settings",
+        "config",
+        "admin",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-cog-corner.json"
+    },
+    {
+      "name": "shield-ellipsis",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-ellipsis",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "more",
+        "options",
+        "menu",
+        "pending",
+        "security"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-ellipsis.json"
+    },
+    {
+      "name": "shield-half",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-half",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "half",
+        "partial",
+        "security",
+        "defense",
+        "badge"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-half.json"
+    },
+    {
+      "name": "shield-keyhole",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-keyhole",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "keyhole",
+        "access",
+        "secure",
+        "vault",
+        "protection"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-keyhole.json"
+    },
+    {
+      "name": "shield-lock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-lock",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "lock",
+        "secure",
+        "encrypted",
+        "private",
+        "protection"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-lock.json"
+    },
+    {
+      "name": "shield-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "remove",
+        "security",
+        "protection",
+        "reduce",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-minus.json"
+    },
+    {
+      "name": "shield-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "off",
+        "unprotected",
+        "insecure",
+        "disabled",
+        "unsafe"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-off.json"
+    },
+    {
+      "name": "shield-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "add",
+        "security",
+        "protection",
+        "new",
+        "guard"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-plus.json"
+    },
+    {
+      "name": "shield-question-mark",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shield-question-mark",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Security"
+      ],
+      "keywords": [
+        "shield",
+        "question",
+        "unknown",
+        "help",
+        "unverified",
+        "security"
+      ],
+      "url": "https://animateicons.in/r/lu-shield-question-mark.json"
     },
     {
       "name": "shield-user",

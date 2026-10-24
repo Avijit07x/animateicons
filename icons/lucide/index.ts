@@ -46,7 +46,18 @@ import { UsersIcon } from "./users-icon";
 import { UsersRoundIcon } from "./users-round-icon";
 import { ShieldIcon } from "./shield-icon";
 import { ShieldAlertIcon } from "./shield-alert-icon";
+import { ShieldBanIcon } from "./shield-ban-icon";
 import { ShieldCheckIcon } from "./shield-check-icon";
+import { ShieldCogIcon } from "./shield-cog-icon";
+import { ShieldCogCornerIcon } from "./shield-cog-corner-icon";
+import { ShieldEllipsisIcon } from "./shield-ellipsis-icon";
+import { ShieldHalfIcon } from "./shield-half-icon";
+import { ShieldKeyholeIcon } from "./shield-keyhole-icon";
+import { ShieldLockIcon } from "./shield-lock-icon";
+import { ShieldMinusIcon } from "./shield-minus-icon";
+import { ShieldOffIcon } from "./shield-off-icon";
+import { ShieldPlusIcon } from "./shield-plus-icon";
+import { ShieldQuestionMarkIcon } from "./shield-question-mark-icon";
 import { ShieldUserIcon } from "./shield-user-icon";
 import { ShieldXIcon } from "./shield-x-icon";
 import { ContactIcon } from "./contact-icon";
@@ -262,6 +273,8 @@ import { TriangleAlertIcon } from "./triangle-alert-icon";
 import { TriangleDashedIcon } from "./triangle-dashed-icon";
 import { TriangleRightIcon } from "./triangle-right-icon";
 import { LockIcon } from "./lock-icon";
+import { LockKeyholeIcon } from "./lock-keyhole-icon";
+import { LockKeyholeOpenIcon } from "./lock-keyhole-open-icon";
 import { LockOpenIcon } from "./lock-open-icon";
 import { BaggageClaimIcon } from "./baggage-claim-icon";
 import { ShoppingBagIcon } from "./shopping-bag-icon";
@@ -1158,11 +1171,88 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["shield", "alert", "security", "warning", "threat", "breach"],
   },
   {
+    name: "shield-ban",
+    icon: ShieldBanIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "ban", "blocked", "forbidden", "denied", "security"],
+  },
+  {
     name: "shield-check",
     icon: ShieldCheckIcon,
     addedAt: "2025-10-07",
     category: ["Security"],
     keywords: ["cybersecurity", "secure", "safety", "protected", "guardian"],
+  },
+  {
+    name: "shield-cog",
+    icon: ShieldCogIcon,
+    addedAt: "2026-10-24",
+    category: ["Security","Tools"],
+    keywords: ["shield", "settings", "security settings", "config", "admin", "gear"],
+  },
+  {
+    name: "shield-cog-corner",
+    icon: ShieldCogCornerIcon,
+    addedAt: "2026-10-24",
+    category: ["Security","Tools"],
+    keywords: ["shield", "settings", "security settings", "config", "admin", "gear"],
+  },
+  {
+    name: "shield-ellipsis",
+    icon: ShieldEllipsisIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "more", "options", "menu", "pending", "security"],
+  },
+  {
+    name: "shield-half",
+    icon: ShieldHalfIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "half", "partial", "security", "defense", "badge"],
+  },
+  {
+    name: "shield-keyhole",
+    icon: ShieldKeyholeIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "keyhole", "access", "secure", "vault", "protection"],
+  },
+  {
+    name: "shield-lock",
+    icon: ShieldLockIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "lock", "secure", "encrypted", "private", "protection"],
+  },
+  {
+    name: "shield-minus",
+    icon: ShieldMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "remove", "security", "protection", "reduce", "guard"],
+  },
+  {
+    name: "shield-off",
+    icon: ShieldOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "off", "unprotected", "insecure", "disabled", "unsafe"],
+  },
+  {
+    name: "shield-plus",
+    icon: ShieldPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "add", "security", "protection", "new", "guard"],
+  },
+  {
+    name: "shield-question-mark",
+    icon: ShieldQuestionMarkIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["shield", "question", "unknown", "help", "unverified", "security"],
   },
   {
     name: "shield-user",
@@ -2668,6 +2758,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-07-30",
     category: ["Security"],
     keywords: ["security", "password", "secure", "private", "access"],
+  },
+  {
+    name: "lock-keyhole",
+    icon: LockKeyholeIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["lock", "keyhole", "padlock", "secure", "private", "locked"],
+  },
+  {
+    name: "lock-keyhole-open",
+    icon: LockKeyholeOpenIcon,
+    addedAt: "2026-10-24",
+    category: ["Security"],
+    keywords: ["unlock", "keyhole", "padlock", "open", "access", "unlocked"],
   },
   {
     name: "lock-open",

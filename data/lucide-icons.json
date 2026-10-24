@@ -5879,5 +5879,125 @@
 			"discussion",
 			"talk"
 		]
+	},
+	{
+		"name": "shield-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "add", "security", "protection", "new", "guard"]
+	},
+	{
+		"name": "shield-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"remove",
+			"security",
+			"protection",
+			"reduce",
+			"guard"
+		]
+	},
+	{
+		"name": "shield-off",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"off",
+			"unprotected",
+			"insecure",
+			"disabled",
+			"unsafe"
+		]
+	},
+	{
+		"name": "shield-ban",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "ban", "blocked", "forbidden", "denied", "security"]
+	},
+	{
+		"name": "shield-question-mark",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"question",
+			"unknown",
+			"help",
+			"unverified",
+			"security"
+		]
+	},
+	{
+		"name": "shield-ellipsis",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "more", "options", "menu", "pending", "security"]
+	},
+	{
+		"name": "shield-half",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "half", "partial", "security", "defense", "badge"]
+	},
+	{
+		"name": "shield-lock",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"lock",
+			"secure",
+			"encrypted",
+			"private",
+			"protection"
+		]
+	},
+	{
+		"name": "shield-keyhole",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "keyhole", "access", "secure", "vault", "protection"]
+	},
+	{
+		"name": "shield-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Security", "Tools"],
+		"keywords": [
+			"shield",
+			"settings",
+			"security settings",
+			"config",
+			"admin",
+			"gear"
+		]
+	},
+	{
+		"name": "shield-cog-corner",
+		"addedAt": "2026-10-24",
+		"category": ["Security", "Tools"],
+		"keywords": [
+			"shield",
+			"settings",
+			"security settings",
+			"config",
+			"admin",
+			"gear"
+		]
+	},
+	{
+		"name": "lock-keyhole",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["lock", "keyhole", "padlock", "secure", "private", "locked"]
+	},
+	{
+		"name": "lock-keyhole-open",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["unlock", "keyhole", "padlock", "open", "access", "unlocked"]
 	}
 ]
