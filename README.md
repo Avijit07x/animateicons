@@ -78,7 +78,15 @@ See the [full docs](https://animateicons.in/icons/docs/examples/hover-helper) fo
 
 ## Documentation
 
-Read the [documentation](https://animateicons.in/icons/docs) for the CLI, shadcn, MCP, styling and the full API.
+| Topic    | What it covers                                       | Docs                                                                 |
+| -------- | ---------------------------------------------------- | -------------------------------------------------------------------- |
+| React    | Props, Next.js, Server Components and types          | [React](https://animateicons.in/icons/docs/react)                    |
+| Examples | Hover helper, buttons, inputs, cards and menus       | [Examples](https://animateicons.in/icons/docs/examples/hover-helper) |
+| shadcn   | Add icons with the shadcn CLI                        | [shadcn](https://animateicons.in/icons/docs/shadcn)                  |
+| CLI      | Copy icons into your project with `npx animateicons` | [CLI](https://animateicons.in/icons/docs/cli)                        |
+| MCP      | Let AI agents search and add icons                   | [MCP](https://animateicons.in/icons/docs/mcp)                        |
+
+Start with the [introduction](https://animateicons.in/icons/docs) for everything else.
 
 ## Contributing
 
