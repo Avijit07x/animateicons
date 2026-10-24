@@ -5,8 +5,9 @@ import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useIsMac } from "@/hooks/useIsMac";
 import { SearchIcon, type SearchIconHandle } from "@/icons/huge/search-icon";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { isSearchShortcut } from "@/utils/isSearchShortcut";
 import { MotionConfig, motion } from "motion/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useEffectEvent, useRef, useState } from "react";
 import {
 	MAX_SEARCH_LENGTH,
 	useIconSearch,
@@ -60,25 +61,26 @@ const SearchBar: React.FC = () => {
 
 	const iconCount = library ? ICON_COUNTS[library] : "";
 
+	const onKeyDown = useEffectEvent((e: KeyboardEvent) => {
+		if (inputRef.current?.checkVisibility?.() === false) return;
+		if (isSearchShortcut(e, isMac)) {
+			e.preventDefault();
+			e.stopPropagation();
+			inputRef.current?.focus();
+		}
+
+		if (e.key === "Escape" && (focused || query)) {
+			setQuery("");
+			inputRef.current?.blur();
+			setFocused(false);
+		}
+	});
+
 	useEffect(() => {
-		const handleKeyDown = (e: KeyboardEvent) => {
-			if (inputRef.current?.checkVisibility?.() === false) return;
-			if ((isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === "k") {
-				e.preventDefault();
-				e.stopPropagation();
-				inputRef.current?.focus();
-			}
-
-			if (e.key === "Escape" && (focused || query)) {
-				setQuery("");
-				inputRef.current?.blur();
-				setFocused(false);
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown, true);
-		return () => window.removeEventListener("keydown", handleKeyDown, true);
-	}, [focused, isMac, query, setQuery]);
+		const handler = (e: KeyboardEvent) => onKeyDown(e);
+		window.addEventListener("keydown", handler, true);
+		return () => window.removeEventListener("keydown", handler, true);
+	}, []);
 
 	const showEsc = focused || query.length > 0;
 

@@ -1,20 +1,21 @@
 "use client";
 
+import { useIsMac } from "@/hooks/useIsMac";
+import { isSearchShortcut } from "@/utils/isSearchShortcut";
 import dynamic from "next/dynamic";
 import {
 	createContext,
 	useCallback,
 	useContext,
 	useEffect,
+	useEffectEvent,
 	useState,
 } from "react";
 
 const CommandSearch = dynamic(() => import("./CommandSearch"), { ssr: false });
 
 type Ctx = {
-	isOpen: boolean;
 	open: () => void;
-	close: () => void;
 };
 
 const CommandSearchContext = createContext<Ctx | null>(null);
@@ -36,34 +37,32 @@ export const CommandSearchProvider: React.FC<{
 	const [isOpen, setIsOpen] = useState(false);
 	const [hasOpened, setHasOpened] = useState(false);
 	if (isOpen && !hasOpened) setHasOpened(true);
+	const isMac = useIsMac();
 
 	const open = useCallback(() => setIsOpen(true), []);
-	const close = useCallback(() => setIsOpen(false), []);
+
+	const onKeyDown = useEffectEvent((e: KeyboardEvent) => {
+		if (isSearchShortcut(e, isMac)) {
+			e.preventDefault();
+			setIsOpen((prev) => !prev);
+			return;
+		}
+		if (e.key === "/" && !isEditableTarget(e.target)) {
+			e.preventDefault();
+			setIsOpen(true);
+		}
+	});
 
 	useEffect(() => {
-		const onKey = (e: KeyboardEvent) => {
-			if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-				e.preventDefault();
-				setIsOpen((prev) => !prev);
-				return;
-			}
-			if (e.key === "Escape" && isOpen) {
-				setIsOpen(false);
-				return;
-			}
-			if (e.key === "/" && !isEditableTarget(e.target) && !isOpen) {
-				e.preventDefault();
-				setIsOpen(true);
-			}
-		};
-		window.addEventListener("keydown", onKey);
-		return () => window.removeEventListener("keydown", onKey);
-	}, [isOpen]);
+		const handler = (e: KeyboardEvent) => onKeyDown(e);
+		window.addEventListener("keydown", handler);
+		return () => window.removeEventListener("keydown", handler);
+	}, []);
 
 	return (
-		<CommandSearchContext.Provider value={{ isOpen, open, close }}>
+		<CommandSearchContext.Provider value={{ open }}>
 			{children}
-			{hasOpened && <CommandSearch isOpen={isOpen} onClose={close} />}
+			{hasOpened && <CommandSearch isOpen={isOpen} onOpenChange={setIsOpen} />}
 		</CommandSearchContext.Provider>
 	);
 };
