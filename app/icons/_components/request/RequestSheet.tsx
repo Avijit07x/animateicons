@@ -23,6 +23,7 @@ import {
 	type RequestType,
 } from "@/lib/request";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { startTransition, useActionState, useId, useState } from "react";
 import { useRequest, type RequestPreset } from "../../_contexts/RequestContext";
@@ -316,7 +317,19 @@ const RequestForm: React.FC<{ preset: RequestPreset; onDone: () => void }> = ({
 							STATUS_TEXT[state.status] ? "text-primary" : "text-textMuted",
 						)}
 					>
-						{STATUS_TEXT[state.status] ?? "Goes straight to me. No spam."}
+						{STATUS_TEXT[state.status] ?? (
+							<>
+								Only used to reply.{" "}
+								<Link
+									href="/privacy"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-textPrimary underline underline-offset-4"
+								>
+									Privacy
+								</Link>
+							</>
+						)}
 					</p>
 					<Button type="submit" disabled={pending}>
 						{pending ? "Sending..." : "Send request"}

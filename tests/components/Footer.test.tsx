@@ -12,10 +12,8 @@ describe("Footer", () => {
 		["Lucide", "/icons/lucide"],
 		["Huge", "/icons/huge"],
 		["Docs", "/icons/docs"],
-		["shadcn", "/icons/docs/shadcn"],
-		["CLI", "/icons/docs/cli"],
-		["MCP", "/icons/docs/mcp"],
 		["Supporters", "/sponsors"],
+		["Privacy", "/privacy"],
 	])("links %s to %s in the same tab", (label, href) => {
 		render(<Footer />);
 		const link = footerNav().getByRole("link", { name: label });

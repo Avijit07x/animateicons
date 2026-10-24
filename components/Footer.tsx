@@ -8,10 +8,8 @@ const LINKS = [
 	{ label: "Lucide", href: "/icons/lucide" },
 	{ label: "Huge", href: "/icons/huge" },
 	{ label: "Docs", href: "/icons/docs" },
-	{ label: "shadcn", href: "/icons/docs/shadcn" },
-	{ label: "CLI", href: "/icons/docs/cli" },
-	{ label: "MCP", href: "/icons/docs/mcp" },
 	{ label: "Supporters", href: "/sponsors" },
+	{ label: "Privacy", href: "/privacy" },
 	{
 		label: "GitHub",
 		href: "https://github.com/Avijit07x/animateicons",
