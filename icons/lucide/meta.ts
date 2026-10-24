@@ -1440,6 +1440,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["unsave", "remove", "delete", "unmark", "clip"],
   },
   {
+    name: "bookmark-off",
+    addedAt: "2026-10-24",
+    category: ["File icons"],
+    keywords: ["bookmark", "off", "unsave", "removed", "disabled", "unmark"],
+  },
+  {
     name: "bookmark-plus",
     addedAt: "2025-09-15",
     category: ["File icons"],
@@ -2034,10 +2040,46 @@ const ICON_META: IconMeta[] = [
     keywords: ["like", "love", "emotion", "favorite", "react"],
   },
   {
+    name: "heart-crack",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "broken", "heartbreak", "sad", "breakup", "crack"],
+  },
+  {
+    name: "heart-handshake",
+    addedAt: "2026-10-24",
+    category: ["Social","Emoji"],
+    keywords: ["handshake", "charity", "support", "care", "partnership", "volunteer"],
+  },
+  {
+    name: "heart-minus",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "remove", "unlike", "unfavorite", "love", "minus"],
+  },
+  {
+    name: "heart-off",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "off", "unlike", "no love", "disabled", "unfavorite"],
+  },
+  {
+    name: "heart-plus",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "add", "like", "favorite", "love", "new"],
+  },
+  {
     name: "heart-pulse",
     addedAt: "2026-09-27",
     category: ["Medical","Social"],
     keywords: ["heartbeat", "pulse", "health", "cardio", "vital", "medical"],
+  },
+  {
+    name: "heart-x",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "remove", "unlike", "delete", "love", "clear"],
   },
   {
     name: "thumbs-down",
@@ -2760,10 +2802,40 @@ const ICON_META: IconMeta[] = [
     keywords: ["favorite", "rating", "review", "like", "achievement", "bookmark"],
   },
   {
+    name: "star-check",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "favorited", "verified", "rated", "done", "check"],
+  },
+  {
+    name: "star-half",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "half", "rating", "review", "score", "half star"],
+  },
+  {
+    name: "star-minus",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "remove", "unfavorite", "rating", "bookmark", "minus"],
+  },
+  {
     name: "star-off",
     addedAt: "2026-09-27",
     category: ["Shapes","Emoji"],
     keywords: ["star", "off", "unfavorite", "remove", "unstar", "rating"],
+  },
+  {
+    name: "star-plus",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "add", "favorite", "rate", "bookmark", "new"],
+  },
+  {
+    name: "star-x",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "remove", "unfavorite", "delete", "rating", "clear"],
   },
   {
     name: "chart-area",

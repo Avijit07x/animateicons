@@ -7260,5 +7260,84 @@
 			"schedule",
 			"time"
 		]
+	},
+	{
+		"name": "star-half",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "half", "rating", "review", "score", "half star"]
+	},
+	{
+		"name": "star-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "add", "favorite", "rate", "bookmark", "new"]
+	},
+	{
+		"name": "star-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "remove", "unfavorite", "rating", "bookmark", "minus"]
+	},
+	{
+		"name": "star-x",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "remove", "unfavorite", "delete", "rating", "clear"]
+	},
+	{
+		"name": "star-check",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "favorited", "verified", "rated", "done", "check"]
+	},
+	{
+		"name": "heart-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "add", "like", "favorite", "love", "new"]
+	},
+	{
+		"name": "heart-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "remove", "unlike", "unfavorite", "love", "minus"]
+	},
+	{
+		"name": "heart-x",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "remove", "unlike", "delete", "love", "clear"]
+	},
+	{
+		"name": "heart-off",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "off", "unlike", "no love", "disabled", "unfavorite"]
+	},
+	{
+		"name": "heart-crack",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "broken", "heartbreak", "sad", "breakup", "crack"]
+	},
+	{
+		"name": "heart-handshake",
+		"addedAt": "2026-10-24",
+		"category": ["Social", "Emoji"],
+		"keywords": [
+			"handshake",
+			"charity",
+			"support",
+			"care",
+			"partnership",
+			"volunteer"
+		]
+	},
+	{
+		"name": "bookmark-off",
+		"addedAt": "2026-10-24",
+		"category": ["File icons"],
+		"keywords": ["bookmark", "off", "unsave", "removed", "disabled", "unmark"]
 	}
 ]

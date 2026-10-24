@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1488,
+  "total": 1500,
   "libraries": {
-    "lucide": 987,
+    "lucide": 999,
     "huge": 501
   },
   "icons": [
@@ -11728,6 +11728,25 @@
       "url": "https://animateicons.in/r/lu-bookmark-minus.json"
     },
     {
+      "name": "bookmark-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bookmark-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "File icons"
+      ],
+      "keywords": [
+        "bookmark",
+        "off",
+        "unsave",
+        "removed",
+        "disabled",
+        "unmark"
+      ],
+      "url": "https://animateicons.in/r/lu-bookmark-off.json"
+    },
+    {
       "name": "bookmark-plus",
       "library": "lucide",
       "prefix": "lu",
@@ -18101,6 +18120,106 @@
       "url": "https://animateicons.in/r/lu-heart.json"
     },
     {
+      "name": "heart-crack",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-crack",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Social"
+      ],
+      "keywords": [
+        "heart",
+        "broken",
+        "heartbreak",
+        "sad",
+        "breakup",
+        "crack"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-crack.json"
+    },
+    {
+      "name": "heart-handshake",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-handshake",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Social",
+        "Emoji"
+      ],
+      "keywords": [
+        "handshake",
+        "charity",
+        "support",
+        "care",
+        "partnership",
+        "volunteer"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-handshake.json"
+    },
+    {
+      "name": "heart-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Social"
+      ],
+      "keywords": [
+        "heart",
+        "remove",
+        "unlike",
+        "unfavorite",
+        "love",
+        "minus"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-minus.json"
+    },
+    {
+      "name": "heart-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Social"
+      ],
+      "keywords": [
+        "heart",
+        "off",
+        "unlike",
+        "no love",
+        "disabled",
+        "unfavorite"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-off.json"
+    },
+    {
+      "name": "heart-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Social"
+      ],
+      "keywords": [
+        "heart",
+        "add",
+        "like",
+        "favorite",
+        "love",
+        "new"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-plus.json"
+    },
+    {
       "name": "heart-pulse",
       "library": "lucide",
       "prefix": "lu",
@@ -18119,6 +18238,26 @@
         "medical"
       ],
       "url": "https://animateicons.in/r/lu-heart-pulse.json"
+    },
+    {
+      "name": "heart-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heart-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Social"
+      ],
+      "keywords": [
+        "heart",
+        "remove",
+        "unlike",
+        "delete",
+        "love",
+        "clear"
+      ],
+      "url": "https://animateicons.in/r/lu-heart-x.json"
     },
     {
       "name": "hexagon",
@@ -25880,6 +26019,66 @@
       "url": "https://animateicons.in/r/lu-star.json"
     },
     {
+      "name": "star-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "favorited",
+        "verified",
+        "rated",
+        "done",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-star-check.json"
+    },
+    {
+      "name": "star-half",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star-half",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "half",
+        "rating",
+        "review",
+        "score",
+        "half star"
+      ],
+      "url": "https://animateicons.in/r/lu-star-half.json"
+    },
+    {
+      "name": "star-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "remove",
+        "unfavorite",
+        "rating",
+        "bookmark",
+        "minus"
+      ],
+      "url": "https://animateicons.in/r/lu-star-minus.json"
+    },
+    {
       "name": "star-off",
       "library": "lucide",
       "prefix": "lu",
@@ -25898,6 +26097,46 @@
         "rating"
       ],
       "url": "https://animateicons.in/r/lu-star-off.json"
+    },
+    {
+      "name": "star-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "add",
+        "favorite",
+        "rate",
+        "bookmark",
+        "new"
+      ],
+      "url": "https://animateicons.in/r/lu-star-plus.json"
+    },
+    {
+      "name": "star-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-star-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "star",
+        "remove",
+        "unfavorite",
+        "delete",
+        "rating",
+        "clear"
+      ],
+      "url": "https://animateicons.in/r/lu-star-x.json"
     },
     {
       "name": "step-back",

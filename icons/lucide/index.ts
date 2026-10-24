@@ -238,6 +238,7 @@ import { DeleteIcon } from "./delete-icon";
 import { BookmarkIcon } from "./bookmark-icon";
 import { BookmarkCheckIcon } from "./bookmark-check-icon";
 import { BookmarkMinusIcon } from "./bookmark-minus-icon";
+import { BookmarkOffIcon } from "./bookmark-off-icon";
 import { BookmarkPlusIcon } from "./bookmark-plus-icon";
 import { BookmarkXIcon } from "./bookmark-x-icon";
 import { MessageCircleIcon } from "./message-circle-icon";
@@ -337,7 +338,13 @@ import { BatteryMediumIcon } from "./battery-medium-icon";
 import { BatteryPlusIcon } from "./battery-plus-icon";
 import { BatteryWarningIcon } from "./battery-warning-icon";
 import { HeartIcon } from "./heart-icon";
+import { HeartCrackIcon } from "./heart-crack-icon";
+import { HeartHandshakeIcon } from "./heart-handshake-icon";
+import { HeartMinusIcon } from "./heart-minus-icon";
+import { HeartOffIcon } from "./heart-off-icon";
+import { HeartPlusIcon } from "./heart-plus-icon";
 import { HeartPulseIcon } from "./heart-pulse-icon";
+import { HeartXIcon } from "./heart-x-icon";
 import { ThumbsDownIcon } from "./thumbs-down-icon";
 import { ThumbsUpIcon } from "./thumbs-up-icon";
 import { ActivityIcon } from "./activity-icon";
@@ -458,7 +465,12 @@ import { SaudiRiyalIcon } from "./saudi-riyal-icon";
 import { SwissFrancIcon } from "./swiss-franc-icon";
 import { ZapIcon } from "./zap-icon";
 import { StarIcon } from "./star-icon";
+import { StarCheckIcon } from "./star-check-icon";
+import { StarHalfIcon } from "./star-half-icon";
+import { StarMinusIcon } from "./star-minus-icon";
 import { StarOffIcon } from "./star-off-icon";
+import { StarPlusIcon } from "./star-plus-icon";
+import { StarXIcon } from "./star-x-icon";
 import { ChartAreaIcon } from "./chart-area-icon";
 import { ChartBarIcon } from "./chart-bar-icon";
 import { ChartBarBigIcon } from "./chart-bar-big-icon";
@@ -2668,6 +2680,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["unsave", "remove", "delete", "unmark", "clip"],
   },
   {
+    name: "bookmark-off",
+    icon: BookmarkOffIcon,
+    addedAt: "2026-10-24",
+    category: ["File icons"],
+    keywords: ["bookmark", "off", "unsave", "removed", "disabled", "unmark"],
+  },
+  {
     name: "bookmark-plus",
     icon: BookmarkPlusIcon,
     addedAt: "2025-09-15",
@@ -3361,11 +3380,53 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["like", "love", "emotion", "favorite", "react"],
   },
   {
+    name: "heart-crack",
+    icon: HeartCrackIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "broken", "heartbreak", "sad", "breakup", "crack"],
+  },
+  {
+    name: "heart-handshake",
+    icon: HeartHandshakeIcon,
+    addedAt: "2026-10-24",
+    category: ["Social","Emoji"],
+    keywords: ["handshake", "charity", "support", "care", "partnership", "volunteer"],
+  },
+  {
+    name: "heart-minus",
+    icon: HeartMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "remove", "unlike", "unfavorite", "love", "minus"],
+  },
+  {
+    name: "heart-off",
+    icon: HeartOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "off", "unlike", "no love", "disabled", "unfavorite"],
+  },
+  {
+    name: "heart-plus",
+    icon: HeartPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "add", "like", "favorite", "love", "new"],
+  },
+  {
     name: "heart-pulse",
     icon: HeartPulseIcon,
     addedAt: "2026-09-27",
     category: ["Medical","Social"],
     keywords: ["heartbeat", "pulse", "health", "cardio", "vital", "medical"],
+  },
+  {
+    name: "heart-x",
+    icon: HeartXIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Social"],
+    keywords: ["heart", "remove", "unlike", "delete", "love", "clear"],
   },
   {
     name: "thumbs-down",
@@ -4208,11 +4269,46 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["favorite", "rating", "review", "like", "achievement", "bookmark"],
   },
   {
+    name: "star-check",
+    icon: StarCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "favorited", "verified", "rated", "done", "check"],
+  },
+  {
+    name: "star-half",
+    icon: StarHalfIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "half", "rating", "review", "score", "half star"],
+  },
+  {
+    name: "star-minus",
+    icon: StarMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "remove", "unfavorite", "rating", "bookmark", "minus"],
+  },
+  {
     name: "star-off",
     icon: StarOffIcon,
     addedAt: "2026-09-27",
     category: ["Shapes","Emoji"],
     keywords: ["star", "off", "unfavorite", "remove", "unstar", "rating"],
+  },
+  {
+    name: "star-plus",
+    icon: StarPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "add", "favorite", "rate", "bookmark", "new"],
+  },
+  {
+    name: "star-x",
+    icon: StarXIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["star", "remove", "unfavorite", "delete", "rating", "clear"],
   },
   {
     name: "chart-area",
