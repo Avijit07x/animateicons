@@ -1140,10 +1140,22 @@ const ICON_META: IconMeta[] = [
     keywords: ["list", "bullets", "items", "unordered", "ul"],
   },
   {
+    name: "list-check",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "check", "done", "tasks", "checklist", "complete"],
+  },
+  {
     name: "list-checks",
     addedAt: "2026-08-02",
     category: ["Text formatting"],
     keywords: ["list", "checks", "checklist", "tasks", "todo"],
+  },
+  {
+    name: "list-chevrons-down-up",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "collapse", "fold", "less", "shrink", "chevrons"],
   },
   {
     name: "list-chevrons-up-down",
@@ -1158,10 +1170,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["collapse", "accordion", "list", "fold", "expand", "toggle"],
   },
   {
+    name: "list-end",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "move to bottom", "end", "last", "reorder", "queue"],
+  },
+  {
     name: "list-filter",
     addedAt: "2026-09-29",
     category: ["Tools"],
     keywords: ["list-filter", "filter", "list", "sort", "refine", "search", "narrow"],
+  },
+  {
+    name: "list-filter-plus",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["filter", "add filter", "sort", "list", "refine", "new"],
+  },
+  {
+    name: "list-minus",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "remove", "minus", "delete", "item", "playlist"],
   },
   {
     name: "list-ordered",
@@ -1176,10 +1206,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["list", "add", "playlist", "append", "new", "item"],
   },
   {
+    name: "list-start",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "move to top", "start", "first", "reorder", "queue"],
+  },
+  {
+    name: "list-todo",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "todo", "tasks", "checklist", "checkbox", "plan"],
+  },
+  {
     name: "list-tree",
     addedAt: "2026-09-27",
     category: ["Text formatting","Layout"],
     keywords: ["tree", "list", "hierarchy", "nested", "outline", "structure"],
+  },
+  {
+    name: "list-x",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "remove", "clear", "delete", "item", "cancel"],
   },
   {
     name: "play",
@@ -3894,6 +3942,30 @@ const ICON_META: IconMeta[] = [
     keywords: ["heading", "h2", "subtitle", "text", "header"],
   },
   {
+    name: "heading-3",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h3", "title", "text", "header"],
+  },
+  {
+    name: "heading-4",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h4", "title", "text", "header"],
+  },
+  {
+    name: "heading-5",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h5", "title", "text", "header"],
+  },
+  {
+    name: "heading-6",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h6", "title", "text", "header"],
+  },
+  {
     name: "type",
     addedAt: "2026-08-02",
     category: ["Text formatting"],
@@ -3904,6 +3976,18 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-02",
     category: ["Text formatting"],
     keywords: ["pilcrow", "paragraph", "text", "format", "mark"],
+  },
+  {
+    name: "pilcrow-left",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["pilcrow", "paragraph", "rtl", "right to left", "direction", "text"],
+  },
+  {
+    name: "pilcrow-right",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["pilcrow", "paragraph", "ltr", "left to right", "direction", "text"],
   },
   {
     name: "quote",
@@ -4872,6 +4956,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["cursor", "text", "caret", "type", "input", "i-beam"],
   },
   {
+    name: "text-initial",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["drop cap", "initial", "first letter", "text", "typography", "paragraph"],
+  },
+  {
+    name: "text-quote",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["quote", "blockquote", "citation", "text", "paragraph", "indent"],
+  },
+  {
     name: "text-search",
     addedAt: "2026-09-27",
     category: ["Text formatting","Tools"],
@@ -5296,6 +5392,42 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Coding & development"],
     keywords: ["variable", "function", "parameter", "math", "code", "placeholder"],
+  },
+  {
+    name: "superscript",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["superscript", "exponent", "power", "text", "format"],
+  },
+  {
+    name: "subscript",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["subscript", "index", "chemistry", "text", "format"],
+  },
+  {
+    name: "case-lower",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["lowercase", "small letters", "text", "case", "letters", "font"],
+  },
+  {
+    name: "case-sensitive",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["case sensitive", "match case", "search", "text", "letters", "aa"],
+  },
+  {
+    name: "case-upper",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["uppercase", "capitals", "caps", "text", "case", "letters"],
+  },
+  {
+    name: "remove-formatting",
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["clear formatting", "remove style", "text", "format", "reset", "plain text"],
   },
 ];
 

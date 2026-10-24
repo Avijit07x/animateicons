@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1384,
+  "total": 1406,
   "libraries": {
-    "lucide": 883,
+    "lucide": 905,
     "huge": 501
   },
   "icons": [
@@ -12168,6 +12168,63 @@
       "url": "https://animateicons.in/r/lu-car.json"
     },
     {
+      "name": "case-lower",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-case-lower",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "lowercase",
+        "small letters",
+        "text",
+        "case",
+        "letters",
+        "font"
+      ],
+      "url": "https://animateicons.in/r/lu-case-lower.json"
+    },
+    {
+      "name": "case-sensitive",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-case-sensitive",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "case sensitive",
+        "match case",
+        "search",
+        "text",
+        "letters",
+        "aa"
+      ],
+      "url": "https://animateicons.in/r/lu-case-sensitive.json"
+    },
+    {
+      "name": "case-upper",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-case-upper",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "uppercase",
+        "capitals",
+        "caps",
+        "text",
+        "case",
+        "letters"
+      ],
+      "url": "https://animateicons.in/r/lu-case-upper.json"
+    },
+    {
       "name": "cast",
       "library": "lucide",
       "prefix": "lu",
@@ -17398,6 +17455,78 @@
       "url": "https://animateicons.in/r/lu-heading-2.json"
     },
     {
+      "name": "heading-3",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heading-3",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "heading",
+        "h3",
+        "title",
+        "text",
+        "header"
+      ],
+      "url": "https://animateicons.in/r/lu-heading-3.json"
+    },
+    {
+      "name": "heading-4",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heading-4",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "heading",
+        "h4",
+        "title",
+        "text",
+        "header"
+      ],
+      "url": "https://animateicons.in/r/lu-heading-4.json"
+    },
+    {
+      "name": "heading-5",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heading-5",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "heading",
+        "h5",
+        "title",
+        "text",
+        "header"
+      ],
+      "url": "https://animateicons.in/r/lu-heading-5.json"
+    },
+    {
+      "name": "heading-6",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-heading-6",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "heading",
+        "h6",
+        "title",
+        "text",
+        "header"
+      ],
+      "url": "https://animateicons.in/r/lu-heading-6.json"
+    },
+    {
       "name": "headphone-off",
       "library": "lucide",
       "prefix": "lu",
@@ -18231,6 +18360,25 @@
       "url": "https://animateicons.in/r/lu-list.json"
     },
     {
+      "name": "list-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "check",
+        "done",
+        "tasks",
+        "checklist",
+        "complete"
+      ],
+      "url": "https://animateicons.in/r/lu-list-check.json"
+    },
+    {
       "name": "list-checks",
       "library": "lucide",
       "prefix": "lu",
@@ -18247,6 +18395,25 @@
         "todo"
       ],
       "url": "https://animateicons.in/r/lu-list-checks.json"
+    },
+    {
+      "name": "list-chevrons-down-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-chevrons-down-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "collapse",
+        "fold",
+        "less",
+        "shrink",
+        "chevrons"
+      ],
+      "url": "https://animateicons.in/r/lu-list-chevrons-down-up.json"
     },
     {
       "name": "list-chevrons-up-down",
@@ -18288,6 +18455,25 @@
       "url": "https://animateicons.in/r/lu-list-collapse.json"
     },
     {
+      "name": "list-end",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-end",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "move to bottom",
+        "end",
+        "last",
+        "reorder",
+        "queue"
+      ],
+      "url": "https://animateicons.in/r/lu-list-end.json"
+    },
+    {
       "name": "list-filter",
       "library": "lucide",
       "prefix": "lu",
@@ -18306,6 +18492,44 @@
         "narrow"
       ],
       "url": "https://animateicons.in/r/lu-list-filter.json"
+    },
+    {
+      "name": "list-filter-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-filter-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "filter",
+        "add filter",
+        "sort",
+        "list",
+        "refine",
+        "new"
+      ],
+      "url": "https://animateicons.in/r/lu-list-filter-plus.json"
+    },
+    {
+      "name": "list-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "remove",
+        "minus",
+        "delete",
+        "item",
+        "playlist"
+      ],
+      "url": "https://animateicons.in/r/lu-list-minus.json"
     },
     {
       "name": "list-ordered",
@@ -18345,6 +18569,44 @@
       "url": "https://animateicons.in/r/lu-list-plus.json"
     },
     {
+      "name": "list-start",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-start",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "move to top",
+        "start",
+        "first",
+        "reorder",
+        "queue"
+      ],
+      "url": "https://animateicons.in/r/lu-list-start.json"
+    },
+    {
+      "name": "list-todo",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-todo",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "todo",
+        "tasks",
+        "checklist",
+        "checkbox",
+        "plan"
+      ],
+      "url": "https://animateicons.in/r/lu-list-todo.json"
+    },
+    {
       "name": "list-tree",
       "library": "lucide",
       "prefix": "lu",
@@ -18363,6 +18625,25 @@
         "structure"
       ],
       "url": "https://animateicons.in/r/lu-list-tree.json"
+    },
+    {
+      "name": "list-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-list-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "list",
+        "remove",
+        "clear",
+        "delete",
+        "item",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/lu-list-x.json"
     },
     {
       "name": "loader",
@@ -21274,6 +21555,44 @@
       "url": "https://animateicons.in/r/lu-pilcrow.json"
     },
     {
+      "name": "pilcrow-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pilcrow-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "pilcrow",
+        "paragraph",
+        "rtl",
+        "right to left",
+        "direction",
+        "text"
+      ],
+      "url": "https://animateicons.in/r/lu-pilcrow-left.json"
+    },
+    {
+      "name": "pilcrow-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pilcrow-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "pilcrow",
+        "paragraph",
+        "ltr",
+        "left to right",
+        "direction",
+        "text"
+      ],
+      "url": "https://animateicons.in/r/lu-pilcrow-right.json"
+    },
+    {
       "name": "pill",
       "library": "lucide",
       "prefix": "lu",
@@ -21884,6 +22203,25 @@
         "code"
       ],
       "url": "https://animateicons.in/r/lu-regex.json"
+    },
+    {
+      "name": "remove-formatting",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-remove-formatting",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "clear formatting",
+        "remove style",
+        "text",
+        "format",
+        "reset",
+        "plain text"
+      ],
+      "url": "https://animateicons.in/r/lu-remove-formatting.json"
     },
     {
       "name": "repeat",
@@ -24209,6 +24547,24 @@
       "url": "https://animateicons.in/r/lu-strikethrough.json"
     },
     {
+      "name": "subscript",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-subscript",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "subscript",
+        "index",
+        "chemistry",
+        "text",
+        "format"
+      ],
+      "url": "https://animateicons.in/r/lu-subscript.json"
+    },
+    {
       "name": "sun",
       "library": "lucide",
       "prefix": "lu",
@@ -24340,6 +24696,24 @@
         "horizon"
       ],
       "url": "https://animateicons.in/r/lu-sunset.json"
+    },
+    {
+      "name": "superscript",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-superscript",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "superscript",
+        "exponent",
+        "power",
+        "text",
+        "format"
+      ],
+      "url": "https://animateicons.in/r/lu-superscript.json"
     },
     {
       "name": "swiss-franc",
@@ -24593,6 +24967,44 @@
         "i-beam"
       ],
       "url": "https://animateicons.in/r/lu-text-cursor.json"
+    },
+    {
+      "name": "text-initial",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-text-initial",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "drop cap",
+        "initial",
+        "first letter",
+        "text",
+        "typography",
+        "paragraph"
+      ],
+      "url": "https://animateicons.in/r/lu-text-initial.json"
+    },
+    {
+      "name": "text-quote",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-text-quote",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Text formatting"
+      ],
+      "keywords": [
+        "quote",
+        "blockquote",
+        "citation",
+        "text",
+        "paragraph",
+        "indent"
+      ],
+      "url": "https://animateicons.in/r/lu-text-quote.json"
     },
     {
       "name": "text-search",

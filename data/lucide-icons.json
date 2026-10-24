@@ -6412,5 +6412,186 @@
 			"transfer",
 			"money"
 		]
+	},
+	{
+		"name": "heading-3",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h3", "title", "text", "header"]
+	},
+	{
+		"name": "heading-4",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h4", "title", "text", "header"]
+	},
+	{
+		"name": "heading-5",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h5", "title", "text", "header"]
+	},
+	{
+		"name": "heading-6",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h6", "title", "text", "header"]
+	},
+	{
+		"name": "superscript",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["superscript", "exponent", "power", "text", "format"]
+	},
+	{
+		"name": "subscript",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["subscript", "index", "chemistry", "text", "format"]
+	},
+	{
+		"name": "list-check",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "check", "done", "tasks", "checklist", "complete"]
+	},
+	{
+		"name": "list-todo",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "todo", "tasks", "checklist", "checkbox", "plan"]
+	},
+	{
+		"name": "list-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "remove", "minus", "delete", "item", "playlist"]
+	},
+	{
+		"name": "list-x",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "remove", "clear", "delete", "item", "cancel"]
+	},
+	{
+		"name": "list-start",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "move to top", "start", "first", "reorder", "queue"]
+	},
+	{
+		"name": "list-end",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "move to bottom", "end", "last", "reorder", "queue"]
+	},
+	{
+		"name": "list-filter-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["filter", "add filter", "sort", "list", "refine", "new"]
+	},
+	{
+		"name": "list-chevrons-down-up",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "collapse", "fold", "less", "shrink", "chevrons"]
+	},
+	{
+		"name": "case-upper",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["uppercase", "capitals", "caps", "text", "case", "letters"]
+	},
+	{
+		"name": "case-lower",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"lowercase",
+			"small letters",
+			"text",
+			"case",
+			"letters",
+			"font"
+		]
+	},
+	{
+		"name": "case-sensitive",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"case sensitive",
+			"match case",
+			"search",
+			"text",
+			"letters",
+			"aa"
+		]
+	},
+	{
+		"name": "text-quote",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"quote",
+			"blockquote",
+			"citation",
+			"text",
+			"paragraph",
+			"indent"
+		]
+	},
+	{
+		"name": "text-initial",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"drop cap",
+			"initial",
+			"first letter",
+			"text",
+			"typography",
+			"paragraph"
+		]
+	},
+	{
+		"name": "pilcrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"pilcrow",
+			"paragraph",
+			"rtl",
+			"right to left",
+			"direction",
+			"text"
+		]
+	},
+	{
+		"name": "pilcrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"pilcrow",
+			"paragraph",
+			"ltr",
+			"left to right",
+			"direction",
+			"text"
+		]
+	},
+	{
+		"name": "remove-formatting",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"clear formatting",
+			"remove style",
+			"text",
+			"format",
+			"reset",
+			"plain text"
+		]
 	}
 ]
