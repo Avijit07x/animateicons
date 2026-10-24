@@ -1,13 +1,15 @@
 import nextMdx from "@next/mdx";
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 const withMdx = nextMdx({
 	extension: /\.mdx?$/,
 });
 
+const PAGE_EXTENSIONS = ["ts", "tsx", "md", "mdx"];
+
 const nextConfig: NextConfig = {
 	reactCompiler: true,
-	pageExtensions: ["ts", "tsx", "md", "mdx"],
 	images: {
 		remotePatterns: [
 			{
@@ -50,4 +52,13 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default withMdx(nextConfig);
+const config = (phase: string): NextConfig =>
+	withMdx({
+		...nextConfig,
+		pageExtensions:
+			phase === PHASE_DEVELOPMENT_SERVER
+				? ["dev.tsx", ...PAGE_EXTENSIONS]
+				: PAGE_EXTENSIONS,
+	});
+
+export default config;
