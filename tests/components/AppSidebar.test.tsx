@@ -1,8 +1,7 @@
 import AppSidebar from "@/app/icons/_components/sidebar/AppSidebar";
-import CategoryContextProvider from "@/app/icons/_contexts/CategoryContext";
 import { RequestProvider } from "@/app/icons/_contexts/RequestContext";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { act } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import { hydrateRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
@@ -19,20 +18,21 @@ const mocks = vi.hoisted(() => {
 	};
 });
 
+const nav = vi.hoisted(() => ({ params: new URLSearchParams() }));
+
 vi.mock("next/navigation", () => ({
 	usePathname: () => "/icons/lucide",
 	useRouter: () => ({ replace: vi.fn() }),
+	useSearchParams: () => nav.params,
 }));
 vi.mock("@/icons/lucide/summary", () => mocks.lucide);
 vi.mock("@/icons/huge/summary", () => mocks.huge);
 
 const tree = (
 	<SidebarProvider>
-		<CategoryContextProvider>
-			<RequestProvider>
-				<AppSidebar />
-			</RequestProvider>
-		</CategoryContextProvider>
+		<RequestProvider>
+			<AppSidebar />
+		</RequestProvider>
 	</SidebarProvider>
 );
 
@@ -60,5 +60,35 @@ describe("AppSidebar new icon counts", () => {
 		expect(container.textContent).toContain("1 New");
 		expect(container.textContent).toContain("2 New");
 		container.remove();
+	});
+});
+
+describe("AppSidebar categories", () => {
+	const categoryLink = (container: HTMLElement, label: string) =>
+		[...container.querySelectorAll("a")].find((a) =>
+			a.textContent?.startsWith(label),
+		);
+
+	it("links each category to the gallery with the category in the address", () => {
+		nav.params = new URLSearchParams();
+		const { container } = render(tree);
+		expect(categoryLink(container, "Social")?.getAttribute("href")).toBe(
+			"/icons/lucide?category=Social",
+		);
+		expect(categoryLink(container, "All")?.getAttribute("href")).toBe(
+			"/icons/lucide",
+		);
+	});
+
+	it("marks the category from the address as active", () => {
+		nav.params = new URLSearchParams("category=Social");
+		const { container } = render(tree);
+		expect(categoryLink(container, "Social")?.getAttribute("data-active")).toBe(
+			"true",
+		);
+		expect(categoryLink(container, "All")?.getAttribute("data-active")).toBe(
+			"false",
+		);
+		nav.params = new URLSearchParams();
 	});
 });

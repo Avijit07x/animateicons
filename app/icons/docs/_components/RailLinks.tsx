@@ -97,7 +97,7 @@ const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 					{stars !== null && (
 						<span className="text-textMuted ml-auto flex items-center gap-1 text-xs">
 							<StarIcon ref={starRef} size={13} color="var(--color-warning)" />
-							{stars.toLocaleString()}
+							{stars.toLocaleString("en-US")}
 						</span>
 					)}
 				</Link>

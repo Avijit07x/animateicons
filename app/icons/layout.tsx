@@ -3,7 +3,6 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
 import RequestSheet from "./_components/request/RequestSheet";
 import AppSidebar from "./_components/sidebar/AppSidebar";
-import CategoryContextProvider from "./_contexts/CategoryContext";
 import { DistributionProvider } from "./_contexts/DistributionContext";
 import { PackageManagerProvider } from "./_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "./_contexts/PlaygroundContext";
@@ -15,7 +14,6 @@ type Props = {
 
 const PROVIDERS = [
 	SidebarProvider,
-	CategoryContextProvider,
 	PackageManagerProvider,
 	DistributionProvider,
 	PlaygroundProvider,

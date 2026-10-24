@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/vue",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Animated SVG icons for Vue 3 and Nuxt. The same motion as @animateicons/react, with server rendering and typed refs.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -99,13 +99,13 @@
 		"@animateicons/vanilla": "workspace:^"
 	},
 	"devDependencies": {
-		"@size-limit/preset-small-lib": "^11.1.6",
-		"@types/node": "^25.9.1",
-		"jsdom": "^30.1.1",
-		"size-limit": "^11.1.6",
-		"tsup": "^8.3.0",
+		"@size-limit/preset-small-lib": "^11.2.0",
+		"@types/node": "^25.9.9",
+		"jsdom": "^30.1.3",
+		"size-limit": "^11.2.0",
+		"tsup": "^8.5.1",
 		"typescript": "^5.9.3",
-		"vitest": "^4.1.10",
+		"vitest": "^4.1.12",
 		"vue": "^3.5.44"
 	},
 	"publishConfig": {

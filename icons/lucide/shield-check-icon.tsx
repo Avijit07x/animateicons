@@ -81,14 +81,15 @@ const ShieldCheckIcon = forwardRef<ShieldCheckIconHandle, ShieldCheckIconProps>(
    [controls, onMouseLeave],
   );
 
-  const pulseVariants: Variants = {
-   normal: { scale: 1 },
+  const blockVariants: Variants = {
+   normal: { rotate: 0, x: 0 },
    animate: {
-    scale: [1, 1.06, 0.97, 1],
+    rotate: [0, -7, 4, -1.5, 0],
+    x: [0, -0.6, 0.25, -0.1, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.2, 0.5, 0.78, 1],
     },
    },
   };
@@ -138,18 +139,19 @@ const ShieldCheckIcon = forwardRef<ShieldCheckIconHandle, ShieldCheckIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-       variants={pulseVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="m9 12 2 2 4-4"
-       strokeDasharray="9"
-       strokeDashoffset="0"
-       variants={checkVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
+      <m.g
+       variants={blockVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+       <m.path
+        d="m9 12 2 2 4-4"
+        strokeDasharray="9"
+        strokeDashoffset="0"
+        variants={checkVariants}
+        style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

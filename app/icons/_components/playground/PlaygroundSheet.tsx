@@ -8,9 +8,12 @@ import {
 	SheetTitle,
 } from "@/components/ui/sheet";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDistribution } from "../../_contexts/DistributionContext";
-import { usePlayground } from "../../_contexts/PlaygroundContext";
+import {
+	type PlaygroundIcon,
+	usePlayground,
+} from "../../_contexts/PlaygroundContext";
 import CodeBlock from "./CodeBlock";
 import InstallBlock from "./InstallBlock";
 import PlaygroundControls from "./PlaygroundControls";
@@ -25,36 +28,78 @@ const formatLabel = (name: string): string =>
 		.map((p) => p.charAt(0).toUpperCase() + p.slice(1))
 		.join(" ");
 
-const PlaygroundSheet: React.FC = () => {
-	const { icon, open, closePlayground } = usePlayground();
+type BodyProps = {
+	icon: PlaygroundIcon;
+	headerRef: React.RefObject<HTMLDivElement | null>;
+};
+
+const PlaygroundBody: React.FC<BodyProps> = ({ icon, headerRef }) => {
 	const { config, update, reset, isDefault } = useIconConfig();
 	const { distribution } = useDistribution();
 	const { ref: iconRef, triggerProps } = useIconHover();
-	const headerRef = useRef<HTMLDivElement>(null);
 
-	const snippet = useMemo(
-		() =>
-			icon
-				? buildUsageSnippet(
-						distribution,
-						icon.library,
-						icon.name,
-						icon.componentName,
-						config,
-					)
-				: "",
-		[icon, config, distribution],
+	const snippet = buildUsageSnippet(
+		distribution,
+		icon.library,
+		icon.name,
+		icon.componentName,
+		config,
 	);
 
 	useEffect(() => {
-		if (open) reset();
-	}, [open, icon?.name, reset]);
-
-	useEffect(() => {
-		if (!open || !icon) return;
 		const t = window.setTimeout(() => iconRef.current?.startAnimation(), 220);
 		return () => window.clearTimeout(t);
-	}, [open, icon, iconRef]);
+	}, [iconRef]);
+
+	return (
+		<div
+			onScroll={(e) => {
+				headerRef.current?.setAttribute(
+					"data-scrolled",
+					String(e.currentTarget.scrollTop > 0),
+				);
+			}}
+			className="grid min-h-0 flex-1 scrollbar-none grid-cols-1 gap-5 overflow-y-auto px-6 pt-3 pb-6 md:grid-cols-2 md:grid-rows-1 [&::-webkit-scrollbar]:hidden"
+		>
+			<div className="flex flex-col gap-5 md:min-h-0">
+				<div className="relative flex flex-1 flex-col">
+					<PlaygroundPreview
+						Icon={icon.Component}
+						componentName={icon.componentName}
+						config={config}
+						iconRef={iconRef}
+						triggerProps={triggerProps}
+						hint={false}
+						className="h-auto min-h-44 flex-1"
+					/>
+					<div className="absolute inset-x-0 bottom-3">
+						<PreviewActions
+							iconRef={iconRef}
+							onReset={reset}
+							resetDisabled={isDefault}
+						/>
+					</div>
+				</div>
+
+				<PlaygroundControls config={config} update={update} />
+			</div>
+
+			<div className="flex flex-col gap-5 md:min-h-0">
+				<InstallBlock prefix={icon.prefix} name={icon.name} />
+				<CodeBlock
+					label="Import & usage"
+					code={snippet}
+					lang="tsx"
+					className="min-h-0 flex-1"
+				/>
+			</div>
+		</div>
+	);
+};
+
+const PlaygroundSheet: React.FC = () => {
+	const { icon, open, closePlayground } = usePlayground();
+	const headerRef = useRef<HTMLDivElement>(null);
 
 	if (!icon) return null;
 
@@ -86,48 +131,11 @@ const PlaygroundSheet: React.FC = () => {
 					</SheetDescription>
 				</SheetHeader>
 
-				<div
-					onScroll={(e) => {
-						headerRef.current?.setAttribute(
-							"data-scrolled",
-							String(e.currentTarget.scrollTop > 0),
-						);
-					}}
-					className="grid min-h-0 flex-1 scrollbar-none grid-cols-1 gap-5 overflow-y-auto px-6 pt-3 pb-6 md:grid-cols-2 md:grid-rows-1 [&::-webkit-scrollbar]:hidden"
-				>
-					<div className="flex flex-col gap-5 md:min-h-0">
-						<div className="relative flex flex-1 flex-col">
-							<PlaygroundPreview
-								Icon={icon.Component}
-								componentName={icon.componentName}
-								config={config}
-								iconRef={iconRef}
-								triggerProps={triggerProps}
-								hint={false}
-								className="h-auto min-h-44 flex-1"
-							/>
-							<div className="absolute inset-x-0 bottom-3">
-								<PreviewActions
-									iconRef={iconRef}
-									onReset={reset}
-									resetDisabled={isDefault}
-								/>
-							</div>
-						</div>
-
-						<PlaygroundControls config={config} update={update} />
-					</div>
-
-					<div className="flex flex-col gap-5 md:min-h-0">
-						<InstallBlock prefix={icon.prefix} name={icon.name} />
-						<CodeBlock
-							label="Import & usage"
-							code={snippet}
-							lang="tsx"
-							className="min-h-0 flex-1"
-						/>
-					</div>
-				</div>
+				<PlaygroundBody
+					key={`${icon.library}-${icon.name}`}
+					icon={icon}
+					headerRef={headerRef}
+				/>
 			</SheetContent>
 		</Sheet>
 	);

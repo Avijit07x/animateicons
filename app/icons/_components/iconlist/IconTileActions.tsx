@@ -2,6 +2,7 @@
 
 import { getIconCode } from "@/actions/getIconCode";
 import { V0Icon } from "@/components/icons/V0Icon";
+import { useCopy } from "@/hooks/useCopy";
 import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
 import { Loading01Icon } from "@/icons/huge/loading-0-1-icon";
@@ -10,19 +11,13 @@ import { TerminalIcon } from "@/icons/huge/terminal-icon";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
 	FRAMEWORK_LABELS,
 	frameworkOf,
 	importLine,
 	useDistribution,
 } from "../../_contexts/DistributionContext";
-import {
-	useIconTileDispatch,
-	useIsCopiedCli,
-	useIsCopiedCode,
-	useIsLoading,
-} from "../../_contexts/IconTileContext";
 import {
 	shadcnAddCommand,
 	usePackageManager,
@@ -61,11 +56,11 @@ const IconTileActions: React.FC<Props> = ({
 	prefix,
 	name,
 }) => {
-	const isCopied = useIsCopiedCode(tileId);
-	const isCopiedCli = useIsCopiedCli(tileId);
-	const isLoading = useIsLoading(tileId);
-	const { setCopiedCodeId, setCopiedCliId, setLoadingId } =
-		useIconTileDispatch();
+	const code = useCopy(1500);
+	const snippet = useCopy(1500);
+	const [isLoading, setIsLoading] = useState(false);
+	const isCopied = code.copied;
+	const isCopiedCli = snippet.copied;
 	const { packageManager } = usePackageManager();
 	const { distribution } = useDistribution();
 
@@ -81,34 +76,31 @@ const IconTileActions: React.FC<Props> = ({
 			? "npm"
 			: FRAMEWORK_LABELS[frameworkOf(distribution)];
 
-	const copyInstallSnippet = async () => {
-		const payload = isShadcn
-			? shadcnAddCommand(packageManager, prefix, name)
-			: importLine(distribution, name, library as "lucide" | "huge");
+	const copyInstallSnippet = () =>
+		snippet.copy(
+			isShadcn
+				? shadcnAddCommand(packageManager, prefix, name)
+				: importLine(distribution, name, library),
+		);
 
-		await navigator.clipboard.writeText(payload);
-		setCopiedCliId(tileId);
-		window.setTimeout(() => setCopiedCliId(null), 1500);
+	const fetchCode = async () => {
+		const cached = codeCache.get(tileId);
+		if (cached) return cached;
+		setIsLoading(true);
+		try {
+			const fetched = await getIconCode(name, library);
+			if (fetched) codeCache.set(tileId, fetched);
+			return fetched;
+		} catch {
+			return null;
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const copyToClipboard = async () => {
-		let code = codeCache.get(tileId);
-
-		if (!code) {
-			setLoadingId(tileId);
-			const fetched = await getIconCode(name, library);
-			if (fetched) {
-				code = fetched;
-				codeCache.set(tileId, code);
-			}
-			setLoadingId(null);
-		}
-
-		if (code) {
-			await navigator.clipboard.writeText(code);
-			setCopiedCodeId(tileId);
-			window.setTimeout(() => setCopiedCodeId(null), 1500);
-		}
+		const source = await fetchCode();
+		if (source) await code.copy(source);
 	};
 
 	const justCopied = isCopied || isCopiedCli;

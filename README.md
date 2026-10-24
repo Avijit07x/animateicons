@@ -1,4 +1,4 @@
-<img src="public/readme-banner.svg" alt="AnimateIcons. Make every icon move. 1,170 animated icons for React, Vue, Angular and plain JavaScript." width="100%" />
+<img src="public/readme-banner.svg" alt="AnimateIcons. Make every icon move. 1,500+ animated icons for React, Vue, Angular and plain JavaScript." width="100%" />
 
 **[Browse icons](https://animateicons.in/icons/lucide)** &nbsp;&nbsp;·&nbsp;&nbsp; **[Docs](https://animateicons.in/icons/docs)** &nbsp;&nbsp;·&nbsp;&nbsp; **[MCP](https://animateicons.in/icons/docs/mcp)** &nbsp;&nbsp;·&nbsp;&nbsp; **[Sponsor](https://github.com/sponsors/Avijit07x)**
 
@@ -13,7 +13,7 @@
 
 ---
 
-1,170 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
+1,500 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
 
 ## Quick start
 
@@ -78,7 +78,15 @@ See the [full docs](https://animateicons.in/icons/docs/examples/hover-helper) fo
 
 ## Documentation
 
-Read the [documentation](https://animateicons.in/icons/docs) for the CLI, shadcn, MCP, styling and the full API.
+| Topic    | What it covers                                       | Docs                                                                 |
+| -------- | ---------------------------------------------------- | -------------------------------------------------------------------- |
+| React    | Props, Next.js, Server Components and types          | [React](https://animateicons.in/icons/docs/react)                    |
+| Examples | Hover helper, buttons, inputs, cards and menus       | [Examples](https://animateicons.in/icons/docs/examples/hover-helper) |
+| shadcn   | Add icons with the shadcn CLI                        | [shadcn](https://animateicons.in/icons/docs/shadcn)                  |
+| CLI      | Copy icons into your project with `npx animateicons` | [CLI](https://animateicons.in/icons/docs/cli)                        |
+| MCP      | Let AI agents search and add icons                   | [MCP](https://animateicons.in/icons/docs/mcp)                        |
+
+Start with the [introduction](https://animateicons.in/icons/docs) for everything else.
 
 ## Contributing
 

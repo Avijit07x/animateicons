@@ -1,5 +1,4 @@
 import IconList from "@/app/icons/_components/iconlist/IconList";
-import CategoryContextProvider from "@/app/icons/_contexts/CategoryContext";
 import { DistributionProvider } from "@/app/icons/_contexts/DistributionContext";
 import { IconSearchProvider } from "@/app/icons/_contexts/IconSearchContext";
 import { PackageManagerProvider } from "@/app/icons/_contexts/PackageManagerContext";
@@ -43,25 +42,30 @@ vi.mock("next/navigation", () => ({
 }));
 vi.mock("@/actions/getIconCode", () => ({ getIconCode: vi.fn() }));
 vi.mock("@/icons/huge/meta", () => ({ ICON_META: mocks.icons }));
+vi.mock("@/icons/huge/summary", () => ({
+	ICON_ADDED_AT: [],
+	ICON_CATEGORIES: [
+		{ name: "Social", count: 2 },
+		{ name: "Files", count: 1 },
+	],
+}));
 vi.mock("@/icons/huge", () => ({
 	ICON_LIST: mocks.icons.map(({ name }) => ({ name, icon: () => null })),
 }));
 
 const setup = () =>
 	render(
-		<CategoryContextProvider>
-			<IconSearchProvider>
-				<PlaygroundProvider>
-					<DistributionProvider>
-						<PackageManagerProvider>
-							<RequestProvider>
-								<IconList />
-							</RequestProvider>
-						</PackageManagerProvider>
-					</DistributionProvider>
-				</PlaygroundProvider>
-			</IconSearchProvider>
-		</CategoryContextProvider>,
+		<IconSearchProvider>
+			<PlaygroundProvider>
+				<DistributionProvider>
+					<PackageManagerProvider>
+						<RequestProvider>
+							<IconList />
+						</RequestProvider>
+					</PackageManagerProvider>
+				</DistributionProvider>
+			</PlaygroundProvider>
+		</IconSearchProvider>,
 	);
 
 const findGrid = () => screen.findByRole("group", { name: "Icons" });
@@ -94,6 +98,21 @@ describe("IconList", () => {
 		expect(within(grid).getByRole("group", { name: "heart" })).toBeTruthy();
 		expect(within(grid).queryByRole("group", { name: "bell" })).toBeNull();
 		expect(within(grid).queryByRole("group", { name: "folder" })).toBeNull();
+	});
+
+	it("keeps only the icons in the category from the address", async () => {
+		mocks.nav.params = new URLSearchParams("category=Files");
+		setup();
+		const grid = await findGrid();
+		expect(within(grid).getByRole("group", { name: "folder" })).toBeTruthy();
+		expect(within(grid).queryByRole("group", { name: "heart" })).toBeNull();
+	});
+
+	it("shows every icon when the category belongs to the other library", async () => {
+		mocks.nav.params = new URLSearchParams("category=Animals");
+		setup();
+		const grid = await findGrid();
+		expect(within(grid).getAllByRole("group")).toHaveLength(mocks.icons.length);
 	});
 
 	it("says so when nothing matches the search", async () => {

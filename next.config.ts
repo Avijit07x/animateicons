@@ -1,5 +1,6 @@
 import nextMdx from "@next/mdx";
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 const withMdx = nextMdx({
 	extension: /\.mdx?$/,
@@ -50,4 +51,14 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default withMdx(nextConfig);
+const config = (phase: string): NextConfig =>
+	withMdx(
+		phase === PHASE_DEVELOPMENT_SERVER
+			? {
+					...nextConfig,
+					pageExtensions: ["dev.tsx", ...(nextConfig.pageExtensions ?? [])],
+				}
+			: nextConfig,
+	);
+
+export default config;

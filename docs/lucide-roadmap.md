@@ -2,7 +2,7 @@
 
 What to add next to the Lucide library (`icons/lucide/`), in order. Work top to bottom: take the first batch that isn't done, follow [adding-lucide-icons.md](./adding-lucide-icons.md), then tick it off here. The Huge library has its own list in [huge-roadmap.md](./huge-roadmap.md).
 
-**Next up: batch 1, Shapes and status marks.**
+**Next up: batch 18, Files and folders.**
 
 ## Status
 
@@ -26,7 +26,7 @@ for (const n of process.argv.slice(1)) if (!have.has(n)) console.log(n);
 ' name-one name-two name-three
 ```
 
-## Batch 1: Shapes and status marks
+## Batch 1: Shapes and status marks (done 2026-10-24)
 
 The plain shapes every design tool has, and the status marks that go on them. Squares and circles get their full plus, minus, x, stop and slash set. 28 icons.
 
@@ -39,7 +39,7 @@ The plain shapes every design tool has, and the status marks that go on them. Sq
 | Square status set | `square-plus`, `square-minus`, `square-x`, `square-stop`, `square-slash`, `square-dot`, `square-check-big` | `square-check`, `square-pause`, `square-play`, `square-dashed`          |
 | Circle status set | `circle-slash`, `circle-slash-2`, `circle-off`, `circle-power`, `circle-ellipsis`, `circle-star`           | `circle-check`, `circle-x`, `circle-plus`, `circle-minus`, `circle-dot` |
 
-## Batch 2: Arrows: big and boxed
+## Batch 2: Arrows: big and boxed (done 2026-10-24)
 
 Block arrows and arrows in squares and circles, in every direction. The corner and out variants come with them so no direction is missing. 28 icons.
 
@@ -52,7 +52,7 @@ Block arrows and arrows in squares and circles, in every direction. The corner a
 | Circle arrows, four sides    | `circle-arrow-up`, `circle-arrow-down`, `circle-arrow-left`, `circle-arrow-right`                                                                | none                        |
 | Circle arrows, out           | `circle-arrow-out-up-left`, `circle-arrow-out-up-right`, `circle-arrow-out-down-left`, `circle-arrow-out-down-right`                             | none                        |
 
-## Batch 3: Arrows: move, sort and line
+## Batch 3: Arrows: move, sort and line (done 2026-10-24)
 
 Finishes the move family, the sorting arrows and the arrows that touch a line or a dot. 23 icons.
 
@@ -65,7 +65,7 @@ Finishes the move family, the sorting arrows and the arrows that touch a line or
 | From and to a line | `arrow-down-from-line`, `arrow-up-from-line`, `arrow-left-from-line`, `arrow-right-from-line`, `arrow-left-to-line`, `arrow-right-to-line` | `arrow-down-to-line`, `arrow-up-to-line`                                                                  |
 | Swap and dot       | `arrow-right-left`, `arrow-down-to-dot`, `arrow-up-from-dot`                                                                               | `arrow-left-right`                                                                                        |
 
-## Batch 4: Chevron boxes and window controls
+## Batch 4: Chevron boxes and window controls (done 2026-10-24)
 
 The boxed chevrons finish the chevron set we just reworked. Window controls pair each action with its opposite. 14 icons.
 
@@ -77,7 +77,7 @@ The boxed chevrons finish the chevron set we just reworked. Window controls pair
 | Refresh               | `refresh-ccw`, `refresh-ccw-dot`, `refresh-cw-off`                                        | `refresh-cw`                                                                              |
 | Power                 | `power-off`                                                                               | `power`                                                                                   |
 
-## Batch 5: Layout and panels
+## Batch 5: Layout and panels (done 2026-10-24)
 
 Panels in all four directions with open and close, the dashed outlines, and the column, row and grid layouts. 30 icons.
 
@@ -91,17 +91,17 @@ Panels in all four directions with open and close, the dashed outlines, and the 
 | Grids            | `grid-2x2`, `grid-3x2`, `grid-3x3`, `grid-2x2-plus`, `grid-2x2-check`, `grid-2x2-x`                                                        | `layout-grid`                                       |
 | Layout panels    | `layout-panel-left`, `layout-panel-top`, `layout-template`                                                                                 | `layout-dashboard`, `layout-list`                   |
 
-## Batch 6: People and accounts
+## Batch 6: People and accounts (done 2026-10-24)
 
 Avatar shapes and the account actions that go with them. 9 icons.
 
-| Family          | Icons to add                                                   | Already shipped                                                       |
-| --------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Avatars         | `circle-user`, `square-user`, `square-user-round`              | `circle-user-round`                                                   |
-| Account actions | `user-round-plus`, `user-shield`, `user-key`, `user-round-key` | `user-plus`, `user-minus`, `user-check`, `user-x`, `user-round-check` |
-| Groups          | `user-group`, `user-round-group`                               | `users-round`                                                         |
+| Family          | Icons to add                                                                            | Already shipped                                                       |
+| --------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Avatars         | `circle-user`, `square-user`, `square-user-round`                                       | `circle-user-round`                                                   |
+| Account actions | `user-round-plus`, `user-shield`, `user-key`, `user-round-key`, `user-round-arrow-left` | `user-plus`, `user-minus`, `user-check`, `user-x`, `user-round-check` |
+| Groups          | `user-group`, `user-round-group`                                                        | `users-round`                                                         |
 
-## Batch 7: Messages
+## Batch 7: Messages (done 2026-10-24)
 
 Every state of the chat bubbles: check, warning, off, reply, code, dashed and the square-only extras. 18 icons.
 
@@ -109,9 +109,9 @@ Every state of the chat bubbles: check, warning, off, reply, code, dashed and th
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | Circle bubbles | `message-circle-check`, `message-circle-warning`, `message-circle-off`, `message-circle-reply`, `message-circle-code`, `message-circle-dashed`, `message-circle-dashed-check` | `message-circle`, `message-circle-plus`, `message-circle-x`, `message-circle-heart`, `message-circle-more`                       |
 | Square bubbles | `message-square-check`, `message-square-warning`, `message-square-off`, `message-square-reply`, `message-square-code`, `message-square-dashed`                                | `message-square`, `message-square-plus`, `message-square-x`, `message-square-heart`, `message-square-dot`, `message-square-text` |
-| Square extras  | `message-square-more`, `message-square-quote`, `message-square-share`, `message-square-lock`, `message-square-diff`                                                           | none                                                                                                                             |
+| Square extras  | `message-square-more`, `message-square-quote`, `message-square-share`, `message-square-lock`, `message-square-diff`, `messages-circle`                                        | none                                                                                                                             |
 
-## Batch 8: Security
+## Batch 8: Security (done 2026-10-24)
 
 The whole shield family, plus the keyhole lock pair. 13 icons.
 
@@ -121,7 +121,7 @@ The whole shield family, plus the keyhole lock pair. 13 icons.
 | Shield styles  | `shield-half`, `shield-lock`, `shield-keyhole`, `shield-cog`, `shield-cog-corner`                    | none                                                                |
 | Keyhole lock   | `lock-keyhole`, `lock-keyhole-open`                                                                  | none                                                                |
 
-## Batch 9: Developer tools and data
+## Batch 9: Developer tools and data (done 2026-10-24)
 
 Pull requests finish the git set, then the database and server families and the editor tools developers reach for. 27 icons.
 
@@ -132,7 +132,7 @@ Pull requests finish the git set, then the database and server families and the 
 | Server        | `server-plus`, `server-off`, `server-cog`, `server-crash`                                                                                                                  | `server`                                                                   |
 | Editor tools  | `square-terminal`, `square-code`, `regex`, `variable`, `microchip`, `bug-off`, `bug-play`, `webhook-off`                                                                   | none                                                                       |
 
-## Batch 10: Commerce
+## Batch 10: Commerce (done 2026-10-24)
 
 Cart, card, ticket and tag actions, plus the money circles. 22 icons.
 
@@ -145,9 +145,9 @@ Cart, card, ticket and tag actions, plus the money circles. 22 icons.
 | Money circles | `circle-dollar-sign`, `circle-euro`, `circle-pound-sterling`, `circle-percent`                      | none                       |
 | Banknote      | `banknote-check`, `banknote-x`, `banknote-arrow-up`, `banknote-arrow-down`                          | none                       |
 
-## Batch 11: Text and lists
+## Batch 11: Text and lists (done 2026-10-24)
 
-Alignment, the remaining headings, case and list actions. 29 icons.
+Alignment, the remaining headings, case and list actions. 29 icons listed, 22 shipped. Skipped as look-alikes: `text-align-start`, `text-align-center`, `text-align-end` and `text-align-justify` are `align-left`, `align-center`, `align-right` and `align-justify` renamed; `list-indent-increase` and `list-indent-decrease` are `indent-increase` and `indent-decrease`; `text-wrap` is `wrap-text`. Same geometry in `lucide-react` 1.48.
 
 | Family         | Icons to add                                                                                                                                                             | Already shipped                                                                                             |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
@@ -158,7 +158,7 @@ Alignment, the remaining headings, case and list actions. 29 icons.
 | Case           | `case-upper`, `case-lower`, `case-sensitive`                                                                                                                             | none                                                                                                        |
 | Text blocks    | `text-wrap`, `text-quote`, `text-initial`, `pilcrow-left`, `pilcrow-right`, `remove-formatting`                                                                          | none                                                                                                        |
 
-## Batch 12: Devices and signal
+## Batch 12: Devices and signal (done 2026-10-24)
 
 Signal bars, wifi and battery levels so each family has every step, and the full monitor set. 26 icons.
 
@@ -170,7 +170,7 @@ Signal bars, wifi and battery levels so each family has every step, and the full
 | Monitors         | `monitor-check`, `monitor-x`, `monitor-off`, `monitor-up`, `monitor-down`, `monitor-play`, `monitor-pause`, `monitor-stop`, `monitor-dot`, `monitor-cog`, `monitor-cloud`, `monitor-speaker`, `monitor-pc` | `monitor`, `monitor-smartphone`                              |
 | Laptop and phone | `laptop-minimal-check`, `smartphone-charging`, `smartphone-nfc`                                                                                                                                            | none                                                         |
 
-## Batch 13: Media and recording
+## Batch 13: Media and recording (done 2026-10-24)
 
 Film, microphones, music notes, discs and cameras with their off states. 17 icons.
 
@@ -182,7 +182,7 @@ Film, microphones, music notes, discs and cameras with their off states. 17 icon
 | Cameras and radio | `webcam-off`, `cctv`, `cctv-off`, `radio-receiver`, `radio-off` | none                        |
 | Audio lines       | `audio-lines-off`, `audio-lines-x`                              | none                        |
 
-## Batch 14: Places and map pins
+## Batch 14: Places and map pins (done 2026-10-24)
 
 Every map pin state, the house variants and the buildings people look for. 26 icons.
 
@@ -194,7 +194,7 @@ Every map pin state, the house variants and the buildings people look for. 26 ic
 | Houses           | `house-plus`, `house-heart`, `house-cog`, `house-plug`, `house-wifi`                                                         | `house`                                                          |
 | Buildings        | `building`, `building-complex`, `building-complex-plus`, `hotel`, `hospital`, `school`, `university`, `factory`, `warehouse` | `building-2`                                                     |
 
-## Batch 15: Transport
+## Batch 15: Transport (skipped 2026-10-24, owner removed it as not needed)
 
 The vehicles that show up in booking, delivery and travel UIs. 14 icons.
 
@@ -204,7 +204,7 @@ The vehicles that show up in booking, delivery and travel UIs. 14 icons.
 | Rail and water | `train-front`, `tram-front`, `ship`                                                                          | none            |
 | Air            | `plane-takeoff`, `plane-landing`                                                                             | `plane`         |
 
-## Batch 16: Calendar and time
+## Batch 16: Calendar and time (done 2026-10-24)
 
 Calendar and clock states that are not covered by the Lucide set yet. 13 icons.
 
@@ -214,7 +214,7 @@ Calendar and clock states that are not covered by the Lucide set yet. 13 icons.
 | Clock        | `clock-check`, `clock-arrow-left`, `clock-arrow-right`, `clock-fading`                                                              | `clock`, `clock-plus`, `clock-alert`, `clock-arrow-up`, `clock-arrow-down`                      |
 | With a clock | `mail-clock`, `clipboard-clock`                                                                                                     | `file-clock`                                                                                    |
 
-## Batch 17: Favourites
+## Batch 17: Favourites (done 2026-10-24)
 
 Star and heart get every state, and bookmarks get their off state. 12 icons.
 

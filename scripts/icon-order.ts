@@ -14,6 +14,7 @@ const FAMILY_ALIASES: Record<string, string> = {
 	headphones: "headphone",
 	mails: "mail",
 	messages: "message",
+	microchip: "cpu",
 	paintbrush: "paint",
 	pen: "pencil",
 	pin: "map",

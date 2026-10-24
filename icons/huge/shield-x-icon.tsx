@@ -81,14 +81,15 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
    [controls, onMouseLeave],
   );
 
-  const shieldVariants: Variants = {
-   normal: { scale: 1 },
+  const blockVariants: Variants = {
+   normal: { rotate: 0, x: 0 },
    animate: {
-    scale: [1, 1.1, 0.96, 1],
+    rotate: [0, -7, 4, -1.5, 0],
+    x: [0, -0.6, 0.25, -0.1, 0],
     transition: {
-     duration: 0.6 * duration,
+     duration: 0.7 * duration,
      ease: "easeInOut",
-     times: [0, 0.35, 0.7, 1],
+     times: [0, 0.2, 0.5, 0.78, 1],
     },
    },
   };
@@ -124,20 +125,21 @@ const ShieldXIcon = forwardRef<ShieldXIconHandle, ShieldXIconProps>(
       animate={controls}
       initial="normal"
      >
-      <m.path
-       d="M20.9922 11.1833V8.28029C20.9922 6.64029 20.9922 5.82028 20.5881 5.28529C20.184 4.75029 19.2703 4.49056 17.4429 3.9711C16.1944 3.6162 15.0938 3.18863 14.2145 2.79829C13.0156 2.2661 12.4161 2 11.9922 2C11.5682 2 10.9688 2.2661 9.7699 2.79829C8.89057 3.18863 7.79002 3.61619 6.54152 3.9711C4.71411 4.49056 3.80041 4.75029 3.3963 5.28529C2.99219 5.82028 2.99219 6.64029 2.99219 8.28029V11.1833C2.99219 16.8085 8.05496 20.1835 10.5861 21.5194C11.1932 21.8398 11.4968 22 11.9922 22C12.4876 22 12.7911 21.8398 13.3982 21.5194C15.9294 20.1835 20.9922 16.8085 20.9922 11.1833Z"
-       variants={shieldVariants}
-       style={{ transformBox: "view-box", originX: "12px", originY: "12px" }}
-      />
-      <m.path
-       d="M8.99219 8.5L11.9922 11.5M11.9922 11.5L14.9922 14.5M11.9922 11.5L14.9922 8.5M11.9922 11.5L8.99219 14.5"
-       variants={crossVariants}
-       style={{
-        transformBox: "view-box",
-        originX: "11.99px",
-        originY: "11.5px",
-       }}
-      />
+      <m.g
+       variants={blockVariants}
+       style={{ transformBox: "view-box", originX: "12px", originY: "22px" }}
+      >
+       <path d="M20.9922 11.1833V8.28029C20.9922 6.64029 20.9922 5.82028 20.5881 5.28529C20.184 4.75029 19.2703 4.49056 17.4429 3.9711C16.1944 3.6162 15.0938 3.18863 14.2145 2.79829C13.0156 2.2661 12.4161 2 11.9922 2C11.5682 2 10.9688 2.2661 9.7699 2.79829C8.89057 3.18863 7.79002 3.61619 6.54152 3.9711C4.71411 4.49056 3.80041 4.75029 3.3963 5.28529C2.99219 5.82028 2.99219 6.64029 2.99219 8.28029V11.1833C2.99219 16.8085 8.05496 20.1835 10.5861 21.5194C11.1932 21.8398 11.4968 22 11.9922 22C12.4876 22 12.7911 21.8398 13.3982 21.5194C15.9294 20.1835 20.9922 16.8085 20.9922 11.1833Z" />
+       <m.path
+        d="M8.99219 8.5L11.9922 11.5M11.9922 11.5L14.9922 14.5M11.9922 11.5L14.9922 8.5M11.9922 11.5L8.99219 14.5"
+        variants={crossVariants}
+        style={{
+         transformBox: "view-box",
+         originX: "11.99px",
+         originY: "11.5px",
+        }}
+       />
+      </m.g>
      </m.svg>
     </m.div>
    </LazyMotion>

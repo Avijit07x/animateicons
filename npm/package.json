@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/react",
-	"version": "0.12.1",
+	"version": "0.13.0",
 	"description": "Animated SVG icons for React with hover and imperative animation triggers. Built on motion/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
@@ -136,7 +136,7 @@
 		{
 			"name": "lucide (full barrel)",
 			"path": "dist/lucide.js",
-			"limit": "120 kB",
+			"limit": "135 kB",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -157,14 +157,14 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@size-limit/preset-small-lib": "^11.1.6",
-		"@types/react": "^19.2.14",
-		"@types/react-dom": "^19.2.3",
+		"@size-limit/preset-small-lib": "^11.2.0",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
 		"motion": "^14.3.0",
-		"react": "^19.2.4",
-		"react-dom": "^19.2.4",
-		"size-limit": "^11.1.6",
-		"tsup": "^8.3.0",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
+		"size-limit": "^11.2.0",
+		"tsup": "^8.5.1",
 		"typescript": "^5.9.3"
 	},
 	"publishConfig": {

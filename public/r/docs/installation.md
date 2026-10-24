@@ -1,6 +1,6 @@
 # Introduction
 
-AnimateIcons is 1170 free animated SVG icons in two styles, Lucide and Huge. Every icon ships for React, Vue, Angular and plain JavaScript, and moves the same way in each.
+AnimateIcons is 1500 free animated SVG icons in two styles, Lucide and Huge. Every icon ships for React, Vue, Angular and plain JavaScript, and moves the same way in each.
 
 ## Pick your framework
 
@@ -15,7 +15,7 @@ Each framework has its own package. Install the one for your app, then follow it
 
 ## What every package shares
 
-- The same 1170 icons. Their motion is checked frame by frame against React in every framework.
+- The same 1500 icons. Their motion is checked frame by frame against React in every framework.
 - Icons play on hover out of the box and reset when the pointer leaves.
 - The same options: `size`, `color`, `duration` (a speed multiplier) and `isAnimated`.
 - `startAnimation()` and `stopAnimation()` to play an icon from your own code.

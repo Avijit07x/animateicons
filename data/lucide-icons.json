@@ -4642,5 +4642,2702 @@
 			"disk",
 			"export"
 		]
+	},
+	{
+		"name": "square-chevron-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["chevron", "up", "collapse", "less", "top", "square", "button"]
+	},
+	{
+		"name": "square-chevron-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"chevron",
+			"down",
+			"expand",
+			"more",
+			"dropdown",
+			"square",
+			"button"
+		]
+	},
+	{
+		"name": "square-chevron-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["chevron", "left", "back", "previous", "square", "button"]
+	},
+	{
+		"name": "square-chevron-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["chevron", "right", "forward", "next", "square", "button"]
+	},
+	{
+		"name": "chevrons-down-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["collapse", "fold", "close", "shrink", "vertical", "chevrons"]
+	},
+	{
+		"name": "maximize",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"maximize",
+			"fullscreen",
+			"expand",
+			"enlarge",
+			"window",
+			"resize"
+		]
+	},
+	{
+		"name": "minimize",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"minimize",
+			"exit fullscreen",
+			"shrink",
+			"collapse",
+			"window",
+			"resize"
+		]
+	},
+	{
+		"name": "maximize-2",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"maximize",
+			"expand",
+			"enlarge",
+			"fullscreen",
+			"arrows",
+			"diagonal",
+			"resize"
+		]
+	},
+	{
+		"name": "minimize-2",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"minimize",
+			"shrink",
+			"collapse",
+			"exit fullscreen",
+			"arrows",
+			"diagonal",
+			"resize"
+		]
+	},
+	{
+		"name": "fullscreen",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Layout"],
+		"keywords": [
+			"fullscreen",
+			"screen",
+			"presentation",
+			"expand",
+			"display",
+			"monitor"
+		]
+	},
+	{
+		"name": "refresh-ccw",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"refresh",
+			"reload",
+			"sync",
+			"update",
+			"counterclockwise",
+			"rotate"
+		]
+	},
+	{
+		"name": "refresh-ccw-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"refresh",
+			"reload",
+			"sync",
+			"reset",
+			"origin",
+			"counterclockwise"
+		]
+	},
+	{
+		"name": "refresh-cw-off",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["refresh", "reload", "sync", "off", "disabled", "paused"]
+	},
+	{
+		"name": "power-off",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity", "Devices"],
+		"keywords": ["power", "off", "shutdown", "disabled", "turn off", "switch"]
+	},
+	{
+		"name": "circle",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["circle", "shape", "round", "dot", "radio", "ring"]
+	},
+	{
+		"name": "square",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["square", "shape", "box", "checkbox", "rectangle", "stop"]
+	},
+	{
+		"name": "triangle",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["triangle", "shape", "delta", "warning", "pyramid"]
+	},
+	{
+		"name": "hexagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["hexagon", "shape", "polygon", "cell", "honeycomb", "nut"]
+	},
+	{
+		"name": "octagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["octagon", "shape", "polygon", "stop", "sign"]
+	},
+	{
+		"name": "diamond",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["diamond", "shape", "rhombus", "gem", "decision"]
+	},
+	{
+		"name": "pentagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["pentagon", "shape", "polygon", "badge"]
+	},
+	{
+		"name": "octagon-x",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["stop", "close", "error", "cancel", "octagon", "x"]
+	},
+	{
+		"name": "octagon-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["stop", "remove", "blocked", "no entry", "octagon", "minus"]
+	},
+	{
+		"name": "octagon-pause",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia", "Shapes"],
+		"keywords": ["pause", "stop", "hold", "octagon", "media"]
+	},
+	{
+		"name": "diamond-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Shapes"],
+		"keywords": ["add", "plus", "new", "create", "diamond"]
+	},
+	{
+		"name": "diamond-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Shapes"],
+		"keywords": ["remove", "minus", "subtract", "delete", "diamond"]
+	},
+	{
+		"name": "diamond-percent",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Shapes"],
+		"keywords": ["discount", "sale", "percent", "offer", "diamond"]
+	},
+	{
+		"name": "triangle-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Design", "Shapes"],
+		"keywords": ["triangle", "dashed", "draft", "selection", "pending", "shape"]
+	},
+	{
+		"name": "triangle-right",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["triangle", "right", "angle", "slope", "ramp", "shape"]
+	},
+	{
+		"name": "square-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Mathematics"],
+		"keywords": ["plus", "add", "new", "create", "square", "expand"]
+	},
+	{
+		"name": "square-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Mathematics"],
+		"keywords": ["minus", "remove", "subtract", "square", "collapse"]
+	},
+	{
+		"name": "square-x",
+		"addedAt": "2026-10-24",
+		"category": ["Notification"],
+		"keywords": ["close", "cancel", "remove", "delete", "square", "x"]
+	},
+	{
+		"name": "square-stop",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["stop", "square", "media", "button", "end"]
+	},
+	{
+		"name": "square-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Mathematics", "Shapes"],
+		"keywords": ["slash", "divide", "division", "not", "square"]
+	},
+	{
+		"name": "square-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes", "Layout"],
+		"keywords": ["dot", "square", "select", "option", "center", "record"]
+	},
+	{
+		"name": "square-check-big",
+		"addedAt": "2026-10-24",
+		"category": ["Notification"],
+		"keywords": ["checkbox", "check", "done", "complete", "task", "todo"]
+	},
+	{
+		"name": "circle-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["slash", "disabled", "none", "not", "circle"]
+	},
+	{
+		"name": "circle-slash-2",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Security"],
+		"keywords": ["ban", "forbidden", "prohibited", "disabled", "empty", "null"]
+	},
+	{
+		"name": "circle-off",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes", "Notification"],
+		"keywords": ["circle", "off", "disabled", "hidden", "none"]
+	},
+	{
+		"name": "circle-power",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity", "Devices"],
+		"keywords": ["power", "on", "off", "switch", "shutdown", "button", "circle"]
+	},
+	{
+		"name": "circle-ellipsis",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["more", "options", "menu", "dots", "ellipsis", "circle"]
+	},
+	{
+		"name": "circle-star",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["favorite", "star", "rating", "featured", "badge", "circle"]
+	},
+	{
+		"name": "arrow-big-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "down", "south", "bottom", "direction", "bold"]
+	},
+	{
+		"name": "arrow-big-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"big",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"direction",
+			"bold"
+		]
+	},
+	{
+		"name": "arrow-big-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"big",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"direction",
+			"bold"
+		]
+	},
+	{
+		"name": "arrow-big-up-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "up", "north", "top", "dash", "shift"]
+	},
+	{
+		"name": "arrow-big-down-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "down", "south", "bottom", "dash", "shift"]
+	},
+	{
+		"name": "arrow-big-left-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "left", "west", "back", "previous", "dash"]
+	},
+	{
+		"name": "arrow-big-right-dash",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "big", "right", "east", "forward", "next", "dash"]
+	},
+	{
+		"name": "square-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up", "north", "top", "square", "button", "box"]
+	},
+	{
+		"name": "circle-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "up", "north", "top", "circle", "button", "round"]
+	},
+	{
+		"name": "square-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "down", "south", "bottom", "square", "button", "box"]
+	},
+	{
+		"name": "circle-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"down",
+			"south",
+			"bottom",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"square",
+			"button",
+			"box"
+		]
+	},
+	{
+		"name": "circle-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"left",
+			"west",
+			"back",
+			"previous",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"square",
+			"button",
+			"box"
+		]
+	},
+	{
+		"name": "circle-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"right",
+			"east",
+			"forward",
+			"next",
+			"circle",
+			"button",
+			"round"
+		]
+	},
+	{
+		"name": "square-arrow-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "up", "left", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-up-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "up", "right", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "down", "left", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["arrow", "diagonal", "down", "right", "square", "corner"]
+	},
+	{
+		"name": "square-arrow-out-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"up left"
+		]
+	},
+	{
+		"name": "square-arrow-out-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"down left"
+		]
+	},
+	{
+		"name": "square-arrow-out-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"external",
+			"open",
+			"link",
+			"out",
+			"export",
+			"new window",
+			"down right"
+		]
+	},
+	{
+		"name": "circle-arrow-out-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "up left"]
+	},
+	{
+		"name": "circle-arrow-out-up-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "up right"]
+	},
+	{
+		"name": "circle-arrow-out-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "down left"]
+	},
+	{
+		"name": "circle-arrow-out-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["external", "out", "exit", "export", "circle", "down right"]
+	},
+	{
+		"name": "square-arrow-right-enter",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Accounts & access"],
+		"keywords": ["enter", "login", "sign in", "import", "arrow", "door"]
+	},
+	{
+		"name": "square-arrow-right-exit",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows", "Accounts & access"],
+		"keywords": ["exit", "logout", "sign out", "export", "arrow", "door"]
+	},
+	{
+		"name": "move-up",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["up", "move", "north", "top", "arrow"]
+	},
+	{
+		"name": "move-down",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["down", "move", "south", "bottom", "arrow"]
+	},
+	{
+		"name": "move-up-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "up left", "northwest", "arrow"]
+	},
+	{
+		"name": "move-up-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "up right", "northeast", "arrow"]
+	},
+	{
+		"name": "move-down-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "down left", "southwest", "arrow"]
+	},
+	{
+		"name": "move-down-right",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["move", "diagonal", "down right", "southeast", "arrow"]
+	},
+	{
+		"name": "arrow-up-narrow-wide",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"sort",
+			"ascending",
+			"size",
+			"small to large",
+			"order",
+			"filter"
+		]
+	},
+	{
+		"name": "arrow-down-narrow-wide",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"sort",
+			"descending",
+			"size",
+			"small to large",
+			"order",
+			"filter"
+		]
+	},
+	{
+		"name": "arrow-up-wide-narrow",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"sort",
+			"ascending",
+			"size",
+			"large to small",
+			"order",
+			"filter"
+		]
+	},
+	{
+		"name": "arrow-down-wide-narrow",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"sort",
+			"descending",
+			"size",
+			"large to small",
+			"order",
+			"filter"
+		]
+	},
+	{
+		"name": "arrow-down-a-z",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"filter",
+			"sort",
+			"descending",
+			"alphabetical",
+			"order",
+			"rank"
+		]
+	},
+	{
+		"name": "arrow-down-z-a",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"filter",
+			"sort",
+			"descending",
+			"reverse alphabetical",
+			"order",
+			"rank"
+		]
+	},
+	{
+		"name": "arrow-down-0-1",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["filter", "sort", "descending", "numerical", "order", "rank"]
+	},
+	{
+		"name": "arrow-down-1-0",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"filter",
+			"sort",
+			"descending",
+			"reverse numerical",
+			"order",
+			"rank"
+		]
+	},
+	{
+		"name": "arrow-left-to-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["left", "start", "beginning", "first", "align left", "arrow"]
+	},
+	{
+		"name": "arrow-right-to-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["right", "end", "last", "align right", "arrow"]
+	},
+	{
+		"name": "arrow-up-from-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["upload", "export", "share", "up", "arrow", "from line"]
+	},
+	{
+		"name": "arrow-down-from-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["down", "pull", "drop", "arrow", "from line"]
+	},
+	{
+		"name": "arrow-left-from-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["left", "back", "exit", "arrow", "from line"]
+	},
+	{
+		"name": "arrow-right-from-line",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["right", "forward", "exit", "arrow", "from line"]
+	},
+	{
+		"name": "arrow-right-left",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": [
+			"arrow",
+			"right left",
+			"horizontal",
+			"swap",
+			"exchange",
+			"transfer"
+		]
+	},
+	{
+		"name": "arrow-down-to-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["down", "point", "target", "location", "arrow", "dot"]
+	},
+	{
+		"name": "arrow-up-from-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Arrows"],
+		"keywords": ["up", "launch", "origin", "start", "arrow", "dot"]
+	},
+	{
+		"name": "panel-right",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "right", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-right-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "right"]
+	},
+	{
+		"name": "panel-right-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "right"]
+	},
+	{
+		"name": "panel-top",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "top", "header", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-top-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "top"]
+	},
+	{
+		"name": "panel-top-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "top"]
+	},
+	{
+		"name": "panel-bottom",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "bottom", "footer", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-bottom-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-bottom-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-left-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "left"]
+	},
+	{
+		"name": "panel-right-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "right"]
+	},
+	{
+		"name": "panel-top-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "top"]
+	},
+	{
+		"name": "panel-bottom-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-left-right-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panels", "dashed", "sidebars", "inactive", "split", "columns"]
+	},
+	{
+		"name": "panel-top-bottom-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panels", "dashed", "header", "footer", "inactive", "split"]
+	},
+	{
+		"name": "columns-2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "2 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "columns-3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "3 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "columns-4",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "4 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "rows-2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "2 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "rows-3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "3 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "rows-4",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "4 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "grid-2x2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "2x2", "cells", "layout", "quadrant"]
+	},
+	{
+		"name": "grid-3x2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "3x2", "cells", "layout", "spreadsheet"]
+	},
+	{
+		"name": "grid-3x3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "3x3", "cells", "layout", "spreadsheet"]
+	},
+	{
+		"name": "grid-2x2-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "add", "new", "cell", "widget", "plus"]
+	},
+	{
+		"name": "grid-2x2-check",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "done", "complete", "cell", "widget", "check"]
+	},
+	{
+		"name": "grid-2x2-x",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "remove", "delete", "cell", "widget", "x"]
+	},
+	{
+		"name": "layout-panel-left",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "left", "sidebar", "template", "dashboard"]
+	},
+	{
+		"name": "layout-panel-top",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "top", "header", "template", "dashboard"]
+	},
+	{
+		"name": "layout-template",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": [
+			"layout",
+			"template",
+			"wireframe",
+			"page",
+			"dashboard",
+			"blocks"
+		]
+	},
+	{
+		"name": "circle-user",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["avatar", "profile", "user", "account", "person", "circle"]
+	},
+	{
+		"name": "square-user",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["avatar", "profile", "user", "account", "person", "square"]
+	},
+	{
+		"name": "square-user-round",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["avatar", "profile", "user", "account", "person", "square"]
+	},
+	{
+		"name": "user-round-plus",
+		"addedAt": "2026-10-24",
+		"category": ["People"],
+		"keywords": ["new", "add", "create", "invite", "join", "user"]
+	},
+	{
+		"name": "user-shield",
+		"addedAt": "2026-10-24",
+		"category": ["Accounts & access", "People", "Security"],
+		"keywords": [
+			"admin",
+			"security",
+			"protected",
+			"moderator",
+			"verified",
+			"user"
+		]
+	},
+	{
+		"name": "user-key",
+		"addedAt": "2026-10-24",
+		"category": ["Accounts & access", "People", "Security"],
+		"keywords": ["key", "access", "credentials", "password", "login", "user"]
+	},
+	{
+		"name": "user-round-key",
+		"addedAt": "2026-10-24",
+		"category": ["Accounts & access", "People", "Security"],
+		"keywords": ["key", "access", "credentials", "password", "login", "user"]
+	},
+	{
+		"name": "user-group",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Social"],
+		"keywords": ["group", "team", "people", "community", "members", "users"]
+	},
+	{
+		"name": "user-round-group",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Social"],
+		"keywords": ["group", "team", "people", "community", "members", "users"]
+	},
+	{
+		"name": "user-round-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["People", "Accounts & access"],
+		"keywords": ["leave", "exit", "back", "user", "sign out", "previous"]
+	},
+	{
+		"name": "message-circle-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"read",
+			"sent",
+			"delivered",
+			"done",
+			"check"
+		]
+	},
+	{
+		"name": "message-circle-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"warning",
+			"alert",
+			"error",
+			"report",
+			"problem"
+		]
+	},
+	{
+		"name": "message-circle-off",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"muted",
+			"disabled",
+			"off",
+			"silent",
+			"no comments"
+		]
+	},
+	{
+		"name": "message-circle-reply",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"reply",
+			"respond",
+			"answer",
+			"thread",
+			"back"
+		]
+	},
+	{
+		"name": "message-circle-code",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"code",
+			"snippet",
+			"developer",
+			"markdown",
+			"inline code"
+		]
+	},
+	{
+		"name": "message-circle-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"draft",
+			"pending",
+			"typing",
+			"dashed",
+			"unsent"
+		]
+	},
+	{
+		"name": "message-square-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"read",
+			"sent",
+			"delivered",
+			"done",
+			"check"
+		]
+	},
+	{
+		"name": "message-square-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"warning",
+			"alert",
+			"error",
+			"report",
+			"problem"
+		]
+	},
+	{
+		"name": "message-square-off",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"muted",
+			"disabled",
+			"off",
+			"silent",
+			"no comments"
+		]
+	},
+	{
+		"name": "message-square-reply",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"reply",
+			"respond",
+			"answer",
+			"thread",
+			"back"
+		]
+	},
+	{
+		"name": "message-square-code",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"code",
+			"snippet",
+			"developer",
+			"markdown",
+			"inline code"
+		]
+	},
+	{
+		"name": "message-square-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"draft",
+			"pending",
+			"typing",
+			"dashed",
+			"unsent"
+		]
+	},
+	{
+		"name": "message-circle-dashed-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "draft", "approved", "dashed", "check"]
+	},
+	{
+		"name": "message-square-more",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "typing", "more", "options", "dots"]
+	},
+	{
+		"name": "message-square-quote",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"quote",
+			"citation",
+			"testimonial",
+			"review"
+		]
+	},
+	{
+		"name": "message-square-share",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "share", "forward", "send", "external"]
+	},
+	{
+		"name": "message-square-lock",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Security"],
+		"keywords": ["message", "chat", "private", "encrypted", "secure", "lock"]
+	},
+	{
+		"name": "message-square-diff",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Coding & development"],
+		"keywords": ["message", "chat", "diff", "changes", "review", "compare"]
+	},
+	{
+		"name": "messages-circle",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"messages",
+			"chat",
+			"conversation",
+			"comments",
+			"discussion",
+			"talk"
+		]
+	},
+	{
+		"name": "shield-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "add", "security", "protection", "new", "guard"]
+	},
+	{
+		"name": "shield-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"remove",
+			"security",
+			"protection",
+			"reduce",
+			"guard"
+		]
+	},
+	{
+		"name": "shield-off",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"off",
+			"unprotected",
+			"insecure",
+			"disabled",
+			"unsafe"
+		]
+	},
+	{
+		"name": "shield-ban",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "ban", "blocked", "forbidden", "denied", "security"]
+	},
+	{
+		"name": "shield-question-mark",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"question",
+			"unknown",
+			"help",
+			"unverified",
+			"security"
+		]
+	},
+	{
+		"name": "shield-ellipsis",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "more", "options", "menu", "pending", "security"]
+	},
+	{
+		"name": "shield-half",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "half", "partial", "security", "defense", "badge"]
+	},
+	{
+		"name": "shield-lock",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": [
+			"shield",
+			"lock",
+			"secure",
+			"encrypted",
+			"private",
+			"protection"
+		]
+	},
+	{
+		"name": "shield-keyhole",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["shield", "keyhole", "access", "secure", "vault", "protection"]
+	},
+	{
+		"name": "shield-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Security", "Tools"],
+		"keywords": [
+			"shield",
+			"settings",
+			"security settings",
+			"config",
+			"admin",
+			"gear"
+		]
+	},
+	{
+		"name": "shield-cog-corner",
+		"addedAt": "2026-10-24",
+		"category": ["Security", "Tools"],
+		"keywords": [
+			"shield",
+			"settings",
+			"security settings",
+			"config",
+			"admin",
+			"gear"
+		]
+	},
+	{
+		"name": "lock-keyhole",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["lock", "keyhole", "padlock", "secure", "private", "locked"]
+	},
+	{
+		"name": "lock-keyhole-open",
+		"addedAt": "2026-10-24",
+		"category": ["Security"],
+		"keywords": ["unlock", "keyhole", "padlock", "open", "access", "unlocked"]
+	},
+	{
+		"name": "git-pull-request",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"pr",
+			"merge",
+			"review",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-arrow",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"pr",
+			"merge",
+			"branch",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-draft",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["git", "pull request", "draft", "wip", "pr", "version control"]
+	},
+	{
+		"name": "git-pull-request-closed",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"closed",
+			"rejected",
+			"pr",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-create",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"create",
+			"new",
+			"pr",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-create-arrow",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["git", "pull request", "create", "new", "pr", "merge"]
+	},
+	{
+		"name": "git-graph",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"graph",
+			"history",
+			"commits",
+			"branches",
+			"version control"
+		]
+	},
+	{
+		"name": "database-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "add", "new", "storage", "sql", "db"]
+	},
+	{
+		"name": "database-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "remove", "delete", "storage", "sql", "db"]
+	},
+	{
+		"name": "database-check",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "check", "verified", "success", "storage", "db"]
+	},
+	{
+		"name": "database-x",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "error", "remove", "failed", "storage", "db"]
+	},
+	{
+		"name": "database-search",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "search", "query", "find", "lookup", "db"]
+	},
+	{
+		"name": "database-zap",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "fast", "cache", "power", "performance", "db"]
+	},
+	{
+		"name": "database-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "download", "import", "export", "storage", "db"]
+	},
+	{
+		"name": "database-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "upload", "import", "sync", "storage", "db"]
+	},
+	{
+		"name": "server-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "add", "new", "hosting", "rack", "infrastructure"]
+	},
+	{
+		"name": "server-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "off", "offline", "down", "disabled", "hosting"]
+	},
+	{
+		"name": "server-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": [
+			"server",
+			"settings",
+			"config",
+			"admin",
+			"hosting",
+			"infrastructure"
+		]
+	},
+	{
+		"name": "server-crash",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "crash", "outage", "error", "failure", "down"]
+	},
+	{
+		"name": "square-terminal",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["terminal", "console", "shell", "command", "cli", "code"]
+	},
+	{
+		"name": "square-code",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["code", "source", "programming", "snippet", "embed", "dev"]
+	},
+	{
+		"name": "regex",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"regex",
+			"regular expression",
+			"pattern",
+			"match",
+			"search",
+			"code"
+		]
+	},
+	{
+		"name": "variable",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"variable",
+			"function",
+			"parameter",
+			"math",
+			"code",
+			"placeholder"
+		]
+	},
+	{
+		"name": "microchip",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": [
+			"microchip",
+			"chip",
+			"processor",
+			"hardware",
+			"circuit",
+			"electronics"
+		]
+	},
+	{
+		"name": "bug-off",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["bug", "off", "fixed", "debug", "resolved", "no issues"]
+	},
+	{
+		"name": "bug-play",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["bug", "play", "debug", "run", "test", "start"]
+	},
+	{
+		"name": "webhook-off",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"webhook",
+			"off",
+			"disabled",
+			"disconnected",
+			"api",
+			"integration"
+		]
+	},
+	{
+		"name": "shopping-cart-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["cart", "add", "add to cart", "buy", "shop", "checkout"]
+	},
+	{
+		"name": "shopping-cart-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": [
+			"cart",
+			"remove",
+			"remove from cart",
+			"shop",
+			"basket",
+			"checkout"
+		]
+	},
+	{
+		"name": "credit-card-check",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": ["card", "payment", "success", "paid", "approved", "credit"]
+	},
+	{
+		"name": "credit-card-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": ["card", "add card", "payment method", "new", "credit", "debit"]
+	},
+	{
+		"name": "credit-card-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card",
+			"remove card",
+			"payment method",
+			"delete",
+			"credit",
+			"debit"
+		]
+	},
+	{
+		"name": "credit-card-x",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card",
+			"declined",
+			"payment failed",
+			"error",
+			"credit",
+			"cancel"
+		]
+	},
+	{
+		"name": "credit-card-reader",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card reader",
+			"pos",
+			"terminal",
+			"payment",
+			"checkout",
+			"swipe"
+		]
+	},
+	{
+		"name": "ticket-check",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "valid", "checked in", "confirmed", "event", "pass"]
+	},
+	{
+		"name": "ticket-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "add", "buy ticket", "event", "pass", "admission"]
+	},
+	{
+		"name": "ticket-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "remove", "refund", "event", "pass", "admission"]
+	},
+	{
+		"name": "ticket-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "cancel", "invalid", "refund", "event", "pass"]
+	},
+	{
+		"name": "ticket-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "void", "invalid", "expired", "event", "pass"]
+	},
+	{
+		"name": "tag-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["tag", "add tag", "label", "new", "price", "product"]
+	},
+	{
+		"name": "tag-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["tag", "remove tag", "label", "delete", "price", "product"]
+	},
+	{
+		"name": "circle-dollar-sign",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["dollar", "coin", "money", "usd", "currency", "payment"]
+	},
+	{
+		"name": "circle-euro",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["euro", "coin", "money", "eur", "currency", "payment"]
+	},
+	{
+		"name": "circle-pound-sterling",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["pound", "sterling", "coin", "money", "gbp", "currency"]
+	},
+	{
+		"name": "circle-percent",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Mathematics"],
+		"keywords": ["percent", "discount", "sale", "offer", "rate", "percentage"]
+	},
+	{
+		"name": "banknote-check",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": ["banknote", "paid", "payment", "success", "cash", "money"]
+	},
+	{
+		"name": "banknote-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"payment failed",
+			"cancel",
+			"cash",
+			"money",
+			"error"
+		]
+	},
+	{
+		"name": "banknote-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"send money",
+			"withdraw",
+			"cash",
+			"transfer",
+			"money"
+		]
+	},
+	{
+		"name": "banknote-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"receive money",
+			"deposit",
+			"cash",
+			"transfer",
+			"money"
+		]
+	},
+	{
+		"name": "heading-3",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h3", "title", "text", "header"]
+	},
+	{
+		"name": "heading-4",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h4", "title", "text", "header"]
+	},
+	{
+		"name": "heading-5",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h5", "title", "text", "header"]
+	},
+	{
+		"name": "heading-6",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["heading", "h6", "title", "text", "header"]
+	},
+	{
+		"name": "superscript",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["superscript", "exponent", "power", "text", "format"]
+	},
+	{
+		"name": "subscript",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["subscript", "index", "chemistry", "text", "format"]
+	},
+	{
+		"name": "list-check",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "check", "done", "tasks", "checklist", "complete"]
+	},
+	{
+		"name": "list-todo",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "todo", "tasks", "checklist", "checkbox", "plan"]
+	},
+	{
+		"name": "list-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "remove", "minus", "delete", "item", "playlist"]
+	},
+	{
+		"name": "list-x",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "remove", "clear", "delete", "item", "cancel"]
+	},
+	{
+		"name": "list-start",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "move to top", "start", "first", "reorder", "queue"]
+	},
+	{
+		"name": "list-end",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "move to bottom", "end", "last", "reorder", "queue"]
+	},
+	{
+		"name": "list-filter-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["filter", "add filter", "sort", "list", "refine", "new"]
+	},
+	{
+		"name": "list-chevrons-down-up",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["list", "collapse", "fold", "less", "shrink", "chevrons"]
+	},
+	{
+		"name": "case-upper",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": ["uppercase", "capitals", "caps", "text", "case", "letters"]
+	},
+	{
+		"name": "case-lower",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"lowercase",
+			"small letters",
+			"text",
+			"case",
+			"letters",
+			"font"
+		]
+	},
+	{
+		"name": "case-sensitive",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"case sensitive",
+			"match case",
+			"search",
+			"text",
+			"letters",
+			"aa"
+		]
+	},
+	{
+		"name": "text-quote",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"quote",
+			"blockquote",
+			"citation",
+			"text",
+			"paragraph",
+			"indent"
+		]
+	},
+	{
+		"name": "text-initial",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"drop cap",
+			"initial",
+			"first letter",
+			"text",
+			"typography",
+			"paragraph"
+		]
+	},
+	{
+		"name": "pilcrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"pilcrow",
+			"paragraph",
+			"rtl",
+			"right to left",
+			"direction",
+			"text"
+		]
+	},
+	{
+		"name": "pilcrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"pilcrow",
+			"paragraph",
+			"ltr",
+			"left to right",
+			"direction",
+			"text"
+		]
+	},
+	{
+		"name": "remove-formatting",
+		"addedAt": "2026-10-24",
+		"category": ["Text formatting"],
+		"keywords": [
+			"clear formatting",
+			"remove style",
+			"text",
+			"format",
+			"reset",
+			"plain text"
+		]
+	},
+	{
+		"name": "wifi-high",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"strong signal",
+			"network",
+			"internet",
+			"connection"
+		]
+	},
+	{
+		"name": "wifi-low",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"weak signal",
+			"network",
+			"internet",
+			"connection"
+		]
+	},
+	{
+		"name": "wifi-zero",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"no signal",
+			"network",
+			"searching",
+			"disconnected"
+		]
+	},
+	{
+		"name": "signal-high",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "strong", "network", "reception"]
+	},
+	{
+		"name": "signal-medium",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "medium", "network", "reception"]
+	},
+	{
+		"name": "signal-low",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "weak", "network", "reception"]
+	},
+	{
+		"name": "signal-zero",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"signal",
+			"cellular",
+			"no service",
+			"no bars",
+			"network",
+			"reception"
+		]
+	},
+	{
+		"name": "battery-medium",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "half", "medium", "power", "energy", "level"]
+	},
+	{
+		"name": "battery-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "saver", "add", "power", "energy", "charge"]
+	},
+	{
+		"name": "battery-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "warning", "alert", "power", "energy", "low"]
+	},
+	{
+		"name": "monitor-check",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "success", "done", "verified"]
+	},
+	{
+		"name": "monitor-x",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "error", "close", "failed"]
+	},
+	{
+		"name": "monitor-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "off", "disabled", "no signal"]
+	},
+	{
+		"name": "monitor-up",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "upload", "share", "cast", "send"]
+	},
+	{
+		"name": "monitor-down",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "download", "receive", "install", "save"]
+	},
+	{
+		"name": "monitor-play",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "play", "video", "stream", "watch"]
+	},
+	{
+		"name": "monitor-pause",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "pause", "video", "stream", "hold"]
+	},
+	{
+		"name": "monitor-stop",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "stop", "video", "stream", "end"]
+	},
+	{
+		"name": "monitor-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"notification",
+			"badge",
+			"unread",
+			"alert"
+		]
+	},
+	{
+		"name": "monitor-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"settings",
+			"preferences",
+			"configure",
+			"gear"
+		]
+	},
+	{
+		"name": "monitor-cloud",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"cloud",
+			"remote",
+			"sync",
+			"virtual desktop"
+		]
+	},
+	{
+		"name": "monitor-speaker",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "speaker", "audio", "sound", "desktop", "setup"]
+	},
+	{
+		"name": "monitor-pc",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "pc", "computer", "tower", "desktop", "workstation"]
+	},
+	{
+		"name": "laptop-minimal-check",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["laptop", "computer", "check", "success", "done", "verified"]
+	},
+	{
+		"name": "smartphone-charging",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"smartphone",
+			"phone",
+			"charging",
+			"battery",
+			"power",
+			"mobile"
+		]
+	},
+	{
+		"name": "smartphone-nfc",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Connectivity"],
+		"keywords": ["smartphone", "nfc", "contactless", "tap", "pay", "wireless"]
+	},
+	{
+		"name": "film",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["film", "movie", "cinema", "video", "reel", "strip"]
+	},
+	{
+		"name": "play-off",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["play", "disabled", "unavailable", "video", "media", "off"]
+	},
+	{
+		"name": "mic-vocal",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["microphone", "vocal", "singer", "karaoke", "podcast", "stage"]
+	},
+	{
+		"name": "mic-audio-lines",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": [
+			"microphone",
+			"recording",
+			"voice",
+			"audio",
+			"waveform",
+			"speaking"
+		]
+	},
+	{
+		"name": "mic-signal",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["microphone", "broadcast", "live", "on air", "voice", "signal"]
+	},
+	{
+		"name": "music-2",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["music", "note", "eighth note", "song", "melody", "audio"]
+	},
+	{
+		"name": "music-3",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["music", "note", "quarter note", "song", "melody", "audio"]
+	},
+	{
+		"name": "music-4",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["music", "notes", "sixteenth notes", "song", "melody", "audio"]
+	},
+	{
+		"name": "disc",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["disc", "cd", "dvd", "record", "album", "media"]
+	},
+	{
+		"name": "disc-album",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["album", "record", "vinyl", "sleeve", "music", "cover"]
+	},
+	{
+		"name": "webcam-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["webcam", "camera", "off", "privacy", "video", "disabled"]
+	},
+	{
+		"name": "cctv",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"cctv",
+			"security camera",
+			"surveillance",
+			"monitoring",
+			"recording",
+			"camera"
+		]
+	},
+	{
+		"name": "cctv-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"cctv",
+			"security camera",
+			"surveillance",
+			"off",
+			"privacy",
+			"disabled"
+		]
+	},
+	{
+		"name": "radio-receiver",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["radio", "receiver", "tuner", "fm", "stereo", "device"]
+	},
+	{
+		"name": "radio-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["radio", "broadcast", "off", "no signal", "fm", "disabled"]
+	},
+	{
+		"name": "audio-lines-off",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["audio", "sound", "waveform", "mute", "off", "silent"]
+	},
+	{
+		"name": "audio-lines-x",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["audio", "sound", "waveform", "mute", "error", "remove"]
+	},
+	{
+		"name": "map-pin-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "add", "new place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "remove", "delete place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-x",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "remove", "clear", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-off",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "off", "disabled", "no gps", "map", "pin"]
+	},
+	{
+		"name": "map-pin-pen",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "edit", "rename place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-search",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "search", "find place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-house",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["home address", "location", "house", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-plus-inside",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "add", "new place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-minus-inside",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "remove", "delete place", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-pin-x-inside",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs"],
+		"keywords": ["location", "remove", "clear", "marker", "map", "pin"]
+	},
+	{
+		"name": "map-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs", "Travel"],
+		"keywords": ["map", "add", "new map", "location", "atlas", "route"]
+	},
+	{
+		"name": "map-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Navigation, Maps, and POIs", "Travel"],
+		"keywords": ["map", "remove", "delete map", "location", "atlas", "route"]
+	},
+	{
+		"name": "house-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Home", "Architecture"],
+		"keywords": ["home", "add", "new house", "property", "building", "create"]
+	},
+	{
+		"name": "house-heart",
+		"addedAt": "2026-10-24",
+		"category": ["Home", "Architecture"],
+		"keywords": ["home", "favorite", "love", "family", "property", "shelter"]
+	},
+	{
+		"name": "house-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Home", "Architecture"],
+		"keywords": [
+			"home",
+			"settings",
+			"smart home",
+			"property",
+			"configure",
+			"gear"
+		]
+	},
+	{
+		"name": "house-plug",
+		"addedAt": "2026-10-24",
+		"category": ["Home", "Architecture"],
+		"keywords": ["home", "electricity", "power", "smart home", "energy", "plug"]
+	},
+	{
+		"name": "house-wifi",
+		"addedAt": "2026-10-24",
+		"category": ["Home", "Architecture"],
+		"keywords": [
+			"home",
+			"wifi",
+			"internet",
+			"smart home",
+			"network",
+			"connected"
+		]
+	},
+	{
+		"name": "building",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": ["building", "office", "tower", "company", "business", "city"]
+	},
+	{
+		"name": "building-complex",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": ["building", "complex", "campus", "offices", "business", "city"]
+	},
+	{
+		"name": "building-complex-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": ["building", "complex", "add", "new office", "business", "city"]
+	},
+	{
+		"name": "hotel",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"hotel",
+			"stay",
+			"travel",
+			"accommodation",
+			"lodging",
+			"vacation"
+		]
+	},
+	{
+		"name": "hospital",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": ["hospital", "medical", "health", "clinic", "emergency", "care"]
+	},
+	{
+		"name": "school",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"school",
+			"education",
+			"learning",
+			"students",
+			"classroom",
+			"building"
+		]
+	},
+	{
+		"name": "university",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"university",
+			"college",
+			"education",
+			"campus",
+			"academy",
+			"graduate"
+		]
+	},
+	{
+		"name": "factory",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"factory",
+			"industry",
+			"manufacturing",
+			"plant",
+			"production",
+			"industrial"
+		]
+	},
+	{
+		"name": "warehouse",
+		"addedAt": "2026-10-24",
+		"category": ["Architecture", "Navigation, Maps, and POIs"],
+		"keywords": [
+			"warehouse",
+			"storage",
+			"depot",
+			"logistics",
+			"inventory",
+			"garage"
+		]
+	},
+	{
+		"name": "calendar-off",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"off",
+			"unavailable",
+			"no events",
+			"disabled",
+			"date"
+		]
+	},
+	{
+		"name": "calendar-sync",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"sync",
+			"recurring",
+			"repeat",
+			"refresh",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"upload",
+			"export",
+			"sort ascending",
+			"date",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"download",
+			"import",
+			"sort descending",
+			"date",
+			"schedule"
+		]
+	},
+	{
+		"name": "calendar-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendar",
+			"settings",
+			"preferences",
+			"configure",
+			"schedule",
+			"gear"
+		]
+	},
+	{
+		"name": "calendar-chevrons-right",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["calendar", "next", "skip", "forward", "postpone", "schedule"]
+	},
+	{
+		"name": "calendars",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": [
+			"calendars",
+			"multiple",
+			"shared calendars",
+			"schedules",
+			"dates",
+			"events"
+		]
+	},
+	{
+		"name": "clock-check",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "done", "on time", "completed", "check"]
+	},
+	{
+		"name": "clock-arrow-left",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "back", "rewind", "earlier", "history"]
+	},
+	{
+		"name": "clock-arrow-right",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "forward", "later", "next", "schedule"]
+	},
+	{
+		"name": "clock-fading",
+		"addedAt": "2026-10-24",
+		"category": ["Time & Date"],
+		"keywords": ["clock", "time", "expiring", "fading", "countdown", "loading"]
+	},
+	{
+		"name": "mail-clock",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Mail"],
+		"keywords": ["mail", "scheduled", "send later", "snooze", "email", "time"]
+	},
+	{
+		"name": "clipboard-clock",
+		"addedAt": "2026-10-24",
+		"category": ["File icons", "Time & Date"],
+		"keywords": [
+			"clipboard",
+			"history",
+			"pending",
+			"timesheet",
+			"schedule",
+			"time"
+		]
+	},
+	{
+		"name": "star-half",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "half", "rating", "review", "score", "half star"]
+	},
+	{
+		"name": "star-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "add", "favorite", "rate", "bookmark", "new"]
+	},
+	{
+		"name": "star-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "remove", "unfavorite", "rating", "bookmark", "minus"]
+	},
+	{
+		"name": "star-x",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "remove", "unfavorite", "delete", "rating", "clear"]
+	},
+	{
+		"name": "star-check",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["star", "favorited", "verified", "rated", "done", "check"]
+	},
+	{
+		"name": "heart-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "add", "like", "favorite", "love", "new"]
+	},
+	{
+		"name": "heart-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "remove", "unlike", "unfavorite", "love", "minus"]
+	},
+	{
+		"name": "heart-x",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "remove", "unlike", "delete", "love", "clear"]
+	},
+	{
+		"name": "heart-off",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "off", "unlike", "no love", "disabled", "unfavorite"]
+	},
+	{
+		"name": "heart-crack",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Social"],
+		"keywords": ["heart", "broken", "heartbreak", "sad", "breakup", "crack"]
+	},
+	{
+		"name": "heart-handshake",
+		"addedAt": "2026-10-24",
+		"category": ["Social", "Emoji"],
+		"keywords": [
+			"handshake",
+			"charity",
+			"support",
+			"care",
+			"partnership",
+			"volunteer"
+		]
+	},
+	{
+		"name": "bookmark-off",
+		"addedAt": "2026-10-24",
+		"category": ["File icons"],
+		"keywords": ["bookmark", "off", "unsave", "removed", "disabled", "unmark"]
 	}
 ]
