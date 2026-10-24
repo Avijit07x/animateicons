@@ -125,6 +125,7 @@ import { ChevronLeftIcon } from "./chevron-left-icon";
 import { ChevronRightIcon } from "./chevron-right-icon";
 import { ChevronUpIcon } from "./chevron-up-icon";
 import { ChevronsDownIcon } from "./chevrons-down-icon";
+import { ChevronsDownUpIcon } from "./chevrons-down-up-icon";
 import { ChevronsLeftIcon } from "./chevrons-left-icon";
 import { ChevronsLeftRightIcon } from "./chevrons-left-right-icon";
 import { ChevronsLeftRightEllipsisIcon } from "./chevrons-left-right-ellipsis-icon";
@@ -296,6 +297,10 @@ import { SquareArrowUpLeftIcon } from "./square-arrow-up-left-icon";
 import { SquareArrowUpRightIcon } from "./square-arrow-up-right-icon";
 import { SquareCheckIcon } from "./square-check-icon";
 import { SquareCheckBigIcon } from "./square-check-big-icon";
+import { SquareChevronDownIcon } from "./square-chevron-down-icon";
+import { SquareChevronLeftIcon } from "./square-chevron-left-icon";
+import { SquareChevronRightIcon } from "./square-chevron-right-icon";
+import { SquareChevronUpIcon } from "./square-chevron-up-icon";
 import { SquareDashedIcon } from "./square-dashed-icon";
 import { SquareDotIcon } from "./square-dot-icon";
 import { SquareMinusIcon } from "./square-minus-icon";
@@ -515,7 +520,10 @@ import { FileXIcon } from "./file-x-icon";
 import { FilesIcon } from "./files-icon";
 import { PencilIcon } from "./pencil-icon";
 import { PenToolIcon } from "./pen-tool-icon";
+import { RefreshCcwIcon } from "./refresh-ccw-icon";
+import { RefreshCcwDotIcon } from "./refresh-ccw-dot-icon";
 import { RefreshCwIcon } from "./refresh-cw-icon";
+import { RefreshCwOffIcon } from "./refresh-cw-off-icon";
 import { FilterIcon } from "./filter-icon";
 import { SaveIcon } from "./save-icon";
 import { PrinterIcon } from "./printer-icon";
@@ -635,6 +643,7 @@ import { BugIcon } from "./bug-icon";
 import { DatabaseIcon } from "./database-icon";
 import { DatabaseBackupIcon } from "./database-backup-icon";
 import { PowerIcon } from "./power-icon";
+import { PowerOffIcon } from "./power-off-icon";
 import { TargetIcon } from "./target-icon";
 import { PlaneIcon } from "./plane-icon";
 import { TrophyIcon } from "./trophy-icon";
@@ -740,6 +749,11 @@ import { ExpandIcon } from "./expand-icon";
 import { ShrinkIcon } from "./shrink-icon";
 import { FunnelXIcon } from "./funnel-x-icon";
 import { ContrastIcon } from "./contrast-icon";
+import { MaximizeIcon } from "./maximize-icon";
+import { Maximize2Icon } from "./maximize-2-icon";
+import { MinimizeIcon } from "./minimize-icon";
+import { Minimize2Icon } from "./minimize-2-icon";
+import { FullscreenIcon } from "./fullscreen-icon";
 import { HexagonIcon } from "./hexagon-icon";
 import { DiamondIcon } from "./diamond-icon";
 import { DiamondMinusIcon } from "./diamond-minus-icon";
@@ -1636,6 +1650,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-23",
     category: ["Arrows"],
     keywords: ["down", "rewind", "slow", "speed", "back"],
+  },
+  {
+    name: "chevrons-down-up",
+    icon: ChevronsDownUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["collapse", "fold", "close", "shrink", "vertical", "chevrons"],
   },
   {
     name: "chevrons-left",
@@ -2833,6 +2854,34 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Notification"],
     keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
+  },
+  {
+    name: "square-chevron-down",
+    icon: SquareChevronDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "down", "expand", "more", "dropdown", "square", "button"],
+  },
+  {
+    name: "square-chevron-left",
+    icon: SquareChevronLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "left", "back", "previous", "square", "button"],
+  },
+  {
+    name: "square-chevron-right",
+    icon: SquareChevronRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "right", "forward", "next", "square", "button"],
+  },
+  {
+    name: "square-chevron-up",
+    icon: SquareChevronUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "up", "collapse", "less", "top", "square", "button"],
   },
   {
     name: "square-dashed",
@@ -4368,11 +4417,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["pen", "vector", "bezier", "path", "design", "draw"],
   },
   {
+    name: "refresh-ccw",
+    icon: RefreshCcwIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "update", "counterclockwise", "rotate"],
+  },
+  {
+    name: "refresh-ccw-dot",
+    icon: RefreshCcwDotIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "reset", "origin", "counterclockwise"],
+  },
+  {
     name: "refresh-cw",
     icon: RefreshCwIcon,
     addedAt: "2026-07-26",
     category: ["Arrows"],
     keywords: ["refresh", "reload", "sync", "update", "rotate"],
+  },
+  {
+    name: "refresh-cw-off",
+    icon: RefreshCwOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "off", "disabled", "paused"],
   },
   {
     name: "filter",
@@ -5208,6 +5278,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["power", "on", "off", "switch", "shutdown", "start"],
   },
   {
+    name: "power-off",
+    icon: PowerOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity","Devices"],
+    keywords: ["power", "off", "shutdown", "disabled", "turn off", "switch"],
+  },
+  {
     name: "target",
     icon: TargetIcon,
     addedAt: "2026-09-27",
@@ -5941,6 +6018,41 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-29",
     category: ["Design"],
     keywords: ["contrast", "contrast", "theme", "dark mode", "light mode", "brightness", "accessibility"],
+  },
+  {
+    name: "maximize",
+    icon: MaximizeIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["maximize", "fullscreen", "expand", "enlarge", "window", "resize"],
+  },
+  {
+    name: "maximize-2",
+    icon: Maximize2Icon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["maximize", "expand", "enlarge", "fullscreen", "arrows", "diagonal", "resize"],
+  },
+  {
+    name: "minimize",
+    icon: MinimizeIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["minimize", "exit fullscreen", "shrink", "collapse", "window", "resize"],
+  },
+  {
+    name: "minimize-2",
+    icon: Minimize2Icon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["minimize", "shrink", "collapse", "exit fullscreen", "arrows", "diagonal", "resize"],
+  },
+  {
+    name: "fullscreen",
+    icon: FullscreenIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["fullscreen", "screen", "presentation", "expand", "display", "monitor"],
   },
   {
     name: "hexagon",

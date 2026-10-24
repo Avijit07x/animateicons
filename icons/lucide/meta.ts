@@ -762,6 +762,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["down", "rewind", "slow", "speed", "back"],
   },
   {
+    name: "chevrons-down-up",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["collapse", "fold", "close", "shrink", "vertical", "chevrons"],
+  },
+  {
     name: "chevrons-left",
     addedAt: "2025-08-24",
     category: ["Arrows"],
@@ -1786,6 +1792,30 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Notification"],
     keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
+  },
+  {
+    name: "square-chevron-down",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "down", "expand", "more", "dropdown", "square", "button"],
+  },
+  {
+    name: "square-chevron-left",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "left", "back", "previous", "square", "button"],
+  },
+  {
+    name: "square-chevron-right",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "right", "forward", "next", "square", "button"],
+  },
+  {
+    name: "square-chevron-up",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["chevron", "up", "collapse", "less", "top", "square", "button"],
   },
   {
     name: "square-dashed",
@@ -3102,10 +3132,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["pen", "vector", "bezier", "path", "design", "draw"],
   },
   {
+    name: "refresh-ccw",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "update", "counterclockwise", "rotate"],
+  },
+  {
+    name: "refresh-ccw-dot",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "reset", "origin", "counterclockwise"],
+  },
+  {
     name: "refresh-cw",
     addedAt: "2026-07-26",
     category: ["Arrows"],
     keywords: ["refresh", "reload", "sync", "update", "rotate"],
+  },
+  {
+    name: "refresh-cw-off",
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["refresh", "reload", "sync", "off", "disabled", "paused"],
   },
   {
     name: "filter",
@@ -3822,6 +3870,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["power", "on", "off", "switch", "shutdown", "start"],
   },
   {
+    name: "power-off",
+    addedAt: "2026-10-24",
+    category: ["Connectivity","Devices"],
+    keywords: ["power", "off", "shutdown", "disabled", "turn off", "switch"],
+  },
+  {
     name: "target",
     addedAt: "2026-09-27",
     category: ["Gaming"],
@@ -4450,6 +4504,36 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-09-29",
     category: ["Design"],
     keywords: ["contrast", "contrast", "theme", "dark mode", "light mode", "brightness", "accessibility"],
+  },
+  {
+    name: "maximize",
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["maximize", "fullscreen", "expand", "enlarge", "window", "resize"],
+  },
+  {
+    name: "maximize-2",
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["maximize", "expand", "enlarge", "fullscreen", "arrows", "diagonal", "resize"],
+  },
+  {
+    name: "minimize",
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["minimize", "exit fullscreen", "shrink", "collapse", "window", "resize"],
+  },
+  {
+    name: "minimize-2",
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["minimize", "shrink", "collapse", "exit fullscreen", "arrows", "diagonal", "resize"],
+  },
+  {
+    name: "fullscreen",
+    addedAt: "2026-10-24",
+    category: ["Arrows","Layout"],
+    keywords: ["fullscreen", "screen", "presentation", "expand", "display", "monitor"],
   },
   {
     name: "hexagon",

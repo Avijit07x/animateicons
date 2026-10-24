@@ -10468,6 +10468,22 @@
       ]
     },
     {
+      "name": "lu-chevrons-down-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/chevrons-down-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/chevrons-down-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-chevrons-left",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -13236,6 +13252,22 @@
       ]
     },
     {
+      "name": "lu-fullscreen",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/fullscreen-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/fullscreen.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-funnel-x",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15028,6 +15060,38 @@
       ]
     },
     {
+      "name": "lu-maximize-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/maximize-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/maximize-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-maximize",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/maximize-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/maximize.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-medal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15344,6 +15408,38 @@
           "path": "icons/lucide/milestone-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/milestone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-minimize-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/minimize-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/minimize-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-minimize",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/minimize-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/minimize.tsx"
         }
       ]
     },
@@ -16596,6 +16692,22 @@
       ]
     },
     {
+      "name": "lu-power-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/power-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/power-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-presentation",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16804,6 +16916,38 @@
       ]
     },
     {
+      "name": "lu-refresh-ccw-dot",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/refresh-ccw-dot-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/refresh-ccw-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-refresh-ccw",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/refresh-ccw-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/refresh-ccw.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-refresh-cw",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16816,6 +16960,22 @@
           "path": "icons/lucide/refresh-cw-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/refresh-cw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-refresh-cw-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/refresh-cw-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/refresh-cw-off.tsx"
         }
       ]
     },
@@ -17984,6 +18144,70 @@
           "path": "icons/lucide/square-check-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/square-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-chevron-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-chevron-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-chevron-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-chevron-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-chevron-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-chevron-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-chevron-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-chevron-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-chevron-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-chevron-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-chevron-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-chevron-up.tsx"
         }
       ]
     },

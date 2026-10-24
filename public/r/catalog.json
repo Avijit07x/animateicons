@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1249,
+  "total": 1263,
   "libraries": {
-    "lucide": 748,
+    "lucide": 762,
     "huge": 501
   },
   "icons": [
@@ -12600,6 +12600,25 @@
       "url": "https://animateicons.in/r/lu-chevrons-down.json"
     },
     {
+      "name": "chevrons-down-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-chevrons-down-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "collapse",
+        "fold",
+        "close",
+        "shrink",
+        "vertical",
+        "chevrons"
+      ],
+      "url": "https://animateicons.in/r/lu-chevrons-down-up.json"
+    },
+    {
       "name": "chevrons-left",
       "library": "lucide",
       "prefix": "lu",
@@ -15866,6 +15885,26 @@
       "url": "https://animateicons.in/r/lu-framer.json"
     },
     {
+      "name": "fullscreen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-fullscreen",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "fullscreen",
+        "screen",
+        "presentation",
+        "expand",
+        "display",
+        "monitor"
+      ],
+      "url": "https://animateicons.in/r/lu-fullscreen.json"
+    },
+    {
       "name": "funnel-x",
       "library": "lucide",
       "prefix": "lu",
@@ -17987,6 +18026,47 @@
       "url": "https://animateicons.in/r/lu-mars.json"
     },
     {
+      "name": "maximize",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-maximize",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "maximize",
+        "fullscreen",
+        "expand",
+        "enlarge",
+        "window",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-maximize.json"
+    },
+    {
+      "name": "maximize-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-maximize-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "maximize",
+        "expand",
+        "enlarge",
+        "fullscreen",
+        "arrows",
+        "diagonal",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-maximize-2.json"
+    },
+    {
       "name": "medal",
       "library": "lucide",
       "prefix": "lu",
@@ -18357,6 +18437,47 @@
         "goal"
       ],
       "url": "https://animateicons.in/r/lu-milestone.json"
+    },
+    {
+      "name": "minimize",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-minimize",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "minimize",
+        "exit fullscreen",
+        "shrink",
+        "collapse",
+        "window",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-minimize.json"
+    },
+    {
+      "name": "minimize-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-minimize-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows",
+        "Layout"
+      ],
+      "keywords": [
+        "minimize",
+        "shrink",
+        "collapse",
+        "exit fullscreen",
+        "arrows",
+        "diagonal",
+        "resize"
+      ],
+      "url": "https://animateicons.in/r/lu-minimize-2.json"
     },
     {
       "name": "minus",
@@ -19846,6 +19967,26 @@
       "url": "https://animateicons.in/r/lu-power.json"
     },
     {
+      "name": "power-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-power-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity",
+        "Devices"
+      ],
+      "keywords": [
+        "power",
+        "off",
+        "shutdown",
+        "disabled",
+        "turn off",
+        "switch"
+      ],
+      "url": "https://animateicons.in/r/lu-power-off.json"
+    },
+    {
       "name": "presentation",
       "library": "lucide",
       "prefix": "lu",
@@ -20095,6 +20236,44 @@
       "url": "https://animateicons.in/r/lu-redo.json"
     },
     {
+      "name": "refresh-ccw",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-refresh-ccw",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "refresh",
+        "reload",
+        "sync",
+        "update",
+        "counterclockwise",
+        "rotate"
+      ],
+      "url": "https://animateicons.in/r/lu-refresh-ccw.json"
+    },
+    {
+      "name": "refresh-ccw-dot",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-refresh-ccw-dot",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "refresh",
+        "reload",
+        "sync",
+        "reset",
+        "origin",
+        "counterclockwise"
+      ],
+      "url": "https://animateicons.in/r/lu-refresh-ccw-dot.json"
+    },
+    {
       "name": "refresh-cw",
       "library": "lucide",
       "prefix": "lu",
@@ -20111,6 +20290,25 @@
         "rotate"
       ],
       "url": "https://animateicons.in/r/lu-refresh-cw.json"
+    },
+    {
+      "name": "refresh-cw-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-refresh-cw-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "refresh",
+        "reload",
+        "sync",
+        "off",
+        "disabled",
+        "paused"
+      ],
+      "url": "https://animateicons.in/r/lu-refresh-cw-off.json"
     },
     {
       "name": "repeat",
@@ -21525,6 +21723,84 @@
         "todo"
       ],
       "url": "https://animateicons.in/r/lu-square-check-big.json"
+    },
+    {
+      "name": "square-chevron-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-chevron-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "down",
+        "expand",
+        "more",
+        "dropdown",
+        "square",
+        "button"
+      ],
+      "url": "https://animateicons.in/r/lu-square-chevron-down.json"
+    },
+    {
+      "name": "square-chevron-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-chevron-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "left",
+        "back",
+        "previous",
+        "square",
+        "button"
+      ],
+      "url": "https://animateicons.in/r/lu-square-chevron-left.json"
+    },
+    {
+      "name": "square-chevron-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-chevron-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "right",
+        "forward",
+        "next",
+        "square",
+        "button"
+      ],
+      "url": "https://animateicons.in/r/lu-square-chevron-right.json"
+    },
+    {
+      "name": "square-chevron-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-chevron-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Arrows"
+      ],
+      "keywords": [
+        "chevron",
+        "up",
+        "collapse",
+        "less",
+        "top",
+        "square",
+        "button"
+      ],
+      "url": "https://animateicons.in/r/lu-square-chevron-up.json"
     },
     {
       "name": "square-dashed",
