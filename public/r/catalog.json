@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1449,
+  "total": 1475,
   "libraries": {
-    "lucide": 948,
+    "lucide": 974,
     "huge": 501
   },
   "icons": [
@@ -11942,6 +11942,26 @@
       "url": "https://animateicons.in/r/lu-bug-play.json"
     },
     {
+      "name": "building",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-building",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "building",
+        "office",
+        "tower",
+        "company",
+        "business",
+        "city"
+      ],
+      "url": "https://animateicons.in/r/lu-building.json"
+    },
+    {
       "name": "building-2",
       "library": "lucide",
       "prefix": "lu",
@@ -11960,6 +11980,46 @@
         "city"
       ],
       "url": "https://animateicons.in/r/lu-building-2.json"
+    },
+    {
+      "name": "building-complex",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-building-complex",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "building",
+        "complex",
+        "campus",
+        "offices",
+        "business",
+        "city"
+      ],
+      "url": "https://animateicons.in/r/lu-building-complex.json"
+    },
+    {
+      "name": "building-complex-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-building-complex-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "building",
+        "complex",
+        "add",
+        "new office",
+        "business",
+        "city"
+      ],
+      "url": "https://animateicons.in/r/lu-building-complex-plus.json"
     },
     {
       "name": "calculator",
@@ -15722,6 +15782,26 @@
       "url": "https://animateicons.in/r/lu-facebook.json"
     },
     {
+      "name": "factory",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-factory",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "factory",
+        "industry",
+        "manufacturing",
+        "plant",
+        "production",
+        "industrial"
+      ],
+      "url": "https://animateicons.in/r/lu-factory.json"
+    },
+    {
       "name": "fast-forward",
       "library": "lucide",
       "prefix": "lu",
@@ -17871,6 +17951,46 @@
       "url": "https://animateicons.in/r/lu-history.json"
     },
     {
+      "name": "hospital",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-hospital",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "hospital",
+        "medical",
+        "health",
+        "clinic",
+        "emergency",
+        "care"
+      ],
+      "url": "https://animateicons.in/r/lu-hospital.json"
+    },
+    {
+      "name": "hotel",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-hotel",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "hotel",
+        "stay",
+        "travel",
+        "accommodation",
+        "lodging",
+        "vacation"
+      ],
+      "url": "https://animateicons.in/r/lu-hotel.json"
+    },
+    {
       "name": "hourglass",
       "library": "lucide",
       "prefix": "lu",
@@ -17907,6 +18027,106 @@
         "root"
       ],
       "url": "https://animateicons.in/r/lu-house.json"
+    },
+    {
+      "name": "house-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house-cog",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Home",
+        "Architecture"
+      ],
+      "keywords": [
+        "home",
+        "settings",
+        "smart home",
+        "property",
+        "configure",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-house-cog.json"
+    },
+    {
+      "name": "house-heart",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house-heart",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Home",
+        "Architecture"
+      ],
+      "keywords": [
+        "home",
+        "favorite",
+        "love",
+        "family",
+        "property",
+        "shelter"
+      ],
+      "url": "https://animateicons.in/r/lu-house-heart.json"
+    },
+    {
+      "name": "house-plug",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house-plug",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Home",
+        "Architecture"
+      ],
+      "keywords": [
+        "home",
+        "electricity",
+        "power",
+        "smart home",
+        "energy",
+        "plug"
+      ],
+      "url": "https://animateicons.in/r/lu-house-plug.json"
+    },
+    {
+      "name": "house-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Home",
+        "Architecture"
+      ],
+      "keywords": [
+        "home",
+        "add",
+        "new house",
+        "property",
+        "building",
+        "create"
+      ],
+      "url": "https://animateicons.in/r/lu-house-plus.json"
+    },
+    {
+      "name": "house-wifi",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-house-wifi",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Home",
+        "Architecture"
+      ],
+      "keywords": [
+        "home",
+        "wifi",
+        "internet",
+        "smart home",
+        "network",
+        "connected"
+      ],
+      "url": "https://animateicons.in/r/lu-house-wifi.json"
     },
     {
       "name": "image",
@@ -19298,6 +19518,26 @@
       "url": "https://animateicons.in/r/lu-map.json"
     },
     {
+      "name": "map-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs",
+        "Travel"
+      ],
+      "keywords": [
+        "map",
+        "remove",
+        "delete map",
+        "location",
+        "atlas",
+        "route"
+      ],
+      "url": "https://animateicons.in/r/lu-map-minus.json"
+    },
+    {
       "name": "map-pin",
       "library": "lucide",
       "prefix": "lu",
@@ -19355,6 +19595,196 @@
       "url": "https://animateicons.in/r/lu-map-pin-check-inside.json"
     },
     {
+      "name": "map-pin-house",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-house",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "home address",
+        "location",
+        "house",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-house.json"
+    },
+    {
+      "name": "map-pin-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "remove",
+        "delete place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-minus.json"
+    },
+    {
+      "name": "map-pin-minus-inside",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-minus-inside",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "remove",
+        "delete place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-minus-inside.json"
+    },
+    {
+      "name": "map-pin-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "off",
+        "disabled",
+        "no gps",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-off.json"
+    },
+    {
+      "name": "map-pin-pen",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-pen",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "edit",
+        "rename place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-pen.json"
+    },
+    {
+      "name": "map-pin-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "add",
+        "new place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-plus.json"
+    },
+    {
+      "name": "map-pin-plus-inside",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-plus-inside",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "add",
+        "new place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-plus-inside.json"
+    },
+    {
+      "name": "map-pin-search",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-search",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "search",
+        "find place",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-search.json"
+    },
+    {
+      "name": "map-pin-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "remove",
+        "clear",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-x.json"
+    },
+    {
+      "name": "map-pin-x-inside",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-pin-x-inside",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "location",
+        "remove",
+        "clear",
+        "marker",
+        "map",
+        "pin"
+      ],
+      "url": "https://animateicons.in/r/lu-map-pin-x-inside.json"
+    },
+    {
       "name": "map-pinned",
       "library": "lucide",
       "prefix": "lu",
@@ -19372,6 +19802,26 @@
         "pin"
       ],
       "url": "https://animateicons.in/r/lu-map-pinned.json"
+    },
+    {
+      "name": "map-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-map-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Navigation, Maps, and POIs",
+        "Travel"
+      ],
+      "keywords": [
+        "map",
+        "add",
+        "new map",
+        "location",
+        "atlas",
+        "route"
+      ],
+      "url": "https://animateicons.in/r/lu-map-plus.json"
     },
     {
       "name": "mars",
@@ -23289,6 +23739,26 @@
       "url": "https://animateicons.in/r/lu-scan-qr-code.json"
     },
     {
+      "name": "school",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-school",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "school",
+        "education",
+        "learning",
+        "students",
+        "classroom",
+        "building"
+      ],
+      "url": "https://animateicons.in/r/lu-school.json"
+    },
+    {
       "name": "scissors",
       "library": "lucide",
       "prefix": "lu",
@@ -26496,6 +26966,26 @@
       "url": "https://animateicons.in/r/lu-unfold-vertical.json"
     },
     {
+      "name": "university",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-university",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "university",
+        "college",
+        "education",
+        "campus",
+        "academy",
+        "graduate"
+      ],
+      "url": "https://animateicons.in/r/lu-university.json"
+    },
+    {
       "name": "unlink",
       "library": "lucide",
       "prefix": "lu",
@@ -27335,6 +27825,26 @@
         "enhance"
       ],
       "url": "https://animateicons.in/r/lu-wand-sparkles.json"
+    },
+    {
+      "name": "warehouse",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-warehouse",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Architecture",
+        "Navigation, Maps, and POIs"
+      ],
+      "keywords": [
+        "warehouse",
+        "storage",
+        "depot",
+        "logistics",
+        "inventory",
+        "garage"
+      ],
+      "url": "https://animateicons.in/r/lu-warehouse.json"
     },
     {
       "name": "watch",

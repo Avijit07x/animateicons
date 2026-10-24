@@ -75,6 +75,11 @@ import { SearchIcon } from "./search-icon";
 import { SearchXIcon } from "./search-x-icon";
 import { SlidersHorizontalIcon } from "./sliders-horizontal-icon";
 import { HouseIcon } from "./house-icon";
+import { HouseCogIcon } from "./house-cog-icon";
+import { HouseHeartIcon } from "./house-heart-icon";
+import { HousePlugIcon } from "./house-plug-icon";
+import { HousePlusIcon } from "./house-plus-icon";
+import { HouseWifiIcon } from "./house-wifi-icon";
 import { InfoIcon } from "./info-icon";
 import { TerminalIcon } from "./terminal-icon";
 import { GitBranchIcon } from "./git-branch-icon";
@@ -355,10 +360,22 @@ import { WifiZeroIcon } from "./wifi-zero-icon";
 import { GlobeIcon } from "./globe-icon";
 import { GlobeLockIcon } from "./globe-lock-icon";
 import { MapIcon } from "./map-icon";
+import { MapMinusIcon } from "./map-minus-icon";
 import { MapPinIcon } from "./map-pin-icon";
 import { MapPinCheckIcon } from "./map-pin-check-icon";
 import { MapPinCheckInsideIcon } from "./map-pin-check-inside-icon";
+import { MapPinHouseIcon } from "./map-pin-house-icon";
+import { MapPinMinusIcon } from "./map-pin-minus-icon";
+import { MapPinMinusInsideIcon } from "./map-pin-minus-inside-icon";
+import { MapPinOffIcon } from "./map-pin-off-icon";
+import { MapPinPenIcon } from "./map-pin-pen-icon";
+import { MapPinPlusIcon } from "./map-pin-plus-icon";
+import { MapPinPlusInsideIcon } from "./map-pin-plus-inside-icon";
+import { MapPinSearchIcon } from "./map-pin-search-icon";
+import { MapPinXIcon } from "./map-pin-x-icon";
+import { MapPinXInsideIcon } from "./map-pin-x-inside-icon";
 import { MapPinnedIcon } from "./map-pinned-icon";
+import { MapPlusIcon } from "./map-plus-icon";
 import { PinIcon } from "./pin-icon";
 import { PinOffIcon } from "./pin-off-icon";
 import { SquareIcon } from "./square-icon";
@@ -884,7 +901,10 @@ import { AppWindowIcon } from "./app-window-icon";
 import { NfcIcon } from "./nfc-icon";
 import { SirenIcon } from "./siren-icon";
 import { BriefcaseIcon } from "./briefcase-icon";
+import { BuildingIcon } from "./building-icon";
 import { Building2Icon } from "./building-2-icon";
+import { BuildingComplexIcon } from "./building-complex-icon";
+import { BuildingComplexPlusIcon } from "./building-complex-plus-icon";
 import { LandmarkIcon } from "./landmark-icon";
 import { PercentIcon } from "./percent-icon";
 import { CookieIcon } from "./cookie-icon";
@@ -946,6 +966,12 @@ import { CaseUpperIcon } from "./case-upper-icon";
 import { RemoveFormattingIcon } from "./remove-formatting-icon";
 import { CctvIcon } from "./cctv-icon";
 import { CctvOffIcon } from "./cctv-off-icon";
+import { HotelIcon } from "./hotel-icon";
+import { HospitalIcon } from "./hospital-icon";
+import { SchoolIcon } from "./school-icon";
+import { UniversityIcon } from "./university-icon";
+import { FactoryIcon } from "./factory-icon";
+import { WarehouseIcon } from "./warehouse-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -1486,6 +1512,41 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-07-31",
     category: ["Home","Architecture"],
     keywords: ["home", "main", "dashboard", "start", "root"],
+  },
+  {
+    name: "house-cog",
+    icon: HouseCogIcon,
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "settings", "smart home", "property", "configure", "gear"],
+  },
+  {
+    name: "house-heart",
+    icon: HouseHeartIcon,
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "favorite", "love", "family", "property", "shelter"],
+  },
+  {
+    name: "house-plug",
+    icon: HousePlugIcon,
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "electricity", "power", "smart home", "energy", "plug"],
+  },
+  {
+    name: "house-plus",
+    icon: HousePlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "add", "new house", "property", "building", "create"],
+  },
+  {
+    name: "house-wifi",
+    icon: HouseWifiIcon,
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "wifi", "internet", "smart home", "network", "connected"],
   },
   {
     name: "info",
@@ -3448,6 +3509,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["map", "location", "navigate", "atlas", "geography", "directions"],
   },
   {
+    name: "map-minus",
+    icon: MapMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs","Travel"],
+    keywords: ["map", "remove", "delete map", "location", "atlas", "route"],
+  },
+  {
     name: "map-pin",
     icon: MapPinIcon,
     addedAt: "2026-01-19",
@@ -3469,11 +3537,88 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["location", "marker", "done", "complete", "pin"],
   },
   {
+    name: "map-pin-house",
+    icon: MapPinHouseIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["home address", "location", "house", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-minus",
+    icon: MapPinMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "delete place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-minus-inside",
+    icon: MapPinMinusInsideIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "delete place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-off",
+    icon: MapPinOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "off", "disabled", "no gps", "map", "pin"],
+  },
+  {
+    name: "map-pin-pen",
+    icon: MapPinPenIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "edit", "rename place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-plus",
+    icon: MapPinPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "add", "new place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-plus-inside",
+    icon: MapPinPlusInsideIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "add", "new place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-search",
+    icon: MapPinSearchIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "search", "find place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-x",
+    icon: MapPinXIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "clear", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-x-inside",
+    icon: MapPinXInsideIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "clear", "marker", "map", "pin"],
+  },
+  {
     name: "map-pinned",
     icon: MapPinnedIcon,
     addedAt: "2025-10-11",
     category: ["Navigation, Maps, and POIs"],
     keywords: ["location", "place", "marker", "gps", "map", "pin"],
+  },
+  {
+    name: "map-plus",
+    icon: MapPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs","Travel"],
+    keywords: ["map", "add", "new map", "location", "atlas", "route"],
   },
   {
     name: "pin",
@@ -7151,11 +7296,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["briefcase", "work", "job", "business", "career", "portfolio"],
   },
   {
+    name: "building",
+    icon: BuildingIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "office", "tower", "company", "business", "city"],
+  },
+  {
     name: "building-2",
     icon: Building2Icon,
     addedAt: "2026-09-27",
     category: ["Architecture","Navigation, Maps, and POIs"],
     keywords: ["building", "office", "company", "business", "organization", "city"],
+  },
+  {
+    name: "building-complex",
+    icon: BuildingComplexIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "complex", "campus", "offices", "business", "city"],
+  },
+  {
+    name: "building-complex-plus",
+    icon: BuildingComplexPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "complex", "add", "new office", "business", "city"],
   },
   {
     name: "landmark",
@@ -7583,6 +7749,48 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Devices"],
     keywords: ["cctv", "security camera", "surveillance", "off", "privacy", "disabled"],
+  },
+  {
+    name: "hotel",
+    icon: HotelIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["hotel", "stay", "travel", "accommodation", "lodging", "vacation"],
+  },
+  {
+    name: "hospital",
+    icon: HospitalIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["hospital", "medical", "health", "clinic", "emergency", "care"],
+  },
+  {
+    name: "school",
+    icon: SchoolIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["school", "education", "learning", "students", "classroom", "building"],
+  },
+  {
+    name: "university",
+    icon: UniversityIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["university", "college", "education", "campus", "academy", "graduate"],
+  },
+  {
+    name: "factory",
+    icon: FactoryIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["factory", "industry", "manufacturing", "plant", "production", "industrial"],
+  },
+  {
+    name: "warehouse",
+    icon: WarehouseIcon,
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["warehouse", "storage", "depot", "logistics", "inventory", "garage"],
   },
 ];
 
