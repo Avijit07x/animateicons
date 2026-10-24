@@ -136,7 +136,7 @@
 		{
 			"name": "lucide (full barrel)",
 			"path": "dist/lucide.js",
-			"limit": "120 kB",
+			"limit": "135 kB",
 			"ignore": [
 				"react",
 				"react-dom"

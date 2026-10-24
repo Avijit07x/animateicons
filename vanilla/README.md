@@ -54,7 +54,7 @@ For pages with no build step, one script registers every icon of a library:
 <animate-icons name="bell"></animate-icons>
 ```
 
-Use `dist/cdn/huge.js` for Huge icons. The script also exposes `AnimateIcons.createIcon`, `AnimateIcons.defineIcons` and `AnimateIcons.icons`. It holds every icon of the library (about 69 kB for Lucide and 113 kB for Huge, compressed), so prefer imports when you have a bundler.
+Use `dist/cdn/huge.js` for Huge icons. The script also exposes `AnimateIcons.createIcon`, `AnimateIcons.defineIcons` and `AnimateIcons.icons`. It holds every icon of the library (about 84 kB for Lucide and 113 kB for Huge, compressed), so prefer imports when you have a bundler.
 
 ## Options
 
