@@ -5401,5 +5401,192 @@
 		"addedAt": "2026-10-24",
 		"category": ["Arrows"],
 		"keywords": ["up", "launch", "origin", "start", "arrow", "dot"]
+	},
+	{
+		"name": "panel-right",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "right", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-right-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "right"]
+	},
+	{
+		"name": "panel-right-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "right"]
+	},
+	{
+		"name": "panel-top",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "top", "header", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-top-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "top"]
+	},
+	{
+		"name": "panel-top-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "top"]
+	},
+	{
+		"name": "panel-bottom",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "bottom", "footer", "sidebar", "layout", "drawer"]
+	},
+	{
+		"name": "panel-bottom-open",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "open", "expand", "show", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-bottom-close",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "close", "collapse", "hide", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-left-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "left"]
+	},
+	{
+		"name": "panel-right-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "right"]
+	},
+	{
+		"name": "panel-top-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "top"]
+	},
+	{
+		"name": "panel-bottom-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panel", "dashed", "inactive", "hidden", "drawer", "bottom"]
+	},
+	{
+		"name": "panel-left-right-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panels", "dashed", "sidebars", "inactive", "split", "columns"]
+	},
+	{
+		"name": "panel-top-bottom-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["panels", "dashed", "header", "footer", "inactive", "split"]
+	},
+	{
+		"name": "columns-2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "2 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "columns-3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "3 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "columns-4",
+		"addedAt": "2026-10-24",
+		"category": ["Layout", "Text formatting"],
+		"keywords": ["columns", "4 columns", "layout", "split", "vertical", "grid"]
+	},
+	{
+		"name": "rows-2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "2 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "rows-3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "3 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "rows-4",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["rows", "4 rows", "layout", "split", "horizontal", "table"]
+	},
+	{
+		"name": "grid-2x2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "2x2", "cells", "layout", "quadrant"]
+	},
+	{
+		"name": "grid-3x2",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "3x2", "cells", "layout", "spreadsheet"]
+	},
+	{
+		"name": "grid-3x3",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "table", "3x3", "cells", "layout", "spreadsheet"]
+	},
+	{
+		"name": "grid-2x2-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "add", "new", "cell", "widget", "plus"]
+	},
+	{
+		"name": "grid-2x2-check",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "done", "complete", "cell", "widget", "check"]
+	},
+	{
+		"name": "grid-2x2-x",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["grid", "remove", "delete", "cell", "widget", "x"]
+	},
+	{
+		"name": "layout-panel-left",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "left", "sidebar", "template", "dashboard"]
+	},
+	{
+		"name": "layout-panel-top",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["layout", "panel", "top", "header", "template", "dashboard"]
+	},
+	{
+		"name": "layout-template",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": [
+			"layout",
+			"template",
+			"wireframe",
+			"page",
+			"dashboard",
+			"blocks"
+		]
 	}
 ]
