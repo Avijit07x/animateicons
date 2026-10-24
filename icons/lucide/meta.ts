@@ -510,6 +510,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["git", "fork", "version control"],
   },
   {
+    name: "git-graph",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "graph", "history", "commits", "branches", "version control"],
+  },
+  {
     name: "git-merge",
     addedAt: "2026-03-19",
     category: ["Coding & development"],
@@ -520,6 +526,42 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-03-19",
     category: ["Coding & development"],
     keywords: ["git", "merge", "conflict", "version control"],
+  },
+  {
+    name: "git-pull-request",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "pr", "merge", "review", "version control"],
+  },
+  {
+    name: "git-pull-request-arrow",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "pr", "merge", "branch", "version control"],
+  },
+  {
+    name: "git-pull-request-closed",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "closed", "rejected", "pr", "version control"],
+  },
+  {
+    name: "git-pull-request-create",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "create", "new", "pr", "version control"],
+  },
+  {
+    name: "git-pull-request-create-arrow",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "create", "new", "pr", "merge"],
+  },
+  {
+    name: "git-pull-request-draft",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "draft", "wip", "pr", "version control"],
   },
   {
     name: "japanese-yen",
@@ -2076,6 +2118,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["chevron", "up", "collapse", "less", "top", "square", "button"],
   },
   {
+    name: "square-code",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["code", "source", "programming", "snippet", "embed", "dev"],
+  },
+  {
     name: "square-dashed",
     addedAt: "2026-09-27",
     category: ["Design","Shapes"],
@@ -2128,6 +2176,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Multimedia"],
     keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-terminal",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["terminal", "console", "shell", "command", "cli", "code"],
   },
   {
     name: "square-user",
@@ -2938,6 +2992,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-01-03",
     category: ["Connectivity"],
     keywords: ["webhook", "api", "integration", "connection", "notification"],
+  },
+  {
+    name: "webhook-off",
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["webhook", "off", "disabled", "disconnected", "api", "integration"],
   },
   {
     name: "angry",
@@ -4008,6 +4068,30 @@ const ICON_META: IconMeta[] = [
     keywords: ["server", "rack", "database", "hosting", "datacenter", "hardware"],
   },
   {
+    name: "server-cog",
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "settings", "config", "admin", "hosting", "infrastructure"],
+  },
+  {
+    name: "server-crash",
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "crash", "outage", "error", "failure", "down"],
+  },
+  {
+    name: "server-off",
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "off", "offline", "down", "disabled", "hosting"],
+  },
+  {
+    name: "server-plus",
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "add", "new", "hosting", "rack", "infrastructure"],
+  },
+  {
     name: "hard-drive",
     addedAt: "2026-08-02",
     category: ["Devices","Storage"],
@@ -4030,6 +4114,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["cpu", "processor", "chip", "hardware", "compute", "microchip"],
+  },
+  {
+    name: "microchip",
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["microchip", "chip", "processor", "hardware", "circuit", "electronics"],
   },
   {
     name: "memory-stick",
@@ -4122,16 +4212,76 @@ const ICON_META: IconMeta[] = [
     keywords: ["bug", "debug", "issue", "error", "insect", "report"],
   },
   {
+    name: "bug-off",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["bug", "off", "fixed", "debug", "resolved", "no issues"],
+  },
+  {
+    name: "bug-play",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["bug", "play", "debug", "run", "test", "start"],
+  },
+  {
     name: "database",
     addedAt: "2026-09-27",
     category: ["Coding & development","Storage"],
     keywords: ["database", "storage", "data", "server", "sql", "db"],
   },
   {
+    name: "database-arrow-down",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "download", "import", "export", "storage", "db"],
+  },
+  {
+    name: "database-arrow-up",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "upload", "import", "sync", "storage", "db"],
+  },
+  {
     name: "database-backup",
     addedAt: "2026-09-27",
     category: ["Coding & development","Storage"],
     keywords: ["backup", "database", "restore", "sync", "recovery", "storage"],
+  },
+  {
+    name: "database-check",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "check", "verified", "success", "storage", "db"],
+  },
+  {
+    name: "database-minus",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "remove", "delete", "storage", "sql", "db"],
+  },
+  {
+    name: "database-plus",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "add", "new", "storage", "sql", "db"],
+  },
+  {
+    name: "database-search",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "search", "query", "find", "lookup", "db"],
+  },
+  {
+    name: "database-x",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "error", "remove", "failed", "storage", "db"],
+  },
+  {
+    name: "database-zap",
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "fast", "cache", "power", "performance", "db"],
   },
   {
     name: "power",
@@ -5002,6 +5152,18 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Layout"],
     keywords: ["grid", "table", "3x3", "cells", "layout", "spreadsheet"],
+  },
+  {
+    name: "regex",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["regex", "regular expression", "pattern", "match", "search", "code"],
+  },
+  {
+    name: "variable",
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["variable", "function", "parameter", "math", "code", "placeholder"],
   },
 ];
 

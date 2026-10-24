@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1335,
+  "total": 1362,
   "libraries": {
-    "lucide": 834,
+    "lucide": 861,
     "huge": 501
   },
   "icons": [
@@ -11729,6 +11729,44 @@
       "url": "https://animateicons.in/r/lu-bug.json"
     },
     {
+      "name": "bug-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bug-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "bug",
+        "off",
+        "fixed",
+        "debug",
+        "resolved",
+        "no issues"
+      ],
+      "url": "https://animateicons.in/r/lu-bug-off.json"
+    },
+    {
+      "name": "bug-play",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-bug-play",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "bug",
+        "play",
+        "debug",
+        "run",
+        "test",
+        "start"
+      ],
+      "url": "https://animateicons.in/r/lu-bug-play.json"
+    },
+    {
       "name": "building-2",
       "library": "lucide",
       "prefix": "lu",
@@ -14505,6 +14543,46 @@
       "url": "https://animateicons.in/r/lu-database.json"
     },
     {
+      "name": "database-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-arrow-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "download",
+        "import",
+        "export",
+        "storage",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-arrow-down.json"
+    },
+    {
+      "name": "database-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-arrow-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "upload",
+        "import",
+        "sync",
+        "storage",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-arrow-up.json"
+    },
+    {
       "name": "database-backup",
       "library": "lucide",
       "prefix": "lu",
@@ -14523,6 +14601,126 @@
         "storage"
       ],
       "url": "https://animateicons.in/r/lu-database-backup.json"
+    },
+    {
+      "name": "database-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "check",
+        "verified",
+        "success",
+        "storage",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-check.json"
+    },
+    {
+      "name": "database-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "remove",
+        "delete",
+        "storage",
+        "sql",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-minus.json"
+    },
+    {
+      "name": "database-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "add",
+        "new",
+        "storage",
+        "sql",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-plus.json"
+    },
+    {
+      "name": "database-search",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-search",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "search",
+        "query",
+        "find",
+        "lookup",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-search.json"
+    },
+    {
+      "name": "database-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "error",
+        "remove",
+        "failed",
+        "storage",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-x.json"
+    },
+    {
+      "name": "database-zap",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-database-zap",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development",
+        "Storage"
+      ],
+      "keywords": [
+        "database",
+        "fast",
+        "cache",
+        "power",
+        "performance",
+        "db"
+      ],
+      "url": "https://animateicons.in/r/lu-database-zap.json"
     },
     {
       "name": "delete",
@@ -16279,6 +16477,25 @@
       "url": "https://animateicons.in/r/lu-git-fork.json"
     },
     {
+      "name": "git-graph",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-graph",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "graph",
+        "history",
+        "commits",
+        "branches",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-graph.json"
+    },
+    {
       "name": "git-merge",
       "library": "lucide",
       "prefix": "lu",
@@ -16310,6 +16527,120 @@
         "version control"
       ],
       "url": "https://animateicons.in/r/lu-git-merge-conflict.json"
+    },
+    {
+      "name": "git-pull-request",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "pr",
+        "merge",
+        "review",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request.json"
+    },
+    {
+      "name": "git-pull-request-arrow",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request-arrow",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "pr",
+        "merge",
+        "branch",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request-arrow.json"
+    },
+    {
+      "name": "git-pull-request-closed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request-closed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "closed",
+        "rejected",
+        "pr",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request-closed.json"
+    },
+    {
+      "name": "git-pull-request-create",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request-create",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "create",
+        "new",
+        "pr",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request-create.json"
+    },
+    {
+      "name": "git-pull-request-create-arrow",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request-create-arrow",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "create",
+        "new",
+        "pr",
+        "merge"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request-create-arrow.json"
+    },
+    {
+      "name": "git-pull-request-draft",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-git-pull-request-draft",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "git",
+        "pull request",
+        "draft",
+        "wip",
+        "pr",
+        "version control"
+      ],
+      "url": "https://animateicons.in/r/lu-git-pull-request-draft.json"
     },
     {
       "name": "github",
@@ -19084,6 +19415,26 @@
       "url": "https://animateicons.in/r/lu-mic-off.json"
     },
     {
+      "name": "microchip",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-microchip",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "microchip",
+        "chip",
+        "processor",
+        "hardware",
+        "circuit",
+        "electronics"
+      ],
+      "url": "https://animateicons.in/r/lu-microchip.json"
+    },
+    {
       "name": "milestone",
       "library": "lucide",
       "prefix": "lu",
@@ -21259,6 +21610,25 @@
       "url": "https://animateicons.in/r/lu-refresh-cw-off.json"
     },
     {
+      "name": "regex",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-regex",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "regex",
+        "regular expression",
+        "pattern",
+        "match",
+        "search",
+        "code"
+      ],
+      "url": "https://animateicons.in/r/lu-regex.json"
+    },
+    {
       "name": "repeat",
       "library": "lucide",
       "prefix": "lu",
@@ -21843,6 +22213,86 @@
         "hardware"
       ],
       "url": "https://animateicons.in/r/lu-server.json"
+    },
+    {
+      "name": "server-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-server-cog",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "settings",
+        "config",
+        "admin",
+        "hosting",
+        "infrastructure"
+      ],
+      "url": "https://animateicons.in/r/lu-server-cog.json"
+    },
+    {
+      "name": "server-crash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-server-crash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "crash",
+        "outage",
+        "error",
+        "failure",
+        "down"
+      ],
+      "url": "https://animateicons.in/r/lu-server-crash.json"
+    },
+    {
+      "name": "server-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-server-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "off",
+        "offline",
+        "down",
+        "disabled",
+        "hosting"
+      ],
+      "url": "https://animateicons.in/r/lu-server-off.json"
+    },
+    {
+      "name": "server-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-server-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Coding & development"
+      ],
+      "keywords": [
+        "server",
+        "add",
+        "new",
+        "hosting",
+        "rack",
+        "infrastructure"
+      ],
+      "url": "https://animateicons.in/r/lu-server-plus.json"
     },
     {
       "name": "settings",
@@ -23019,6 +23469,25 @@
       "url": "https://animateicons.in/r/lu-square-chevron-up.json"
     },
     {
+      "name": "square-code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-code",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "code",
+        "source",
+        "programming",
+        "snippet",
+        "embed",
+        "dev"
+      ],
+      "url": "https://animateicons.in/r/lu-square-code.json"
+    },
+    {
       "name": "square-dashed",
       "library": "lucide",
       "prefix": "lu",
@@ -23190,6 +23659,25 @@
         "end"
       ],
       "url": "https://animateicons.in/r/lu-square-stop.json"
+    },
+    {
+      "name": "square-terminal",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-terminal",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "terminal",
+        "console",
+        "shell",
+        "command",
+        "cli",
+        "code"
+      ],
+      "url": "https://animateicons.in/r/lu-square-terminal.json"
     },
     {
       "name": "square-user",
@@ -24996,6 +25484,25 @@
       "url": "https://animateicons.in/r/lu-utensils.json"
     },
     {
+      "name": "variable",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-variable",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Coding & development"
+      ],
+      "keywords": [
+        "variable",
+        "function",
+        "parameter",
+        "math",
+        "code",
+        "placeholder"
+      ],
+      "url": "https://animateicons.in/r/lu-variable.json"
+    },
+    {
       "name": "vault",
       "library": "lucide",
       "prefix": "lu",
@@ -25311,6 +25818,25 @@
         "notification"
       ],
       "url": "https://animateicons.in/r/lu-webhook.json"
+    },
+    {
+      "name": "webhook-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-webhook-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "webhook",
+        "off",
+        "disabled",
+        "disconnected",
+        "api",
+        "integration"
+      ],
+      "url": "https://animateicons.in/r/lu-webhook-off.json"
     },
     {
       "name": "wifi",

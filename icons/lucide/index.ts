@@ -83,8 +83,15 @@ import { GitCommitVerticalIcon } from "./git-commit-vertical-icon";
 import { GitCompareIcon } from "./git-compare-icon";
 import { GitCompareArrowsIcon } from "./git-compare-arrows-icon";
 import { GitForkIcon } from "./git-fork-icon";
+import { GitGraphIcon } from "./git-graph-icon";
 import { GitMergeIcon } from "./git-merge-icon";
 import { GitMergeConflictIcon } from "./git-merge-conflict-icon";
+import { GitPullRequestIcon } from "./git-pull-request-icon";
+import { GitPullRequestArrowIcon } from "./git-pull-request-arrow-icon";
+import { GitPullRequestClosedIcon } from "./git-pull-request-closed-icon";
+import { GitPullRequestCreateIcon } from "./git-pull-request-create-icon";
+import { GitPullRequestCreateArrowIcon } from "./git-pull-request-create-arrow-icon";
+import { GitPullRequestDraftIcon } from "./git-pull-request-draft-icon";
 import { JapaneseYenIcon } from "./japanese-yen-icon";
 import { GitlabIcon } from "./gitlab-icon";
 import { DownloadIcon } from "./download-icon";
@@ -344,6 +351,7 @@ import { SquareChevronDownIcon } from "./square-chevron-down-icon";
 import { SquareChevronLeftIcon } from "./square-chevron-left-icon";
 import { SquareChevronRightIcon } from "./square-chevron-right-icon";
 import { SquareChevronUpIcon } from "./square-chevron-up-icon";
+import { SquareCodeIcon } from "./square-code-icon";
 import { SquareDashedIcon } from "./square-dashed-icon";
 import { SquareDotIcon } from "./square-dot-icon";
 import { SquareMinusIcon } from "./square-minus-icon";
@@ -353,6 +361,7 @@ import { SquarePlayIcon } from "./square-play-icon";
 import { SquarePlusIcon } from "./square-plus-icon";
 import { SquareSlashIcon } from "./square-slash-icon";
 import { SquareStopIcon } from "./square-stop-icon";
+import { SquareTerminalIcon } from "./square-terminal-icon";
 import { SquareUserIcon } from "./square-user-icon";
 import { SquareUserRoundIcon } from "./square-user-round-icon";
 import { SquareXIcon } from "./square-x-icon";
@@ -488,6 +497,7 @@ import { SunsetIcon } from "./sunset-icon";
 import { MoonIcon } from "./moon-icon";
 import { MoonStarIcon } from "./moon-star-icon";
 import { WebhookIcon } from "./webhook-icon";
+import { WebhookOffIcon } from "./webhook-off-icon";
 import { AngryIcon } from "./angry-icon";
 import { AnnoyedIcon } from "./annoyed-icon";
 import { CoffeeIcon } from "./coffee-icon";
@@ -666,10 +676,15 @@ import { MonitorIcon } from "./monitor-icon";
 import { MonitorSmartphoneIcon } from "./monitor-smartphone-icon";
 import { KeyboardIcon } from "./keyboard-icon";
 import { ServerIcon } from "./server-icon";
+import { ServerCogIcon } from "./server-cog-icon";
+import { ServerCrashIcon } from "./server-crash-icon";
+import { ServerOffIcon } from "./server-off-icon";
+import { ServerPlusIcon } from "./server-plus-icon";
 import { HardDriveIcon } from "./hard-drive-icon";
 import { HardDriveDownloadIcon } from "./hard-drive-download-icon";
 import { HardDriveUploadIcon } from "./hard-drive-upload-icon";
 import { CpuIcon } from "./cpu-icon";
+import { MicrochipIcon } from "./microchip-icon";
 import { MemoryStickIcon } from "./memory-stick-icon";
 import { WebcamIcon } from "./webcam-icon";
 import { PlugIcon } from "./plug-icon";
@@ -685,8 +700,18 @@ import { ThermometerSunIcon } from "./thermometer-sun-icon";
 import { HazeIcon } from "./haze-icon";
 import { BotIcon } from "./bot-icon";
 import { BugIcon } from "./bug-icon";
+import { BugOffIcon } from "./bug-off-icon";
+import { BugPlayIcon } from "./bug-play-icon";
 import { DatabaseIcon } from "./database-icon";
+import { DatabaseArrowDownIcon } from "./database-arrow-down-icon";
+import { DatabaseArrowUpIcon } from "./database-arrow-up-icon";
 import { DatabaseBackupIcon } from "./database-backup-icon";
+import { DatabaseCheckIcon } from "./database-check-icon";
+import { DatabaseMinusIcon } from "./database-minus-icon";
+import { DatabasePlusIcon } from "./database-plus-icon";
+import { DatabaseSearchIcon } from "./database-search-icon";
+import { DatabaseXIcon } from "./database-x-icon";
+import { DatabaseZapIcon } from "./database-zap-icon";
 import { PowerIcon } from "./power-icon";
 import { PowerOffIcon } from "./power-off-icon";
 import { TargetIcon } from "./target-icon";
@@ -832,6 +857,8 @@ import { Grid2x2PlusIcon } from "./grid-2x2-plus-icon";
 import { Grid2x2XIcon } from "./grid-2x2-x-icon";
 import { Grid3x2Icon } from "./grid-3x2-icon";
 import { Grid3x3Icon } from "./grid-3x3-icon";
+import { RegexIcon } from "./regex-icon";
+import { VariableIcon } from "./variable-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -1430,6 +1457,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["git", "fork", "version control"],
   },
   {
+    name: "git-graph",
+    icon: GitGraphIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "graph", "history", "commits", "branches", "version control"],
+  },
+  {
     name: "git-merge",
     icon: GitMergeIcon,
     addedAt: "2026-03-19",
@@ -1442,6 +1476,48 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-03-19",
     category: ["Coding & development"],
     keywords: ["git", "merge", "conflict", "version control"],
+  },
+  {
+    name: "git-pull-request",
+    icon: GitPullRequestIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "pr", "merge", "review", "version control"],
+  },
+  {
+    name: "git-pull-request-arrow",
+    icon: GitPullRequestArrowIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "pr", "merge", "branch", "version control"],
+  },
+  {
+    name: "git-pull-request-closed",
+    icon: GitPullRequestClosedIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "closed", "rejected", "pr", "version control"],
+  },
+  {
+    name: "git-pull-request-create",
+    icon: GitPullRequestCreateIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "create", "new", "pr", "version control"],
+  },
+  {
+    name: "git-pull-request-create-arrow",
+    icon: GitPullRequestCreateArrowIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "create", "new", "pr", "merge"],
+  },
+  {
+    name: "git-pull-request-draft",
+    icon: GitPullRequestDraftIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["git", "pull request", "draft", "wip", "pr", "version control"],
   },
   {
     name: "japanese-yen",
@@ -3257,6 +3333,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["chevron", "up", "collapse", "less", "top", "square", "button"],
   },
   {
+    name: "square-code",
+    icon: SquareCodeIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["code", "source", "programming", "snippet", "embed", "dev"],
+  },
+  {
     name: "square-dashed",
     icon: SquareDashedIcon,
     addedAt: "2026-09-27",
@@ -3318,6 +3401,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Multimedia"],
     keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-terminal",
+    icon: SquareTerminalIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["terminal", "console", "shell", "command", "cli", "code"],
   },
   {
     name: "square-user",
@@ -4263,6 +4353,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-01-03",
     category: ["Connectivity"],
     keywords: ["webhook", "api", "integration", "connection", "notification"],
+  },
+  {
+    name: "webhook-off",
+    icon: WebhookOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["webhook", "off", "disabled", "disconnected", "api", "integration"],
   },
   {
     name: "angry",
@@ -5511,6 +5608,34 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["server", "rack", "database", "hosting", "datacenter", "hardware"],
   },
   {
+    name: "server-cog",
+    icon: ServerCogIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "settings", "config", "admin", "hosting", "infrastructure"],
+  },
+  {
+    name: "server-crash",
+    icon: ServerCrashIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "crash", "outage", "error", "failure", "down"],
+  },
+  {
+    name: "server-off",
+    icon: ServerOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "off", "offline", "down", "disabled", "hosting"],
+  },
+  {
+    name: "server-plus",
+    icon: ServerPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["server", "add", "new", "hosting", "rack", "infrastructure"],
+  },
+  {
     name: "hard-drive",
     icon: HardDriveIcon,
     addedAt: "2026-08-02",
@@ -5537,6 +5662,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["cpu", "processor", "chip", "hardware", "compute", "microchip"],
+  },
+  {
+    name: "microchip",
+    icon: MicrochipIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Coding & development"],
+    keywords: ["microchip", "chip", "processor", "hardware", "circuit", "electronics"],
   },
   {
     name: "memory-stick",
@@ -5644,6 +5776,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["bug", "debug", "issue", "error", "insect", "report"],
   },
   {
+    name: "bug-off",
+    icon: BugOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["bug", "off", "fixed", "debug", "resolved", "no issues"],
+  },
+  {
+    name: "bug-play",
+    icon: BugPlayIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["bug", "play", "debug", "run", "test", "start"],
+  },
+  {
     name: "database",
     icon: DatabaseIcon,
     addedAt: "2026-09-27",
@@ -5651,11 +5797,67 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["database", "storage", "data", "server", "sql", "db"],
   },
   {
+    name: "database-arrow-down",
+    icon: DatabaseArrowDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "download", "import", "export", "storage", "db"],
+  },
+  {
+    name: "database-arrow-up",
+    icon: DatabaseArrowUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "upload", "import", "sync", "storage", "db"],
+  },
+  {
     name: "database-backup",
     icon: DatabaseBackupIcon,
     addedAt: "2026-09-27",
     category: ["Coding & development","Storage"],
     keywords: ["backup", "database", "restore", "sync", "recovery", "storage"],
+  },
+  {
+    name: "database-check",
+    icon: DatabaseCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "check", "verified", "success", "storage", "db"],
+  },
+  {
+    name: "database-minus",
+    icon: DatabaseMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "remove", "delete", "storage", "sql", "db"],
+  },
+  {
+    name: "database-plus",
+    icon: DatabasePlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "add", "new", "storage", "sql", "db"],
+  },
+  {
+    name: "database-search",
+    icon: DatabaseSearchIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "search", "query", "find", "lookup", "db"],
+  },
+  {
+    name: "database-x",
+    icon: DatabaseXIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "error", "remove", "failed", "storage", "db"],
+  },
+  {
+    name: "database-zap",
+    icon: DatabaseZapIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development","Storage"],
+    keywords: ["database", "fast", "cache", "power", "performance", "db"],
   },
   {
     name: "power",
@@ -6671,6 +6873,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Layout"],
     keywords: ["grid", "table", "3x3", "cells", "layout", "spreadsheet"],
+  },
+  {
+    name: "regex",
+    icon: RegexIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["regex", "regular expression", "pattern", "match", "search", "code"],
+  },
+  {
+    name: "variable",
+    icon: VariableIcon,
+    addedAt: "2026-10-24",
+    category: ["Coding & development"],
+    keywords: ["variable", "function", "parameter", "math", "code", "placeholder"],
   },
 ];
 
