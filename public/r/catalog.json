@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1362,
+  "total": 1384,
   "libraries": {
-    "lucide": 861,
+    "lucide": 883,
     "huge": 501
   },
   "icons": [
@@ -11068,6 +11068,86 @@
       "url": "https://animateicons.in/r/lu-banknote.json"
     },
     {
+      "name": "banknote-arrow-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-banknote-arrow-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Finance"
+      ],
+      "keywords": [
+        "banknote",
+        "receive money",
+        "deposit",
+        "cash",
+        "transfer",
+        "money"
+      ],
+      "url": "https://animateicons.in/r/lu-banknote-arrow-down.json"
+    },
+    {
+      "name": "banknote-arrow-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-banknote-arrow-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Finance"
+      ],
+      "keywords": [
+        "banknote",
+        "send money",
+        "withdraw",
+        "cash",
+        "transfer",
+        "money"
+      ],
+      "url": "https://animateicons.in/r/lu-banknote-arrow-up.json"
+    },
+    {
+      "name": "banknote-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-banknote-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Finance"
+      ],
+      "keywords": [
+        "banknote",
+        "paid",
+        "payment",
+        "success",
+        "cash",
+        "money"
+      ],
+      "url": "https://animateicons.in/r/lu-banknote-check.json"
+    },
+    {
+      "name": "banknote-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-banknote-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Finance"
+      ],
+      "keywords": [
+        "banknote",
+        "payment failed",
+        "cancel",
+        "cash",
+        "money",
+        "error"
+      ],
+      "url": "https://animateicons.in/r/lu-banknote-x.json"
+    },
+    {
       "name": "barcode",
       "library": "lucide",
       "prefix": "lu",
@@ -13128,6 +13208,25 @@
       "url": "https://animateicons.in/r/lu-circle-dashed.json"
     },
     {
+      "name": "circle-dollar-sign",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-dollar-sign",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "dollar",
+        "coin",
+        "money",
+        "usd",
+        "currency",
+        "payment"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-dollar-sign.json"
+    },
+    {
       "name": "circle-dot",
       "library": "lucide",
       "prefix": "lu",
@@ -13165,6 +13264,25 @@
         "circle"
       ],
       "url": "https://animateicons.in/r/lu-circle-ellipsis.json"
+    },
+    {
+      "name": "circle-euro",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-euro",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "euro",
+        "coin",
+        "money",
+        "eur",
+        "currency",
+        "payment"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-euro.json"
     },
     {
       "name": "circle-minus",
@@ -13224,6 +13342,26 @@
       "url": "https://animateicons.in/r/lu-circle-pause.json"
     },
     {
+      "name": "circle-percent",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-percent",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Mathematics"
+      ],
+      "keywords": [
+        "percent",
+        "discount",
+        "sale",
+        "offer",
+        "rate",
+        "percentage"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-percent.json"
+    },
+    {
       "name": "circle-play",
       "library": "lucide",
       "prefix": "lu",
@@ -13261,6 +13399,25 @@
         "more"
       ],
       "url": "https://animateicons.in/r/lu-circle-plus.json"
+    },
+    {
+      "name": "circle-pound-sterling",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-pound-sterling",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance"
+      ],
+      "keywords": [
+        "pound",
+        "sterling",
+        "coin",
+        "money",
+        "gbp",
+        "currency"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-pound-sterling.json"
     },
     {
       "name": "circle-power",
@@ -14481,6 +14638,106 @@
         "finance"
       ],
       "url": "https://animateicons.in/r/lu-credit-card.json"
+    },
+    {
+      "name": "credit-card-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance",
+        "E-commerce"
+      ],
+      "keywords": [
+        "card",
+        "payment",
+        "success",
+        "paid",
+        "approved",
+        "credit"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card-check.json"
+    },
+    {
+      "name": "credit-card-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance",
+        "E-commerce"
+      ],
+      "keywords": [
+        "card",
+        "remove card",
+        "payment method",
+        "delete",
+        "credit",
+        "debit"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card-minus.json"
+    },
+    {
+      "name": "credit-card-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance",
+        "E-commerce"
+      ],
+      "keywords": [
+        "card",
+        "add card",
+        "payment method",
+        "new",
+        "credit",
+        "debit"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card-plus.json"
+    },
+    {
+      "name": "credit-card-reader",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card-reader",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance",
+        "E-commerce"
+      ],
+      "keywords": [
+        "card reader",
+        "pos",
+        "terminal",
+        "payment",
+        "checkout",
+        "swipe"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card-reader.json"
+    },
+    {
+      "name": "credit-card-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-credit-card-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Finance",
+        "E-commerce"
+      ],
+      "keywords": [
+        "card",
+        "declined",
+        "payment failed",
+        "error",
+        "credit",
+        "cancel"
+      ],
+      "url": "https://animateicons.in/r/lu-credit-card-x.json"
     },
     {
       "name": "crop",
@@ -22716,6 +22973,46 @@
       "url": "https://animateicons.in/r/lu-shopping-cart.json"
     },
     {
+      "name": "shopping-cart-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shopping-cart-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "E-commerce"
+      ],
+      "keywords": [
+        "cart",
+        "remove",
+        "remove from cart",
+        "shop",
+        "basket",
+        "checkout"
+      ],
+      "url": "https://animateicons.in/r/lu-shopping-cart-minus.json"
+    },
+    {
+      "name": "shopping-cart-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-shopping-cart-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "E-commerce"
+      ],
+      "keywords": [
+        "cart",
+        "add",
+        "add to cart",
+        "buy",
+        "shop",
+        "checkout"
+      ],
+      "url": "https://animateicons.in/r/lu-shopping-cart-plus.json"
+    },
+    {
       "name": "shrink",
       "library": "lucide",
       "prefix": "lu",
@@ -24142,6 +24439,46 @@
       "url": "https://animateicons.in/r/lu-tag.json"
     },
     {
+      "name": "tag-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-tag-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "E-commerce"
+      ],
+      "keywords": [
+        "tag",
+        "add tag",
+        "label",
+        "new",
+        "price",
+        "product"
+      ],
+      "url": "https://animateicons.in/r/lu-tag-plus.json"
+    },
+    {
+      "name": "tag-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-tag-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "E-commerce"
+      ],
+      "keywords": [
+        "tag",
+        "remove tag",
+        "label",
+        "delete",
+        "price",
+        "product"
+      ],
+      "url": "https://animateicons.in/r/lu-tag-x.json"
+    },
+    {
       "name": "tags",
       "library": "lucide",
       "prefix": "lu",
@@ -24372,6 +24709,44 @@
       "url": "https://animateicons.in/r/lu-ticket.json"
     },
     {
+      "name": "ticket-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ticket-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "ticket",
+        "valid",
+        "checked in",
+        "confirmed",
+        "event",
+        "pass"
+      ],
+      "url": "https://animateicons.in/r/lu-ticket-check.json"
+    },
+    {
+      "name": "ticket-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ticket-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "ticket",
+        "remove",
+        "refund",
+        "event",
+        "pass",
+        "admission"
+      ],
+      "url": "https://animateicons.in/r/lu-ticket-minus.json"
+    },
+    {
       "name": "ticket-percent",
       "library": "lucide",
       "prefix": "lu",
@@ -24390,6 +24765,63 @@
         "voucher"
       ],
       "url": "https://animateicons.in/r/lu-ticket-percent.json"
+    },
+    {
+      "name": "ticket-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ticket-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "ticket",
+        "add",
+        "buy ticket",
+        "event",
+        "pass",
+        "admission"
+      ],
+      "url": "https://animateicons.in/r/lu-ticket-plus.json"
+    },
+    {
+      "name": "ticket-slash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ticket-slash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "ticket",
+        "void",
+        "invalid",
+        "expired",
+        "event",
+        "pass"
+      ],
+      "url": "https://animateicons.in/r/lu-ticket-slash.json"
+    },
+    {
+      "name": "ticket-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-ticket-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping"
+      ],
+      "keywords": [
+        "ticket",
+        "cancel",
+        "invalid",
+        "refund",
+        "event",
+        "pass"
+      ],
+      "url": "https://animateicons.in/r/lu-ticket-x.json"
     },
     {
       "name": "timer",

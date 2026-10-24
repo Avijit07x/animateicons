@@ -9156,6 +9156,54 @@
       ]
     },
     {
+      "name": "lu-banknote-arrow-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/banknote-arrow-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/banknote-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-banknote-arrow-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/banknote-arrow-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/banknote-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-banknote-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/banknote-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/banknote-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-banknote",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -9168,6 +9216,22 @@
           "path": "icons/lucide/banknote-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/banknote.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-banknote-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/banknote-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/banknote-x.tsx"
         }
       ]
     },
@@ -10900,6 +10964,22 @@
       ]
     },
     {
+      "name": "lu-circle-dollar-sign",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-dollar-sign-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-dollar-sign.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-circle-dot",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10928,6 +11008,22 @@
           "path": "icons/lucide/circle-ellipsis-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/circle-ellipsis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-euro",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-euro-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-euro.tsx"
         }
       ]
     },
@@ -10996,6 +11092,22 @@
       ]
     },
     {
+      "name": "lu-circle-percent",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-percent-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-percent.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-circle-play",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -11024,6 +11136,22 @@
           "path": "icons/lucide/circle-plus-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/circle-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-pound-sterling",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-pound-sterling-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-pound-sterling.tsx"
         }
       ]
     },
@@ -12036,6 +12164,22 @@
       ]
     },
     {
+      "name": "lu-credit-card-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/credit-card-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-credit-card",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -12048,6 +12192,70 @@
           "path": "icons/lucide/credit-card-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/credit-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-credit-card-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/credit-card-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-credit-card-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/credit-card-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-credit-card-reader",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/credit-card-reader-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card-reader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-credit-card-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/credit-card-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/credit-card-x.tsx"
         }
       ]
     },
@@ -18980,6 +19188,38 @@
       ]
     },
     {
+      "name": "lu-shopping-cart-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shopping-cart-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shopping-cart-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shopping-cart-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shopping-cart-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shopping-cart-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-shrink",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20164,6 +20404,38 @@
       ]
     },
     {
+      "name": "lu-tag-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/tag-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/tag-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-tag-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/tag-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/tag-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-tags",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20340,6 +20612,22 @@
       ]
     },
     {
+      "name": "lu-ticket-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/ticket-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ticket-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-ticket",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20356,6 +20644,22 @@
       ]
     },
     {
+      "name": "lu-ticket-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/ticket-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ticket-minus.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-ticket-percent",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20368,6 +20672,54 @@
           "path": "icons/lucide/ticket-percent-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/ticket-percent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-ticket-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/ticket-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ticket-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-ticket-slash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/ticket-slash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ticket-slash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-ticket-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/ticket-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/ticket-x.tsx"
         }
       ]
     },

@@ -798,6 +798,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["circle", "dashed", "draft", "todo", "pending", "status"],
   },
   {
+    name: "circle-dollar-sign",
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["dollar", "coin", "money", "usd", "currency", "payment"],
+  },
+  {
     name: "circle-dot",
     addedAt: "2026-09-27",
     category: ["Shapes","Layout"],
@@ -808,6 +814,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Layout"],
     keywords: ["more", "options", "menu", "dots", "ellipsis", "circle"],
+  },
+  {
+    name: "circle-euro",
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["euro", "coin", "money", "eur", "currency", "payment"],
   },
   {
     name: "circle-minus",
@@ -828,6 +840,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["pause", "circle", "media", "stop", "button"],
   },
   {
+    name: "circle-percent",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Mathematics"],
+    keywords: ["percent", "discount", "sale", "offer", "rate", "percentage"],
+  },
+  {
     name: "circle-play",
     addedAt: "2026-08-01",
     category: ["Multimedia"],
@@ -838,6 +856,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-11-08",
     category: ["Tools","Mathematics"],
     keywords: ["plus", "add", "new", "create", "positive", "more"],
+  },
+  {
+    name: "circle-pound-sterling",
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["pound", "sterling", "coin", "money", "gbp", "currency"],
   },
   {
     name: "circle-power",
@@ -1734,6 +1758,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["buy", "purchase", "store", "checkout", "ecommerce"],
   },
   {
+    name: "shopping-cart-minus",
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["cart", "remove", "remove from cart", "shop", "basket", "checkout"],
+  },
+  {
+    name: "shopping-cart-plus",
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["cart", "add", "add to cart", "buy", "shop", "checkout"],
+  },
+  {
     name: "github",
     addedAt: "2025-08-02",
     category: ["Brands","Coding & development"],
@@ -2284,6 +2320,36 @@ const ICON_META: IconMeta[] = [
     addedAt: "2025-11-29",
     category: ["Finance","Tools","E-commerce"],
     keywords: ["payment", "card", "debit", "credit", "money", "finance"],
+  },
+  {
+    name: "credit-card-check",
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "payment", "success", "paid", "approved", "credit"],
+  },
+  {
+    name: "credit-card-minus",
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "remove card", "payment method", "delete", "credit", "debit"],
+  },
+  {
+    name: "credit-card-plus",
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "add card", "payment method", "new", "credit", "debit"],
+  },
+  {
+    name: "credit-card-reader",
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card reader", "pos", "terminal", "payment", "checkout", "swipe"],
+  },
+  {
+    name: "credit-card-x",
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "declined", "payment failed", "error", "credit", "cancel"],
   },
   {
     name: "brain",
@@ -3888,6 +3954,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["tag", "label", "price", "sale", "discount", "product"],
   },
   {
+    name: "tag-plus",
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["tag", "add tag", "label", "new", "price", "product"],
+  },
+  {
+    name: "tag-x",
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["tag", "remove tag", "label", "delete", "price", "product"],
+  },
+  {
     name: "tags",
     addedAt: "2026-08-02",
     category: ["Shopping","E-commerce"],
@@ -3900,16 +3978,70 @@ const ICON_META: IconMeta[] = [
     keywords: ["ticket", "event", "admission", "pass", "coupon", "entry"],
   },
   {
+    name: "ticket-check",
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "valid", "checked in", "confirmed", "event", "pass"],
+  },
+  {
+    name: "ticket-minus",
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "remove", "refund", "event", "pass", "admission"],
+  },
+  {
     name: "ticket-percent",
     addedAt: "2026-08-02",
     category: ["Shopping","E-commerce"],
     keywords: ["ticket", "coupon", "discount", "percent", "sale", "voucher"],
   },
   {
+    name: "ticket-plus",
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "add", "buy ticket", "event", "pass", "admission"],
+  },
+  {
+    name: "ticket-slash",
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "void", "invalid", "expired", "event", "pass"],
+  },
+  {
+    name: "ticket-x",
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "cancel", "invalid", "refund", "event", "pass"],
+  },
+  {
     name: "banknote",
     addedAt: "2026-08-02",
     category: ["Shopping"],
     keywords: ["banknote", "money", "cash", "bill", "currency", "payment"],
+  },
+  {
+    name: "banknote-arrow-down",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "receive money", "deposit", "cash", "transfer", "money"],
+  },
+  {
+    name: "banknote-arrow-up",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "send money", "withdraw", "cash", "transfer", "money"],
+  },
+  {
+    name: "banknote-check",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "paid", "payment", "success", "cash", "money"],
+  },
+  {
+    name: "banknote-x",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "payment failed", "cancel", "cash", "money", "error"],
   },
   {
     name: "coins",

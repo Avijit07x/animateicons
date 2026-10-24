@@ -131,13 +131,17 @@ import { CircleChevronLeftIcon } from "./circle-chevron-left-icon";
 import { CircleChevronRightIcon } from "./circle-chevron-right-icon";
 import { CircleChevronUpIcon } from "./circle-chevron-up-icon";
 import { CircleDashedIcon } from "./circle-dashed-icon";
+import { CircleDollarSignIcon } from "./circle-dollar-sign-icon";
 import { CircleDotIcon } from "./circle-dot-icon";
 import { CircleEllipsisIcon } from "./circle-ellipsis-icon";
+import { CircleEuroIcon } from "./circle-euro-icon";
 import { CircleMinusIcon } from "./circle-minus-icon";
 import { CircleOffIcon } from "./circle-off-icon";
 import { CirclePauseIcon } from "./circle-pause-icon";
+import { CirclePercentIcon } from "./circle-percent-icon";
 import { CirclePlayIcon } from "./circle-play-icon";
 import { CirclePlusIcon } from "./circle-plus-icon";
+import { CirclePoundSterlingIcon } from "./circle-pound-sterling-icon";
 import { CirclePowerIcon } from "./circle-power-icon";
 import { CircleQuestionMarkIcon } from "./circle-question-mark-icon";
 import { CircleSlashIcon } from "./circle-slash-icon";
@@ -287,6 +291,8 @@ import { BaggageClaimIcon } from "./baggage-claim-icon";
 import { ShoppingBagIcon } from "./shopping-bag-icon";
 import { ShoppingBasketIcon } from "./shopping-basket-icon";
 import { ShoppingCartIcon } from "./shopping-cart-icon";
+import { ShoppingCartMinusIcon } from "./shopping-cart-minus-icon";
+import { ShoppingCartPlusIcon } from "./shopping-cart-plus-icon";
 import { GithubIcon } from "./github-icon";
 import { TwitterIcon } from "./twitter-icon";
 import { FacebookIcon } from "./facebook-icon";
@@ -379,6 +385,11 @@ import { KeyIcon } from "./key-icon";
 import { KeyRoundIcon } from "./key-round-icon";
 import { KeySquareIcon } from "./key-square-icon";
 import { CreditCardIcon } from "./credit-card-icon";
+import { CreditCardCheckIcon } from "./credit-card-check-icon";
+import { CreditCardMinusIcon } from "./credit-card-minus-icon";
+import { CreditCardPlusIcon } from "./credit-card-plus-icon";
+import { CreditCardReaderIcon } from "./credit-card-reader-icon";
+import { CreditCardXIcon } from "./credit-card-x-icon";
 import { BrainIcon } from "./brain-icon";
 import { SignalIcon } from "./signal-icon";
 import { BadgeCentIcon } from "./badge-cent-icon";
@@ -646,10 +657,21 @@ import { StoreIcon } from "./store-icon";
 import { ReceiptIcon } from "./receipt-icon";
 import { ReceiptTextIcon } from "./receipt-text-icon";
 import { TagIcon } from "./tag-icon";
+import { TagPlusIcon } from "./tag-plus-icon";
+import { TagXIcon } from "./tag-x-icon";
 import { TagsIcon } from "./tags-icon";
 import { TicketIcon } from "./ticket-icon";
+import { TicketCheckIcon } from "./ticket-check-icon";
+import { TicketMinusIcon } from "./ticket-minus-icon";
 import { TicketPercentIcon } from "./ticket-percent-icon";
+import { TicketPlusIcon } from "./ticket-plus-icon";
+import { TicketSlashIcon } from "./ticket-slash-icon";
+import { TicketXIcon } from "./ticket-x-icon";
 import { BanknoteIcon } from "./banknote-icon";
+import { BanknoteArrowDownIcon } from "./banknote-arrow-down-icon";
+import { BanknoteArrowUpIcon } from "./banknote-arrow-up-icon";
+import { BanknoteCheckIcon } from "./banknote-check-icon";
+import { BanknoteXIcon } from "./banknote-x-icon";
 import { CoinsIcon } from "./coins-icon";
 import { TruckIcon } from "./truck-icon";
 import { PiggyBankIcon } from "./piggy-bank-icon";
@@ -1793,6 +1815,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["circle", "dashed", "draft", "todo", "pending", "status"],
   },
   {
+    name: "circle-dollar-sign",
+    icon: CircleDollarSignIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["dollar", "coin", "money", "usd", "currency", "payment"],
+  },
+  {
     name: "circle-dot",
     icon: CircleDotIcon,
     addedAt: "2026-09-27",
@@ -1805,6 +1834,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Layout"],
     keywords: ["more", "options", "menu", "dots", "ellipsis", "circle"],
+  },
+  {
+    name: "circle-euro",
+    icon: CircleEuroIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["euro", "coin", "money", "eur", "currency", "payment"],
   },
   {
     name: "circle-minus",
@@ -1828,6 +1864,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["pause", "circle", "media", "stop", "button"],
   },
   {
+    name: "circle-percent",
+    icon: CirclePercentIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Mathematics"],
+    keywords: ["percent", "discount", "sale", "offer", "rate", "percentage"],
+  },
+  {
     name: "circle-play",
     icon: CirclePlayIcon,
     addedAt: "2026-08-01",
@@ -1840,6 +1883,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-08",
     category: ["Tools","Mathematics"],
     keywords: ["plus", "add", "new", "create", "positive", "more"],
+  },
+  {
+    name: "circle-pound-sterling",
+    icon: CirclePoundSterlingIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance"],
+    keywords: ["pound", "sterling", "coin", "money", "gbp", "currency"],
   },
   {
     name: "circle-power",
@@ -2885,6 +2935,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["buy", "purchase", "store", "checkout", "ecommerce"],
   },
   {
+    name: "shopping-cart-minus",
+    icon: ShoppingCartMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["cart", "remove", "remove from cart", "shop", "basket", "checkout"],
+  },
+  {
+    name: "shopping-cart-plus",
+    icon: ShoppingCartPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["cart", "add", "add to cart", "buy", "shop", "checkout"],
+  },
+  {
     name: "github",
     icon: GithubIcon,
     addedAt: "2025-08-02",
@@ -3527,6 +3591,41 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-11-29",
     category: ["Finance","Tools","E-commerce"],
     keywords: ["payment", "card", "debit", "credit", "money", "finance"],
+  },
+  {
+    name: "credit-card-check",
+    icon: CreditCardCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "payment", "success", "paid", "approved", "credit"],
+  },
+  {
+    name: "credit-card-minus",
+    icon: CreditCardMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "remove card", "payment method", "delete", "credit", "debit"],
+  },
+  {
+    name: "credit-card-plus",
+    icon: CreditCardPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "add card", "payment method", "new", "credit", "debit"],
+  },
+  {
+    name: "credit-card-reader",
+    icon: CreditCardReaderIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card reader", "pos", "terminal", "payment", "checkout", "swipe"],
+  },
+  {
+    name: "credit-card-x",
+    icon: CreditCardXIcon,
+    addedAt: "2026-10-24",
+    category: ["Finance","E-commerce"],
+    keywords: ["card", "declined", "payment failed", "error", "credit", "cancel"],
   },
   {
     name: "brain",
@@ -5398,6 +5497,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["tag", "label", "price", "sale", "discount", "product"],
   },
   {
+    name: "tag-plus",
+    icon: TagPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["tag", "add tag", "label", "new", "price", "product"],
+  },
+  {
+    name: "tag-x",
+    icon: TagXIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","E-commerce"],
+    keywords: ["tag", "remove tag", "label", "delete", "price", "product"],
+  },
+  {
     name: "tags",
     icon: TagsIcon,
     addedAt: "2026-08-02",
@@ -5412,6 +5525,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["ticket", "event", "admission", "pass", "coupon", "entry"],
   },
   {
+    name: "ticket-check",
+    icon: TicketCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "valid", "checked in", "confirmed", "event", "pass"],
+  },
+  {
+    name: "ticket-minus",
+    icon: TicketMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "remove", "refund", "event", "pass", "admission"],
+  },
+  {
     name: "ticket-percent",
     icon: TicketPercentIcon,
     addedAt: "2026-08-02",
@@ -5419,11 +5546,60 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["ticket", "coupon", "discount", "percent", "sale", "voucher"],
   },
   {
+    name: "ticket-plus",
+    icon: TicketPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "add", "buy ticket", "event", "pass", "admission"],
+  },
+  {
+    name: "ticket-slash",
+    icon: TicketSlashIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "void", "invalid", "expired", "event", "pass"],
+  },
+  {
+    name: "ticket-x",
+    icon: TicketXIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping"],
+    keywords: ["ticket", "cancel", "invalid", "refund", "event", "pass"],
+  },
+  {
     name: "banknote",
     icon: BanknoteIcon,
     addedAt: "2026-08-02",
     category: ["Shopping"],
     keywords: ["banknote", "money", "cash", "bill", "currency", "payment"],
+  },
+  {
+    name: "banknote-arrow-down",
+    icon: BanknoteArrowDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "receive money", "deposit", "cash", "transfer", "money"],
+  },
+  {
+    name: "banknote-arrow-up",
+    icon: BanknoteArrowUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "send money", "withdraw", "cash", "transfer", "money"],
+  },
+  {
+    name: "banknote-check",
+    icon: BanknoteCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "paid", "payment", "success", "cash", "money"],
+  },
+  {
+    name: "banknote-x",
+    icon: BanknoteXIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Finance"],
+    keywords: ["banknote", "payment failed", "cancel", "cash", "money", "error"],
   },
   {
     name: "coins",
