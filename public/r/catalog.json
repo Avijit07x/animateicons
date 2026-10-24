@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1293,
+  "total": 1303,
   "libraries": {
-    "lucide": 792,
+    "lucide": 802,
     "huge": 501
   },
   "icons": [
@@ -13343,6 +13343,26 @@
       "url": "https://animateicons.in/r/lu-circle-stop.json"
     },
     {
+      "name": "circle-user",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-user",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "avatar",
+        "profile",
+        "user",
+        "account",
+        "person",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-user.json"
+    },
+    {
       "name": "circle-user-round",
       "library": "lucide",
       "prefix": "lu",
@@ -22548,6 +22568,46 @@
       "url": "https://animateicons.in/r/lu-square-stop.json"
     },
     {
+      "name": "square-user",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-user",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "avatar",
+        "profile",
+        "user",
+        "account",
+        "person",
+        "square"
+      ],
+      "url": "https://animateicons.in/r/lu-square-user.json"
+    },
+    {
+      "name": "square-user-round",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-user-round",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "avatar",
+        "profile",
+        "user",
+        "account",
+        "person",
+        "square"
+      ],
+      "url": "https://animateicons.in/r/lu-square-user-round.json"
+    },
+    {
       "name": "square-x",
       "library": "lucide",
       "prefix": "lu",
@@ -23845,6 +23905,47 @@
       "url": "https://animateicons.in/r/lu-user-cog.json"
     },
     {
+      "name": "user-group",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-group",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Social"
+      ],
+      "keywords": [
+        "group",
+        "team",
+        "people",
+        "community",
+        "members",
+        "users"
+      ],
+      "url": "https://animateicons.in/r/lu-user-group.json"
+    },
+    {
+      "name": "user-key",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-key",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Accounts & access",
+        "People",
+        "Security"
+      ],
+      "keywords": [
+        "key",
+        "access",
+        "credentials",
+        "password",
+        "login",
+        "user"
+      ],
+      "url": "https://animateicons.in/r/lu-user-key.json"
+    },
+    {
       "name": "user-lock",
       "library": "lucide",
       "prefix": "lu",
@@ -23942,6 +24043,26 @@
       "url": "https://animateicons.in/r/lu-user-round.json"
     },
     {
+      "name": "user-round-arrow-left",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-arrow-left",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Accounts & access"
+      ],
+      "keywords": [
+        "leave",
+        "exit",
+        "back",
+        "user",
+        "sign out",
+        "previous"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-arrow-left.json"
+    },
+    {
       "name": "user-round-check",
       "library": "lucide",
       "prefix": "lu",
@@ -23980,6 +24101,47 @@
       "url": "https://animateicons.in/r/lu-user-round-cog.json"
     },
     {
+      "name": "user-round-group",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-group",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People",
+        "Social"
+      ],
+      "keywords": [
+        "group",
+        "team",
+        "people",
+        "community",
+        "members",
+        "users"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-group.json"
+    },
+    {
+      "name": "user-round-key",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-key",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Accounts & access",
+        "People",
+        "Security"
+      ],
+      "keywords": [
+        "key",
+        "access",
+        "credentials",
+        "password",
+        "login",
+        "user"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-key.json"
+    },
+    {
       "name": "user-round-minus",
       "library": "lucide",
       "prefix": "lu",
@@ -24016,6 +24178,25 @@
         "change"
       ],
       "url": "https://animateicons.in/r/lu-user-round-pen.json"
+    },
+    {
+      "name": "user-round-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-round-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "People"
+      ],
+      "keywords": [
+        "new",
+        "add",
+        "create",
+        "invite",
+        "join",
+        "user"
+      ],
+      "url": "https://animateicons.in/r/lu-user-round-plus.json"
     },
     {
       "name": "user-round-search",
@@ -24072,6 +24253,27 @@
         "explore"
       ],
       "url": "https://animateicons.in/r/lu-user-search.json"
+    },
+    {
+      "name": "user-shield",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-user-shield",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Accounts & access",
+        "People",
+        "Security"
+      ],
+      "keywords": [
+        "admin",
+        "security",
+        "protected",
+        "moderator",
+        "verified",
+        "user"
+      ],
+      "url": "https://animateicons.in/r/lu-user-shield.json"
     },
     {
       "name": "user-star",

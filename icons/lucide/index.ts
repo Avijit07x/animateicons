@@ -21,18 +21,25 @@ import { ScanQrCodeIcon } from "./scan-qr-code-icon";
 import { UserIcon } from "./user-icon";
 import { UserCheckIcon } from "./user-check-icon";
 import { UserCogIcon } from "./user-cog-icon";
+import { UserGroupIcon } from "./user-group-icon";
+import { UserKeyIcon } from "./user-key-icon";
 import { UserLockIcon } from "./user-lock-icon";
 import { UserMinusIcon } from "./user-minus-icon";
 import { UserPenIcon } from "./user-pen-icon";
 import { UserPlusIcon } from "./user-plus-icon";
 import { UserRoundIcon } from "./user-round-icon";
+import { UserRoundArrowLeftIcon } from "./user-round-arrow-left-icon";
 import { UserRoundCheckIcon } from "./user-round-check-icon";
 import { UserRoundCogIcon } from "./user-round-cog-icon";
+import { UserRoundGroupIcon } from "./user-round-group-icon";
+import { UserRoundKeyIcon } from "./user-round-key-icon";
 import { UserRoundMinusIcon } from "./user-round-minus-icon";
 import { UserRoundPenIcon } from "./user-round-pen-icon";
+import { UserRoundPlusIcon } from "./user-round-plus-icon";
 import { UserRoundSearchIcon } from "./user-round-search-icon";
 import { UserRoundXIcon } from "./user-round-x-icon";
 import { UserSearchIcon } from "./user-search-icon";
+import { UserShieldIcon } from "./user-shield-icon";
 import { UserStarIcon } from "./user-star-icon";
 import { UserXIcon } from "./user-x-icon";
 import { UsersIcon } from "./users-icon";
@@ -119,6 +126,7 @@ import { CircleSlashIcon } from "./circle-slash-icon";
 import { CircleSlash2Icon } from "./circle-slash-2-icon";
 import { CircleStarIcon } from "./circle-star-icon";
 import { CircleStopIcon } from "./circle-stop-icon";
+import { CircleUserIcon } from "./circle-user-icon";
 import { CircleUserRoundIcon } from "./circle-user-round-icon";
 import { CircleXIcon } from "./circle-x-icon";
 import { ChevronDownIcon } from "./chevron-down-icon";
@@ -313,6 +321,8 @@ import { SquarePlayIcon } from "./square-play-icon";
 import { SquarePlusIcon } from "./square-plus-icon";
 import { SquareSlashIcon } from "./square-slash-icon";
 import { SquareStopIcon } from "./square-stop-icon";
+import { SquareUserIcon } from "./square-user-icon";
+import { SquareUserRoundIcon } from "./square-user-round-icon";
 import { SquareXIcon } from "./square-x-icon";
 import { ExternalLinkIcon } from "./external-link-icon";
 import { LinkIcon } from "./link-icon";
@@ -954,6 +964,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["settings", "account", "options", "admin", "preferences", "config"],
   },
   {
+    name: "user-group",
+    icon: UserGroupIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Social"],
+    keywords: ["group", "team", "people", "community", "members", "users"],
+  },
+  {
+    name: "user-key",
+    icon: UserKeyIcon,
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["key", "access", "credentials", "password", "login", "user"],
+  },
+  {
     name: "user-lock",
     icon: UserLockIcon,
     addedAt: "2025-10-15",
@@ -989,6 +1013,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["user", "round", "person", "profile", "account", "avatar"],
   },
   {
+    name: "user-round-arrow-left",
+    icon: UserRoundArrowLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["leave", "exit", "back", "user", "sign out", "previous"],
+  },
+  {
     name: "user-round-check",
     icon: UserRoundCheckIcon,
     addedAt: "2025-08-25",
@@ -1003,6 +1034,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["settings", "account", "options", "admin", "preferences", "config"],
   },
   {
+    name: "user-round-group",
+    icon: UserRoundGroupIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Social"],
+    keywords: ["group", "team", "people", "community", "members", "users"],
+  },
+  {
+    name: "user-round-key",
+    icon: UserRoundKeyIcon,
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["key", "access", "credentials", "password", "login", "user"],
+  },
+  {
     name: "user-round-minus",
     icon: UserRoundMinusIcon,
     addedAt: "2025-07-28",
@@ -1015,6 +1060,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-08-24",
     category: ["People"],
     keywords: ["edit", "update", "profile", "modify", "account", "change"],
+  },
+  {
+    name: "user-round-plus",
+    icon: UserRoundPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["People"],
+    keywords: ["new", "add", "create", "invite", "join", "user"],
   },
   {
     name: "user-round-search",
@@ -1036,6 +1088,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-10-03",
     category: ["People"],
     keywords: ["search", "user", "find", "magnifier", "lookup", "explore"],
+  },
+  {
+    name: "user-shield",
+    icon: UserShieldIcon,
+    addedAt: "2026-10-24",
+    category: ["Accounts & access","People","Security"],
+    keywords: ["admin", "security", "protected", "moderator", "verified", "user"],
   },
   {
     name: "user-star",
@@ -1638,6 +1697,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-01",
     category: ["Multimedia"],
     keywords: ["stop", "circle", "media", "square", "button"],
+  },
+  {
+    name: "circle-user",
+    icon: CircleUserIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "circle"],
   },
   {
     name: "circle-user-round",
@@ -2996,6 +3062,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Multimedia"],
     keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-user",
+    icon: SquareUserIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "square"],
+  },
+  {
+    name: "square-user-round",
+    icon: SquareUserRoundIcon,
+    addedAt: "2026-10-24",
+    category: ["People","Accounts & access"],
+    keywords: ["avatar", "profile", "user", "account", "person", "square"],
   },
   {
     name: "square-x",
