@@ -15364,6 +15364,70 @@
       ]
     },
     {
+      "name": "lu-message-circle-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-circle-code",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-code-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-code.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-circle-dashed-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-dashed-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-dashed-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-circle-dashed",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-dashed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-dashed.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-message-circle-heart",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15412,6 +15476,22 @@
       ]
     },
     {
+      "name": "lu-message-circle-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-message-circle-plus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15444,6 +15524,38 @@
       ]
     },
     {
+      "name": "lu-message-circle-reply",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-reply-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-reply.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-circle-warning",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-circle-warning-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-circle-warning.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-message-circle-x",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15456,6 +15568,70 @@
           "path": "icons/lucide/message-circle-x-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/message-circle-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-code",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-code-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-code.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-dashed",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-dashed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-dashed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-diff",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-diff-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-diff.tsx"
         }
       ]
     },
@@ -15508,6 +15684,54 @@
       ]
     },
     {
+      "name": "lu-message-square-lock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-lock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-more",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-more-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-more.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-message-square-plus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15520,6 +15744,54 @@
           "path": "icons/lucide/message-square-plus-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/message-square-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-quote",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-quote-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-quote.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-reply",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-reply-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-reply.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-message-square-share",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-share-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-share.tsx"
         }
       ]
     },
@@ -15540,6 +15812,22 @@
       ]
     },
     {
+      "name": "lu-message-square-warning",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/message-square-warning-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/message-square-warning.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-message-square-x",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15552,6 +15840,22 @@
           "path": "icons/lucide/message-square-x-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/message-square-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-messages-circle",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/messages-circle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/messages-circle.tsx"
         }
       ]
     },

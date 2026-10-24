@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1303,
+  "total": 1322,
   "libraries": {
-    "lucide": 802,
+    "lucide": 821,
     "huge": 501
   },
   "icons": [
@@ -18413,6 +18413,85 @@
       "url": "https://animateicons.in/r/lu-message-circle.json"
     },
     {
+      "name": "message-circle-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "read",
+        "sent",
+        "delivered",
+        "done",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-check.json"
+    },
+    {
+      "name": "message-circle-code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-code",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "code",
+        "snippet",
+        "developer",
+        "markdown",
+        "inline code"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-code.json"
+    },
+    {
+      "name": "message-circle-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "draft",
+        "pending",
+        "typing",
+        "dashed",
+        "unsent"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-dashed.json"
+    },
+    {
+      "name": "message-circle-dashed-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-dashed-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "draft",
+        "approved",
+        "dashed",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-dashed-check.json"
+    },
+    {
       "name": "message-circle-heart",
       "library": "lucide",
       "prefix": "lu",
@@ -18447,6 +18526,26 @@
         "dots"
       ],
       "url": "https://animateicons.in/r/lu-message-circle-more.json"
+    },
+    {
+      "name": "message-circle-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "muted",
+        "disabled",
+        "off",
+        "silent",
+        "no comments"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-off.json"
     },
     {
       "name": "message-circle-plus",
@@ -18487,6 +18586,46 @@
       "url": "https://animateicons.in/r/lu-message-circle-question-mark.json"
     },
     {
+      "name": "message-circle-reply",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-reply",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "reply",
+        "respond",
+        "answer",
+        "thread",
+        "back"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-reply.json"
+    },
+    {
+      "name": "message-circle-warning",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-circle-warning",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "warning",
+        "alert",
+        "error",
+        "report",
+        "problem"
+      ],
+      "url": "https://animateicons.in/r/lu-message-circle-warning.json"
+    },
+    {
       "name": "message-circle-x",
       "library": "lucide",
       "prefix": "lu",
@@ -18521,6 +18660,86 @@
         "talk"
       ],
       "url": "https://animateicons.in/r/lu-message-square.json"
+    },
+    {
+      "name": "message-square-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "read",
+        "sent",
+        "delivered",
+        "done",
+        "check"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-check.json"
+    },
+    {
+      "name": "message-square-code",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-code",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "code",
+        "snippet",
+        "developer",
+        "markdown",
+        "inline code"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-code.json"
+    },
+    {
+      "name": "message-square-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "draft",
+        "pending",
+        "typing",
+        "dashed",
+        "unsent"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-dashed.json"
+    },
+    {
+      "name": "message-square-diff",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-diff",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication",
+        "Coding & development"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "diff",
+        "changes",
+        "review",
+        "compare"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-diff.json"
     },
     {
       "name": "message-square-dot",
@@ -18560,6 +18779,65 @@
       "url": "https://animateicons.in/r/lu-message-square-heart.json"
     },
     {
+      "name": "message-square-lock",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-lock",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication",
+        "Security"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "private",
+        "encrypted",
+        "secure",
+        "lock"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-lock.json"
+    },
+    {
+      "name": "message-square-more",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-more",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "typing",
+        "more",
+        "options",
+        "dots"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-more.json"
+    },
+    {
+      "name": "message-square-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "muted",
+        "disabled",
+        "off",
+        "silent",
+        "no comments"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-off.json"
+    },
+    {
       "name": "message-square-plus",
       "library": "lucide",
       "prefix": "lu",
@@ -18577,6 +18855,64 @@
         "compose"
       ],
       "url": "https://animateicons.in/r/lu-message-square-plus.json"
+    },
+    {
+      "name": "message-square-quote",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-quote",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "quote",
+        "citation",
+        "testimonial",
+        "review"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-quote.json"
+    },
+    {
+      "name": "message-square-reply",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-reply",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "reply",
+        "respond",
+        "answer",
+        "thread",
+        "back"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-reply.json"
+    },
+    {
+      "name": "message-square-share",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-share",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "share",
+        "forward",
+        "send",
+        "external"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-share.json"
     },
     {
       "name": "message-square-text",
@@ -18597,6 +18933,26 @@
       "url": "https://animateicons.in/r/lu-message-square-text.json"
     },
     {
+      "name": "message-square-warning",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-message-square-warning",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "message",
+        "chat",
+        "warning",
+        "alert",
+        "error",
+        "report",
+        "problem"
+      ],
+      "url": "https://animateicons.in/r/lu-message-square-warning.json"
+    },
+    {
       "name": "message-square-x",
       "library": "lucide",
       "prefix": "lu",
@@ -18614,6 +18970,25 @@
         "remove"
       ],
       "url": "https://animateicons.in/r/lu-message-square-x.json"
+    },
+    {
+      "name": "messages-circle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-messages-circle",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Communication"
+      ],
+      "keywords": [
+        "messages",
+        "chat",
+        "conversation",
+        "comments",
+        "discussion",
+        "talk"
+      ],
+      "url": "https://animateicons.in/r/lu-messages-circle.json"
     },
     {
       "name": "messages-square",

@@ -1224,6 +1224,30 @@ const ICON_META: IconMeta[] = [
     keywords: ["chat", "comment", "discussion", "reply", "feedback"],
   },
   {
+    name: "message-circle-check",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "read", "sent", "delivered", "done", "check"],
+  },
+  {
+    name: "message-circle-code",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "code", "snippet", "developer", "markdown", "inline code"],
+  },
+  {
+    name: "message-circle-dashed",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "pending", "typing", "dashed", "unsent"],
+  },
+  {
+    name: "message-circle-dashed-check",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "approved", "dashed", "check"],
+  },
+  {
     name: "message-circle-heart",
     addedAt: "2026-08-01",
     category: ["Communication"],
@@ -1234,6 +1258,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "more", "chat", "typing", "dots"],
+  },
+  {
+    name: "message-circle-off",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "muted", "disabled", "off", "silent", "no comments"],
   },
   {
     name: "message-circle-plus",
@@ -1248,6 +1278,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["help", "question", "support", "faq", "chat", "ask"],
   },
   {
+    name: "message-circle-reply",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "reply", "respond", "answer", "thread", "back"],
+  },
+  {
+    name: "message-circle-warning",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "warning", "alert", "error", "report", "problem"],
+  },
+  {
     name: "message-circle-x",
     addedAt: "2026-08-01",
     category: ["Communication"],
@@ -1258,6 +1300,30 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "chat", "comment", "bubble", "talk"],
+  },
+  {
+    name: "message-square-check",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "read", "sent", "delivered", "done", "check"],
+  },
+  {
+    name: "message-square-code",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "code", "snippet", "developer", "markdown", "inline code"],
+  },
+  {
+    name: "message-square-dashed",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "pending", "typing", "dashed", "unsent"],
+  },
+  {
+    name: "message-square-diff",
+    addedAt: "2026-10-24",
+    category: ["Communication","Coding & development"],
+    keywords: ["message", "chat", "diff", "changes", "review", "compare"],
   },
   {
     name: "message-square-dot",
@@ -1272,10 +1338,46 @@ const ICON_META: IconMeta[] = [
     keywords: ["message", "heart", "chat", "like", "love", "favorite"],
   },
   {
+    name: "message-square-lock",
+    addedAt: "2026-10-24",
+    category: ["Communication","Security"],
+    keywords: ["message", "chat", "private", "encrypted", "secure", "lock"],
+  },
+  {
+    name: "message-square-more",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "typing", "more", "options", "dots"],
+  },
+  {
+    name: "message-square-off",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "muted", "disabled", "off", "silent", "no comments"],
+  },
+  {
     name: "message-square-plus",
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "plus", "new", "chat", "add", "compose"],
+  },
+  {
+    name: "message-square-quote",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "quote", "citation", "testimonial", "review"],
+  },
+  {
+    name: "message-square-reply",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "reply", "respond", "answer", "thread", "back"],
+  },
+  {
+    name: "message-square-share",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "share", "forward", "send", "external"],
   },
   {
     name: "message-square-text",
@@ -1284,10 +1386,22 @@ const ICON_META: IconMeta[] = [
     keywords: ["message", "text", "chat", "comment", "lines"],
   },
   {
+    name: "message-square-warning",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "warning", "alert", "error", "report", "problem"],
+  },
+  {
     name: "message-square-x",
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "x", "chat", "delete", "close", "remove"],
+  },
+  {
+    name: "messages-circle",
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["messages", "chat", "conversation", "comments", "discussion", "talk"],
   },
   {
     name: "messages-square",
