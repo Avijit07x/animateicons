@@ -10356,6 +10356,38 @@
       ]
     },
     {
+      "name": "lu-circle-ellipsis",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-ellipsis-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-ellipsis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-circle-minus",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10368,6 +10400,22 @@
           "path": "icons/lucide/circle-minus-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/circle-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-off.tsx"
         }
       ]
     },
@@ -10420,6 +10468,22 @@
       ]
     },
     {
+      "name": "lu-circle-power",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-power-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-power.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-circle-question-mark",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10432,6 +10496,54 @@
           "path": "icons/lucide/circle-question-mark-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/circle-question-mark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-slash-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-slash-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-slash-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-slash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-slash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-slash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-circle-star",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/circle-star-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/circle-star.tsx"
         }
       ]
     },
@@ -11392,6 +11504,70 @@
           "path": "icons/lucide/delete-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/delete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-diamond",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/diamond-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/diamond.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-diamond-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/diamond-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/diamond-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-diamond-percent",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/diamond-percent-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/diamond-percent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-diamond-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/diamond-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/diamond-plus.tsx"
         }
       ]
     },
@@ -13236,6 +13412,22 @@
       ]
     },
     {
+      "name": "lu-hexagon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/hexagon-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/hexagon.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-highlighter",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15012,6 +15204,70 @@
       ]
     },
     {
+      "name": "lu-octagon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/octagon-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/octagon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-octagon-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/octagon-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/octagon-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-octagon-pause",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/octagon-pause-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/octagon-pause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-octagon-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/octagon-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/octagon-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-orbit",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15312,6 +15568,22 @@
           "path": "icons/lucide/pencil-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/pencil.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-pentagon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/pentagon-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pentagon.tsx"
         }
       ]
     },
@@ -16868,6 +17140,22 @@
       ]
     },
     {
+      "name": "lu-square-check-big",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-check-big-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-check-big.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-square-check",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16896,6 +17184,54 @@
           "path": "icons/lucide/square-dashed-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/square-dashed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-dot",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-dot-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-minus.tsx"
         }
       ]
     },
@@ -16944,6 +17280,70 @@
           "path": "icons/lucide/square-play-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/square-play.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-slash",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-slash-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-slash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-stop",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-stop-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-stop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-square-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/square-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/square-x.tsx"
         }
       ]
     },
@@ -17696,6 +18096,54 @@
           "path": "icons/lucide/triangle-alert-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/triangle-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-triangle-dashed",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/triangle-dashed-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/triangle-dashed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-triangle",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/triangle-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/triangle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-triangle-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/triangle-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/triangle-right.tsx"
         }
       ]
     },
