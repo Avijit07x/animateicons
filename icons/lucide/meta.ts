@@ -462,6 +462,36 @@ const ICON_META: IconMeta[] = [
     keywords: ["home", "main", "dashboard", "start", "root"],
   },
   {
+    name: "house-cog",
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "settings", "smart home", "property", "configure", "gear"],
+  },
+  {
+    name: "house-heart",
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "favorite", "love", "family", "property", "shelter"],
+  },
+  {
+    name: "house-plug",
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "electricity", "power", "smart home", "energy", "plug"],
+  },
+  {
+    name: "house-plus",
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "add", "new house", "property", "building", "create"],
+  },
+  {
+    name: "house-wifi",
+    addedAt: "2026-10-24",
+    category: ["Home","Architecture"],
+    keywords: ["home", "wifi", "internet", "smart home", "network", "connected"],
+  },
+  {
     name: "info",
     addedAt: "2025-12-21",
     category: ["Tools"],
@@ -2142,6 +2172,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["map", "location", "navigate", "atlas", "geography", "directions"],
   },
   {
+    name: "map-minus",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs","Travel"],
+    keywords: ["map", "remove", "delete map", "location", "atlas", "route"],
+  },
+  {
     name: "map-pin",
     addedAt: "2026-01-19",
     category: ["Navigation, Maps, and POIs"],
@@ -2160,10 +2196,76 @@ const ICON_META: IconMeta[] = [
     keywords: ["location", "marker", "done", "complete", "pin"],
   },
   {
+    name: "map-pin-house",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["home address", "location", "house", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-minus",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "delete place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-minus-inside",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "delete place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-off",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "off", "disabled", "no gps", "map", "pin"],
+  },
+  {
+    name: "map-pin-pen",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "edit", "rename place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-plus",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "add", "new place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-plus-inside",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "add", "new place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-search",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "search", "find place", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-x",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "clear", "marker", "map", "pin"],
+  },
+  {
+    name: "map-pin-x-inside",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs"],
+    keywords: ["location", "remove", "clear", "marker", "map", "pin"],
+  },
+  {
     name: "map-pinned",
     addedAt: "2025-10-11",
     category: ["Navigation, Maps, and POIs"],
     keywords: ["location", "place", "marker", "gps", "map", "pin"],
+  },
+  {
+    name: "map-plus",
+    addedAt: "2026-10-24",
+    category: ["Navigation, Maps, and POIs","Travel"],
+    keywords: ["map", "add", "new map", "location", "atlas", "route"],
   },
   {
     name: "pin",
@@ -5316,10 +5418,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["briefcase", "work", "job", "business", "career", "portfolio"],
   },
   {
+    name: "building",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "office", "tower", "company", "business", "city"],
+  },
+  {
     name: "building-2",
     addedAt: "2026-09-27",
     category: ["Architecture","Navigation, Maps, and POIs"],
     keywords: ["building", "office", "company", "business", "organization", "city"],
+  },
+  {
+    name: "building-complex",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "complex", "campus", "offices", "business", "city"],
+  },
+  {
+    name: "building-complex-plus",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["building", "complex", "add", "new office", "business", "city"],
   },
   {
     name: "landmark",
@@ -5686,6 +5806,42 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Devices"],
     keywords: ["cctv", "security camera", "surveillance", "off", "privacy", "disabled"],
+  },
+  {
+    name: "hotel",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["hotel", "stay", "travel", "accommodation", "lodging", "vacation"],
+  },
+  {
+    name: "hospital",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["hospital", "medical", "health", "clinic", "emergency", "care"],
+  },
+  {
+    name: "school",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["school", "education", "learning", "students", "classroom", "building"],
+  },
+  {
+    name: "university",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["university", "college", "education", "campus", "academy", "graduate"],
+  },
+  {
+    name: "factory",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["factory", "industry", "manufacturing", "plant", "production", "industrial"],
+  },
+  {
+    name: "warehouse",
+    addedAt: "2026-10-24",
+    category: ["Architecture","Navigation, Maps, and POIs"],
+    keywords: ["warehouse", "storage", "depot", "logistics", "inventory", "garage"],
   },
 ];
 
