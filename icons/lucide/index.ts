@@ -188,13 +188,21 @@ import { CornerRightUpIcon } from "./corner-right-up-icon";
 import { CornerUpLeftIcon } from "./corner-up-left-icon";
 import { CornerUpRightIcon } from "./corner-up-right-icon";
 import { ListIcon } from "./list-icon";
+import { ListCheckIcon } from "./list-check-icon";
 import { ListChecksIcon } from "./list-checks-icon";
+import { ListChevronsDownUpIcon } from "./list-chevrons-down-up-icon";
 import { ListChevronsUpDownIcon } from "./list-chevrons-up-down-icon";
 import { ListCollapseIcon } from "./list-collapse-icon";
+import { ListEndIcon } from "./list-end-icon";
 import { ListFilterIcon } from "./list-filter-icon";
+import { ListFilterPlusIcon } from "./list-filter-plus-icon";
+import { ListMinusIcon } from "./list-minus-icon";
 import { ListOrderedIcon } from "./list-ordered-icon";
 import { ListPlusIcon } from "./list-plus-icon";
+import { ListStartIcon } from "./list-start-icon";
+import { ListTodoIcon } from "./list-todo-icon";
 import { ListTreeIcon } from "./list-tree-icon";
+import { ListXIcon } from "./list-x-icon";
 import { PlayIcon } from "./play-icon";
 import { PauseIcon } from "./pause-icon";
 import { PlusIcon } from "./plus-icon";
@@ -647,8 +655,14 @@ import { StrikethroughIcon } from "./strikethrough-icon";
 import { HeadingIcon } from "./heading-icon";
 import { Heading1Icon } from "./heading-1-icon";
 import { Heading2Icon } from "./heading-2-icon";
+import { Heading3Icon } from "./heading-3-icon";
+import { Heading4Icon } from "./heading-4-icon";
+import { Heading5Icon } from "./heading-5-icon";
+import { Heading6Icon } from "./heading-6-icon";
 import { TypeIcon } from "./type-icon";
 import { PilcrowIcon } from "./pilcrow-icon";
+import { PilcrowLeftIcon } from "./pilcrow-left-icon";
+import { PilcrowRightIcon } from "./pilcrow-right-icon";
 import { QuoteIcon } from "./quote-icon";
 import { HourglassIcon } from "./hourglass-icon";
 import { WatchIcon } from "./watch-icon";
@@ -810,6 +824,8 @@ import { FingerprintPatternIcon } from "./fingerprint-pattern-icon";
 import { AtSignIcon } from "./at-sign-icon";
 import { HashIcon } from "./hash-icon";
 import { TextCursorIcon } from "./text-cursor-icon";
+import { TextInitialIcon } from "./text-initial-icon";
+import { TextQuoteIcon } from "./text-quote-icon";
 import { TextSearchIcon } from "./text-search-icon";
 import { StickyNoteIcon } from "./sticky-note-icon";
 import { LifeBuoyIcon } from "./life-buoy-icon";
@@ -881,6 +897,12 @@ import { Grid3x2Icon } from "./grid-3x2-icon";
 import { Grid3x3Icon } from "./grid-3x3-icon";
 import { RegexIcon } from "./regex-icon";
 import { VariableIcon } from "./variable-icon";
+import { SuperscriptIcon } from "./superscript-icon";
+import { SubscriptIcon } from "./subscript-icon";
+import { CaseLowerIcon } from "./case-lower-icon";
+import { CaseSensitiveIcon } from "./case-sensitive-icon";
+import { CaseUpperIcon } from "./case-upper-icon";
+import { RemoveFormattingIcon } from "./remove-formatting-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -2214,11 +2236,25 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["list", "bullets", "items", "unordered", "ul"],
   },
   {
+    name: "list-check",
+    icon: ListCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "check", "done", "tasks", "checklist", "complete"],
+  },
+  {
     name: "list-checks",
     icon: ListChecksIcon,
     addedAt: "2026-08-02",
     category: ["Text formatting"],
     keywords: ["list", "checks", "checklist", "tasks", "todo"],
+  },
+  {
+    name: "list-chevrons-down-up",
+    icon: ListChevronsDownUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "collapse", "fold", "less", "shrink", "chevrons"],
   },
   {
     name: "list-chevrons-up-down",
@@ -2235,11 +2271,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["collapse", "accordion", "list", "fold", "expand", "toggle"],
   },
   {
+    name: "list-end",
+    icon: ListEndIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "move to bottom", "end", "last", "reorder", "queue"],
+  },
+  {
     name: "list-filter",
     icon: ListFilterIcon,
     addedAt: "2026-09-29",
     category: ["Tools"],
     keywords: ["list-filter", "filter", "list", "sort", "refine", "search", "narrow"],
+  },
+  {
+    name: "list-filter-plus",
+    icon: ListFilterPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["filter", "add filter", "sort", "list", "refine", "new"],
+  },
+  {
+    name: "list-minus",
+    icon: ListMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "remove", "minus", "delete", "item", "playlist"],
   },
   {
     name: "list-ordered",
@@ -2256,11 +2313,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["list", "add", "playlist", "append", "new", "item"],
   },
   {
+    name: "list-start",
+    icon: ListStartIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "move to top", "start", "first", "reorder", "queue"],
+  },
+  {
+    name: "list-todo",
+    icon: ListTodoIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "todo", "tasks", "checklist", "checkbox", "plan"],
+  },
+  {
     name: "list-tree",
     icon: ListTreeIcon,
     addedAt: "2026-09-27",
     category: ["Text formatting","Layout"],
     keywords: ["tree", "list", "hierarchy", "nested", "outline", "structure"],
+  },
+  {
+    name: "list-x",
+    icon: ListXIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["list", "remove", "clear", "delete", "item", "cancel"],
   },
   {
     name: "play",
@@ -5427,6 +5505,34 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["heading", "h2", "subtitle", "text", "header"],
   },
   {
+    name: "heading-3",
+    icon: Heading3Icon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h3", "title", "text", "header"],
+  },
+  {
+    name: "heading-4",
+    icon: Heading4Icon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h4", "title", "text", "header"],
+  },
+  {
+    name: "heading-5",
+    icon: Heading5Icon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h5", "title", "text", "header"],
+  },
+  {
+    name: "heading-6",
+    icon: Heading6Icon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["heading", "h6", "title", "text", "header"],
+  },
+  {
     name: "type",
     icon: TypeIcon,
     addedAt: "2026-08-02",
@@ -5439,6 +5545,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-02",
     category: ["Text formatting"],
     keywords: ["pilcrow", "paragraph", "text", "format", "mark"],
+  },
+  {
+    name: "pilcrow-left",
+    icon: PilcrowLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["pilcrow", "paragraph", "rtl", "right to left", "direction", "text"],
+  },
+  {
+    name: "pilcrow-right",
+    icon: PilcrowRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["pilcrow", "paragraph", "ltr", "left to right", "direction", "text"],
   },
   {
     name: "quote",
@@ -6568,6 +6688,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["cursor", "text", "caret", "type", "input", "i-beam"],
   },
   {
+    name: "text-initial",
+    icon: TextInitialIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["drop cap", "initial", "first letter", "text", "typography", "paragraph"],
+  },
+  {
+    name: "text-quote",
+    icon: TextQuoteIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["quote", "blockquote", "citation", "text", "paragraph", "indent"],
+  },
+  {
     name: "text-search",
     icon: TextSearchIcon,
     addedAt: "2026-09-27",
@@ -7063,6 +7197,48 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Coding & development"],
     keywords: ["variable", "function", "parameter", "math", "code", "placeholder"],
+  },
+  {
+    name: "superscript",
+    icon: SuperscriptIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["superscript", "exponent", "power", "text", "format"],
+  },
+  {
+    name: "subscript",
+    icon: SubscriptIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["subscript", "index", "chemistry", "text", "format"],
+  },
+  {
+    name: "case-lower",
+    icon: CaseLowerIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["lowercase", "small letters", "text", "case", "letters", "font"],
+  },
+  {
+    name: "case-sensitive",
+    icon: CaseSensitiveIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["case sensitive", "match case", "search", "text", "letters", "aa"],
+  },
+  {
+    name: "case-upper",
+    icon: CaseUpperIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["uppercase", "capitals", "caps", "text", "case", "letters"],
+  },
+  {
+    name: "remove-formatting",
+    icon: RemoveFormattingIcon,
+    addedAt: "2026-10-24",
+    category: ["Text formatting"],
+    keywords: ["clear formatting", "remove style", "text", "format", "reset", "plain text"],
   },
 ];
 

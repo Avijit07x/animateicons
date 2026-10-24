@@ -10100,6 +10100,54 @@
       ]
     },
     {
+      "name": "lu-case-lower",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/case-lower-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/case-lower.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-case-sensitive",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/case-sensitive-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/case-sensitive.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-case-upper",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/case-upper-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/case-upper.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-cast",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -14500,6 +14548,70 @@
       ]
     },
     {
+      "name": "lu-heading-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heading-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heading-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heading-4",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heading-4-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heading-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heading-5",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heading-5-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heading-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-heading-6",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/heading-6-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/heading-6.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-heading",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15204,6 +15316,22 @@
       ]
     },
     {
+      "name": "lu-list-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-list-checks",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15216,6 +15344,22 @@
           "path": "icons/lucide/list-checks-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/list-checks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-list-chevrons-down-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-chevrons-down-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-chevrons-down-up.tsx"
         }
       ]
     },
@@ -15252,6 +15396,22 @@
       ]
     },
     {
+      "name": "lu-list-end",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-end-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-end.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-list-filter",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15268,6 +15428,22 @@
       ]
     },
     {
+      "name": "lu-list-filter-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-filter-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-filter-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-list",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15280,6 +15456,22 @@
           "path": "icons/lucide/list-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-list-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-minus.tsx"
         }
       ]
     },
@@ -15316,6 +15508,38 @@
       ]
     },
     {
+      "name": "lu-list-start",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-start-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-start.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-list-todo",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-todo-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-todo.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-list-tree",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15328,6 +15552,22 @@
           "path": "icons/lucide/list-tree-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/list-tree.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-list-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/list-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/list-x.tsx"
         }
       ]
     },
@@ -17764,6 +18004,38 @@
       ]
     },
     {
+      "name": "lu-pilcrow-left",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/pilcrow-left-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pilcrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-pilcrow-right",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/pilcrow-right-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/pilcrow-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-pill",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18272,6 +18544,22 @@
           "path": "icons/lucide/regex-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/regex.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-remove-formatting",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/remove-formatting-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/remove-formatting.tsx"
         }
       ]
     },
@@ -20212,6 +20500,22 @@
       ]
     },
     {
+      "name": "lu-subscript",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/subscript-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/subscript.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-sun-dim",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -20320,6 +20624,22 @@
           "path": "icons/lucide/sunset-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/sunset.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-superscript",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/superscript-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/superscript.tsx"
         }
       ]
     },
@@ -20528,6 +20848,38 @@
           "path": "icons/lucide/text-cursor-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/text-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-text-initial",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/text-initial-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/text-initial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-text-quote",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/text-quote-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/text-quote.tsx"
         }
       ]
     },
