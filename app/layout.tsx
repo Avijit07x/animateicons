@@ -5,6 +5,7 @@ import { CommandSearchProvider } from "@/components/command-search/CommandSearch
 import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
 import SkipLink from "@/components/SkipLink";
+import LazySponsorCards from "@/components/sponsor-cards/LazySponsorCards";
 import Snow from "@/components/winter/Snow";
 import { ICON_COUNTS } from "@/lib/icon-count.generated";
 import "./globals.css";
@@ -135,6 +136,7 @@ export default async function RootLayout({
 				<SkipLink />
 				<JsonLd data={siteJsonLd} />
 				<CommandSearchProvider>{children}</CommandSearchProvider>
+				<LazySponsorCards />
 				<Snow />
 				<AppBootLoader />
 				<Analytics />
