@@ -7,7 +7,6 @@ import Libraries from "../components/home/Libraries";
 import Playground from "../components/home/Playground";
 import Navbar from "../components/Navbar";
 import { MAIN_CONTENT_ID } from "../components/SkipLink";
-import Sponsors from "../components/Sponsors";
 
 const page = () => {
 	return (
@@ -21,7 +20,6 @@ const page = () => {
 					<Playground />
 					<Libraries />
 					<InUse />
-					<Sponsors />
 				</div>
 			</main>
 			<Footer />
