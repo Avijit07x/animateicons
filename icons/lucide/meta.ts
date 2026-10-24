@@ -1248,6 +1248,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["play", "start", "music", "video", "resume", "media"],
   },
   {
+    name: "play-off",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["play", "disabled", "unavailable", "video", "media", "off"],
+  },
+  {
     name: "pause",
     addedAt: "2025-12-21",
     category: ["Multimedia"],
@@ -1662,10 +1668,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["record", "voice", "sound", "audio", "speak"],
   },
   {
+    name: "mic-audio-lines",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "recording", "voice", "audio", "waveform", "speaking"],
+  },
+  {
     name: "mic-off",
     addedAt: "2025-09-16",
     category: ["Multimedia"],
     keywords: ["mute", "silent", "disable", "quiet", "no sound"],
+  },
+  {
+    name: "mic-signal",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "broadcast", "live", "on air", "voice", "signal"],
+  },
+  {
+    name: "mic-vocal",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "vocal", "singer", "karaoke", "podcast", "stage"],
   },
   {
     name: "headphone-off",
@@ -1692,10 +1716,40 @@ const ICON_META: IconMeta[] = [
     keywords: ["music", "song", "note", "audio", "play"],
   },
   {
+    name: "music-2",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "note", "eighth note", "song", "melody", "audio"],
+  },
+  {
+    name: "music-3",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "note", "quarter note", "song", "melody", "audio"],
+  },
+  {
+    name: "music-4",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "notes", "sixteenth notes", "song", "melody", "audio"],
+  },
+  {
     name: "audio-lines",
     addedAt: "2025-11-20",
     category: ["Multimedia"],
     keywords: ["sound", "music", "waveform", "volume", "equalizer", "voice"],
+  },
+  {
+    name: "audio-lines-off",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["audio", "sound", "waveform", "mute", "off", "silent"],
+  },
+  {
+    name: "audio-lines-x",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["audio", "sound", "waveform", "mute", "error", "remove"],
   },
   {
     name: "audio-waveform",
@@ -3744,6 +3798,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["video", "off", "camera", "disabled", "mute", "call"],
   },
   {
+    name: "film",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["film", "movie", "cinema", "video", "reel", "strip"],
+  },
+  {
     name: "laptop",
     addedAt: "2026-07-26",
     category: ["Devices"],
@@ -3858,6 +3918,18 @@ const ICON_META: IconMeta[] = [
     keywords: ["radio", "broadcast", "signal", "fm", "station"],
   },
   {
+    name: "radio-off",
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["radio", "broadcast", "off", "no signal", "fm", "disabled"],
+  },
+  {
+    name: "radio-receiver",
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["radio", "receiver", "tuner", "fm", "stereo", "device"],
+  },
+  {
     name: "podcast",
     addedAt: "2026-07-26",
     category: ["Multimedia"],
@@ -3888,6 +3960,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["drum", "music", "instrument", "percussion", "beat"],
   },
   {
+    name: "disc",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["disc", "cd", "dvd", "record", "album", "media"],
+  },
+  {
     name: "disc-2",
     addedAt: "2026-08-01",
     category: ["Multimedia"],
@@ -3898,6 +3976,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-07-26",
     category: ["Multimedia"],
     keywords: ["disc", "vinyl", "record", "album", "dj"],
+  },
+  {
+    name: "disc-album",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["album", "record", "vinyl", "sleeve", "music", "cover"],
   },
   {
     name: "wind",
@@ -4504,6 +4588,12 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["webcam", "camera", "video", "lens", "stream", "device"],
+  },
+  {
+    name: "webcam-off",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["webcam", "camera", "off", "privacy", "video", "disabled"],
   },
   {
     name: "plug",
@@ -5584,6 +5674,18 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-10-24",
     category: ["Text formatting"],
     keywords: ["clear formatting", "remove style", "text", "format", "reset", "plain text"],
+  },
+  {
+    name: "cctv",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["cctv", "security camera", "surveillance", "monitoring", "recording", "camera"],
+  },
+  {
+    name: "cctv-off",
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["cctv", "security camera", "surveillance", "off", "privacy", "disabled"],
   },
 ];
 

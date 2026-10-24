@@ -206,6 +206,7 @@ import { ListTodoIcon } from "./list-todo-icon";
 import { ListTreeIcon } from "./list-tree-icon";
 import { ListXIcon } from "./list-x-icon";
 import { PlayIcon } from "./play-icon";
+import { PlayOffIcon } from "./play-off-icon";
 import { PauseIcon } from "./pause-icon";
 import { PlusIcon } from "./plus-icon";
 import { DiffIcon } from "./diff-icon";
@@ -275,12 +276,20 @@ import { MailWarningIcon } from "./mail-warning-icon";
 import { MailXIcon } from "./mail-x-icon";
 import { MailsIcon } from "./mails-icon";
 import { MicIcon } from "./mic-icon";
+import { MicAudioLinesIcon } from "./mic-audio-lines-icon";
 import { MicOffIcon } from "./mic-off-icon";
+import { MicSignalIcon } from "./mic-signal-icon";
+import { MicVocalIcon } from "./mic-vocal-icon";
 import { HeadphoneOffIcon } from "./headphone-off-icon";
 import { HeadphonesIcon } from "./headphones-icon";
 import { HeadsetIcon } from "./headset-icon";
 import { MusicIcon } from "./music-icon";
+import { Music2Icon } from "./music-2-icon";
+import { Music3Icon } from "./music-3-icon";
+import { Music4Icon } from "./music-4-icon";
 import { AudioLinesIcon } from "./audio-lines-icon";
+import { AudioLinesOffIcon } from "./audio-lines-off-icon";
+import { AudioLinesXIcon } from "./audio-lines-x-icon";
 import { AudioWaveformIcon } from "./audio-waveform-icon";
 import { BellIcon } from "./bell-icon";
 import { BellDotIcon } from "./bell-dot-icon";
@@ -622,6 +631,7 @@ import { VolumeXIcon } from "./volume-x-icon";
 import { SpeakerIcon } from "./speaker-icon";
 import { VideoIcon } from "./video-icon";
 import { VideoOffIcon } from "./video-off-icon";
+import { FilmIcon } from "./film-icon";
 import { LaptopIcon } from "./laptop-icon";
 import { LaptopMinimalIcon } from "./laptop-minimal-icon";
 import { LaptopMinimalCheckIcon } from "./laptop-minimal-check-icon";
@@ -641,13 +651,17 @@ import { RepeatIcon } from "./repeat-icon";
 import { Repeat1Icon } from "./repeat-1-icon";
 import { Repeat2Icon } from "./repeat-2-icon";
 import { RadioIcon } from "./radio-icon";
+import { RadioOffIcon } from "./radio-off-icon";
+import { RadioReceiverIcon } from "./radio-receiver-icon";
 import { PodcastIcon } from "./podcast-icon";
 import { MegaphoneIcon } from "./megaphone-icon";
 import { GuitarIcon } from "./guitar-icon";
 import { PianoIcon } from "./piano-icon";
 import { DrumIcon } from "./drum-icon";
+import { DiscIcon } from "./disc-icon";
 import { Disc2Icon } from "./disc-2-icon";
 import { Disc3Icon } from "./disc-3-icon";
+import { DiscAlbumIcon } from "./disc-album-icon";
 import { WindIcon } from "./wind-icon";
 import { TornadoIcon } from "./tornado-icon";
 import { StepBackIcon } from "./step-back-icon";
@@ -749,6 +763,7 @@ import { CpuIcon } from "./cpu-icon";
 import { MicrochipIcon } from "./microchip-icon";
 import { MemoryStickIcon } from "./memory-stick-icon";
 import { WebcamIcon } from "./webcam-icon";
+import { WebcamOffIcon } from "./webcam-off-icon";
 import { PlugIcon } from "./plug-icon";
 import { Plug2Icon } from "./plug-2-icon";
 import { PlugZapIcon } from "./plug-zap-icon";
@@ -929,6 +944,8 @@ import { CaseLowerIcon } from "./case-lower-icon";
 import { CaseSensitiveIcon } from "./case-sensitive-icon";
 import { CaseUpperIcon } from "./case-upper-icon";
 import { RemoveFormattingIcon } from "./remove-formatting-icon";
+import { CctvIcon } from "./cctv-icon";
+import { CctvOffIcon } from "./cctv-off-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -2388,6 +2405,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["play", "start", "music", "video", "resume", "media"],
   },
   {
+    name: "play-off",
+    icon: PlayOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["play", "disabled", "unavailable", "video", "media", "off"],
+  },
+  {
     name: "pause",
     icon: PauseIcon,
     addedAt: "2025-12-21",
@@ -2871,11 +2895,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["record", "voice", "sound", "audio", "speak"],
   },
   {
+    name: "mic-audio-lines",
+    icon: MicAudioLinesIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "recording", "voice", "audio", "waveform", "speaking"],
+  },
+  {
     name: "mic-off",
     icon: MicOffIcon,
     addedAt: "2025-09-16",
     category: ["Multimedia"],
     keywords: ["mute", "silent", "disable", "quiet", "no sound"],
+  },
+  {
+    name: "mic-signal",
+    icon: MicSignalIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "broadcast", "live", "on air", "voice", "signal"],
+  },
+  {
+    name: "mic-vocal",
+    icon: MicVocalIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["microphone", "vocal", "singer", "karaoke", "podcast", "stage"],
   },
   {
     name: "headphone-off",
@@ -2906,11 +2951,46 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["music", "song", "note", "audio", "play"],
   },
   {
+    name: "music-2",
+    icon: Music2Icon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "note", "eighth note", "song", "melody", "audio"],
+  },
+  {
+    name: "music-3",
+    icon: Music3Icon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "note", "quarter note", "song", "melody", "audio"],
+  },
+  {
+    name: "music-4",
+    icon: Music4Icon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["music", "notes", "sixteenth notes", "song", "melody", "audio"],
+  },
+  {
     name: "audio-lines",
     icon: AudioLinesIcon,
     addedAt: "2025-11-20",
     category: ["Multimedia"],
     keywords: ["sound", "music", "waveform", "volume", "equalizer", "voice"],
+  },
+  {
+    name: "audio-lines-off",
+    icon: AudioLinesOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["audio", "sound", "waveform", "mute", "off", "silent"],
+  },
+  {
+    name: "audio-lines-x",
+    icon: AudioLinesXIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["audio", "sound", "waveform", "mute", "error", "remove"],
   },
   {
     name: "audio-waveform",
@@ -5300,6 +5380,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["video", "off", "camera", "disabled", "mute", "call"],
   },
   {
+    name: "film",
+    icon: FilmIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["film", "movie", "cinema", "video", "reel", "strip"],
+  },
+  {
     name: "laptop",
     icon: LaptopIcon,
     addedAt: "2026-07-26",
@@ -5433,6 +5520,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["radio", "broadcast", "signal", "fm", "station"],
   },
   {
+    name: "radio-off",
+    icon: RadioOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["radio", "broadcast", "off", "no signal", "fm", "disabled"],
+  },
+  {
+    name: "radio-receiver",
+    icon: RadioReceiverIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["radio", "receiver", "tuner", "fm", "stereo", "device"],
+  },
+  {
     name: "podcast",
     icon: PodcastIcon,
     addedAt: "2026-07-26",
@@ -5468,6 +5569,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["drum", "music", "instrument", "percussion", "beat"],
   },
   {
+    name: "disc",
+    icon: DiscIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["disc", "cd", "dvd", "record", "album", "media"],
+  },
+  {
     name: "disc-2",
     icon: Disc2Icon,
     addedAt: "2026-08-01",
@@ -5480,6 +5588,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-07-26",
     category: ["Multimedia"],
     keywords: ["disc", "vinyl", "record", "album", "dj"],
+  },
+  {
+    name: "disc-album",
+    icon: DiscAlbumIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["album", "record", "vinyl", "sleeve", "music", "cover"],
   },
   {
     name: "wind",
@@ -6187,6 +6302,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["webcam", "camera", "video", "lens", "stream", "device"],
+  },
+  {
+    name: "webcam-off",
+    icon: WebcamOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["webcam", "camera", "off", "privacy", "video", "disabled"],
   },
   {
     name: "plug",
@@ -7447,6 +7569,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-10-24",
     category: ["Text formatting"],
     keywords: ["clear formatting", "remove style", "text", "format", "reset", "plain text"],
+  },
+  {
+    name: "cctv",
+    icon: CctvIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["cctv", "security camera", "surveillance", "monitoring", "recording", "camera"],
+  },
+  {
+    name: "cctv-off",
+    icon: CctvOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["cctv", "security camera", "surveillance", "off", "privacy", "disabled"],
   },
 ];
 

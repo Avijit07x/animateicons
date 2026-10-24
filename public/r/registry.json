@@ -9028,6 +9028,38 @@
       ]
     },
     {
+      "name": "lu-audio-lines-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/audio-lines-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/audio-lines-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-audio-lines-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/audio-lines-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/audio-lines-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-audio-waveform",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -10224,6 +10256,38 @@
           "path": "icons/lucide/cat-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/cat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-cctv",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/cctv-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/cctv.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-cctv-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/cctv-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/cctv-off.tsx"
         }
       ]
     },
@@ -12692,6 +12756,38 @@
       ]
     },
     {
+      "name": "lu-disc-album",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/disc-album-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/disc-album.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-disc",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/disc-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/disc.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-dog",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -13392,6 +13488,22 @@
           "path": "icons/lucide/files-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/files.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-film",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/film-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/film.tsx"
         }
       ]
     },
@@ -16692,6 +16804,22 @@
       ]
     },
     {
+      "name": "lu-mic-audio-lines",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/mic-audio-lines-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mic-audio-lines.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-mic",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16720,6 +16848,38 @@
           "path": "icons/lucide/mic-off-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/mic-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-mic-signal",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/mic-signal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mic-signal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-mic-vocal",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/mic-vocal-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/mic-vocal.tsx"
         }
       ]
     },
@@ -17344,6 +17504,54 @@
           "path": "icons/lucide/move-vertical-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/move-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-music-2",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/music-2-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-music-3",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/music-3-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-music-4",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/music-4-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/music-4.tsx"
         }
       ]
     },
@@ -18404,6 +18612,22 @@
       ]
     },
     {
+      "name": "lu-play-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/play-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/play-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-plug-2",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18656,6 +18880,38 @@
           "path": "icons/lucide/radio-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/radio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-radio-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/radio-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/radio-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-radio-receiver",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/radio-receiver-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/radio-receiver.tsx"
         }
       ]
     },
@@ -22624,6 +22880,22 @@
           "path": "icons/lucide/webcam-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/webcam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-webcam-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/webcam-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/webcam-off.tsx"
         }
       ]
     },
