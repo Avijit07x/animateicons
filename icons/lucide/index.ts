@@ -202,17 +202,36 @@ import { BookmarkMinusIcon } from "./bookmark-minus-icon";
 import { BookmarkPlusIcon } from "./bookmark-plus-icon";
 import { BookmarkXIcon } from "./bookmark-x-icon";
 import { MessageCircleIcon } from "./message-circle-icon";
+import { MessageCircleCheckIcon } from "./message-circle-check-icon";
+import { MessageCircleCodeIcon } from "./message-circle-code-icon";
+import { MessageCircleDashedIcon } from "./message-circle-dashed-icon";
+import { MessageCircleDashedCheckIcon } from "./message-circle-dashed-check-icon";
 import { MessageCircleHeartIcon } from "./message-circle-heart-icon";
 import { MessageCircleMoreIcon } from "./message-circle-more-icon";
+import { MessageCircleOffIcon } from "./message-circle-off-icon";
 import { MessageCirclePlusIcon } from "./message-circle-plus-icon";
 import { MessageCircleQuestionMarkIcon } from "./message-circle-question-mark-icon";
+import { MessageCircleReplyIcon } from "./message-circle-reply-icon";
+import { MessageCircleWarningIcon } from "./message-circle-warning-icon";
 import { MessageCircleXIcon } from "./message-circle-x-icon";
 import { MessageSquareIcon } from "./message-square-icon";
+import { MessageSquareCheckIcon } from "./message-square-check-icon";
+import { MessageSquareCodeIcon } from "./message-square-code-icon";
+import { MessageSquareDashedIcon } from "./message-square-dashed-icon";
+import { MessageSquareDiffIcon } from "./message-square-diff-icon";
 import { MessageSquareDotIcon } from "./message-square-dot-icon";
 import { MessageSquareHeartIcon } from "./message-square-heart-icon";
+import { MessageSquareLockIcon } from "./message-square-lock-icon";
+import { MessageSquareMoreIcon } from "./message-square-more-icon";
+import { MessageSquareOffIcon } from "./message-square-off-icon";
 import { MessageSquarePlusIcon } from "./message-square-plus-icon";
+import { MessageSquareQuoteIcon } from "./message-square-quote-icon";
+import { MessageSquareReplyIcon } from "./message-square-reply-icon";
+import { MessageSquareShareIcon } from "./message-square-share-icon";
 import { MessageSquareTextIcon } from "./message-square-text-icon";
+import { MessageSquareWarningIcon } from "./message-square-warning-icon";
 import { MessageSquareXIcon } from "./message-square-x-icon";
+import { MessagesCircleIcon } from "./messages-circle-icon";
 import { MessagesSquareIcon } from "./messages-square-icon";
 import { MailIcon } from "./mail-icon";
 import { MailCheckIcon } from "./mail-check-icon";
@@ -2231,6 +2250,34 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["chat", "comment", "discussion", "reply", "feedback"],
   },
   {
+    name: "message-circle-check",
+    icon: MessageCircleCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "read", "sent", "delivered", "done", "check"],
+  },
+  {
+    name: "message-circle-code",
+    icon: MessageCircleCodeIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "code", "snippet", "developer", "markdown", "inline code"],
+  },
+  {
+    name: "message-circle-dashed",
+    icon: MessageCircleDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "pending", "typing", "dashed", "unsent"],
+  },
+  {
+    name: "message-circle-dashed-check",
+    icon: MessageCircleDashedCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "approved", "dashed", "check"],
+  },
+  {
     name: "message-circle-heart",
     icon: MessageCircleHeartIcon,
     addedAt: "2026-08-01",
@@ -2243,6 +2290,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "more", "chat", "typing", "dots"],
+  },
+  {
+    name: "message-circle-off",
+    icon: MessageCircleOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "muted", "disabled", "off", "silent", "no comments"],
   },
   {
     name: "message-circle-plus",
@@ -2259,6 +2313,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["help", "question", "support", "faq", "chat", "ask"],
   },
   {
+    name: "message-circle-reply",
+    icon: MessageCircleReplyIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "reply", "respond", "answer", "thread", "back"],
+  },
+  {
+    name: "message-circle-warning",
+    icon: MessageCircleWarningIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "warning", "alert", "error", "report", "problem"],
+  },
+  {
     name: "message-circle-x",
     icon: MessageCircleXIcon,
     addedAt: "2026-08-01",
@@ -2271,6 +2339,34 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "chat", "comment", "bubble", "talk"],
+  },
+  {
+    name: "message-square-check",
+    icon: MessageSquareCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "read", "sent", "delivered", "done", "check"],
+  },
+  {
+    name: "message-square-code",
+    icon: MessageSquareCodeIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "code", "snippet", "developer", "markdown", "inline code"],
+  },
+  {
+    name: "message-square-dashed",
+    icon: MessageSquareDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "draft", "pending", "typing", "dashed", "unsent"],
+  },
+  {
+    name: "message-square-diff",
+    icon: MessageSquareDiffIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication","Coding & development"],
+    keywords: ["message", "chat", "diff", "changes", "review", "compare"],
   },
   {
     name: "message-square-dot",
@@ -2287,11 +2383,53 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["message", "heart", "chat", "like", "love", "favorite"],
   },
   {
+    name: "message-square-lock",
+    icon: MessageSquareLockIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication","Security"],
+    keywords: ["message", "chat", "private", "encrypted", "secure", "lock"],
+  },
+  {
+    name: "message-square-more",
+    icon: MessageSquareMoreIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "typing", "more", "options", "dots"],
+  },
+  {
+    name: "message-square-off",
+    icon: MessageSquareOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "muted", "disabled", "off", "silent", "no comments"],
+  },
+  {
     name: "message-square-plus",
     icon: MessageSquarePlusIcon,
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "plus", "new", "chat", "add", "compose"],
+  },
+  {
+    name: "message-square-quote",
+    icon: MessageSquareQuoteIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "quote", "citation", "testimonial", "review"],
+  },
+  {
+    name: "message-square-reply",
+    icon: MessageSquareReplyIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "reply", "respond", "answer", "thread", "back"],
+  },
+  {
+    name: "message-square-share",
+    icon: MessageSquareShareIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "share", "forward", "send", "external"],
   },
   {
     name: "message-square-text",
@@ -2301,11 +2439,25 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["message", "text", "chat", "comment", "lines"],
   },
   {
+    name: "message-square-warning",
+    icon: MessageSquareWarningIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["message", "chat", "warning", "alert", "error", "report", "problem"],
+  },
+  {
     name: "message-square-x",
     icon: MessageSquareXIcon,
     addedAt: "2026-08-01",
     category: ["Communication"],
     keywords: ["message", "x", "chat", "delete", "close", "remove"],
+  },
+  {
+    name: "messages-circle",
+    icon: MessagesCircleIcon,
+    addedAt: "2026-10-24",
+    category: ["Communication"],
+    keywords: ["messages", "chat", "conversation", "comments", "discussion", "talk"],
   },
   {
     name: "messages-square",

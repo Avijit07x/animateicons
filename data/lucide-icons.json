@@ -5655,5 +5655,229 @@
 		"addedAt": "2026-10-24",
 		"category": ["People", "Accounts & access"],
 		"keywords": ["leave", "exit", "back", "user", "sign out", "previous"]
+	},
+	{
+		"name": "message-circle-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"read",
+			"sent",
+			"delivered",
+			"done",
+			"check"
+		]
+	},
+	{
+		"name": "message-circle-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"warning",
+			"alert",
+			"error",
+			"report",
+			"problem"
+		]
+	},
+	{
+		"name": "message-circle-off",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"muted",
+			"disabled",
+			"off",
+			"silent",
+			"no comments"
+		]
+	},
+	{
+		"name": "message-circle-reply",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"reply",
+			"respond",
+			"answer",
+			"thread",
+			"back"
+		]
+	},
+	{
+		"name": "message-circle-code",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"code",
+			"snippet",
+			"developer",
+			"markdown",
+			"inline code"
+		]
+	},
+	{
+		"name": "message-circle-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"draft",
+			"pending",
+			"typing",
+			"dashed",
+			"unsent"
+		]
+	},
+	{
+		"name": "message-square-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"read",
+			"sent",
+			"delivered",
+			"done",
+			"check"
+		]
+	},
+	{
+		"name": "message-square-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"warning",
+			"alert",
+			"error",
+			"report",
+			"problem"
+		]
+	},
+	{
+		"name": "message-square-off",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"muted",
+			"disabled",
+			"off",
+			"silent",
+			"no comments"
+		]
+	},
+	{
+		"name": "message-square-reply",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"reply",
+			"respond",
+			"answer",
+			"thread",
+			"back"
+		]
+	},
+	{
+		"name": "message-square-code",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"code",
+			"snippet",
+			"developer",
+			"markdown",
+			"inline code"
+		]
+	},
+	{
+		"name": "message-square-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"draft",
+			"pending",
+			"typing",
+			"dashed",
+			"unsent"
+		]
+	},
+	{
+		"name": "message-circle-dashed-check",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "draft", "approved", "dashed", "check"]
+	},
+	{
+		"name": "message-square-more",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "typing", "more", "options", "dots"]
+	},
+	{
+		"name": "message-square-quote",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"message",
+			"chat",
+			"quote",
+			"citation",
+			"testimonial",
+			"review"
+		]
+	},
+	{
+		"name": "message-square-share",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": ["message", "chat", "share", "forward", "send", "external"]
+	},
+	{
+		"name": "message-square-lock",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Security"],
+		"keywords": ["message", "chat", "private", "encrypted", "secure", "lock"]
+	},
+	{
+		"name": "message-square-diff",
+		"addedAt": "2026-10-24",
+		"category": ["Communication", "Coding & development"],
+		"keywords": ["message", "chat", "diff", "changes", "review", "compare"]
+	},
+	{
+		"name": "messages-circle",
+		"addedAt": "2026-10-24",
+		"category": ["Communication"],
+		"keywords": [
+			"messages",
+			"chat",
+			"conversation",
+			"comments",
+			"discussion",
+			"talk"
+		]
 	}
 ]
