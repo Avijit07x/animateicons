@@ -9,7 +9,6 @@ import { useIconLibrary } from "@/hooks/useIconLibrary";
 import { useIconSearchResult } from "../../_contexts/IconSearchContext";
 
 import { useIconSearchFilter } from "@/hooks/useIconFilter";
-import { IconTileProvider } from "../../_contexts/IconTileContext";
 import { ICON_GRID_CLASS } from "./iconGrid";
 import IconLibraryEmptyState from "./IconLibraryEmptyState";
 import IconListSkeleton from "./IconListSkeleton";
@@ -84,60 +83,58 @@ const IconList: React.FC = () => {
 	}
 
 	return (
-		<IconTileProvider>
-			<MotionConfig reducedMotion="user">
-				<AnimatePresence>
-					{filteredItems.length > 0 ? (
-						<>
-							<div
-								ref={setGrid}
-								role="group"
-								aria-label="Icons"
-								className={ICON_GRID_CLASS}
-								onFocusCapture={onFocusCapture}
-								onBlurCapture={onBlurCapture}
-							>
-								{topSpacer > 0 && (
-									<div
-										aria-hidden="true"
-										className="col-span-full"
-										style={{ height: topSpacer }}
-									/>
-								)}
-								{slice.map((item) => (
-									<IconTile
-										key={item.name}
-										item={item}
-										getIcon={active.getIcon}
-										coarse={coarse}
-									/>
-								))}
-								{bottomSpacer > 0 && (
-									<div
-										aria-hidden="true"
-										className="col-span-full"
-										style={{ height: bottomSpacer }}
-									/>
-								)}
-							</div>
-
-							{!debouncedQuery && (
-								<div className="mt-auto py-4 text-center">
-									<p className="text-textPrimary text-sm font-medium">
-										The collection is continuously expanding
-									</p>
-									<p className="text-textMuted mt-1 text-xs">
-										New animated icons are added on a regular basis.
-									</p>
-								</div>
+		<MotionConfig reducedMotion="user">
+			<AnimatePresence>
+				{filteredItems.length > 0 ? (
+					<>
+						<div
+							ref={setGrid}
+							role="group"
+							aria-label="Icons"
+							className={ICON_GRID_CLASS}
+							onFocusCapture={onFocusCapture}
+							onBlurCapture={onBlurCapture}
+						>
+							{topSpacer > 0 && (
+								<div
+									aria-hidden="true"
+									className="col-span-full"
+									style={{ height: topSpacer }}
+								/>
 							)}
-						</>
-					) : (
-						<IconsNotFound query={debouncedQuery} />
-					)}
-				</AnimatePresence>
-			</MotionConfig>
-		</IconTileProvider>
+							{slice.map((item) => (
+								<IconTile
+									key={item.name}
+									item={item}
+									getIcon={active.getIcon}
+									coarse={coarse}
+								/>
+							))}
+							{bottomSpacer > 0 && (
+								<div
+									aria-hidden="true"
+									className="col-span-full"
+									style={{ height: bottomSpacer }}
+								/>
+							)}
+						</div>
+
+						{!debouncedQuery && (
+							<div className="mt-auto py-4 text-center">
+								<p className="text-textPrimary text-sm font-medium">
+									The collection is continuously expanding
+								</p>
+								<p className="text-textMuted mt-1 text-xs">
+									New animated icons are added on a regular basis.
+								</p>
+							</div>
+						)}
+					</>
+				) : (
+					<IconsNotFound query={debouncedQuery} />
+				)}
+			</AnimatePresence>
+		</MotionConfig>
 	);
 };
 
