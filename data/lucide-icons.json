@@ -6231,5 +6231,186 @@
 			"api",
 			"integration"
 		]
+	},
+	{
+		"name": "shopping-cart-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["cart", "add", "add to cart", "buy", "shop", "checkout"]
+	},
+	{
+		"name": "shopping-cart-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": [
+			"cart",
+			"remove",
+			"remove from cart",
+			"shop",
+			"basket",
+			"checkout"
+		]
+	},
+	{
+		"name": "credit-card-check",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": ["card", "payment", "success", "paid", "approved", "credit"]
+	},
+	{
+		"name": "credit-card-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": ["card", "add card", "payment method", "new", "credit", "debit"]
+	},
+	{
+		"name": "credit-card-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card",
+			"remove card",
+			"payment method",
+			"delete",
+			"credit",
+			"debit"
+		]
+	},
+	{
+		"name": "credit-card-x",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card",
+			"declined",
+			"payment failed",
+			"error",
+			"credit",
+			"cancel"
+		]
+	},
+	{
+		"name": "credit-card-reader",
+		"addedAt": "2026-10-24",
+		"category": ["Finance", "E-commerce"],
+		"keywords": [
+			"card reader",
+			"pos",
+			"terminal",
+			"payment",
+			"checkout",
+			"swipe"
+		]
+	},
+	{
+		"name": "ticket-check",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "valid", "checked in", "confirmed", "event", "pass"]
+	},
+	{
+		"name": "ticket-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "add", "buy ticket", "event", "pass", "admission"]
+	},
+	{
+		"name": "ticket-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "remove", "refund", "event", "pass", "admission"]
+	},
+	{
+		"name": "ticket-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "cancel", "invalid", "refund", "event", "pass"]
+	},
+	{
+		"name": "ticket-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping"],
+		"keywords": ["ticket", "void", "invalid", "expired", "event", "pass"]
+	},
+	{
+		"name": "tag-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["tag", "add tag", "label", "new", "price", "product"]
+	},
+	{
+		"name": "tag-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "E-commerce"],
+		"keywords": ["tag", "remove tag", "label", "delete", "price", "product"]
+	},
+	{
+		"name": "circle-dollar-sign",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["dollar", "coin", "money", "usd", "currency", "payment"]
+	},
+	{
+		"name": "circle-euro",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["euro", "coin", "money", "eur", "currency", "payment"]
+	},
+	{
+		"name": "circle-pound-sterling",
+		"addedAt": "2026-10-24",
+		"category": ["Finance"],
+		"keywords": ["pound", "sterling", "coin", "money", "gbp", "currency"]
+	},
+	{
+		"name": "circle-percent",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Mathematics"],
+		"keywords": ["percent", "discount", "sale", "offer", "rate", "percentage"]
+	},
+	{
+		"name": "banknote-check",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": ["banknote", "paid", "payment", "success", "cash", "money"]
+	},
+	{
+		"name": "banknote-x",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"payment failed",
+			"cancel",
+			"cash",
+			"money",
+			"error"
+		]
+	},
+	{
+		"name": "banknote-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"send money",
+			"withdraw",
+			"cash",
+			"transfer",
+			"money"
+		]
+	},
+	{
+		"name": "banknote-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Finance"],
+		"keywords": [
+			"banknote",
+			"receive money",
+			"deposit",
+			"cash",
+			"transfer",
+			"money"
+		]
 	}
 ]
