@@ -528,6 +528,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["cloudy", "clouds", "overcast", "weather", "sky", "gray"],
   },
   {
+    name: "circle",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["circle", "shape", "round", "dot", "radio", "ring"],
+  },
+  {
     name: "circle-alert",
     addedAt: "2026-09-27",
     category: ["Notification"],
@@ -582,10 +588,22 @@ const ICON_META: IconMeta[] = [
     keywords: ["radio", "select", "option", "dot", "target", "record"],
   },
   {
+    name: "circle-ellipsis",
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["more", "options", "menu", "dots", "ellipsis", "circle"],
+  },
+  {
     name: "circle-minus",
     addedAt: "2026-09-27",
     category: ["Tools","Mathematics"],
     keywords: ["minus", "remove", "subtract", "delete", "decrease", "less"],
+  },
+  {
+    name: "circle-off",
+    addedAt: "2026-10-24",
+    category: ["Shapes","Notification"],
+    keywords: ["circle", "off", "disabled", "hidden", "none"],
   },
   {
     name: "circle-pause",
@@ -606,10 +624,34 @@ const ICON_META: IconMeta[] = [
     keywords: ["plus", "add", "new", "create", "positive", "more"],
   },
   {
+    name: "circle-power",
+    addedAt: "2026-10-24",
+    category: ["Connectivity","Devices"],
+    keywords: ["power", "on", "off", "switch", "shutdown", "button", "circle"],
+  },
+  {
     name: "circle-question-mark",
     addedAt: "2026-09-27",
     category: ["Notification","Tools"],
     keywords: ["help", "question", "support", "faq", "info", "unknown"],
+  },
+  {
+    name: "circle-slash",
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["slash", "disabled", "none", "not", "circle"],
+  },
+  {
+    name: "circle-slash-2",
+    addedAt: "2026-10-24",
+    category: ["Notification","Security"],
+    keywords: ["ban", "forbidden", "prohibited", "disabled", "empty", "null"],
+  },
+  {
+    name: "circle-star",
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["favorite", "star", "rating", "featured", "badge", "circle"],
   },
   {
     name: "circle-stop",
@@ -1242,10 +1284,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["notification", "active", "alarm", "alert", "reminder", "ringing"],
   },
   {
+    name: "triangle",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["triangle", "shape", "delta", "warning", "pyramid"],
+  },
+  {
     name: "triangle-alert",
     addedAt: "2026-02-16",
     category: ["Notification"],
     keywords: ["warning", "alert", "error", "danger", "caution", "issue", "problem"],
+  },
+  {
+    name: "triangle-dashed",
+    addedAt: "2026-10-24",
+    category: ["Design","Shapes"],
+    keywords: ["triangle", "dashed", "draft", "selection", "pending", "shape"],
+  },
+  {
+    name: "triangle-right",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["triangle", "right", "angle", "slope", "ramp", "shape"],
   },
   {
     name: "lock",
@@ -1542,6 +1602,12 @@ const ICON_META: IconMeta[] = [
     keywords: ["pin", "unpin", "remove", "disabled", "off", "location"],
   },
   {
+    name: "square",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["square", "shape", "box", "checkbox", "rectangle", "stop"],
+  },
+  {
     name: "square-arrow-out-up-right",
     addedAt: "2025-11-19",
     category: ["Arrows"],
@@ -1554,10 +1620,28 @@ const ICON_META: IconMeta[] = [
     keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
   },
   {
+    name: "square-check-big",
+    addedAt: "2026-10-24",
+    category: ["Notification"],
+    keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
+  },
+  {
     name: "square-dashed",
     addedAt: "2026-09-27",
     category: ["Design","Shapes"],
     keywords: ["selection", "marquee", "dashed", "square", "select", "area"],
+  },
+  {
+    name: "square-dot",
+    addedAt: "2026-10-24",
+    category: ["Shapes","Layout"],
+    keywords: ["dot", "square", "select", "option", "center", "record"],
+  },
+  {
+    name: "square-minus",
+    addedAt: "2026-10-24",
+    category: ["Tools","Mathematics"],
+    keywords: ["minus", "remove", "subtract", "square", "collapse"],
   },
   {
     name: "square-pause",
@@ -1576,6 +1660,30 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-08-01",
     category: ["Multimedia"],
     keywords: ["play", "square", "media", "video", "start", "button"],
+  },
+  {
+    name: "square-plus",
+    addedAt: "2026-10-24",
+    category: ["Tools","Mathematics"],
+    keywords: ["plus", "add", "new", "create", "square", "expand"],
+  },
+  {
+    name: "square-slash",
+    addedAt: "2026-10-24",
+    category: ["Mathematics","Shapes"],
+    keywords: ["slash", "divide", "division", "not", "square"],
+  },
+  {
+    name: "square-stop",
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-x",
+    addedAt: "2026-10-24",
+    category: ["Notification"],
+    keywords: ["close", "cancel", "remove", "delete", "square", "x"],
   },
   {
     name: "external-link",
@@ -3690,10 +3798,34 @@ const ICON_META: IconMeta[] = [
     keywords: ["gauge", "speed", "performance", "meter", "dashboard", "speedometer"],
   },
   {
+    name: "octagon",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["octagon", "shape", "polygon", "stop", "sign"],
+  },
+  {
     name: "octagon-alert",
     addedAt: "2026-09-27",
     category: ["Notification"],
     keywords: ["alert", "error", "stop", "warning", "danger", "octagon"],
+  },
+  {
+    name: "octagon-minus",
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["stop", "remove", "blocked", "no entry", "octagon", "minus"],
+  },
+  {
+    name: "octagon-pause",
+    addedAt: "2026-10-24",
+    category: ["Multimedia","Shapes"],
+    keywords: ["pause", "stop", "hold", "octagon", "media"],
+  },
+  {
+    name: "octagon-x",
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["stop", "close", "error", "cancel", "octagon", "x"],
   },
   {
     name: "presentation",
@@ -4012,6 +4144,42 @@ const ICON_META: IconMeta[] = [
     addedAt: "2026-09-29",
     category: ["Design"],
     keywords: ["contrast", "contrast", "theme", "dark mode", "light mode", "brightness", "accessibility"],
+  },
+  {
+    name: "hexagon",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["hexagon", "shape", "polygon", "cell", "honeycomb", "nut"],
+  },
+  {
+    name: "diamond",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["diamond", "shape", "rhombus", "gem", "decision"],
+  },
+  {
+    name: "diamond-minus",
+    addedAt: "2026-10-24",
+    category: ["Tools","Shapes"],
+    keywords: ["remove", "minus", "subtract", "delete", "diamond"],
+  },
+  {
+    name: "diamond-percent",
+    addedAt: "2026-10-24",
+    category: ["Shopping","Shapes"],
+    keywords: ["discount", "sale", "percent", "offer", "diamond"],
+  },
+  {
+    name: "diamond-plus",
+    addedAt: "2026-10-24",
+    category: ["Tools","Shapes"],
+    keywords: ["add", "plus", "new", "create", "diamond"],
+  },
+  {
+    name: "pentagon",
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["pentagon", "shape", "polygon", "badge"],
   },
 ];
 

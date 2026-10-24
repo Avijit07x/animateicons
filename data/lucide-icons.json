@@ -4642,5 +4642,173 @@
 			"disk",
 			"export"
 		]
+	},
+	{
+		"name": "circle",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["circle", "shape", "round", "dot", "radio", "ring"]
+	},
+	{
+		"name": "square",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["square", "shape", "box", "checkbox", "rectangle", "stop"]
+	},
+	{
+		"name": "triangle",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["triangle", "shape", "delta", "warning", "pyramid"]
+	},
+	{
+		"name": "hexagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["hexagon", "shape", "polygon", "cell", "honeycomb", "nut"]
+	},
+	{
+		"name": "octagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["octagon", "shape", "polygon", "stop", "sign"]
+	},
+	{
+		"name": "diamond",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["diamond", "shape", "rhombus", "gem", "decision"]
+	},
+	{
+		"name": "pentagon",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["pentagon", "shape", "polygon", "badge"]
+	},
+	{
+		"name": "octagon-x",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["stop", "close", "error", "cancel", "octagon", "x"]
+	},
+	{
+		"name": "octagon-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["stop", "remove", "blocked", "no entry", "octagon", "minus"]
+	},
+	{
+		"name": "octagon-pause",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia", "Shapes"],
+		"keywords": ["pause", "stop", "hold", "octagon", "media"]
+	},
+	{
+		"name": "diamond-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Shapes"],
+		"keywords": ["add", "plus", "new", "create", "diamond"]
+	},
+	{
+		"name": "diamond-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Shapes"],
+		"keywords": ["remove", "minus", "subtract", "delete", "diamond"]
+	},
+	{
+		"name": "diamond-percent",
+		"addedAt": "2026-10-24",
+		"category": ["Shopping", "Shapes"],
+		"keywords": ["discount", "sale", "percent", "offer", "diamond"]
+	},
+	{
+		"name": "triangle-dashed",
+		"addedAt": "2026-10-24",
+		"category": ["Design", "Shapes"],
+		"keywords": ["triangle", "dashed", "draft", "selection", "pending", "shape"]
+	},
+	{
+		"name": "triangle-right",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes"],
+		"keywords": ["triangle", "right", "angle", "slope", "ramp", "shape"]
+	},
+	{
+		"name": "square-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Mathematics"],
+		"keywords": ["plus", "add", "new", "create", "square", "expand"]
+	},
+	{
+		"name": "square-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Tools", "Mathematics"],
+		"keywords": ["minus", "remove", "subtract", "square", "collapse"]
+	},
+	{
+		"name": "square-x",
+		"addedAt": "2026-10-24",
+		"category": ["Notification"],
+		"keywords": ["close", "cancel", "remove", "delete", "square", "x"]
+	},
+	{
+		"name": "square-stop",
+		"addedAt": "2026-10-24",
+		"category": ["Multimedia"],
+		"keywords": ["stop", "square", "media", "button", "end"]
+	},
+	{
+		"name": "square-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Mathematics", "Shapes"],
+		"keywords": ["slash", "divide", "division", "not", "square"]
+	},
+	{
+		"name": "square-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes", "Layout"],
+		"keywords": ["dot", "square", "select", "option", "center", "record"]
+	},
+	{
+		"name": "square-check-big",
+		"addedAt": "2026-10-24",
+		"category": ["Notification"],
+		"keywords": ["checkbox", "check", "done", "complete", "task", "todo"]
+	},
+	{
+		"name": "circle-slash",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Shapes"],
+		"keywords": ["slash", "disabled", "none", "not", "circle"]
+	},
+	{
+		"name": "circle-slash-2",
+		"addedAt": "2026-10-24",
+		"category": ["Notification", "Security"],
+		"keywords": ["ban", "forbidden", "prohibited", "disabled", "empty", "null"]
+	},
+	{
+		"name": "circle-off",
+		"addedAt": "2026-10-24",
+		"category": ["Shapes", "Notification"],
+		"keywords": ["circle", "off", "disabled", "hidden", "none"]
+	},
+	{
+		"name": "circle-power",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity", "Devices"],
+		"keywords": ["power", "on", "off", "switch", "shutdown", "button", "circle"]
+	},
+	{
+		"name": "circle-ellipsis",
+		"addedAt": "2026-10-24",
+		"category": ["Layout"],
+		"keywords": ["more", "options", "menu", "dots", "ellipsis", "circle"]
+	},
+	{
+		"name": "circle-star",
+		"addedAt": "2026-10-24",
+		"category": ["Emoji", "Shapes"],
+		"keywords": ["favorite", "star", "rating", "featured", "badge", "circle"]
 	}
 ]

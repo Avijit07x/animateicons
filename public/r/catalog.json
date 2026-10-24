@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1170,
+  "total": 1198,
   "libraries": {
-    "lucide": 669,
+    "lucide": 697,
     "huge": 501
   },
   "icons": [
@@ -12285,6 +12285,25 @@
       "url": "https://animateicons.in/r/lu-chrome.json"
     },
     {
+      "name": "circle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "circle",
+        "shape",
+        "round",
+        "dot",
+        "radio",
+        "ring"
+      ],
+      "url": "https://animateicons.in/r/lu-circle.json"
+    },
+    {
       "name": "circle-alert",
       "library": "lucide",
       "prefix": "lu",
@@ -12453,6 +12472,25 @@
       "url": "https://animateicons.in/r/lu-circle-dot.json"
     },
     {
+      "name": "circle-ellipsis",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-ellipsis",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Layout"
+      ],
+      "keywords": [
+        "more",
+        "options",
+        "menu",
+        "dots",
+        "ellipsis",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-ellipsis.json"
+    },
+    {
       "name": "circle-minus",
       "library": "lucide",
       "prefix": "lu",
@@ -12471,6 +12509,25 @@
         "less"
       ],
       "url": "https://animateicons.in/r/lu-circle-minus.json"
+    },
+    {
+      "name": "circle-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes",
+        "Notification"
+      ],
+      "keywords": [
+        "circle",
+        "off",
+        "disabled",
+        "hidden",
+        "none"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-off.json"
     },
     {
       "name": "circle-pause",
@@ -12530,6 +12587,27 @@
       "url": "https://animateicons.in/r/lu-circle-plus.json"
     },
     {
+      "name": "circle-power",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-power",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity",
+        "Devices"
+      ],
+      "keywords": [
+        "power",
+        "on",
+        "off",
+        "switch",
+        "shutdown",
+        "button",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-power.json"
+    },
+    {
       "name": "circle-question-mark",
       "library": "lucide",
       "prefix": "lu",
@@ -12548,6 +12626,65 @@
         "unknown"
       ],
       "url": "https://animateicons.in/r/lu-circle-question-mark.json"
+    },
+    {
+      "name": "circle-slash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-slash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification",
+        "Shapes"
+      ],
+      "keywords": [
+        "slash",
+        "disabled",
+        "none",
+        "not",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-slash.json"
+    },
+    {
+      "name": "circle-slash-2",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-slash-2",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification",
+        "Security"
+      ],
+      "keywords": [
+        "ban",
+        "forbidden",
+        "prohibited",
+        "disabled",
+        "empty",
+        "null"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-slash-2.json"
+    },
+    {
+      "name": "circle-star",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-circle-star",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Emoji",
+        "Shapes"
+      ],
+      "keywords": [
+        "favorite",
+        "star",
+        "rating",
+        "featured",
+        "badge",
+        "circle"
+      ],
+      "url": "https://animateicons.in/r/lu-circle-star.json"
     },
     {
       "name": "circle-stop",
@@ -13688,6 +13825,81 @@
         "clear"
       ],
       "url": "https://animateicons.in/r/lu-delete.json"
+    },
+    {
+      "name": "diamond",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-diamond",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "diamond",
+        "shape",
+        "rhombus",
+        "gem",
+        "decision"
+      ],
+      "url": "https://animateicons.in/r/lu-diamond.json"
+    },
+    {
+      "name": "diamond-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-diamond-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Tools",
+        "Shapes"
+      ],
+      "keywords": [
+        "remove",
+        "minus",
+        "subtract",
+        "delete",
+        "diamond"
+      ],
+      "url": "https://animateicons.in/r/lu-diamond-minus.json"
+    },
+    {
+      "name": "diamond-percent",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-diamond-percent",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shopping",
+        "Shapes"
+      ],
+      "keywords": [
+        "discount",
+        "sale",
+        "percent",
+        "offer",
+        "diamond"
+      ],
+      "url": "https://animateicons.in/r/lu-diamond-percent.json"
+    },
+    {
+      "name": "diamond-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-diamond-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Tools",
+        "Shapes"
+      ],
+      "keywords": [
+        "add",
+        "plus",
+        "new",
+        "create",
+        "diamond"
+      ],
+      "url": "https://animateicons.in/r/lu-diamond-plus.json"
     },
     {
       "name": "dice-5",
@@ -15841,6 +16053,25 @@
       "url": "https://animateicons.in/r/lu-heart-pulse.json"
     },
     {
+      "name": "hexagon",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-hexagon",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "hexagon",
+        "shape",
+        "polygon",
+        "cell",
+        "honeycomb",
+        "nut"
+      ],
+      "url": "https://animateicons.in/r/lu-hexagon.json"
+    },
+    {
       "name": "highlighter",
       "library": "lucide",
       "prefix": "lu",
@@ -17920,6 +18151,24 @@
       "url": "https://animateicons.in/r/lu-notebook-pen.json"
     },
     {
+      "name": "octagon",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-octagon",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "octagon",
+        "shape",
+        "polygon",
+        "stop",
+        "sign"
+      ],
+      "url": "https://animateicons.in/r/lu-octagon.json"
+    },
+    {
       "name": "octagon-alert",
       "library": "lucide",
       "prefix": "lu",
@@ -17937,6 +18186,65 @@
         "octagon"
       ],
       "url": "https://animateicons.in/r/lu-octagon-alert.json"
+    },
+    {
+      "name": "octagon-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-octagon-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification",
+        "Shapes"
+      ],
+      "keywords": [
+        "stop",
+        "remove",
+        "blocked",
+        "no entry",
+        "octagon",
+        "minus"
+      ],
+      "url": "https://animateicons.in/r/lu-octagon-minus.json"
+    },
+    {
+      "name": "octagon-pause",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-octagon-pause",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia",
+        "Shapes"
+      ],
+      "keywords": [
+        "pause",
+        "stop",
+        "hold",
+        "octagon",
+        "media"
+      ],
+      "url": "https://animateicons.in/r/lu-octagon-pause.json"
+    },
+    {
+      "name": "octagon-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-octagon-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification",
+        "Shapes"
+      ],
+      "keywords": [
+        "stop",
+        "close",
+        "error",
+        "cancel",
+        "octagon",
+        "x"
+      ],
+      "url": "https://animateicons.in/r/lu-octagon-x.json"
     },
     {
       "name": "orbit",
@@ -18312,6 +18620,23 @@
         "compose"
       ],
       "url": "https://animateicons.in/r/lu-pencil.json"
+    },
+    {
+      "name": "pentagon",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-pentagon",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "pentagon",
+        "shape",
+        "polygon",
+        "badge"
+      ],
+      "url": "https://animateicons.in/r/lu-pentagon.json"
     },
     {
       "name": "percent",
@@ -20142,6 +20467,25 @@
       "url": "https://animateicons.in/r/lu-sprout.json"
     },
     {
+      "name": "square",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "square",
+        "shape",
+        "box",
+        "checkbox",
+        "rectangle",
+        "stop"
+      ],
+      "url": "https://animateicons.in/r/lu-square.json"
+    },
+    {
       "name": "square-arrow-out-up-right",
       "library": "lucide",
       "prefix": "lu",
@@ -20179,6 +20523,25 @@
       "url": "https://animateicons.in/r/lu-square-check.json"
     },
     {
+      "name": "square-check-big",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-check-big",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "checkbox",
+        "check",
+        "done",
+        "complete",
+        "task",
+        "todo"
+      ],
+      "url": "https://animateicons.in/r/lu-square-check-big.json"
+    },
+    {
       "name": "square-dashed",
       "library": "lucide",
       "prefix": "lu",
@@ -20197,6 +20560,45 @@
         "area"
       ],
       "url": "https://animateicons.in/r/lu-square-dashed.json"
+    },
+    {
+      "name": "square-dot",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-dot",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes",
+        "Layout"
+      ],
+      "keywords": [
+        "dot",
+        "square",
+        "select",
+        "option",
+        "center",
+        "record"
+      ],
+      "url": "https://animateicons.in/r/lu-square-dot.json"
+    },
+    {
+      "name": "square-minus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-minus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "minus",
+        "remove",
+        "subtract",
+        "square",
+        "collapse"
+      ],
+      "url": "https://animateicons.in/r/lu-square-minus.json"
     },
     {
       "name": "square-pause",
@@ -20254,6 +20656,82 @@
         "button"
       ],
       "url": "https://animateicons.in/r/lu-square-play.json"
+    },
+    {
+      "name": "square-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Tools",
+        "Mathematics"
+      ],
+      "keywords": [
+        "plus",
+        "add",
+        "new",
+        "create",
+        "square",
+        "expand"
+      ],
+      "url": "https://animateicons.in/r/lu-square-plus.json"
+    },
+    {
+      "name": "square-slash",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-slash",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Mathematics",
+        "Shapes"
+      ],
+      "keywords": [
+        "slash",
+        "divide",
+        "division",
+        "not",
+        "square"
+      ],
+      "url": "https://animateicons.in/r/lu-square-slash.json"
+    },
+    {
+      "name": "square-stop",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-stop",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Multimedia"
+      ],
+      "keywords": [
+        "stop",
+        "square",
+        "media",
+        "button",
+        "end"
+      ],
+      "url": "https://animateicons.in/r/lu-square-stop.json"
+    },
+    {
+      "name": "square-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-square-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Notification"
+      ],
+      "keywords": [
+        "close",
+        "cancel",
+        "remove",
+        "delete",
+        "square",
+        "x"
+      ],
+      "url": "https://animateicons.in/r/lu-square-x.json"
     },
     {
       "name": "stamp",
@@ -21135,6 +21613,24 @@
       "url": "https://animateicons.in/r/lu-trending-up-down.json"
     },
     {
+      "name": "triangle",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-triangle",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "triangle",
+        "shape",
+        "delta",
+        "warning",
+        "pyramid"
+      ],
+      "url": "https://animateicons.in/r/lu-triangle.json"
+    },
+    {
       "name": "triangle-alert",
       "library": "lucide",
       "prefix": "lu",
@@ -21153,6 +21649,45 @@
         "problem"
       ],
       "url": "https://animateicons.in/r/lu-triangle-alert.json"
+    },
+    {
+      "name": "triangle-dashed",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-triangle-dashed",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Design",
+        "Shapes"
+      ],
+      "keywords": [
+        "triangle",
+        "dashed",
+        "draft",
+        "selection",
+        "pending",
+        "shape"
+      ],
+      "url": "https://animateicons.in/r/lu-triangle-dashed.json"
+    },
+    {
+      "name": "triangle-right",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-triangle-right",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Shapes"
+      ],
+      "keywords": [
+        "triangle",
+        "right",
+        "angle",
+        "slope",
+        "ramp",
+        "shape"
+      ],
+      "url": "https://animateicons.in/r/lu-triangle-right.json"
     },
     {
       "name": "trophy",

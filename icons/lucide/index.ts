@@ -86,6 +86,7 @@ import { CloudSunRainIcon } from "./cloud-sun-rain-icon";
 import { CloudSyncIcon } from "./cloud-sync-icon";
 import { CloudUploadIcon } from "./cloud-upload-icon";
 import { CloudyIcon } from "./cloudy-icon";
+import { CircleIcon } from "./circle-icon";
 import { CircleAlertIcon } from "./circle-alert-icon";
 import { CircleCheckIcon } from "./circle-check-icon";
 import { CircleCheckBigIcon } from "./circle-check-big-icon";
@@ -95,11 +96,17 @@ import { CircleChevronRightIcon } from "./circle-chevron-right-icon";
 import { CircleChevronUpIcon } from "./circle-chevron-up-icon";
 import { CircleDashedIcon } from "./circle-dashed-icon";
 import { CircleDotIcon } from "./circle-dot-icon";
+import { CircleEllipsisIcon } from "./circle-ellipsis-icon";
 import { CircleMinusIcon } from "./circle-minus-icon";
+import { CircleOffIcon } from "./circle-off-icon";
 import { CirclePauseIcon } from "./circle-pause-icon";
 import { CirclePlayIcon } from "./circle-play-icon";
 import { CirclePlusIcon } from "./circle-plus-icon";
+import { CirclePowerIcon } from "./circle-power-icon";
 import { CircleQuestionMarkIcon } from "./circle-question-mark-icon";
+import { CircleSlashIcon } from "./circle-slash-icon";
+import { CircleSlash2Icon } from "./circle-slash-2-icon";
+import { CircleStarIcon } from "./circle-star-icon";
 import { CircleStopIcon } from "./circle-stop-icon";
 import { CircleUserRoundIcon } from "./circle-user-round-icon";
 import { CircleXIcon } from "./circle-x-icon";
@@ -205,7 +212,10 @@ import { BellMinusIcon } from "./bell-minus-icon";
 import { BellOffIcon } from "./bell-off-icon";
 import { BellPlusIcon } from "./bell-plus-icon";
 import { BellRingIcon } from "./bell-ring-icon";
+import { TriangleIcon } from "./triangle-icon";
 import { TriangleAlertIcon } from "./triangle-alert-icon";
+import { TriangleDashedIcon } from "./triangle-dashed-icon";
+import { TriangleRightIcon } from "./triangle-right-icon";
 import { LockIcon } from "./lock-icon";
 import { LockOpenIcon } from "./lock-open-icon";
 import { BaggageClaimIcon } from "./baggage-claim-icon";
@@ -255,12 +265,20 @@ import { MapPinCheckInsideIcon } from "./map-pin-check-inside-icon";
 import { MapPinnedIcon } from "./map-pinned-icon";
 import { PinIcon } from "./pin-icon";
 import { PinOffIcon } from "./pin-off-icon";
+import { SquareIcon } from "./square-icon";
 import { SquareArrowOutUpRightIcon } from "./square-arrow-out-up-right-icon";
 import { SquareCheckIcon } from "./square-check-icon";
+import { SquareCheckBigIcon } from "./square-check-big-icon";
 import { SquareDashedIcon } from "./square-dashed-icon";
+import { SquareDotIcon } from "./square-dot-icon";
+import { SquareMinusIcon } from "./square-minus-icon";
 import { SquarePauseIcon } from "./square-pause-icon";
 import { SquarePenIcon } from "./square-pen-icon";
 import { SquarePlayIcon } from "./square-play-icon";
+import { SquarePlusIcon } from "./square-plus-icon";
+import { SquareSlashIcon } from "./square-slash-icon";
+import { SquareStopIcon } from "./square-stop-icon";
+import { SquareXIcon } from "./square-x-icon";
 import { ExternalLinkIcon } from "./external-link-icon";
 import { LinkIcon } from "./link-icon";
 import { UnlinkIcon } from "./unlink-icon";
@@ -613,7 +631,11 @@ import { LanguagesIcon } from "./languages-icon";
 import { CommandIcon } from "./command-icon";
 import { TableIcon } from "./table-icon";
 import { GaugeIcon } from "./gauge-icon";
+import { OctagonIcon } from "./octagon-icon";
 import { OctagonAlertIcon } from "./octagon-alert-icon";
+import { OctagonMinusIcon } from "./octagon-minus-icon";
+import { OctagonPauseIcon } from "./octagon-pause-icon";
+import { OctagonXIcon } from "./octagon-x-icon";
 import { PresentationIcon } from "./presentation-icon";
 import { KanbanIcon } from "./kanban-icon";
 import { ScreenShareIcon } from "./screen-share-icon";
@@ -667,6 +689,12 @@ import { ExpandIcon } from "./expand-icon";
 import { ShrinkIcon } from "./shrink-icon";
 import { FunnelXIcon } from "./funnel-x-icon";
 import { ContrastIcon } from "./contrast-icon";
+import { HexagonIcon } from "./hexagon-icon";
+import { DiamondIcon } from "./diamond-icon";
+import { DiamondMinusIcon } from "./diamond-minus-icon";
+import { DiamondPercentIcon } from "./diamond-percent-icon";
+import { DiamondPlusIcon } from "./diamond-plus-icon";
+import { PentagonIcon } from "./pentagon-icon";
 
 const ICON_LIST: IconListItem[] = [
   {
@@ -1286,6 +1314,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["cloudy", "clouds", "overcast", "weather", "sky", "gray"],
   },
   {
+    name: "circle",
+    icon: CircleIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["circle", "shape", "round", "dot", "radio", "ring"],
+  },
+  {
     name: "circle-alert",
     icon: CircleAlertIcon,
     addedAt: "2026-09-27",
@@ -1349,11 +1384,25 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["radio", "select", "option", "dot", "target", "record"],
   },
   {
+    name: "circle-ellipsis",
+    icon: CircleEllipsisIcon,
+    addedAt: "2026-10-24",
+    category: ["Layout"],
+    keywords: ["more", "options", "menu", "dots", "ellipsis", "circle"],
+  },
+  {
     name: "circle-minus",
     icon: CircleMinusIcon,
     addedAt: "2026-09-27",
     category: ["Tools","Mathematics"],
     keywords: ["minus", "remove", "subtract", "delete", "decrease", "less"],
+  },
+  {
+    name: "circle-off",
+    icon: CircleOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes","Notification"],
+    keywords: ["circle", "off", "disabled", "hidden", "none"],
   },
   {
     name: "circle-pause",
@@ -1377,11 +1426,39 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["plus", "add", "new", "create", "positive", "more"],
   },
   {
+    name: "circle-power",
+    icon: CirclePowerIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity","Devices"],
+    keywords: ["power", "on", "off", "switch", "shutdown", "button", "circle"],
+  },
+  {
     name: "circle-question-mark",
     icon: CircleQuestionMarkIcon,
     addedAt: "2026-09-27",
     category: ["Notification","Tools"],
     keywords: ["help", "question", "support", "faq", "info", "unknown"],
+  },
+  {
+    name: "circle-slash",
+    icon: CircleSlashIcon,
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["slash", "disabled", "none", "not", "circle"],
+  },
+  {
+    name: "circle-slash-2",
+    icon: CircleSlash2Icon,
+    addedAt: "2026-10-24",
+    category: ["Notification","Security"],
+    keywords: ["ban", "forbidden", "prohibited", "disabled", "empty", "null"],
+  },
+  {
+    name: "circle-star",
+    icon: CircleStarIcon,
+    addedAt: "2026-10-24",
+    category: ["Emoji","Shapes"],
+    keywords: ["favorite", "star", "rating", "featured", "badge", "circle"],
   },
   {
     name: "circle-stop",
@@ -2119,11 +2196,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["notification", "active", "alarm", "alert", "reminder", "ringing"],
   },
   {
+    name: "triangle",
+    icon: TriangleIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["triangle", "shape", "delta", "warning", "pyramid"],
+  },
+  {
     name: "triangle-alert",
     icon: TriangleAlertIcon,
     addedAt: "2026-02-16",
     category: ["Notification"],
     keywords: ["warning", "alert", "error", "danger", "caution", "issue", "problem"],
+  },
+  {
+    name: "triangle-dashed",
+    icon: TriangleDashedIcon,
+    addedAt: "2026-10-24",
+    category: ["Design","Shapes"],
+    keywords: ["triangle", "dashed", "draft", "selection", "pending", "shape"],
+  },
+  {
+    name: "triangle-right",
+    icon: TriangleRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["triangle", "right", "angle", "slope", "ramp", "shape"],
   },
   {
     name: "lock",
@@ -2469,6 +2567,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["pin", "unpin", "remove", "disabled", "off", "location"],
   },
   {
+    name: "square",
+    icon: SquareIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["square", "shape", "box", "checkbox", "rectangle", "stop"],
+  },
+  {
     name: "square-arrow-out-up-right",
     icon: SquareArrowOutUpRightIcon,
     addedAt: "2025-11-19",
@@ -2483,11 +2588,32 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
   },
   {
+    name: "square-check-big",
+    icon: SquareCheckBigIcon,
+    addedAt: "2026-10-24",
+    category: ["Notification"],
+    keywords: ["checkbox", "check", "done", "complete", "task", "todo"],
+  },
+  {
     name: "square-dashed",
     icon: SquareDashedIcon,
     addedAt: "2026-09-27",
     category: ["Design","Shapes"],
     keywords: ["selection", "marquee", "dashed", "square", "select", "area"],
+  },
+  {
+    name: "square-dot",
+    icon: SquareDotIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes","Layout"],
+    keywords: ["dot", "square", "select", "option", "center", "record"],
+  },
+  {
+    name: "square-minus",
+    icon: SquareMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Tools","Mathematics"],
+    keywords: ["minus", "remove", "subtract", "square", "collapse"],
   },
   {
     name: "square-pause",
@@ -2509,6 +2635,34 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-08-01",
     category: ["Multimedia"],
     keywords: ["play", "square", "media", "video", "start", "button"],
+  },
+  {
+    name: "square-plus",
+    icon: SquarePlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Tools","Mathematics"],
+    keywords: ["plus", "add", "new", "create", "square", "expand"],
+  },
+  {
+    name: "square-slash",
+    icon: SquareSlashIcon,
+    addedAt: "2026-10-24",
+    category: ["Mathematics","Shapes"],
+    keywords: ["slash", "divide", "division", "not", "square"],
+  },
+  {
+    name: "square-stop",
+    icon: SquareStopIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia"],
+    keywords: ["stop", "square", "media", "button", "end"],
+  },
+  {
+    name: "square-x",
+    icon: SquareXIcon,
+    addedAt: "2026-10-24",
+    category: ["Notification"],
+    keywords: ["close", "cancel", "remove", "delete", "square", "x"],
   },
   {
     name: "external-link",
@@ -4975,11 +5129,39 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["gauge", "speed", "performance", "meter", "dashboard", "speedometer"],
   },
   {
+    name: "octagon",
+    icon: OctagonIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["octagon", "shape", "polygon", "stop", "sign"],
+  },
+  {
     name: "octagon-alert",
     icon: OctagonAlertIcon,
     addedAt: "2026-09-27",
     category: ["Notification"],
     keywords: ["alert", "error", "stop", "warning", "danger", "octagon"],
+  },
+  {
+    name: "octagon-minus",
+    icon: OctagonMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["stop", "remove", "blocked", "no entry", "octagon", "minus"],
+  },
+  {
+    name: "octagon-pause",
+    icon: OctagonPauseIcon,
+    addedAt: "2026-10-24",
+    category: ["Multimedia","Shapes"],
+    keywords: ["pause", "stop", "hold", "octagon", "media"],
+  },
+  {
+    name: "octagon-x",
+    icon: OctagonXIcon,
+    addedAt: "2026-10-24",
+    category: ["Notification","Shapes"],
+    keywords: ["stop", "close", "error", "cancel", "octagon", "x"],
   },
   {
     name: "presentation",
@@ -5351,6 +5533,48 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-29",
     category: ["Design"],
     keywords: ["contrast", "contrast", "theme", "dark mode", "light mode", "brightness", "accessibility"],
+  },
+  {
+    name: "hexagon",
+    icon: HexagonIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["hexagon", "shape", "polygon", "cell", "honeycomb", "nut"],
+  },
+  {
+    name: "diamond",
+    icon: DiamondIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["diamond", "shape", "rhombus", "gem", "decision"],
+  },
+  {
+    name: "diamond-minus",
+    icon: DiamondMinusIcon,
+    addedAt: "2026-10-24",
+    category: ["Tools","Shapes"],
+    keywords: ["remove", "minus", "subtract", "delete", "diamond"],
+  },
+  {
+    name: "diamond-percent",
+    icon: DiamondPercentIcon,
+    addedAt: "2026-10-24",
+    category: ["Shopping","Shapes"],
+    keywords: ["discount", "sale", "percent", "offer", "diamond"],
+  },
+  {
+    name: "diamond-plus",
+    icon: DiamondPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Tools","Shapes"],
+    keywords: ["add", "plus", "new", "create", "diamond"],
+  },
+  {
+    name: "pentagon",
+    icon: PentagonIcon,
+    addedAt: "2026-10-24",
+    category: ["Shapes"],
+    keywords: ["pentagon", "shape", "polygon", "badge"],
   },
 ];
 
