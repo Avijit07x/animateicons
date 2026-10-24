@@ -88,6 +88,14 @@ import { CloudUploadIcon } from "./cloud-upload-icon";
 import { CloudyIcon } from "./cloudy-icon";
 import { CircleIcon } from "./circle-icon";
 import { CircleAlertIcon } from "./circle-alert-icon";
+import { CircleArrowDownIcon } from "./circle-arrow-down-icon";
+import { CircleArrowLeftIcon } from "./circle-arrow-left-icon";
+import { CircleArrowOutDownLeftIcon } from "./circle-arrow-out-down-left-icon";
+import { CircleArrowOutDownRightIcon } from "./circle-arrow-out-down-right-icon";
+import { CircleArrowOutUpLeftIcon } from "./circle-arrow-out-up-left-icon";
+import { CircleArrowOutUpRightIcon } from "./circle-arrow-out-up-right-icon";
+import { CircleArrowRightIcon } from "./circle-arrow-right-icon";
+import { CircleArrowUpIcon } from "./circle-arrow-up-icon";
 import { CircleCheckIcon } from "./circle-check-icon";
 import { CircleCheckBigIcon } from "./circle-check-big-icon";
 import { CircleChevronDownIcon } from "./circle-chevron-down-icon";
@@ -266,7 +274,20 @@ import { MapPinnedIcon } from "./map-pinned-icon";
 import { PinIcon } from "./pin-icon";
 import { PinOffIcon } from "./pin-off-icon";
 import { SquareIcon } from "./square-icon";
+import { SquareArrowDownIcon } from "./square-arrow-down-icon";
+import { SquareArrowDownLeftIcon } from "./square-arrow-down-left-icon";
+import { SquareArrowDownRightIcon } from "./square-arrow-down-right-icon";
+import { SquareArrowLeftIcon } from "./square-arrow-left-icon";
+import { SquareArrowOutDownLeftIcon } from "./square-arrow-out-down-left-icon";
+import { SquareArrowOutDownRightIcon } from "./square-arrow-out-down-right-icon";
+import { SquareArrowOutUpLeftIcon } from "./square-arrow-out-up-left-icon";
 import { SquareArrowOutUpRightIcon } from "./square-arrow-out-up-right-icon";
+import { SquareArrowRightIcon } from "./square-arrow-right-icon";
+import { SquareArrowRightEnterIcon } from "./square-arrow-right-enter-icon";
+import { SquareArrowRightExitIcon } from "./square-arrow-right-exit-icon";
+import { SquareArrowUpIcon } from "./square-arrow-up-icon";
+import { SquareArrowUpLeftIcon } from "./square-arrow-up-left-icon";
+import { SquareArrowUpRightIcon } from "./square-arrow-up-right-icon";
 import { SquareCheckIcon } from "./square-check-icon";
 import { SquareCheckBigIcon } from "./square-check-big-icon";
 import { SquareDashedIcon } from "./square-dashed-icon";
@@ -339,7 +360,14 @@ import { BookOpenIcon } from "./book-open-icon";
 import { BookOpenCheckIcon } from "./book-open-check-icon";
 import { BookOpenTextIcon } from "./book-open-text-icon";
 import { SparklesIcon } from "./sparkles-icon";
+import { ArrowBigDownIcon } from "./arrow-big-down-icon";
+import { ArrowBigDownDashIcon } from "./arrow-big-down-dash-icon";
+import { ArrowBigLeftIcon } from "./arrow-big-left-icon";
+import { ArrowBigLeftDashIcon } from "./arrow-big-left-dash-icon";
+import { ArrowBigRightIcon } from "./arrow-big-right-icon";
+import { ArrowBigRightDashIcon } from "./arrow-big-right-dash-icon";
 import { ArrowBigUpIcon } from "./arrow-big-up-icon";
+import { ArrowBigUpDashIcon } from "./arrow-big-up-dash-icon";
 import { ArrowDownIcon } from "./arrow-down-icon";
 import { ArrowDownLeftIcon } from "./arrow-down-left-icon";
 import { ArrowDownRightIcon } from "./arrow-down-right-icon";
@@ -1326,6 +1354,62 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-09-27",
     category: ["Notification"],
     keywords: ["alert", "warning", "error", "info", "exclamation", "caution"],
+  },
+  {
+    name: "circle-arrow-down",
+    icon: CircleArrowDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "down", "south", "bottom", "circle", "button", "round"],
+  },
+  {
+    name: "circle-arrow-left",
+    icon: CircleArrowLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "left", "west", "back", "previous", "circle", "button", "round"],
+  },
+  {
+    name: "circle-arrow-out-down-left",
+    icon: CircleArrowOutDownLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "out", "exit", "export", "circle", "down left"],
+  },
+  {
+    name: "circle-arrow-out-down-right",
+    icon: CircleArrowOutDownRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "out", "exit", "export", "circle", "down right"],
+  },
+  {
+    name: "circle-arrow-out-up-left",
+    icon: CircleArrowOutUpLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "out", "exit", "export", "circle", "up left"],
+  },
+  {
+    name: "circle-arrow-out-up-right",
+    icon: CircleArrowOutUpRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "out", "exit", "export", "circle", "up right"],
+  },
+  {
+    name: "circle-arrow-right",
+    icon: CircleArrowRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "right", "east", "forward", "next", "circle", "button", "round"],
+  },
+  {
+    name: "circle-arrow-up",
+    icon: CircleArrowUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "up", "north", "top", "circle", "button", "round"],
   },
   {
     name: "circle-check",
@@ -2574,11 +2658,102 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["square", "shape", "box", "checkbox", "rectangle", "stop"],
   },
   {
+    name: "square-arrow-down",
+    icon: SquareArrowDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "down", "south", "bottom", "square", "button", "box"],
+  },
+  {
+    name: "square-arrow-down-left",
+    icon: SquareArrowDownLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "diagonal", "down", "left", "square", "corner"],
+  },
+  {
+    name: "square-arrow-down-right",
+    icon: SquareArrowDownRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "diagonal", "down", "right", "square", "corner"],
+  },
+  {
+    name: "square-arrow-left",
+    icon: SquareArrowLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "left", "west", "back", "previous", "square", "button", "box"],
+  },
+  {
+    name: "square-arrow-out-down-left",
+    icon: SquareArrowOutDownLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "open", "link", "out", "export", "new window", "down left"],
+  },
+  {
+    name: "square-arrow-out-down-right",
+    icon: SquareArrowOutDownRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "open", "link", "out", "export", "new window", "down right"],
+  },
+  {
+    name: "square-arrow-out-up-left",
+    icon: SquareArrowOutUpLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["external", "open", "link", "out", "export", "new window", "up left"],
+  },
+  {
     name: "square-arrow-out-up-right",
     icon: SquareArrowOutUpRightIcon,
     addedAt: "2025-11-19",
     category: ["Arrows"],
     keywords: ["external", "link", "share", "open", "out"],
+  },
+  {
+    name: "square-arrow-right",
+    icon: SquareArrowRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "right", "east", "forward", "next", "square", "button", "box"],
+  },
+  {
+    name: "square-arrow-right-enter",
+    icon: SquareArrowRightEnterIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Accounts & access"],
+    keywords: ["enter", "login", "sign in", "import", "arrow", "door"],
+  },
+  {
+    name: "square-arrow-right-exit",
+    icon: SquareArrowRightExitIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows","Accounts & access"],
+    keywords: ["exit", "logout", "sign out", "export", "arrow", "door"],
+  },
+  {
+    name: "square-arrow-up",
+    icon: SquareArrowUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "up", "north", "top", "square", "button", "box"],
+  },
+  {
+    name: "square-arrow-up-left",
+    icon: SquareArrowUpLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "diagonal", "up", "left", "square", "corner"],
+  },
+  {
+    name: "square-arrow-up-right",
+    icon: SquareArrowUpRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "diagonal", "up", "right", "square", "corner"],
   },
   {
     name: "square-check",
@@ -3085,11 +3260,60 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["sparkle", "shine", "glow", "star", "magic", "glitter"],
   },
   {
+    name: "arrow-big-down",
+    icon: ArrowBigDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "down", "south", "bottom", "direction", "bold"],
+  },
+  {
+    name: "arrow-big-down-dash",
+    icon: ArrowBigDownDashIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "down", "south", "bottom", "dash", "shift"],
+  },
+  {
+    name: "arrow-big-left",
+    icon: ArrowBigLeftIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "left", "west", "back", "previous", "direction", "bold"],
+  },
+  {
+    name: "arrow-big-left-dash",
+    icon: ArrowBigLeftDashIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "left", "west", "back", "previous", "dash"],
+  },
+  {
+    name: "arrow-big-right",
+    icon: ArrowBigRightIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "right", "east", "forward", "next", "direction", "bold"],
+  },
+  {
+    name: "arrow-big-right-dash",
+    icon: ArrowBigRightDashIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "right", "east", "forward", "next", "dash"],
+  },
+  {
     name: "arrow-big-up",
     icon: ArrowBigUpIcon,
     addedAt: "2026-09-27",
     category: ["Arrows","Social"],
     keywords: ["upvote", "vote", "up", "arrow", "like", "increase"],
+  },
+  {
+    name: "arrow-big-up-dash",
+    icon: ArrowBigUpDashIcon,
+    addedAt: "2026-10-24",
+    category: ["Arrows"],
+    keywords: ["arrow", "big", "up", "north", "top", "dash", "shift"],
   },
   {
     name: "arrow-down",
