@@ -2,9 +2,9 @@
   "$schema": "https://animateicons.in/r/catalog.schema.json",
   "version": 1,
   "registryBase": "https://animateicons.in/r",
-  "total": 1406,
+  "total": 1432,
   "libraries": {
-    "lucide": 905,
+    "lucide": 931,
     "huge": 501
   },
   "icons": [
@@ -11242,6 +11242,63 @@
       "url": "https://animateicons.in/r/lu-battery-low.json"
     },
     {
+      "name": "battery-medium",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-battery-medium",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "battery",
+        "half",
+        "medium",
+        "power",
+        "energy",
+        "level"
+      ],
+      "url": "https://animateicons.in/r/lu-battery-medium.json"
+    },
+    {
+      "name": "battery-plus",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-battery-plus",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "battery",
+        "saver",
+        "add",
+        "power",
+        "energy",
+        "charge"
+      ],
+      "url": "https://animateicons.in/r/lu-battery-plus.json"
+    },
+    {
+      "name": "battery-warning",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-battery-warning",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "battery",
+        "warning",
+        "alert",
+        "power",
+        "energy",
+        "low"
+      ],
+      "url": "https://animateicons.in/r/lu-battery-warning.json"
+    },
+    {
       "name": "bell",
       "library": "lucide",
       "prefix": "lu",
@@ -18118,6 +18175,25 @@
       "url": "https://animateicons.in/r/lu-laptop-minimal.json"
     },
     {
+      "name": "laptop-minimal-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-laptop-minimal-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "laptop",
+        "computer",
+        "check",
+        "success",
+        "done",
+        "verified"
+      ],
+      "url": "https://animateicons.in/r/lu-laptop-minimal-check.json"
+    },
+    {
       "name": "layers",
       "library": "lucide",
       "prefix": "lu",
@@ -20071,6 +20147,179 @@
       "url": "https://animateicons.in/r/lu-monitor.json"
     },
     {
+      "name": "monitor-check",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-check",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "display",
+        "success",
+        "done",
+        "verified"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-check.json"
+    },
+    {
+      "name": "monitor-cloud",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-cloud",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "cloud",
+        "remote",
+        "sync",
+        "virtual desktop"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-cloud.json"
+    },
+    {
+      "name": "monitor-cog",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-cog",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "settings",
+        "preferences",
+        "configure",
+        "gear"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-cog.json"
+    },
+    {
+      "name": "monitor-dot",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-dot",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "notification",
+        "badge",
+        "unread",
+        "alert"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-dot.json"
+    },
+    {
+      "name": "monitor-down",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-down",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "download",
+        "receive",
+        "install",
+        "save"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-down.json"
+    },
+    {
+      "name": "monitor-off",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-off",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "display",
+        "off",
+        "disabled",
+        "no signal"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-off.json"
+    },
+    {
+      "name": "monitor-pause",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-pause",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "pause",
+        "video",
+        "stream",
+        "hold"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-pause.json"
+    },
+    {
+      "name": "monitor-pc",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-pc",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "pc",
+        "computer",
+        "tower",
+        "desktop",
+        "workstation"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-pc.json"
+    },
+    {
+      "name": "monitor-play",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-play",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "play",
+        "video",
+        "stream",
+        "watch"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-play.json"
+    },
+    {
       "name": "monitor-smartphone",
       "library": "lucide",
       "prefix": "lu",
@@ -20088,6 +20337,83 @@
         "screens"
       ],
       "url": "https://animateicons.in/r/lu-monitor-smartphone.json"
+    },
+    {
+      "name": "monitor-speaker",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-speaker",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "speaker",
+        "audio",
+        "sound",
+        "desktop",
+        "setup"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-speaker.json"
+    },
+    {
+      "name": "monitor-stop",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-stop",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Multimedia"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "stop",
+        "video",
+        "stream",
+        "end"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-stop.json"
+    },
+    {
+      "name": "monitor-up",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-up",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "upload",
+        "share",
+        "cast",
+        "send"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-up.json"
+    },
+    {
+      "name": "monitor-x",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-monitor-x",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "display",
+        "error",
+        "close",
+        "failed"
+      ],
+      "url": "https://animateicons.in/r/lu-monitor-x.json"
     },
     {
       "name": "moon",
@@ -23429,6 +23755,82 @@
       "url": "https://animateicons.in/r/lu-signal.json"
     },
     {
+      "name": "signal-high",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-signal-high",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "signal",
+        "cellular",
+        "bars",
+        "strong",
+        "network",
+        "reception"
+      ],
+      "url": "https://animateicons.in/r/lu-signal-high.json"
+    },
+    {
+      "name": "signal-low",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-signal-low",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "signal",
+        "cellular",
+        "bars",
+        "weak",
+        "network",
+        "reception"
+      ],
+      "url": "https://animateicons.in/r/lu-signal-low.json"
+    },
+    {
+      "name": "signal-medium",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-signal-medium",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "signal",
+        "cellular",
+        "bars",
+        "medium",
+        "network",
+        "reception"
+      ],
+      "url": "https://animateicons.in/r/lu-signal-medium.json"
+    },
+    {
+      "name": "signal-zero",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-signal-zero",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "signal",
+        "cellular",
+        "no service",
+        "no bars",
+        "network",
+        "reception"
+      ],
+      "url": "https://animateicons.in/r/lu-signal-zero.json"
+    },
+    {
       "name": "signature",
       "library": "lucide",
       "prefix": "lu",
@@ -23577,6 +23979,45 @@
         "cell"
       ],
       "url": "https://animateicons.in/r/lu-smartphone.json"
+    },
+    {
+      "name": "smartphone-charging",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-smartphone-charging",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices"
+      ],
+      "keywords": [
+        "smartphone",
+        "phone",
+        "charging",
+        "battery",
+        "power",
+        "mobile"
+      ],
+      "url": "https://animateicons.in/r/lu-smartphone-charging.json"
+    },
+    {
+      "name": "smartphone-nfc",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-smartphone-nfc",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Devices",
+        "Connectivity"
+      ],
+      "keywords": [
+        "smartphone",
+        "nfc",
+        "contactless",
+        "tap",
+        "pay",
+        "wireless"
+      ],
+      "url": "https://animateicons.in/r/lu-smartphone-nfc.json"
     },
     {
       "name": "snowflake",
@@ -26719,6 +27160,44 @@
       "url": "https://animateicons.in/r/lu-wifi-cog.json"
     },
     {
+      "name": "wifi-high",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-high",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "wireless",
+        "strong signal",
+        "network",
+        "internet",
+        "connection"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-high.json"
+    },
+    {
+      "name": "wifi-low",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-low",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "wireless",
+        "weak signal",
+        "network",
+        "internet",
+        "connection"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-low.json"
+    },
+    {
       "name": "wifi-off",
       "library": "lucide",
       "prefix": "lu",
@@ -26771,6 +27250,25 @@
         "reload"
       ],
       "url": "https://animateicons.in/r/lu-wifi-sync.json"
+    },
+    {
+      "name": "wifi-zero",
+      "library": "lucide",
+      "prefix": "lu",
+      "registryName": "lu-wifi-zero",
+      "addedAt": "2026-10-24",
+      "category": [
+        "Connectivity"
+      ],
+      "keywords": [
+        "wifi",
+        "wireless",
+        "no signal",
+        "network",
+        "searching",
+        "disconnected"
+      ],
+      "url": "https://animateicons.in/r/lu-wifi-zero.json"
     },
     {
       "name": "wind",

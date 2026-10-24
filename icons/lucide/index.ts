@@ -69,6 +69,8 @@ import { PhoneIncomingIcon } from "./phone-incoming-icon";
 import { PhoneMissedIcon } from "./phone-missed-icon";
 import { PhoneOffIcon } from "./phone-off-icon";
 import { SmartphoneIcon } from "./smartphone-icon";
+import { SmartphoneChargingIcon } from "./smartphone-charging-icon";
+import { SmartphoneNfcIcon } from "./smartphone-nfc-icon";
 import { SearchIcon } from "./search-icon";
 import { SearchXIcon } from "./search-x-icon";
 import { SlidersHorizontalIcon } from "./sliders-horizontal-icon";
@@ -315,6 +317,9 @@ import { BatteryIcon } from "./battery-icon";
 import { BatteryChargingIcon } from "./battery-charging-icon";
 import { BatteryFullIcon } from "./battery-full-icon";
 import { BatteryLowIcon } from "./battery-low-icon";
+import { BatteryMediumIcon } from "./battery-medium-icon";
+import { BatteryPlusIcon } from "./battery-plus-icon";
+import { BatteryWarningIcon } from "./battery-warning-icon";
 import { HeartIcon } from "./heart-icon";
 import { HeartPulseIcon } from "./heart-pulse-icon";
 import { ThumbsDownIcon } from "./thumbs-down-icon";
@@ -332,9 +337,12 @@ import { CodeIcon } from "./code-icon";
 import { CodeXmlIcon } from "./code-xml-icon";
 import { WifiIcon } from "./wifi-icon";
 import { WifiCogIcon } from "./wifi-cog-icon";
+import { WifiHighIcon } from "./wifi-high-icon";
+import { WifiLowIcon } from "./wifi-low-icon";
 import { WifiOffIcon } from "./wifi-off-icon";
 import { WifiPenIcon } from "./wifi-pen-icon";
 import { WifiSyncIcon } from "./wifi-sync-icon";
+import { WifiZeroIcon } from "./wifi-zero-icon";
 import { GlobeIcon } from "./globe-icon";
 import { GlobeLockIcon } from "./globe-lock-icon";
 import { MapIcon } from "./map-icon";
@@ -400,6 +408,10 @@ import { CreditCardReaderIcon } from "./credit-card-reader-icon";
 import { CreditCardXIcon } from "./credit-card-x-icon";
 import { BrainIcon } from "./brain-icon";
 import { SignalIcon } from "./signal-icon";
+import { SignalHighIcon } from "./signal-high-icon";
+import { SignalLowIcon } from "./signal-low-icon";
+import { SignalMediumIcon } from "./signal-medium-icon";
+import { SignalZeroIcon } from "./signal-zero-icon";
 import { BadgeCentIcon } from "./badge-cent-icon";
 import { BadgeCheckIcon } from "./badge-check-icon";
 import { BadgeDollarSignIcon } from "./badge-dollar-sign-icon";
@@ -612,6 +624,7 @@ import { VideoIcon } from "./video-icon";
 import { VideoOffIcon } from "./video-off-icon";
 import { LaptopIcon } from "./laptop-icon";
 import { LaptopMinimalIcon } from "./laptop-minimal-icon";
+import { LaptopMinimalCheckIcon } from "./laptop-minimal-check-icon";
 import { TvIcon } from "./tv-icon";
 import { TvMinimalIcon } from "./tv-minimal-icon";
 import { CarIcon } from "./car-icon";
@@ -709,7 +722,20 @@ import { FootprintsIcon } from "./footprints-icon";
 import { MountainIcon } from "./mountain-icon";
 import { TabletIcon } from "./tablet-icon";
 import { MonitorIcon } from "./monitor-icon";
+import { MonitorCheckIcon } from "./monitor-check-icon";
+import { MonitorCloudIcon } from "./monitor-cloud-icon";
+import { MonitorCogIcon } from "./monitor-cog-icon";
+import { MonitorDotIcon } from "./monitor-dot-icon";
+import { MonitorDownIcon } from "./monitor-down-icon";
+import { MonitorOffIcon } from "./monitor-off-icon";
+import { MonitorPauseIcon } from "./monitor-pause-icon";
+import { MonitorPcIcon } from "./monitor-pc-icon";
+import { MonitorPlayIcon } from "./monitor-play-icon";
 import { MonitorSmartphoneIcon } from "./monitor-smartphone-icon";
+import { MonitorSpeakerIcon } from "./monitor-speaker-icon";
+import { MonitorStopIcon } from "./monitor-stop-icon";
+import { MonitorUpIcon } from "./monitor-up-icon";
+import { MonitorXIcon } from "./monitor-x-icon";
 import { KeyboardIcon } from "./keyboard-icon";
 import { ServerIcon } from "./server-icon";
 import { ServerCogIcon } from "./server-cog-icon";
@@ -1401,6 +1427,20 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2026-07-26",
     category: ["Devices"],
     keywords: ["smartphone", "phone", "mobile", "device", "cell"],
+  },
+  {
+    name: "smartphone-charging",
+    icon: SmartphoneChargingIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["smartphone", "phone", "charging", "battery", "power", "mobile"],
+  },
+  {
+    name: "smartphone-nfc",
+    icon: SmartphoneNfcIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Connectivity"],
+    keywords: ["smartphone", "nfc", "contactless", "tap", "pay", "wireless"],
   },
   {
     name: "search",
@@ -3125,6 +3165,27 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["battery", "low", "power", "empty", "energy", "warning"],
   },
   {
+    name: "battery-medium",
+    icon: BatteryMediumIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "half", "medium", "power", "energy", "level"],
+  },
+  {
+    name: "battery-plus",
+    icon: BatteryPlusIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "saver", "add", "power", "energy", "charge"],
+  },
+  {
+    name: "battery-warning",
+    icon: BatteryWarningIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["battery", "warning", "alert", "power", "energy", "low"],
+  },
+  {
     name: "heart",
     icon: HeartIcon,
     addedAt: "2025-12-30",
@@ -3244,6 +3305,20 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["settings", "network", "wifi", "config", "setup"],
   },
   {
+    name: "wifi-high",
+    icon: WifiHighIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "strong signal", "network", "internet", "connection"],
+  },
+  {
+    name: "wifi-low",
+    icon: WifiLowIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "weak signal", "network", "internet", "connection"],
+  },
+  {
     name: "wifi-off",
     icon: WifiOffIcon,
     addedAt: "2025-10-25",
@@ -3263,6 +3338,13 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-10-25",
     category: ["Connectivity"],
     keywords: ["sync", "network", "wifi", "refresh", "reload"],
+  },
+  {
+    name: "wifi-zero",
+    icon: WifiZeroIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["wifi", "wireless", "no signal", "network", "searching", "disconnected"],
   },
   {
     name: "globe",
@@ -3718,6 +3800,34 @@ const ICON_LIST: IconListItem[] = [
     addedAt: "2025-08-28",
     category: ["Connectivity"],
     keywords: ["wifi", "connection", "network", "signal", "data", "internet"],
+  },
+  {
+    name: "signal-high",
+    icon: SignalHighIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "strong", "network", "reception"],
+  },
+  {
+    name: "signal-low",
+    icon: SignalLowIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "weak", "network", "reception"],
+  },
+  {
+    name: "signal-medium",
+    icon: SignalMediumIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "bars", "medium", "network", "reception"],
+  },
+  {
+    name: "signal-zero",
+    icon: SignalZeroIcon,
+    addedAt: "2026-10-24",
+    category: ["Connectivity"],
+    keywords: ["signal", "cellular", "no service", "no bars", "network", "reception"],
   },
   {
     name: "badge-cent",
@@ -5204,6 +5314,13 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["laptop", "notebook", "computer", "device", "macbook", "screen"],
   },
   {
+    name: "laptop-minimal-check",
+    icon: LaptopMinimalCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["laptop", "computer", "check", "success", "done", "verified"],
+  },
+  {
     name: "tv",
     icon: TvIcon,
     addedAt: "2026-07-26",
@@ -5883,11 +6000,102 @@ const ICON_LIST: IconListItem[] = [
     keywords: ["monitor", "screen", "display", "computer", "desktop", "device"],
   },
   {
+    name: "monitor-check",
+    icon: MonitorCheckIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "success", "done", "verified"],
+  },
+  {
+    name: "monitor-cloud",
+    icon: MonitorCloudIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "cloud", "remote", "sync", "virtual desktop"],
+  },
+  {
+    name: "monitor-cog",
+    icon: MonitorCogIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "settings", "preferences", "configure", "gear"],
+  },
+  {
+    name: "monitor-dot",
+    icon: MonitorDotIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "notification", "badge", "unread", "alert"],
+  },
+  {
+    name: "monitor-down",
+    icon: MonitorDownIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "download", "receive", "install", "save"],
+  },
+  {
+    name: "monitor-off",
+    icon: MonitorOffIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "off", "disabled", "no signal"],
+  },
+  {
+    name: "monitor-pause",
+    icon: MonitorPauseIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "pause", "video", "stream", "hold"],
+  },
+  {
+    name: "monitor-pc",
+    icon: MonitorPcIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "pc", "computer", "tower", "desktop", "workstation"],
+  },
+  {
+    name: "monitor-play",
+    icon: MonitorPlayIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "play", "video", "stream", "watch"],
+  },
+  {
     name: "monitor-smartphone",
     icon: MonitorSmartphoneIcon,
     addedAt: "2026-08-02",
     category: ["Devices"],
     keywords: ["monitor", "smartphone", "responsive", "devices", "sync", "screens"],
+  },
+  {
+    name: "monitor-speaker",
+    icon: MonitorSpeakerIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "speaker", "audio", "sound", "desktop", "setup"],
+  },
+  {
+    name: "monitor-stop",
+    icon: MonitorStopIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices","Multimedia"],
+    keywords: ["monitor", "screen", "stop", "video", "stream", "end"],
+  },
+  {
+    name: "monitor-up",
+    icon: MonitorUpIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "upload", "share", "cast", "send"],
+  },
+  {
+    name: "monitor-x",
+    icon: MonitorXIcon,
+    addedAt: "2026-10-24",
+    category: ["Devices"],
+    keywords: ["monitor", "screen", "display", "error", "close", "failed"],
   },
   {
     name: "keyboard",

@@ -9316,6 +9316,54 @@
       ]
     },
     {
+      "name": "lu-battery-medium",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/battery-medium-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/battery-medium.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-battery-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/battery-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/battery-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-battery-warning",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/battery-warning-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/battery-warning.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-bell-dot",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -15108,6 +15156,22 @@
       ]
     },
     {
+      "name": "lu-laptop-minimal-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/laptop-minimal-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/laptop-minimal-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-laptop-minimal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16740,6 +16804,86 @@
       ]
     },
     {
+      "name": "lu-monitor-check",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-check-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-cloud",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-cloud-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-cloud.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-cog",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-dot",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-dot-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-down",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-down-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-down.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-monitor",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16756,6 +16900,70 @@
       ]
     },
     {
+      "name": "lu-monitor-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-pause",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-pause-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-pause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-pc",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-pc-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-pc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-play",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-play-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-play.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-monitor-smartphone",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -16768,6 +16976,70 @@
           "path": "icons/lucide/monitor-smartphone-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/monitor-smartphone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-speaker",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-speaker-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-speaker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-stop",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-stop-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-stop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-up",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-up-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-monitor-x",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/monitor-x-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/monitor-x.tsx"
         }
       ]
     },
@@ -19556,6 +19828,22 @@
       ]
     },
     {
+      "name": "lu-signal-high",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/signal-high-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/signal-high.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-signal",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -19568,6 +19856,54 @@
           "path": "icons/lucide/signal-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/signal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-signal-low",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/signal-low-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/signal-low.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-signal-medium",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/signal-medium-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/signal-medium.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-signal-zero",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/signal-zero-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/signal-zero.tsx"
         }
       ]
     },
@@ -19684,6 +20020,22 @@
       ]
     },
     {
+      "name": "lu-smartphone-charging",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/smartphone-charging-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/smartphone-charging.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-smartphone",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -19696,6 +20048,22 @@
           "path": "icons/lucide/smartphone-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/smartphone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-smartphone-nfc",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/smartphone-nfc-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/smartphone-nfc.tsx"
         }
       ]
     },
@@ -22308,6 +22676,22 @@
       ]
     },
     {
+      "name": "lu-wifi-high",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/wifi-high-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-high.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-wifi",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -22320,6 +22704,22 @@
           "path": "icons/lucide/wifi-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/wifi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-wifi-low",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/wifi-low-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-low.tsx"
         }
       ]
     },
@@ -22368,6 +22768,22 @@
           "path": "icons/lucide/wifi-sync-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/wifi-sync.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-wifi-zero",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/wifi-zero-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/wifi-zero.tsx"
         }
       ]
     },

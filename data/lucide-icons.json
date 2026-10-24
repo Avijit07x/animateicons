@@ -6593,5 +6593,217 @@
 			"reset",
 			"plain text"
 		]
+	},
+	{
+		"name": "wifi-high",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"strong signal",
+			"network",
+			"internet",
+			"connection"
+		]
+	},
+	{
+		"name": "wifi-low",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"weak signal",
+			"network",
+			"internet",
+			"connection"
+		]
+	},
+	{
+		"name": "wifi-zero",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"wifi",
+			"wireless",
+			"no signal",
+			"network",
+			"searching",
+			"disconnected"
+		]
+	},
+	{
+		"name": "signal-high",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "strong", "network", "reception"]
+	},
+	{
+		"name": "signal-medium",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "medium", "network", "reception"]
+	},
+	{
+		"name": "signal-low",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": ["signal", "cellular", "bars", "weak", "network", "reception"]
+	},
+	{
+		"name": "signal-zero",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"signal",
+			"cellular",
+			"no service",
+			"no bars",
+			"network",
+			"reception"
+		]
+	},
+	{
+		"name": "battery-medium",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "half", "medium", "power", "energy", "level"]
+	},
+	{
+		"name": "battery-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "saver", "add", "power", "energy", "charge"]
+	},
+	{
+		"name": "battery-warning",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["battery", "warning", "alert", "power", "energy", "low"]
+	},
+	{
+		"name": "monitor-check",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "success", "done", "verified"]
+	},
+	{
+		"name": "monitor-x",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "error", "close", "failed"]
+	},
+	{
+		"name": "monitor-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "display", "off", "disabled", "no signal"]
+	},
+	{
+		"name": "monitor-up",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "upload", "share", "cast", "send"]
+	},
+	{
+		"name": "monitor-down",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "screen", "download", "receive", "install", "save"]
+	},
+	{
+		"name": "monitor-play",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "play", "video", "stream", "watch"]
+	},
+	{
+		"name": "monitor-pause",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "pause", "video", "stream", "hold"]
+	},
+	{
+		"name": "monitor-stop",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Multimedia"],
+		"keywords": ["monitor", "screen", "stop", "video", "stream", "end"]
+	},
+	{
+		"name": "monitor-dot",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"notification",
+			"badge",
+			"unread",
+			"alert"
+		]
+	},
+	{
+		"name": "monitor-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"settings",
+			"preferences",
+			"configure",
+			"gear"
+		]
+	},
+	{
+		"name": "monitor-cloud",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"monitor",
+			"screen",
+			"cloud",
+			"remote",
+			"sync",
+			"virtual desktop"
+		]
+	},
+	{
+		"name": "monitor-speaker",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "speaker", "audio", "sound", "desktop", "setup"]
+	},
+	{
+		"name": "monitor-pc",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["monitor", "pc", "computer", "tower", "desktop", "workstation"]
+	},
+	{
+		"name": "laptop-minimal-check",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": ["laptop", "computer", "check", "success", "done", "verified"]
+	},
+	{
+		"name": "smartphone-charging",
+		"addedAt": "2026-10-24",
+		"category": ["Devices"],
+		"keywords": [
+			"smartphone",
+			"phone",
+			"charging",
+			"battery",
+			"power",
+			"mobile"
+		]
+	},
+	{
+		"name": "smartphone-nfc",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Connectivity"],
+		"keywords": ["smartphone", "nfc", "contactless", "tap", "pay", "wireless"]
 	}
 ]
