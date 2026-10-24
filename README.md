@@ -13,7 +13,7 @@
 
 ---
 
-1,335 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
+1,362 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
 
 ## Quick start
 

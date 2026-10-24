@@ -5999,5 +5999,237 @@
 		"addedAt": "2026-10-24",
 		"category": ["Security"],
 		"keywords": ["unlock", "keyhole", "padlock", "open", "access", "unlocked"]
+	},
+	{
+		"name": "git-pull-request",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"pr",
+			"merge",
+			"review",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-arrow",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"pr",
+			"merge",
+			"branch",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-draft",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["git", "pull request", "draft", "wip", "pr", "version control"]
+	},
+	{
+		"name": "git-pull-request-closed",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"closed",
+			"rejected",
+			"pr",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-create",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"pull request",
+			"create",
+			"new",
+			"pr",
+			"version control"
+		]
+	},
+	{
+		"name": "git-pull-request-create-arrow",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["git", "pull request", "create", "new", "pr", "merge"]
+	},
+	{
+		"name": "git-graph",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"git",
+			"graph",
+			"history",
+			"commits",
+			"branches",
+			"version control"
+		]
+	},
+	{
+		"name": "database-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "add", "new", "storage", "sql", "db"]
+	},
+	{
+		"name": "database-minus",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "remove", "delete", "storage", "sql", "db"]
+	},
+	{
+		"name": "database-check",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "check", "verified", "success", "storage", "db"]
+	},
+	{
+		"name": "database-x",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "error", "remove", "failed", "storage", "db"]
+	},
+	{
+		"name": "database-search",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "search", "query", "find", "lookup", "db"]
+	},
+	{
+		"name": "database-zap",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "fast", "cache", "power", "performance", "db"]
+	},
+	{
+		"name": "database-arrow-down",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "download", "import", "export", "storage", "db"]
+	},
+	{
+		"name": "database-arrow-up",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development", "Storage"],
+		"keywords": ["database", "upload", "import", "sync", "storage", "db"]
+	},
+	{
+		"name": "server-plus",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "add", "new", "hosting", "rack", "infrastructure"]
+	},
+	{
+		"name": "server-off",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "off", "offline", "down", "disabled", "hosting"]
+	},
+	{
+		"name": "server-cog",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": [
+			"server",
+			"settings",
+			"config",
+			"admin",
+			"hosting",
+			"infrastructure"
+		]
+	},
+	{
+		"name": "server-crash",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": ["server", "crash", "outage", "error", "failure", "down"]
+	},
+	{
+		"name": "square-terminal",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["terminal", "console", "shell", "command", "cli", "code"]
+	},
+	{
+		"name": "square-code",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["code", "source", "programming", "snippet", "embed", "dev"]
+	},
+	{
+		"name": "regex",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"regex",
+			"regular expression",
+			"pattern",
+			"match",
+			"search",
+			"code"
+		]
+	},
+	{
+		"name": "variable",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": [
+			"variable",
+			"function",
+			"parameter",
+			"math",
+			"code",
+			"placeholder"
+		]
+	},
+	{
+		"name": "microchip",
+		"addedAt": "2026-10-24",
+		"category": ["Devices", "Coding & development"],
+		"keywords": [
+			"microchip",
+			"chip",
+			"processor",
+			"hardware",
+			"circuit",
+			"electronics"
+		]
+	},
+	{
+		"name": "bug-off",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["bug", "off", "fixed", "debug", "resolved", "no issues"]
+	},
+	{
+		"name": "bug-play",
+		"addedAt": "2026-10-24",
+		"category": ["Coding & development"],
+		"keywords": ["bug", "play", "debug", "run", "test", "start"]
+	},
+	{
+		"name": "webhook-off",
+		"addedAt": "2026-10-24",
+		"category": ["Connectivity"],
+		"keywords": [
+			"webhook",
+			"off",
+			"disabled",
+			"disconnected",
+			"api",
+			"integration"
+		]
 	}
 ]
