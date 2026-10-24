@@ -54,7 +54,7 @@ cp /tmp/candidates.mjs ./_candidates.mjs && node _candidates.mjs; rm _candidates
 
 The script has to run inside the repo so the relative paths resolve, which is why it is copied in and then removed. Don't commit it.
 
-The geometry check catches exact twins that only differ by name. Two examples from earlier batches: `gamepad-2` is identical to `gamepad`, and `share-2` is identical to `share`. It cannot catch icons that merely look alike, for example `maximize` next to `scan`, or `maximize-2` next to `move-diagonal`. Compare those by eye and skip them.
+The geometry check catches exact twins that only differ by name. Two examples from earlier batches: `gamepad-2` is identical to `gamepad`, and `share-2` is identical to `share`. It cannot catch icons that merely look alike, for example `cog` next to `settings`, or `pencil-line` next to `pencil`. Compare those by eye and skip them. A look-alike with its own meaning can still ship when the owner says so: `maximize` was kept next to `scan` because it is a window control and gets its own motion.
 
 Prefer everyday UI icons over one-off illustrations, and favour icons that have an obvious motion (something that opens, spins, drops, fills or points).
 
