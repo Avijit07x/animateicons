@@ -1,6 +1,6 @@
 {
 	"name": "@animateicons/vanilla",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Animated SVG icons for plain JavaScript, web components and every framework. The same motion as @animateicons/react, with no framework needed.",
 	"license": "MIT",
 	"author": "Avijit Dey",
