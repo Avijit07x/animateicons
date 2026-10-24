@@ -4,8 +4,8 @@ import { AnimatePresence, MotionConfig } from "motion/react";
 import React, { useEffect, useState } from "react";
 
 import { useCoarsePointer } from "@/hooks/useCoarsePointer";
+import { useIconCategory } from "@/hooks/useIconCategory";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import { useCategory } from "../../_contexts/CategoryContext";
 import { useIconSearchResult } from "../../_contexts/IconSearchContext";
 
 import { useIconSearchFilter } from "@/hooks/useIconFilter";
@@ -22,7 +22,7 @@ const NO_ICONS: IconMeta[] = [];
 const IconList: React.FC = () => {
 	const { debouncedQuery } = useIconSearchResult();
 	const { library } = useIconLibrary();
-	const { category } = useCategory();
+	const { category } = useIconCategory(library ?? "lucide");
 	const coarse = useCoarsePointer();
 
 	const [loaded, setLoaded] = useState<{

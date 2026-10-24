@@ -15,20 +15,13 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useIconLibrary } from "@/hooks/useIconLibrary";
-import {
-	ICON_ADDED_AT as HUGE_ADDED_AT,
-	ICON_CATEGORIES as HUGE_CATEGORIES,
-} from "@/icons/huge/summary";
-import {
-	ICON_ADDED_AT as LUCIDE_ADDED_AT,
-	ICON_CATEGORIES as LUCIDE_CATEGORIES,
-} from "@/icons/lucide/summary";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_ADDED_AT as HUGE_ADDED_AT } from "@/icons/huge/summary";
+import { ICON_ADDED_AT as LUCIDE_ADDED_AT } from "@/icons/lucide/summary";
 import { cn } from "@/lib/utils";
 import { isIconNew } from "@/utils/isIconNew";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
-import { useCategory } from "../../_contexts/CategoryContext";
+import CategoryNav from "./CategoryNav";
 import SidebarNavItem from "./SidebarNavItem";
 import { sidebarConfig } from "./sidebar.config";
 
@@ -36,8 +29,6 @@ const libraryIconMap: Record<string, React.FC<{ className?: string }>> = {
 	"Lucide Icons": LucideIcon,
 	"Huge Icons": HugeIcon,
 };
-
-const CATEGORIES = { lucide: LUCIDE_CATEGORIES, huge: HUGE_CATEGORIES };
 
 const NO_NEW_ICONS: Record<string, number> = {};
 
@@ -65,39 +56,10 @@ const isHrefActive = (pathname: string | null, href?: string) => {
 	return pathname === href || pathname.startsWith(`${href}/`);
 };
 
-const CategoryButton: React.FC<{
-	label: string;
-	count: number;
-	isActive: boolean;
-	onSelect: () => void;
-}> = ({ label, count, isActive, onSelect }) => (
-	<SidebarMenuItem>
-		<SidebarMenuButton
-			variant="dark"
-			isActive={isActive}
-			className="h-9 justify-between gap-3 px-3 text-[13px]"
-			onClick={onSelect}
-		>
-			<span className="truncate">{label}</span>
-			<span
-				className={cn(
-					"rounded-full px-1.5 py-px text-[10px] font-medium tabular-nums transition-colors",
-					isActive ? "bg-primary/15 text-primary" : "text-textMuted bg-white/6",
-				)}
-			>
-				{count}
-			</span>
-		</SidebarMenuButton>
-	</SidebarMenuItem>
-);
-
 const AppSidebar: React.FC = () => {
 	const { library } = useIconLibrary();
-	const { category, setCategory } = useCategory();
-	const router = useRouter();
 	const pathname = usePathname();
-	const libraryKey = library === "huge" ? "huge" : "lucide";
-	const categories = CATEGORIES[libraryKey];
+	const libraryKey = library ?? "lucide";
 	const newCounts = React.useSyncExternalStore(
 		subscribeNever,
 		getNewCountByLibrary,
@@ -111,11 +73,6 @@ const AppSidebar: React.FC = () => {
 		.map((i) => i.href)
 		.filter((h): h is string => isHrefActive(pathname, h))
 		.sort((a, b) => b.length - a.length)[0];
-
-	const handleCategory = (cat: string) => {
-		if (!library) router.replace("lucide");
-		setCategory(cat);
-	};
 
 	return (
 		<Sidebar className="bg-bgDark text-textPrimary border-border/60!">
@@ -163,21 +120,7 @@ const AppSidebar: React.FC = () => {
 					</SidebarGroupLabel>
 					<SidebarGroupContent className="min-h-0 flex-1 [scrollbar-width:none] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:hidden">
 						<SidebarMenu className="gap-0.5">
-							<CategoryButton
-								label="All"
-								count={ICON_COUNTS[libraryKey]}
-								isActive={category === "all"}
-								onSelect={() => handleCategory("all")}
-							/>
-							{categories.map((cat) => (
-								<CategoryButton
-									key={cat.name}
-									label={cat.name}
-									count={cat.count}
-									isActive={category === cat.name}
-									onSelect={() => handleCategory(cat.name)}
-								/>
-							))}
+							<CategoryNav library={libraryKey} />
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</SidebarGroup>
