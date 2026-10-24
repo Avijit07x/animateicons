@@ -14948,6 +14948,38 @@
       ]
     },
     {
+      "name": "lu-lock-keyhole",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/lock-keyhole-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lock-keyhole.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-lock-keyhole-open",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/lock-keyhole-open-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/lock-keyhole-open.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-lock-open",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18292,6 +18324,22 @@
       ]
     },
     {
+      "name": "lu-shield-ban",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-ban-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-ban.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-shield-check",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18308,6 +18356,70 @@
       ]
     },
     {
+      "name": "lu-shield-cog-corner",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-cog-corner-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-cog-corner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-cog",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-cog-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-ellipsis",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-ellipsis-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-ellipsis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-half",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-half-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-half.tsx"
+        }
+      ]
+    },
+    {
       "name": "lu-shield",
       "type": "registry:ui",
       "registryDependencies": [],
@@ -18320,6 +18432,102 @@
           "path": "icons/lucide/shield-icon.tsx",
           "type": "registry:ui",
           "target": "components/icons/shield.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-keyhole",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-keyhole-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-keyhole.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-lock",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-lock-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-lock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-minus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-minus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-off",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-off-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-plus",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-plus-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lu-shield-question-mark",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "icons/lucide/shield-question-mark-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/icons/shield-question-mark.tsx"
         }
       ]
     },
