@@ -6,10 +6,9 @@ const withMdx = nextMdx({
 	extension: /\.mdx?$/,
 });
 
-const PAGE_EXTENSIONS = ["ts", "tsx", "md", "mdx"];
-
 const nextConfig: NextConfig = {
 	reactCompiler: true,
+	pageExtensions: ["ts", "tsx", "md", "mdx"],
 	images: {
 		remotePatterns: [
 			{
@@ -53,12 +52,13 @@ const nextConfig: NextConfig = {
 };
 
 const config = (phase: string): NextConfig =>
-	withMdx({
-		...nextConfig,
-		pageExtensions:
-			phase === PHASE_DEVELOPMENT_SERVER
-				? ["dev.tsx", ...PAGE_EXTENSIONS]
-				: PAGE_EXTENSIONS,
-	});
+	withMdx(
+		phase === PHASE_DEVELOPMENT_SERVER
+			? {
+					...nextConfig,
+					pageExtensions: ["dev.tsx", ...(nextConfig.pageExtensions ?? [])],
+				}
+			: nextConfig,
+	);
 
 export default config;
