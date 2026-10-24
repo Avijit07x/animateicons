@@ -1,6 +1,5 @@
 import IconTile from "@/app/icons/_components/iconlist/IconTile";
 import { DistributionProvider } from "@/app/icons/_contexts/DistributionContext";
-import { IconTileProvider } from "@/app/icons/_contexts/IconTileContext";
 import { PackageManagerProvider } from "@/app/icons/_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "@/app/icons/_contexts/PlaygroundContext";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
@@ -25,9 +24,7 @@ const setup = () =>
 		<PlaygroundProvider>
 			<DistributionProvider>
 				<PackageManagerProvider>
-					<IconTileProvider>
-						<IconTile item={item} getIcon={() => Icon} />
-					</IconTileProvider>
+					<IconTile item={item} getIcon={() => Icon} />
 				</PackageManagerProvider>
 			</DistributionProvider>
 		</PlaygroundProvider>,
