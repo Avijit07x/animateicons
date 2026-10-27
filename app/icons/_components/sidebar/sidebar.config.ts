@@ -3,7 +3,6 @@ import { DownloadIcon } from "@/icons/huge/download-icon";
 import { HeartIcon } from "@/icons/huge/heart-icon";
 import { Home02Icon } from "@/icons/huge/home-0-2-icon";
 import { LayoutTemplateIcon } from "@/icons/huge/layout-template-icon";
-import { Message01Icon } from "@/icons/huge/message-0-1-icon";
 import { SendIcon } from "@/icons/huge/send-icon";
 import { SidebarGroupConfig } from "./sidebar.types";
 
@@ -31,7 +30,6 @@ export const sidebarConfig: SidebarGroupConfig[] = [
 				target: "_blank",
 				icon: SendIcon,
 			},
-			{ label: "Request an icon", request: "icon", icon: Message01Icon },
 		],
 	},
 	{

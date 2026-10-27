@@ -3,7 +3,6 @@ import { DistributionProvider } from "@/app/icons/_contexts/DistributionContext"
 import { IconSearchProvider } from "@/app/icons/_contexts/IconSearchContext";
 import { PackageManagerProvider } from "@/app/icons/_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "@/app/icons/_contexts/PlaygroundContext";
-import { RequestProvider } from "@/app/icons/_contexts/RequestContext";
 import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { expectNoA11yViolations } from "../axe";
@@ -59,9 +58,7 @@ const setup = () =>
 			<PlaygroundProvider>
 				<DistributionProvider>
 					<PackageManagerProvider>
-						<RequestProvider>
-							<IconList />
-						</RequestProvider>
+						<IconList />
 					</PackageManagerProvider>
 				</DistributionProvider>
 			</PlaygroundProvider>
