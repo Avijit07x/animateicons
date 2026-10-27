@@ -1,5 +1,4 @@
 import AppSidebar from "@/app/icons/_components/sidebar/AppSidebar";
-import { RequestProvider } from "@/app/icons/_contexts/RequestContext";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { act, render } from "@testing-library/react";
 import { hydrateRoot } from "react-dom/client";
@@ -30,9 +29,7 @@ vi.mock("@/icons/huge/summary", () => mocks.huge);
 
 const tree = (
 	<SidebarProvider>
-		<RequestProvider>
-			<AppSidebar />
-		</RequestProvider>
+		<AppSidebar />
 	</SidebarProvider>
 );
 

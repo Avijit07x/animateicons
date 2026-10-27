@@ -3,10 +3,10 @@ import React from "react";
 
 const LINK_CLASS = "text-primary underline underline-offset-4";
 
-export const PRIVACY_UPDATED = "October 24, 2026";
+export const PRIVACY_UPDATED = "October 27, 2026";
 
 export const PRIVACY_SUMMARY =
-	"No accounts, no ads and no tracking cookies. The site counts visits without knowing who you are. The only personal details I get are what you type into the request form.";
+	"No accounts, no forms, no ads and no tracking cookies. The site counts visits without knowing who you are.";
 
 export const PRIVACY_SECTIONS: { title: string; body: React.ReactNode }[] = [
 	{
@@ -31,27 +31,13 @@ export const PRIVACY_SECTIONS: { title: string; body: React.ReactNode }[] = [
 		),
 	},
 	{
-		title: "The request form",
+		title: "Past icon requests",
 		body: (
-			<>
-				<p>
-					When you send a request, I get your name, your email, your message,
-					the icon and library you asked for, and the page you sent it from. I
-					use it only to read your request and reply to you, because you asked
-					me to.
-				</p>
-				<p>
-					It is saved to a Google Sheet and emailed to me, both through my
-					Google account. I don&apos;t sell it, share it or add you to a mailing
-					list. I keep requests for up to 12 months, then delete them. Ask any
-					time and I&apos;ll delete yours sooner.
-				</p>
-				<p>
-					To stop spam, the server checks your IP address so the form can&apos;t
-					be sent too many times in a few minutes. It is held in memory only and
-					never saved.
-				</p>
-			</>
+			<p>
+				The site used to have a request form. Requests sent through it, with the
+				name and email you gave, stay in my Google Sheet for up to 12 months and
+				are then deleted. Ask any time and I&apos;ll delete yours sooner.
+			</p>
 		),
 	},
 	{
@@ -136,12 +122,7 @@ export const PRIVACY_SECTIONS: { title: string; body: React.ReactNode }[] = [
 		title: "Contact",
 		body: (
 			<p>
-				For anything about your data, open{" "}
-				<Link href="/icons/lucide" className={LINK_CLASS}>
-					the icons page
-				</Link>
-				, choose Request an icon in the sidebar and pick Something else, or
-				message{" "}
+				For anything about your data, message{" "}
 				<Link
 					href="https://x.com/avijit07x"
 					target="_blank"

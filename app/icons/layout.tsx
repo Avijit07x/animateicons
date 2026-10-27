@@ -1,12 +1,10 @@
 import ComposedProviders from "@/components/ComposedProviders";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
-import RequestSheet from "./_components/request/RequestSheet";
 import AppSidebar from "./_components/sidebar/AppSidebar";
 import { DistributionProvider } from "./_contexts/DistributionContext";
 import { PackageManagerProvider } from "./_contexts/PackageManagerContext";
 import { PlaygroundProvider } from "./_contexts/PlaygroundContext";
-import { RequestProvider } from "./_contexts/RequestContext";
 
 type Props = {
 	children: React.ReactNode;
@@ -17,7 +15,6 @@ const PROVIDERS = [
 	PackageManagerProvider,
 	DistributionProvider,
 	PlaygroundProvider,
-	RequestProvider,
 ];
 
 const Layout: React.FC<Props> = ({ children }) => {
@@ -27,7 +24,6 @@ const Layout: React.FC<Props> = ({ children }) => {
 				<AppSidebar />
 				{children}
 			</div>
-			<RequestSheet />
 		</ComposedProviders>
 	);
 };

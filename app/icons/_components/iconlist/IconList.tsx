@@ -131,7 +131,7 @@ const IconList: React.FC = () => {
 						)}
 					</>
 				) : (
-					<IconsNotFound query={debouncedQuery} />
+					<IconsNotFound />
 				)}
 			</AnimatePresence>
 		</MotionConfig>
