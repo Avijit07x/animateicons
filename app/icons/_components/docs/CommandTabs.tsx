@@ -6,11 +6,6 @@ import CopyButton from "./CopyButton";
 
 type CommandItem = { manager: string; code: string; html: string };
 
-/**
- * Client half of the package-manager command block: renders npm/pnpm/yarn/bun
- * tabs over pre-highlighted Shiki html (from CommandBlock) and copies the
- * active command. Styling mirrors CodeBlock so the two read as one family.
- */
 const CommandTabs: React.FC<{ title: string; items: CommandItem[] }> = ({
 	title,
 	items,

@@ -1,19 +1,3 @@
-/**
- * animateicons/icon-structure
- *
- * Every icon under icons/ must share ONE structure and animation flow so the
- * whole library behaves identically and stays regenerable. Reference shape:
- * icons/lucide/box-icon.tsx —
- *
- *   "use client"
- *   → forwardRef<…Handle, …Props>
- *   → useImperativeHandle(ref) exposing { startAnimation, stopAnimation }
- *   → hover flow wired through onMouseEnter / onMouseLeave
- *   → rendered inside <LazyMotion features={domMin}>
- *
- * Icon files also stay comment-free (they are template-generated).
- */
-
 const REQUIRED = [
 	"forwardRef",
 	"useImperativeHandle",
@@ -25,7 +9,6 @@ const REQUIRED = [
 	"onMouseLeave",
 ];
 
-/** @type {import("eslint").Rule.RuleModule} */
 const rule = {
 	meta: {
 		type: "problem",

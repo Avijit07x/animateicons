@@ -21,7 +21,6 @@ export interface RunBrowseOptions {
 	cwd: string;
 	dir: string;
 	registryBase?: string;
-	/** Resolved `cn` import specifier for written icons. */
 	utilsImport: string;
 }
 
@@ -40,7 +39,6 @@ const trunc = (s: string, n: number): string =>
 	s.length > n ? `${s.slice(0, Math.max(0, n - 1))}…` : s;
 
 interface AppProps extends RunBrowseOptions {
-	/** Keeps the outer result current so Ctrl-C still reports what was added. */
 	reportAdded: (added: AddedIcon[]) => void;
 }
 
@@ -99,8 +97,6 @@ export function BrowseApp({
 		results.length === 0 ? 0 : Math.min(cursor, results.length - 1);
 	const current = results[cursorIdx] ?? null;
 
-	// Keep the cursor's row inside the visible window. Derived from the
-	// cursor position, so we adjust during render instead of in an effect.
 	const cursorRow = Math.floor(cursorIdx / cols);
 	if (cursorRow < scrollRow) {
 		setScrollRow(cursorRow);
@@ -180,8 +176,6 @@ export function BrowseApp({
 		);
 	};
 
-	// Single-mode, fzf-style input: typing always filters; the keys below are
-	// reserved for actions (so they never leak into the query).
 	useInput(
 		(input, key) => {
 			if (isAdding) return;
@@ -364,7 +358,6 @@ export function BrowseApp({
 	);
 }
 
-/** Render the Ink dashboard and resolve with everything that was added. */
 export async function runBrowse(opts: RunBrowseOptions): Promise<BrowseResult> {
 	const result: BrowseResult = { added: [] };
 	const instance = render(
@@ -377,8 +370,6 @@ export async function runBrowse(opts: RunBrowseOptions): Promise<BrowseResult> {
 	);
 	try {
 		await instance.waitUntilExit();
-	} catch {
-		// Ctrl-C / SIGINT still resolves; result holds whatever was added.
-	}
+	} catch {}
 	return result;
 }

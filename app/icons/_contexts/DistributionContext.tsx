@@ -1,23 +1,5 @@
 "use client";
 
-/**
- * DistributionContext
- *
- * SRP: single source of truth for how the AnimateIcons gallery user
- * installs icons: React via `shadcn` (CLI copy) or `npm`
- * (`@animateicons/react`), or the `vanilla`, `vue` and `angular`
- * packages. Drives the "Copy" button text and payload on every IconTile,
- * the playground snippets and the install commands, so a user who
- * prefers Vue sees and copies
- * `import { BellRingIcon } from "@animateicons/vue/lucide"`, and a user
- * who prefers shadcn keeps copying the install URL command.
- *
- * Mirrors the shape of PackageManagerContext so the wiring is familiar:
- *   - hydrate from localStorage on mount
- *   - persist changes back
- *   - one provider, one writer, every tile shares the same value
- */
-
 import { useStoredPreference } from "@/hooks/useStoredPreference";
 import { iconNameToComponent } from "@/utils/iconNameToComponent";
 import { createContext, useContext, useMemo } from "react";

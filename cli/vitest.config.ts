@@ -5,7 +5,6 @@ import { defineConfig } from "vitest/config";
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
 
-// Resolve the (unbuilt) shared core from source so tests need no build step.
 export default defineConfig({
 	resolve: {
 		alias: {

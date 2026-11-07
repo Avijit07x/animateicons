@@ -1,13 +1,3 @@
-/**
- * Buy Me a Coffee - typed contracts for the developers API.
- *
- * Raw shape mirrors what BMC returns from `/api/v1/supporters`. The
- * normalized `Supporter` is what our components actually consume -
- * snake_case stays out of the UI layer.
- *
- * Reference: https://developers.buymeacoffee.com/
- */
-
 export type BmcSupporterRaw = {
 	support_id: number;
 	supporter_name: string | null;

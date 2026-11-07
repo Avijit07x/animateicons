@@ -1,9 +1,3 @@
-/**
- * Plain-Node mirror of normalize-handle-names.ts so the codemod can run
- * without needing tsx/esbuild on the host. Keep them in sync if either
- * changes - ts version is the canonical source.
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

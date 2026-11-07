@@ -6,7 +6,6 @@ import { describe, expect, it } from "vitest";
 
 import { BrowseApp } from "../src/commands/browse";
 
-// Render against the repo's real generated registry - no network.
 const PUBLIC_R = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
 	"../../public/r",
@@ -35,7 +34,7 @@ describe("BrowseApp (Ink render smoke)", () => {
 		const frame = lastFrame() ?? "";
 		expect(frame).toContain("AnimateIcons");
 		expect(frame).toContain("icons");
-		expect(frame).toContain("hu-activity"); // first item, unfiltered
+		expect(frame).toContain("hu-activity");
 		expect(frame).toMatch(/move/);
 		unmount();
 	});
@@ -44,14 +43,12 @@ describe("BrowseApp (Ink render smoke)", () => {
 		const { lastFrame, stdin, unmount } = mount();
 		await tick(150);
 
-		// typing filters the list immediately (fzf-style, always live)
 		stdin.write("github");
 		await tick(80);
 		const filtered = lastFrame() ?? "";
 		expect(filtered).toContain("github");
-		expect(filtered).not.toContain("hu-activity"); // filtered out
+		expect(filtered).not.toContain("hu-activity");
 
-		// space selects the highlighted icon instead of typing into the query
 		stdin.write(" ");
 		await tick(80);
 		expect(lastFrame() ?? "").toContain("selected");

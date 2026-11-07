@@ -1,25 +1,3 @@
-/**
- * Normalize interface names in icon source files.
- *
- * Each icon file should follow this naming pattern:
- *   const XxxIcon       - the forwardRef component
- *   XxxIconHandle       - the imperative handle interface
- *   XxxIconProps        - the props interface
- *
- * Some icons drift from this:
- *   - `BlendHandle` instead of `BlendIconHandle`
- *   - `BlendProps`  instead of `BlendIconProps`
- *   - copy-paste bugs like `eye-icon.tsx` exporting `ExternalLinkIconHandle`
- *
- * For each `icons/<lib>/<stem>-icon.tsx`:
- *   1. Parse the actual component name (matches XxxIcon).
- *   2. Find the first `Handle` interface and the first `Props` interface.
- *   3. If either doesn't match `${componentName}{Handle|Props}`,
- *      whole-word-replace it across the file.
- *
- * Idempotent. Run with:  pnpm normalize
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

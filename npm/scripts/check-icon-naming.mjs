@@ -1,20 +1,3 @@
-/**
- * CI guard: every icon source must follow the canonical naming pattern.
- *
- * For `icons/<lib>/<stem>-icon.tsx`:
- *   - component must be `<Stem>Icon` (PascalCase of stem + "Icon")
- *   - the first Handle interface must be `<Stem>IconHandle`
- *   - the first Props interface must be `<Stem>IconProps`
- *   - the file's basename must derive from the component name
- *     (kebab-case of `<Stem>Icon` minus the `-icon` suffix)
- *
- * Exits with code 1 and prints a table of every violation.
- *
- * Run with:  pnpm check:naming
- *
- * To auto-fix: pnpm normalize  (then re-run this).
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -34,7 +17,6 @@ const HANDLE_RE =
 const PROPS_RE =
 	/(?:^|\s)(?:export\s+)?(?:interface|type)\s+([A-Z][A-Za-z0-9]*Props)\b/m;
 
-/** "bell-ring" -> "BellRingIcon" */
 const stemToComponent = (stem) =>
 	`${stem
 		.split("-")

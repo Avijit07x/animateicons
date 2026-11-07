@@ -1,8 +1,3 @@
-/**
- * Tests for the supporter sort comparator. Dated entries newest-first,
- * undated grouped after dated, ordered alphabetically by name.
- */
-
 import { describe, expect, it } from "vitest";
 import { compareSupporters } from "@/lib/supporters/sort";
 import type { Supporter } from "@/lib/supporters/types";

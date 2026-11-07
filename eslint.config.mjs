@@ -1,9 +1,6 @@
 import next from "eslint-config-next";
 import iconStructure from "./eslint-rules/icon-structure.mjs";
 
-/** Flat config. `eslint-config-next` bundles the recommended Next/React/TS
- * rules; on top we add ignores, a few baseline codebase rules, and one
- * custom rule that keeps every icon on the same structure + animation flow. */
 const config = [
 	{
 		ignores: [
@@ -17,7 +14,6 @@ const config = [
 			"test-zone/test-results/**",
 			"test-zone/playwright-report/**",
 			"public/**",
-			// Local, gitignored agent tooling - never committed, so not ours to lint.
 			".claude/**",
 			".claude-flow/**",
 			".agents/**",
@@ -27,7 +23,6 @@ const config = [
 	},
 	...next,
 
-	// Baseline rules for the whole codebase.
 	{
 		rules: {
 			eqeqeq: ["error", "smart"],
@@ -37,8 +32,6 @@ const config = [
 		},
 	},
 
-	// App/UI code shouldn't ship stray console.log (warn/error are fine).
-	// CLI and build scripts legitimately log, so they're excluded.
 	{
 		files: ["app/**", "components/**", "hooks/**", "icons/**", "lib/**"],
 		rules: {
@@ -51,7 +44,6 @@ const config = [
 		rules: { "react-hooks/rules-of-hooks": "off" },
 	},
 
-	// Every icon must follow the shared structure + animation flow.
 	{
 		files: ["icons/**/*.tsx"],
 		plugins: { animateicons: { rules: { "icon-structure": iconStructure } } },

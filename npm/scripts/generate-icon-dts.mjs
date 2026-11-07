@@ -1,15 +1,3 @@
-/**
- * Post-build: emit a .d.ts beside every per-icon module in dist/icons/.
- *
- * The deep subpaths ("@animateicons/react/lucide/bell-ring-icon") are what
- * actually tree-shake in Next's App Router - a "use client" barrel is a
- * client-reference boundary, so Next pulls in every icon behind it. Those
- * subpaths need types, and running tsup's dts over 550 entries is slow and
- * emits 550 large files, so each one re-exports from the barrel's .d.ts
- * instead. Names come from the barrel so the handful of icons whose handle
- * type doesn't follow <Name>IconHandle stay correct.
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

@@ -3,8 +3,6 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { createServer } from "./server";
 
 async function main() {
-	// ANIMATEICONS_REGISTRY lets advanced users / tests point at a staging
-	// registry or a local directory; defaults to the live site.
 	const server = createServer({
 		registryBase: process.env.ANIMATEICONS_REGISTRY,
 	});

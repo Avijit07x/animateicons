@@ -65,8 +65,6 @@ function main() {
 		);
 	}
 
-	// Catalog parity: every registry item must have exactly one catalog entry
-	// and vice versa, so the CLI/MCP never resolve a name the registry lacks.
 	const catalogPath = join(ROOT, "public", "r", "catalog.json");
 	const catalog = readCatalog(catalogPath);
 	const catalogNames = catalog.icons.map((i) => i.registryName);

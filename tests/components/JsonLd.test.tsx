@@ -1,9 +1,3 @@
-/**
- * Tests for the JsonLd component - emits the AnimateIcons site's
- * structured-data <script> blocks (Organization + WebSite +
- * SearchAction + per-library SoftwareSourceCode).
- */
-
 import { describe, expect, it } from "vitest";
 import { render } from "@testing-library/react";
 import JsonLd from "@/components/JsonLd";
@@ -31,8 +25,6 @@ describe("JsonLd", () => {
 			<JsonLd data={{ payload: "</script><script>alert(1)</script>" }} />,
 		);
 		const script = container.querySelector("script");
-		// `<` must be escaped as < so the inner content can't terminate
-		// the surrounding <script> tag.
 		expect(script?.innerHTML).not.toContain("</script>");
 		expect(script?.innerHTML).toContain("\\u003c");
 	});

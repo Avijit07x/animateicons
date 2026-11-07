@@ -7,11 +7,9 @@ import {
 
 export interface AddOptions {
 	cwd: string;
-	/** Directory to write icons into, relative to cwd. */
 	dir: string;
 	registryBase?: string;
 	overwrite?: boolean;
-	/** Override the `@/lib/utils` import in copied sources. */
 	utilsImport?: string;
 }
 
@@ -27,11 +25,6 @@ export interface AddOutcome {
 	notFound: { input: string; suggestions: string[] }[];
 }
 
-/**
- * Resolve each requested name against the catalog, fetch its registry item,
- * and write it to disk. Unknown / ambiguous names are collected rather than
- * thrown so a single `add a b c` reports every outcome at once.
- */
 export async function runAdd(
 	names: string[],
 	opts: AddOptions,

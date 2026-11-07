@@ -1,20 +1,3 @@
-/**
- * SEO content + structured data for the AnimateIcons /icons/[library]
- * route (Lucide and Huge gallery pages).
- *
- * SRP: this module only declares per-library metadata content and
- * helpers. It does not render anything; the gallery page composes
- * Next's Metadata object and a JSON-LD <script> from these primitives.
- *
- * Why split it out:
- *  - The previous inline metadata repeated nearly identical strings
- *    across `description`, `openGraph.description`, and
- *    `twitter.description`, drifting out of sync.
- *  - Keeping AnimateIcons copy in one place means adding a future icon
- *    library (Phosphor, Tabler) is a one-entry-in-CONTENT change, not
- *    a copy-paste-and-edit fork of the page metadata.
- */
-
 import type { Metadata } from "next";
 
 const BASE_URL = "https://animateicons.in";
@@ -23,8 +6,8 @@ type LibraryKey = "lucide" | "huge";
 
 type LibraryContent = {
 	displayName: string;
-	tagline: string; // 60–90 char hook for OG/Twitter
-	description: string; // 140–160 char meta description
+	tagline: string;
+	description: string;
 	keywords: string[];
 };
 
@@ -60,11 +43,6 @@ const CONTENT: Record<LibraryKey, LibraryContent> = {
 export const isLibrary = (v: string): v is LibraryKey =>
 	v === "lucide" || v === "huge";
 
-/**
- * Build a Next.js Metadata object for an AnimateIcons library page.
- * Title and description are the canonical values; OG / Twitter reuse
- * them instead of drifting into three slightly-different strings.
- */
 export const buildLibraryMetadata = (library: LibraryKey): Metadata => {
 	const c = CONTENT[library];
 	const title = `${c.displayName} Animated Icons for React`;
@@ -94,11 +72,6 @@ export const buildLibraryMetadata = (library: LibraryKey): Metadata => {
 	};
 };
 
-/**
- * Build a JSON-LD SoftwareSourceCode + WebPage payload for an
- * AnimateIcons library so search engines can render rich snippets and
- * link the gallery to the AnimateIcons site + GitHub repo.
- */
 export const buildLibraryJsonLd = (library: LibraryKey, iconCount: number) => {
 	const c = CONTENT[library];
 	const url = `${BASE_URL}/icons/${library}`;

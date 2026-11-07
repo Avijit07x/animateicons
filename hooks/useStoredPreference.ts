@@ -1,13 +1,5 @@
 import { useCallback, useSyncExternalStore } from "react";
 
-/**
- * Read/write a single localStorage-backed preference with an SSR-safe
- * default. Backed by useSyncExternalStore so the persisted value hydrates
- * without a setState-in-effect, and stays in sync across tabs.
- *
- * `isValid` narrows the raw string to the allowed union; anything else
- * (missing, corrupt, unavailable storage) falls back to `fallback`.
- */
 export function useStoredPreference<T extends string>(
 	key: string,
 	fallback: T,
@@ -41,10 +33,7 @@ export function useStoredPreference<T extends string>(
 		(next: T) => {
 			try {
 				localStorage.setItem(key, next);
-			} catch {
-				// ignore write failures (private mode, quota)
-			}
-			// The `storage` event only fires in other tabs; notify this one too.
+			} catch {}
 			window.dispatchEvent(new StorageEvent("storage", { key }));
 		},
 		[key],

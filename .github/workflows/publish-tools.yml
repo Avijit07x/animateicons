@@ -1,17 +1,5 @@
 name: Publish CLI + MCP
 
-# Publishes the `animateicons` CLI and/or @animateicons/mcp.
-# Manual dispatch only - pick the package and dist-tag. Both packages bundle
-# the private @animateicons/core at build time, so there is no separate core
-# release to coordinate.
-#
-# Required secrets:
-#   NPM_TOKEN - npm automation token with publish rights for the `animateicons`
-#               name and the @animateicons scope.
-#
-# Before dispatching, bump the version:
-#   pnpm -F animateicons version 0.2.0   (or @animateicons/mcp)
-
 on:
   workflow_dispatch:
     inputs:
@@ -30,7 +18,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # required for npm provenance
+  id-token: write
 
 jobs:
   publish:

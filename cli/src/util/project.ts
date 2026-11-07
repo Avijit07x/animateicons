@@ -3,7 +3,6 @@ import path from "node:path";
 
 export type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
-/** Guess the project's package manager from its lockfile. */
 export function detectPackageManager(cwd: string): PackageManager {
 	if (fs.existsSync(path.join(cwd, "pnpm-lock.yaml"))) return "pnpm";
 	if (fs.existsSync(path.join(cwd, "yarn.lock"))) return "yarn";
@@ -16,7 +15,6 @@ export function detectPackageManager(cwd: string): PackageManager {
 	return "npm";
 }
 
-/** The shell command this package manager uses to add a dependency. */
 export function installCommand(pm: PackageManager, pkg: string): string {
 	switch (pm) {
 		case "pnpm":
@@ -40,17 +38,10 @@ function readJson(file: string): unknown | null {
 }
 
 export interface UtilsResolution {
-	/** The module specifier the copied icon should import `cn` from. */
 	utilsImport: string;
-	/** Whether a `cn` util is believed to already exist in the project. */
 	hasUtils: boolean;
 }
 
-/**
- * Resolve where the copied icon should import `cn` from. If a shadcn
- * `components.json` is present we honor its `aliases.utils`; otherwise we fall
- * back to the shadcn convention (`@/lib/utils`) and flag that it may not exist.
- */
 export function resolveUtilsImport(cwd: string): UtilsResolution {
 	const cj = readJson(path.join(cwd, "components.json")) as {
 		aliases?: { utils?: string };
@@ -60,7 +51,6 @@ export function resolveUtilsImport(cwd: string): UtilsResolution {
 	return { utilsImport: "@/lib/utils", hasUtils: false };
 }
 
-/** Whether `motion` is already declared in the project's package.json. */
 export function hasMotionDependency(cwd: string): boolean {
 	const pkg = readJson(path.join(cwd, "package.json")) as {
 		dependencies?: Record<string, string>;

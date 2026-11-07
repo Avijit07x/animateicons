@@ -1,15 +1,3 @@
-/**
- * Buy Me a Coffee - server-only fetcher.
- *
- * Hits `/api/v1/supporters` with the personal access token from
- * `BMC_ACCESS_TOKEN` and walks BMC's Laravel-style pagination so we
- * don't silently truncate at 25 supporters. Each page is cached
- * separately under the same revalidate window. Server components only,
- * the token never crosses the network to the client.
- *
- * Token: https://developers.buymeacoffee.com/dashboard
- */
-
 import "server-only";
 
 import type { Supporter } from "@/lib/supporters/types";
@@ -18,10 +6,8 @@ import type { BmcSupportersResponse } from "./types";
 
 const BMC_API = "https://developers.buymeacoffee.com/api/v1/supporters";
 
-// Refresh hourly. Supporters trickle in, no need to fetch on every request.
 const REVALIDATE_SECONDS = 60 * 60;
 
-// Hard cap so a misconfigured account doesn't loop forever.
 const MAX_PAGES = 20;
 
 const fetchPage = async (
@@ -42,12 +28,6 @@ const fetchPage = async (
 	return (await res.json()) as BmcSupportersResponse;
 };
 
-/**
- * Returns the full supporter list across all pages, filtering out
- * anonymous/hidden tips. Falls back to whatever pages did succeed
- * (or `[]`) if BMC has a bad day. Errors are logged for Vercel,
- * never thrown - the page must still render.
- */
 export const fetchSupporters = async (): Promise<Supporter[]> => {
 	const token = process.env.BMC_ACCESS_TOKEN;
 	if (!token) return [];

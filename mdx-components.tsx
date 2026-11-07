@@ -2,16 +2,6 @@ import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/**
- * Map MDX elements (h1/h2/p/code/a/…) to themed components so docs pages
- * under app/icons/docs/ inherit the site's dark-surface tokens and a
- * consistent shadcn-style prose rhythm without per-page styling.
- *
- * Headings get slugified ids (so the "On This Page" TOC and #anchor links
- * work with zero rehype plugins) plus a hover-revealed `#` link.
- * Required by Next.js App Router MDX: https://nextjs.org/docs/app/guides/mdx
- */
-
 const slugify = (node: ReactNode): string => {
 	const text =
 		typeof node === "string"
@@ -82,9 +72,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		a: ({ href, children }) => {
 			const cls =
 				"text-primary font-medium underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-current";
-			// Internal routes use next/link for client-side nav; external opens
-			// in a new tab. Authored as markdown links in MDX so they stay inline
-			// (a JSX <Link> in prose gets block-split by the prod MDX build).
 			if (href?.startsWith("http")) {
 				return (
 					<a

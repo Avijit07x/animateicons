@@ -1,18 +1,3 @@
-/**
- * Icon naming consistency test.
- *
- * Every icon file under `icons/<library>/` must use the canonical names:
- *   const XxxIcon       - forwardRef component
- *   XxxIconHandle       - imperative handle interface
- *   XxxIconProps        - props interface
- *
- * If a contributor adds a new icon with `BlendHandle` instead of
- * `BlendIconHandle` (or any other deviation), this test fails in CI
- * and tells them exactly what to rename.
- *
- * Auto-fix: pnpm --filter @animateicons/react normalize
- */
-
 import fs from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -79,7 +64,7 @@ describe("icon naming consistency", async () => {
 
 		it("uses canonical handle interface name (if present)", () => {
 			const handleMatch = source.match(HANDLE_RE);
-			if (!handleMatch) return; // not every icon needs to expose a handle
+			if (!handleMatch) return;
 			expect(handleMatch[1]).toBe(`${componentName}Handle`);
 		});
 

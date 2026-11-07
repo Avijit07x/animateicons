@@ -1,18 +1,5 @@
 "use client";
 
-/**
- * "On This Page" — scroll-spy table of contents. Lists sections (h2) with
- * their sub-steps (h3/h4) indented beneath, and highlights the section in
- * view.
- *
- * Active section = the last heading past the trigger line, with a
- * bottom-of-page guard so the final short section still lights up (the
- * IntersectionObserver band can't scroll a trailing heading into view).
- * Duplicate ids (e.g. "3. Import and use" under two sections) are made
- * unique on the DOM node so their anchor links still resolve. Re-scans on
- * route change since the docs layout persists across App Router navigations.
- */
-
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -45,15 +32,10 @@ const TableOfContents: React.FC = () => {
 			seen.add(id);
 		}
 
-		// Building the TOC requires scanning the post-render DOM for sibling
-		// MDX headings (and de-duping their ids) - there's no render-time
-		// source for that, so this setState genuinely belongs in an effect.
 		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setHeadings(
 			nodes.map((el) => ({
 				id: el.id,
-				// Skip the hover `#` anchor mdx-components prepends, else the
-				// label reads "#npm package" instead of "npm package".
 				text: Array.from(el.childNodes)
 					.filter((n) => !(n instanceof HTMLElement && n.tagName === "A"))
 					.map((n) => n.textContent)

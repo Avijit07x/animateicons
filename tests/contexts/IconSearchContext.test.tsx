@@ -1,8 +1,3 @@
-/**
- * Tests for IconSearchContext - manages query state, debouncing,
- * and URL synchronization while guarding against oversized queries.
- */
-
 import { describe, expect, it, beforeEach, vi } from "vitest";
 import { act, renderHook } from "@testing-library/react";
 import React from "react";

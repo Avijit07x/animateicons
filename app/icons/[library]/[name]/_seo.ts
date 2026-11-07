@@ -1,13 +1,3 @@
-/**
- * Per-icon metadata + JSON-LD helpers for /icons/[library]/[name].
- *
- * Mirrors the library-level _seo.ts pattern: this module declares the
- * data, the page composes Next's Metadata object and a CreativeWork
- * structured-data payload from it. Keeps SEO copy in one place per
- * surface so descriptions don't drift between OG, Twitter, and the
- * raw <meta> tag.
- */
-
 import type { Metadata } from "next";
 
 const BASE_URL = "https://animateicons.in";
@@ -51,9 +41,6 @@ export const buildIconMetadata = ({
 			...keywords,
 			`${libDisplay} animated icons`,
 		],
-		// Note: `images` is intentionally omitted here so Next.js picks
-		// up the per-icon `opengraph-image.tsx` co-located in this route.
-		// Setting `images` explicitly would override the dynamic OG.
 		openGraph: {
 			title,
 			description,

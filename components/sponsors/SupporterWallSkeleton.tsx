@@ -1,10 +1,3 @@
-/**
- * SupporterWallSkeleton
- *
- * Suspense fallback for SupporterWall. Mirrors the explorer's layout
- * (tabs + grid) so the page doesn't reflow when supporters resolve.
- */
-
 const SupporterWallSkeleton: React.FC = () => (
 	<div className="space-y-6" aria-hidden="true">
 		<div className="flex flex-wrap justify-center gap-2">

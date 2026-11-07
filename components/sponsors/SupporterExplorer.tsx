@@ -1,20 +1,5 @@
 "use client";
 
-/**
- * SupporterExplorer
- *
- * Client component for the /sponsors page. Owns the source filter
- * (All / Buy me a coffee / GitHub Sponsors) and renders the matching
- * grid of supporters. Data is fetched once on the server and passed
- * in as props - this component just slices it.
- *
- * Implements the WAI-ARIA Tabs pattern:
- *   - Roving tabindex (active tab = 0, others = -1)
- *   - ArrowLeft/ArrowRight cycle focus
- *   - Home/End jump to first/last
- *   - Tabpanel is labelled by the active tab
- */
-
 import { GitHub } from "@/components/icons/Github";
 import { MoneyBag01Icon } from "@/icons/huge/money-bag-0-1-icon";
 import { UserGroupIcon } from "@/icons/huge/user-group-icon";

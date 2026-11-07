@@ -1,8 +1,3 @@
-/**
- * Tests for firstGrapheme - uppercased first user-perceived character,
- * resilient to emoji, surrogate pairs, and combining marks.
- */
-
 import { describe, expect, it } from "vitest";
 import { firstGrapheme } from "@/lib/utils/firstGrapheme";
 
@@ -26,15 +21,11 @@ describe("firstGrapheme", () => {
 
 	it("returns the emoji intact (single grapheme), not a broken surrogate", () => {
 		const result = firstGrapheme("🐈 helio");
-		// Either the cat emoji (Segmenter present) or the cat emoji's first
-		// code point - both render correctly and are not lone surrogates.
 		expect(result.length).toBeGreaterThanOrEqual(1);
-		expect(result).not.toBe("\uD83D"); // half a surrogate pair
+		expect(result).not.toBe("\uD83D");
 	});
 
 	it("returns a usable first character for accented input (NFC/NFD agnostic)", () => {
-		// "école" - the result should be a short grapheme whose normalized
-		// base is "E", regardless of source encoding.
 		const result = firstGrapheme("école");
 		expect(result).not.toBe("?");
 		expect(result.length).toBeGreaterThan(0);

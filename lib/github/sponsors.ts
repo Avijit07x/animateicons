@@ -1,14 +1,3 @@
-/**
- * GitHub Sponsors - server-only fetcher.
- *
- * Hits the GraphQL endpoint with `GITHUB_SPONSORS_TOKEN` (a fine-grained
- * PAT with `read:user` scope is enough for public sponsors data) and
- * returns the unified `Supporter[]` shape. Cached via Next's fetch
- * revalidate so we don't burn the GraphQL rate limit.
- *
- * Token: https://github.com/settings/tokens (classic) or fine-grained.
- */
-
 import "server-only";
 
 import type { Supporter } from "@/lib/supporters/types";
@@ -18,7 +7,7 @@ const GITHUB_GRAPHQL = "https://api.github.com/graphql";
 const GITHUB_LOGIN = "Avijit07x";
 const REVALIDATE_SECONDS = 60 * 60;
 
-const QUERY = /* GraphQL */ `
+const QUERY = `
 	query Sponsors($login: String!) {
 		user(login: $login) {
 			sponsors(first: 100) {

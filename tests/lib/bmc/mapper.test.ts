@@ -1,7 +1,3 @@
-/**
- * Tests for the BMC raw → Supporter mapper. Pure function, no I/O.
- */
-
 import { describe, expect, it } from "vitest";
 import { mapBmcSupporter } from "@/lib/bmc/mapper";
 import type { BmcSupporterRaw } from "@/lib/bmc/types";

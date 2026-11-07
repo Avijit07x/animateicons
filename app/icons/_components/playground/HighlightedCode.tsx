@@ -1,18 +1,5 @@
 "use client";
 
-/**
- * HighlightedCode
- *
- * Tiny client-side TSX/bash highlighter - just enough to color the
- * playground sheet's install and import snippets without dragging
- * shiki into the client bundle.
- *
- * Tokens covered: comments, strings, keywords, JSX tags, JSX attribute
- * names, numbers, punctuation. Anything else falls through as default
- * text. Color palette mirrors shiki's `github-dark-default` so the
- * sheet looks consistent with the home page's server-rendered code.
- */
-
 import { cn } from "@/lib/utils";
 import { Fragment } from "react";
 import ScrollFade from "./ScrollFade";
@@ -64,16 +51,12 @@ const TSX_KEYWORDS = new Set([
 	"interface",
 ]);
 
-/** Tokenize a TSX-ish string. Order of patterns matters - we test the
- *  most specific patterns first so e.g. an import keyword inside a
- *  string isn't mis-tokenized. */
 const tokenizeTsx = (src: string): Token[] => {
 	const out: Token[] = [];
 	let i = 0;
 	while (i < src.length) {
 		const rest = src.slice(i);
 
-		// Line comment
 		const m1 = rest.match(/^\/\/[^\n]*/);
 		if (m1) {
 			out.push({ type: "comment", value: m1[0] });
@@ -81,7 +64,6 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// String (double or single quoted, no interpolation support)
 		const m2 = rest.match(/^"([^"\\]|\\.)*"|^'([^'\\]|\\.)*'/);
 		if (m2) {
 			out.push({ type: "string", value: m2[0] });
@@ -89,7 +71,6 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// JSX opening / self-closing tag name like `<BellRingIcon`
 		const m3 = rest.match(/^<\/?([A-Z][A-Za-z0-9]*)/);
 		if (m3) {
 			out.push({ type: "punct", value: rest.startsWith("</") ? "</" : "<" });
@@ -98,7 +79,6 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// JSX attribute name like `size={` or `color="..."`
 		const m4 = rest.match(/^([a-z][A-Za-z0-9-]*)(?==)/);
 		if (m4) {
 			out.push({ type: "attr", value: m4[1] });
@@ -106,7 +86,6 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// Number
 		const m5 = rest.match(/^\d+(\.\d+)?/);
 		if (m5) {
 			out.push({ type: "number", value: m5[0] });
@@ -114,7 +93,6 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// Identifier - could be a keyword or plain text
 		const m6 = rest.match(/^[A-Za-z_$][A-Za-z0-9_$]*/);
 		if (m6) {
 			const word = m6[0];
@@ -126,15 +104,12 @@ const tokenizeTsx = (src: string): Token[] => {
 			continue;
 		}
 
-		// Single character - punctuation or whitespace
 		out.push({ type: "punct", value: src[i] });
 		i++;
 	}
 	return out;
 };
 
-/** Bash highlighter - simpler. Highlights the command name (npm/pnpm/
- *  yarn/bun) as a keyword, package args as strings, flags faintly. */
 const tokenizeBash = (src: string): Token[] => {
 	const tokens: Token[] = [];
 	const parts = src.split(/(\s+)/);
