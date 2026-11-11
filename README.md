@@ -13,7 +13,9 @@
 
 ---
 
-1,500 animated SVG icons with hover and imperative triggers, and configurable size, color and duration. Built on `motion`.
+1,500 free, open source animated icons for React, Vue, Angular and plain JavaScript. Every animation is hand-crafted and tuned to feel smooth, and plays the same in every framework.
+
+Hover and imperative triggers, with configurable size, color and duration. Built on `motion`.
 
 ## Quick start
 

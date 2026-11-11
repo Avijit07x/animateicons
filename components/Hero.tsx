@@ -6,7 +6,7 @@ import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
 import { CheckIcon, type CheckIconHandle } from "@/icons/huge/check-icon";
 import { CopyIcon } from "@/icons/huge/copy-icon";
 import { useCopy } from "@/hooks/useCopy";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import { cn } from "@/lib/utils";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { motion, Variants } from "motion/react";
@@ -96,9 +96,9 @@ const HeroSection: React.FC = () => {
 					variants={item}
 					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance max-sm:text-[15px] sm:text-base"
 				>
-					{ICON_COUNTS.total} free, open source and hand-crafted animated icons,
-					built to move. Install them or copy the code, then customize, extend,
-					and make them your own.
+					{ICON_COUNT_LABELS.total} free, open source and hand-crafted animated
+					icons, built to move. Install them or copy the code, then customize,
+					extend, and make them your own.
 				</motion.p>
 
 				<motion.div
@@ -190,7 +190,7 @@ const HeroSection: React.FC = () => {
 						size="pill"
 						className="max-sm:w-full"
 					>
-						Browse {ICON_COUNTS.total} icons
+						Browse {ICON_COUNT_LABELS.total} icons
 					</IconLink>
 					<IconLink
 						href="/icons/docs"

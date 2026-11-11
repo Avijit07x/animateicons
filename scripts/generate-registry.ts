@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { SITE_URL } from "../lib/site";
 
 const ROOT = process.cwd();
 
@@ -81,7 +82,7 @@ function main() {
 		const registry: Registry = {
 			$schema: "https://ui.shadcn.com/schema/registry.json",
 			name: "animateicons",
-			homepage: "https://animateicons.in",
+			homepage: SITE_URL,
 			items,
 		};
 

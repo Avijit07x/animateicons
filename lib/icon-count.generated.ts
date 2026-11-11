@@ -4,3 +4,9 @@ export const ICON_COUNTS = {
 	huge: 501,
 	total: 1500,
 } as const;
+
+export const ICON_COUNT_LABELS = {
+	lucide: "999",
+	huge: "501",
+	total: "1,500",
+} as const;

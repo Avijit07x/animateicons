@@ -1,6 +1,6 @@
 # @animateicons/react
 
-1500 animated SVG icons for React. Built on motion/react.
+1,500 free, open source animated icons for React. Every animation is hand-crafted and tuned to feel smooth, and plays the same in every framework. Built on motion/react.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/react?color=f45b48)](https://www.npmjs.com/package/@animateicons/react)
 [![bundle](https://img.shields.io/bundlephobia/minzip/@animateicons/react)](https://bundlephobia.com/package/@animateicons/react)

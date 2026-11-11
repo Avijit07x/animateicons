@@ -1,5 +1,5 @@
 import HeroSection from "@/components/Hero";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, type Mock } from "vitest";
 import { expectNoA11yViolations } from "../axe";
@@ -51,7 +51,7 @@ describe("Hero", () => {
 		render(<HeroSection />);
 		expect(
 			screen
-				.getByRole("link", { name: `Browse ${ICON_COUNTS.total} icons` })
+				.getByRole("link", { name: `Browse ${ICON_COUNT_LABELS.total} icons` })
 				.getAttribute("href"),
 		).toBe("/icons/lucide");
 		expect(

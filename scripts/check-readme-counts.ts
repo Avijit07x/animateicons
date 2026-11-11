@@ -6,20 +6,20 @@ const ROOT = process.cwd();
 
 type Check = { file: string; label: string; expected: number; pattern: RegExp };
 
-const checks: Check[] = [
-	{
-		file: "README.md",
-		label: "headline total",
-		expected: ICON_COUNTS.total,
-		pattern: /([\d,]+)\s+animated SVG icons/,
-	},
-	{
-		file: "npm/README.md",
-		label: "headline total",
-		expected: ICON_COUNTS.total,
-		pattern: /([\d,]+)\s+animated SVG icons/,
-	},
+const README_FILES = [
+	"README.md",
+	"npm/README.md",
+	"vue/README.md",
+	"angular/README.md",
+	"vanilla/README.md",
 ];
+
+const checks: Check[] = README_FILES.map((file) => ({
+	file,
+	label: "headline total",
+	expected: ICON_COUNTS.total,
+	pattern: /([\d,]+) free, open source animated icons/,
+}));
 
 function main(): void {
 	const failures: string[] = [];
@@ -48,7 +48,7 @@ function main(): void {
 			`\nSource of truth: lib/icon-count.generated.ts ` +
 				`(lucide ${ICON_COUNTS.lucide}, huge ${ICON_COUNTS.huge}, total ${ICON_COUNTS.total}).`,
 		);
-		console.error("Update README.md and npm/README.md, then re-push.");
+		console.error(`Update ${README_FILES.join(", ")}, then re-push.`);
 		process.exit(1);
 	}
 

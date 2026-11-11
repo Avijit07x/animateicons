@@ -1,6 +1,6 @@
 # @animateicons/vue
 
-1170 animated SVG icons for Vue 3 and Nuxt. The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react), with server rendering and typed refs.
+1,500 free, open source animated icons for Vue 3 and Nuxt. Every animation is hand-crafted and tuned to feel smooth. The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react), with server rendering and typed refs.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/vue?color=f45b48)](https://www.npmjs.com/package/@animateicons/vue)
 [![license](https://img.shields.io/npm/l/@animateicons/vue?color=f45b48)](./LICENSE)

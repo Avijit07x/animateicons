@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { expectNoA11yViolations } from "../axe";
@@ -37,7 +37,7 @@ describe("Footer", () => {
 		render(<Footer />);
 		expect(
 			screen
-				.getByRole("link", { name: `Browse ${ICON_COUNTS.total} icons` })
+				.getByRole("link", { name: `Browse ${ICON_COUNT_LABELS.total} icons` })
 				.getAttribute("href"),
 		).toBe("/icons/lucide");
 	});

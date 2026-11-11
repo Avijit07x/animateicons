@@ -1,6 +1,6 @@
 # @animateicons/angular
 
-1170 animated SVG icons for Angular. One standalone component with signal inputs, server rendering and zoneless support. The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react).
+1,500 free, open source animated icons for Angular. Every animation is hand-crafted and tuned to feel smooth. One standalone component with signal inputs, server rendering and zoneless support. The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react).
 
 [![npm](https://img.shields.io/npm/v/@animateicons/angular?color=f45b48)](https://www.npmjs.com/package/@animateicons/angular)
 [![license](https://img.shields.io/npm/l/@animateicons/angular?color=f45b48)](./LICENSE)

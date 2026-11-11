@@ -1,6 +1,6 @@
 # @animateicons/vanilla
 
-1170 animated SVG icons for plain JavaScript, web components and every framework without its own package (Svelte, Solid, Astro, server templates). The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react), with no framework needed.
+1,500 free, open source animated icons for plain JavaScript, web components and every framework without its own package (Svelte, Solid, Astro, server templates). Every animation is hand-crafted and tuned to feel smooth. The same motion as [`@animateicons/react`](https://www.npmjs.com/package/@animateicons/react), with no framework needed.
 
 [![npm](https://img.shields.io/npm/v/@animateicons/vanilla?color=f45b48)](https://www.npmjs.com/package/@animateicons/vanilla)
 [![license](https://img.shields.io/npm/l/@animateicons/vanilla?color=f45b48)](./LICENSE)
