@@ -2,6 +2,7 @@
 
 import { FrameworkLogo } from "@/components/icons/FrameworkLogos";
 import { ChevronRightIcon } from "@/icons/huge/chevron-right-icon";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import OpenInAI from "../../_components/docs/OpenInAI";
@@ -34,8 +35,8 @@ const DocsContentHeader: React.FC = () => {
 			</nav>
 
 			<OpenInAI
-				pageUrl={`https://animateicons.in${pathname}`}
-				markdownUrl={`https://animateicons.in${docMarkdownPath(page?.href ?? "/icons/docs")}`}
+				pageUrl={`${SITE_URL}${pathname}`}
+				markdownUrl={`${SITE_URL}${docMarkdownPath(page?.href ?? "/icons/docs")}`}
 				title={title}
 			/>
 		</div>

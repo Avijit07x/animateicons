@@ -6,7 +6,7 @@ import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { SearchIcon } from "@/icons/huge/search-icon";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import type { searchIcons } from "@/lib/icon-search";
 import { useInView, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -61,7 +61,7 @@ const IconSearch: React.FC = () => {
 		>
 			<div className="mx-auto max-w-7xl px-6">
 				<h2 className="text-textPrimary text-3xl font-semibold tracking-tight sm:text-4xl">
-					{ICON_COUNTS.total} icons.{" "}
+					{ICON_COUNT_LABELS.total} icons.{" "}
 					<span className="text-textMuted">
 						Find yours in a keystroke
 						<span className="text-primary">.</span>
@@ -81,7 +81,7 @@ const IconSearch: React.FC = () => {
 						value={query}
 						onChange={(e) => setTyped(e.target.value)}
 						onFocus={() => setTyped((t) => t ?? query)}
-						placeholder={`Search ${ICON_COUNTS.total} icons`}
+						placeholder={`Search ${ICON_COUNT_LABELS.total} icons`}
 						aria-label="Search icons"
 						maxLength={MAX_SEARCH_LENGTH}
 						autoComplete="off"
@@ -130,7 +130,7 @@ const IconSearch: React.FC = () => {
 						variant="secondary"
 						size="pill"
 					>
-						See all {ICON_COUNTS.total}
+						See all {ICON_COUNT_LABELS.total}
 					</IconLink>
 				</div>
 			</div>

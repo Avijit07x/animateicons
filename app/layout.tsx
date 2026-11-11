@@ -6,7 +6,8 @@ import JsonLd from "@/components/JsonLd";
 import { AppBootLoader } from "@/components/loader/AppBootLoader";
 import SkipLink from "@/components/SkipLink";
 import Snow from "@/components/winter/Snow";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,11 +15,9 @@ const geistSans = Geist({
 	subsets: ["latin"],
 });
 
-const baseUrl = "https://animateicons.in";
+const SITE_DESCRIPTION = `${ICON_COUNT_LABELS.total} free, open source animated icons for React, Vue, Angular and plain JavaScript. Every animation is hand-crafted and tuned to feel smooth, and plays the same in every framework.`;
 
-const SITE_DESCRIPTION = `${ICON_COUNTS.total} free, open source and hand-crafted animated icons for React, Vue, Angular and plain JavaScript. Install them or copy the code, and make them your own.`;
-
-const SITE_TITLE = `AnimateIcons | ${ICON_COUNTS.total}+ Free Animated React Icons`;
+const SITE_TITLE = `AnimateIcons | ${ICON_COUNT_LABELS.total} Free Animated React Icons`;
 
 export const viewport: Viewport = {
 	colorScheme: "dark",
@@ -28,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-	metadataBase: new URL(baseUrl),
+	metadataBase: new URL(SITE_URL),
 	applicationName: "AnimateIcons",
 	authors: [{ name: "Avijit Dey", url: "https://github.com/Avijit07x" }],
 	creator: "Avijit Dey",
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
 	description: SITE_DESCRIPTION,
 	keywords: [
 		"AnimateIcons",
-		`${ICON_COUNTS.total}+ animated icons`,
+		`${ICON_COUNT_LABELS.total} animated icons`,
 		"lucide animated icons",
 		"huge animated icons",
 		"animated icon library",
@@ -66,7 +65,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
-		url: baseUrl,
+		url: SITE_URL,
 		siteName: "AnimateIcons",
 		locale: "en_US",
 		type: "website",
@@ -99,24 +98,24 @@ const siteJsonLd = {
 	"@graph": [
 		{
 			"@type": "Organization",
-			"@id": `${baseUrl}#organization`,
+			"@id": `${SITE_URL}#organization`,
 			name: "AnimateIcons",
-			url: baseUrl,
-			logo: `${baseUrl}/logo.svg`,
+			url: SITE_URL,
+			logo: `${SITE_URL}/logo.svg`,
 			sameAs: ["https://github.com/Avijit07x/animateicons"],
 		},
 		{
 			"@type": "WebSite",
-			"@id": `${baseUrl}#website`,
-			url: baseUrl,
+			"@id": `${SITE_URL}#website`,
+			url: SITE_URL,
 			name: "AnimateIcons",
 			description: SITE_DESCRIPTION,
-			publisher: { "@id": `${baseUrl}#organization` },
+			publisher: { "@id": `${SITE_URL}#organization` },
 			potentialAction: {
 				"@type": "SearchAction",
 				target: {
 					"@type": "EntryPoint",
-					urlTemplate: `${baseUrl}/icons/lucide?q={search_term_string}`,
+					urlTemplate: `${SITE_URL}/icons/lucide?q={search_term_string}`,
 				},
 				"query-input": "required name=search_term_string",
 			},

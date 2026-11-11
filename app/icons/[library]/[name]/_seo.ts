@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-
-const BASE_URL = "https://animateicons.in";
+import { SITE_URL } from "@/lib/site";
 
 type LibraryKey = "lucide" | "huge";
 
@@ -25,7 +24,7 @@ export const buildIconMetadata = ({
 }: IconSeoInput): Metadata => {
 	const display = titleCase(name);
 	const libDisplay = library === "lucide" ? "Lucide" : "Huge";
-	const url = `${BASE_URL}/icons/${library}/${name}`;
+	const url = `${SITE_URL}/icons/${library}/${name}`;
 
 	const title = `${componentName} - Animated ${libDisplay} icon for React`;
 	const description = `${display} animated icon for React, Vue, Angular and plain JavaScript. Hover and imperative animation triggers, with configurable size, color, and duration. Install it with npm or the shadcn CLI.`;
@@ -66,7 +65,7 @@ export const buildIconJsonLd = ({
 	keywords,
 }: IconSeoInput) => {
 	const display = titleCase(name);
-	const url = `${BASE_URL}/icons/${library}/${name}`;
+	const url = `${SITE_URL}/icons/${library}/${name}`;
 
 	return {
 		"@context": "https://schema.org",
@@ -77,7 +76,7 @@ export const buildIconJsonLd = ({
 				url,
 				name: `${componentName} animated icon`,
 				description: `${display} animated icon for React, Vue, Angular and plain JavaScript, part of the AnimateIcons library.`,
-				isPartOf: { "@id": `${BASE_URL}#website` },
+				isPartOf: { "@id": `${SITE_URL}#website` },
 			},
 			{
 				"@type": "CreativeWork",
@@ -91,7 +90,7 @@ export const buildIconJsonLd = ({
 					name: "Avijit Dey",
 					url: "https://github.com/Avijit07x",
 				},
-				isPartOf: { "@id": `${BASE_URL}#website` },
+				isPartOf: { "@id": `${SITE_URL}#website` },
 			},
 		],
 	};

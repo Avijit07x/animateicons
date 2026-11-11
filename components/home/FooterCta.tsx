@@ -4,7 +4,7 @@ import FloatingIcons from "@/components/FloatingIcons";
 import IconLink from "@/components/IconLink";
 import { ArrowRight02Icon } from "@/icons/huge/arrow-right-0-2-icon";
 import { ArrowUpRight01Icon } from "@/icons/huge/arrow-up-right-0-1-icon";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import { SHOWCASE } from "./showcase-icons";
 
 const FOOTER_ICONS = [...SHOWCASE].reverse().slice(0, 12);
@@ -26,8 +26,8 @@ const FooterCta: React.FC = () => (
 				<span className="text-primary">move.</span>
 			</h2>
 			<p className="text-textSecondary mt-4 max-w-md text-sm leading-relaxed max-sm:text-[15px] sm:text-base">
-				{ICON_COUNTS.total} free, open source and hand-crafted animated icons,
-				built to move. One motion system, two libraries.
+				{ICON_COUNT_LABELS.total} free, open source and hand-crafted animated
+				icons, built to move. One motion system, two libraries.
 			</p>
 
 			<div className="mt-9 flex flex-wrap items-center justify-center gap-3 max-sm:w-full max-sm:max-w-74 max-sm:flex-col">
@@ -39,7 +39,7 @@ const FooterCta: React.FC = () => (
 					size="pill"
 					className="max-sm:w-full"
 				>
-					Browse {ICON_COUNTS.total} icons
+					Browse {ICON_COUNT_LABELS.total} icons
 				</IconLink>
 				<IconLink
 					href="https://github.com/Avijit07x/animateicons"

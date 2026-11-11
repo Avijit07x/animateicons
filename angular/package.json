@@ -1,7 +1,7 @@
 {
 	"name": "@animateicons/angular",
 	"version": "0.2.0",
-	"description": "Animated SVG icons for Angular. One standalone component with signal inputs, server rendering and zoneless support, with the same motion as @animateicons/react.",
+	"description": "Free, open source animated icons for Angular. Every animation is hand-crafted and tuned to feel smooth. One standalone component with signal inputs, server rendering and zoneless support, with the same motion as @animateicons/react.",
 	"license": "MIT",
 	"author": "Avijit Dey",
 	"homepage": "https://animateicons.in",

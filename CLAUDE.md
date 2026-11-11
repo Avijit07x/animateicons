@@ -39,7 +39,7 @@ Library-specific walkthroughs, including where the shapes come from: `docs/addin
 2. Add an entry to the matching JSON manifest: `name` (filename without `-icon`), `addedAt` (`YYYY-MM-DD`), `category` and `keywords`. Reuse existing categories.
    - Where the entry sits in the manifest does not matter. Gallery order is generated for both libraries: `pnpm gen:icons` groups icons into families (the shared first word of the name, plus the merges in `FAMILY_ALIASES` in `scripts/icon-order.ts`) with the base icon first, so `bell`, `bell-ring` and `notification` sit together. Do not reorder the manifests by hand. If a new family lands apart from its relatives, add the merge to `FAMILY_ALIASES`. `tests/scripts/icon-order.test.ts` fails when the generated order is stale.
 3. Run `pnpm exec prettier --write` on the new files and the manifest, then `pnpm gen:icons`. The registry embeds the source, so generating before formatting ships unformatted code.
-4. Update the icon counts in `README.md` and `npm/README.md` (`pnpm check` tells you the expected numbers).
+4. Update the icon counts in `README.md`, `npm/README.md`, `vue/README.md`, `angular/README.md` and `vanilla/README.md` (`pnpm check` tells you the expected numbers).
 5. Run `pnpm lint`, `pnpm typecheck` and `pnpm test`.
 
 Before picking icons from `lucide-react`, check they are not duplicates. Compare geometry against existing icons, not just names, because Lucide has aliases (for example `fingerprint` is `fingerprint-pattern`) and near twins (`gamepad-2` is `gamepad`, `share-2` is `share`). Skip look-alikes.

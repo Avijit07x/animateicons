@@ -2,7 +2,7 @@
 
 import { FrameworkLogo } from "@/components/icons/FrameworkLogos";
 import { ChevronDownIcon } from "@/icons/huge/chevron-down-icon";
-import { ICON_COUNTS } from "@/lib/icon-count.generated";
+import { ICON_COUNT_LABELS } from "@/lib/icon-count.generated";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "motion/react";
 import { Popover, Portal } from "radix-ui";
@@ -73,7 +73,7 @@ const TypedCommand: React.FC<{ command: string }> = ({ command }) => {
 					done ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0",
 				)}
 			>
-				✓ {ICON_COUNTS.total} animated icons ready
+				✓ {ICON_COUNT_LABELS.total} animated icons ready
 			</p>
 		</>
 	);

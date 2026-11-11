@@ -8,6 +8,7 @@ import { CopyIcon } from "@/icons/huge/copy-icon";
 import { Loading01Icon } from "@/icons/huge/loading-0-1-icon";
 import { PackageDeliveredIcon } from "@/icons/huge/package-delivered-icon";
 import { TerminalIcon } from "@/icons/huge/terminal-icon";
+import { SITE_URL } from "@/lib/site";
 import { useIconHover } from "@/npm/src/lib/use-icon-hover";
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
@@ -166,7 +167,7 @@ const IconTileActions: React.FC<Props> = ({
 					tooltip="open in v0.dev"
 					ariaLabel="Open in v0.dev"
 					triggerProps={trigger}
-					href={`https://v0.dev/chat/api/open?url=https://animateicons.in/r/${prefix}-${name}.json`}
+					href={`https://v0.dev/chat/api/open?url=${SITE_URL}/r/${prefix}-${name}.json`}
 				>
 					<V0Icon size={15} {...v0} />
 				</IconAction>

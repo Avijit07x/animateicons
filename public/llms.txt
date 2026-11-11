@@ -1,6 +1,6 @@
 # AnimateIcons
 
-> 1500 free, open source animated SVG icons for React, Vue, Angular and plain JavaScript, in Lucide and Huge styles.
+> 1,500 free, open source animated icons for React, Vue, Angular and plain JavaScript, in Lucide and Huge styles. Every animation is hand-crafted and tuned to feel smooth, and plays the same in every framework.
 
 Each framework has its own package: @animateicons/react (React), @animateicons/vue (Vue), @animateicons/angular (Angular), @animateicons/vanilla (Plain JS). Plain JS also covers web components, Svelte, Solid and Astro. Use the package for the user's framework. Every link below is a plain markdown page.
 

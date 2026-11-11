@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
 import { ICON_LIST as HUGE_ICON_LIST } from "@/icons/huge";
 import { ICON_LIST as LUCIDE_ICON_LIST } from "@/icons/lucide";
+import { SITE_URL } from "@/lib/site";
 import { docsPages } from "./icons/docs/_lib/nav";
-
-const baseUrl = "https://animateicons.in";
 
 export const revalidate = 86400;
 
@@ -23,7 +22,7 @@ const iconEntry = (
 ): MetadataRoute.Sitemap[number] => {
 	const d = new Date(item.addedAt);
 	return {
-		url: `${baseUrl}/icons/${library}/${item.name}`,
+		url: `${SITE_URL}/icons/${library}/${item.name}`,
 		lastModified: Number.isNaN(d.getTime()) ? new Date() : d,
 		changeFrequency: "monthly",
 		priority: 0.6,
@@ -38,31 +37,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 	return [
 		{
-			url: `${baseUrl}/`,
+			url: `${SITE_URL}/`,
 			lastModified: now,
 			changeFrequency: "weekly",
 			priority: 1,
 		},
 		{
-			url: `${baseUrl}/icons/lucide`,
+			url: `${SITE_URL}/icons/lucide`,
 			lastModified: latestAddedAt(LUCIDE_ICON_LIST),
 			changeFrequency: "weekly",
 			priority: 0.9,
 		},
 		{
-			url: `${baseUrl}/icons/huge`,
+			url: `${SITE_URL}/icons/huge`,
 			lastModified: latestAddedAt(HUGE_ICON_LIST),
 			changeFrequency: "weekly",
 			priority: 0.9,
 		},
 		{
-			url: `${baseUrl}/privacy`,
+			url: `${SITE_URL}/privacy`,
 			lastModified: now,
 			changeFrequency: "yearly",
 			priority: 0.2,
 		},
 		...docsPages.map((page): MetadataRoute.Sitemap[number] => ({
-			url: `${baseUrl}${page.href}`,
+			url: `${SITE_URL}${page.href}`,
 			lastModified: now,
 			changeFrequency: "monthly",
 			priority: 0.7,
