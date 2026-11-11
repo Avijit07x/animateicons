@@ -56,7 +56,9 @@ const config = (phase: string): NextConfig =>
 		phase === PHASE_DEVELOPMENT_SERVER
 			? {
 					...nextConfig,
+					reactCompiler: false,
 					pageExtensions: ["dev.tsx", ...(nextConfig.pageExtensions ?? [])],
+					experimental: { turbopackMemoryEviction: "full" },
 				}
 			: nextConfig,
 	);
