@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { homeMarkdown, skillMarkdown } from "./agent-pages";
 import { buildDocs, llmsFull, llmsIndex, pageMarkdown } from "./docs-markdown";
 
 const PUBLIC = path.join(process.cwd(), "public");
@@ -26,10 +27,12 @@ async function main() {
 
 	fs.writeFileSync(path.join(PUBLIC, "llms.txt"), llmsIndex(docs), "utf8");
 	fs.writeFileSync(path.join(PUBLIC, "llms-full.txt"), llmsFull(docs), "utf8");
+	fs.writeFileSync(path.join(PUBLIC, "index.md"), homeMarkdown(), "utf8");
+	fs.writeFileSync(path.join(PUBLIC, "skill.md"), skillMarkdown(), "utf8");
 
 	console.log(`✅ Docs generated: ${docs.total} pages.`);
 	console.log(
-		"Written: public/r/docs.json, public/r/docs/*.md, public/llms.txt, public/llms-full.txt\n",
+		"Written: public/r/docs.json, public/r/docs/*.md, public/llms.txt, public/llms-full.txt, public/index.md, public/skill.md\n",
 	);
 }
 

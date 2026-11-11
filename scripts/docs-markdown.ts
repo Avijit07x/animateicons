@@ -9,8 +9,8 @@ import {
 import { FRAMEWORK_GUIDES } from "../app/icons/docs/_lib/frameworks";
 import { docMarkdownPath, docSlug, docsNav } from "../app/icons/docs/_lib/nav";
 import type { DocPage, Docs } from "../core/src/docs";
-import { ICON_COUNT_LABELS } from "../lib/icon-count.generated";
 import { SITE_URL } from "../lib/site";
+import { SUMMARY } from "./agent-pages";
 
 const ROOT = process.cwd();
 
@@ -245,9 +245,14 @@ export function llmsIndex(docs: Docs): string {
 	return `${[
 		"# AnimateIcons",
 		"",
-		`> ${ICON_COUNT_LABELS.total} free, open source animated icons for React, Vue, Angular and plain JavaScript, in Lucide and Huge styles. Every animation is hand-crafted and tuned to feel smooth, and plays the same in every framework.`,
+		`> ${SUMMARY}`,
 		"",
 		`Each framework has its own package: ${packages.join(", ")}. Plain JS also covers web components, Svelte, Solid and Astro. Use the package for the user's framework. Every link below is a plain markdown page.`,
+		"",
+		"## Start here",
+		"",
+		`- [Overview](${SITE_URL}/index.md): what AnimateIcons is, its packages, install and usage on one page.`,
+		`- [Agent skill](${SITE_URL}/skill.md): how an AI agent picks the package, finds an icon and adds it.`,
 		...groups.flatMap((group) => [
 			"",
 			`## ${group}`,

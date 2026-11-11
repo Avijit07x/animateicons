@@ -4,6 +4,11 @@
 
 Each framework has its own package: @animateicons/react (React), @animateicons/vue (Vue), @animateicons/angular (Angular), @animateicons/vanilla (Plain JS). Plain JS also covers web components, Svelte, Solid and Astro. Use the package for the user's framework. Every link below is a plain markdown page.
 
+## Start here
+
+- [Overview](https://animateicons.in/index.md): what AnimateIcons is, its packages, install and usage on one page.
+- [Agent skill](https://animateicons.in/skill.md): how an AI agent picks the package, finds an icon and adds it.
+
 ## Getting Started
 
 - [Introduction](https://animateicons.in/r/docs/installation.md): AnimateIcons ships the same animated icons for React, Vue, Angular and plain JavaScript. Pick the package for your framework and follow its guide.
