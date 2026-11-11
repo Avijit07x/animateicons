@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import HeroSection from "../components/Hero";
 import IconSearch from "../components/home/IconSearch";
@@ -9,6 +10,13 @@ import Playground from "../components/home/Playground";
 import Navbar from "../components/Navbar";
 import { MAIN_CONTENT_ID } from "../components/SkipLink";
 import { SITE_URL } from "../lib/site";
+
+export const metadata: Metadata = {
+	alternates: {
+		canonical: "/",
+		types: { "text/markdown": "/index.md" },
+	},
+};
 
 const homeJsonLd = {
 	"@context": "https://schema.org",

@@ -27,7 +27,7 @@ The icon plays on hover and resets when the pointer leaves.
 
 ## Next.js
 
-In the App Router, import each icon from its own file. Importing from the main package loads every icon: 918 kB of client JavaScript, compared with 71 kB for one icon.
+In the App Router, import each icon from its own file, so a page ships only the icons it uses. Importing from the main package loads every icon.
 
 ```tsx title="Example.tsx"
 import { BellRingIcon } from "@animateicons/react/lucide/bell-ring-icon"
