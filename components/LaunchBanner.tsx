@@ -22,7 +22,7 @@ const LaunchBanner: React.FC<Props> = ({ className }) => (
 				className,
 			)}
 		>
-			<span className="text-2xs flex h-5 shrink-0 items-center rounded-full bg-(--cta-bg) px-2 font-medium text-(--cta-text)">
+			<span className="text-2xs bg-primary flex h-5 shrink-0 items-center rounded-full px-2 font-medium text-(--cta-text)">
 				New
 			</span>
 			<span className="text-textSecondary shrink-0">Now for</span>
