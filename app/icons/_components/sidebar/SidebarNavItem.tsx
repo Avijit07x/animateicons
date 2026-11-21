@@ -41,7 +41,7 @@ const SidebarNavItem: React.FC<Props> = ({
 			)}
 			<span className="flex-1 truncate">{item.label}</span>
 			{newCount > 0 && (
-				<span className="bg-primary/12 text-primary rounded-full px-1.5 py-px font-mono text-[10px] font-semibold">
+				<span className="bg-primary/12 text-primary text-2xs rounded-full px-1.5 py-px font-mono font-semibold">
 					{newCount} New
 				</span>
 			)}
@@ -54,7 +54,7 @@ const SidebarNavItem: React.FC<Props> = ({
 				asChild
 				variant="dark"
 				isActive={isActive}
-				className="h-9 gap-2.5 px-3 text-[13px]"
+				className="text-ui h-9 gap-2.5 px-3"
 				{...triggerProps}
 			>
 				<Link

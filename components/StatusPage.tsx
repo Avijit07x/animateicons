@@ -56,7 +56,7 @@ const StatusPage: React.FC<Props> = ({
 					<span className="text-primary">.</span>
 				</h1>
 
-				<p className="text-textSecondary max-w-sm text-sm leading-relaxed sm:text-base">
+				<p className="text-textSecondary max-w-sm text-base leading-relaxed">
 					{description}
 				</p>
 

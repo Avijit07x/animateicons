@@ -95,7 +95,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon, coarse = false }) => {
 						exit={{ opacity: 0, scale: 0.7, transition: { duration: 0.12 } }}
 						transition={POP}
 						className={cn(
-							"pointer-events-none absolute top-3 left-3 origin-left rounded-full px-2 py-0.5 font-mono text-[10px] font-semibold",
+							"text-2xs pointer-events-none absolute top-3 left-3 origin-left rounded-full px-2 py-0.5 font-mono font-semibold",
 							item.isNew
 								? "bg-primary/12 text-primary"
 								: "bg-info/12 text-info",
@@ -140,7 +140,7 @@ const IconTile: React.FC<Props> = ({ item, getIcon, coarse = false }) => {
 			</div>
 			<p
 				className={cn(
-					"text-textMuted line-clamp-1 font-mono text-[13px] transition-opacity duration-300 pointer-coarse:opacity-100!",
+					"text-textMuted text-ui line-clamp-1 font-mono transition-opacity duration-300 pointer-coarse:opacity-100!",
 					(hovered || focused) && "opacity-0 duration-150",
 				)}
 			>

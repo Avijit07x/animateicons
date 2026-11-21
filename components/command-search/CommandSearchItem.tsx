@@ -67,13 +67,11 @@ const CommandSearchItem: React.FC<Props> = ({
 				</Suspense>
 			</span>
 
-			<span className="flex-1 truncate text-[13px] font-medium">
-				{item.name}
-			</span>
+			<span className="text-ui flex-1 truncate font-medium">{item.name}</span>
 
 			<span
 				className={cn(
-					"text-textMuted rounded-full px-2 py-0.5 text-[10px] font-medium capitalize transition-colors",
+					"text-textMuted text-2xs rounded-full px-2 py-0.5 font-medium capitalize transition-colors",
 					isSelected ? "bg-surfaceActive" : "bg-surfaceElevated",
 				)}
 			>

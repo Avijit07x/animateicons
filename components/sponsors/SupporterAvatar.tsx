@@ -56,7 +56,7 @@ const SupporterAvatar: React.FC<Props> = ({ supporter }) => {
 				</p>
 			)}
 			<span
-				className="text-textMuted mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-white/8 px-2.5 py-1 text-[10px] font-medium"
+				className="text-textMuted text-2xs mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-white/8 px-2.5 py-1 font-medium"
 				title={label}
 			>
 				{icon}

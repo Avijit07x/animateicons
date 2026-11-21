@@ -25,7 +25,7 @@ const FooterCta: React.FC = () => (
 				<span className="text-textPrimary">Make every icon </span>
 				<span className="text-primary">move.</span>
 			</h2>
-			<p className="text-textSecondary mt-4 max-w-md text-sm leading-relaxed max-sm:text-[15px] sm:text-base">
+			<p className="text-textSecondary mt-4 max-w-md text-base leading-relaxed">
 				{ICON_COUNT_LABELS.total} free, open source and hand-crafted animated
 				icons, built to move. One motion system, two libraries.
 			</p>

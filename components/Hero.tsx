@@ -94,7 +94,7 @@ const HeroSection: React.FC = () => {
 
 				<motion.p
 					variants={item}
-					className="text-textSecondary max-w-2xl text-sm leading-relaxed text-balance max-sm:text-[15px] sm:text-base"
+					className="text-textSecondary max-w-2xl text-base leading-relaxed text-balance"
 				>
 					{ICON_COUNT_LABELS.total} free, open source and hand-crafted animated
 					icons, built to move. Install them or copy the code, then customize,
@@ -166,7 +166,7 @@ const HeroSection: React.FC = () => {
 											size="xs"
 											onClick={() => setMethod(value)}
 											aria-label={`Show ${value} install command`}
-											className="text-textMuted hover:text-primary absolute inset-x-0 top-0 h-[22px] cursor-pointer gap-1.5 rounded-b-none font-mono text-[13px] font-normal hover:bg-transparent dark:hover:bg-transparent [&_svg:not([class*='size-'])]:size-[11px]"
+											className="text-textMuted hover:text-primary text-ui absolute inset-x-0 top-0 h-[22px] cursor-pointer gap-1.5 rounded-b-none font-mono font-normal hover:bg-transparent dark:hover:bg-transparent [&_svg:not([class*='size-'])]:size-[11px]"
 										>
 											{logo}
 											{value}

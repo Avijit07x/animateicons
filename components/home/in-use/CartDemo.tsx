@@ -90,7 +90,7 @@ const CartDemo: React.FC = () => {
 					{count > 0 && (
 						<span
 							key={count}
-							className="bg-primary absolute -top-1.5 -right-1.5 grid min-w-5 animate-bounce place-items-center rounded-full px-1 text-[11px] font-semibold text-white [animation-iteration-count:1]"
+							className="text-2xs absolute -top-1.5 -right-1.5 grid min-w-5 animate-bounce place-items-center rounded-full bg-(--cta-bg) px-1 font-semibold text-white [animation-iteration-count:1]"
 						>
 							{count}
 						</span>

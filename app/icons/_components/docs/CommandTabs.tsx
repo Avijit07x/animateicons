@@ -38,7 +38,7 @@ const CommandTabs: React.FC<{ title: string; items: CommandItem[] }> = ({
 			</div>
 
 			<div
-				className="text-[0.8125rem] max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-5 [&_pre]:leading-[1.7]"
+				className="text-ui max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-5 [&_pre]:leading-[1.7]"
 				dangerouslySetInnerHTML={{ __html: current.html }}
 			/>
 		</div>

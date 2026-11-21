@@ -29,7 +29,7 @@ const RelatedIconCard: React.FC<Props> = ({ library, name }) => {
 					<IconComponent ref={ref} size={32} />
 				</Suspense>
 			</span>
-			<span className="text-textMuted line-clamp-1 font-mono text-[13px]">
+			<span className="text-textMuted text-ui line-clamp-1 font-mono">
 				{name}
 			</span>
 		</Link>

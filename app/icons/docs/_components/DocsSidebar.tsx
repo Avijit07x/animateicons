@@ -17,7 +17,7 @@ const DocsSidebar: React.FC<Props> = ({ onNavigate }) => {
 		<nav className="space-y-6">
 			{docsNav.map((group) => (
 				<div key={group.title}>
-					<p className="text-textMuted mb-1.5 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+					<p className="text-textMuted mb-1.5 px-3 text-xs font-medium">
 						{group.title}
 					</p>
 					<ul className="space-y-0.5">
@@ -29,7 +29,7 @@ const DocsSidebar: React.FC<Props> = ({ onNavigate }) => {
 										href={item.href}
 										onClick={onNavigate}
 										className={cn(
-											"flex items-center gap-2 rounded-full px-3 py-2 text-[13px] font-medium transition-colors",
+											"text-ui flex items-center gap-2 rounded-full px-3 py-2 font-medium transition-colors",
 											active
 												? "bg-surfaceElevated text-textPrimary"
 												: "text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary",
@@ -43,7 +43,7 @@ const DocsSidebar: React.FC<Props> = ({ onNavigate }) => {
 										)}
 										{item.title}
 										{item.label && (
-											<span className="bg-primary/12 text-primary rounded-full px-2 py-0.5 text-[10px] leading-none font-semibold">
+											<span className="bg-primary/12 text-primary text-2xs rounded-full px-2 py-0.5 leading-none font-semibold">
 												{item.label}
 											</span>
 										)}

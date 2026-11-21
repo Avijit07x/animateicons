@@ -46,8 +46,7 @@ const getNewCountByLibrary = () => {
 
 const getServerNewCountByLibrary = () => NO_NEW_ICONS;
 
-const GROUP_LABEL =
-	"text-textMuted h-7 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase";
+const GROUP_LABEL = "text-textMuted h-7 px-3 text-xs font-medium";
 
 const isHrefActive = (pathname: string | null, href?: string) => {
 	if (!href || !pathname) return false;
@@ -82,7 +81,7 @@ const AppSidebar: React.FC = () => {
 					className="flex items-center gap-2.5"
 					logoClassName="max-md:size-10"
 				>
-					<span className="text-[15px] font-semibold text-white">
+					<span className="text-base font-semibold text-white">
 						AnimateIcons
 					</span>
 				</LogoLink>

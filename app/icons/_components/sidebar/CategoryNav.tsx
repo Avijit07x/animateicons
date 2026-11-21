@@ -29,13 +29,13 @@ const CategoryLink: React.FC<CategoryLinkProps> = ({
 			asChild
 			variant="dark"
 			isActive={isActive}
-			className="h-9 justify-between gap-3 px-3 text-[13px]"
+			className="text-ui h-9 justify-between gap-3 px-3"
 		>
 			<Link href={href} replace scroll={false}>
 				<span className="truncate">{label}</span>
 				<span
 					className={cn(
-						"rounded-full px-1.5 py-px text-[10px] font-medium tabular-nums transition-colors",
+						"text-2xs rounded-full px-1.5 py-px font-medium tabular-nums transition-colors",
 						isActive
 							? "bg-primary/15 text-primary"
 							: "text-textMuted bg-white/6",

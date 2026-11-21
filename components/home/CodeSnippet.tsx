@@ -22,7 +22,7 @@ const CodeSnippet: React.FC<Props> = ({
 			className,
 		)}
 	>
-		<span className="text-textSecondary relative min-w-0 flex-1 text-left font-mono text-[13px]">
+		<span className="text-textSecondary text-ui relative min-w-0 flex-1 text-left font-mono">
 			<span aria-hidden="true" className="invisible block truncate">
 				{sizer}
 			</span>
