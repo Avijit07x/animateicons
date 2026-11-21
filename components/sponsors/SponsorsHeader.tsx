@@ -17,7 +17,7 @@ const SponsorsHeader: React.FC = () => {
 				Kept free by the community
 				<span className="text-primary">.</span>
 			</h1>
-			<p className="text-textSecondary mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
+			<p className="text-textSecondary mt-4 max-w-xl text-base leading-relaxed">
 				AnimateIcons is an independent, open-source library maintained without
 				ads, paid tiers, or corporate backing. The contributors below directly
 				fund hosting and ongoing development, keeping every icon free.

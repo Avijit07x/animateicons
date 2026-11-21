@@ -52,7 +52,7 @@ const TypedCommand: React.FC<{ command: string }> = ({ command }) => {
 
 	return (
 		<>
-			<p className="mt-2.5 font-mono text-[13px] leading-5.5 whitespace-nowrap">
+			<p className="text-ui mt-2.5 font-mono leading-5.5 whitespace-nowrap">
 				<span className="sr-only">{command}</span>
 				<span aria-hidden="true">
 					<span className="text-textMuted mr-2.5 select-none">$</span>
@@ -111,7 +111,7 @@ const FrameworkTabs: React.FC = () => {
 						aria-pressed={active}
 						onClick={() => setDistribution(withFramework(distribution, value))}
 						className={cn(
-							"inline-flex h-11 cursor-pointer items-center gap-1.75 px-2.5 text-[13px] font-medium transition-colors [&_svg]:size-3.5",
+							"text-ui inline-flex h-11 cursor-pointer items-center gap-1.75 px-2.5 font-medium transition-colors [&_svg]:size-3.5",
 							active
 								? "text-textPrimary"
 								: "text-textMuted hover:text-textSecondary",
@@ -152,12 +152,10 @@ const InstallCommand: React.FC = () => {
 					>
 						<FrameworkLogo framework={frameworkOf(distribution)} />
 					</span>
-					<span className="text-textPrimary text-[13.5px] font-medium">
-						Install
-					</span>
+					<span className="text-textPrimary text-ui font-medium">Install</span>
 					<span
 						key={pkg}
-						className="animate-in fade-in slide-in-from-bottom-1 text-textMuted font-mono text-[12.5px] duration-300"
+						className="animate-in fade-in slide-in-from-bottom-1 text-textMuted text-ui font-mono duration-300"
 					>
 						{pkg}
 					</span>

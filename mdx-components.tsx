@@ -61,13 +61,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		h4: ({ children }) => (
 			<h4
 				id={slugify(children)}
-				className="text-textPrimary mt-6 mb-2 scroll-mt-20 text-sm font-semibold"
+				className="text-textPrimary mt-6 mb-2 scroll-mt-20 text-base font-semibold"
 			>
 				{children}
 			</h4>
 		),
 		p: ({ children }) => (
-			<p className="text-textSecondary my-4 text-sm leading-7">{children}</p>
+			<p className="text-textSecondary my-4 max-w-xl text-base leading-7">
+				{children}
+			</p>
 		),
 		a: ({ href, children }) => {
 			const cls =
@@ -94,7 +96,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			<strong className="text-textPrimary font-semibold">{children}</strong>
 		),
 		code: ({ children }) => (
-			<code className="bg-surfaceElevated text-textPrimary rounded-lg px-1.5 py-0.5 font-mono text-[0.8125rem]">
+			<code className="bg-surfaceElevated text-textPrimary rounded-lg px-1.5 py-0.5 font-mono text-sm">
 				{children}
 			</code>
 		),
@@ -104,12 +106,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</pre>
 		),
 		ul: ({ children }) => (
-			<ul className="text-textSecondary marker:text-textMuted my-4 ml-5 list-disc space-y-2 text-sm leading-7">
+			<ul className="text-textSecondary marker:text-textMuted my-4 ml-5 max-w-xl list-disc space-y-2 text-base leading-7">
 				{children}
 			</ul>
 		),
 		ol: ({ children }) => (
-			<ol className="text-textSecondary marker:text-textMuted my-4 ml-5 list-decimal space-y-2 text-sm leading-7">
+			<ol className="text-textSecondary marker:text-textMuted my-4 ml-5 max-w-xl list-decimal space-y-2 text-base leading-7">
 				{children}
 			</ol>
 		),

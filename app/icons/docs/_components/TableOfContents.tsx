@@ -73,8 +73,8 @@ const TableOfContents: React.FC = () => {
 	if (headings.length === 0) return null;
 
 	return (
-		<nav aria-label="On this page" className="text-[13px]">
-			<p className="text-textMuted mb-2 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+		<nav aria-label="On this page" className="text-ui">
+			<p className="text-textMuted mb-2 px-3 text-xs font-medium">
 				On this page
 			</p>
 			<ul className="space-y-0.5">

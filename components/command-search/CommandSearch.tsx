@@ -89,13 +89,13 @@ const CommandPanel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 						autoComplete="off"
 						spellCheck={false}
 					/>
-					<Kbd className="hidden h-5 rounded-full bg-white/10 px-2 text-[0.65rem] sm:inline-flex">
+					<Kbd className="text-2xs hidden h-5 rounded-full bg-white/10 px-2 sm:inline-flex">
 						Esc
 					</Kbd>
 				</div>
 
 				{results.length > 0 && (
-					<p className="text-textMuted px-3.5 pt-3 text-[11px] font-medium">
+					<p className="text-textMuted text-2xs px-3.5 pt-3 font-medium">
 						{searching ? "Results" : "Popular"}
 					</p>
 				)}
@@ -125,16 +125,16 @@ const CommandPanel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 					)}
 				</div>
 
-				<div className="text-textMuted mt-2 flex items-center justify-between gap-3 px-2.5 pb-0.5 text-[11px]">
+				<div className="text-textMuted text-2xs mt-2 flex items-center justify-between gap-3 px-2.5 pb-0.5">
 					<div className="flex items-center gap-4">
 						<span className="inline-flex items-center gap-2">
-							<Kbd className="h-5 rounded-full bg-white/10 px-2 text-[0.65rem]">
+							<Kbd className="text-2xs h-5 rounded-full bg-white/10 px-2">
 								↑↓
 							</Kbd>
 							navigate
 						</span>
 						<span className="inline-flex items-center gap-2">
-							<Kbd className="h-5 rounded-full bg-white/10 px-2 text-[0.65rem]">
+							<Kbd className="text-2xs h-5 rounded-full bg-white/10 px-2">
 								↵
 							</Kbd>
 							open

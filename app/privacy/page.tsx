@@ -35,7 +35,7 @@ const PrivacyPage = () => {
 						Last updated {PRIVACY_UPDATED}
 					</p>
 
-					<p className="bg-surface text-textPrimary mt-8 rounded-3xl p-6 text-sm leading-relaxed sm:text-base">
+					<p className="bg-surface text-textPrimary mt-8 rounded-3xl p-6 text-base leading-relaxed">
 						{PRIVACY_SUMMARY}
 					</p>
 
@@ -45,7 +45,7 @@ const PrivacyPage = () => {
 								<h2 className="text-textPrimary text-lg font-semibold">
 									{section.title}
 								</h2>
-								<div className="text-textSecondary mt-3 flex flex-col gap-3 text-sm leading-relaxed sm:text-base">
+								<div className="text-textSecondary mt-3 flex flex-col gap-3 text-base leading-relaxed">
 									{section.body}
 								</div>
 							</section>

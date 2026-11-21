@@ -11,7 +11,7 @@ const DocsNavbar = async () => {
 			<div className="mx-auto flex h-full max-w-360 items-center justify-between gap-4">
 				<div className="flex items-center gap-4">
 					<LogoLink size={30} className="flex items-center gap-2.5">
-						<span className="text-textPrimary hidden text-[15px] font-semibold sm:inline">
+						<span className="text-textPrimary hidden text-base font-semibold sm:inline">
 							AnimateIcons
 						</span>
 					</LogoLink>

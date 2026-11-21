@@ -11,7 +11,7 @@ const IconLibraryEmptyState: React.FC = () => {
 						Choose an icon library<span className="text-primary">.</span>
 					</h2>
 
-					<p className="text-textSecondary text-sm leading-relaxed sm:text-base">
+					<p className="text-textSecondary text-base leading-relaxed">
 						Browse a collection of beautifully crafted animated icons with
 						search, copy, and live preview.
 					</p>

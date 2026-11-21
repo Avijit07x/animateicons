@@ -67,7 +67,7 @@ const IconSearch: React.FC = () => {
 						<span className="text-primary">.</span>
 					</span>
 				</h2>
-				<p className="text-textSecondary mx-auto mt-3.5 max-w-lg max-sm:text-[15px]">
+				<p className="text-textSecondary mx-auto mt-3.5 max-w-lg">
 					Every result already moves. Hover one.
 				</p>
 

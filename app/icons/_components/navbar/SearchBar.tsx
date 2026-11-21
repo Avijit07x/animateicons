@@ -13,7 +13,7 @@ import {
 	useIconSearch,
 } from "../../_contexts/IconSearchContext";
 
-const KBD = "h-5 rounded-full bg-white/10 px-2 text-[0.6rem]";
+const KBD = "h-5 rounded-full bg-white/10 px-2 text-2xs";
 
 const MotionKbd = motion.create(Kbd);
 
@@ -98,7 +98,7 @@ const SearchBar: React.FC = () => {
 					iconRef.current?.startAnimation();
 				}}
 				onBlur={() => setFocused(false)}
-				className="placeholder:text-textMuted caret-primary min-w-0 flex-1 bg-transparent text-[13px] text-white outline-none"
+				className="placeholder:text-textMuted caret-primary text-ui min-w-0 flex-1 bg-transparent text-white outline-none"
 			/>
 			<MotionConfig reducedMotion="user">
 				<span className="grid shrink-0 items-center">

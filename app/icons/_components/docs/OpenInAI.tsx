@@ -76,7 +76,7 @@ export default function OpenInAI({ pageUrl, markdownUrl, title }: Props) {
 					<DropdownMenuItem
 						key={key}
 						onClick={() => handleOpen(key as Provider)}
-						className="text-textSecondary focus:text-textPrimary cursor-pointer rounded-full px-3 py-2 text-[13px] focus:bg-white/8"
+						className="text-textSecondary focus:text-textPrimary text-ui cursor-pointer rounded-full px-3 py-2 focus:bg-white/8"
 					>
 						{p.label}
 					</DropdownMenuItem>

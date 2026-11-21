@@ -19,7 +19,7 @@ const CodeBlock = async ({ code, lang = "tsx", title }: Props) => {
 				<div className="flex items-center justify-between border-b border-white/8 py-2 pr-2 pl-5">
 					<span className="text-textMuted font-mono text-xs">{title}</span>
 					<div className="flex items-center gap-1">
-						<span className="text-textMuted rounded-full bg-white/8 px-2.5 py-0.5 font-mono text-[10px] tracking-wide uppercase">
+						<span className="text-textMuted text-2xs rounded-full bg-white/8 px-2.5 py-0.5 font-mono">
 							{lang}
 						</span>
 						<CopyButton code={code} />
@@ -33,7 +33,7 @@ const CodeBlock = async ({ code, lang = "tsx", title }: Props) => {
 			)}
 
 			<div
-				className="text-[0.8125rem] max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-5 [&_pre]:leading-[1.7]"
+				className="text-ui max-sm:overflow-x-auto [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-5 [&_pre]:leading-[1.7]"
 				dangerouslySetInnerHTML={{ __html: html }}
 			/>
 		</div>

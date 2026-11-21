@@ -29,7 +29,7 @@ const Libraries: React.FC = () => (
 							{lib.title}
 						</p>
 						<p className="text-textMuted mt-2 text-sm">{lib.count} icons</p>
-						<p className="text-textSecondary mx-auto mt-5 max-w-xs leading-relaxed max-sm:text-[15px]">
+						<p className="text-textSecondary mx-auto mt-5 max-w-xs leading-relaxed">
 							{lib.body}
 						</p>
 						<IconLink

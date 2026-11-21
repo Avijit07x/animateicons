@@ -122,6 +122,9 @@
 	--breakpoint-900: 56.25rem;
 	--breakpoint-8xl: 96rem;
 
+	--text-2xs: 0.6875rem;
+	--text-ui: 0.8125rem;
+
 	--color-bgDark: #000000;
 
 	--color-primary: #f45b48;

@@ -15,14 +15,14 @@ type Props = {
 };
 
 const LaunchBanner: React.FC<Props> = ({ className }) => (
-	<div className="bg-bgDark border-b border-white/7">
+	<div className="bg-bgDark @container border-b border-white/7">
 		<div
 			className={cn(
-				"mx-auto flex h-10 items-center gap-2.5 text-[13px] whitespace-nowrap",
+				"text-ui mx-auto flex h-10 items-center gap-2.5 whitespace-nowrap",
 				className,
 			)}
 		>
-			<span className="bg-primary flex h-5 shrink-0 items-center rounded-full px-2 text-[11px] font-medium text-(--cta-text)">
+			<span className="text-2xs flex h-5 shrink-0 items-center rounded-full bg-(--cta-bg) px-2 font-medium text-(--cta-text)">
 				New
 			</span>
 			<span className="text-textSecondary shrink-0">Now for</span>
@@ -32,10 +32,10 @@ const LaunchBanner: React.FC<Props> = ({ className }) => (
 						<Link
 							href={`/icons/docs/${framework}`}
 							prefetch={false}
-							className="bg-surface text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary focus-visible:ring-primary/60 flex h-6.5 items-center gap-1.5 rounded-full px-2.5 transition-colors focus-visible:ring-2 focus-visible:outline-none max-sm:w-6.5 max-sm:justify-center max-sm:px-0"
+							className="bg-surface text-textSecondary hover:bg-surfaceElevated hover:text-textPrimary focus-visible:ring-primary/60 flex h-6.5 items-center gap-1.5 rounded-full px-2.5 transition-colors focus-visible:ring-2 focus-visible:outline-none @max-[40rem]:w-6.5 @max-[40rem]:justify-center @max-[40rem]:px-0"
 						>
 							<FrameworkLogo framework={framework} className="size-3.25" />
-							<span className="max-sm:sr-only">
+							<span className="@max-[40rem]:sr-only">
 								{FRAMEWORK_LABELS[framework]}
 							</span>
 						</Link>

@@ -68,9 +68,9 @@ const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 	const { ref: starRef, triggerProps: starHoverProps } = useIconHover();
 
 	return (
-		<div className="space-y-6 text-[13px]">
+		<div className="text-ui space-y-6">
 			<div>
-				<p className="text-textMuted mb-1.5 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+				<p className="text-textMuted mb-1.5 px-3 text-xs font-medium">
 					Contribute
 				</p>
 				<RailLink href={editUrl(pathname)} icon={Edit02Icon}>
@@ -82,7 +82,7 @@ const RailLinks: React.FC<{ stars: number | null }> = ({ stars }) => {
 			</div>
 
 			<div>
-				<p className="text-textMuted mb-1.5 px-3 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase">
+				<p className="text-textMuted mb-1.5 px-3 text-xs font-medium">
 					Community
 				</p>
 				<Link
