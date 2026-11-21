@@ -9,6 +9,7 @@ const withMdx = nextMdx({
 const nextConfig: NextConfig = {
 	reactCompiler: true,
 	pageExtensions: ["ts", "tsx", "md", "mdx"],
+	experimental: { agentUpgrade: "security" },
 	images: {
 		remotePatterns: [
 			{
@@ -58,7 +59,10 @@ const config = (phase: string): NextConfig =>
 					...nextConfig,
 					reactCompiler: false,
 					pageExtensions: ["dev.tsx", ...(nextConfig.pageExtensions ?? [])],
-					experimental: { turbopackMemoryEviction: "full" },
+					experimental: {
+						...nextConfig.experimental,
+						turbopackMemoryEviction: "full",
+					},
 				}
 			: nextConfig,
 	);
